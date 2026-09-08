@@ -15,6 +15,8 @@ The file pipeline took **764.74 ms** for the 1440p run and **690.43 ms** for Arl
 
 [1440p raw samples and manifest](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/gpu-1440p.json) · [Arland raw samples and manifest](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/gpu-arland.json)
 
+Visual inspection of the Arland output shows exaggerated edges and dark boundaries in foliage compared with the source. The procedural reconstruction model is unsuitable as a photorealism demonstration. Numerical agreement proves that the GPU implements the model; it does not make that model's appearance acceptable. This observed failure motivates the paired appearance data and identity checks in the next gates.
+
 Correctness also passed for random RGBA inputs at 1 × 1, 1 × 17, 31 × 1, 127 × 65, 1920 × 1080 and 3840 × 2160. Each comparison checked every RGB value and exact random alpha. These smoke checks prove numerical behavior at those sizes, not acceptable frame times on other GPUs.
 
 ## Learning result

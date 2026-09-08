@@ -18,7 +18,7 @@ Purpose: verify training, fixed-graph GPU execution and CPU/GPU agreement. **Not
 | Backend | FP32 HLSL / native D3D12; independent NumPy reference |
 | License | MIT for code, original fixtures and these trained weights |
 
-The model slightly improves reconstruction PSNR on the four fixed test fixtures. It has no training data for faces, foliage, material physics, realistic illumination or temporal consistency. It may sharpen noise or introduce artifacts on an untouched screenshot. Do not display its output as a faithful photorealistic transformation.
+The model slightly improves reconstruction PSNR on the four fixed test fixtures. It has no training data for faces, foliage, material physics, realistic illumination or temporal consistency. Visual inspection of the first Arland output found exaggerated edges and dark foliage boundaries. Do not display its output as a faithful photorealistic transformation.
 
 No reconstruction method can guarantee recovery of absent scene information. A bounded residual limits color change but does not guarantee silhouette, identity or visibility preservation. No HDR, depth, motion or protected-HUD contract exists in v0.
 
