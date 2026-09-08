@@ -51,7 +51,9 @@ int wmain(int argc, wchar_t** argv) {
    if(hr==DXGI_ERROR_NOT_FOUND) break;
    check(hr);
    DXGI_ADAPTER_DESC1 desc{}; check(candidate->GetDesc1(&desc));
-   if(desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE) continue;
+   // Some hosted environments expose Basic Render Driver without the software flag.
+   if((desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE) ||
+      std::wstring(desc.Description)==L"Microsoft Basic Render Driver") continue;
    if(SUCCEEDED(D3D12CreateDevice(candidate.Get(),D3D_FEATURE_LEVEL_12_0,IID_PPV_ARGS(&device)))) {
     adapter=candidate; adapterDesc=desc; break;
    }
