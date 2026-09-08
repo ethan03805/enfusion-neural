@@ -19,6 +19,8 @@ Visual inspection of the Arland output shows exaggerated edges and dark boundari
 
 Correctness also passed for random RGBA inputs at 1 × 1, 1 × 17, 31 × 1, 127 × 65, 1920 × 1080 and 3840 × 2160. Each comparison checked every RGB value and exact random alpha. These smoke checks prove numerical behavior at those sizes, not acceptable frame times on other GPUs.
 
+The initial [hosted Windows CI run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288593414) passed through 1080p but its 4K, 110-dispatch batch exited with access violation 3221225477 after approximately 34 seconds. The exact driver/device cause is unresolved; this is not a failure observed on the local RX 7800 XT. Correctness smoke tests now use a single dispatch at every size, while full performance runs keep their explicit sample counts. Failed smoke artifacts are retained and uploaded by CI for diagnosis. The original local measurements above predate this separation.
+
 ## Learning result
 
 Training fits all network weights on the local CPU with seed 7, 1,200 Adam steps and original procedural data. Train scene seeds are 0–11; validation scenes 100–103; test scenes 200–203. No game captures, photographs or downloaded model weights were used in training.

@@ -14,6 +14,8 @@ python -m enr.cli benchmark --model models/bootstrap-v0.json --width 127 --heigh
 
 Run GPU workloads one at a time. A Windows CI GPU smoke test may skip if the hosted runner has no hardware adapter; that is not hardware validation. Local RX 7800 XT results are the current hardware evidence.
 
+Smoke tests check one dispatch at each size and retain inputs, logs and manifests in a new `runs/smoke-*` directory. They do not benchmark throughput. CI uploads these files when a check fails. For performance, use the benchmark command with its full warmup/sample counts.
+
 ## Documentation site
 
 ```powershell

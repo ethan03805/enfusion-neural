@@ -108,7 +108,8 @@ def benchmark(args):
     shader.write_text(model.hlsl(weights),encoding="utf-8")
     pipeline_start=time.perf_counter()
     subprocess.run([str(Path(args.exe).resolve()),str((out/"input.rgba").resolve()),
-        str((out/"output.rgba").resolve()),str((out/"gpu.json").resolve()),str(w),str(h),str(shader.resolve())],check=True,timeout=120)
+        str((out/"output.rgba").resolve()),str((out/"gpu.json").resolve()),str(w),str(h),str(shader.resolve()),
+        str(args.warmup),str(args.samples)],check=True,timeout=120)
     actual=np.fromfile(out/"output.rgba",dtype=np.uint8).reshape(h,w,4)
     gpu=json.loads((out/"gpu.json").read_text())
     Image.fromarray(actual).save(out/"output.png")
@@ -123,7 +124,7 @@ def benchmark(args):
         "rgb_max_error_8bit":int(delta.max()),"rgb_mean_error_8bit":float(delta.mean()),
         "alpha_exact":alpha_equal,"cpu_reference_pass":bool(delta.max()<=1 and alpha_equal),
         "neural_changed_rgb_values":int(np.count_nonzero(actual[:,:,:3]!=rgba[:,:,:3])),
-        "file_pipeline_including_110_dispatches_ms":pipeline_ms,
+        "file_pipeline_all_dispatches_ms":pipeline_ms,"total_dispatches":args.warmup+args.samples,
         "cpu_reference_ms":1000*(time.perf_counter()-reference_start),
         "total_ms":1000*(time.perf_counter()-started),"gpu":gpu,
         "limitations":["offline", "not game frame time", "no capture-to-present timing",
@@ -145,10 +146,13 @@ def main():
     p=commands.add_parser("benchmark"); p.add_argument("--model",required=True); p.add_argument("--out",required=True)
     p.add_argument("--exe",default="build/Release/enr_gpu.exe"); p.add_argument("--image")
     p.add_argument("--width",type=int,default=2560); p.add_argument("--height",type=int,default=1440)
+    p.add_argument("--warmup",type=int,default=10); p.add_argument("--samples",type=int,default=100)
     p.set_defaults(run=benchmark)
     args=parser.parse_args()
     if getattr(args,"steps",1)<1:
         parser.error("steps must be positive")
+    if not 0 <= getattr(args,"warmup",0) <= 100 or not 1 <= getattr(args,"samples",1) <= 1000:
+        parser.error("warmup must be 0–100; samples must be 1–1000")
     try:
         args.run(args)
     except (ValueError, OSError, RuntimeError, subprocess.SubprocessError) as error:

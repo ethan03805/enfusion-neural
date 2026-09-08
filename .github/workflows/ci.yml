@@ -8,8 +8,8 @@ jobs:
   cpu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: python -m pip install -e . -r requirements-docs.txt
@@ -18,11 +18,16 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: python -m pip install -e .
       - run: cmake -S native -B build -A x64
       - run: cmake --build build --config Release
-      - run: python scripts/gpu_smoke.py --allow-no-gpu
+      - run: python scripts/gpu_smoke.py --allow-no-gpu --out runs/ci-smoke
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: windows-gpu-failure
+          path: runs/ci-smoke

@@ -26,7 +26,7 @@ std::string utf8(const wchar_t* str) {
 }
 int wmain(int argc, wchar_t** argv) {
  try {
-  if(argc != 7) { std::cerr << "Usage: enr_gpu input.rgba output.rgba benchmark.json width height model.hlsl\n"; return 2; }
+  if(argc != 9) { std::cerr << "Usage: enr_gpu input.rgba output.rgba benchmark.json width height model.hlsl warmup samples\n"; return 2; }
   const auto setupStart=Clock::now();
   std::ifstream in(std::filesystem::path(argv[1]), std::ios::binary | std::ios::ate);
   if(!in) throw std::runtime_error("Cannot open input");
@@ -95,8 +95,11 @@ int wmain(int argc, wchar_t** argv) {
   psoDesc.CS={shaderBlob->GetBufferPointer(),shaderBlob->GetBufferSize()};
   ComPtr<ID3D12PipelineState> pso;
   check(device->CreateComputePipelineState(&psoDesc,IID_PPV_ARGS(&pso)));
-  constexpr UINT warmup=10, samples=100, runs=warmup+samples;
-  constexpr UINT queryCount=2*runs+4;
+  const auto warmupValue=std::stoull(argv[7]), sampleValue=std::stoull(argv[8]);
+  if(warmupValue>100 || sampleValue<1 || sampleValue>1000)
+   throw std::runtime_error("Invalid warmup or sample count");
+  const UINT warmup=static_cast<UINT>(warmupValue), samples=static_cast<UINT>(sampleValue), runs=warmup+samples;
+  const UINT queryCount=2*runs+4;
   D3D12_QUERY_HEAP_DESC queryDesc{}; queryDesc.Type=D3D12_QUERY_HEAP_TYPE_TIMESTAMP; queryDesc.Count=queryCount;
   ComPtr<ID3D12QueryHeap> queries; check(device->CreateQueryHeap(&queryDesc,IID_PPV_ARGS(&queries)));
   auto timestamps=buffer(queryCount*sizeof(UINT64),D3D12_HEAP_TYPE_READBACK,D3D12_RESOURCE_STATE_COPY_DEST);
@@ -142,13 +145,14 @@ int wmain(int argc, wchar_t** argv) {
   std::vector<double> timings;
   for(UINT i=warmup;i<runs;++i) timings.push_back(ms(2+2*i,3+2*i));
   auto ordered=timings; std::sort(ordered.begin(),ordered.end());
+  const size_t p50=(samples+1)/2-1, p95=(95*samples+99)/100-1;
   std::ofstream json{std::filesystem::path(argv[3])};
   json << "{\n  \"adapter\": \"" << utf8(adapterDesc.Description) << "\",\n"
        << "  \"dedicated_video_memory_bytes\": " << adapterDesc.DedicatedVideoMemory << ",\n"
        << "  \"pixels\": " << count << ",\n  \"rgba_bytes\": " << pixels.size() << ",\n"
        << "  \"warmup_dispatches\": " << warmup << ",\n  \"measured_dispatches\": " << samples << ",\n"
-       << "  \"gpu_dispatch_including_uav_barrier_p50_ms\": " << ordered[49] << ",\n"
-       << "  \"gpu_dispatch_including_uav_barrier_p95_ms\": " << ordered[94] << ",\n"
+       << "  \"gpu_dispatch_including_uav_barrier_p50_ms\": " << ordered[p50] << ",\n"
+       << "  \"gpu_dispatch_including_uav_barrier_p95_ms\": " << ordered[p95] << ",\n"
        << "  \"gpu_upload_and_transition_ms\": " << ms(0,1) << ",\n"
        << "  \"gpu_readback_and_transition_ms\": " << ms(queryCount-2,queryCount-1) << ",\n"
        << "  \"batch_cpu_build_submit_wait_ms\": " << batchCpuMs << ",\n"
@@ -158,7 +162,7 @@ int wmain(int argc, wchar_t** argv) {
   for(size_t i=0;i<timings.size();++i) { if(i) json << ','; json << timings[i]; }
   json << "]\n}\n"; json.close(); if(!json) throw std::runtime_error("JSON write failed");
   timestamps->Unmap(0,&noRead);
-  std::cout << utf8(adapterDesc.Description) << ": " << count << " pixels, warmed GPU p50=" << ordered[49] << " ms; p95=" << ordered[94] << " ms\n";
+  std::cout << utf8(adapterDesc.Description) << ": " << count << " pixels, GPU p50=" << ordered[p50] << " ms; p95=" << ordered[p95] << " ms\n";
   return 0;
  } catch(const std::exception& e) { std::cerr << e.what() << '\n'; return 1; }
 }
