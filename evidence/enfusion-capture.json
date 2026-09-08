@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "run_id": "20260908T224324-61b44abc77",
+  "command": "capture",
+  "status": "succeeded",
+  "world": "worlds/Arland/Arland.ent",
+  "position": [
+    2048.0,
+    60.0,
+    2048.0
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "settle_seconds": 5.0,
+  "events": [
+    {
+      "protocol": 1,
+      "event": "camera",
+      "position": [
+        2048,
+        60,
+        2048
+      ],
+      "direction": [
+        1,
+        0,
+        -4.37114e-08
+      ],
+      "world_frame": 676,
+      "elapsed_simulation_seconds": 5.00604
+    },
+    {
+      "protocol": 1,
+      "event": "started",
+      "viewport_width": 1839,
+      "viewport_height": 947
+    },
+    {
+      "protocol": 1,
+      "event": "submitted"
+    }
+  ],
+  "addon_sha256": {
+    "addon.gproj": "24744bc149230a77b010c56107acfe1c71fe2ef32e7d0d37454bceb11ef04054",
+    "Scripts/Game/ELab_GameCapture.c": "da08adad537c6ad5ef99b0eeaef674ae00e8171835475efb121429d7b8ad5eaa",
+    "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+  },
+  "capture_mode": "workbench_simulation",
+  "process_exit_code": 1,
+  "exit_code": 0,
+  "wall_seconds": 18.48399999999674,
+  "image": {
+    "width": 1839,
+    "height": 947,
+    "bytes": 3060551,
+    "sha256": "6b69fd525ea7954d1ff2ea3473293976eb4bd4b2e561bba11995c7aefe92d80f"
+  },
+  "stable_local_game_build": "24903726",
+  "stable_local_workbench_build": "24870687",
+  "validation": {
+    "run_id": "20260908T224302-cdb92cd808",
+    "status": "succeeded",
+    "process_exit_code": 0
+  },
+  "visually_inspected": true,
+  "distribution": "Game image and raw machine logs retained locally, not redistributed"
+}

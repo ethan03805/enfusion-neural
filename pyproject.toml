@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enfusion-neural"
+version = "0.1.0"
+description = "Small, measurable neural rendering experiments for Enfusion"
+requires-python = ">=3.9,<3.13"
+dependencies = ["numpy==2.0.2", "Pillow==11.3.0"]
+license = "MIT"
+
+[project.scripts]
+enr = "enr.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["enr*"]

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "model_sha256": "8f04922046e2d59bf71b7fbeb8aa46e8974dd8e3a2d7bdc671a28bcaccc2bced",
+  "scope": "held-out procedural fixtures; not Enfusion quality or an FSR comparison",
+  "results": [
+    {
+      "scene_seed": 200,
+      "bicubic": {
+        "mse": 0.003265510546043515,
+        "psnr_db": 24.860489093366624
+      },
+      "neural": {
+        "mse": 0.0029763991478830576,
+        "psnr_db": 25.263088284691634
+      }
+    },
+    {
+      "scene_seed": 201,
+      "bicubic": {
+        "mse": 0.0028320627752691507,
+        "psnr_db": 25.478971243400245
+      },
+      "neural": {
+        "mse": 0.00239012879319489,
+        "psnr_db": 26.21578696262406
+      }
+    },
+    {
+      "scene_seed": 202,
+      "bicubic": {
+        "mse": 0.0027706027030944824,
+        "psnr_db": 25.57425746402652
+      },
+      "neural": {
+        "mse": 0.002595949685201049,
+        "psnr_db": 25.857037293028334
+      }
+    },
+    {
+      "scene_seed": 203,
+      "bicubic": {
+        "mse": 0.0037260979879647493,
+        "psnr_db": 24.287457283252245
+      },
+      "neural": {
+        "mse": 0.0033663727808743715,
+        "psnr_db": 24.728377933773015
+      }
+    }
+  ]
+}
