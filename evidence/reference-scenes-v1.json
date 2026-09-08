@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "pack_id": "arland-reference-v1",
+  "pack_sha256": "6f0e26ad4f585572e050132150411783f7518ff4728b9c300cbe347587d64bba",
+  "scope": "repeatability observations, not photorealistic ground truth",
+  "installation_builds": {
+    "1874880": "24903726",
+    "1874910": "24870687"
+  },
+  "scenes": [
+    {
+      "id": "forest-east-noon",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "controls_verified": true,
+      "addon_sha256": {
+        "addon.gproj": "f291ee8cbc943b525191d1a56898a3e91f84edf23b94c6539d2a1f33fe6181e2",
+        "Scripts/Game/ELab_GameCapture.c": "2ea1b3905419c9d9f89a3f8c9c03468045447c754f393ad99de0aac1b5d616f6",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+      },
+      "captures": [
+        {
+          "run_id": "20260908T231744-c90799d2cf",
+          "image_sha256": "5c418b36591290dad6a0edf7b84ca8c09d2d89bf80facf4e4e47eeaf1712d11b",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 962,
+            "elapsed_simulation_seconds": 8.00211
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.216982
+          }
+        },
+        {
+          "run_id": "20260908T232227-35287bd3d8",
+          "image_sha256": "dd7a9e9d8934faaa0c02e6f865a654b3f587d96e4b3f6f1333f3959834e0ca01",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 986,
+            "elapsed_simulation_seconds": 8.00468
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.21708
+          }
+        },
+        {
+          "run_id": "20260908T232248-fe81fa62e1",
+          "image_sha256": "433b0a9834653830fc509183c63af2b130650e8e056c1e34ae5755e655007193",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 991,
+            "elapsed_simulation_seconds": 8.00095
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.216919
+          }
+        }
+      ],
+      "pairs": [
+        {
+          "left": 1,
+          "right": 2,
+          "rgb_mae_8bit": 0.8176813125610352,
+          "rgb_rmse_8bit": 3.454353355697426,
+          "rgb_p95_absolute_error_8bit": 4.0,
+          "changed_rgb_fraction": 0.34241211622174256,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            0.027564795687794685,
+            0.021776216104626656,
+            0.013763736002147198
+          ],
+          "psnr_db": 37.3634683940774,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 5.394083499908447,
+            "zero_offset_edge_mse": 5.394083499908447,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 1,
+          "right": 3,
+          "rgb_mae_8bit": 0.9464942812919617,
+          "rgb_rmse_8bit": 3.7453590921711473,
+          "rgb_p95_absolute_error_8bit": 4.0,
+          "changed_rgb_fraction": 0.37257806771390495,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            -0.02647322788834572,
+            -0.022918887436389923,
+            -0.014621026813983917
+          ],
+          "psnr_db": 36.66093435476712,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 6.3634233474731445,
+            "zero_offset_edge_mse": 6.3634233474731445,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 2,
+          "right": 3,
+          "rgb_mae_8bit": 1.4247348308563232,
+          "rgb_rmse_8bit": 5.006470117956582,
+          "rgb_p95_absolute_error_8bit": 7.0,
+          "changed_rgb_fraction": 0.42535455831155655,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            -0.054038021713495255,
+            -0.04469510540366173,
+            -0.02838476188480854
+          ],
+          "psnr_db": 34.140171041836254,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 11.12697982788086,
+            "zero_offset_edge_mse": 11.12697982788086,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        }
+      ],
+      "render_settings": {
+        "resolution": null,
+        "render_scale": null,
+        "fsr": null,
+        "quality_preset": null,
+        "projection_fov": null,
+        "temporal_jitter": null,
+        "policy": "Record observed output dimensions; other settings remain unverified. Each run uses an isolated Workbench profile."
+      }
+    },
+    {
+      "id": "forest-north-noon",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "controls_verified": true,
+      "addon_sha256": {
+        "addon.gproj": "82939440a277431088942e6db1750b1ac2a4fb5a9bdc875c7f95daa991031dfc",
+        "Scripts/Game/ELab_GameCapture.c": "2ea1b3905419c9d9f89a3f8c9c03468045447c754f393ad99de0aac1b5d616f6",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+      },
+      "captures": [
+        {
+          "run_id": "20260908T232323-ea29d82dc1",
+          "image_sha256": "ee27ff71896ac4b834ea50efcb865bdcb0ad122093f926691df4c27daba7e6e2",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "world_frame": 941,
+            "elapsed_simulation_seconds": 8.00102
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.245126
+          }
+        },
+        {
+          "run_id": "20260908T232345-7e9f961cf8",
+          "image_sha256": "918d8d0d6d64c8d9136b0b3e76cb8dbd09232f3aa6fd41610a9397ab3c6684e7",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "world_frame": 981,
+            "elapsed_simulation_seconds": 8.00347
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.245154
+          }
+        },
+        {
+          "run_id": "20260908T232407-a5fb97bb48",
+          "image_sha256": "0ef94d525044dbdc7f4c413314242739db6986a215065c733eec2d156a46a2e8",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "world_frame": 992,
+            "elapsed_simulation_seconds": 8.0009
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00456415,
+            "scene_middle_brightness": 0.245372
+          }
+        }
+      ],
+      "pairs": [
+        {
+          "left": 1,
+          "right": 2,
+          "rgb_mae_8bit": 0.8066377639770508,
+          "rgb_rmse_8bit": 4.001843266168422,
+          "rgb_p95_absolute_error_8bit": 4.0,
+          "changed_rgb_fraction": 0.3082301627359344,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            0.009016194380819798,
+            0.00904892385005951,
+            0.007419899571686983
+          ],
+          "psnr_db": 36.08560210244103,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 5.9701995849609375,
+            "zero_offset_edge_mse": 5.9701995849609375,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 1,
+          "right": 3,
+          "rgb_mae_8bit": 0.833087682723999,
+          "rgb_rmse_8bit": 4.1693185124082515,
+          "rgb_p95_absolute_error_8bit": 4.0,
+          "changed_rgb_fraction": 0.30744924155901726,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            0.07561556249856949,
+            0.06543373316526413,
+            0.0431097187101841
+          ],
+          "psnr_db": 35.729502127849294,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 6.582118034362793,
+            "zero_offset_edge_mse": 6.582118034362793,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 2,
+          "right": 3,
+          "rgb_mae_8bit": 0.3140401840209961,
+          "rgb_rmse_8bit": 1.6877157991673704,
+          "rgb_p95_absolute_error_8bit": 2.0,
+          "changed_rgb_fraction": 0.20443080894820828,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            0.06659936904907227,
+            0.05638480558991432,
+            0.0356898196041584
+          ],
+          "psnr_db": 43.58481728948516,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 0.9790032505989075,
+            "zero_offset_edge_mse": 0.9790032505989075,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        }
+      ],
+      "render_settings": {
+        "resolution": null,
+        "render_scale": null,
+        "fsr": null,
+        "quality_preset": null,
+        "projection_fov": null,
+        "temporal_jitter": null,
+        "policy": "Record observed output dimensions; other settings remain unverified. Each run uses an isolated Workbench profile."
+      }
+    },
+    {
+      "id": "forest-east-evening",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "controls_verified": true,
+      "addon_sha256": {
+        "addon.gproj": "d58aaa3b7572262134658bfc2f5e71f7283049b7b5a9ea28d4f3c0ee1922a950",
+        "Scripts/Game/ELab_GameCapture.c": "2ea1b3905419c9d9f89a3f8c9c03468045447c754f393ad99de0aac1b5d616f6",
+        "Scripts/Game/ENR_ReferenceConfig.c": "9e03da203ba55d4da23a7be72bc702b6b92c40a4152cd22c71b46cf22a7322d0",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+      },
+      "captures": [
+        {
+          "run_id": "20260908T232442-2d3a5523ee",
+          "image_sha256": "46649e67ee2547c2ae948c0f511e7f411c2642da04b64e3912775e016e04d36f",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 944,
+            "elapsed_simulation_seconds": 8.00628
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 18.5,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00832136,
+            "scene_middle_brightness": 0.215372
+          }
+        },
+        {
+          "run_id": "20260908T232504-e256cc4aca",
+          "image_sha256": "cd1262a9578068df0950138dbbf721b2b09c19b0089573371a4439d5128e5623",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 977,
+            "elapsed_simulation_seconds": 8.00267
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 18.5,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00832135,
+            "scene_middle_brightness": 0.215031
+          }
+        },
+        {
+          "run_id": "20260908T232525-b92a562399",
+          "image_sha256": "164d43daa27095929891491badcb21f40d976748efebddc2a5d80007eee815f8",
+          "dimensions": [
+            1839,
+            947
+          ],
+          "camera": {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              2048,
+              60,
+              2048
+            ],
+            "direction": [
+              1,
+              0,
+              -4.37114e-08
+            ],
+            "world_frame": 958,
+            "elapsed_simulation_seconds": 8.00338
+          },
+          "environment": {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 18.5,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          },
+          "exposure": {
+            "protocol": 1,
+            "event": "exposure",
+            "hdr_brightness": 0.00832136,
+            "scene_middle_brightness": 0.214945
+          }
+        }
+      ],
+      "pairs": [
+        {
+          "left": 1,
+          "right": 2,
+          "rgb_mae_8bit": 2.2041103839874268,
+          "rgb_rmse_8bit": 7.296965964034191,
+          "rgb_p95_absolute_error_8bit": 11.0,
+          "changed_rgb_fraction": 0.4375133861948065,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            -0.08699748665094376,
+            -0.07035180926322937,
+            -0.042563650757074356
+          ],
+          "psnr_db": 30.867957197992233,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 23.648611068725586,
+            "zero_offset_edge_mse": 23.648611068725586,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 1,
+          "right": 3,
+          "rgb_mae_8bit": 2.340850353240967,
+          "rgb_rmse_8bit": 7.527357433011694,
+          "rgb_p95_absolute_error_8bit": 12.0,
+          "changed_rgb_fraction": 0.4535957687853173,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            -0.11644740402698517,
+            -0.09456151723861694,
+            -0.06001092121005058
+          ],
+          "psnr_db": 30.5979528328348,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 24.665300369262695,
+            "zero_offset_edge_mse": 24.665300369262695,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        },
+        {
+          "left": 2,
+          "right": 3,
+          "rgb_mae_8bit": 0.40752121806144714,
+          "rgb_rmse_8bit": 2.071892937630036,
+          "rgb_p95_absolute_error_8bit": 2.0,
+          "changed_rgb_fraction": 0.24818938257271037,
+          "alpha_exact": true,
+          "mean_rgb_drift_8bit": [
+            -0.029449915513396263,
+            -0.024209704250097275,
+            -0.017447272315621376
+          ],
+          "psnr_db": 41.80345740765728,
+          "alignment": {
+            "available": true,
+            "estimated_translation_px": [
+              0,
+              0
+            ],
+            "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+            "search_radius_px": 3,
+            "search_boundary": false,
+            "edge_mse": 1.866572380065918,
+            "zero_offset_edge_mse": 1.866572380065918,
+            "improvement_fraction": 0.0,
+            "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+          }
+        }
+      ],
+      "render_settings": {
+        "resolution": null,
+        "render_scale": null,
+        "fsr": null,
+        "quality_preset": null,
+        "projection_fov": null,
+        "temporal_jitter": null,
+        "policy": "Record observed output dimensions; other settings remain unverified. Each run uses an isolated Workbench profile."
+      }
+    }
+  ]
+}

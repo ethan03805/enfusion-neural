@@ -1,6 +1,8 @@
 # Evidence
 
-Measured locally on 8 September 2026. The results establish an offline neural path on RX 7800 XT. They do not establish photorealism or live game performance.
+The [reference scene pack](reference-scenes.md#first-measured-batch) adds nine repeated captures with verified camera/environment settings and measured image differences. The earlier model execution results follow below.
+
+Measured locally on 8 September 2026. The results establish an offline neural path on the recorded test configuration. They do not establish photorealism or live game performance.
 
 ## Neural GPU execution
 
@@ -9,7 +11,7 @@ Measured locally on 8 September 2026. The results establish an offline neural pa
 | Procedural fixture | 2560 × 1440 | 0.11816 ms | 0.17368 ms | Pass; max RGB error 1, alpha exact |
 | Arland Workbench capture | 1839 × 947 | 0.05664 ms | 0.07968 ms | Pass; max RGB error 1, alpha exact |
 
-Each run contains ten warmups and 100 measured dispatches on the same buffers, including a UAV barrier in each dispatch interval. Selected hardware: **AMD Radeon RX 7800 XT**. Native FP32 HLSL executes the trained 251-parameter model. There is no inference runtime or CPU operator fallback in this shader path.
+Each run contains ten warmups and 100 measured dispatches on the same buffers, including a UAV barrier in each dispatch interval. Native FP32 HLSL executes the trained 251-parameter model. There is no inference runtime or CPU operator fallback in this shader path.
 
 The file pipeline took **764.74 ms** for the 1440p run and **690.43 ms** for Arland. Each value includes startup, shader compilation, 110 dispatches and output export, and excludes the separate CPU reference check. It is not per-frame latency. The current file pipeline is not a playable renderer.
 
@@ -19,9 +21,9 @@ Visual inspection of the Arland output shows exaggerated edges and dark boundari
 
 Correctness also passed for random RGBA inputs at 1 × 1, 1 × 17, 31 × 1, 127 × 65, 1920 × 1080 and 3840 × 2160. Each comparison checked every RGB value and exact random alpha. These smoke checks prove numerical behavior at those sizes, not acceptable frame times on other GPUs.
 
-The initial [hosted Windows CI run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288593414) passed through 1080p but its 4K, 110-dispatch batch exited with access violation 3221225477 after approximately 34 seconds. The exact driver/device cause is unresolved; this is not a failure observed on the local RX 7800 XT. Correctness smoke tests now use a single dispatch at every size, while full performance runs keep their explicit sample counts. Failed smoke artifacts are retained and uploaded by CI for diagnosis. The original local measurements above predate this separation.
+The initial [hosted Windows CI run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288593414) passed through 1080p but its 4K, 110-dispatch batch exited with access violation 3221225477 after approximately 34 seconds. The exact driver/device cause is unresolved; this failure was not observed in the separately recorded hardware tests. Correctness smoke tests now use a single dispatch at every size, while full performance runs keep their explicit sample counts. Failed smoke artifacts are retained and uploaded by CI for diagnosis. The original local measurements above predate this separation.
 
-The [follow-up hosted run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288952799) passed single-dispatch comparisons through 4K but identified its adapter as **Microsoft Basic Render Driver**. That is software execution, not GPU hardware evidence. The native selector now explicitly excludes that driver in addition to checking DXGI's software flag. Hosted checks skip when no hardware remains; local RX 7800 XT tests remain the hardware evidence. The earlier full-batch crash has not been characterized as a hardware failure.
+The [follow-up hosted run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288952799) passed single-dispatch comparisons through 4K but identified its adapter as **Microsoft Basic Render Driver**. That is software execution, not GPU hardware evidence. The native selector now explicitly excludes that driver in addition to checking DXGI's software flag. Hosted checks skip when no hardware remains; the separately recorded hardware tests remain the hardware evidence. The earlier full-batch crash has not been characterized as a hardware failure.
 
 ## Learning result
 

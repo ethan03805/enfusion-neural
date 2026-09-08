@@ -23,7 +23,7 @@ No such appearance or temporal suite has passed yet. Do not report the v0 model 
 
 ## Performance protocol
 
-The product floor is 20 FPS at 1440p on RX 7800 XT: 50 ms for the whole frame. Begin with game-only measurements, then identity integration, then neural integration. Run three separated trials per scene after warmup, keep raw frame samples and record p50/p95/p99/max, input-to-present latency, peak memory, DXGI budget and dropped frames. Perform a 30-minute soak after shorter checks pass.
+The product floor is 20 FPS at 1440p on the recorded test configuration: 50 ms for the whole frame. Begin with game-only measurements, then identity integration, then neural integration. Run three separated trials per scene after warmup, keep raw frame samples and record p50/p95/p99/max, input-to-present latency, peak memory, DXGI budget and dropped frames. Perform a 30-minute soak after shorter checks pass.
 
 The existing 10-warmup/100-dispatch benchmark is a microbenchmark, not this protocol. The provisional neural allowance is 10 ms at p95 and 1 GiB added memory, subject to actual game headroom. Test 720p, 1080p, 1440p, 4K, ultrawide and odd dimensions; correctness support and acceptable performance are separate claims.
 

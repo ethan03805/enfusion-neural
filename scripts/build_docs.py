@@ -8,7 +8,7 @@ from urllib.parse import urlsplit, unquote
 import markdown
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Vision'),('getting-started','Get started'),
+PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),
        ('architecture','Architecture'),('integration','Enfusion integration'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
@@ -27,7 +27,7 @@ class Links(HTMLParser):
 
 def main():
     output=ROOT/'dist'; output.mkdir(exist_ok=True)
-    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','.nojekyll'}
+    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','theme.js','.nojekyll'}
     stale={path.name for path in output.iterdir()}-expected
     if stale: raise RuntimeError('Unexpected files in dist; review before publishing: '+str(sorted(stale)))
     for position,(slug,label) in enumerate(PAGES):
@@ -40,21 +40,23 @@ def main():
         content=re.sub(r'href="([^"]+)"',rewrite,content)
         content=content.replace('<table>','<div class="table-wrap"><table>').replace('</table>','</table></div>')
         nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES)
-        brand='<a class="brand" href="index.html"><span class="mark" aria-hidden="true">EN</span>Enfusion Neural</a>'
+        title_link='<a class="site-title" href="index.html">Enfusion Neural</a>'
+        theme='<label class="theme-label">Theme<select data-theme-control aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>'
         nextpage=PAGES[position+1] if position+1<len(PAGES) else PAGES[0]
         title='Enfusion Neural' if slug=='index' else label+' · Enfusion Neural'
         page=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{escape(title)}</title><meta name="description" content="Enfusion Neural engineering documentation: faithful photorealism, AMD GPU experiments and reproducible evidence.">
-<link rel="stylesheet" href="style.css"></head><body>
+<title>{escape(title)}</title><meta name="description" content="Enfusion Neural documentation: reference scenes, capture procedures, model implementation and evaluation.">
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"></head><body>
 <a class="skip" href="#content">Skip to content</a>
-<aside class="sidebar">{brand}<nav aria-label="Documentation">{nav}</nav><div class="rail-footer"><a href="{REPO}">GitHub ↗</a><div class="version">Research / v0.1</div></div></aside>
-<header class="mobile"><div class="mobile-head">{brand}<a href="{REPO}">GitHub ↗</a></div><details><summary>Contents</summary><nav aria-label="Mobile documentation">{nav}</nav></details></header>
+<aside class="sidebar">{title_link}<nav aria-label="Documentation">{nav}</nav><div class="rail-footer">{theme}<a href="{REPO}">GitHub ↗</a></div></aside>
+<header class="mobile"><div class="mobile-head">{title_link}{theme}</div><details><summary>Contents</summary><nav aria-label="Mobile documentation">{nav}</nav></details></header>
 <main><div class="topline"><span>Documentation</span><a href="{REPO}/blob/main/docs/{slug}.md">Page source ↗</a></div>
 <article id="content">{content}</article>
-<footer class="page-footer"><span>Independent research · MIT</span><a href="{nextpage[0]}.html">{escape(nextpage[1])} →</a></footer></main></body></html>'''
+<footer class="page-footer"><a href="{REPO}/blob/main/LICENSE">MIT license</a><a href="{nextpage[0]}.html">{escape(nextpage[1])} →</a></footer></main></body></html>'''
         (output/f'{slug}.html').write_text(page,encoding='utf-8')
     shutil.copyfile(ROOT/'site/style.css',output/'style.css')
+    shutil.copyfile(ROOT/'site/theme.js',output/'theme.js')
     (output/'.nojekyll').write_text('')
     parsed={}
     for page in output.glob('*.html'):

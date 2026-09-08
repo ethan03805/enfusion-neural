@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "pack_id": "arland-reference-v1",
+  "description": "Static camera and lighting repeatability probes in the installed Arland world.",
+  "world": "worlds/Arland/Arland.ent",
+  "world_provenance": "Bohemia Interactive base-game asset; not redistributed by this repository",
+  "defaults": {
+    "repetitions": 3,
+    "settle_seconds": 8,
+    "timeout_seconds": 120,
+    "date": [1989, 6, 21],
+    "wind_speed_mps": 0,
+    "wind_direction_degrees": 0,
+    "weather_state": "Clear",
+    "render_settings": {
+      "resolution": null,
+      "render_scale": null,
+      "fsr": null,
+      "quality_preset": null,
+      "projection_fov": null,
+      "temporal_jitter": null,
+      "policy": "Record observed output dimensions; other settings remain unverified. Each run uses an isolated Workbench profile."
+    }
+  },
+  "scenes": [
+    {
+      "id": "forest-east-noon",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "position": [2048, 60, 2048],
+      "direction": [1, 0, 0],
+      "hour": 13,
+      "subjects": ["foliage", "terrain", "sky boundaries"]
+    },
+    {
+      "id": "forest-north-noon",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "position": [2048, 60, 2048],
+      "direction": [0, 0, 1],
+      "hour": 13,
+      "subjects": ["foliage", "terrain", "static edges"]
+    },
+    {
+      "id": "forest-east-evening",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "position": [2048, 60, 2048],
+      "direction": [1, 0, 0],
+      "hour": 18.5,
+      "subjects": ["lighting variation", "shadow boundaries"]
+    }
+  ],
+  "ground_truth": {
+    "available": false,
+    "reason": "Repeated game renders are observations, not aligned photorealistic targets."
+  },
+  "acceptance": {
+    "position_tolerance_m": 0.02,
+    "direction_tolerance": 0.02,
+    "hour_tolerance": 0.001,
+    "wind_tolerance_mps": 0.01,
+    "require_identical_dimensions": true,
+    "alignment_search_radius_pixels": 3,
+    "pixel_equality_required": false
+  }
+}

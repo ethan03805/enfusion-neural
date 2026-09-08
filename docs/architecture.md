@@ -21,6 +21,9 @@ Enfusion Lab export or original procedural fixture
 | `enr/data.py` | Original fixtures and explicit degradation |
 | `enr/model.py` | Model contract, gradients, CPU inference, HLSL generation |
 | `enr/cli.py` | Training, evaluation, benchmark orchestration and manifests |
+| `enr/references.py` | Scene pack validation, batch capture and repeat comparisons |
+| `scenes/` | Versioned scene definitions and control settings |
+| `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
 | `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |
 | Enfusion Lab | External Workbench addon validation and image capture |
 | `docs/` | Maintained engineering documentation |

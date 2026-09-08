@@ -2,7 +2,7 @@
 
 ## 001 · Fidelity before throughput
 
-Accepted 8 September 2026 after owner clarification. The target is photorealism that preserves scene identity, with 1440p/20 FPS as the local playable floor. This supersedes the earlier provisional 60 FPS reconstruction-first direction. Fifty milliseconds is the full-frame budget. Other resolutions remain required.
+Accepted 8 September 2026. The target is photorealism that preserves scene identity, with 1440p/20 FPS as the local playable floor. This supersedes the earlier provisional 60 FPS reconstruction-first direction. Fifty milliseconds is the full-frame budget. Other resolutions remain required.
 
 ## 002 · Keep the first neural graph small
 
@@ -21,3 +21,13 @@ Current ONNX Runtime documentation places DirectML in sustained engineering and 
 ## 005 · Portable documentation in the code repository
 
 Accepted. Markdown is canonical. A small static build creates GitHub Pages with shared navigation, responsive typography and no client framework. AGENTS.md is the shared engineering protocol; CLAUDE.md links to it. Keep game captures and machine profiles local, with reviewed numerical evidence in Git.
+
+## 006 · Begin with measured scene repeatability
+
+Accepted 8 September 2026. The first scene pack uses three explicit camera/lighting variants in the installed Arland world. It controls and verifies date, time, weather and wind through a project-owned extension of Enfusion Lab's adapter. It keeps the plugin's process ownership and capture checks. The installed plugin is unchanged.
+
+The views overlap and remain one diagnostic group. A repeated scene is not automatically a training target or a new independent test scene. Render scale, FSR, quality preset and projection remain null until verified. Nonzero image differences are retained rather than corrected away.
+
+## 007 · Documentation presentation
+
+Accepted 8 September 2026. Remove the logo and promotional copy from the site, keep personal computer specifications out of rendered documentation, and provide a system/light/dark theme preference. Preserve hardware details in raw benchmark records so measurement provenance is not lost.

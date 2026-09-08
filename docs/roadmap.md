@@ -1,14 +1,16 @@
 # Roadmap
 
-The following gates lead toward faithful photorealism. Each must produce inspectable evidence before a stronger claim is made.
+The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
 
 ## 01 · Neural foundation
 
-Train a small network, execute it on RX 7800 XT, compare every pixel with an independent reference and retain raw timings. Provide an engine-independent core, reproducible commands, CI and documentation. This repository begins here; see [evidence](evidence.md) for measured scope.
+Train a small network, execute it on the recorded test configuration, compare every pixel with an independent reference and retain raw timings. Provide an engine-independent core, reproducible commands, CI and documentation. This repository begins here; see [evidence](evidence.md) for measured scope.
 
 ## 02 · Reference scenes and appearance data
 
-**Next implementation task.** Define an original repeatable scene pack covering foliage, a material chart, fine geometry and exposure transitions. Extend the Enfusion Lab adapter only where needed, retaining its run manifests. Record camera paths, world/version, weather, time, wind, resolution, FSR state and scene asset provenance.
+**In progress.** The first pack defines three diagnostic Arland views with explicit camera, date, time, weather and wind controls. It supports three independent repeats per scene and image-difference analysis. See [reference scenes](reference-scenes.md) for the exact scope and unverified settings.
+
+Next, pin render scale, FSR, quality preset and projection; then add an original controlled scene with a material chart, fine geometry and exposure-transition sequences. Keep scene provenance and run manifests with each experiment.
 
 Acceptance: a versioned scene/config manifest; three repeat captures with measured alignment/drift; separate train/validation/test scene groups; a documented method for producing aligned appearance targets. Captures without a valid target can measure stability and appearance, but must not be relabeled as supervised photorealistic ground truth.
 
@@ -28,10 +30,10 @@ Acceptance: blinded visual improvement with geometry, identity, visibility and t
 
 Integrate the accepted model and measure the complete application at 1440p. Preserve a disabled path and rapid fallback. Characterize multiple resolutions and quality profiles. Run the full frame-time and soak protocol.
 
-Acceptance: at least 20 FPS with acceptable pacing on RX 7800 XT, no fidelity regressions in the test suite and recorded memory headroom. The exact performance result must identify scene and settings.
+Acceptance: at least 20 FPS with acceptable pacing on the recorded test configuration, no fidelity regressions in the test suite and recorded memory headroom. The exact performance result must identify scene and settings.
 
 ## 06 · Scale training only when justified
 
 Before renting hardware, measure local training throughput and memory, estimate dataset and experiment size, and provide a concrete cost/time plan. Use a portable model interchange and resumable checkpoints. No paid resource has been provisioned. Hardware rental requires a separate authorized budget.
 
-Training may move to a larger GPU; inference must still be validated on the 7800 XT. Additional Enfusion titles and other GPUs each require their own adapter and evidence.
+Training may move to a larger GPU; inference must still be validated on the test hardware. Additional Enfusion titles and other GPUs each require their own adapter and evidence.

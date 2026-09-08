@@ -1,12 +1,14 @@
 # Enfusion Neural
 
-Faithful photorealism for Enfusion, beginning with Arma Reforger and the AMD RX 7800 XT.
+Offline neural image processing and capture tools for Enfusion Workbench.
 
 [Documentation](https://ethan03805.github.io/enfusion-neural/) · [Current status](docs/status.md) · [Roadmap](docs/roadmap.md)
 
 The first milestone is a **working offline neural pipeline**: train a 251-parameter residual CNN, run its generated shader on a real D3D12 GPU, and compare the result with an independent NumPy reference. It accepts arbitrary supported image dimensions and preserves alpha exactly.
 
-This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on RX 7800 XT**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
+The [reference scene pack](docs/reference-scenes.md) adds three static camera/lighting variants, a batch capture command and repeatability analysis. Its first nine captures share verified camera/environment controls but retain measurable pixel variation.
+
+This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
 
 ## Run
 

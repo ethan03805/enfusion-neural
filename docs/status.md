@@ -1,15 +1,17 @@
 # Handoff
 
-Updated 8 September 2026. Milestone: offline neural foundation, v0.1. Read [vision](vision.md) before choosing the next model or performance target.
+Updated 8 September 2026. Milestone: reference scene pack v1 and repeatability analysis. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
 - Original procedural training data and a 251-parameter residual CNN with all weights trained locally.
 - Versioned JSON model, bounded residual, independent CPU inference and numerical gradient checks.
-- Native D3D12 FP32 inference on RX 7800 XT, including raw timestamps and separate file-pipeline measurements.
+- Native D3D12 FP32 inference on the recorded test configuration, including raw timestamps and separate file-pipeline measurements.
 - CPU/GPU pixel agreement at 1440p and on an actual Enfusion capture; random-alpha and dimension checks through 4K.
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
-- Twelve-page Markdown documentation site, shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
+- Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
+- Thirteen-page Markdown documentation site with system/light/dark themes; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 
 Exact observed results and limitations are in [evidence](evidence.md). The source commit and CI/deployment outcomes are visible in the repository history and Actions; do not assume later revisions have the same measurements.
 
@@ -28,6 +30,8 @@ Use the prepared environment with the documented dependencies. Reviewed manifest
 
 ## Next task
 
-Implement the reference scene/configuration manifest and repeatability experiment described in [roadmap gate 02](roadmap.md#02-reference-scenes-and-appearance-data). Resolve how aligned appearance targets will be obtained before training a photorealistic enhancement model. Investigate the supported renderer bridge as a separate bounded research task.
+Pin render scale, FSR, quality preset and camera projection for the scene pack. Investigate residual image differences before calling the capture deterministic. Then add an original controlled scene with known geometry/materials and define aligned appearance targets. See [reference scenes](reference-scenes.md) and [roadmap gate 02](roadmap.md#02-reference-scenes-and-appearance-data). The supported renderer bridge remains a separate research task.
 
-The owner's confirmed priorities are visual fidelity, photorealism without scene/identity distortion, and a 1440p/20 FPS playable floor on RX 7800 XT. Do not revert to the earlier 60 FPS reconstruction-first proposal. The bootstrap CNN is a control for learning and GPU execution, not the final model architecture.
+The first measured reference batch is retained locally under `experiments/local/reference-v1/`; its reviewed numerical report is `evidence/reference-scenes-v1.json`. All camera/environment checks passed, but every scene had nonzero pixel variation. These captures remain diagnostic data, not supervised appearance targets.
+
+The project priorities are visual fidelity, photorealism without scene/identity distortion, and a 1440p/20 FPS playable floor on the recorded test configuration. Do not revert to the earlier 60 FPS reconstruction-first proposal. The bootstrap CNN is a control for learning and GPU execution, not the final model architecture.

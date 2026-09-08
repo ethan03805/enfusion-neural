@@ -4,6 +4,7 @@ External references inform design choices. Local measurements remain the source 
 
 | Reference | Relevance |
 | --- | --- |
+| [Reforger time and weather manager](https://community.bistudio.com/wikidata/external-data/arma-reforger/ArmaReforgerScriptAPIPublic/interfaceTimeAndWeatherManagerEntity.html) | Weather state selection and looping used by the reference scene adapter; installed script declarations and capture telemetry verify the local build |
 | [ONNX Runtime DirectML provider](https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html) | Windows GPU execution, device selection, D3D12 queue interoperability and sustained engineering status |
 | [ONNX Runtime installation](https://onnxruntime.ai/docs/install/) | Current DirectML/WinML packaging direction |
 | [AMD Windows support matrices](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/compatibility/compatibilityrad/windows/windows_compatibility.html) | Verify exact GPU/OS/framework combinations before future ROCm setup; none is assumed here |
