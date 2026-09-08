@@ -31,3 +31,9 @@ The views overlap and remain one diagnostic group. A repeated scene is not autom
 ## 007 · Documentation presentation
 
 Accepted 8 September 2026. Remove the logo and promotional copy from the site, keep personal computer specifications out of rendered documentation, and provide a system/light/dark theme preference. Preserve hardware details in raw benchmark records so measurement provenance is not lost.
+
+## 008 · Publish traceable visual comparisons
+
+Accepted 8 September 2026 at the user's request. Publish the existing Arland benchmark pair and the first capture from each reference scene variant. Keep image bytes unchanged, record provenance in the media manifest and check their hashes during the site build. These screenshots are outside the MIT code license; include game attribution and the content usage policy.
+
+Show the model's visible failures alongside its numerical results. Use a manual comparison slider with a static fallback. Independent still captures are not a motion sequence; publish before-and-after video only when source and output frames can be synchronized and playback conditions documented.

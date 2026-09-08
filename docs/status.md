@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 8 September 2026. Milestone: reference scene pack v1 and repeatability analysis. Read [objectives](vision.md) before choosing the next model or performance target.
+Updated 8 September 2026. Milestone: published visual comparisons and reference scene gallery. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
@@ -11,7 +11,8 @@ Updated 8 September 2026. Milestone: reference scene pack v1 and repeatability a
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Thirteen-page Markdown documentation site with system/light/dark themes; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Fourteen-page Markdown documentation site with system/light/dark themes and an accessible before-and-after comparison; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Five reviewed screenshots published without image transformations, with source records, hashes and attribution. Model output was checked against retained GPU output bytes and the CPU reference before publication. No continuous motion sequence has been recorded.
 
 Exact observed results and limitations are in [evidence](evidence.md). The source commit and CI/deployment outcomes are visible in the repository history and Actions; do not assume later revisions have the same measurements.
 

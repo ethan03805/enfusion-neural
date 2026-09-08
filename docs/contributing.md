@@ -28,6 +28,8 @@ Install into an activated virtual environment. Open `http://localhost:8000`. Edi
 
 Run `node scripts/check_theme.cjs` after changes to theme behavior. Keep promotional copy and personal machine specifications out of the rendered documentation. Hardware identities remain in raw measurement records for provenance.
 
+Run `node scripts/check_comparisons.cjs` after changes to the image comparison. The slider uses native keyboard/touch controls; without JavaScript, the page shows both labeled images. Store reviewed screenshots in `docs/media/` and record file hashes, dimensions, source evidence, selection method and rights in `manifest.json`. The site build rejects changed images or unlisted files. Preserve the source and model output as recorded; label any future crops or encodings explicitly. Do not publish raw machine logs or extracted game assets.
+
 The `Pages` GitHub Actions workflow builds and deploys on pushes to main after the test job passes. Use repository Settings → Pages → GitHub Actions. The `CI` workflow also builds Windows native code and verifies Python behavior on Linux. No game installation or game asset is required in CI.
 
 ## Handoff record

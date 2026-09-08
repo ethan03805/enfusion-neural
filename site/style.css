@@ -59,6 +59,23 @@ blockquote { border-left: 3px solid var(--line); padding-left: 20px; margin: 28p
 .page-footer a { color: var(--muted); }
 .mobile { display: none; }
 img { max-width: 100%; height: auto; }
+.comparison { margin: 24px 0 14px; }
+.comparison-images { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.comparison figure, .scene-image { margin: 0; }
+.comparison img, .scene-image img { display: block; width: 100%; }
+.comparison figcaption, .scene-image figcaption { font-size: 14px; color: var(--muted); padding: 8px 0; }
+.comparison-divider { display: none; }
+.comparison.is-interactive .comparison-images { display: block; position: relative; overflow: hidden; }
+.is-interactive .comparison-after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--reveal, 50%)); }
+.is-interactive figcaption { position: absolute; top: 12px; padding: 4px 8px; background: #15191ee6; color: #fff; }
+.is-interactive .comparison-before figcaption { left: 12px; }
+.is-interactive .comparison-after figcaption { right: 12px; }
+.is-interactive .comparison-divider { display: block; position: absolute; inset: 0 auto 0 var(--reveal, 50%); width: 2px; background: #fff; box-shadow: 0 0 2px #000; pointer-events: none; }
+.comparison-control:not([hidden]) { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-top: 12px; font-size: 14px; }
+.comparison-control input { flex: 1; min-width: 120px; min-height: 36px; accent-color: var(--accent); cursor: ew-resize; }
+.comparison-control input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.comparison-control output { color: var(--muted); min-width: 95px; font-variant-numeric: tabular-nums; }
+.scene-image { margin: 28px 0; }
 @media (min-width: 1500px) { main { margin-left: calc(264px + (100vw - 1500px)/4); } }
 @media (max-width: 780px) {
   .sidebar { display: none; }
@@ -75,5 +92,6 @@ img { max-width: 100%; height: auto; }
   pre { padding: 16px; }
   .page-footer { margin-top: 45px; }
   td:first-child { min-width: 130px; }
+  .comparison-images { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: no-preference) { a { transition: color .12s, background .12s; } }

@@ -9,6 +9,7 @@ This repository contains Workbench capture tools, reference scene definitions, a
 | [Objectives](vision.md) | Image fidelity requirements and evaluation targets |
 | [Get started](getting-started.md) | Build, train and run the first neural component |
 | [Reference scenes](reference-scenes.md) | Capture repeated views and measure image differences |
+| [Comparisons](comparisons.md) | Inspect the original capture, model output and reference views |
 | [Architecture](architecture.md) | Model, GPU backend and engine boundaries |
 | [Evidence](evidence.md) | Measured results and what they establish |
 | [Roadmap](roadmap.md) | Next experiments and acceptance gates |

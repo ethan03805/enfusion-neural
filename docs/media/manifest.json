@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "publication_date": "2026-09-08",
+  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection.",
+  "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s. and is outside the repository MIT code license.",
+  "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
+  "output_verification": {
+    "matches_retained_gpu_rgba": true,
+    "cpu_reference_rgb_max_error_8bit": 1,
+    "alpha_exact": true
+  },
+  "images": [
+    {
+      "file": "arland-before.png",
+      "sha256": "6b69fd525ea7954d1ff2ea3473293976eb4bd4b2e561bba11995c7aefe92d80f",
+      "bytes": 3060551,
+      "dimensions": [
+        1839,
+        947
+      ],
+      "role": "model input",
+      "source_record": "evidence/enfusion-capture.json",
+      "source_artifact": "experiments/local/runs/20260908T224324-61b44abc77/frame.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260908T224324-61b44abc77"
+    },
+    {
+      "file": "arland-after.png",
+      "sha256": "ee5aac5dc9fc7b2e9c68e991937baa52cc45e3169587173327929324051d3d77",
+      "bytes": 3162805,
+      "dimensions": [
+        1839,
+        947
+      ],
+      "role": "v0 model output",
+      "source_record": "evidence/gpu-arland.json",
+      "source_artifact": "runs/gpu-arland/output.png",
+      "transformation": "none; byte-for-byte copy",
+      "model_sha256": "8f04922046e2d59bf71b7fbeb8aa46e8974dd8e3a2d7bdc671a28bcaccc2bced"
+    },
+    {
+      "file": "forest-east-noon.png",
+      "sha256": "5c418b36591290dad6a0edf7b84ca8c09d2d89bf80facf4e4e47eeaf1712d11b",
+      "bytes": 3062911,
+      "dimensions": [
+        1839,
+        947
+      ],
+      "role": "unprocessed reference view",
+      "source_record": "evidence/reference-scenes-v1.json",
+      "source_artifact": "experiments/local/reference-v1/forest-east-noon/runs/20260908T231744-c90799d2cf/frame.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260908T231744-c90799d2cf",
+      "scene_id": "forest-east-noon",
+      "repeat": 1
+    },
+    {
+      "file": "forest-north-noon.png",
+      "sha256": "ee27ff71896ac4b834ea50efcb865bdcb0ad122093f926691df4c27daba7e6e2",
+      "bytes": 3339537,
+      "dimensions": [
+        1839,
+        947
+      ],
+      "role": "unprocessed reference view",
+      "source_record": "evidence/reference-scenes-v1.json",
+      "source_artifact": "experiments/local/reference-v1/forest-north-noon/runs/20260908T232323-ea29d82dc1/frame.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260908T232323-ea29d82dc1",
+      "scene_id": "forest-north-noon",
+      "repeat": 1
+    },
+    {
+      "file": "forest-east-evening.png",
+      "sha256": "46649e67ee2547c2ae948c0f511e7f411c2642da04b64e3912775e016e04d36f",
+      "bytes": 3081162,
+      "dimensions": [
+        1839,
+        947
+      ],
+      "role": "unprocessed reference view",
+      "source_record": "evidence/reference-scenes-v1.json",
+      "source_artifact": "experiments/local/reference-v1/forest-east-evening/runs/20260908T232442-2d3a5523ee/frame.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260908T232442-2d3a5523ee",
+      "scene_id": "forest-east-evening",
+      "repeat": 1
+    }
+  ]
+}

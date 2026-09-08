@@ -19,6 +19,8 @@ The file pipeline took **764.74 ms** for the 1440p run and **690.43 ms** for Arl
 
 Visual inspection of the Arland output shows exaggerated edges and dark boundaries in foliage compared with the source. The procedural reconstruction model is unsuitable as a photorealism demonstration. Numerical agreement proves that the GPU implements the model; it does not make that model's appearance acceptable. This observed failure motivates the paired appearance data and identity checks in the next gates.
 
+[Inspect the before-and-after comparison](comparisons.md). The published files preserve the original exported pixels and the recorded model output.
+
 Correctness also passed for random RGBA inputs at 1 × 1, 1 × 17, 31 × 1, 127 × 65, 1920 × 1080 and 3840 × 2160. Each comparison checked every RGB value and exact random alpha. These smoke checks prove numerical behavior at those sizes, not acceptable frame times on other GPUs.
 
 The initial [hosted Windows CI run](https://github.com/ethan03805/enfusion-neural/actions/runs/34288593414) passed through 1080p but its 4K, 110-dispatch batch exited with access violation 3221225477 after approximately 34 seconds. The exact driver/device cause is unresolved; this failure was not observed in the separately recorded hardware tests. Correctness smoke tests now use a single dispatch at every size, while full performance runs keep their explicit sample counts. Failed smoke artifacts are retained and uploaded by CI for diagnosis. The original local measurements above predate this separation.
@@ -44,7 +46,7 @@ The comparison uses bicubic 0.5× downsampling followed by bicubic upsampling on
 
 Enfusion Lab 0.1.0 discovered stable game build 24903726 and Workbench build 24870687 from local Steam manifests. This is not a remote update check. The isolated addon validated with natural exit 0.
 
-Arland capture used position [2048,60,2048], direction [1,0,0] and a five-second settle. The 1839 × 947 PNG was visually inspected: terrain, trees and sky filled the frame. Capture outer status succeeded; the tool then terminated its owned Workbench process. Raw logs and game imagery remain local.
+Arland capture used position [2048,60,2048], direction [1,0,0] and a five-second settle. The 1839 × 947 PNG was visually inspected: terrain, trees and sky filled the frame. Capture outer status succeeded; the tool then terminated its owned Workbench process. Raw logs remain local. The original image is now included in the comparison gallery; the historical capture summary predates its publication.
 
 [Portable capture summary](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-capture.json)
 

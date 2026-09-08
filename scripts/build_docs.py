@@ -1,18 +1,57 @@
 """Build a portable static documentation site from canonical Markdown."""
 from html import escape
 from html.parser import HTMLParser
+import hashlib
+import json
 from pathlib import Path
 import re
 import shutil
 from urllib.parse import urlsplit, unquote
 import markdown
+from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),
+PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('comparisons','Comparisons'),
        ('architecture','Architecture'),('integration','Enfusion integration'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
 REPO='https://github.com/ethan03805/enfusion-neural'
+
+
+def copy_media(output):
+    source = ROOT/'docs/media'
+    manifest = json.loads((source/'manifest.json').read_text(encoding='utf-8'))
+    if manifest['schema_version'] != 1:
+        raise RuntimeError('Unsupported media manifest')
+    expected = {'manifest.json'}
+    for entry in manifest['images']:
+        name = entry['file']
+        if not re.fullmatch(r'[a-z0-9-]+\.png', name) or name in expected:
+            raise RuntimeError('Invalid or duplicate media filename: '+name)
+        expected.add(name)
+        path = source/name
+        if path.is_symlink() or hashlib.sha256(path.read_bytes()).hexdigest() != entry['sha256']:
+            raise RuntimeError('Media differs from reviewed manifest: '+name)
+        if path.stat().st_size != entry['bytes']:
+            raise RuntimeError('Media byte count differs: '+name)
+        with Image.open(path) as image:
+            if image.format != 'PNG' or list(image.size) != entry['dimensions']:
+                raise RuntimeError('Media dimensions or format differ: '+name)
+            image.verify()
+        record = (ROOT/entry['source_record']).resolve()
+        if not record.is_relative_to((ROOT/'evidence').resolve()) or not record.is_file():
+            raise RuntimeError('Missing or invalid media source record: '+name)
+    if {path.name for path in source.iterdir()} != expected:
+        raise RuntimeError('Review unexpected files in docs/media before publishing')
+    destination = output/'media'
+    if destination.is_symlink():
+        raise RuntimeError('Media output must not be a symlink')
+    destination.mkdir(exist_ok=True)
+    if {path.name for path in destination.iterdir()}-expected:
+        raise RuntimeError('Review stale media output before publishing')
+    for name in expected:
+        shutil.copyfile(source/name, destination/name)
+    print(f'Verified {len(manifest["images"])} published images against their hashes and dimensions.')
 
 
 class Links(HTMLParser):
@@ -27,9 +66,10 @@ class Links(HTMLParser):
 
 def main():
     output=ROOT/'dist'; output.mkdir(exist_ok=True)
-    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','theme.js','.nojekyll'}
+    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','theme.js','compare.js','media','.nojekyll'}
     stale={path.name for path in output.iterdir()}-expected
     if stale: raise RuntimeError('Unexpected files in dist; review before publishing: '+str(sorted(stale)))
+    copy_media(output)
     for position,(slug,label) in enumerate(PAGES):
         raw=(ROOT/'docs'/f'{slug}.md').read_text(encoding='utf-8')
         content=markdown.markdown(raw,extensions=['fenced_code','tables','toc'])
@@ -44,19 +84,21 @@ def main():
         theme='<label class="theme-label">Theme<select data-theme-control aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>'
         nextpage=PAGES[position+1] if position+1<len(PAGES) else PAGES[0]
         title='Enfusion Neural' if slug=='index' else label+' · Enfusion Neural'
+        comparison_script='<script src="compare.js" defer></script>' if slug=='comparisons' else ''
         page=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="Enfusion Neural documentation: reference scenes, capture procedures, model implementation and evaluation.">
-<script src="theme.js"></script><link rel="stylesheet" href="style.css"></head><body>
+<script src="theme.js"></script>{comparison_script}<link rel="stylesheet" href="style.css"></head><body>
 <a class="skip" href="#content">Skip to content</a>
 <aside class="sidebar">{title_link}<nav aria-label="Documentation">{nav}</nav><div class="rail-footer">{theme}<a href="{REPO}">GitHub ↗</a></div></aside>
 <header class="mobile"><div class="mobile-head">{title_link}{theme}</div><details><summary>Contents</summary><nav aria-label="Mobile documentation">{nav}</nav></details></header>
 <main><div class="topline"><span>Documentation</span><a href="{REPO}/blob/main/docs/{slug}.md">Page source ↗</a></div>
 <article id="content">{content}</article>
-<footer class="page-footer"><a href="{REPO}/blob/main/LICENSE">MIT license</a><a href="{nextpage[0]}.html">{escape(nextpage[1])} →</a></footer></main></body></html>'''
+<footer class="page-footer"><a href="{REPO}/blob/main/LICENSE">Code license</a><a href="{nextpage[0]}.html">{escape(nextpage[1])} →</a></footer></main></body></html>'''
         (output/f'{slug}.html').write_text(page,encoding='utf-8')
     shutil.copyfile(ROOT/'site/style.css',output/'style.css')
     shutil.copyfile(ROOT/'site/theme.js',output/'theme.js')
+    shutil.copyfile(ROOT/'site/compare.js',output/'compare.js')
     (output/'.nojekyll').write_text('')
     parsed={}
     for page in output.glob('*.html'):

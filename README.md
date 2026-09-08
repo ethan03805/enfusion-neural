@@ -37,4 +37,4 @@ Activate your environment or substitute its Python path for these commands. Trai
 
 Start with [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md) and the [handoff](docs/status.md). The repository keeps documentation in Markdown and publishes it through GitHub Actions to GitHub Pages. See [contributing](docs/contributing.md) for local site preview and validation.
 
-Code and original procedural fixtures are MIT licensed. Bohemia game assets and local captures are excluded. This is an independent research project, unaffiliated with Bohemia Interactive or AMD.
+Code and original procedural fixtures are MIT licensed. Selected [comparison screenshots](docs/comparisons.md) are published with attribution; their game content is outside the code license. Raw capture collections and game assets remain excluded. This is an independent research project, unaffiliated with Bohemia Interactive or AMD.

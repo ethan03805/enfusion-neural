@@ -12,6 +12,8 @@ Train a small network, execute it on the recorded test configuration, compare ev
 
 Next, pin render scale, FSR, quality preset and projection; then add an original controlled scene with a material chart, fine geometry and exposure-transition sequences. Keep scene provenance and run manifests with each experiment.
 
+The immediate experiment should hold the scene and camera constant, vary one capture setting at a time, and measure repeated image differences. Then record a short fixed camera path with synchronized source/output frames for a before-and-after video. Keep the current [still comparisons](comparisons.md) available as a baseline.
+
 Acceptance: a versioned scene/config manifest; three repeat captures with measured alignment/drift; separate train/validation/test scene groups; a documented method for producing aligned appearance targets. Captures without a valid target can measure stability and appearance, but must not be relabeled as supervised photorealistic ground truth.
 
 ## 03 · Supported integration contract

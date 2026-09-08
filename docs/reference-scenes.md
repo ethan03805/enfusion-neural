@@ -12,6 +12,8 @@ All three use 21 June 1989, the `Clear` weather state, a requested wind speed of
 
 The pack contains original camera/configuration definitions, not original terrain or game assets. Arland remains a base-game dependency. A material chart, dedicated geometry fixtures and animated sequences are not included in this version.
 
+[View all three scenes](comparisons.md#reference-views). The gallery shows the first unprocessed capture from each variant, with full-resolution PNG links.
+
 ## First measured batch
 
 Nine full-size captures completed on 8 September 2026 at 1839 × 947. Each of the three scene variants was visually inspected. Camera and environment telemetry matched the requested controls in all nine runs. Every pair's estimated global integer translation was [0,0], but the images were not pixel-identical.
@@ -26,7 +28,7 @@ Errors are in 8-bit RGB code values. Changed pixels have at least one unequal RG
 
 This establishes repeated camera/environment conditions, not deterministic pixels. Foliage animation, streaming and temporal rendering may contribute to the differences; their individual contributions have not been isolated. The simulation frame count also varied between runs despite the fixed settle duration. The result is a baseline for measuring those effects.
 
-[Complete numerical report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/reference-scenes-v1.json). Raw game images and machine logs remain in the local experiment directory. The first compile attempt failed on an unsupported world cast; that failed run was retained, and the corrected adapter passed compilation before the measured captures.
+[Complete numerical report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/reference-scenes-v1.json). The full capture collection and machine logs remain in the local experiment directory; selected screenshots are published in the gallery with attribution and hashes. The first compile attempt failed on an unsupported world cast; that failed run was retained, and the corrected adapter passed compilation before the measured captures.
 
 ## Capture
 
