@@ -1,0 +1,708 @@
+{
+  "schema_version": 1,
+  "scope": "Everon loading and initial source-only overview; no neural processing or city coverage proof.",
+  "runs": [
+    {
+      "run_id": "20260909T075057-4ede832055",
+      "status": "failed",
+      "world": "worlds/Eden/Eden.ent",
+      "position": [
+        6144.0,
+        1200.0,
+        6144.0
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "process_exit_code": 1,
+      "terminated_owned_process": true,
+      "wall_seconds": 240.31200000000536,
+      "capture_manifest_sha256": "7467946b26b7234c6fc169bf855f30396597a82774c03a79349d4300c723fdeb",
+      "validation_manifest_sha256": "6f460ef661a9c2ae1fa8e7cb63213c26d974dd8d41cd59d509935179694a8e87",
+      "validation_run": "20260909T075044-e873d94034",
+      "console_sha256": "8653144f7cdc1d770a5ff6f7f727939a0568d6cfb201cb8cc912fcc3d7823e23",
+      "addon_sha256": {
+        "addon.gproj": "ca6f70a23d87fd36c530cf9759ae8e10be7d191f3811363a2fb8c7f35a2947f8",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "d42b958ac0c2d7521d7a96f30bef9535ed91eecff390d075123541196e23e683",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "517468e7ee09357f522942712741038796a0e6ef99438babf5a0b7d0f73cf883",
+        "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "7a532df7f609fc96834842bca216ccac2fbbf9b0e132111d28e1c457e5dd5c83"
+      },
+      "error": "Workbench timed out. Logs retained; a modal dialog may require attention.",
+      "search_only": false
+    },
+    {
+      "run_id": "20260909T075637-006906e803",
+      "status": "succeeded",
+      "world": "worlds/Eden/Eden.ent",
+      "position": [
+        6144.0,
+        1200.0,
+        6144.0
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "process_exit_code": 1,
+      "terminated_owned_process": true,
+      "wall_seconds": 41.5940000000046,
+      "capture_manifest_sha256": "271ef7607ec4280b93693ab2d0122f960fa03e55fed18eb6d6f117628496539c",
+      "validation_manifest_sha256": "5eeb95eede3e3cf97143bb99c3868a81f329ae0794669c69bc093e156368d04f",
+      "validation_run": "20260909T075623-36022f6477",
+      "console_sha256": "e63bd0356aaf37b84bafbedcaccdf6a8c2e3587c50d24c42d56974369db6abf1",
+      "addon_sha256": {
+        "addon.gproj": "0cc62b316c94b051a39c969ad7127113b956ba9be35350eaf860bf394e1ce5af",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "d42b958ac0c2d7521d7a96f30bef9535ed91eecff390d075123541196e23e683",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "fc8972e63eb85aed7d82a1d6ec77fa54b9afb37de5bbb9e4bc8dde43de6e34d9",
+        "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "7a532df7f609fc96834842bca216ccac2fbbf9b0e132111d28e1c457e5dd5c83"
+      },
+      "error": null,
+      "search_only": true,
+      "sequence": {
+        "schema_version": 1,
+        "status": "succeeded",
+        "run_id": "20260909T075637-006906e803",
+        "scope": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "playback_fps": 20,
+        "config": {
+          "schema_version": 1,
+          "id": "everon-inventory-scout-v1",
+          "world": "worlds/Eden/Eden.ent",
+          "group": "everon-inventory",
+          "split": "diagnostic",
+          "dimensions": [
+            2560,
+            1440
+          ],
+          "position_start": [
+            6144,
+            1200,
+            6144
+          ],
+          "position_end": [
+            6144,
+            1200,
+            6144
+          ],
+          "yaw_start_degrees": 90,
+          "yaw_end_degrees": 90,
+          "vertical_fov_degrees": 60,
+          "near_plane_m": 0.1,
+          "far_plane_m": 5000,
+          "hdr_brightness": 0.00456415,
+          "date": [
+            1989,
+            6,
+            21
+          ],
+          "hour": 13,
+          "weather_state": "Clear",
+          "wind_speed_mps": 0,
+          "wind_direction_degrees": 0,
+          "settle_seconds": 8,
+          "hold_ticks_per_sample": 6,
+          "samples": 1,
+          "playback_fps": 20,
+          "timeout_seconds": 180,
+          "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+          "requested_render_scale": 1,
+          "requested_fsr_enabled": false,
+          "viewport_render_scale_verified": false,
+          "viewport_fsr_verified": false,
+          "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+          "quality_readback": {
+            "VideoUserSettings": {
+              "ResolutionScale": 1,
+              "FsrEnabled": 0,
+              "Fsaa": 0,
+              "DistantShadowsQuality": 2,
+              "EnvironmentQuality": 2,
+              "Atoc": 0,
+              "Gamma": 0,
+              "Contrast": 0,
+              "Brightness": 0
+            },
+            "PPEffectsSettings": {
+              "HBAO": 1,
+              "SSDO": 1,
+              "SSR": 1,
+              "PPAA": 2
+            },
+            "PipelineUserSettings": {
+              "ShadowQuality": 2
+            },
+            "ResourceManagerUserSettings": {
+              "TextureDetail": 0,
+              "GeometricDetail": 2
+            },
+            "GrassMaterialSettings": {
+              "Distance": 175,
+              "Lod": 3,
+              "Quality": 0
+            },
+            "TerrainGenMaterialSettings": {
+              "Detail": 3
+            },
+            "MaterialSystemUserSettings": {
+              "TextureFilter": 2,
+              "MaxAniso": 4
+            }
+          }
+        },
+        "addon_sha256": {
+          "addon.gproj": "0cc62b316c94b051a39c969ad7127113b956ba9be35350eaf860bf394e1ce5af",
+          "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+          "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+          "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+          "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+          "Scripts/Game/ENR_SequenceConfig.c": "d42b958ac0c2d7521d7a96f30bef9535ed91eecff390d075123541196e23e683",
+          "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "fc8972e63eb85aed7d82a1d6ec77fa54b9afb37de5bbb9e4bc8dde43de6e34d9",
+          "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "7a532df7f609fc96834842bca216ccac2fbbf9b0e132111d28e1c457e5dd5c83"
+        },
+        "frames": [
+          {
+            "index": 0,
+            "file": "profile\\profile\\sample-00000.png",
+            "sha256": "c99bdc1461f3d9a39b43d6ff063930c4179d2c768c8336f50bd9a983625e61ca",
+            "camera": {
+              "protocol": 2,
+              "event": "sample",
+              "index": 0,
+              "world_frame": 1009,
+              "simulation_seconds": 8.03735,
+              "position": [
+                6144,
+                1200,
+                6144
+              ],
+              "direction": [
+                1,
+                0,
+                -4.37114e-08
+              ]
+            },
+            "projection": {
+              "protocol": 2,
+              "event": "projection",
+              "index": 0,
+              "width": 2560,
+              "height": 1440,
+              "up_xy": [
+                1280,
+                595.292
+              ],
+              "right_xy": [
+                1404.71,
+                720
+              ],
+              "far_plane": 5000,
+              "hdr_brightness": 0.00456415
+            }
+          }
+        ],
+        "settings_readback": [
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "FramesLimit",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "MaxFps",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "WindowMode",
+            "value": 3
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ScreenWidth",
+            "value": 2560
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ScreenHeight",
+            "value": 1440
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ResolutionScale",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "SuperWidth",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "SuperHeight",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "WindowPosX",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "WindowPosY",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ConsoleMode",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ConsoleWidth",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ConsoleHeight",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ConsolePosX",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "ConsolePosY",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Vsynch",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Vsync",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "SquarePixel",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Ratio3d",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Fsaa",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "RenderFormat",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "DistantShadowsQuality",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "EnvironmentQuality",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Gamma",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Contrast",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Brightness",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Adapter",
+            "value": -1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Device",
+            "value": -1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "Atoc",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "GenerateShaders",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "FsrEnabled",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "FsrSharpening",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "VideoUserSettings",
+            "key": "CasSharpening",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "HBAO",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "GodRays",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "HDR",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "SSDO",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "SSR",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "UnderWater",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "PPAA",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PPEffectsSettings",
+            "key": "Rain",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "DisplayUserSettings",
+            "key": "OverallQuality",
+            "value": -1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "GraphicsQualitySettings",
+            "key": "ObjectDrawDistanceScale",
+            "value": 3
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "ShadowQuality",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "TightCascades",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "LightShadow",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "LightLevel",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "Reflections",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "LinearDepth",
+            "value": 250
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PipelineUserSettings",
+            "key": "GBuffer",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "ResourceManagerUserSettings",
+            "key": "TextureDetail",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "ResourceManagerUserSettings",
+            "key": "GeometricDetail",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "GrassMaterialSettings",
+            "key": "Distance",
+            "value": 175
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "GrassMaterialSettings",
+            "key": "Lod",
+            "value": 3
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "GrassMaterialSettings",
+            "key": "Quality",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "PostprocessUserSettings",
+            "key": "Postprocess",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "TerrainGenMaterialSettings",
+            "key": "Detail",
+            "value": 3
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "TerrainGenMaterialSettings",
+            "key": "SoftAlpha",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "TerrainGenMaterialSettings",
+            "key": "DetailDistance",
+            "value": 1
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "TerrainGenMaterialSettings",
+            "key": "GeometryLevel",
+            "value": 0
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "MaterialSystemUserSettings",
+            "key": "TextureFilter",
+            "value": 2
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "MaterialSystemUserSettings",
+            "key": "MaxAniso",
+            "value": 4
+          },
+          {
+            "protocol": 2,
+            "event": "setting",
+            "module": "WaterPoolMaterialSettings",
+            "key": "Detail",
+            "value": 1
+          }
+        ],
+        "environment": [
+          {
+            "protocol": 1,
+            "event": "environment",
+            "date": [
+              1989,
+              6,
+              21
+            ],
+            "hour": 13,
+            "wind_speed_mps": 0,
+            "wind_direction_degrees": 0,
+            "weather_state": "Clear"
+          }
+        ],
+        "limits": [
+          "No proof of viewport internal resolution or FSR state; engine settings readback is a separate workspace.",
+          "Camera is held for several simulation ticks before each screenshot request; GPU presentation frame ID is unavailable.",
+          "No motion vectors, depth, HDR radiance or deterministic foliage phase."
+        ]
+      },
+      "image": {
+        "width": 2560,
+        "height": 1440,
+        "bytes": 1236323,
+        "sha256": "6663c4d88fc8dbd6817307ad5b3b9145fca89c0f51d8df669e18e4741320fc36"
+      },
+      "visual_review": "2560x1440 image inspected: sky and distant coast/mountains. Valid overview, insufficient ground-level city or interior coverage.",
+      "location_completion": [
+        "count=650"
+      ],
+      "location_limit": 200,
+      "resource_report_sha256": "cdc367a2dc3007393d32c268fb2200c2e358f32dc6f7d17be51283e63918f6ee"
+    }
+  ],
+  "everon_world_loaded": true,
+  "city_scene_coverage_verified": false,
+  "live_neural_integration_proven": false
+}

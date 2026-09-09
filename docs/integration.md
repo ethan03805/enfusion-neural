@@ -28,7 +28,17 @@ The same separation applies to other Enfusion games. A shared neural core does n
 
 ## Screenshot return probe
 
-The image-return and optional vehicle/character scripts compiled successfully in Workbench's silent ScriptEditor mode. No world or capture was launched by that validation. [Compilation evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-image-bridge-compile-v1.json) binds the actual addon snapshot and log. Runtime execution remains pending.
+The image-return and optional vehicle/character scripts compiled successfully in Workbench's silent ScriptEditor mode. No world or capture was launched by that validation. [Compilation evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-image-bridge-compile-v1.json) binds the actual addon snapshot and log. Three texture-copy runs then failed: two timed out and the third crashed. The [runtime evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-image-bridge-v1.json) retains each actual script, native outcome and verification result.
+
+| Texture-copy attempt | Last observed operation | Outcome |
+| --- | --- | --- |
+| Immediate readback | Screenshot copied into widget | 240-second timeout |
+| Readback on a later update | Widget raw-data request | 240-second timeout |
+| Display before readback | Widget visible and workspace updated | Native crash before readback |
+
+Copy acceptance is not evidence that the texture can be displayed or read back. All five integration verification fields remain false for these attempts. Native dumps and raw machine logs remain local.
+
+The separate identity/file-return control also timed out. It requested `MakeScreenshotRawData` but never received the source callback, so no PNG reached the external worker and no upload was attempted. This fourth failure is retained in the same runtime evidence. A further file-based probe would need to use the ordinary screenshot export already verified by the capture adapter; repeating the raw-data request has no supporting result.
 
 The prototype requests a screenshot texture and copies it into an image widget. Separate controls export RGBA8, run identity, inversion or the original bootstrap model on the external CPU, then attempt to load the output into the widget. These routes use the documented [System screenshot interfaces](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceSystem.html) and [ImageWidget interfaces](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceImageWidget.html). Successful declarations and compilation do not establish that the requested format or presentation route works.
 
@@ -44,7 +54,7 @@ Run scene/capture experiments serially with other GPU experiments. Use a new out
 
 ## Inventory without a world
 
-Normal ScriptEditor initialization now runs a search-only inventory without loading a world. It found eight `.ent` resources, including `{853E92315D1D9EFE}worlds/Eden/Eden.ent`, and exited naturally with code 0 after the completion callback. [Native inventory evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-world-inventory-v1.json) records script and log hashes. This identifies the base Everon resource; city framing and actual world loading still require scene captures.
+Normal ScriptEditor initialization now runs a search-only inventory without loading a world. It found eight `.ent` resources, including `{853E92315D1D9EFE}worlds/Eden/Eden.ent`, and exited naturally with code 0 after the completion callback. [Native inventory evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-world-inventory-v1.json) records script and log hashes. A subsequent WorldEditor run loaded Everon and exported a verified 2560 Ã— 1440 overview. Its distant coast-and-sky view does not establish city or interior coverage. The [Everon scout evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-everon-scout-v1.json) also retains an earlier timeout during material traversal.
 
 The [Workbench plugin documentation](https://community.bistudio.com/wiki/Arma_Reforger:Workbench_Plugin) describes command-line callbacks. The probe uses Lab discovery, isolated initialization and compilation, followed by a separate bounded inventory operation. It requests an initially hidden module window and preserves private settings. Its completion check requires natural exit, exactly one callback completion and each requested search result; exit code 0 alone is insufficient.
 
@@ -55,3 +65,5 @@ python scripts/probe_enfusion_resource_inventory.py --out experiments/local/worl
 The additional-world loader accepts this distinct inventory operation without pretending an image was captured. It binds the native manifests, log, scripts and completion records. Keep the resulting `resources.json` with its raw run directories and pass it as `--world-inventory` to a scene probe.
 
 Three earlier attempts remain visible. Two silent startups compiled and exited without invoking the callback; adding `-run` did not resolve them. A normal startup invoked the full callback but timed out before returning any inventory records. The successful version calls only the resource searches, omitting the earlier material-file traversal. [Silent-attempt evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-resource-inventory-silent-v1.json) and the native inventory report retain these failures. Other modules were not tested. None of these runs proves a neural rendering bridge.
+
+The revised WorldEditor location query reports all 170 named locations among 650 map descriptors, including Saint-Philippe and Montignac. [Named-location evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-everon-locations-v1.json) binds the completed capture and compiled script. `scripts/capture_enfusion_scout.py` accepts a camera config and the native world inventory, verifies the exported sequence, and records optional vehicle/character placement. Its output is source-only; each scene needs visual review before it counts as environment coverage.

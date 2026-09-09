@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "status": "analyzed",
+  "report_sha256": "7b3d2c62bc91fb030b7336e0f22bc0901cb0ab0751e0f81d7bce54f63ff04a83",
+  "summarizer_sha256": "8d0e220690fb488d2ca69bf52f99d25e6ed4ae7a72156874aed613095546670b",
+  "script_sha256": "d161bffe6884808a15a69ea2b7ba8b741e0ed10eae51b8a26db8f5623d2c3033",
+  "selected_candidate": "scene",
+  "selection_performed": false,
+  "scope": "The predeclared checks applied to all three locked variants. This analysis does not change the validation-selected candidate.",
+  "variants": {
+    "scene": {
+      "mean_log1p_rmse": {
+        "source": 0.02534008821554654,
+        "affine-scene": 0.012754299006987711,
+        "affine-rgb": 0.014546630193711121,
+        "scene": 0.009360343222370518,
+        "relative": 0.009836826690741736,
+        "rgb": 0.013509103121292762,
+        "old-scene": 0.019595597530788638,
+        "old-rgb": 0.015138607594507547
+      },
+      "mean_display_rgb_mae_8bit": {
+        "source": 3.085168734996571,
+        "affine-scene": 2.0274662958676264,
+        "affine-rgb": 2.2822880229766804,
+        "scene": 1.0505378729423869,
+        "relative": 1.1021080354080934,
+        "rgb": 1.46540182398834,
+        "old-scene": 3.1604830032578874,
+        "old-rgb": 1.5314095721879284
+      },
+      "mean_temporal_error_rmse": {
+        "source": 0.002505366335942755,
+        "affine-scene": 0.0025093445815905727,
+        "affine-rgb": 0.002515311011437543,
+        "scene": 0.002523775687942495,
+        "relative": 0.0025298180009999927,
+        "rgb": 0.002622594022560391,
+        "old-scene": 0.0025265124975225066,
+        "old-rgb": 0.00263711165255583
+      },
+      "mean_reference_seed_log1p_rmse": 0.0022934666752294874,
+      "temporal_coverage_min_mean_max": [
+        0.8472916666666667,
+        0.8920990937746257,
+        0.9088811728395062
+      ],
+      "mean_absolute_marking_contrast_error": {
+        "source": 0.024629638901570078,
+        "affine-scene": 0.007193953887682118,
+        "affine-rgb": 0.022599617091475867,
+        "scene": 0.002146228382023643,
+        "relative": 0.004178907585134501,
+        "rgb": 0.010033824432720535,
+        "old-scene": 0.032502442275114125,
+        "old-rgb": 0.00942702660358954
+      },
+      "spatial_improvement_fractions": {
+        "source": 0.6306112613835416,
+        "affine-scene": 0.2661028867801941,
+        "affine-rgb": 0.35652841257920803
+      },
+      "spatial_gain_reference_seed_sensitivity": {
+        "source": {
+          "independent_gain": 0.01597974499317602,
+          "paired_gain": 0.016081580291785084,
+          "absolute_sensitivity": 0.0001018352986090626,
+          "resolved": true
+        },
+        "affine-scene": {
+          "independent_gain": 0.003393955784617193,
+          "paired_gain": 0.0034378058787118532,
+          "absolute_sensitivity": 4.385009409466024e-05,
+          "resolved": true
+        },
+        "affine-rgb": {
+          "independent_gain": 0.0051862869713406035,
+          "paired_gain": 0.005243610069101602,
+          "absolute_sensitivity": 5.73230977609987e-05,
+          "resolved": true
+        }
+      },
+      "temporal_gain_reference_seed_sensitivity": {
+        "independent_gain": -1.8409351999739733e-05,
+        "paired_gain": -2.268326731653568e-05,
+        "absolute_sensitivity": 4.2739153167959475e-06,
+        "resolved": false
+      },
+      "candidate_frame_failures": [],
+      "missing_regions": [],
+      "gates": {
+        "spatial_improvement": true,
+        "spatial_gain_resolved": true,
+        "boundaries_and_posts": true,
+        "marking_contrast": true,
+        "temporal_non_regression": true
+      },
+      "passed": true
+    },
+    "relative": {
+      "mean_log1p_rmse": {
+        "source": 0.02534008821554654,
+        "affine-scene": 0.012754299006987711,
+        "affine-rgb": 0.014546630193711121,
+        "scene": 0.009360343222370518,
+        "relative": 0.009836826690741736,
+        "rgb": 0.013509103121292762,
+        "old-scene": 0.019595597530788638,
+        "old-rgb": 0.015138607594507547
+      },
+      "mean_display_rgb_mae_8bit": {
+        "source": 3.085168734996571,
+        "affine-scene": 2.0274662958676264,
+        "affine-rgb": 2.2822880229766804,
+        "scene": 1.0505378729423869,
+        "relative": 1.1021080354080934,
+        "rgb": 1.46540182398834,
+        "old-scene": 3.1604830032578874,
+        "old-rgb": 1.5314095721879284
+      },
+      "mean_temporal_error_rmse": {
+        "source": 0.002505366335942755,
+        "affine-scene": 0.0025093445815905727,
+        "affine-rgb": 0.002515311011437543,
+        "scene": 0.002523775687942495,
+        "relative": 0.0025298180009999927,
+        "rgb": 0.002622594022560391,
+        "old-scene": 0.0025265124975225066,
+        "old-rgb": 0.00263711165255583
+      },
+      "mean_reference_seed_log1p_rmse": 0.0022934666752294874,
+      "temporal_coverage_min_mean_max": [
+        0.8472916666666667,
+        0.8920990937746257,
+        0.9088811728395062
+      ],
+      "mean_absolute_marking_contrast_error": {
+        "source": 0.024629638901570078,
+        "affine-scene": 0.007193953887682118,
+        "affine-rgb": 0.022599617091475867,
+        "scene": 0.002146228382023643,
+        "relative": 0.004178907585134501,
+        "rgb": 0.010033824432720535,
+        "old-scene": 0.032502442275114125,
+        "old-rgb": 0.00942702660358954
+      },
+      "spatial_improvement_fractions": {
+        "source": 0.6118077172001837,
+        "affine-scene": 0.22874423083915282,
+        "affine-rgb": 0.3237728216261078
+      },
+      "spatial_gain_reference_seed_sensitivity": {
+        "source": {
+          "independent_gain": 0.015503261524804803,
+          "paired_gain": 0.015595149113841827,
+          "absolute_sensitivity": 9.188758903702458e-05,
+          "resolved": true
+        },
+        "affine-scene": {
+          "independent_gain": 0.0029174723162459747,
+          "paired_gain": 0.002951374700768592,
+          "absolute_sensitivity": 3.390238452261746e-05,
+          "resolved": true
+        },
+        "affine-rgb": {
+          "independent_gain": 0.004709803502969385,
+          "paired_gain": 0.0047571788911583415,
+          "absolute_sensitivity": 4.737538818895635e-05,
+          "resolved": true
+        }
+      },
+      "temporal_gain_reference_seed_sensitivity": {
+        "independent_gain": -2.4451665057237566e-05,
+        "paired_gain": -3.669407773511225e-05,
+        "absolute_sensitivity": 1.2242412677874684e-05,
+        "resolved": false
+      },
+      "candidate_frame_failures": [],
+      "missing_regions": [],
+      "gates": {
+        "spatial_improvement": true,
+        "spatial_gain_resolved": true,
+        "boundaries_and_posts": true,
+        "marking_contrast": true,
+        "temporal_non_regression": true
+      },
+      "passed": true
+    },
+    "rgb": {
+      "mean_log1p_rmse": {
+        "source": 0.02534008821554654,
+        "affine-scene": 0.012754299006987711,
+        "affine-rgb": 0.014546630193711121,
+        "scene": 0.009360343222370518,
+        "relative": 0.009836826690741736,
+        "rgb": 0.013509103121292762,
+        "old-scene": 0.019595597530788638,
+        "old-rgb": 0.015138607594507547
+      },
+      "mean_display_rgb_mae_8bit": {
+        "source": 3.085168734996571,
+        "affine-scene": 2.0274662958676264,
+        "affine-rgb": 2.2822880229766804,
+        "scene": 1.0505378729423869,
+        "relative": 1.1021080354080934,
+        "rgb": 1.46540182398834,
+        "old-scene": 3.1604830032578874,
+        "old-rgb": 1.5314095721879284
+      },
+      "mean_temporal_error_rmse": {
+        "source": 0.002505366335942755,
+        "affine-scene": 0.0025093445815905727,
+        "affine-rgb": 0.002515311011437543,
+        "scene": 0.002523775687942495,
+        "relative": 0.0025298180009999927,
+        "rgb": 0.002622594022560391,
+        "old-scene": 0.0025265124975225066,
+        "old-rgb": 0.00263711165255583
+      },
+      "mean_reference_seed_log1p_rmse": 0.0022934666752294874,
+      "temporal_coverage_min_mean_max": [
+        0.8472916666666667,
+        0.8920990937746257,
+        0.9088811728395062
+      ],
+      "mean_absolute_marking_contrast_error": {
+        "source": 0.024629638901570078,
+        "affine-scene": 0.007193953887682118,
+        "affine-rgb": 0.022599617091475867,
+        "scene": 0.002146228382023643,
+        "relative": 0.004178907585134501,
+        "rgb": 0.010033824432720535,
+        "old-scene": 0.032502442275114125,
+        "old-rgb": 0.00942702660358954
+      },
+      "spatial_improvement_fractions": {
+        "source": 0.4668880784319955,
+        "affine-scene": -0.05918036843040263,
+        "affine-rgb": 0.07132422139025084
+      },
+      "spatial_gain_reference_seed_sensitivity": {
+        "source": {
+          "independent_gain": 0.011830985094253777,
+          "paired_gain": 0.011886482596094282,
+          "absolute_sensitivity": 5.5497501840504754e-05,
+          "resolved": true
+        },
+        "affine-scene": {
+          "independent_gain": -0.0007548041143050511,
+          "paired_gain": -0.0007572918169789514,
+          "absolute_sensitivity": 2.4877026739003128e-06,
+          "resolved": false
+        },
+        "affine-rgb": {
+          "independent_gain": 0.0010375270724183594,
+          "paired_gain": 0.0010485123734107977,
+          "absolute_sensitivity": 1.0985300992438253e-05,
+          "resolved": true
+        }
+      },
+      "temporal_gain_reference_seed_sensitivity": {
+        "independent_gain": -0.00011722768661763571,
+        "paired_gain": -0.00017457496957870773,
+        "absolute_sensitivity": 5.734728296107202e-05,
+        "resolved": false
+      },
+      "candidate_frame_failures": [],
+      "missing_regions": [],
+      "gates": {
+        "spatial_improvement": false,
+        "spatial_gain_resolved": false,
+        "boundaries_and_posts": true,
+        "marking_contrast": true,
+        "temporal_non_regression": false
+      },
+      "passed": false
+    }
+  }
+}

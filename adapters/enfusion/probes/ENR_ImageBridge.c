@@ -33,7 +33,7 @@ class ENR_ImageBridge
 
  static void OnTexture(PixelRawData data, int width, int height, int stride)
  {
-  Save("bridge-texture.png", data, width, height, stride);
+  if (Save("bridge-texture.png", data, width, height, stride)) Stage = 6;
  }
 
  static void OnPresented(PixelRawData data, int width, int height, int stride)
@@ -51,20 +51,28 @@ class ENR_ImageBridge
   bool copied = Image.CopyImageTexture(0, data);
   PrintFormat("ENR_BRIDGE {\"event\":\"screenshot_texture\",\"copied\":%1,\"tick_ms\":%2}", copied, System.GetTickCount());
   if (!copied) { Fail("screenshot texture copy rejected"); return; }
-  Present();
+  // Return from the screenshot callback before requesting UI readback.
+  Stage = 5;
+ }
+
+ static void Step(string name)
+ {
+  PrintFormat("ENR_BRIDGE {\"event\":\"step\",\"name\":\"%1\",\"tick_ms\":%2}", name, System.GetTickCount());
  }
 
  static void Present()
  {
+  Step("set_image");
   Image.SetImage(0);
   int width, height;
+  Step("get_image_size");
   Image.GetImageSize(0, width, height);
-  bool requested = Image.GetTextureRawData(0, OnTexture);
+  Step("set_visible");
   Image.SetVisible(true);
+  Step("workspace_update");
   GetGame().GetWorkspace().Update();
-  float sw, sh;
-  Image.GetScreenSize(sw, sh);
-  PrintFormat("ENR_BRIDGE {\"event\":\"presented\",\"texture_size\":[%1,%2],\"screen_size\":[%3,%4],\"visible\":%5,\"raw_requested\":%6,\"world_frame\":%7,\"tick_ms\":%8}", width, height, sw, sh, Image.IsVisibleInHierarchy(), requested, GetGame().GetWorld().GetFrameNumber(), System.GetTickCount());
+  Step("waiting_for_visible_widget");
+  Ticks = 0;
   Stage = 3;
  }
 
@@ -93,14 +101,31 @@ class ENR_ImageBridge
    if (!loaded) { Fail("local PNG load rejected"); return false; }
    Present();
   }
+  else if (Stage == 5)
+  {
+   Present();
+  }
   else if (Stage == 3)
   {
    Ticks++;
    if (Ticks >= 12)
    {
     Stage = 4;
-    System.MakeScreenshotRawData(OnPresented, 0, 0, width, height, width, height);
+    Step("request_texture_raw_data");
+    bool requested = Image.GetTextureRawData(0, OnTexture);
+    int iw, ih;
+    Image.GetImageSize(0, iw, ih);
+    float sw, sh;
+    Image.GetScreenSize(sw, sh);
+    PrintFormat("ENR_BRIDGE {\"event\":\"presented\",\"texture_size\":[%1,%2],\"screen_size\":[%3,%4],\"visible\":%5,\"raw_requested\":%6,\"world_frame\":%7,\"tick_ms\":%8}", iw, ih, sw, sh, Image.IsVisibleInHierarchy(), requested, world.GetFrameNumber(), System.GetTickCount());
+    if (!requested) Fail("widget raw-data request rejected");
    }
+  }
+  else if (Stage == 6)
+  {
+   Stage = 7;
+   Step("request_presented_screenshot");
+   System.MakeScreenshotRawData(OnPresented, 0, 0, width, height, width, height);
   }
   return false;
  }

@@ -5,6 +5,7 @@ class ENR_ResourceProbe
  string Query;
  int Count;
  int Locations;
+ int NamedLocations;
 
  void CoreFile(string path)
  {
@@ -29,11 +30,13 @@ class ENR_ResourceProbe
   MapDescriptorComponent descriptor = MapDescriptorComponent.Cast(entity.FindComponent(MapDescriptorComponent));
   if (!descriptor) return true;
   Locations++;
-  if (Locations > 200) return true;
   vector position = entity.GetOrigin();
   string displayName = entity.GetName();
   MapItem item = descriptor.Item();
-  if (item) displayName = item.GetDisplayName();
+  if (item && !item.GetDisplayName().IsEmpty()) displayName = item.GetDisplayName();
+  if (displayName.IsEmpty()) return true;
+  NamedLocations++;
+  if (NamedLocations > 400) return true;
   PrintFormat("ENR_LOCATION name=%1 type=%2 position=%3", displayName, descriptor.GetBaseType(), position);
   return true;
  }
@@ -41,7 +44,7 @@ class ENR_ResourceProbe
  void WorldLocations(BaseWorld world)
  {
   world.QueryEntitiesBySphere("2048 0 2048", 20000, FoundLocation);
-  PrintFormat("ENR_LOCATION_DONE count=%1", Locations);
+  PrintFormat("ENR_LOCATION_DONE count=%1 named=%2 limit=400", Locations, NamedLocations);
  }
 
  void Found(ResourceName resourceName, string filePath = "")

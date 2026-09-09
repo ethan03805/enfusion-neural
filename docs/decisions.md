@@ -69,3 +69,9 @@ The [result](lighting-motion.md) narrows the claim: average error improves, but 
 Accepted 9 September 2026. Declare four training layouts, one validation layout and one untouched test layout before rendering. Compare full scene inputs, no absolute world position and RGB-only with identical sampled pixels and optimizer steps. Input-layer capacities differ explicitly. Select checkpoints and the candidate using validation only, then commit a lock before test rendering. Keep both published paths and old models as regression controls.
 
 Require source and affine-baseline improvement, source-relative boundary/post and marking-contrast limits, temporal non-regression and a reference-seed sensitivity check. Render all test roles at 8,192 samples and publish complete clips and failures. Current regression results improve the partitioned scene but do not replace the untouched test or the independent Enfusion integration requirement.
+
+The completed untouched test passes for the validation-selected full-input model and the relative-input variant. RGB-only fails aggregate spatial and temporal checks. Keep the original selection and thresholds; the result does not authorize choosing models retrospectively by scene. All three complete clips and the old regression paths remain available. The supported engine bridge and varied actual Arma coverage are separate unfinished requirements.
+
+## 015 · Publish completed tests while keeping integration unresolved
+
+Accepted 9 September 2026. Publish the complete untouched synthetic test and all controls with their failures. Do not hold finished evidence behind an unproven engine interface. Keep the full goal active: supported scene inputs/output and varied real Arma coverage remain required. Record runtime failures separately from compilation, and separate source-only environment scouts from neural integration tests. A native crash cannot become a successful proof because a later screenshot exists.

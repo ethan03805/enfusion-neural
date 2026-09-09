@@ -136,6 +136,7 @@ def inspect(root,model_path=None):
         raise ValueError('Unplanned capture environment')
     text=(run_dir/'console.log').read_text(errors='replace');trace=events(text)
     errors=[e['reason'] for e in trace if e['event']=='failure']+probe['worker_errors']
+    if probe.get('capture_error'):errors.append(probe['capture_error'])
     result={'schema_version':1,'status':'analyzed','mode':probe['mode'],'world':run['world'],'config':config,
             'probe_report_sha256':digest(path),'capture_manifest_sha256':probe['capture_manifest_sha256'],
             'world_binding':binding,
@@ -146,7 +147,7 @@ def inspect(root,model_path=None):
             'events':trace,'errors':errors,'images':{},'comparisons':{},
             'verification':{'pixel_exact_screenshot_ui_return':False,'scene_buffer_access':False,
                             'gpu_presentation_frame_identity':False,'hud_and_scope_stage':False,'live_neural_lighting_integration':False},
-            'scope':'One frozen screenshot returned through a UI image widget. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.'}
+            'scope':'Probe of a frozen screenshot return through a UI image widget; consult verification for the actual outcome. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.'}
     def one(name):
         found=[e for e in trace if e['event']==name]
         if len(found)!=1:raise ValueError('Expected exactly one '+name+' event')

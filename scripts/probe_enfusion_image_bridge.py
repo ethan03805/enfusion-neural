@@ -58,6 +58,7 @@ def main():
     if out.exists() and any(out.iterdir()):raise ValueError('Use a new empty probe directory')
     initialize,run_workbench,doctor=lab_modules(a.lab_source)
     from enfusion_lab import runner
+    from enfusion_lab.config import LabError
     c,world_binding=image_bridge.load_probe_config(a.config,a.world_inventory)
     initialize(out);c['samples']=1;c['position_end']=c['position_start'];c['yaw_end_degrees']=c['yaw_start_degrees']
     sequence.prepare(out,c);write_json(out/'doctor.json',doctor());write_json(out/'capture-config.json',c)
@@ -103,14 +104,21 @@ def main():
             write_json(out/'validation-only.json',report);print(json.dumps(report,indent=2));return
         thread=threading.Thread(target=worker,daemon=True)
         if a.mode!='copy':thread.start()
+        capture_failure=None
         try:
             position,direction=sequence.camera(c,0)
             run=run_workbench(out,'capture',position=position,direction=direction,world=c['world'],settle=c['settle_seconds'],timeout=240)
+        except LabError as error:
+            # Lab retains its owned run on timeout or native failure. Preserve a
+            # bridge-level report too, so failed captures can use the same verifier.
+            run=error.details.get('run')
+            if run is None:raise
+            capture_failure=error
         finally:
             stop.set()
             if a.mode!='copy':thread.join(timeout=30)
     directory=Path(run['directory']);lines=(directory/'console.log').read_text(errors='replace').splitlines()
-    report={'schema_version':1,'mode':a.mode,'capture_status':run['status'],'validation_run':validation['run_id'],
+    report={'schema_version':1,'mode':a.mode,'capture_status':run['status'],'capture_error':str(capture_failure) if capture_failure else None,'validation_run':validation['run_id'],
             'capture_run':run['run_id'],'probe_sha256':digest(script),'console_sha256':digest(directory/'console.log'),
             'capture_manifest_sha256':digest(directory/'run.json'),
             'validation_manifest_sha256':digest(Path(validation['directory'])/'run.json'),
@@ -121,6 +129,7 @@ def main():
             'scope':'Screenshot capture and UI presentation only; no scene-buffer, HUD exclusion, GPU fence or live neural lighting integration claim.'}
     write_json(out/'bridge.json',report)
     print(json.dumps(report,indent=2))
+    if capture_failure:raise SystemExit(capture_failure.code)
 
 
 if __name__=='__main__':main()

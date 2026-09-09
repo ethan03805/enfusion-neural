@@ -93,6 +93,17 @@ class ImageBridgeControls(unittest.TestCase):
             path=next((root/'runs').glob('*/console.log'));path.write_text(path.read_text()+'\nchanged')
             with self.assertRaisesRegex(ValueError,'Changed bridge evidence'):image_bridge.inspect(root)
 
+    def test_native_capture_failure_retains_cause_even_with_valid_image_files(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);self.fixture(root)
+            report=json.loads((root/'bridge.json').read_text());run_path=root/'runs'/report['capture_run']/'run.json'
+            run=json.loads(run_path.read_text());run['status']='failed';bridge.write_json(run_path,run)
+            report.update(capture_status='failed',capture_error='Workbench timed out.',capture_manifest_sha256=bridge.digest(run_path))
+            bridge.write_json(root/'bridge.json',report)
+            checked=image_bridge.inspect(root)
+            self.assertIn('Workbench timed out.',checked['errors'])
+            self.assertFalse(any(checked['verification'].values()))
+
     def test_additional_world_requires_observed_resource_without_relaxing_default(self):
         with tempfile.TemporaryDirectory() as name:
             root=Path(name);config=root/'config.json';c=sequence.load_config(ROOT/'scenes/arland-motion-v1.json')

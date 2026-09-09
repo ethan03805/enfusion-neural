@@ -1,0 +1,591 @@
+{
+  "schema_version": 1,
+  "scope": "Screenshot/UI probes only. Each attempt retains its actual outcome; no scene-renderer bridge is established.",
+  "reporter_sha256": "02a6a40224b8f93ec8a3bfa89d3c64f3055d1fd62548a00c4330b1d317b918c3",
+  "verifier_sha256": "87b98b9449aba61cc72dfb01f61c17fac14c07b83ab5cc465f0e97bd0cad7c17",
+  "attempts": [
+    {
+      "schema_version": 1,
+      "status": "analyzed",
+      "mode": "copy",
+      "world": "worlds/Arland/Arland.ent",
+      "config": {
+        "schema_version": 1,
+        "id": "arland-motion-v1",
+        "world": "worlds/Arland/Arland.ent",
+        "group": "arland-center",
+        "split": "diagnostic",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "position_start": [
+          2048,
+          60,
+          2048
+        ],
+        "position_end": [
+          2048,
+          60,
+          2048
+        ],
+        "yaw_start_degrees": 90,
+        "yaw_end_degrees": 90,
+        "vertical_fov_degrees": 60,
+        "near_plane_m": 0.1,
+        "far_plane_m": 2000,
+        "hdr_brightness": 0.00456415,
+        "date": [
+          1989,
+          6,
+          21
+        ],
+        "hour": 13,
+        "weather_state": "Clear",
+        "wind_speed_mps": 0,
+        "wind_direction_degrees": 0,
+        "settle_seconds": 8,
+        "hold_ticks_per_sample": 6,
+        "samples": 1,
+        "playback_fps": 20,
+        "timeout_seconds": 180,
+        "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+        "requested_render_scale": 1,
+        "requested_fsr_enabled": false,
+        "viewport_render_scale_verified": false,
+        "viewport_fsr_verified": false,
+        "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+        "quality_readback": {
+          "VideoUserSettings": {
+            "ResolutionScale": 1,
+            "FsrEnabled": 0,
+            "Fsaa": 0,
+            "DistantShadowsQuality": 2,
+            "EnvironmentQuality": 2,
+            "Atoc": 0,
+            "Gamma": 0,
+            "Contrast": 0,
+            "Brightness": 0
+          },
+          "PPEffectsSettings": {
+            "HBAO": 1,
+            "SSDO": 1,
+            "SSR": 1,
+            "PPAA": 2
+          },
+          "PipelineUserSettings": {
+            "ShadowQuality": 2
+          },
+          "ResourceManagerUserSettings": {
+            "TextureDetail": 0,
+            "GeometricDetail": 2
+          },
+          "GrassMaterialSettings": {
+            "Distance": 175,
+            "Lod": 3,
+            "Quality": 0
+          },
+          "TerrainGenMaterialSettings": {
+            "Detail": 3
+          },
+          "MaterialSystemUserSettings": {
+            "TextureFilter": 2,
+            "MaxAniso": 4
+          }
+        }
+      },
+      "probe_report_sha256": "ca7e79dded9894440c26bf574ee171dbcf5ee10f18436077ca3af7be51d254de",
+      "capture_manifest_sha256": "7084b104411959a880bca2483b4f49890ce99026c3a7764278b1df0865cb3c56",
+      "world_binding": null,
+      "validation_manifest_sha256": "1d527a72d7debde7cb9c976a2a70ae278eff03ee5958b531e6bae12324b654da",
+      "console_sha256": "99227297a399cd03548a7332202c875542ef11d77b4a4131d3d14fee90d8170c",
+      "capture_run": "20260909T073559-0c440ec2c0",
+      "validation_run": "20260909T073545-66d313d833",
+      "capture_status": "failed",
+      "probe_sha256": "d87eb26d3d8384ed8cdc1287c5e19f3d8859f79413be9e9890570d30e8e8b998",
+      "entities_script_sha256": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+      "entities_requested": false,
+      "entity_records": [],
+      "events": [
+        {
+          "event": "requested",
+          "mode": "copy",
+          "width": 2560,
+          "height": 1440,
+          "world_frame": 721,
+          "tick_ms": 21177
+        },
+        {
+          "event": "screenshot_texture",
+          "copied": 1,
+          "tick_ms": 21198
+        }
+      ],
+      "errors": [
+        "Workbench timed out. Logs retained; a modal dialog may require attention."
+      ],
+      "images": {},
+      "comparisons": {},
+      "verification": {
+        "pixel_exact_screenshot_ui_return": false,
+        "scene_buffer_access": false,
+        "gpu_presentation_frame_identity": false,
+        "hud_and_scope_stage": false,
+        "live_neural_lighting_integration": false
+      },
+      "scope": "Probe of a frozen screenshot return through a UI image widget; consult verification for the actual outcome. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.",
+      "process": {
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "wall_seconds": 240.45300000000134
+      }
+    },
+    {
+      "schema_version": 1,
+      "status": "analyzed",
+      "mode": "copy",
+      "world": "worlds/Arland/Arland.ent",
+      "config": {
+        "schema_version": 1,
+        "id": "arland-motion-v1",
+        "world": "worlds/Arland/Arland.ent",
+        "group": "arland-center",
+        "split": "diagnostic",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "position_start": [
+          2048,
+          60,
+          2048
+        ],
+        "position_end": [
+          2048,
+          60,
+          2048
+        ],
+        "yaw_start_degrees": 90,
+        "yaw_end_degrees": 90,
+        "vertical_fov_degrees": 60,
+        "near_plane_m": 0.1,
+        "far_plane_m": 2000,
+        "hdr_brightness": 0.00456415,
+        "date": [
+          1989,
+          6,
+          21
+        ],
+        "hour": 13,
+        "weather_state": "Clear",
+        "wind_speed_mps": 0,
+        "wind_direction_degrees": 0,
+        "settle_seconds": 8,
+        "hold_ticks_per_sample": 6,
+        "samples": 1,
+        "playback_fps": 20,
+        "timeout_seconds": 180,
+        "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+        "requested_render_scale": 1,
+        "requested_fsr_enabled": false,
+        "viewport_render_scale_verified": false,
+        "viewport_fsr_verified": false,
+        "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+        "quality_readback": {
+          "VideoUserSettings": {
+            "ResolutionScale": 1,
+            "FsrEnabled": 0,
+            "Fsaa": 0,
+            "DistantShadowsQuality": 2,
+            "EnvironmentQuality": 2,
+            "Atoc": 0,
+            "Gamma": 0,
+            "Contrast": 0,
+            "Brightness": 0
+          },
+          "PPEffectsSettings": {
+            "HBAO": 1,
+            "SSDO": 1,
+            "SSR": 1,
+            "PPAA": 2
+          },
+          "PipelineUserSettings": {
+            "ShadowQuality": 2
+          },
+          "ResourceManagerUserSettings": {
+            "TextureDetail": 0,
+            "GeometricDetail": 2
+          },
+          "GrassMaterialSettings": {
+            "Distance": 175,
+            "Lod": 3,
+            "Quality": 0
+          },
+          "TerrainGenMaterialSettings": {
+            "Detail": 3
+          },
+          "MaterialSystemUserSettings": {
+            "TextureFilter": 2,
+            "MaxAniso": 4
+          }
+        }
+      },
+      "probe_report_sha256": "4b617aa1a6798b26b1612bcd2c033e468d1b2be68ff85b85915703e2353d2be1",
+      "capture_manifest_sha256": "32188f9d348b2e82afe7581645921ca18b34ca2bcba4541318b1c652d50c6011",
+      "world_binding": null,
+      "validation_manifest_sha256": "d524457972a5affd5c26bc3955d312ac07f0e3e5f3803c11a9e3df7989fad9bd",
+      "console_sha256": "af705cfdc9fb1e52082dbffd8e524197727dbb636ae3fd93557601205a73b78b",
+      "capture_run": "20260909T074115-7a97155bd4",
+      "validation_run": "20260909T074102-3df963d623",
+      "capture_status": "failed",
+      "probe_sha256": "6a9074df4ceaff11e8c4343b2f9b1429fd457a90c991350cff4aa0b928bca339",
+      "entities_script_sha256": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+      "entities_requested": false,
+      "entity_records": [],
+      "events": [
+        {
+          "event": "requested",
+          "mode": "copy",
+          "width": 2560,
+          "height": 1440,
+          "world_frame": 761,
+          "tick_ms": 20025
+        },
+        {
+          "event": "screenshot_texture",
+          "copied": 1,
+          "tick_ms": 20043
+        },
+        {
+          "event": "step",
+          "name": "set_image",
+          "tick_ms": 20044
+        },
+        {
+          "event": "step",
+          "name": "get_image_size",
+          "tick_ms": 20044
+        },
+        {
+          "event": "step",
+          "name": "request_texture_raw_data",
+          "tick_ms": 20044
+        }
+      ],
+      "errors": [
+        "Workbench timed out. Logs retained; a modal dialog may require attention."
+      ],
+      "images": {},
+      "comparisons": {},
+      "verification": {
+        "pixel_exact_screenshot_ui_return": false,
+        "scene_buffer_access": false,
+        "gpu_presentation_frame_identity": false,
+        "hud_and_scope_stage": false,
+        "live_neural_lighting_integration": false
+      },
+      "scope": "Probe of a frozen screenshot return through a UI image widget; consult verification for the actual outcome. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.",
+      "process": {
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "wall_seconds": 240.38999999999942
+      }
+    },
+    {
+      "schema_version": 1,
+      "status": "analyzed",
+      "mode": "copy",
+      "world": "worlds/Arland/Arland.ent",
+      "config": {
+        "schema_version": 1,
+        "id": "arland-motion-v1",
+        "world": "worlds/Arland/Arland.ent",
+        "group": "arland-center",
+        "split": "diagnostic",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "position_start": [
+          2048,
+          60,
+          2048
+        ],
+        "position_end": [
+          2048,
+          60,
+          2048
+        ],
+        "yaw_start_degrees": 90,
+        "yaw_end_degrees": 90,
+        "vertical_fov_degrees": 60,
+        "near_plane_m": 0.1,
+        "far_plane_m": 2000,
+        "hdr_brightness": 0.00456415,
+        "date": [
+          1989,
+          6,
+          21
+        ],
+        "hour": 13,
+        "weather_state": "Clear",
+        "wind_speed_mps": 0,
+        "wind_direction_degrees": 0,
+        "settle_seconds": 8,
+        "hold_ticks_per_sample": 6,
+        "samples": 1,
+        "playback_fps": 20,
+        "timeout_seconds": 180,
+        "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+        "requested_render_scale": 1,
+        "requested_fsr_enabled": false,
+        "viewport_render_scale_verified": false,
+        "viewport_fsr_verified": false,
+        "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+        "quality_readback": {
+          "VideoUserSettings": {
+            "ResolutionScale": 1,
+            "FsrEnabled": 0,
+            "Fsaa": 0,
+            "DistantShadowsQuality": 2,
+            "EnvironmentQuality": 2,
+            "Atoc": 0,
+            "Gamma": 0,
+            "Contrast": 0,
+            "Brightness": 0
+          },
+          "PPEffectsSettings": {
+            "HBAO": 1,
+            "SSDO": 1,
+            "SSR": 1,
+            "PPAA": 2
+          },
+          "PipelineUserSettings": {
+            "ShadowQuality": 2
+          },
+          "ResourceManagerUserSettings": {
+            "TextureDetail": 0,
+            "GeometricDetail": 2
+          },
+          "GrassMaterialSettings": {
+            "Distance": 175,
+            "Lod": 3,
+            "Quality": 0
+          },
+          "TerrainGenMaterialSettings": {
+            "Detail": 3
+          },
+          "MaterialSystemUserSettings": {
+            "TextureFilter": 2,
+            "MaxAniso": 4
+          }
+        }
+      },
+      "probe_report_sha256": "1be91cd6fb8058bbab60aa2565662d05771de54dad53903cea3485077353d402",
+      "capture_manifest_sha256": "0b580574c32b9dd5badeb8da73753ac3a354ef167e39043ae6e3705625485ba0",
+      "world_binding": null,
+      "validation_manifest_sha256": "8b5d358bd7ac8e187ace2370c6e2fe522ba1989e0612f57cd71f97edd7fc9fc8",
+      "console_sha256": "5f81bcec2db21b33804a8995f3c7dbd1669f1c5331310a26d97c249a48c03346",
+      "capture_run": "20260909T074706-0b1438d244",
+      "validation_run": "20260909T074653-10a25d20eb",
+      "capture_status": "failed",
+      "probe_sha256": "fa6279b68170b59bb9f0c5fc4a7e3a05f418351b06a4e6919765f56d775abbfc",
+      "entities_script_sha256": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+      "entities_requested": false,
+      "entity_records": [],
+      "events": [
+        {
+          "event": "requested",
+          "mode": "copy",
+          "width": 2560,
+          "height": 1440,
+          "world_frame": 722,
+          "tick_ms": 19980
+        },
+        {
+          "event": "screenshot_texture",
+          "copied": 1,
+          "tick_ms": 20000
+        },
+        {
+          "event": "step",
+          "name": "set_image",
+          "tick_ms": 20001
+        },
+        {
+          "event": "step",
+          "name": "get_image_size",
+          "tick_ms": 20001
+        },
+        {
+          "event": "step",
+          "name": "set_visible",
+          "tick_ms": 20001
+        },
+        {
+          "event": "step",
+          "name": "workspace_update",
+          "tick_ms": 20002
+        },
+        {
+          "event": "step",
+          "name": "waiting_for_visible_widget",
+          "tick_ms": 20002
+        }
+      ],
+      "errors": [
+        "Workbench exited (3221225477) without verified capture completion."
+      ],
+      "images": {},
+      "comparisons": {},
+      "verification": {
+        "pixel_exact_screenshot_ui_return": false,
+        "scene_buffer_access": false,
+        "gpu_presentation_frame_identity": false,
+        "hud_and_scope_stage": false,
+        "live_neural_lighting_integration": false
+      },
+      "scope": "Probe of a frozen screenshot return through a UI image widget; consult verification for the actual outcome. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.",
+      "process": {
+        "process_exit_code": 3221225477,
+        "terminated_owned_process": false,
+        "wall_seconds": 27.07800000000134
+      }
+    },
+    {
+      "schema_version": 1,
+      "status": "analyzed",
+      "mode": "identity",
+      "world": "worlds/Arland/Arland.ent",
+      "config": {
+        "schema_version": 1,
+        "id": "arland-motion-v1",
+        "world": "worlds/Arland/Arland.ent",
+        "group": "arland-center",
+        "split": "diagnostic",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "position_start": [
+          2048,
+          60,
+          2048
+        ],
+        "position_end": [
+          2048,
+          60,
+          2048
+        ],
+        "yaw_start_degrees": 90,
+        "yaw_end_degrees": 90,
+        "vertical_fov_degrees": 60,
+        "near_plane_m": 0.1,
+        "far_plane_m": 2000,
+        "hdr_brightness": 0.00456415,
+        "date": [
+          1989,
+          6,
+          21
+        ],
+        "hour": 13,
+        "weather_state": "Clear",
+        "wind_speed_mps": 0,
+        "wind_direction_degrees": 0,
+        "settle_seconds": 8,
+        "hold_ticks_per_sample": 6,
+        "samples": 1,
+        "playback_fps": 20,
+        "timeout_seconds": 180,
+        "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+        "requested_render_scale": 1,
+        "requested_fsr_enabled": false,
+        "viewport_render_scale_verified": false,
+        "viewport_fsr_verified": false,
+        "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+        "quality_readback": {
+          "VideoUserSettings": {
+            "ResolutionScale": 1,
+            "FsrEnabled": 0,
+            "Fsaa": 0,
+            "DistantShadowsQuality": 2,
+            "EnvironmentQuality": 2,
+            "Atoc": 0,
+            "Gamma": 0,
+            "Contrast": 0,
+            "Brightness": 0
+          },
+          "PPEffectsSettings": {
+            "HBAO": 1,
+            "SSDO": 1,
+            "SSR": 1,
+            "PPAA": 2
+          },
+          "PipelineUserSettings": {
+            "ShadowQuality": 2
+          },
+          "ResourceManagerUserSettings": {
+            "TextureDetail": 0,
+            "GeometricDetail": 2
+          },
+          "GrassMaterialSettings": {
+            "Distance": 175,
+            "Lod": 3,
+            "Quality": 0
+          },
+          "TerrainGenMaterialSettings": {
+            "Detail": 3
+          },
+          "MaterialSystemUserSettings": {
+            "TextureFilter": 2,
+            "MaxAniso": 4
+          }
+        }
+      },
+      "probe_report_sha256": "4a53f505766917aa48e56f61292d9af5e9a3d0da3b45e29b6fc6f06cfae86a55",
+      "capture_manifest_sha256": "4ca1cfa466a74f451c1a202da92d30714ce8dafd83b4e52ffe9170f7415669a1",
+      "world_binding": null,
+      "validation_manifest_sha256": "3a5482e0dc3da0e661109176020b70e489c3ffd3687b397a5eb699b691659d4f",
+      "console_sha256": "4fdaf4d9cce4a0a49e4252679ac80bd9da6ae19d44393d8c89e19ae2ad767216",
+      "capture_run": "20260909T080553-b562176aff",
+      "validation_run": "20260909T080540-26d8e40e70",
+      "capture_status": "failed",
+      "probe_sha256": "fa6279b68170b59bb9f0c5fc4a7e3a05f418351b06a4e6919765f56d775abbfc",
+      "entities_script_sha256": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+      "entities_requested": false,
+      "entity_records": [],
+      "events": [
+        {
+          "event": "requested",
+          "mode": "identity",
+          "width": 2560,
+          "height": 1440,
+          "world_frame": 767,
+          "tick_ms": 20061
+        }
+      ],
+      "errors": [
+        "Workbench timed out. Logs retained; a modal dialog may require attention."
+      ],
+      "images": {},
+      "comparisons": {},
+      "verification": {
+        "pixel_exact_screenshot_ui_return": false,
+        "scene_buffer_access": false,
+        "gpu_presentation_frame_identity": false,
+        "hud_and_scope_stage": false,
+        "live_neural_lighting_integration": false
+      },
+      "scope": "Probe of a frozen screenshot return through a UI image widget; consult verification for the actual outcome. Exact pixels do not establish a scene render pass, frame synchronization, gameplay throughput, or auxiliary-buffer access.",
+      "process": {
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "wall_seconds": 240.28100000000268
+      }
+    }
+  ],
+  "sources": [
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceSystem.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceImageWidget.html"
+  ]
+}
