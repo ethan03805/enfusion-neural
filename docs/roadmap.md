@@ -2,7 +2,9 @@
 
 The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
 
-**Immediate next task:** calibrate a point-light reference for the imported room. The [room-lighting controls](room-lighting.md) establish visible response and three static repeats; a clipping follow-up restores the lower light without changing intensity or exposure. Use a declared clipping policy for the next intensity sweep. Create a separately versioned point-light reference rather than changing the original area-light fixture. Acceptance: fixed-exposure brightness/color mapping checked on independent patches, measured environment/reflection contribution, repeat measurements, and explicit residual material/shadow differences. Do not fit on held-out calibration checks or label the current images an aligned appearance pair. Supported scene inputs/output remain a separate required integration gate.
+**Immediate next task:** inspect the supported color-grading material schema, then declare and test an original identity/known-color lookup control. The [integration plan](integration.md#color-lookup-control) defines the required evidence and its limited scope. Prove import, effect placement, numerical response and removal before using a trained transform. This route does not supply the full lighting model's scene inputs, and its success cannot close the broader integration goal.
+
+The [point-light calibration](light-calibration.md) is complete and fails seven of 22 reserved response checks. All eight native captures, four reference passes, unchanged fit coefficients and failures are retained. Before accepting an appearance-training pair, separately isolate environment/reflection contributions and verify color/material response on independent controls. Do not rerun the same fit, select a new curve on reserved data or loosen its thresholds. The original area-light fixture and locked models remain unchanged.
 
 ## 01 · Neural foundation
 

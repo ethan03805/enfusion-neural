@@ -26,6 +26,16 @@ If an external Windows capture viewer is used as an intermediate experiment, rep
 
 The same separation applies to other Enfusion games. A shared neural core does not imply access to every game's renderer or asset data. Build and validate each adapter independently.
 
+## Color lookup control
+
+The next proposed control uses the documented camera post-processing path. `SetCameraPostProcessEffect` accepts a material, and the public effect types include `ColorGrading`. These declarations establish a lead, not a working custom effect. [BaseWorld API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceBaseWorld.html) · [Effect types](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/group__World.html)
+
+Workbench also documents `VolumeTexture` conversion from a flat image, for example 256 × 16, to a 16 × 16 × 16 lookup texture. Its use by an original color-grading material remains to be verified. First inspect the material schema and native resource names read-only; then declare original identity and known-color controls before capturing. Verify axis order, sampling, color encoding, strength, effect removal and placement relative to exposure and tone mapping. Keep every failed control. [Texture import](https://community.bistudio.com/wiki/Arma_Reforger:Textures#VolumeTexture)
+
+A pointwise RGB model can in principle be approximated by a finite color lookup table. That is an inference about a possible implementation, not proof that the engine accepts it. The current RGB-only model fails aggregate synthetic fidelity checks. A successful lookup control would neither make that model suitable nor provide the scene inputs required by the full model. It would not reconstruct missing spatial detail or implement arbitrary neural dispatch.
+
+Acceptance for this bounded experiment: native material/texture validation, repeated unchanged-image and known-transform controls measured against an independent CPU lookup reference, and verified effect removal. Declare numerical limits after characterizing repeat noise and lookup quantization, before evaluating the reserved controls. Exact-return checks elsewhere remain unchanged. Test movement, exposure changes, camera cuts and a second resolution only after the static control works. HUD/scopes and scene-stage composition remain explicit unknowns until observed.
+
 ## Screenshot return probe
 
 The image-return and optional vehicle/character scripts compiled successfully in Workbench's silent ScriptEditor mode. No world or capture was launched by that validation. [Compilation evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-image-bridge-compile-v1.json) binds the actual addon snapshot and log. Three texture-copy runs then failed: two timed out and the third crashed. The [runtime evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-image-bridge-v1.json) retains each actual script, native outcome and verification result.

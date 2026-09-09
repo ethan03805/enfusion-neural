@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "method": "All eight raw and mapped reference PNGs visually inspected at original 2560x1440 resolution; no contact-sheet substitution.",
+  "frames": [
+    {
+      "stage": "rendered",
+      "role": "direct",
+      "sha256": "3dbf605404d6fee1736aabb17ede7ba3f66dcd1fd34846fafc2a99f05cf30370",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Original room, red/blue walls, three spheres, plinth and thin posts visible. Bright display clips highlights; colored indirect illumination and smooth metal reflections remain visible. The one-bounce baseline already contains indirect illumination; it is not direct-light-only."
+    },
+    {
+      "stage": "rendered",
+      "role": "direct_check",
+      "sha256": "2a48906d1fc6a34eae898aa605b05c96322631035d11ad7cfffc472989e4e803",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Original room, red/blue walls, three spheres, plinth and thin posts visible. Bright display clips highlights; colored indirect illumination and smooth metal reflections remain visible. The one-bounce baseline already contains indirect illumination; it is not direct-light-only. Independently seeded check retains the same composition; no exact pixel-equality claim."
+    },
+    {
+      "stage": "rendered",
+      "role": "multibounce",
+      "sha256": "5668a1cce4f603c54b5c1ef25ee556f615271024f47b660861dfa5f9cc1cf5c0",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Original room, red/blue walls, three spheres, plinth and thin posts visible. Bright display clips highlights; colored indirect illumination and smooth metal reflections remain visible. More filled sphere/plinth shadows and color bleed than the one-bounce image; residual sampling texture remains."
+    },
+    {
+      "stage": "rendered",
+      "role": "multibounce_check",
+      "sha256": "0c1e6de396018d324c20ba4b8db5379d4df4f824f266f135052b4cf824a113b8",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Original room, red/blue walls, three spheres, plinth and thin posts visible. Bright display clips highlights; colored indirect illumination and smooth metal reflections remain visible. More filled sphere/plinth shadows and color bleed than the one-bounce image; residual sampling texture remains. Independently seeded check retains the same composition; no exact pixel-equality claim."
+    },
+    {
+      "stage": "mapped",
+      "role": "direct",
+      "sha256": "2cbc7119d71c445ec66cb7fe1a73b60b61bbd7dd16ae293cbba9108290f58e99",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Frozen scalar-gain display is dark but reveals the original walls, sphere silhouettes, plinth front and thin posts. Smooth reflections and nonblack shadow shading differ visibly from the engine. No alignment or retouching. The one-bounce baseline already contains indirect illumination; it is not direct-light-only."
+    },
+    {
+      "stage": "mapped",
+      "role": "direct_check",
+      "sha256": "66cfc865ed293f5501c6752cde575ff5b5789260eec3f7a21e3df23e3bd029f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Frozen scalar-gain display is dark but reveals the original walls, sphere silhouettes, plinth front and thin posts. Smooth reflections and nonblack shadow shading differ visibly from the engine. No alignment or retouching. The one-bounce baseline already contains indirect illumination; it is not direct-light-only. Independently seeded check retains the same composition; no exact pixel-equality claim."
+    },
+    {
+      "stage": "mapped",
+      "role": "multibounce",
+      "sha256": "aa774f3e4f3b687293a30581012ec77a8a85de821ad1007e387c6ff4730234d2",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Frozen scalar-gain display is dark but reveals the original walls, sphere silhouettes, plinth front and thin posts. Smooth reflections and nonblack shadow shading differ visibly from the engine. No alignment or retouching. More filled sphere/plinth shadows and color bleed than the one-bounce image; residual sampling texture remains."
+    },
+    {
+      "stage": "mapped",
+      "role": "multibounce_check",
+      "sha256": "25900772742e5a31c44fa0ffd0aee5c8591fc75ba06808b2821f2fa0357fdb29",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Frozen scalar-gain display is dark but reveals the original walls, sphere silhouettes, plinth front and thin posts. Smooth reflections and nonblack shadow shading differ visibly from the engine. No alignment or retouching. More filled sphere/plinth shadows and color bleed than the one-bounce image; residual sampling texture remains. Independently seeded check retains the same composition; no exact pixel-equality claim."
+    }
+  ]
+}

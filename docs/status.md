@@ -2,7 +2,17 @@
 
 Updated 9 September 2026. Milestone: the locked full-input model passes the 48-frame untouched synthetic test. All three test clips and both regression paths are retained. The Enfusion integration proof remains in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
-## Latest lighting experiment
+## Latest calibration experiment
+
+The [point-light calibration](light-calibration.md) completed eight native captures and four 4,096-sample Cycles renders. The committed two-coefficient mapping uses only one patch at LV 8, 10 and 12. Seven of 22 reserved patch checks fail: the floor reaches 29.95 RGB8 MAE against a limit of 10, and the fitting patch at a reserved intensity reaches 10.51 against 5. The separate back-wall patch passes at all five settings. Object identity, patch sampling noise and fit-patch clipping checks pass; the calibration candidate does not.
+
+All images were inspected at full resolution. Twelve additional published PNGs retain every engine capture and all four mapped reference images. The historical `direct` reference role permits one bounce and already contains indirect illumination. Neither comparison is neural output or an accepted Enfusion appearance-training pair. The three LV 10 repeats have whole-image MAE at or below 0.00021449 and maximum channel difference 19; none is exactly identical. Static repeatability does not prove motion stability.
+
+Portable evidence is `evidence/point-light-calibration-v1.json`, with the fit lock and both visual reviews alongside it. Raw native roots are `point-light-calibration-{off,lv8,lv9,lv10,lv11,lv12,lv10-repeat2,lv10-repeat3}-v1`; reference and analysis roots are `point-light-reference-v1` and `point-light-calibration-analysis-v1`, all under `experiments/local/`. Native, Blender and queued analysis jobs are terminal and successful as operations. Do not restart them. No model or threshold changed. The suite has 62 CPU tests; the site has 23 pages, 66 PNGs and 12 videos.
+
+Next: the bounded [color lookup control](integration.md#color-lookup-control), beginning with native schema inspection. Supported scene inputs, a complete lighting-model implementation, actual Arma model/reference/motion tests and complete-frame performance remain required. Environment/reflection and material/color isolation are still needed before using engine/reference pairs for training.
+
+## Previous lighting controls
 
 The [room-lighting controls](room-lighting.md) completed all five planned native captures and one separately declared clipping follow-up. The fixed-exposure neutral back-wall mean is 0 at disabled/LV 10 defaults and 221.65 at LV 12. Requesting clipping bias −10 restores the LV 10 region to 102.15 without changing light intensity or camera exposure. Three independent LV 12 captures differ by at most 3 RGB8 values, with all-pair mean errors at or below 0.00000281. They are not exactly identical and do not establish motion stability.
 

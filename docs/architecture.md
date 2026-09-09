@@ -66,6 +66,8 @@ Original texture controls use `scripts/generate_enfusion_room_textures.py`, `scr
 
 The optional `--light-case` extension creates a scripted point light after room placement. `enr/room_lights.py` separates native getter values from requested intensity/color parameters, retaining the disabled light's negative radius as a raw mismatch. A separately planned `--light-clip-control` follow-up changes only the intensity-clipping bias. `scripts/summarize_enfusion_room_lights.py` binds all six validated captures, unchanged non-light inputs, visual reviews and all repeat pairs. This is a static appearance control, not renderer integration.
 
+The separately versioned [point-light calibration](light-calibration.md) uses `enr/photometry.py` for an explicit scalar-gain/sRGB hypothesis. Its lock records only three fitting intensities and one patch; the analyzer verifies those inputs and applies the two frozen coefficients to reserved intensities and patches. The summarizer binds all native and reference visual reviews. Seven reserved checks fail, so the engine and reference are not an accepted appearance-training pair. None of these scripts changes model weights or implements native inference.
+
 ## Lighting study
 
 The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.

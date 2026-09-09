@@ -845,6 +845,194 @@
       "run_id": "20260909T122128-c649d5ec94",
       "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
       "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-off.png",
+      "sha256": "629aef7015247bc1c79b779a811bb8a464d79ca95fc3153d8143bb63bd09755a",
+      "bytes": 51361,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-off-v1/runs/20260909T124412-3280a02876/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration off; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124412-3280a02876",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv8.png",
+      "sha256": "e53f1510aec49225e1ffee96e573c4c0b88b201fc9e4eb236df8f2226b2536b0",
+      "bytes": 541708,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv8-v1/runs/20260909T124448-969cd56cf1/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv8; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124448-969cd56cf1",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv10.png",
+      "sha256": "879ea22ebd969cc3c905474506d8ff002057667fa5d010bb04893563e3c8a4c8",
+      "bytes": 867415,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv10-v1/runs/20260909T124523-a8fe6ae0d8/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv10; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124523-a8fe6ae0d8",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv12.png",
+      "sha256": "cd8e1da3ec5baaf815eecd99627f0a67a85858a3c60c1c9e3321a89c5706778a",
+      "bytes": 1211933,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv12-v1/runs/20260909T124558-b087489847/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv12; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124558-b087489847",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv9.png",
+      "sha256": "417d3151db5ac51bb3453dfa3e904e0a86af512af5c2788d971b713b05e56bba",
+      "bytes": 699852,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv9-v1/runs/20260909T124633-6ba9e818ce/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv9; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124633-6ba9e818ce",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv11.png",
+      "sha256": "96dac637070e1be1dcf5f14f03f7d537ad4854d1fa406013b8e55fd8b03f908f",
+      "bytes": 1033177,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv11-v1/runs/20260909T124709-916efed58c/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv11; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124709-916efed58c",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv10-repeat2.png",
+      "sha256": "8eadd2a0993d9297c938441492fc3551123ded0b8e5b203be440edeb7472fa98",
+      "bytes": 868357,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv10-repeat2-v1/runs/20260909T124744-f32360f254/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv10; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124744-f32360f254",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-lv10-repeat3.png",
+      "sha256": "2281b677b11d7a930c8404116ce0f06dfb1d5075c8d9073a9b859c33c22701f2",
+      "bytes": 867328,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-lv10-repeat3-v1/runs/20260909T124819-90b85466a1/profile/profile/sample-00000.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Enfusion point-light calibration lv10; no neural processing",
+      "transformation": "none; exact native sample export",
+      "run_id": "20260909T124819-90b85466a1",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "light-calibration-one-bounce.png",
+      "sha256": "2cbc7119d71c445ec66cb7fe1a73b60b61bbd7dd16ae293cbba9108290f58e99",
+      "bytes": 862657,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-analysis-v1/direct.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Original Cycles point-light reference one-bounce; no neural processing",
+      "transformation": "Declared scalar gain, clipped standard sRGB transfer, nearest-integer RGB8; no alignment, denoising or retouching; scalar gain 0.12533096255755358",
+      "rights": "MIT; original procedural geometry, materials and synthetic illumination."
+    },
+    {
+      "file": "light-calibration-one-bounce-check.png",
+      "sha256": "66cfc865ed293f5501c6752cde575ff5b5789260eec3f7a21e3df23e3bd029f4",
+      "bytes": 863276,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-analysis-v1/direct_check.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Original Cycles point-light reference one-bounce-check; no neural processing",
+      "transformation": "Declared scalar gain, clipped standard sRGB transfer, nearest-integer RGB8; no alignment, denoising or retouching; scalar gain 0.12533096255755358",
+      "rights": "MIT; original procedural geometry, materials and synthetic illumination."
+    },
+    {
+      "file": "light-calibration-many-bounces.png",
+      "sha256": "aa774f3e4f3b687293a30581012ec77a8a85de821ad1007e387c6ff4730234d2",
+      "bytes": 1344198,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-analysis-v1/multibounce.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Original Cycles point-light reference many-bounces; no neural processing",
+      "transformation": "Declared scalar gain, clipped standard sRGB transfer, nearest-integer RGB8; no alignment, denoising or retouching; scalar gain 0.12533096255755358",
+      "rights": "MIT; original procedural geometry, materials and synthetic illumination."
+    },
+    {
+      "file": "light-calibration-many-bounces-check.png",
+      "sha256": "25900772742e5a31c44fa0ffd0aee5c8591fc75ba06808b2821f2fa0357fdb29",
+      "bytes": 1346182,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/point-light-calibration-v1.json",
+      "source_artifact": "experiments/local/point-light-calibration-analysis-v1/multibounce_check.png",
+      "selection": "All eight planned engine captures and all four mapped reference/independent-seed images; inspected at full resolution",
+      "role": "Original Cycles point-light reference many-bounces-check; no neural processing",
+      "transformation": "Declared scalar gain, clipped standard sRGB transfer, nearest-integer RGB8; no alignment, denoising or retouching; scalar gain 0.12533096255755358",
+      "rights": "MIT; original procedural geometry, materials and synthetic illumination."
     }
   ],
   "videos": [
