@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "arma-source-visibility-v1",
+  "source_commit": "24718ab3a58a2038adc4c0d2c0ebe00c7edde8ba",
+  "scope": "Single-variable source capture controls. No model or aligned appearance reference.",
+  "scenes": {
+    "warehouse": {
+      "config": "scenes/arma-warehouse-interior-v1.json",
+      "canonical_config_sha256": "b62c0e396e81f3d663ae3a6c7fb838fd4eb8c822e45cc6f22da754cac400ec02",
+      "original_run": "20260909T083946-9fa8adeff0",
+      "anomaly_sample": 1,
+      "inspection_roi_xyxy": [
+        1800,
+        200,
+        2560,
+        1100
+      ]
+    },
+    "montignac": {
+      "config": "scenes/arma-montignac-v1.json",
+      "canonical_config_sha256": "0c6f6a4f852f06db2bd6b78b1c4ef7b2b9bf62eec8409285f1e862c8ba525988",
+      "original_run": "20260909T084342-7e3588d4b3",
+      "anomaly_sample": 1,
+      "inspection_roi_xyxy": [
+        2340,
+        200,
+        2560,
+        800
+      ]
+    }
+  },
+  "conditions": {
+    "repeat": {},
+    "initial-settle": {
+      "settle_seconds": 30
+    },
+    "camera-hold": {
+      "hold_ticks_per_sample": 120
+    }
+  },
+  "sequence": "Run all conditions serially. All four views inspected; sample 1 and declared region receive focused inspection.",
+  "hash_convention": "Canonical config = UTF-8 JSON with sorted keys and comma/colon separators. No whitespace or newline.",
+  "analysis": "Compare each view against the original and new repeat in unchanged 8-bit RGB coordinates; retain whole-image and declared-region differences. These are source changes, not fidelity scores.",
+  "acceptance": "Neither smaller pixel error nor an accepted capture establishes correct source visibility. Record whether the visibly missing supports/building surfaces persist. A cause requires a control that distinguishes it from other hypotheses."
+}

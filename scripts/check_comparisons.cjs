@@ -4,7 +4,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../site/compare.js'), 'utf8');
 
-function fixture({ loaded = true, mismatch = false } = {}) {
+function fixture({ loaded = true, mismatch = false, dataset = {} } = {}) {
   const images = [0, 1].map(i => ({ complete: loaded, naturalWidth: loaded ? 1839 + (mismatch ? i : 0) : 0,
     naturalHeight: 947, addEventListener(name, fn) { this[name] = fn; } }));
   const output = {};
@@ -12,7 +12,7 @@ function fixture({ loaded = true, mismatch = false } = {}) {
     setAttribute(name, value) { this.attributes[name] = value; } };
   const control = { hidden: true, querySelector: selector => selector === 'input' ? range : output };
   const properties = {}, classes = new Set();
-  const element = { querySelectorAll: () => images, querySelector: () => control,
+  const element = { dataset, querySelectorAll: () => images, querySelector: () => control,
     style: { setProperty: (name, value) => properties[name] = value }, classList: { add: name => classes.add(name) } };
   vm.runInNewContext(source, { document: { querySelectorAll: () => [element] } });
   return { images, output, range, control, properties, classes };
@@ -36,4 +36,7 @@ assert.equal(pending.control.hidden, false);
 const mismatch = fixture({ mismatch: true });
 assert.equal(mismatch.control.hidden, true);
 assert.equal(mismatch.classes.size, 0);
+const sources = fixture({ dataset: { beforeLabel: '6-update source', afterLabel: '120-update source' } });
+assert.equal(sources.range.attributes['aria-valuetext'], '50% 6-update source, 50% 120-update source');
+assert.equal(sources.output.textContent, '50% 6-update source');
 console.log('Comparison controls: endpoints, accessible labels, delayed images and size mismatch passed.');

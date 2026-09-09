@@ -98,7 +98,7 @@ def main():
         theme='<label class="theme-label">Theme<select data-theme-control aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>'
         nextpage=PAGES[position+1] if position+1<len(PAGES) else PAGES[0]
         title='Enfusion Neural' if slug=='index' else label+' · Enfusion Neural'
-        comparison_script='<script src="compare.js" defer></script>' if slug in ('comparisons','lighting-study') else ''
+        comparison_script='<script src="compare.js" defer></script>' if slug in ('comparisons','lighting-study','arma-scenes') else ''
         page=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="Enfusion Neural documentation: reference scenes, capture procedures, model implementation and evaluation.">

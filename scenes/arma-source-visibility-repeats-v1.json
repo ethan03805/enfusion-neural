@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scope": "Follow-up chosen after observing all six initial source controls. No model selection or fitting.",
+  "hypothesis": "A 120-update hold consistently restores the observed shelf/building/marking detail in these two source paths.",
+  "additional_repeats_per_scene": 2,
+  "condition": "camera-hold",
+  "scenes": ["warehouse", "montignac"],
+  "acceptance": "Inspect every view and compare each repeat with the first camera-hold run. All three must retain the observed structure and markings. Numerical differences measure source variation, not appearance fidelity or a GPU fence. Preserve failures."
+}
