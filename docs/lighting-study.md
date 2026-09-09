@@ -17,7 +17,7 @@ The first test view was selected for publication in the experiment plan, before 
 <label class="comparison-control" hidden>Reveal original<input type="range" min="0" max="100" value="50" aria-label="Original image visible"><output>50% original</output></label>
 </section>
 
-<figure class="scene-image"><a href="media/lighting-view-reference.png"><img src="media/lighting-view-reference.png" width="480" height="270" loading="lazy" alt="Same held-out room rendered with twelve diffuse bounces"><figcaption>Reference · twelve diffuse bounces · synthetic target</figcaption></a></figure>
+<figure class="scene-image"><a href="media/lighting-view-reference.png"><img src="media/lighting-view-reference.png" width="480" height="270" loading="lazy" alt="Same held-out room rendered with twelve diffuse bounces"></a><figcaption>Reference · twelve diffuse bounces · synthetic target</figcaption></figure>
 
 [Source PNG](media/lighting-view-source.png) · [Model PNG](media/lighting-view-output.png) · [Reference PNG](media/lighting-view-reference.png)
 
@@ -56,7 +56,7 @@ This case moves both the camera and light beyond the training positions. It was 
 <label class="comparison-control" hidden>Reveal original<input type="range" min="0" max="100" value="50" aria-label="Original image visible"><output>50% original</output></label>
 </section>
 
-<figure class="scene-image"><a href="media/lighting-stress-reference.png"><img src="media/lighting-stress-reference.png" width="480" height="270" loading="lazy" alt="Twelve-bounce reference for the out-of-range light and camera"><figcaption>Reference · same stress case</figcaption></a></figure>
+<figure class="scene-image"><a href="media/lighting-stress-reference.png"><img src="media/lighting-stress-reference.png" width="480" height="270" loading="lazy" alt="Twelve-bounce reference for the out-of-range light and camera"></a><figcaption>Reference · same stress case</figcaption></figure>
 
 ## Model and cost
 
