@@ -18,6 +18,8 @@ The [scene-diversity experiment](docs/lighting-diversity.md) adds four training 
 
 The [camera color-lookup control](docs/color-lookup.md) verifies original volume import and visible native post-processing. The exported colors reject the direct RGB8 mapping hypothesis. This limited effect runs no neural model and provides no scene buffers.
 
+The [native lighting backend](docs/lighting-gpu.md) executes the three locked lighting variants in FP32. It passes all 21 numerical controls, and the full model matches all 112 retained test/regression frames. The 1440p dispatch p95 is 1.961 ms, excluding feature preparation, transfers and presentation. This result does not establish an in-engine pipeline or complete-frame performance.
+
 This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported neural presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
 
 ## Run

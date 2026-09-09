@@ -53,5 +53,11 @@ class LightingGPUContract(unittest.TestCase):
         self.assertFalse(result['checks']['bounded_residual'])
         self.assertFalse(result['passed'])
 
+    def test_finite_float64_feature_cannot_overflow_during_packing(self):
+        x,rgb,alpha,valid=lighting_gpu.fixture(13,7,123)
+        oversized=x.astype(np.float64);oversized[2,3,4]=1e100
+        with self.assertRaisesRegex(ValueError,'finite FP32'):
+            lighting_gpu.pack(oversized,rgb,alpha,valid)
+
 
 if __name__=='__main__':unittest.main()

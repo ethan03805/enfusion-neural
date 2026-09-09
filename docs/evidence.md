@@ -4,6 +4,12 @@ The [reference scene pack](reference-scenes.md#first-measured-batch) adds nine r
 
 Measured locally on 8–9 September 2026. The results establish an offline neural path on the recorded test configuration. They do not establish photorealism or live game performance.
 
+## Native lighting graph
+
+The [lighting GPU result](lighting-gpu.md) verifies all three locked variants on 21 numerical controls through 4K, plus the full model on every one of the 48 test and 64 regression frames. All native outputs match the CPU tolerances with exact alpha and invalid-source fallback. The test's original fidelity gates pass. Its temporal error is 0.735% above source, within tolerance. The original room's missing contrast panel and loss to its older specialized model remain documented.
+
+Full-input 1440p dispatch p50/p95 is 0.962/1.961 ms. One upload/readback pair adds 17.173 ms, with 3,775.76 ms setup and a 4,070.42 ms native process for all 110 dispatches. These are standalone timings on prepared features, not game frame time. A disk-write failure and the initial one-step residual-bound violation remain in the [complete evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-gpu-v1.json). Six unchanged RGBA8 hardware checks are retained in the [bootstrap regression record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-gpu-v0-regression-v1.json).
+
 ## Camera color lookup
 
 The [static lookup controls](color-lookup.md) verify three original compiled 16³ volumes and visible native camera effects. Seven priority-19 captures pass native request/readback checks. A constant [51, 102, 204] lattice produces a uniform [123, 169, 231] export, so visible application passes while direct display-code mapping fails. Identity, inversion, constant and removal CPU-hypothesis MAE values are 1.286, 69.798, 55.333 and 0.474. Three off captures vary by 0.561–2.475 MAE, with maximum channel difference 194. No color-accuracy or motion gate passes by inference from these diagnostics.

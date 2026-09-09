@@ -8,6 +8,7 @@ The installed Workbench can validate isolated addons and export a rendered viewp
 | Isolated addon compilation | Verified in this milestone |
 | Explicit camera and full-size scene export | Verified in this milestone |
 | Native GPU processing of exported image | Implemented by this repository |
+| Full lighting graph on prepared scene features | [Verified standalone](lighting-gpu.md); engine features unverified |
 | Original camera color lookup | Visible native response; exact color mapping unverified |
 | Pre-HUD linear/HDR scene color | Unverified |
 | Native scene-resource handles and fences | Unverified |
@@ -17,7 +18,7 @@ The installed Workbench can validate isolated addons and export a rendered viewp
 
 These states describe the inspected interface and local evidence. They are not claims that the engine lacks these buffers internally.
 
-The [technical feasibility review](feasibility.md) adds installed-SDK declarations for material/resource workflows, render-target scaling and camera post-processing. None establishes arbitrary neural dispatch and composition. The [lighting model](lighting-study.md) currently consumes original Cycles surface passes; its inputs are not verified Enfusion exports.
+The [technical feasibility review](feasibility.md) adds installed-SDK declarations for material/resource workflows, render-target scaling and camera post-processing. None establishes arbitrary neural dispatch and composition. The [lighting model](lighting-study.md) consumes original Cycles surface passes. Its [native GPU graph](lighting-gpu.md) is verified independently, while those inputs remain unavailable as verified Enfusion exports.
 
 ## Bridge experiment
 

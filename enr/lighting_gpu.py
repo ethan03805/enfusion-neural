@@ -22,7 +22,10 @@ def pack(x, rgb, alpha, valid):
         raise ValueError('Nonfinite or negative lighting source')
     if not np.isin(valid,[0,1]).all() or (alpha < 0).any() or (alpha > 1).any():
         raise ValueError('Invalid alpha or valid mask')
-    x, rgb = x.astype(np.float32), rgb.astype(np.float32)
+    with np.errstate(over='ignore',invalid='ignore'):
+        x, rgb = x.astype(np.float32), rgb.astype(np.float32)
+    if not np.isfinite(x).all() or not np.isfinite(rgb).all():
+        raise ValueError('Source/features exceed finite FP32 representation')
     # The log source is part of the serialized feature contract, not an optional substitute.
     if not np.array_equal(x[...,:3],np.log1p(rgb)):
         raise ValueError('Source log features differ from the original scene-linear RGB')

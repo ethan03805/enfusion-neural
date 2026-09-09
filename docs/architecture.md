@@ -32,6 +32,7 @@ Enfusion Lab export or original procedural fixture
 | `scenes/` | Versioned scene definitions and control settings |
 | `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
 | `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |
+| `enr/lighting_gpu.py` | Ordered FP32 lighting records, generated dense shader and independent CPU comparison |
 | Enfusion Lab | External Workbench addon validation and image capture |
 | `docs/` | Maintained engineering documentation |
 | `evidence/` | Reviewed portable measurement summaries |
@@ -77,6 +78,10 @@ The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr
 `scripts/render_lighting_study.py` changes only diffuse-bounce depth within each pair. `scripts/train_lighting_study.py` validates hashes and alignment, fits only training cases, and selects checkpoints on validation cases. `scripts/display_lighting_study.py` applies the recorded display transform; `scripts/summarize_lighting_study.py` checks the conversion and retains metrics for every case, including independent-seed reference checks. Models carry a versioned feature/color contract and normalization statistics.
 
 This experiment keeps the scene's original material information. It tests the value of supplying source surface data to lighting reconstruction; it does not infer missing textures or establish that Enfusion exposes these inputs. See [technical feasibility](feasibility.md) before changing the integration architecture or scaling asset collection.
+
+The [native lighting implementation](lighting-gpu.md) now executes the three locked scene-diversity variants. Explicit `lighting20`, `lighting17` and `lighting3` modes extend the executable while preserving its default RGBA8 mode. Input records carry FP32 ordered features, original RGB, alpha and validity. Seven output floats carry the residual, reconstructed RGB and copied alpha. Both hidden layers and normalization execute in the generated shader; feature construction remains on CPU. The shader explicitly enforces the original residual bound after a retained intrinsic-rounding failure. It is separate from the v0 convolution and supplies no engine resource interface.
+
+All 112 existing test/regression frames match the retained CPU outputs within the committed tolerances. The evaluator reuses the original fidelity-gate function with display metrics disabled, so no CPU display score is attributed to GPU output. Temporary packed inputs are reconstructible from source passes and recorded hashes; actual native output records remain. A later input-validation guard rejects values that overflow during FP32 conversion. The executed contract snapshot is retained and current generated shader bytes match every final run.
 
 The [motion evaluator](lighting-motion.md) loads the frozen JSON models and original affine coefficients without fitting. `scripts/render_lighting_motion.py` builds two versioned scenes directly and produces source, paired and independent references. `enr/temporal.py` validates camera paths and reprojects static source positions into the previous camera. Object-ID, normal and position checks select correspondences; excluded regions retain separate spatial metrics. This diagnostic uses Cycles passes and does not implement engine motion-vector access.
 

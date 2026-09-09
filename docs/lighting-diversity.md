@@ -137,4 +137,4 @@ python scripts/summarize_lighting_diversity.py --root experiments/local/diversit
 python scripts/video_lighting_diversity.py --root experiments/local/diversity-regression-recheck --report experiments/local/diversity-regression-recheck/report.json --out experiments/local/diversity-regression-recheck-videos
 ```
 
-Use the existing documented Python/OpenEXR, Blender and FFmpeg environment. Raw EXR files and generated scene workspaces stay local. The lighting graph still has no native inference timing or proven live Enfusion mapping.
+Use the existing documented Python/OpenEXR, Blender and FFmpeg environment. Raw EXR files and generated scene workspaces stay local. The subsequent [native GPU check](lighting-gpu.md) verifies the locked full model on all 112 test/regression frames and records standalone timing. A live Enfusion mapping remains unverified.

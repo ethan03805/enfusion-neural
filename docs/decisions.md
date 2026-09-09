@@ -111,3 +111,11 @@ Investigate the documented color-grading/volume-texture workflow as a bounded in
 Accepted 9 September 2026. Original volume imports retain exact RGBA lattice values. The engine rejects the initial priority 1000; a separately committed priority-19 follow-up visibly applies inversion and constant-color controls. Preserve both batches and the complete native texture readback, including its trailing field. Do not infer successful application from material readback alone.
 
 The constant output differs from the stored RGB8 code values, and all unchanged-scene repeats differ. Record every CPU hypothesis and repeat comparison without fitting a transfer or changing previous limits. Declare new color controls, select the convention and freeze accuracy limits before reserved evaluation. Test dynamic switching and exposure separately. The working lookup cannot replace the full lighting graph, scene inputs or actual-Arma fidelity and complete-frame tests.
+
+## 022 · Verify the full lighting graph independently of the engine bridge
+
+Accepted 9 September 2026. Implement all three locked lighting variants as explicit FP32 native record modes while keeping the original RGBA8 path. The independent CPU model remains unchanged. Verify normalization, hidden layers, reconstruction, exact alpha/fallback and the original residual bound before using the graph in Enfusion. Preserve the observed intrinsic-rounding violation; clamp to the defined bound and rerun numerical controls without loosening tolerances.
+
+Reuse all 112 existing source/reference frames and the original fidelity-gate function. Recompute the selected model's linear-space metrics from native output; keep other controls as their recorded CPU results and omit unmeasured GPU display metrics. Standalone dispatch and transfers are separate measurements, and neither establishes a supported engine integration or complete-frame performance.
+
+When storage limits interrupt numerical tests, preserve measured outputs and failures. Generated inputs can be removed only after exact regeneration with retained recipes and source snapshots. Rendered source passes remain authoritative, while packed transfer buffers are temporary and hash-bound to those inputs. Avoid duplicating native output in a second array format when it can be extracted losslessly.

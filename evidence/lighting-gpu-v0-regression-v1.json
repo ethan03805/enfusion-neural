@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "scope": "Unchanged bootstrap RGBA8 graph after adding explicit native lighting record modes; numerical fixtures only",
+  "native_source_sha256": "a4436b7c77dce1a73b3e27603ea0af2dc9baca16dd257063322d0b27ca126b06",
+  "current_native_executable_sha256": "be94998e4708e55c210dd5d0963b1c02c833bed24a2b01993ba804f02564d9a8",
+  "model_sha256": "8f04922046e2d59bf71b7fbeb8aa46e8974dd8e3a2d7bdc671a28bcaccc2bced",
+  "cases": [
+    {
+      "dimensions": [
+        1,
+        1
+      ],
+      "maximum_rgb8_error": 0,
+      "alpha_exact": true,
+      "report_sha256": "1809672c89f901318853b0813734a77bec8a0f41085c63f81465a2708b2c2ca2",
+      "input_sha256": "175e7c94bc8c27fa54316bba7ae06acb58229aefae03257f91da9d3b13ce4095",
+      "output_sha256": "85bb5484a025bac046233e9f780f86116f4de1857c31338fb6e9dd20299c9186",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "e8109670ef248ae7911e96c659414ebeb37022e0d658884201dd498dfe2b2d53",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 1,
+        "record_mode": "rgba8",
+        "input_bytes": 4,
+        "output_bytes": 4,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 4,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.00256,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.00256,
+        "gpu_upload_and_transition_ms": 0.00224,
+        "gpu_readback_and_transition_ms": 0.0016,
+        "batch_cpu_build_submit_wait_ms": 0.6254,
+        "setup_including_shader_compile_ms": 407.51,
+        "gpu_default_buffer_bytes": 8,
+        "dispatch_ms": [
+          0.00256
+        ]
+      }
+    },
+    {
+      "dimensions": [
+        1,
+        17
+      ],
+      "maximum_rgb8_error": 0,
+      "alpha_exact": true,
+      "report_sha256": "ec158aadb6b27cc43d40768c818d9d3710a8e9217c0a8c045ad1642966559217",
+      "input_sha256": "d7d91f223a77015bf9b0bf81ea2a753b8ae8fda93cd923ab16e06485b9283e0f",
+      "output_sha256": "ee5d59fdf91ff93856f27e39cb919a914927f5c5860a310b5a1e28697d187101",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "6777eaa383599e8eb9de63a535d49f8ebb6254c0168e7260fbe1fc71e8d91002",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 17,
+        "record_mode": "rgba8",
+        "input_bytes": 68,
+        "output_bytes": 68,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 68,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.00264,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.00264,
+        "gpu_upload_and_transition_ms": 0.00228,
+        "gpu_readback_and_transition_ms": 0.0016,
+        "batch_cpu_build_submit_wait_ms": 0.8439,
+        "setup_including_shader_compile_ms": 571.015,
+        "gpu_default_buffer_bytes": 136,
+        "dispatch_ms": [
+          0.00264
+        ]
+      }
+    },
+    {
+      "dimensions": [
+        31,
+        1
+      ],
+      "maximum_rgb8_error": 0,
+      "alpha_exact": true,
+      "report_sha256": "539c28850b96fdcab2ba26123460b020efb3bd371fc64c1931c7fca66b1b1277",
+      "input_sha256": "3c94f3824f6c881b6c6d2015145e47b72a57fe502004954fbbe1d939332f6f76",
+      "output_sha256": "e37f30a962e2ae4577770cd65982d560b33f2928672ede1b401cf886dab908bb",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "5d85ee5eda17ea06749ed9d89da4b56294cae8f8848d2a13ebb31c08b5782a7a",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 31,
+        "record_mode": "rgba8",
+        "input_bytes": 124,
+        "output_bytes": 124,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 124,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.00252,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.00252,
+        "gpu_upload_and_transition_ms": 0.00224,
+        "gpu_readback_and_transition_ms": 0.00156,
+        "batch_cpu_build_submit_wait_ms": 0.8442,
+        "setup_including_shader_compile_ms": 513.298,
+        "gpu_default_buffer_bytes": 248,
+        "dispatch_ms": [
+          0.00252
+        ]
+      }
+    },
+    {
+      "dimensions": [
+        127,
+        65
+      ],
+      "maximum_rgb8_error": 0,
+      "alpha_exact": true,
+      "report_sha256": "31983d6d75161736faa15ffee91de44e919cb92e1014120effd1f8b2583d261e",
+      "input_sha256": "55b601c4c1bd655cba1a4a73fb08049b3c5800d8d879ee3bb9655fa4b893b289",
+      "output_sha256": "e9b6433fed175fdd55e0e7daf6112357690d7100ab46c5c328b47e04ba2433f6",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "49cf6c966039e2fbf03bf2e441da81663d788620c13dc3e72a1115b3593265aa",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 8255,
+        "record_mode": "rgba8",
+        "input_bytes": 33020,
+        "output_bytes": 33020,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 33020,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.00284,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.00284,
+        "gpu_upload_and_transition_ms": 0.00404,
+        "gpu_readback_and_transition_ms": 0.00292,
+        "batch_cpu_build_submit_wait_ms": 0.6229,
+        "setup_including_shader_compile_ms": 423.638,
+        "gpu_default_buffer_bytes": 66040,
+        "dispatch_ms": [
+          0.00284
+        ]
+      }
+    },
+    {
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "maximum_rgb8_error": 1,
+      "alpha_exact": true,
+      "report_sha256": "82554896c10993dbd5f63bfae57e2f3473e4e3601c5ff4903feeab44916a71be",
+      "input_sha256": "cd7e7b9328f75fe2607e89ccfecbd555e2b3e1a3270483c3203f3eb63b11fe76",
+      "output_sha256": "741c9225a16e3c1db5fd67e8424adcde2034cfabf8563cfc7b2cf18220767070",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "b04018304c88cfe7439fb9bd4abb63f388d33b8b03006791e176516284a229b5",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 2073600,
+        "record_mode": "rgba8",
+        "input_bytes": 8294400,
+        "output_bytes": 8294400,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 8294400,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.071,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.071,
+        "gpu_upload_and_transition_ms": 0.29684,
+        "gpu_readback_and_transition_ms": 0.33192,
+        "batch_cpu_build_submit_wait_ms": 1.9775,
+        "setup_including_shader_compile_ms": 380.7,
+        "gpu_default_buffer_bytes": 16588800,
+        "dispatch_ms": [
+          0.071
+        ]
+      }
+    },
+    {
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "maximum_rgb8_error": 1,
+      "alpha_exact": true,
+      "report_sha256": "8b412589f0953700b39cda992f4a5c60cda26cb42563c94a309d1795c2b683b8",
+      "input_sha256": "0cd18cf9c5e3f6b067507d2836520d27d2135493dd36ad46bb2bcd8c7769475c",
+      "output_sha256": "d92069f5fc054b63d5929e566d961927c55d5e6b8a86063a95cbcc774d454604",
+      "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+      "gpu_report_sha256": "6ec19c21673957e777537c42787794cb244f040df05d276903529824967fc383",
+      "gpu": {
+        "adapter": "AMD Radeon RX 7800 XT",
+        "dedicated_video_memory_bytes": 16963133440,
+        "pixels": 8294400,
+        "record_mode": "rgba8",
+        "input_bytes": 33177600,
+        "output_bytes": 33177600,
+        "input_stride_bytes": 4,
+        "output_stride_bytes": 4,
+        "rgba_bytes": 33177600,
+        "warmup_dispatches": 0,
+        "measured_dispatches": 1,
+        "gpu_dispatch_including_uav_barrier_p50_ms": 0.35492,
+        "gpu_dispatch_including_uav_barrier_p95_ms": 0.35492,
+        "gpu_upload_and_transition_ms": 1.16452,
+        "gpu_readback_and_transition_ms": 1.28804,
+        "batch_cpu_build_submit_wait_ms": 4.0048,
+        "setup_including_shader_compile_ms": 405.368,
+        "gpu_default_buffer_bytes": 66355200,
+        "dispatch_ms": [
+          0.35492
+        ]
+      }
+    }
+  ],
+  "input_retention": {
+    "schema_version": 1,
+    "scope": "Original numerical input PNGs and actual GPU outputs retained. Only exact duplicate/reconstructible transfer files removed.",
+    "files": [
+      {
+        "file": "1x1/run/input.rgba",
+        "sha256": "175e7c94bc8c27fa54316bba7ae06acb58229aefae03257f91da9d3b13ce4095",
+        "bytes": 4,
+        "source": "1x1/input.png",
+        "source_sha256": "71320f604f498a1d5013d3616ca36043d9048205a4f00c0c5fb7efb9decb5993",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "1x1/run/input.png",
+        "sha256": "71320f604f498a1d5013d3616ca36043d9048205a4f00c0c5fb7efb9decb5993",
+        "bytes": 70,
+        "source": "1x1/input.png",
+        "source_sha256": "71320f604f498a1d5013d3616ca36043d9048205a4f00c0c5fb7efb9decb5993",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      },
+      {
+        "file": "1x17/run/input.rgba",
+        "sha256": "d7d91f223a77015bf9b0bf81ea2a753b8ae8fda93cd923ab16e06485b9283e0f",
+        "bytes": 68,
+        "source": "1x17/input.png",
+        "source_sha256": "b7ac2985d38f1b2a86dcbe9c2a834192d8e43bdb0c51c8844e1bd04d6acf4cc6",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "1x17/run/input.png",
+        "sha256": "b7ac2985d38f1b2a86dcbe9c2a834192d8e43bdb0c51c8844e1bd04d6acf4cc6",
+        "bytes": 153,
+        "source": "1x17/input.png",
+        "source_sha256": "b7ac2985d38f1b2a86dcbe9c2a834192d8e43bdb0c51c8844e1bd04d6acf4cc6",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      },
+      {
+        "file": "31x1/run/input.rgba",
+        "sha256": "3c94f3824f6c881b6c6d2015145e47b72a57fe502004954fbbe1d939332f6f76",
+        "bytes": 124,
+        "source": "31x1/input.png",
+        "source_sha256": "1a144cfe80b9d6c150fae3bfde36fe2f4a9d85233e5c94bf2631c30a1bc957f5",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "31x1/run/input.png",
+        "sha256": "1a144cfe80b9d6c150fae3bfde36fe2f4a9d85233e5c94bf2631c30a1bc957f5",
+        "bytes": 193,
+        "source": "31x1/input.png",
+        "source_sha256": "1a144cfe80b9d6c150fae3bfde36fe2f4a9d85233e5c94bf2631c30a1bc957f5",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      },
+      {
+        "file": "127x65/run/input.rgba",
+        "sha256": "55b601c4c1bd655cba1a4a73fb08049b3c5800d8d879ee3bb9655fa4b893b289",
+        "bytes": 33020,
+        "source": "127x65/input.png",
+        "source_sha256": "2b6935059b743bad0fc978f7dfb798449e4cea86c0d3dd4746ae1c45e5006a64",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "127x65/run/input.png",
+        "sha256": "2b6935059b743bad0fc978f7dfb798449e4cea86c0d3dd4746ae1c45e5006a64",
+        "bytes": 33158,
+        "source": "127x65/input.png",
+        "source_sha256": "2b6935059b743bad0fc978f7dfb798449e4cea86c0d3dd4746ae1c45e5006a64",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      },
+      {
+        "file": "1920x1080/run/input.rgba",
+        "sha256": "cd7e7b9328f75fe2607e89ccfecbd555e2b3e1a3270483c3203f3eb63b11fe76",
+        "bytes": 8294400,
+        "source": "1920x1080/input.png",
+        "source_sha256": "bc487245279c9dc20b662ef2f75f6b3546db1f7df07c6c7078e8c8eaa258cb9f",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "1920x1080/run/input.png",
+        "sha256": "bc487245279c9dc20b662ef2f75f6b3546db1f7df07c6c7078e8c8eaa258cb9f",
+        "bytes": 8307024,
+        "source": "1920x1080/input.png",
+        "source_sha256": "bc487245279c9dc20b662ef2f75f6b3546db1f7df07c6c7078e8c8eaa258cb9f",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      },
+      {
+        "file": "3840x2160/run/input.rgba",
+        "sha256": "0cd18cf9c5e3f6b067507d2836520d27d2135493dd36ad46bb2bcd8c7769475c",
+        "bytes": 33177600,
+        "source": "3840x2160/input.png",
+        "source_sha256": "9882e794c9d015e0ed0cd351d0bdd77f7ec2c0ad8a6e37edf157df475acd727d",
+        "recipe": "Decode retained RGBA8 PNG to row-major RGBA bytes",
+        "removed": true
+      },
+      {
+        "file": "3840x2160/run/input.png",
+        "sha256": "9882e794c9d015e0ed0cd351d0bdd77f7ec2c0ad8a6e37edf157df475acd727d",
+        "bytes": 33223526,
+        "source": "3840x2160/input.png",
+        "source_sha256": "9882e794c9d015e0ed0cd351d0bdd77f7ec2c0ad8a6e37edf157df475acd727d",
+        "recipe": "Byte copy of retained original PNG",
+        "removed": true
+      }
+    ]
+  }
+}
