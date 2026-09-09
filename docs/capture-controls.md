@@ -38,6 +38,8 @@ python scripts/probe_viewport.py --case workspace-quarter --root experiments/loc
 
 Other cases are `diag-render-off`, `diag-half-off`, `diag-half-on` and `texture-export`. Each requires a new directory and runs an isolated compile/capture through Enfusion Lab. Run them serially. `probe.json` distinguishes capture completion from the sequence checks and texture-export result; process success does not certify viewport settings. These cases are diagnostic experiments, not training captures.
 
+A [follow-up inspection](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/viewport-followup-v1.json) checked the native editor preferences, project settings, and viewport Camera, Shading and View menus. No effective scale/FSR readout was observed there. A separate compiled probe requested scale 0.25 and FSR disabled after startup, then called `GetGame().UserSettingsChanged()` once. Its screenshot remained detailed, without a clear reduced-resolution effect. This also leaves the viewport controls unverified; it does not prove that every supported route has been exhausted.
+
 ## Static variation
 
 The final preset was captured three times in separate processes. Every pair had estimated integer translation [0,0] and identical alpha. RGB MAE ranged from **0.379 to 0.891**, with RMSE from **2.032 to 3.585** in 8-bit code values. These are all three pairs, without image registration or color correction.
