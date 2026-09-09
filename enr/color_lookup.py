@@ -102,3 +102,17 @@ def load_build(root, repository):
         check=verify_pixels((assets/(item['name']+'.edds')).read_bytes(),np.asarray(Image.open(source)))
         checks.append({'case':item['case'],**check})
     return report,copies,{'build_report_sha256':digest(path),'run_id':report['run_id'],'manifest_sha256':report['manifest_sha256'],'volume_checks':checks}
+
+
+def check_requests(records,table,case,priority,suffix,log):
+    expected=['none'] if case=='off' else ['apply','remove'] if case=='removed' else ['apply']
+    requests=[v.split('=',1)[1] for v in records if v.startswith('requested=')]
+    errors=[line.strip() for line in log.splitlines() if 'Cannot set ColorGradingEffect' in line]
+    actual=[v for v in records if v.startswith('material_class=')]
+    target='material_class=ColorGradingEffect table_read=1 table='+table+suffix+' enabled_read=1 enabled=1'
+    starts=[v for v in records if v.startswith('case=')]
+    checks={'request_order':requests==expected,'native_readback':actual==([] if case=='off' else [target]),
+            'single_initialization':len(starts)==1 and re.fullmatch(r'case='+re.escape(case)+r' camera=\d+ priority='+str(priority),starts[0]) is not None,
+            'no_explicit_engine_rejection':not errors,'no_script_failure':not any(v.startswith('failed=') for v in records)}
+    return {'checks':checks,'passed':all(checks.values()),'raw_readback':actual,'engine_rejections':errors,
+            'scope':'Requested call and container readback; visible response and correct color mapping require pixel evidence'}

@@ -1,10 +1,19 @@
 import struct
 import unittest
 import numpy as np
-from enr.color_lookup import lz4_block,verify_pixels
+from enr.color_lookup import lz4_block,verify_pixels,check_requests
 
 
 class LookupImportTests(unittest.TestCase):
+    def test_engine_rejection_or_wrong_raw_table_cannot_pass(self):
+        table='{1111111111111111}Assets/example.edds'
+        lines=['case=identity camera=0 priority=19','material_class=ColorGradingEffect table_read=1 table='+table+' 0 enabled_read=1 enabled=1','requested=apply']
+        self.assertTrue(check_requests(lines,table,'identity',19,' 0','')['passed'])
+        self.assertFalse(check_requests(lines,table,'identity',19,' 0','WORLD (E): Cannot set ColorGradingEffect PP effect')['passed'])
+        self.assertFalse(check_requests(lines,table,'identity',19,'','')['passed'])
+        self.assertFalse(check_requests(lines,table+'x','identity',19,' 0','')['passed'])
+        self.assertFalse(check_requests(lines+['requested=apply'],table,'identity',19,' 0','')['passed'])
+
     def test_lz4_overlap_and_corrupt_lengths_offsets(self):
         self.assertEqual(lz4_block(b'\x1bA\x01\x00\x50hello',21), b'A'*16+b'hello')
         for block,size in [(b'\xf0',15),(b'\x10A\x00\x00',5),(b'\x10A\x02\x00',5),(b'\x1bA\x01\x00\x50hello',20)]:
