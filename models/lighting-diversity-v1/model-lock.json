@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "34a839cbae50353e1e965de73f1bd6d56d83c95607013016eb0b5a25667342c0",
+  "fit_report_sha256": "6acf040573da4367bb2f9cc2f92b8ad782ff04d71e5f19c6b68472edaf426243",
+  "training_complete": true,
+  "test_accessed": false,
+  "selected_candidate": "scene",
+  "models": {
+    "scene": {
+      "file": "scene-model.json",
+      "sha256": "cf13a5f733e5dbb500f3ea267e20955f5cea35f0a98f9b6a3ba103cfc38b1920"
+    },
+    "relative": {
+      "file": "relative-model.json",
+      "sha256": "30561ac1c5ff2761dba60aefa164c5982deaaa18575a4e694744893d78f93ddc"
+    },
+    "rgb": {
+      "file": "rgb-model.json",
+      "sha256": "5931ac96868ecbf65ba2a3e8550afc2609f36384ec89d751da08efabc388147a"
+    },
+    "affine-scene": {
+      "file": "affine-scene.json",
+      "sha256": "25b3c47200091a15fe96cb1385551a8c278844a17e3dab2557377fd70b0a58f0"
+    },
+    "affine-rgb": {
+      "file": "affine-rgb.json",
+      "sha256": "9e38bf70cd6538ec8ee160a283c8869e038b74bc89a27faad68d49e5e40c1e44"
+    }
+  },
+  "selection_rule": "Lowest mean validation log1p residual MSE checkpoint per model. Select the candidate variant by the same validation metric before test access. Never choose on test or regression results."
+}

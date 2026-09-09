@@ -38,6 +38,8 @@ The [scene-transfer and motion test](lighting-motion.md) evaluates frozen models
 
 Next acceptance: multiple original training layouts; a further untouched evaluation scene; a fixed-budget ablation of absolute world position; marking-contrast and boundary checks; higher-convergence temporal references. Treat the published paths as regression data. Keep new test scenes out of fitting and checkpoint selection. Native execution must separately match the CPU lighting reference and measure feature/inference/composition cost.
 
+The [scene-diversity experiment](lighting-diversity.md) has completed four training layouts, one validation layout, three locked feature variants and two affine controls. The validation-selected full-input model and relative-input variant pass the untouched 48-frame cross-courtyard test at the predeclared sample count. RGB-only fails aggregate spatial and temporal checks. All three complete test clips and the existing regression paths are retained. Next: prove the supported input/output route and test actual Arma city, interior, vegetation and entity scenes. World-resource discovery alone does not meet that acceptance criterion; the lighting graph still requires a verified native implementation and engine feature mapping.
+
 ## 05 · Playable local demonstration
 
 Integrate the accepted model and measure the complete application at 1440p. Preserve a disabled path and rapid fallback. Characterize multiple resolutions and quality profiles. Run the full frame-time and soak protocol.

@@ -1,0 +1,1194 @@
+{
+  "schema_version": 1,
+  "id": "lighting-diversity-v1",
+  "scope": "Six original layouts with disjoint train/validation/test groups; fixed-budget source-feature ablation",
+  "dimensions": [
+    480,
+    270
+  ],
+  "samples": 2048,
+  "evaluation_samples": 8192,
+  "source_diffuse_bounces": 1,
+  "reference_diffuse_bounces": 12,
+  "max_bounces": 12,
+  "glossy_bounces": 12,
+  "vertical_fov_degrees": 42,
+  "light_power_watts": 900,
+  "light_size_m": 2,
+  "camera_target": [
+    0,
+    0.8,
+    1.25
+  ],
+  "paired_seed": 311,
+  "independent_seed": 7001,
+  "seed_stride": 31,
+  "scenes": [
+    {
+      "id": "corner-gallery",
+      "scene": "corner-gallery-v1.json",
+      "group": "corner-gallery-v1",
+      "split": "train"
+    },
+    {
+      "id": "covered-court",
+      "scene": "covered-court-v1.json",
+      "group": "covered-court-v1",
+      "split": "train"
+    },
+    {
+      "id": "staggered-workshop",
+      "scene": "staggered-workshop-v1.json",
+      "group": "staggered-workshop-v1",
+      "split": "train"
+    },
+    {
+      "id": "split-passage",
+      "scene": "split-passage-v1.json",
+      "group": "split-passage-v1",
+      "split": "train"
+    },
+    {
+      "id": "offset-loading-bay",
+      "scene": "offset-loading-bay-v1.json",
+      "group": "offset-loading-bay-v1",
+      "split": "validation"
+    },
+    {
+      "id": "cross-courtyard",
+      "scene": "cross-courtyard-v1.json",
+      "group": "cross-courtyard-v1",
+      "split": "test"
+    }
+  ],
+  "cases": [
+    {
+      "id": "corner-gallery-00",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 0,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-01",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 1,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-02",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 2,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-03",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 3,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-04",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 4,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-05",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 5,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-06",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 6,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-07",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 7,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-08",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 8,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-09",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 9,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-10",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 10,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "corner-gallery-11",
+      "scene_id": "corner-gallery",
+      "group": "corner-gallery-v1",
+      "split": "train",
+      "index": 11,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-00",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 0,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-01",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 1,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-02",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 2,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-03",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 3,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-04",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 4,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-05",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 5,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-06",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 6,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-07",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 7,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-08",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 8,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-09",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 9,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-10",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 10,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "covered-court-11",
+      "scene_id": "covered-court",
+      "group": "covered-court-v1",
+      "split": "train",
+      "index": 11,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-00",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 0,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-01",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 1,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-02",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 2,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-03",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 3,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-04",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 4,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-05",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 5,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-06",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 6,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-07",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 7,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-08",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 8,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-09",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 9,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-10",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 10,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "staggered-workshop-11",
+      "scene_id": "staggered-workshop",
+      "group": "staggered-workshop-v1",
+      "split": "train",
+      "index": 11,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-00",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 0,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-01",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 1,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-02",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 2,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-03",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 3,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-04",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 4,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-05",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 5,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-06",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 6,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-07",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 7,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-08",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 8,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-09",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 9,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-10",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 10,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "split-passage-11",
+      "scene_id": "split-passage",
+      "group": "split-passage-v1",
+      "split": "train",
+      "index": 11,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-00",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 0,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-01",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 1,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-02",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 2,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-03",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 3,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        -1,
+        0.2,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-04",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 4,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-05",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 5,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-06",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 6,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-07",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 7,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        0,
+        0.6,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-08",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 8,
+      "camera": [
+        -1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-09",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 9,
+      "camera": [
+        0,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-10",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 10,
+      "camera": [
+        1,
+        -7.5,
+        3
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    },
+    {
+      "id": "offset-loading-bay-11",
+      "scene_id": "offset-loading-bay",
+      "group": "offset-loading-bay-v1",
+      "split": "validation",
+      "index": 11,
+      "camera": [
+        0.0,
+        -6.7,
+        3.6
+      ],
+      "light": [
+        1,
+        1.0,
+        3.8
+      ]
+    }
+  ],
+  "training": {
+    "seed": 17,
+    "steps": 10000,
+    "batch_size": 1024,
+    "pixels_per_case": 8192,
+    "hidden_width": 32,
+    "learning_rate": 0.001,
+    "check_every": 250
+  },
+  "features": {
+    "rgb": [
+      0,
+      1,
+      2
+    ],
+    "scene": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "relative": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "baselines": [
+    "identity",
+    "affine-scene",
+    "affine-rgb",
+    "frozen-lighting-v1",
+    "frozen-lighting-rgb-v1"
+  ],
+  "sampling": "Same sampled pixel IDs, minibatch indices, step count and validation checkpoints for the three neural variants. Capacity differs only in input-layer columns. Uniform valid-surface pixels; no test-guided resampling.",
+  "selection": "Lowest mean validation log1p residual MSE checkpoint per model. Select the candidate variant by the same validation metric before test access. Never choose on test or regression results.",
+  "gates": {
+    "minimum_mean_spatial_improvement_fraction": 0.05,
+    "maximum_boundary_or_post_rmse_regression_fraction": 0.02,
+    "maximum_marking_contrast_error_regression": 0.002,
+    "maximum_temporal_rmse_regression_fraction": 0.02,
+    "reference_noise_fraction_of_measured_gain_max": 0.5,
+    "rule": "Candidate must beat identity and both newly fitted affine baselines by 5% mean log1p RMSE on the untouched test scene; boundaries and posts may regress at most 2% relative to source on any evaluated frame, and marking-contrast error at most 0.002 weighted-log units. Mean temporal error may regress at most 2%. Reference-seed sensitivity above half a claimed gain makes that claim inconclusive, not passed. Report every variant and frame; never relax gates after inspection."
+  },
+  "test_sequence": {
+    "frames": 48,
+    "playback_fps": 20,
+    "camera_start": [
+      -1,
+      -7.4,
+      3.0
+    ],
+    "camera_end": [
+      1.1,
+      -6.8,
+      3.5
+    ],
+    "light_start": [
+      -1.1,
+      0.0,
+      3.8
+    ],
+    "light_end": [
+      1.1,
+      0.9,
+      3.8
+    ],
+    "publication_frame": 24
+  },
+  "regression_plan": "lighting-motion-v1.json",
+  "regression_policy": "Evaluate all existing 64 frames with frozen new models and old model controls. Retain old references and report their sampling limit. Do not use regression targets for selection.",
+  "test_access": "Render and evaluate test only after saving all trained model hashes and the validation-selected candidate. No human inspection of test renders before that lock.",
+  "limitations": [
+    "Original material constants; one untouched synthetic test layout is not all-asset coverage",
+    "Static original geometry; moving camera and one area light",
+    "Synthetic paired targets are not Enfusion ground truth",
+    "Integration and varied Reforger environments require separate measured evidence"
+  ]
+}

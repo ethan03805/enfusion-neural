@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "id": "offset-loading-bay-v1",
+  "group": "offset-loading-bay-v1",
+  "split": "validation",
+  "license": "MIT; original procedural geometry and markings",
+  "material_library": "material-room-v1.json",
+  "description": "Offset loading platform and canopy outside training layouts",
+  "boxes": [
+    {
+      "id": "floor",
+      "position": [
+        0,
+        0.5,
+        -0.1
+      ],
+      "size": [
+        6,
+        7,
+        0.2
+      ],
+      "material": "neutral"
+    },
+    {
+      "id": "back",
+      "position": [
+        0,
+        4,
+        2
+      ],
+      "size": [
+        6,
+        0.2,
+        4
+      ],
+      "material": "red"
+    },
+    {
+      "id": "left",
+      "position": [
+        -3,
+        0.5,
+        2
+      ],
+      "size": [
+        0.2,
+        7,
+        4
+      ],
+      "material": "blue"
+    },
+    {
+      "id": "right",
+      "position": [
+        3,
+        0.5,
+        2
+      ],
+      "size": [
+        0.2,
+        7,
+        4
+      ],
+      "material": "neutral"
+    },
+    {
+      "id": "loading-platform",
+      "position": [
+        -1.0,
+        2,
+        0.4
+      ],
+      "size": [
+        2.3,
+        2.2,
+        0.8
+      ],
+      "material": "neutral"
+    },
+    {
+      "id": "overhang",
+      "position": [
+        0.9,
+        2.2,
+        2.7
+      ],
+      "size": [
+        2.8,
+        2.0,
+        0.2
+      ],
+      "material": "blue"
+    },
+    {
+      "id": "return-screen",
+      "position": [
+        0.25,
+        1.6,
+        1.2
+      ],
+      "size": [
+        0.3,
+        2.6,
+        2.4
+      ],
+      "material": "rough"
+    },
+    {
+      "id": "rear-crate",
+      "position": [
+        -1.6,
+        2.6,
+        1.25
+      ],
+      "size": [
+        1,
+        1,
+        0.9
+      ],
+      "material": "red"
+    },
+    {
+      "id": "mark-board",
+      "position": [
+        0.7,
+        -0.55,
+        1.15
+      ],
+      "size": [
+        1.15,
+        0.035,
+        0.62
+      ],
+      "material": "white"
+    },
+    {
+      "id": "mark-bar-0",
+      "position": [
+        0.26999999999999996,
+        -0.5740000000000001,
+        1.15
+      ],
+      "size": [
+        0.025,
+        0.012,
+        0.45
+      ],
+      "material": "dark"
+    },
+    {
+      "id": "mark-bar-1",
+      "position": [
+        0.45999999999999996,
+        -0.5740000000000001,
+        1.15
+      ],
+      "size": [
+        0.06,
+        0.012,
+        0.45
+      ],
+      "material": "dark"
+    },
+    {
+      "id": "mark-bar-2",
+      "position": [
+        0.6499999999999999,
+        -0.5740000000000001,
+        1.15
+      ],
+      "size": [
+        0.035,
+        0.012,
+        0.45
+      ],
+      "material": "dark"
+    },
+    {
+      "id": "mark-bar-3",
+      "position": [
+        0.85,
+        -0.5740000000000001,
+        1.15
+      ],
+      "size": [
+        0.1,
+        0.012,
+        0.45
+      ],
+      "material": "dark"
+    },
+    {
+      "id": "mark-bar-4",
+      "position": [
+        1.1,
+        -0.5740000000000001,
+        1.15
+      ],
+      "size": [
+        0.045,
+        0.012,
+        0.45
+      ],
+      "material": "dark"
+    }
+  ],
+  "spheres": [
+    {
+      "id": "reflective-sphere",
+      "position": [
+        -1.85,
+        -0.45,
+        0.42
+      ],
+      "radius": 0.42,
+      "material": "metal"
+    },
+    {
+      "id": "rough-sphere",
+      "position": [
+        1.6,
+        -0.7,
+        0.35
+      ],
+      "radius": 0.35,
+      "material": "rough"
+    }
+  ],
+  "thin_posts": {
+    "diameters_m": [
+      0.015,
+      0.03,
+      0.06
+    ],
+    "height_m": 1.7,
+    "x_positions": [
+      -0.45,
+      -0.12,
+      0.25
+    ],
+    "y": -1.4,
+    "material": "dark"
+  }
+}

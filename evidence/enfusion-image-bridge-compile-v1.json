@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "scope": "Silent ScriptEditor compile; no world load, image capture, widget execution or neural integration proof.",
+  "validation_run": "20260909T055234-51d147e1ad",
+  "validation_manifest_sha256": "0c22b73b9595b4fe862266ea718202f0dbd2a453b77d2f8aa432b9691c30db67",
+  "probe_sha256": "d87eb26d3d8384ed8cdc1287c5e19f3d8859f79413be9e9890570d30e8e8b998",
+  "entities_script_sha256": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+  "console_sha256": "66155f6e723f7433296ffc50d430c1299955231816c973959e6651c0c6950b0a",
+  "lab_addon_sha256": {
+    "addon.gproj": "f4e5a9d65dcf6cbfa8151bdb403bffa11ff867fc879061be71a401f5ba1d984e",
+    "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+    "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Scripts/Game/ELab_GameCapture.c": "7345c8501249740ef62074c7e35ccc643b9f0de303724ed2a3f5c1640deeddfc",
+    "Scripts/Game/ENR_BridgeConfig.c": "1f0e369db92717ab088663ff2634242facc5b8142cca21127376362305ba0ccf",
+    "Scripts/Game/ENR_BridgeEntities.c": "24b266ba88ffc55303e8d1b636d0efec500ed1cbd19e35da5a8e55d8f487fb66",
+    "Scripts/Game/ENR_ImageBridge.c": "d87eb26d3d8384ed8cdc1287c5e19f3d8859f79413be9e9890570d30e8e8b998",
+    "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+    "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+    "Scripts/Game/ENR_SequenceConfig.c": "0e747e582ac6c9e8a65a41eda814e4db89fb7e87fb8415354b51952ba79a99c0",
+    "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+    "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+  },
+  "builds": {
+    "1874880": {
+      "name": "Arma Reforger",
+      "buildid": "24903726"
+    },
+    "1874910": {
+      "name": "Arma Reforger Tools",
+      "buildid": "24870687"
+    }
+  },
+  "command_mode": [
+    "-wbsilent",
+    "-wbModule=ScriptEditor",
+    "-validate",
+    "PC"
+  ],
+  "world_loaded": false,
+  "capture_executed": false,
+  "capture_ui_roundtrip_verified": false,
+  "live_neural_lighting_integration_verified": false,
+  "note": "Executed during the long Blender render as a silent compile. No world or capture was launched. GPU identity was enumerated during Workbench startup; no concurrent scene-render experiment was run. Offline Blender call durations are not isolated GPU performance measurements."
+}
