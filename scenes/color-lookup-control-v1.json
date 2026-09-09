@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "color-lookup-control-v1",
+  "scope": "Original volume lookup import and static camera color-grading controls; no trained model or full scene-renderer bridge",
+  "schema_plan": "scenes/color-lookup-schema-v1.json",
+  "effect_class": "ColorGradingEffect",
+  "texture_field": "ColorTable",
+  "priority": 1000,
+  "volume_edge": 16,
+  "source_dimensions": [256, 16],
+  "source_layout": "horizontal Z slices; x = R index + 16 * B index, y = G index; normalized RGB lattice coordinates i/15",
+  "texture_import": {"Conversion": "None", "ColorSpace": "ToLinear", "GenerateMips": 0, "VolumeTexture": 1},
+  "textures": ["identity", "inversion", "constant"],
+  "constant_rgb8": [51, 102, 204],
+  "capture_base": "scenes/arland-motion-v1.json",
+  "capture_overrides": {"samples": 1, "position_end": [2048, 60, 2048], "yaw_end_degrees": 90, "hold_ticks_per_sample": 120},
+  "runs": ["off", "identity", "inversion", "constant", "removed", "off", "off"],
+  "removal": "Apply inversion and then remove only this priority/type in the same initialization before settling",
+  "numerical_scope": "Characterization of lookup encoding/order and presentation. Record all pixel errors against CPU identity, inversion and constant without fitting. These are not reserved acceptance tests.",
+  "positive_control": {"case": "constant", "minimum_rgb8_mae_vs_first_off": 5, "interpretation": "Visible response only, not correct color encoding or neural integration"},
+  "limits": [
+    "Color encoding and interpolation conventions are not assumed verified",
+    "SetCameraPostProcessEffect has no getter verification here; material readback and visible response are distinct checks",
+    "Later reserved controls need separately declared limits and scenes, fixed after this characterization",
+    "A pointwise color lookup cannot implement the full scene-conditioned model or reconstruct spatial detail",
+    "Scene buffers, HUD/scopes, temporal rendering, runtime packaging and complete-frame cost remain unverified"
+  ]
+}

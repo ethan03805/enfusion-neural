@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "color-lookup-schema-v1",
+  "scope": "Native read-only material-container schema inspection; no image processing or renderer integration claim",
+  "basis": "Public PostProcessEffectType documentation states that material classes use the enum name followed by Effect. The two original empty materials test that documented class convention.",
+  "materials": [
+    {"name": "original_color_grading", "class": "ColorGradingEffect"},
+    {"name": "original_colors", "class": "ColorsEffect"},
+    {"name": "observed_editor_colors", "resource": "{B18D0050792C7B8C}UI/Materials/Editor/Colors.emat"},
+    {"name": "observed_hdr", "resource": "{9DEECCABE8357209}Common/Postprocess/HDR.emat"}
+  ],
+  "max_fields_per_container": 256,
+  "max_container_depth": 4,
+  "limits": [
+    "Schema presence and loadability do not prove rendering behavior or field semantics",
+    "Existing resources are inspected through native containers and not copied into the published addon",
+    "Original empty containers are new isolated addon resources, not replacements for game resources",
+    "No scene, capture, model, lookup table, live presentation or performance claim"
+  ]
+}
