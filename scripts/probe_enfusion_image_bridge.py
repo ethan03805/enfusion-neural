@@ -88,7 +88,11 @@ def main():
                     with Image.open(path) as image:image.verify()
                 except (OSError,SyntaxError):continue
                 worker_records.append(process_image(path.parent,a.mode));return
-        except Exception as error:worker_errors.append(repr(error))
+        except Exception as error:
+            worker_errors.append(repr(error))
+            # Keep the cause even if the engine later times out waiting for the
+            # completion file and the Lab runner exits before bridge.json exists.
+            write_json(out/'worker-error.json',{'schema_version':1,'mode':a.mode,'errors':worker_errors})
     with sequence.private_settings(runner):
         validation=run_workbench(out,'validate',timeout=180)
         if validation['status']!='succeeded':raise ValueError('Bridge addon did not compile')
