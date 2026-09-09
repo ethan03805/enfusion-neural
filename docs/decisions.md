@@ -37,3 +37,15 @@ Accepted 8 September 2026. Remove the logo and promotional copy from the site, k
 Accepted 8 September 2026 at the user's request. Publish the existing Arland benchmark pair and the first capture from each reference scene variant. Keep image bytes unchanged, record provenance in the media manifest and check their hashes during the site build. These screenshots are outside the MIT code license; include game attribution and the content usage policy.
 
 Show the model's visible failures alongside its numerical results. Use a manual comparison slider with a static fallback. Independent still captures are not a motion sequence; publish before-and-after video only when source and output frames can be synchronized and playback conditions documented.
+
+## 009 · Sample motion with an explicit offline time convention
+
+Accepted 8 September 2026. Capture numbered frames along one fixed path, hold the camera before each request, and pair each input with exactly one verified GPU output. Encode both sides in a single stream. Keep simulation time, capture/export behavior, processing time and playback rate separate. Retiming is allowed for the documented diagnostic clip; it is never a real-time performance result.
+
+## 010 · Separate stored settings from viewport verification
+
+Accepted. Start Workbench with isolated editor, engine and diagnostic settings files. Validate actual camera projection, exposure, environment, exported dimensions and engine setting readback. Do not infer main-viewport scale or FSR from the unrelated 128 × 128 game workspace. The current capture contract leaves those fields unverified until a positive control succeeds.
+
+## 011 · Original path-traced reference data
+
+Accepted. Generate one original room from shared JSON geometry, camera, light and material constants. Compare a limited-bounce source with a multi-bounce Cycles reference, retain linear EXR passes, and measure a second reference seed. Exact depth/object-ID agreement and a noise threshold are initial data checks. Synthetic source renders remain distinct from Enfusion source renders; an engine/reference pair requires a separate import and calibration check.

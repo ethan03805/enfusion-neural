@@ -12,3 +12,7 @@ External references inform design choices. Local measurements remain the source 
 | [GitHub Pages with custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) | Documentation build and deployment |
 
 The original local feasibility investigation inspected Workbench script declarations and demonstrated screenshot export plus an RGB-inversion D3D12 control. This repository builds on that evidence but does not publish installed API files, Steam assets or private machine profiles. Enfusion Lab version 0.1.0 is the capture tool used for the first milestone.
+
+Capture controls also use Bohemia's [startup parameters](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters), [diagnostic menu](https://community.bistudio.com/wiki/Arma_Reforger:Diag_Menu) and installed Workbench API declarations. The local viewport probes determine which settings have actually been verified.
+
+Reference analysis uses the official [OpenEXR Python API](https://openexr.com/en/latest/python.html), including iteration over every part of a multilayer file. The recorded Blender version and scene settings identify the path-tracing implementation; the synthetic reference is not an assertion of identical Enfusion material or color behavior.

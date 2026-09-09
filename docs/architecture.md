@@ -22,6 +22,10 @@ Enfusion Lab export or original procedural fixture
 | `enr/model.py` | Model contract, gradients, CPU inference, HLSL generation |
 | `enr/cli.py` | Training, evaluation, benchmark orchestration and manifests |
 | `enr/references.py` | Scene pack validation, batch capture and repeat comparisons |
+| `enr/sequence.py` | Isolated camera-path sampling and capture contract verification |
+| `enr/motion.py` | Per-frame GPU/CPU verification and synchronized video encoding |
+| `scripts/render_material_room.py` | Original Cycles scene and aligned reference generation |
+| `scripts/check_material_room.py` | All-part EXR validation, geometry and noise checks |
 | `scenes/` | Versioned scene definitions and control settings |
 | `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
 | `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |

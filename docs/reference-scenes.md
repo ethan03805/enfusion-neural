@@ -2,6 +2,8 @@
 
 The first pack defines three static camera/lighting probes in the installed Arland world. Each scene is captured three times in separate Workbench simulations. It tests whether the same requested scene produces comparable images.
 
+This page retains the v1 baseline. The newer [capture controls](capture-controls.md) add projection and exposure checks, explicit settings files and a recorded camera path. The separate [material room](material-room.md) supplies original synthetic reference data.
+
 | Scene | View | Time | Group |
 | --- | --- | --- | --- |
 | `forest-east-noon` | East from [2048,60,2048] | 13:00 | arland-center |

@@ -29,8 +29,23 @@ The [reference scene pack](reference-scenes.md) controls camera and environment 
 
 <figure class="scene-image"><a href="media/forest-east-evening.png"><img src="media/forest-east-evening.png" width="1839" height="947" loading="lazy" alt="East-facing Arland forest reference view at 18:30, with longer shadows and different illumination"></a><figcaption>East · 18:30 · repeat 1</figcaption></figure>
 
-## Motion comparisons
+## Motion
 
-No continuous before-and-after video has been recorded yet. The reference captures came from separate simulations and cannot demonstrate temporal stability. A future motion comparison needs the same recorded camera path, synchronized source/output frames and a fixed rendering configuration. Its caption must identify offline processing or live playback and any dropped or duplicated frames.
+Left: Workbench capture. Right: the same frames processed by the v0 model.
+
+<figure class="motion-comparison">
+<video controls playsinline preload="none" poster="media/arland-motion-poster.png" width="3840" height="1080" aria-label="Synchronized Arland source and v0 model comparison"><source src="media/arland-motion.mp4" type="video/mp4"><a href="media/arland-motion.mp4">Download the comparison video</a></video>
+<figcaption>80 paired frames · offline processing · four seconds at 20 FPS</figcaption>
+</figure>
+
+[Download MP4 · 34.5 MiB](media/arland-motion.mp4) · [Full-resolution first source frame](media/arland-motion-first.png) · [Full-resolution first model output](media/arland-motion-first-output.png)
+
+The camera moves two metres and turns eight degrees along a fixed path. Each 2560 × 1440 source frame has exactly one GPU output, and every output passed the independent CPU comparison with at most one RGB code-value difference and exact alpha. The output still has exaggerated foliage boundaries; the clip does not demonstrate acceptable appearance quality.
+
+Both sides are encoded in one stream to maintain synchronization. Each full frame is scaled equally to 1920 × 1080, then the pair is encoded at 3840 × 1080 using H.264, CRF 16 and 4:2:0 chroma. There are no interpolated or dropped samples. Video compression and scaling change pixels; use the PNG links for pixel inspection.
+
+The source sequence spans 21.762 simulation seconds and is retimed to four seconds. This is not a real-time recording or a 20 FPS performance claim. Render scale and FSR in Workbench's actual viewport remain unverified. [Capture controls and reproduction](capture-controls.md) · [Complete frame records](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/motion-v1.json).
+
+For aligned lighting targets, see the separate [material room](material-room.md). Its path-traced references are synthetic targets, not outputs from this neural model.
 
 Arma Reforger imagery © Bohemia Interactive a.s. This independent website is not affiliated with or authorized by Bohemia Interactive. Game names, designs and associated trademarks belong to their owners. Screenshots are shared under the [game content usage rules](https://www.bohemia.net/en/community/game-content-usage-rules); game imagery is outside this repository's MIT code license.

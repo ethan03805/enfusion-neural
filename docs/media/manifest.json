@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "publication_date": "2026-09-08",
-  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection.",
-  "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s. and is outside the repository MIT code license.",
+  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings.",
+  "rights": "Arland game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original material-room imagery is MIT licensed.",
   "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
   "output_verification": {
     "matches_retained_gpu_rgba": true,
@@ -85,6 +85,97 @@
       "run_id": "20260908T232442-2d3a5523ee",
       "scene_id": "forest-east-evening",
       "repeat": 1
+    },
+    {
+      "file": "arland-motion-poster.png",
+      "sha256": "701570097247032c2a1023fa899ec7d3e2c24a60e8a6d0df197728f583b3ef7e",
+      "bytes": 1603900,
+      "dimensions": [
+        1920,
+        540
+      ],
+      "role": "video poster",
+      "source_record": "evidence/motion-v1.json",
+      "source_artifact": "experiments/local/motion-output-v1/poster.png",
+      "transformation": "First decoded MP4 frame scaled to 1920x540; no separate image retouching",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s. and is outside the repository MIT code license."
+    },
+    {
+      "file": "arland-motion-first.png",
+      "sha256": "5c550d56c4d78093072f4bca675029a2a5883e6ebf47d442102a0c0938be98a4",
+      "bytes": 6366766,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "model input, motion sample 0",
+      "source_record": "evidence/motion-v1.json",
+      "source_artifact": "experiments/local/motion-v1b/runs/20260909T003650-5d8d09c360/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s. and is outside the repository MIT code license."
+    },
+    {
+      "file": "arland-motion-first-output.png",
+      "sha256": "8a229dd482b5cfbf9470def8a99d3ab39a72ea2933ffc2c67955cd64fb5365e0",
+      "bytes": 6511496,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "model output, motion sample 0",
+      "source_record": "evidence/motion-v1.json",
+      "source_artifact": "experiments/local/motion-output-v1/output-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s. and is outside the repository MIT code license."
+    },
+    {
+      "file": "material-room-source.png",
+      "sha256": "6f05514fa58ac5d07daa6fb0019259a76caa8e447831fdf5844ecd99f101c4ea",
+      "bytes": 647071,
+      "dimensions": [
+        960,
+        540
+      ],
+      "role": "synthetic one-bounce source",
+      "source_record": "evidence/material-room-v1.json",
+      "source_artifact": "experiments/local/material-room-v1d/source.png",
+      "transformation": "none; byte-for-byte copy",
+      "rights": "MIT; original procedural scene"
+    },
+    {
+      "file": "material-room-reference.png",
+      "sha256": "a8154d68831e83233796a8eb7dda715a9e901ad3fafeddafcaa616742bda2d63",
+      "bytes": 597000,
+      "dimensions": [
+        960,
+        540
+      ],
+      "role": "synthetic twelve-bounce reference",
+      "source_record": "evidence/material-room-v1.json",
+      "source_artifact": "experiments/local/material-room-v1d/reference.png",
+      "transformation": "none; byte-for-byte copy",
+      "rights": "MIT; original procedural scene"
+    }
+  ],
+  "videos": [
+    {
+      "file": "arland-motion.mp4",
+      "source_record": "evidence/motion-v1.json",
+      "source_artifact": "experiments/local/motion-output-v1/comparison.mp4",
+      "schema_version": 1,
+      "sha256": "9ea1ff18fb0242179bec745715ff2f8fc9923a3502905150ba23134e4aa0f378",
+      "bytes": 36179090,
+      "dimensions": [
+        3840,
+        1080
+      ],
+      "frames": 80,
+      "playback_fps": 20,
+      "duration_seconds": 4.0,
+      "codec": "H.264 / yuv420p / CRF 16",
+      "transformation": "Each full frame scaled from 2560x1440 to 1920x1080 with Lanczos; source left, GPU output right, encoded together without interpolation or dropped samples.",
+      "capture_manifest_sha256": "34677ca5f873dc311849026101663fa20bd4e3316f79e6ca6c70add1211b0885",
+      "motion_manifest_sha256": "5f9ce4080b66027cc334f2e90e7fdab2cc864cf3bbc099e04c83277711adc5f1"
     }
   ]
 }

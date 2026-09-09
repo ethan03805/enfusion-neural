@@ -1,0 +1,5899 @@
+{
+  "schema_version": 1,
+  "scope": "One GPU output for each captured source frame. Offline export, processing and retimed playback; not live performance.",
+  "model_sha256": "8f04922046e2d59bf71b7fbeb8aa46e8974dd8e3a2d7bdc671a28bcaccc2bced",
+  "capture": {
+    "schema_version": 1,
+    "status": "succeeded",
+    "run_id": "20260909T003650-5d8d09c360",
+    "scope": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "playback_fps": 20,
+    "config": {
+      "schema_version": 1,
+      "id": "arland-motion-v1",
+      "world": "worlds/Arland/Arland.ent",
+      "group": "arland-center",
+      "split": "diagnostic",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "position_start": [
+        2048,
+        60,
+        2048
+      ],
+      "position_end": [
+        2050,
+        60,
+        2048
+      ],
+      "yaw_start_degrees": 90,
+      "yaw_end_degrees": 98,
+      "vertical_fov_degrees": 60,
+      "near_plane_m": 0.1,
+      "far_plane_m": 2000,
+      "hdr_brightness": 0.00456415,
+      "date": [
+        1989,
+        6,
+        21
+      ],
+      "hour": 13,
+      "weather_state": "Clear",
+      "wind_speed_mps": 0,
+      "wind_direction_degrees": 0,
+      "settle_seconds": 8,
+      "hold_ticks_per_sample": 6,
+      "samples": 80,
+      "playback_fps": 20,
+      "timeout_seconds": 180,
+      "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+      "requested_render_scale": 1,
+      "requested_fsr_enabled": false,
+      "viewport_render_scale_verified": false,
+      "viewport_fsr_verified": false,
+      "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+      "quality_readback": {
+        "VideoUserSettings": {
+          "ResolutionScale": 1,
+          "FsrEnabled": 0,
+          "Fsaa": 0,
+          "DistantShadowsQuality": 2,
+          "EnvironmentQuality": 2,
+          "Atoc": 0,
+          "Gamma": 0,
+          "Contrast": 0,
+          "Brightness": 0
+        },
+        "PPEffectsSettings": {
+          "HBAO": 1,
+          "SSDO": 1,
+          "SSR": 1,
+          "PPAA": 2
+        },
+        "PipelineUserSettings": {
+          "ShadowQuality": 2
+        },
+        "ResourceManagerUserSettings": {
+          "TextureDetail": 0,
+          "GeometricDetail": 2
+        },
+        "GrassMaterialSettings": {
+          "Distance": 175,
+          "Lod": 3,
+          "Quality": 0
+        },
+        "TerrainGenMaterialSettings": {
+          "Detail": 3
+        },
+        "MaterialSystemUserSettings": {
+          "TextureFilter": 2,
+          "MaxAniso": 4
+        }
+      }
+    },
+    "addon_sha256": {
+      "addon.gproj": "1c05aeae6f7c3e7377716949210988ece31168da8caf0f45b1e17acfc6ded58c",
+      "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ENR_Engine.conf": "ed0741da5a64fa192daa8b4b6d432f88302fa2cc67c21f73ca2559c47760adcf",
+      "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Scripts/Game/ELab_GameCapture.c": "18779e36af9eab3b389c7c958512071eff163fc0920f8c72e600b859dcefea1a",
+      "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+      "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+      "Scripts/Game/ENR_SequenceConfig.c": "fd39dee3e6817a40ea3305c560866b118b29c421fe6a5fac74f8d6789aaebcc0",
+      "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+      "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+    },
+    "frames": [
+      {
+        "index": 0,
+        "file": "profile\\profile\\sample-00000.png",
+        "sha256": "5c550d56c4d78093072f4bca675029a2a5883e6ebf47d442102a0c0938be98a4",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 0,
+          "world_frame": 579,
+          "simulation_seconds": 8.0649,
+          "position": [
+            2048,
+            60,
+            2048
+          ],
+          "direction": [
+            1,
+            0,
+            -4.37114e-08
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 0,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 1,
+        "file": "profile\\profile\\sample-00001.png",
+        "sha256": "3dff8bcd0d8c04a29f66754a6b4f4c8a022bc1569414fab8ea70a893ddc6dbe0",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 1,
+          "world_frame": 585,
+          "simulation_seconds": 8.3386,
+          "position": [
+            2048.03,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999998,
+            0,
+            -0.00176756
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 1,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 2,
+        "file": "profile\\profile\\sample-00002.png",
+        "sha256": "4b1b619175e066f3039afeb3d6fd569888d1188a93d43cc78918c82ff3641aa4",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 2,
+          "world_frame": 591,
+          "simulation_seconds": 8.61246,
+          "position": [
+            2048.05,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999994,
+            0,
+            -0.00353483
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 2,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 3,
+        "file": "profile\\profile\\sample-00003.png",
+        "sha256": "74f1f0bd4eeea0f23e4fc6ffbe4075563fd5c25fc474b56b7d93f20be877f20d",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 3,
+          "world_frame": 597,
+          "simulation_seconds": 8.8886,
+          "position": [
+            2048.08,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999986,
+            0,
+            -0.00530233
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 3,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 4,
+        "file": "profile\\profile\\sample-00004.png",
+        "sha256": "7c15f7e22b950d33483f6f305ec28b10217fe32b6df7358c65be27ec7fa2c459",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 4,
+          "world_frame": 603,
+          "simulation_seconds": 9.16136,
+          "position": [
+            2048.1,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999975,
+            0,
+            -0.00706957
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 4,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 5,
+        "file": "profile\\profile\\sample-00005.png",
+        "sha256": "c646f3a251f0d2b29ee98431a655548fc6abe862df1d0df12199106552b851b9",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 5,
+          "world_frame": 609,
+          "simulation_seconds": 9.4361,
+          "position": [
+            2048.13,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999961,
+            0,
+            -0.00883715
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 5,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 6,
+        "file": "profile\\profile\\sample-00006.png",
+        "sha256": "73a04a8e559ff753890c1d87df55eebdd1a1a756958159805a56409e13c4158d",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 6,
+          "world_frame": 615,
+          "simulation_seconds": 9.71001,
+          "position": [
+            2048.15,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999944,
+            0,
+            -0.0106043
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 6,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 7,
+        "file": "profile\\profile\\sample-00007.png",
+        "sha256": "d6c4c001dd738416158efcdcf61b4cbb5b18127b2deb0a4a94f0960aacad1842",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 7,
+          "world_frame": 621,
+          "simulation_seconds": 9.98296,
+          "position": [
+            2048.18,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999923,
+            0,
+            -0.0123717
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 7,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 8,
+        "file": "profile\\profile\\sample-00008.png",
+        "sha256": "299119b3ac39baeedc11337d6fb42a520036cc9be5a2b4819182f458d4001a67",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 8,
+          "world_frame": 627,
+          "simulation_seconds": 10.2535,
+          "position": [
+            2048.2,
+            60,
+            2048
+          ],
+          "direction": [
+            0.9999,
+            0,
+            -0.0141389
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 8,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 9,
+        "file": "profile\\profile\\sample-00009.png",
+        "sha256": "8dc65019653e1f3bef98717b77793bc6e70a8625e8c4e90d1c8a3b01c2871327",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 9,
+          "world_frame": 633,
+          "simulation_seconds": 10.5248,
+          "position": [
+            2048.23,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999873,
+            0,
+            -0.0159062
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 9,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 10,
+        "file": "profile\\profile\\sample-00010.png",
+        "sha256": "9c6b526ddb4d4efcab637893dd37f1e3352c9b7e3527fb0760ca2100a42dce6f",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 10,
+          "world_frame": 639,
+          "simulation_seconds": 10.8093,
+          "position": [
+            2048.25,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999844,
+            0,
+            -0.0176732
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 10,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 11,
+        "file": "profile\\profile\\sample-00011.png",
+        "sha256": "af62035f54fd54f2a174a97733034311b01b733c5e04f537b1b93e6b2f440551",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 11,
+          "world_frame": 645,
+          "simulation_seconds": 11.0899,
+          "position": [
+            2048.28,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999811,
+            0,
+            -0.0194404
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 11,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 12,
+        "file": "profile\\profile\\sample-00012.png",
+        "sha256": "76cd533b2f9e1d5a7acbb8780dbd138fcbe483a88dffa0686770b8fd60ac979a",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 12,
+          "world_frame": 651,
+          "simulation_seconds": 11.3728,
+          "position": [
+            2048.3,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999775,
+            0,
+            -0.0212076
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 12,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 13,
+        "file": "profile\\profile\\sample-00013.png",
+        "sha256": "3c03ed5b49eaafcdbfb1ae15f367b1cec12a5f952ae65b793fed555464fb5c6a",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 13,
+          "world_frame": 657,
+          "simulation_seconds": 11.6617,
+          "position": [
+            2048.33,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999736,
+            0,
+            -0.0229744
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 13,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 14,
+        "file": "profile\\profile\\sample-00014.png",
+        "sha256": "012b6173f7341000211aa91e006b929ee28b30d7bb138873b6424d6f8a4fb820",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 14,
+          "world_frame": 663,
+          "simulation_seconds": 11.941,
+          "position": [
+            2048.35,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999694,
+            0,
+            -0.0247416
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 14,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 15,
+        "file": "profile\\profile\\sample-00015.png",
+        "sha256": "257c6270d3d9af9d1100c1861babe4ebcb4f675d894cbe5f1404247b26fc75c8",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 15,
+          "world_frame": 669,
+          "simulation_seconds": 12.2236,
+          "position": [
+            2048.38,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999649,
+            0,
+            -0.0265082
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 15,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 16,
+        "file": "profile\\profile\\sample-00016.png",
+        "sha256": "3f01954d6c488426c661de1ef5b74313bc5cd0f7624d6a1ed4e4676cf66f95fe",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 16,
+          "world_frame": 675,
+          "simulation_seconds": 12.5011,
+          "position": [
+            2048.41,
+            60,
+            2048
+          ],
+          "direction": [
+            0.9996,
+            0,
+            -0.0282751
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 16,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 17,
+        "file": "profile\\profile\\sample-00017.png",
+        "sha256": "6d91299677a12455c96f768c868cefb282cdf928a91e7cf9fae4500d820c7e28",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 17,
+          "world_frame": 681,
+          "simulation_seconds": 12.7775,
+          "position": [
+            2048.43,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999549,
+            0,
+            -0.0300419
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 17,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 18,
+        "file": "profile\\profile\\sample-00018.png",
+        "sha256": "e98733a5ac387a322eb0918bbc75c622aa712ec3716b6c3b51fb3676f78de098",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 18,
+          "world_frame": 687,
+          "simulation_seconds": 13.0555,
+          "position": [
+            2048.46,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999494,
+            0,
+            -0.0318083
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 18,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 19,
+        "file": "profile\\profile\\sample-00019.png",
+        "sha256": "a2eb3ea081691a9dc8c3c6fd466614c2a672aa4ee0df682c9ea0e63ab4870913",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 19,
+          "world_frame": 693,
+          "simulation_seconds": 13.3319,
+          "position": [
+            2048.48,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999436,
+            0,
+            -0.0335748
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 19,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 20,
+        "file": "profile\\profile\\sample-00020.png",
+        "sha256": "86eaf5355a91b250846088bf437ade1a964e83adfa137fbfa708f8e61ac81da3",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 20,
+          "world_frame": 699,
+          "simulation_seconds": 13.6091,
+          "position": [
+            2048.51,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999375,
+            0,
+            -0.0353411
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 20,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 21,
+        "file": "profile\\profile\\sample-00021.png",
+        "sha256": "39207ff89a78240023afa8bef75fbb4f137447ce422520fc1f47780a2fd7a1a1",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 21,
+          "world_frame": 705,
+          "simulation_seconds": 13.884,
+          "position": [
+            2048.53,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999311,
+            0,
+            -0.0371073
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 21,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 22,
+        "file": "profile\\profile\\sample-00022.png",
+        "sha256": "daa2e9ccfc41e66da96fe13ab43b08b85c1470acc553b2d7d49a067130f13768",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 22,
+          "world_frame": 711,
+          "simulation_seconds": 14.1577,
+          "position": [
+            2048.56,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999244,
+            0,
+            -0.0388736
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 22,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.292
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 23,
+        "file": "profile\\profile\\sample-00023.png",
+        "sha256": "8034151b12053608e045e81bf0518b9c4b8a28b6c28137c582790639f57195a4",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 23,
+          "world_frame": 717,
+          "simulation_seconds": 14.4299,
+          "position": [
+            2048.58,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999174,
+            0,
+            -0.0406397
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 23,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 24,
+        "file": "profile\\profile\\sample-00024.png",
+        "sha256": "0268ba1c94ce1603fc72f68f19bd9b2ca794cc7b6fd71146fd9b0c1a39fda0f0",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 24,
+          "world_frame": 723,
+          "simulation_seconds": 14.7035,
+          "position": [
+            2048.61,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999101,
+            0,
+            -0.0424056
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 24,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 25,
+        "file": "profile\\profile\\sample-00025.png",
+        "sha256": "4a278a8f044c62fa150bd8a118e8c276e1277237a10af25a6eb608ab631b4142",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 25,
+          "world_frame": 729,
+          "simulation_seconds": 14.9774,
+          "position": [
+            2048.63,
+            60,
+            2048
+          ],
+          "direction": [
+            0.999024,
+            0,
+            -0.0441713
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 25,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.292
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 26,
+        "file": "profile\\profile\\sample-00026.png",
+        "sha256": "b2a5531867975b740b49a06f810ba0a6dc1b7e35994cb02ed9d26207feda3b58",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 26,
+          "world_frame": 735,
+          "simulation_seconds": 15.2495,
+          "position": [
+            2048.66,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998944,
+            0,
+            -0.0459369
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 26,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 27,
+        "file": "profile\\profile\\sample-00027.png",
+        "sha256": "a81e00ead4783b06b18b19ebb474d23fe8707c8dc9e92d65ecc88791c40c91fa",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 27,
+          "world_frame": 741,
+          "simulation_seconds": 15.522,
+          "position": [
+            2048.68,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998862,
+            0,
+            -0.0477024
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 27,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 28,
+        "file": "profile\\profile\\sample-00028.png",
+        "sha256": "8bab46fc3d20d33a46a0672bd7478d2ffcd54e4f909cf916f7f1b9c3a43469b7",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 28,
+          "world_frame": 747,
+          "simulation_seconds": 15.7933,
+          "position": [
+            2048.71,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998776,
+            0,
+            -0.0494677
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 28,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 29,
+        "file": "profile\\profile\\sample-00029.png",
+        "sha256": "48ed42fb38ffa61cd60a3529c9467eb39ec03df3bd9228ace9d5a5e999608d5f",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 29,
+          "world_frame": 753,
+          "simulation_seconds": 16.0679,
+          "position": [
+            2048.73,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998687,
+            0,
+            -0.0512327
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 29,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 30,
+        "file": "profile\\profile\\sample-00030.png",
+        "sha256": "174e602053ec01fd4887767cc27f8b85c36012522753951b818d727642e260b0",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 30,
+          "world_frame": 759,
+          "simulation_seconds": 16.3393,
+          "position": [
+            2048.76,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998595,
+            0,
+            -0.0529978
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 30,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 31,
+        "file": "profile\\profile\\sample-00031.png",
+        "sha256": "941cc04464a5b62f7f516fc2ffd0695404065c8042e9484809c769fafb3b0693",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 31,
+          "world_frame": 765,
+          "simulation_seconds": 16.6137,
+          "position": [
+            2048.78,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998499,
+            0,
+            -0.0547628
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 31,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 32,
+        "file": "profile\\profile\\sample-00032.png",
+        "sha256": "3d7fd719b61dfdfd3ba3a1195ba68728b1c595445630db4023ba06ef86af39de",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 32,
+          "world_frame": 771,
+          "simulation_seconds": 16.8879,
+          "position": [
+            2048.81,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998401,
+            0,
+            -0.0565274
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 32,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 33,
+        "file": "profile\\profile\\sample-00033.png",
+        "sha256": "f3d0f72f905468a6874cd6ff1b7a04a954f6d179fb566e0c62892a65b4182610",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 33,
+          "world_frame": 777,
+          "simulation_seconds": 17.1604,
+          "position": [
+            2048.84,
+            60,
+            2048
+          ],
+          "direction": [
+            0.9983,
+            0,
+            -0.058292
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 33,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 34,
+        "file": "profile\\profile\\sample-00034.png",
+        "sha256": "ba30c8d49bc19f1a830ca8a00d07d1243a1c38cfde38b0ec50113e02d6e18868",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 34,
+          "world_frame": 783,
+          "simulation_seconds": 17.4363,
+          "position": [
+            2048.86,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998195,
+            0,
+            -0.0600562
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 34,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 35,
+        "file": "profile\\profile\\sample-00035.png",
+        "sha256": "642d855964911468448d4b5e6356bb8fd087b53094a5bb21a8f4ee14724dff65",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 35,
+          "world_frame": 789,
+          "simulation_seconds": 17.7119,
+          "position": [
+            2048.89,
+            60,
+            2048
+          ],
+          "direction": [
+            0.998087,
+            0,
+            -0.0618204
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 35,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.69,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 36,
+        "file": "profile\\profile\\sample-00036.png",
+        "sha256": "1b9ae124e843c28cfbcdf9ce3c6add5f5d0ab4d8d7600ff0143e21e8130c1cd8",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 36,
+          "world_frame": 795,
+          "simulation_seconds": 17.9827,
+          "position": [
+            2048.91,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997976,
+            0,
+            -0.0635842
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 36,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 37,
+        "file": "profile\\profile\\sample-00037.png",
+        "sha256": "af564e05d3de2e2e087b98491c5d911bb313d76ecf4a7a4b667a86387ded7218",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 37,
+          "world_frame": 801,
+          "simulation_seconds": 18.255,
+          "position": [
+            2048.94,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997863,
+            0,
+            -0.0653481
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 37,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 38,
+        "file": "profile\\profile\\sample-00038.png",
+        "sha256": "cdd2270b7582f9852ce2e6014b5a0511867de8cdc704ca443864b71675505d40",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 38,
+          "world_frame": 807,
+          "simulation_seconds": 18.5291,
+          "position": [
+            2048.96,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997745,
+            0,
+            -0.0671117
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 38,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 39,
+        "file": "profile\\profile\\sample-00039.png",
+        "sha256": "f1fb2cddfbf5baaf0257cd1a6444c5b84722f39dda46c1155ffe616bf8c589a7",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 39,
+          "world_frame": 813,
+          "simulation_seconds": 18.8005,
+          "position": [
+            2048.99,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997625,
+            0,
+            -0.0688749
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 39,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 40,
+        "file": "profile\\profile\\sample-00040.png",
+        "sha256": "f3a98ae88fd42fbd89f4ce8fed9057075d1968b04fd9ba182ebfc4c6611a9383",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 40,
+          "world_frame": 819,
+          "simulation_seconds": 19.0759,
+          "position": [
+            2049.01,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997502,
+            0,
+            -0.0706381
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 40,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 41,
+        "file": "profile\\profile\\sample-00041.png",
+        "sha256": "e87454017c3088e6ef2f4410e739e16e54bbc0d23b038e885935327d6fb43c04",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 41,
+          "world_frame": 825,
+          "simulation_seconds": 19.3552,
+          "position": [
+            2049.04,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997376,
+            0,
+            -0.072401
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 41,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 42,
+        "file": "profile\\profile\\sample-00042.png",
+        "sha256": "afe64be6bb1d0902fc6973460c1515363a1b02078846322dd8ee32e7f01cfc54",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 42,
+          "world_frame": 831,
+          "simulation_seconds": 19.6348,
+          "position": [
+            2049.06,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997246,
+            0,
+            -0.0741637
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 42,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 43,
+        "file": "profile\\profile\\sample-00043.png",
+        "sha256": "783e7595b3592b07f1f93b8c08b5bf21b2bee3880c62463637dd8cbed4e4761e",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 43,
+          "world_frame": 837,
+          "simulation_seconds": 19.9164,
+          "position": [
+            2049.09,
+            60,
+            2048
+          ],
+          "direction": [
+            0.997113,
+            0,
+            -0.075926
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 43,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 44,
+        "file": "profile\\profile\\sample-00044.png",
+        "sha256": "9952bcbbe63101cb42132850a82ab6e2b5bf88d3651a291006ed52a865a6433f",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 44,
+          "world_frame": 843,
+          "simulation_seconds": 20.1956,
+          "position": [
+            2049.11,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996978,
+            0,
+            -0.0776883
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 44,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 45,
+        "file": "profile\\profile\\sample-00045.png",
+        "sha256": "0566022f88674bbd0bef0c0fcdaa32fe8cdb0ef5ad8f21a7fa9e77a803cebc05",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 45,
+          "world_frame": 849,
+          "simulation_seconds": 20.475,
+          "position": [
+            2049.14,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996839,
+            0,
+            -0.0794502
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 45,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 46,
+        "file": "profile\\profile\\sample-00046.png",
+        "sha256": "7be806e2e440da9b1d8e6f975c0555ea62722fa980291f2970580ca714214d5a",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 46,
+          "world_frame": 855,
+          "simulation_seconds": 20.7525,
+          "position": [
+            2049.16,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996697,
+            0,
+            -0.081212
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 46,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 47,
+        "file": "profile\\profile\\sample-00047.png",
+        "sha256": "8a5f0ec37e2866595266f15d8499515798c3608ac6640c4e6e74c130a763597b",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 47,
+          "world_frame": 861,
+          "simulation_seconds": 21.0254,
+          "position": [
+            2049.19,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996552,
+            0,
+            -0.0829734
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 47,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 48,
+        "file": "profile\\profile\\sample-00048.png",
+        "sha256": "8af3866157cf8e58ae948a876d82db37296488e8ab305522e95c6d0a7e6a5977",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 48,
+          "world_frame": 867,
+          "simulation_seconds": 21.3014,
+          "position": [
+            2049.22,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996404,
+            0,
+            -0.0847346
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 48,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 49,
+        "file": "profile\\profile\\sample-00049.png",
+        "sha256": "633240452074f94949bb58449bf886470db9984ee72ef613bc0b5300c6facfff",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 49,
+          "world_frame": 873,
+          "simulation_seconds": 21.5783,
+          "position": [
+            2049.24,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996252,
+            0,
+            -0.0864957
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 49,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 50,
+        "file": "profile\\profile\\sample-00050.png",
+        "sha256": "ea32fed6ba1c11c8e33974b12c59fc9250304816d8501ea8b06f97aea5666b58",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 50,
+          "world_frame": 879,
+          "simulation_seconds": 21.8514,
+          "position": [
+            2049.27,
+            60,
+            2048
+          ],
+          "direction": [
+            0.996098,
+            0,
+            -0.0882562
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 50,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 51,
+        "file": "profile\\profile\\sample-00051.png",
+        "sha256": "3ab6f3a6d2729f443e696d94f2dfc8f03862dbb7ceccdf126b112631768345de",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 51,
+          "world_frame": 885,
+          "simulation_seconds": 22.1258,
+          "position": [
+            2049.29,
+            60,
+            2048
+          ],
+          "direction": [
+            0.99594,
+            0,
+            -0.0900165
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 51,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 52,
+        "file": "profile\\profile\\sample-00052.png",
+        "sha256": "fac2507e6beb602354f918a924bba859c020f500134708a14a45094679c88e75",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 52,
+          "world_frame": 891,
+          "simulation_seconds": 22.3991,
+          "position": [
+            2049.32,
+            60,
+            2048
+          ],
+          "direction": [
+            0.99578,
+            0,
+            -0.0917767
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 52,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 53,
+        "file": "profile\\profile\\sample-00053.png",
+        "sha256": "2d7613cf98f26e7a24fddeb63846ff808522389d154dd00baaa060f1c50e35ff",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 53,
+          "world_frame": 897,
+          "simulation_seconds": 22.6745,
+          "position": [
+            2049.34,
+            60,
+            2048
+          ],
+          "direction": [
+            0.995616,
+            0,
+            -0.0935366
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 53,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.291
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 54,
+        "file": "profile\\profile\\sample-00054.png",
+        "sha256": "1a2b40f492242240e0a5d4180d806d9b7e632c6ce81689255e6102ba3581ae58",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 54,
+          "world_frame": 903,
+          "simulation_seconds": 22.95,
+          "position": [
+            2049.37,
+            60,
+            2048
+          ],
+          "direction": [
+            0.995449,
+            0,
+            -0.0952961
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 54,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 55,
+        "file": "profile\\profile\\sample-00055.png",
+        "sha256": "ecc939c342fd4a5b53b3a41e6008f81b9c4b93e261ec6a1696ca27de9f791515",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 55,
+          "world_frame": 909,
+          "simulation_seconds": 23.2229,
+          "position": [
+            2049.39,
+            60,
+            2048
+          ],
+          "direction": [
+            0.995279,
+            0,
+            -0.0970552
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 55,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 56,
+        "file": "profile\\profile\\sample-00056.png",
+        "sha256": "dc7644e28575dfdc454fa26c053f68db09bbb5e74e34fc488988f44909fffc54",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 56,
+          "world_frame": 915,
+          "simulation_seconds": 23.4969,
+          "position": [
+            2049.42,
+            60,
+            2048
+          ],
+          "direction": [
+            0.995106,
+            0,
+            -0.0988142
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 56,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 57,
+        "file": "profile\\profile\\sample-00057.png",
+        "sha256": "851b1da0e86d45ad3ea62c4c7edb72b19d58302aae8f8b3df76c2e29b348646c",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 57,
+          "world_frame": 921,
+          "simulation_seconds": 23.7747,
+          "position": [
+            2049.44,
+            60,
+            2048
+          ],
+          "direction": [
+            0.99493,
+            0,
+            -0.100573
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 57,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 58,
+        "file": "profile\\profile\\sample-00058.png",
+        "sha256": "6183c4d59407e55bd51cc0ece5c862c2a3ee10d4dc78dd4637fbe2fcf85eb118",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 58,
+          "world_frame": 927,
+          "simulation_seconds": 24.0503,
+          "position": [
+            2049.47,
+            60,
+            2048
+          ],
+          "direction": [
+            0.99475,
+            0,
+            -0.102331
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 58,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 59,
+        "file": "profile\\profile\\sample-00059.png",
+        "sha256": "097b550c87c6a30f51392e14ed3974a9e18a6a46262dd211e56127c93ff2df76",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 59,
+          "world_frame": 933,
+          "simulation_seconds": 24.3255,
+          "position": [
+            2049.49,
+            60,
+            2048
+          ],
+          "direction": [
+            0.994568,
+            0,
+            -0.104089
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 59,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 60,
+        "file": "profile\\profile\\sample-00060.png",
+        "sha256": "86af36a837c615b5d6bf77c6b804786e4e735490fdb7b1c4ed02c12ea8cb28a6",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 60,
+          "world_frame": 939,
+          "simulation_seconds": 24.602,
+          "position": [
+            2049.52,
+            60,
+            2048
+          ],
+          "direction": [
+            0.994382,
+            0,
+            -0.105847
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 60,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 61,
+        "file": "profile\\profile\\sample-00061.png",
+        "sha256": "4e5743a84736aaed0554059de7fc0fa70e449ba2623502995ebf08bb6b93faa4",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 61,
+          "world_frame": 945,
+          "simulation_seconds": 24.8756,
+          "position": [
+            2049.54,
+            60,
+            2048
+          ],
+          "direction": [
+            0.994194,
+            0,
+            -0.107604
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 61,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 62,
+        "file": "profile\\profile\\sample-00062.png",
+        "sha256": "0798b67ebead7a27f7f51b33adcaa96f09af2d21829043ee664d95dd4cc64f5f",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 62,
+          "world_frame": 951,
+          "simulation_seconds": 25.1473,
+          "position": [
+            2049.57,
+            60,
+            2048
+          ],
+          "direction": [
+            0.994002,
+            0,
+            -0.109361
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 62,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 63,
+        "file": "profile\\profile\\sample-00063.png",
+        "sha256": "9a08c5f61d3bea4a9106f6b24e9d6344ea4160287c1804fc6021da5bc259a18e",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 63,
+          "world_frame": 957,
+          "simulation_seconds": 25.4205,
+          "position": [
+            2049.59,
+            60,
+            2048
+          ],
+          "direction": [
+            0.993807,
+            0,
+            -0.111118
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 63,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 64,
+        "file": "profile\\profile\\sample-00064.png",
+        "sha256": "db91f5ecc03b0e4c787b10b75bb1eb3c7617278158f1771a984dc4aa10f1346b",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 64,
+          "world_frame": 963,
+          "simulation_seconds": 25.6935,
+          "position": [
+            2049.62,
+            60,
+            2048
+          ],
+          "direction": [
+            0.993609,
+            0,
+            -0.112874
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 64,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.292
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 65,
+        "file": "profile\\profile\\sample-00065.png",
+        "sha256": "e3fefe84015b6b2020b2d7b634813b463f0e06e95d0b9df92e4ebf364b25fc53",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 65,
+          "world_frame": 969,
+          "simulation_seconds": 25.9662,
+          "position": [
+            2049.65,
+            60,
+            2048
+          ],
+          "direction": [
+            0.993408,
+            0,
+            -0.11463
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 65,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.292
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 66,
+        "file": "profile\\profile\\sample-00066.png",
+        "sha256": "d1bbbbf9e501c40394240b7fd9c00a75b17fdb55a33fb50cd31b4c6f0167e6a8",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 66,
+          "world_frame": 975,
+          "simulation_seconds": 26.2372,
+          "position": [
+            2049.67,
+            60,
+            2048
+          ],
+          "direction": [
+            0.993204,
+            0,
+            -0.116386
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 66,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 67,
+        "file": "profile\\profile\\sample-00067.png",
+        "sha256": "055dd24105e4d9f1695c278dc2fddd4e86ef5b00d9d5da024fe943cd42fcfc92",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 67,
+          "world_frame": 981,
+          "simulation_seconds": 26.5123,
+          "position": [
+            2049.7,
+            60,
+            2048
+          ],
+          "direction": [
+            0.992997,
+            0,
+            -0.118141
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 67,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 68,
+        "file": "profile\\profile\\sample-00068.png",
+        "sha256": "8ad58977b46725cb1ef4318a3d7e9c67481d39af3411582621c01310fa707bdf",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 68,
+          "world_frame": 987,
+          "simulation_seconds": 26.7917,
+          "position": [
+            2049.72,
+            60,
+            2048
+          ],
+          "direction": [
+            0.992787,
+            0,
+            -0.119896
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 68,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 69,
+        "file": "profile\\profile\\sample-00069.png",
+        "sha256": "426bee0480f03addcd5541cbb4e19c623a4add8f6c4eb29d46142618e8b497e8",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 69,
+          "world_frame": 993,
+          "simulation_seconds": 27.0751,
+          "position": [
+            2049.75,
+            60,
+            2048
+          ],
+          "direction": [
+            0.992573,
+            0,
+            -0.12165
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 69,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.293
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 70,
+        "file": "profile\\profile\\sample-00070.png",
+        "sha256": "6f87ecebc4321567318bf3a45e012c19e08c212e9728d4355a4383b53ca0f6f4",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 70,
+          "world_frame": 999,
+          "simulation_seconds": 27.3535,
+          "position": [
+            2049.77,
+            60,
+            2048
+          ],
+          "direction": [
+            0.992356,
+            0,
+            -0.123404
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 70,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.69,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 71,
+        "file": "profile\\profile\\sample-00071.png",
+        "sha256": "8fb244bb275f5c4a5931e3bbac87f947b1e01af2c52711f51686a8b32116a2b0",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 71,
+          "world_frame": 1005,
+          "simulation_seconds": 27.6365,
+          "position": [
+            2049.8,
+            60,
+            2048
+          ],
+          "direction": [
+            0.992137,
+            0,
+            -0.125158
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 71,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.293
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 72,
+        "file": "profile\\profile\\sample-00072.png",
+        "sha256": "7e7b6d755dcf3936c8fb9474f6c187b79a215a59631e6d5ab5a8025e1c6173ab",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 72,
+          "world_frame": 1011,
+          "simulation_seconds": 27.9118,
+          "position": [
+            2049.82,
+            60,
+            2048
+          ],
+          "direction": [
+            0.991914,
+            0,
+            -0.126911
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 72,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.293
+          ],
+          "right_xy": [
+            1404.72,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 73,
+        "file": "profile\\profile\\sample-00073.png",
+        "sha256": "8a9086ab07c4350773e0661fdb0aea66a7dd1c0c1d9f0528616a2a4d3f526d32",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 73,
+          "world_frame": 1017,
+          "simulation_seconds": 28.1826,
+          "position": [
+            2049.85,
+            60,
+            2048
+          ],
+          "direction": [
+            0.991688,
+            0,
+            -0.128664
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 73,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.294
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 74,
+        "file": "profile\\profile\\sample-00074.png",
+        "sha256": "e248f1244f0fc5c5b91bdb09b6e9d37d791b09d5aec23c5f447721520bbfc084",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 74,
+          "world_frame": 1023,
+          "simulation_seconds": 28.4599,
+          "position": [
+            2049.87,
+            60,
+            2048
+          ],
+          "direction": [
+            0.991459,
+            0,
+            -0.130417
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 74,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 75,
+        "file": "profile\\profile\\sample-00075.png",
+        "sha256": "eaef7404eefa1879daef78cd096257a7bd3cc2455627126c47096848348773df",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 75,
+          "world_frame": 1029,
+          "simulation_seconds": 28.7336,
+          "position": [
+            2049.9,
+            60,
+            2048
+          ],
+          "direction": [
+            0.991227,
+            0,
+            -0.132169
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 75,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1279.99,
+            595.293
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 76,
+        "file": "profile\\profile\\sample-00076.png",
+        "sha256": "2e56bee252a13e296a42dbfb2805e5f411b57a1e07a732afa4f641b34f5fa6a9",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 76,
+          "world_frame": 1035,
+          "simulation_seconds": 29.0072,
+          "position": [
+            2049.92,
+            60,
+            2048
+          ],
+          "direction": [
+            0.990992,
+            0,
+            -0.133921
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 76,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.292
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 77,
+        "file": "profile\\profile\\sample-00077.png",
+        "sha256": "874b5600ef7ec377a812efedda978eceb2560659b964ad58dfc50f44d069648e",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 77,
+          "world_frame": 1041,
+          "simulation_seconds": 29.2816,
+          "position": [
+            2049.95,
+            60,
+            2048
+          ],
+          "direction": [
+            0.990754,
+            0,
+            -0.135672
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 77,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 78,
+        "file": "profile\\profile\\sample-00078.png",
+        "sha256": "c2e95461a67a9d1edb54a2fea589b5a4a282dd301e628b84afcb3a977e9a7fb9",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 78,
+          "world_frame": 1047,
+          "simulation_seconds": 29.5533,
+          "position": [
+            2049.97,
+            60,
+            2048
+          ],
+          "direction": [
+            0.990512,
+            0,
+            -0.137423
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 78,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280.01,
+            595.291
+          ],
+          "right_xy": [
+            1404.71,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      },
+      {
+        "index": 79,
+        "file": "profile\\profile\\sample-00079.png",
+        "sha256": "329988a8cfe8c9890042919fb025313d377336cd2203d3fc6624f2ee818ac081",
+        "camera": {
+          "protocol": 2,
+          "event": "sample",
+          "index": 79,
+          "world_frame": 1053,
+          "simulation_seconds": 29.8272,
+          "position": [
+            2050,
+            60,
+            2048
+          ],
+          "direction": [
+            0.990268,
+            0,
+            -0.139173
+          ]
+        },
+        "projection": {
+          "protocol": 2,
+          "event": "projection",
+          "index": 79,
+          "width": 2560,
+          "height": 1440,
+          "up_xy": [
+            1280,
+            595.291
+          ],
+          "right_xy": [
+            1404.7,
+            720
+          ],
+          "far_plane": 2000,
+          "hdr_brightness": 0.00456415
+        }
+      }
+    ],
+    "settings_readback": [
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "FramesLimit",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "MaxFps",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "WindowMode",
+        "value": 3
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ScreenWidth",
+        "value": 2560
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ScreenHeight",
+        "value": 1440
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ResolutionScale",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "SuperWidth",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "SuperHeight",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "WindowPosX",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "WindowPosY",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ConsoleMode",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ConsoleWidth",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ConsoleHeight",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ConsolePosX",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "ConsolePosY",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Vsynch",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Vsync",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "SquarePixel",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Ratio3d",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Fsaa",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "RenderFormat",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "DistantShadowsQuality",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "EnvironmentQuality",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Gamma",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Contrast",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Brightness",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Adapter",
+        "value": -1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Device",
+        "value": -1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "Atoc",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "GenerateShaders",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "FsrEnabled",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "FsrSharpening",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "VideoUserSettings",
+        "key": "CasSharpening",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "HBAO",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "GodRays",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "HDR",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "SSDO",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "SSR",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "UnderWater",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "PPAA",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PPEffectsSettings",
+        "key": "Rain",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "DisplayUserSettings",
+        "key": "OverallQuality",
+        "value": -1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "GraphicsQualitySettings",
+        "key": "ObjectDrawDistanceScale",
+        "value": 3
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "ShadowQuality",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "TightCascades",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "LightShadow",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "LightLevel",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "Reflections",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "LinearDepth",
+        "value": 250
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PipelineUserSettings",
+        "key": "GBuffer",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "ResourceManagerUserSettings",
+        "key": "TextureDetail",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "ResourceManagerUserSettings",
+        "key": "GeometricDetail",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "GrassMaterialSettings",
+        "key": "Distance",
+        "value": 175
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "GrassMaterialSettings",
+        "key": "Lod",
+        "value": 3
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "GrassMaterialSettings",
+        "key": "Quality",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "PostprocessUserSettings",
+        "key": "Postprocess",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "TerrainGenMaterialSettings",
+        "key": "Detail",
+        "value": 3
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "TerrainGenMaterialSettings",
+        "key": "SoftAlpha",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "TerrainGenMaterialSettings",
+        "key": "DetailDistance",
+        "value": 1
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "TerrainGenMaterialSettings",
+        "key": "GeometryLevel",
+        "value": 0
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "MaterialSystemUserSettings",
+        "key": "TextureFilter",
+        "value": 2
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "MaterialSystemUserSettings",
+        "key": "MaxAniso",
+        "value": 4
+      },
+      {
+        "protocol": 2,
+        "event": "setting",
+        "module": "WaterPoolMaterialSettings",
+        "key": "Detail",
+        "value": 1
+      }
+    ],
+    "environment": [
+      {
+        "protocol": 1,
+        "event": "environment",
+        "date": [
+          1989,
+          6,
+          21
+        ],
+        "hour": 13,
+        "wind_speed_mps": 0,
+        "wind_direction_degrees": 0,
+        "weather_state": "Clear"
+      }
+    ],
+    "limits": [
+      "No proof of viewport internal resolution or FSR state; engine settings readback is a separate workspace.",
+      "Camera is held for several simulation ticks before each screenshot request; GPU presentation frame ID is unavailable.",
+      "No motion vectors, depth, HDR radiance or deterministic foliage phase."
+    ],
+    "config_sha256": "4305f0b0e1cccc3deacdd2b74b8f15fbe0288bc15a7dee5ee86cafb1556021b0"
+  },
+  "processing": {
+    "schema_version": 1,
+    "status": "succeeded",
+    "model_sha256": "8f04922046e2d59bf71b7fbeb8aa46e8974dd8e3a2d7bdc671a28bcaccc2bced",
+    "shader_sha256": "c72219db13ffe54aeee36828b6d8306d0dea713c7a54d14324be94b99b2e6b56",
+    "capture_manifest_sha256": "34677ca5f873dc311849026101663fa20bd4e3316f79e6ca6c70add1211b0885",
+    "capture_run_id": "20260909T003650-5d8d09c360",
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "playback_fps": 20,
+    "frames": [
+      {
+        "index": 0,
+        "input_sha256": "5c550d56c4d78093072f4bca675029a2a5883e6ebf47d442102a0c0938be98a4",
+        "output_sha256": "8a229dd482b5cfbf9470def8a99d3ab39a72ea2933ffc2c67955cd64fb5365e0",
+        "output": "output-00000.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11788,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11788,
+          "gpu_upload_and_transition_ms": 1.056,
+          "gpu_readback_and_transition_ms": 0.49148,
+          "batch_cpu_build_submit_wait_ms": 2.6679,
+          "setup_including_shader_compile_ms": 393.501,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11788
+          ]
+        }
+      },
+      {
+        "index": 1,
+        "input_sha256": "3dff8bcd0d8c04a29f66754a6b4f4c8a022bc1569414fab8ea70a893ddc6dbe0",
+        "output_sha256": "7e2d7242a44fac680e1f51b8084aa53b247e342af522834b458fa6270b4215a4",
+        "output": "output-00001.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3909999999996217,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12084,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12084,
+          "gpu_upload_and_transition_ms": 0.54224,
+          "gpu_readback_and_transition_ms": 0.48796,
+          "batch_cpu_build_submit_wait_ms": 2.1411,
+          "setup_including_shader_compile_ms": 410.442,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12084
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "input_sha256": "4b1b619175e066f3039afeb3d6fd569888d1188a93d43cc78918c82ff3641aa4",
+        "output_sha256": "833859ee57b276848dd36b946ff21be7e6b78fdf4be738d9e392ab31fa3c7b4c",
+        "output": "output-00002.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4059999999990396,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11812,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11812,
+          "gpu_upload_and_transition_ms": 1.08748,
+          "gpu_readback_and_transition_ms": 0.49284,
+          "batch_cpu_build_submit_wait_ms": 2.7274,
+          "setup_including_shader_compile_ms": 404.724,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11812
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "input_sha256": "74f1f0bd4eeea0f23e4fc6ffbe4075563fd5c25fc474b56b7d93f20be877f20d",
+        "output_sha256": "6e0e746e8918e8bc8465c55d78f9f2d4e0b1626f5023b066dd0bb701f13bc03e",
+        "output": "output-00003.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4059999999990396,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11776,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11776,
+          "gpu_upload_and_transition_ms": 0.51932,
+          "gpu_readback_and_transition_ms": 0.48492,
+          "batch_cpu_build_submit_wait_ms": 2.0938,
+          "setup_including_shader_compile_ms": 420.856,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11776
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "input_sha256": "7c15f7e22b950d33483f6f305ec28b10217fe32b6df7358c65be27ec7fa2c459",
+        "output_sha256": "7e75adc92fe5c20c5036567e251de4743a4d2213d49960de0e2e438e59e0c14e",
+        "output": "output-00004.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12428,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12428,
+          "gpu_upload_and_transition_ms": 0.51728,
+          "gpu_readback_and_transition_ms": 0.49556,
+          "batch_cpu_build_submit_wait_ms": 3.4688,
+          "setup_including_shader_compile_ms": 400.417,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12428
+          ]
+        }
+      },
+      {
+        "index": 5,
+        "input_sha256": "c646f3a251f0d2b29ee98431a655548fc6abe862df1d0df12199106552b851b9",
+        "output_sha256": "06e80a873ceefee956ebe9da9293be5dff66f38f3f366e376178b97e62be0597",
+        "output": "output-00005.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.360000000000582,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.125,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.125,
+          "gpu_upload_and_transition_ms": 0.5172,
+          "gpu_readback_and_transition_ms": 0.48772,
+          "batch_cpu_build_submit_wait_ms": 3.6375,
+          "setup_including_shader_compile_ms": 414.226,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.125
+          ]
+        }
+      },
+      {
+        "index": 6,
+        "input_sha256": "73a04a8e559ff753890c1d87df55eebdd1a1a756958159805a56409e13c4158d",
+        "output_sha256": "8a6113ccc895470581581b9aee693f9ac59f1ab6a69eb26ffa356ad14cb95e46",
+        "output": "output-00006.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.514999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1178,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1178,
+          "gpu_upload_and_transition_ms": 0.52604,
+          "gpu_readback_and_transition_ms": 0.48648,
+          "batch_cpu_build_submit_wait_ms": 2.5547,
+          "setup_including_shader_compile_ms": 410.738,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1178
+          ]
+        }
+      },
+      {
+        "index": 7,
+        "input_sha256": "d6c4c001dd738416158efcdcf61b4cbb5b18127b2deb0a4a94f0960aacad1842",
+        "output_sha256": "eb24408e903c9fdac478997c018bf5494d41b4fc2b4dfe49a9ab06697422aac4",
+        "output": "output-00007.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.5320000000028813,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12464,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12464,
+          "gpu_upload_and_transition_ms": 0.5178,
+          "gpu_readback_and_transition_ms": 0.48912,
+          "batch_cpu_build_submit_wait_ms": 3.4127,
+          "setup_including_shader_compile_ms": 463.263,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12464
+          ]
+        }
+      },
+      {
+        "index": 8,
+        "input_sha256": "299119b3ac39baeedc11337d6fb42a520036cc9be5a2b4819182f458d4001a67",
+        "output_sha256": "b665a2a5cb0bbc94c46c857def124b0e3a0787b395fa6fa2de1acc4fb88dfed9",
+        "output": "output-00008.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.5780000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11804,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11804,
+          "gpu_upload_and_transition_ms": 0.54264,
+          "gpu_readback_and_transition_ms": 0.4894,
+          "batch_cpu_build_submit_wait_ms": 2.4448,
+          "setup_including_shader_compile_ms": 431.369,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11804
+          ]
+        }
+      },
+      {
+        "index": 9,
+        "input_sha256": "8dc65019653e1f3bef98717b77793bc6e70a8625e8c4e90d1c8a3b01c2871327",
+        "output_sha256": "5272529e5f55816b3ce5564966564cf576f28d64789c1408e66bf4ddfe4e60f8",
+        "output": "output-00009.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4379999999982829,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11808,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11808,
+          "gpu_upload_and_transition_ms": 1.0708,
+          "gpu_readback_and_transition_ms": 0.60444,
+          "batch_cpu_build_submit_wait_ms": 2.9268,
+          "setup_including_shader_compile_ms": 435.399,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11808
+          ]
+        }
+      },
+      {
+        "index": 10,
+        "input_sha256": "9c6b526ddb4d4efcab637893dd37f1e3352c9b7e3527fb0760ca2100a42dce6f",
+        "output_sha256": "8dd857ee2a452aa82d959e0309e3bf92977d287d594313ad8c882088a29ae601",
+        "output": "output-00010.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.5159999999996217,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1176,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1176,
+          "gpu_upload_and_transition_ms": 0.5174,
+          "gpu_readback_and_transition_ms": 0.55996,
+          "batch_cpu_build_submit_wait_ms": 2.3556,
+          "setup_including_shader_compile_ms": 478.244,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1176
+          ]
+        }
+      },
+      {
+        "index": 11,
+        "input_sha256": "af62035f54fd54f2a174a97733034311b01b733c5e04f537b1b93e6b2f440551",
+        "output_sha256": "482b64501bfbd16f184120b4f599bd719f814934f53965c7139405bd7ee197a1",
+        "output": "output-00011.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4379999999982829,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12384,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12384,
+          "gpu_upload_and_transition_ms": 0.51748,
+          "gpu_readback_and_transition_ms": 0.5074,
+          "batch_cpu_build_submit_wait_ms": 3.4329,
+          "setup_including_shader_compile_ms": 425.034,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12384
+          ]
+        }
+      },
+      {
+        "index": 12,
+        "input_sha256": "76cd533b2f9e1d5a7acbb8780dbd138fcbe483a88dffa0686770b8fd60ac979a",
+        "output_sha256": "9a93237aad99376aecb7b2d7a4302cec5c267c28bfb76e8b7351f35499165cb7",
+        "output": "output-00012.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4219999999986612,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1178,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1178,
+          "gpu_upload_and_transition_ms": 0.51744,
+          "gpu_readback_and_transition_ms": 0.49352,
+          "batch_cpu_build_submit_wait_ms": 2.4311,
+          "setup_including_shader_compile_ms": 413.309,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1178
+          ]
+        }
+      },
+      {
+        "index": 13,
+        "input_sha256": "3c03ed5b49eaafcdbfb1ae15f367b1cec12a5f952ae65b793fed555464fb5c6a",
+        "output_sha256": "c808348084cb755927b212aaffbb4e44ebbe52098228b7a8cde7e9c17f85398c",
+        "output": "output-00013.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.389999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11772,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11772,
+          "gpu_upload_and_transition_ms": 0.51968,
+          "gpu_readback_and_transition_ms": 0.48472,
+          "batch_cpu_build_submit_wait_ms": 2.9834,
+          "setup_including_shader_compile_ms": 419.42,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11772
+          ]
+        }
+      },
+      {
+        "index": 14,
+        "input_sha256": "012b6173f7341000211aa91e006b929ee28b30d7bb138873b6424d6f8a4fb820",
+        "output_sha256": "b1b9a5fed0bb4709e26e419541b734bb5b2aa2839a8dd9c7fcdea50b2ea12ea2",
+        "output": "output-00014.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.389999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.123,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.123,
+          "gpu_upload_and_transition_ms": 0.51692,
+          "gpu_readback_and_transition_ms": 0.48868,
+          "batch_cpu_build_submit_wait_ms": 2.3581,
+          "setup_including_shader_compile_ms": 411.21,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.123
+          ]
+        }
+      },
+      {
+        "index": 15,
+        "input_sha256": "257c6270d3d9af9d1100c1861babe4ebcb4f675d894cbe5f1404247b26fc75c8",
+        "output_sha256": "685a82060175756ae0d93d8dc86ec6a312d85c31ef98740c7669c1637c677723",
+        "output": "output-00015.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3909999999996217,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11792,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11792,
+          "gpu_upload_and_transition_ms": 0.5166,
+          "gpu_readback_and_transition_ms": 0.49812,
+          "batch_cpu_build_submit_wait_ms": 2.1776,
+          "setup_including_shader_compile_ms": 417.633,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11792
+          ]
+        }
+      },
+      {
+        "index": 16,
+        "input_sha256": "3f01954d6c488426c661de1ef5b74313bc5cd0f7624d6a1ed4e4676cf66f95fe",
+        "output_sha256": "33902235ad9595a3ce0ed099565876ca59aea19043f0d7ac7a2fb6c3b2715f68",
+        "output": "output-00016.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4219999999986612,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12104,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12104,
+          "gpu_upload_and_transition_ms": 0.55232,
+          "gpu_readback_and_transition_ms": 0.49228,
+          "batch_cpu_build_submit_wait_ms": 2.3798,
+          "setup_including_shader_compile_ms": 442.786,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12104
+          ]
+        }
+      },
+      {
+        "index": 17,
+        "input_sha256": "6d91299677a12455c96f768c868cefb282cdf928a91e7cf9fae4500d820c7e28",
+        "output_sha256": "bd4fc44a1f09c62ebeeb6fd94b3d8b3971ff20436991bae33761aa63c18a334a",
+        "output": "output-00017.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3439999999973224,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1242,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1242,
+          "gpu_upload_and_transition_ms": 0.51728,
+          "gpu_readback_and_transition_ms": 0.48364,
+          "batch_cpu_build_submit_wait_ms": 2.4064,
+          "setup_including_shader_compile_ms": 378.067,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1242
+          ]
+        }
+      },
+      {
+        "index": 18,
+        "input_sha256": "e98733a5ac387a322eb0918bbc75c622aa712ec3716b6c3b51fb3676f78de098",
+        "output_sha256": "5eab8df4513dbaaa845f4a40dbb756e58ccbba9f1f8dd70c8b3eee6f54c4aba8",
+        "output": "output-00018.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12336,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12336,
+          "gpu_upload_and_transition_ms": 0.51732,
+          "gpu_readback_and_transition_ms": 0.496,
+          "batch_cpu_build_submit_wait_ms": 3.2141,
+          "setup_including_shader_compile_ms": 399.653,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12336
+          ]
+        }
+      },
+      {
+        "index": 19,
+        "input_sha256": "a2eb3ea081691a9dc8c3c6fd466614c2a672aa4ee0df682c9ea0e63ab4870913",
+        "output_sha256": "fa7d16bb44e8b37eabf4a83c3575db9b777e46c83a759a00a6b3283ce853fd49",
+        "output": "output-00019.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4220000000022992,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12412,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12412,
+          "gpu_upload_and_transition_ms": 0.52464,
+          "gpu_readback_and_transition_ms": 0.5596,
+          "batch_cpu_build_submit_wait_ms": 2.306,
+          "setup_including_shader_compile_ms": 432.917,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12412
+          ]
+        }
+      },
+      {
+        "index": 20,
+        "input_sha256": "86eaf5355a91b250846088bf437ade1a964e83adfa137fbfa708f8e61ac81da3",
+        "output_sha256": "7ccab2e720d66c9cc621edc038a36cf79765de7d358a570b6586d491bf5d57ca",
+        "output": "output-00020.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12432,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12432,
+          "gpu_upload_and_transition_ms": 0.51852,
+          "gpu_readback_and_transition_ms": 0.48276,
+          "batch_cpu_build_submit_wait_ms": 2.506,
+          "setup_including_shader_compile_ms": 396.546,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12432
+          ]
+        }
+      },
+      {
+        "index": 21,
+        "input_sha256": "39207ff89a78240023afa8bef75fbb4f137447ce422520fc1f47780a2fd7a1a1",
+        "output_sha256": "ceea3258ebd9eacac1a64a11fe9b06b6f33ea8d6724dd2e5c90d323085c95e62",
+        "output": "output-00021.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1244,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1244,
+          "gpu_upload_and_transition_ms": 0.51708,
+          "gpu_readback_and_transition_ms": 0.4864,
+          "batch_cpu_build_submit_wait_ms": 3.2085,
+          "setup_including_shader_compile_ms": 408.942,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1244
+          ]
+        }
+      },
+      {
+        "index": 22,
+        "input_sha256": "daa2e9ccfc41e66da96fe13ab43b08b85c1470acc553b2d7d49a067130f13768",
+        "output_sha256": "48fabf44cacd9dff2cce7f1de6fe0f56d57f99c121bbe40db0e5394914539aba",
+        "output": "output-00022.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3430000000007567,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11788,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11788,
+          "gpu_upload_and_transition_ms": 0.54084,
+          "gpu_readback_and_transition_ms": 0.48748,
+          "batch_cpu_build_submit_wait_ms": 2.7202,
+          "setup_including_shader_compile_ms": 411.716,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11788
+          ]
+        }
+      },
+      {
+        "index": 23,
+        "input_sha256": "8034151b12053608e045e81bf0518b9c4b8a28b6c28137c582790639f57195a4",
+        "output_sha256": "f58bd423b36a164bb991b4dee206eec7ab5d0eb219adf55b390643c7b66840f1",
+        "output": "output-00023.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3280000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.6086,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.6086,
+          "gpu_upload_and_transition_ms": 0.54804,
+          "gpu_readback_and_transition_ms": 0.57684,
+          "batch_cpu_build_submit_wait_ms": 2.666,
+          "setup_including_shader_compile_ms": 409.626,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.6086
+          ]
+        }
+      },
+      {
+        "index": 24,
+        "input_sha256": "0268ba1c94ce1603fc72f68f19bd9b2ca794cc7b6fd71146fd9b0c1a39fda0f0",
+        "output_sha256": "b83e8dff85030da831c5e2fa219c0792d9a057061186b91193d830e46993bd5c",
+        "output": "output-00024.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3439999999973224,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11792,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11792,
+          "gpu_upload_and_transition_ms": 0.5194,
+          "gpu_readback_and_transition_ms": 0.49328,
+          "batch_cpu_build_submit_wait_ms": 2.1143,
+          "setup_including_shader_compile_ms": 391.916,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11792
+          ]
+        }
+      },
+      {
+        "index": 25,
+        "input_sha256": "4a278a8f044c62fa150bd8a118e8c276e1277237a10af25a6eb608ab631b4142",
+        "output_sha256": "93313ada1b41cca1d684a5b8b5c2420694307476e99933c35e4100800e4f48d2",
+        "output": "output-00025.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11848,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11848,
+          "gpu_upload_and_transition_ms": 1.13792,
+          "gpu_readback_and_transition_ms": 0.49392,
+          "batch_cpu_build_submit_wait_ms": 2.9199,
+          "setup_including_shader_compile_ms": 400.882,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11848
+          ]
+        }
+      },
+      {
+        "index": 26,
+        "input_sha256": "b2a5531867975b740b49a06f810ba0a6dc1b7e35994cb02ed9d26207feda3b58",
+        "output_sha256": "169a8e7d3918385686260ae4d13945341896fb1066ed5edb493efa439e12553b",
+        "output": "output-00026.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3430000000007567,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12384,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12384,
+          "gpu_upload_and_transition_ms": 0.52052,
+          "gpu_readback_and_transition_ms": 0.4944,
+          "batch_cpu_build_submit_wait_ms": 3.0232,
+          "setup_including_shader_compile_ms": 400.164,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12384
+          ]
+        }
+      },
+      {
+        "index": 27,
+        "input_sha256": "a81e00ead4783b06b18b19ebb474d23fe8707c8dc9e92d65ecc88791c40c91fa",
+        "output_sha256": "2cb47393462b01aba0bb95a26e6a246c35601c02e0a35cadf86952678c25a5a6",
+        "output": "output-00027.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1178,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1178,
+          "gpu_upload_and_transition_ms": 0.51672,
+          "gpu_readback_and_transition_ms": 0.48744,
+          "batch_cpu_build_submit_wait_ms": 2.1399,
+          "setup_including_shader_compile_ms": 373.978,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1178
+          ]
+        }
+      },
+      {
+        "index": 28,
+        "input_sha256": "8bab46fc3d20d33a46a0672bd7478d2ffcd54e4f909cf916f7f1b9c3a43469b7",
+        "output_sha256": "9c65a81ee0bbd7747ae8e2a1964831b88e8b99a1e9928876147317528e1affd0",
+        "output": "output-00028.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12704,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12704,
+          "gpu_upload_and_transition_ms": 0.57584,
+          "gpu_readback_and_transition_ms": 0.48836,
+          "batch_cpu_build_submit_wait_ms": 2.5185,
+          "setup_including_shader_compile_ms": 419.437,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12704
+          ]
+        }
+      },
+      {
+        "index": 29,
+        "input_sha256": "48ed42fb38ffa61cd60a3529c9467eb39ec03df3bd9228ace9d5a5e999608d5f",
+        "output_sha256": "6ae1fc3a2ff30bc27a0a8cfb1e8b0b7b853b270c1fc7749c05b5eb1b8ddeb746",
+        "output": "output-00029.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12444,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12444,
+          "gpu_upload_and_transition_ms": 0.518,
+          "gpu_readback_and_transition_ms": 0.49216,
+          "batch_cpu_build_submit_wait_ms": 3.0509,
+          "setup_including_shader_compile_ms": 390.782,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12444
+          ]
+        }
+      },
+      {
+        "index": 30,
+        "input_sha256": "174e602053ec01fd4887767cc27f8b85c36012522753951b818d727642e260b0",
+        "output_sha256": "bea55c78612ae47601e847e6d03307ac3563436efd518431314203e7393e187d",
+        "output": "output-00030.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4059999999990396,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12116,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12116,
+          "gpu_upload_and_transition_ms": 1.07752,
+          "gpu_readback_and_transition_ms": 0.57608,
+          "batch_cpu_build_submit_wait_ms": 2.7776,
+          "setup_including_shader_compile_ms": 389.361,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12116
+          ]
+        }
+      },
+      {
+        "index": 31,
+        "input_sha256": "941cc04464a5b62f7f516fc2ffd0695404065c8042e9484809c769fafb3b0693",
+        "output_sha256": "e4c008b1094e0aee75b4eab614e529f37ef7664f7da6bff1412f3ff8a695a614",
+        "output": "output-00031.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3439999999973224,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11768,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11768,
+          "gpu_upload_and_transition_ms": 0.51704,
+          "gpu_readback_and_transition_ms": 0.49216,
+          "batch_cpu_build_submit_wait_ms": 2.184,
+          "setup_including_shader_compile_ms": 420.091,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11768
+          ]
+        }
+      },
+      {
+        "index": 32,
+        "input_sha256": "3d7fd719b61dfdfd3ba3a1195ba68728b1c595445630db4023ba06ef86af39de",
+        "output_sha256": "2bef1bd8c7fa86feeabd38d914f35cfaa82f37ef725fdfb14e95932d8788ec57",
+        "output": "output-00032.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3119999999980791,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11796,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11796,
+          "gpu_upload_and_transition_ms": 0.5894,
+          "gpu_readback_and_transition_ms": 0.54152,
+          "batch_cpu_build_submit_wait_ms": 2.5743,
+          "setup_including_shader_compile_ms": 398.56,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11796
+          ]
+        }
+      },
+      {
+        "index": 33,
+        "input_sha256": "f3d0f72f905468a6874cd6ff1b7a04a954f6d179fb566e0c62892a65b4182610",
+        "output_sha256": "a13f1f5b8e6ee75aa44ebb3bc492af4ebad0c19c050333a860d237b1adde3d39",
+        "output": "output-00033.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3280000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12124,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12124,
+          "gpu_upload_and_transition_ms": 0.5932,
+          "gpu_readback_and_transition_ms": 0.48788,
+          "batch_cpu_build_submit_wait_ms": 2.3157,
+          "setup_including_shader_compile_ms": 406.434,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12124
+          ]
+        }
+      },
+      {
+        "index": 34,
+        "input_sha256": "ba30c8d49bc19f1a830ca8a00d07d1243a1c38cfde38b0ec50113e02d6e18868",
+        "output_sha256": "cf195b547fabeef99718118d2590f6bc16f619560360584f3b2181a5930e26b2",
+        "output": "output-00034.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3130000000019209,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12404,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12404,
+          "gpu_upload_and_transition_ms": 0.5192,
+          "gpu_readback_and_transition_ms": 0.48856,
+          "batch_cpu_build_submit_wait_ms": 2.6182,
+          "setup_including_shader_compile_ms": 403.002,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12404
+          ]
+        }
+      },
+      {
+        "index": 35,
+        "input_sha256": "642d855964911468448d4b5e6356bb8fd087b53094a5bb21a8f4ee14724dff65",
+        "output_sha256": "85d075b8e99d1c5b3e39871c80e94e92d454a938793c72de3a0fe5b72c27d7fd",
+        "output": "output-00035.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4690000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12432,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12432,
+          "gpu_upload_and_transition_ms": 0.58576,
+          "gpu_readback_and_transition_ms": 0.514,
+          "batch_cpu_build_submit_wait_ms": 3.9905,
+          "setup_including_shader_compile_ms": 409.792,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12432
+          ]
+        }
+      },
+      {
+        "index": 36,
+        "input_sha256": "1b9ae124e843c28cfbcdf9ce3c6add5f5d0ab4d8d7600ff0143e21e8130c1cd8",
+        "output_sha256": "53a254450aa0689349c7f4e26e5c301da552e8890af7348e375b7e668f999586",
+        "output": "output-00036.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4529999999977008,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12444,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12444,
+          "gpu_upload_and_transition_ms": 0.5186,
+          "gpu_readback_and_transition_ms": 0.49124,
+          "batch_cpu_build_submit_wait_ms": 2.8604,
+          "setup_including_shader_compile_ms": 437.068,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12444
+          ]
+        }
+      },
+      {
+        "index": 37,
+        "input_sha256": "af564e05d3de2e2e087b98491c5d911bb313d76ecf4a7a4b667a86387ded7218",
+        "output_sha256": "6e6ac37aeb1dcd0e98563babfa6b54d2c5b04c40f985282be259c83fe7f1b21e",
+        "output": "output-00037.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4059999999990396,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11772,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11772,
+          "gpu_upload_and_transition_ms": 0.61628,
+          "gpu_readback_and_transition_ms": 0.48936,
+          "batch_cpu_build_submit_wait_ms": 2.4261,
+          "setup_including_shader_compile_ms": 418.639,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11772
+          ]
+        }
+      },
+      {
+        "index": 38,
+        "input_sha256": "cdd2270b7582f9852ce2e6014b5a0511867de8cdc704ca443864b71675505d40",
+        "output_sha256": "97a4f2a6b111e7411eb6cf6bd94038c8fbf48b262b58f21bc1694cb18848ffbc",
+        "output": "output-00038.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.389999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12456,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12456,
+          "gpu_upload_and_transition_ms": 0.5172,
+          "gpu_readback_and_transition_ms": 0.57288,
+          "batch_cpu_build_submit_wait_ms": 4.1612,
+          "setup_including_shader_compile_ms": 410.087,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12456
+          ]
+        }
+      },
+      {
+        "index": 39,
+        "input_sha256": "f1fb2cddfbf5baaf0257cd1a6444c5b84722f39dda46c1155ffe616bf8c589a7",
+        "output_sha256": "4e72f2795bbf231b5d6bd0946c85bcfc7a7357796eea2a0138b86ad579aec88f",
+        "output": "output-00039.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12412,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12412,
+          "gpu_upload_and_transition_ms": 0.518,
+          "gpu_readback_and_transition_ms": 0.48812,
+          "batch_cpu_build_submit_wait_ms": 3.7384,
+          "setup_including_shader_compile_ms": 387.075,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12412
+          ]
+        }
+      },
+      {
+        "index": 40,
+        "input_sha256": "f3a98ae88fd42fbd89f4ce8fed9057075d1968b04fd9ba182ebfc4c6611a9383",
+        "output_sha256": "a6ac6155ca6ed74b02af8cf9229e4bcf84e741637311c1bfd497e92979731d0a",
+        "output": "output-00040.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11776,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11776,
+          "gpu_upload_and_transition_ms": 1.74652,
+          "gpu_readback_and_transition_ms": 0.49328,
+          "batch_cpu_build_submit_wait_ms": 3.4916,
+          "setup_including_shader_compile_ms": 442.559,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11776
+          ]
+        }
+      },
+      {
+        "index": 41,
+        "input_sha256": "e87454017c3088e6ef2f4410e739e16e54bbc0d23b038e885935327d6fb43c04",
+        "output_sha256": "3552f6284ef7bd29f96aad0de695df575aecc079b76086d5479cbdb8f7a9a8c7",
+        "output": "output-00041.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11748,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11748,
+          "gpu_upload_and_transition_ms": 0.62792,
+          "gpu_readback_and_transition_ms": 0.51316,
+          "batch_cpu_build_submit_wait_ms": 2.3125,
+          "setup_including_shader_compile_ms": 408.42,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11748
+          ]
+        }
+      },
+      {
+        "index": 42,
+        "input_sha256": "afe64be6bb1d0902fc6973460c1515363a1b02078846322dd8ee32e7f01cfc54",
+        "output_sha256": "c80afee316c5ffc35b6bb3776be49112906c0a3dad413893c43516208ddf30f7",
+        "output": "output-00042.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1242,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1242,
+          "gpu_upload_and_transition_ms": 0.51828,
+          "gpu_readback_and_transition_ms": 0.4826,
+          "batch_cpu_build_submit_wait_ms": 2.3736,
+          "setup_including_shader_compile_ms": 420.906,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1242
+          ]
+        }
+      },
+      {
+        "index": 43,
+        "input_sha256": "783e7595b3592b07f1f93b8c08b5bf21b2bee3880c62463637dd8cbed4e4761e",
+        "output_sha256": "74cb1b7b3391d91efe947885beb510ea30930a945ad5b25988ebfec6e6932f6c",
+        "output": "output-00043.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11788,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11788,
+          "gpu_upload_and_transition_ms": 0.517,
+          "gpu_readback_and_transition_ms": 0.49156,
+          "batch_cpu_build_submit_wait_ms": 2.1973,
+          "setup_including_shader_compile_ms": 408.993,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11788
+          ]
+        }
+      },
+      {
+        "index": 44,
+        "input_sha256": "9952bcbbe63101cb42132850a82ab6e2b5bf88d3651a291006ed52a865a6433f",
+        "output_sha256": "811fcd883579f59422664baf32fcf98a3e78498b59ee57064a7a0a7c12b59e31",
+        "output": "output-00044.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11768,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11768,
+          "gpu_upload_and_transition_ms": 0.51672,
+          "gpu_readback_and_transition_ms": 0.48444,
+          "batch_cpu_build_submit_wait_ms": 2.2895,
+          "setup_including_shader_compile_ms": 425.889,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11768
+          ]
+        }
+      },
+      {
+        "index": 45,
+        "input_sha256": "0566022f88674bbd0bef0c0fcdaa32fe8cdb0ef5ad8f21a7fa9e77a803cebc05",
+        "output_sha256": "75824f46f9dd6a7d57c030b761cc371fabf80864a253c69b37db2db0c8c0136c",
+        "output": "output-00045.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11764,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11764,
+          "gpu_upload_and_transition_ms": 0.5194,
+          "gpu_readback_and_transition_ms": 0.48916,
+          "batch_cpu_build_submit_wait_ms": 2.3278,
+          "setup_including_shader_compile_ms": 409.185,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11764
+          ]
+        }
+      },
+      {
+        "index": 46,
+        "input_sha256": "7be806e2e440da9b1d8e6f975c0555ea62722fa980291f2970580ca714214d5a",
+        "output_sha256": "6c0c478c95c217da5f720a6aeff0f98f17391eb4a05020f341026c4796995066",
+        "output": "output-00046.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.360000000000582,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11784,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11784,
+          "gpu_upload_and_transition_ms": 0.51976,
+          "gpu_readback_and_transition_ms": 0.49676,
+          "batch_cpu_build_submit_wait_ms": 2.5578,
+          "setup_including_shader_compile_ms": 379.933,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11784
+          ]
+        }
+      },
+      {
+        "index": 47,
+        "input_sha256": "8a5f0ec37e2866595266f15d8499515798c3608ac6640c4e6e74c130a763597b",
+        "output_sha256": "dfaf8892177597218a70933f7a07e19d6e7897345873d5b92ca28ea9ee474994",
+        "output": "output-00047.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.16912,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.16912,
+          "gpu_upload_and_transition_ms": 0.52376,
+          "gpu_readback_and_transition_ms": 0.62684,
+          "batch_cpu_build_submit_wait_ms": 2.3715,
+          "setup_including_shader_compile_ms": 394.882,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.16912
+          ]
+        }
+      },
+      {
+        "index": 48,
+        "input_sha256": "8af3866157cf8e58ae948a876d82db37296488e8ab305522e95c6d0a7e6a5977",
+        "output_sha256": "212dccbc12113d6d9dada53bcd1929924362ecd1904aa764e1777131dc76bc20",
+        "output": "output-00048.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12108,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12108,
+          "gpu_upload_and_transition_ms": 0.52008,
+          "gpu_readback_and_transition_ms": 0.48748,
+          "batch_cpu_build_submit_wait_ms": 2.1249,
+          "setup_including_shader_compile_ms": 387.303,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12108
+          ]
+        }
+      },
+      {
+        "index": 49,
+        "input_sha256": "633240452074f94949bb58449bf886470db9984ee72ef613bc0b5300c6facfff",
+        "output_sha256": "0aa349f10369c141fb966c960e2dd658537af2620eb7a916e3149f8d9d2b7e57",
+        "output": "output-00049.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3129999999982829,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11764,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11764,
+          "gpu_upload_and_transition_ms": 0.51656,
+          "gpu_readback_and_transition_ms": 0.60912,
+          "batch_cpu_build_submit_wait_ms": 2.4247,
+          "setup_including_shader_compile_ms": 388.406,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11764
+          ]
+        }
+      },
+      {
+        "index": 50,
+        "input_sha256": "ea32fed6ba1c11c8e33974b12c59fc9250304816d8501ea8b06f97aea5666b58",
+        "output_sha256": "b0ff522002001407cec63cf31668ad14c485d50b8a7cbbe08e99ed30ed2cc1fd",
+        "output": "output-00050.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1248,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1248,
+          "gpu_upload_and_transition_ms": 0.5172,
+          "gpu_readback_and_transition_ms": 0.4896,
+          "batch_cpu_build_submit_wait_ms": 3.7645,
+          "setup_including_shader_compile_ms": 394.842,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1248
+          ]
+        }
+      },
+      {
+        "index": 51,
+        "input_sha256": "3ab6f3a6d2729f443e696d94f2dfc8f03862dbb7ceccdf126b112631768345de",
+        "output_sha256": "ced95df13f636c86bfba164d016c2256f7a33c1933cea7d8b623297ccbecf317",
+        "output": "output-00051.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4070000000028813,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1208,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1208,
+          "gpu_upload_and_transition_ms": 0.60336,
+          "gpu_readback_and_transition_ms": 0.48824,
+          "batch_cpu_build_submit_wait_ms": 2.2758,
+          "setup_including_shader_compile_ms": 410.546,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1208
+          ]
+        }
+      },
+      {
+        "index": 52,
+        "input_sha256": "fac2507e6beb602354f918a924bba859c020f500134708a14a45094679c88e75",
+        "output_sha256": "5497194f2c33ed2a43b5b8bc2f237f5193ebde3c657f693c47306882cce8ee86",
+        "output": "output-00052.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3120000000017171,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12084,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12084,
+          "gpu_upload_and_transition_ms": 0.5672,
+          "gpu_readback_and_transition_ms": 0.49076,
+          "batch_cpu_build_submit_wait_ms": 2.5469,
+          "setup_including_shader_compile_ms": 401.094,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12084
+          ]
+        }
+      },
+      {
+        "index": 53,
+        "input_sha256": "2d7613cf98f26e7a24fddeb63846ff808522389d154dd00baaa060f1c50e35ff",
+        "output_sha256": "14d2df2aebecbb65fd4ebb1a36c72090e95576546d1767ca646b4710c9280002",
+        "output": "output-00053.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4380000000019209,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12704,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12704,
+          "gpu_upload_and_transition_ms": 0.54944,
+          "gpu_readback_and_transition_ms": 0.48072,
+          "batch_cpu_build_submit_wait_ms": 2.6302,
+          "setup_including_shader_compile_ms": 391.549,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12704
+          ]
+        }
+      },
+      {
+        "index": 54,
+        "input_sha256": "1a2b40f492242240e0a5d4180d806d9b7e632c6ce81689255e6102ba3581ae58",
+        "output_sha256": "39c27ae74368cf18767aabb3b4c97992811d11019a3fa68bc5c86de728660ef7",
+        "output": "output-00054.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.360000000000582,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11872,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11872,
+          "gpu_upload_and_transition_ms": 1.96428,
+          "gpu_readback_and_transition_ms": 0.48968,
+          "batch_cpu_build_submit_wait_ms": 3.7632,
+          "setup_including_shader_compile_ms": 390.277,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11872
+          ]
+        }
+      },
+      {
+        "index": 55,
+        "input_sha256": "ecc939c342fd4a5b53b3a41e6008f81b9c4b93e261ec6a1696ca27de9f791515",
+        "output_sha256": "d5c8b0979ac0a302770183bf75c17bbc499f1f3b7595a04a9b09958c72967829",
+        "output": "output-00055.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3280000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11784,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11784,
+          "gpu_upload_and_transition_ms": 0.52812,
+          "gpu_readback_and_transition_ms": 0.4844,
+          "batch_cpu_build_submit_wait_ms": 2.1852,
+          "setup_including_shader_compile_ms": 378.245,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11784
+          ]
+        }
+      },
+      {
+        "index": 56,
+        "input_sha256": "dc7644e28575dfdc454fa26c053f68db09bbb5e74e34fc488988f44909fffc54",
+        "output_sha256": "fde0e0c703051774f8e71e861b1ac3bc62767ea9c9c5492d965fee078c5d68ff",
+        "output": "output-00056.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3280000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12424,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12424,
+          "gpu_upload_and_transition_ms": 0.5186,
+          "gpu_readback_and_transition_ms": 0.49504,
+          "batch_cpu_build_submit_wait_ms": 3.082,
+          "setup_including_shader_compile_ms": 385.718,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12424
+          ]
+        }
+      },
+      {
+        "index": 57,
+        "input_sha256": "851b1da0e86d45ad3ea62c4c7edb72b19d58302aae8f8b3df76c2e29b348646c",
+        "output_sha256": "ecea5e27addf89f1ddb212637e868e455ef26d4c947ecd28fac50af77efe20f3",
+        "output": "output-00057.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11772,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11772,
+          "gpu_upload_and_transition_ms": 0.5174,
+          "gpu_readback_and_transition_ms": 0.49148,
+          "batch_cpu_build_submit_wait_ms": 2.079,
+          "setup_including_shader_compile_ms": 386.781,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11772
+          ]
+        }
+      },
+      {
+        "index": 58,
+        "input_sha256": "6183c4d59407e55bd51cc0ece5c862c2a3ee10d4dc78dd4637fbe2fcf85eb118",
+        "output_sha256": "562ba9ace91b78c6fc48b3ef413b2a70c1b550714216b6959cbf0f72c00bf469",
+        "output": "output-00058.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3440000000009604,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1244,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1244,
+          "gpu_upload_and_transition_ms": 0.51736,
+          "gpu_readback_and_transition_ms": 0.4964,
+          "batch_cpu_build_submit_wait_ms": 4.1213,
+          "setup_including_shader_compile_ms": 410.931,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1244
+          ]
+        }
+      },
+      {
+        "index": 59,
+        "input_sha256": "097b550c87c6a30f51392e14ed3974a9e18a6a46262dd211e56127c93ff2df76",
+        "output_sha256": "19cc077b9f3ccaa230ef999b0cef10e4c62cd7a3d21d6221a5f471a6d0420c10",
+        "output": "output-00059.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.2959999999984575,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11816,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11816,
+          "gpu_upload_and_transition_ms": 1.08536,
+          "gpu_readback_and_transition_ms": 0.49108,
+          "batch_cpu_build_submit_wait_ms": 2.9087,
+          "setup_including_shader_compile_ms": 368.75,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11816
+          ]
+        }
+      },
+      {
+        "index": 60,
+        "input_sha256": "86af36a837c615b5d6bf77c6b804786e4e735490fdb7b1c4ed02c12ea8cb28a6",
+        "output_sha256": "9a474d5336f776d5fa9c348ac105b89bd1a9d6367ac8c87e745f1a5f116a0e54",
+        "output": "output-00060.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3280000000013388,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 1.39252,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 1.39252,
+          "gpu_upload_and_transition_ms": 0.52352,
+          "gpu_readback_and_transition_ms": 0.48436,
+          "batch_cpu_build_submit_wait_ms": 5.3235,
+          "setup_including_shader_compile_ms": 399.52,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            1.39252
+          ]
+        }
+      },
+      {
+        "index": 61,
+        "input_sha256": "4e5743a84736aaed0554059de7fc0fa70e449ba2623502995ebf08bb6b93faa4",
+        "output_sha256": "9158d8253b9254477d16cc0b9d89c15104c8daca065296a33008d3ab7ae4d293",
+        "output": "output-00061.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4380000000019209,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11784,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11784,
+          "gpu_upload_and_transition_ms": 1.11324,
+          "gpu_readback_and_transition_ms": 0.4882,
+          "batch_cpu_build_submit_wait_ms": 2.7186,
+          "setup_including_shader_compile_ms": 402.488,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11784
+          ]
+        }
+      },
+      {
+        "index": 62,
+        "input_sha256": "0798b67ebead7a27f7f51b33adcaa96f09af2d21829043ee664d95dd4cc64f5f",
+        "output_sha256": "0176785eb9c58bc5066d243827461c2c46742e57c987eff75403c5f7b21f7c93",
+        "output": "output-00062.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4840000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12924,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12924,
+          "gpu_upload_and_transition_ms": 0.52292,
+          "gpu_readback_and_transition_ms": 0.55888,
+          "batch_cpu_build_submit_wait_ms": 2.6517,
+          "setup_including_shader_compile_ms": 457.419,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12924
+          ]
+        }
+      },
+      {
+        "index": 63,
+        "input_sha256": "9a08c5f61d3bea4a9106f6b24e9d6344ea4160287c1804fc6021da5bc259a18e",
+        "output_sha256": "13cf025be6f07355b2e17916932d7f24d070d2f1c8a0625758fbf26b5a313c43",
+        "output": "output-00063.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.5,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12356,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12356,
+          "gpu_upload_and_transition_ms": 0.51824,
+          "gpu_readback_and_transition_ms": 0.49316,
+          "batch_cpu_build_submit_wait_ms": 3.124,
+          "setup_including_shader_compile_ms": 424.403,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12356
+          ]
+        }
+      },
+      {
+        "index": 64,
+        "input_sha256": "db91f5ecc03b0e4c787b10b75bb1eb3c7617278158f1771a984dc4aa10f1346b",
+        "output_sha256": "5a0270f1b41442f11ab9c1e8b7f7ea6e1219bf054eac007b07ff37b8f73a713d",
+        "output": "output-00064.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.389999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11764,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11764,
+          "gpu_upload_and_transition_ms": 0.51712,
+          "gpu_readback_and_transition_ms": 0.48676,
+          "batch_cpu_build_submit_wait_ms": 2.0993,
+          "setup_including_shader_compile_ms": 412.65,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11764
+          ]
+        }
+      },
+      {
+        "index": 65,
+        "input_sha256": "e3fefe84015b6b2020b2d7b634813b463f0e06e95d0b9df92e4ebf364b25fc53",
+        "output_sha256": "b60075e8a8b995f0af1fbf0b3efbe3d53b707f47bd09a70a162d72a100fe7c63",
+        "output": "output-00065.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12456,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12456,
+          "gpu_upload_and_transition_ms": 0.57052,
+          "gpu_readback_and_transition_ms": 0.50908,
+          "batch_cpu_build_submit_wait_ms": 3.5352,
+          "setup_including_shader_compile_ms": 402.019,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12456
+          ]
+        }
+      },
+      {
+        "index": 66,
+        "input_sha256": "d1bbbbf9e501c40394240b7fd9c00a75b17fdb55a33fb50cd31b4c6f0167e6a8",
+        "output_sha256": "73b07cf0dfc67202c343cfd3b1059c3138d331759df2ec80d907b97c42af0504",
+        "output": "output-00066.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1246,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1246,
+          "gpu_upload_and_transition_ms": 0.63356,
+          "gpu_readback_and_transition_ms": 0.50972,
+          "batch_cpu_build_submit_wait_ms": 2.6832,
+          "setup_including_shader_compile_ms": 408.925,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1246
+          ]
+        }
+      },
+      {
+        "index": 67,
+        "input_sha256": "055dd24105e4d9f1695c278dc2fddd4e86ef5b00d9d5da024fe943cd42fcfc92",
+        "output_sha256": "80fb97fcdc325cea4ff3104fd0069e6b69239b38827f41f814aa752daf8cd82c",
+        "output": "output-00067.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4059999999990396,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1242,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1242,
+          "gpu_upload_and_transition_ms": 0.51824,
+          "gpu_readback_and_transition_ms": 0.49404,
+          "batch_cpu_build_submit_wait_ms": 3.0527,
+          "setup_including_shader_compile_ms": 413.476,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1242
+          ]
+        }
+      },
+      {
+        "index": 68,
+        "input_sha256": "8ad58977b46725cb1ef4318a3d7e9c67481d39af3411582621c01310fa707bdf",
+        "output_sha256": "9b57f5ba47180cde67fa93de80d97ecea991ea776a884ae3d836d8604c74efc6",
+        "output": "output-00068.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11772,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11772,
+          "gpu_upload_and_transition_ms": 0.5168,
+          "gpu_readback_and_transition_ms": 0.49616,
+          "batch_cpu_build_submit_wait_ms": 2.1993,
+          "setup_including_shader_compile_ms": 406.634,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11772
+          ]
+        }
+      },
+      {
+        "index": 69,
+        "input_sha256": "426bee0480f03addcd5541cbb4e19c623a4add8f6c4eb29d46142618e8b497e8",
+        "output_sha256": "8e9807eb705419d6d2d7acdc7e87dc65ece506086cf377787504b8bb6b44af3a",
+        "output": "output-00069.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12488,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12488,
+          "gpu_upload_and_transition_ms": 0.51788,
+          "gpu_readback_and_transition_ms": 0.49392,
+          "batch_cpu_build_submit_wait_ms": 2.3554,
+          "setup_including_shader_compile_ms": 408.368,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12488
+          ]
+        }
+      },
+      {
+        "index": 70,
+        "input_sha256": "6f87ecebc4321567318bf3a45e012c19e08c212e9728d4355a4383b53ca0f6f4",
+        "output_sha256": "291244a2816660575f0f254bac68ed700535c89a8eddbaad37a0feab60f9a190",
+        "output": "output-00070.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4369999999980791,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1244,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1244,
+          "gpu_upload_and_transition_ms": 0.51884,
+          "gpu_readback_and_transition_ms": 0.50752,
+          "batch_cpu_build_submit_wait_ms": 3.6147,
+          "setup_including_shader_compile_ms": 413.084,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1244
+          ]
+        }
+      },
+      {
+        "index": 71,
+        "input_sha256": "8fb244bb275f5c4a5931e3bbac87f947b1e01af2c52711f51686a8b32116a2b0",
+        "output_sha256": "fcf6170a9d5970c4d25547440ce6bd86c0323d254e27ec41de35ee40147384b3",
+        "output": "output-00071.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1182,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1182,
+          "gpu_upload_and_transition_ms": 1.13568,
+          "gpu_readback_and_transition_ms": 0.48508,
+          "batch_cpu_build_submit_wait_ms": 3.0883,
+          "setup_including_shader_compile_ms": 399.249,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1182
+          ]
+        }
+      },
+      {
+        "index": 72,
+        "input_sha256": "7e7b6d755dcf3936c8fb9474f6c187b79a215a59631e6d5ab5a8025e1c6173ab",
+        "output_sha256": "7a85b56cae02f07b1d955c491634a4c0a604b656bb4e4d79f843e5ea792259b3",
+        "output": "output-00072.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4839999999967404,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11768,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11768,
+          "gpu_upload_and_transition_ms": 0.51668,
+          "gpu_readback_and_transition_ms": 0.49168,
+          "batch_cpu_build_submit_wait_ms": 2.1491,
+          "setup_including_shader_compile_ms": 458.817,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11768
+          ]
+        }
+      },
+      {
+        "index": 73,
+        "input_sha256": "8a9086ab07c4350773e0661fdb0aea66a7dd1c0c1d9f0528616a2a4d3f526d32",
+        "output_sha256": "62ba5dadf7679ac954a3f4d9a3c0a97c15a256c82d70d3d431fc85f6d0c7e337",
+        "output": "output-00073.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12668,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12668,
+          "gpu_upload_and_transition_ms": 0.51904,
+          "gpu_readback_and_transition_ms": 0.53828,
+          "batch_cpu_build_submit_wait_ms": 3.9248,
+          "setup_including_shader_compile_ms": 398.767,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12668
+          ]
+        }
+      },
+      {
+        "index": 74,
+        "input_sha256": "e248f1244f0fc5c5b91bdb09b6e9d37d791b09d5aec23c5f447721520bbfc084",
+        "output_sha256": "f0b21337d45496c4779fa923bae594fdc3044e381d0feb59b5e1c003a1a0c02d",
+        "output": "output-00074.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.389999999999418,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12336,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12336,
+          "gpu_upload_and_transition_ms": 0.52456,
+          "gpu_readback_and_transition_ms": 0.47844,
+          "batch_cpu_build_submit_wait_ms": 3.015,
+          "setup_including_shader_compile_ms": 422.145,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12336
+          ]
+        }
+      },
+      {
+        "index": 75,
+        "input_sha256": "eaef7404eefa1879daef78cd096257a7bd3cc2455627126c47096848348773df",
+        "output_sha256": "a18a9c7e64767214a1aa8ab5b7698ce30b5dde4eeac40ca5f93dc27b255f6c76",
+        "output": "output-00075.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.375,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.11788,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.11788,
+          "gpu_upload_and_transition_ms": 0.51928,
+          "gpu_readback_and_transition_ms": 0.4904,
+          "batch_cpu_build_submit_wait_ms": 2.3772,
+          "setup_including_shader_compile_ms": 400.263,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.11788
+          ]
+        }
+      },
+      {
+        "index": 76,
+        "input_sha256": "2e56bee252a13e296a42dbfb2805e5f411b57a1e07a732afa4f641b34f5fa6a9",
+        "output_sha256": "da91b2c11363c8950c561f232277732be54d527f4d52d8ce9f8ea2cca0e3ee5e",
+        "output": "output-00076.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.12436,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.12436,
+          "gpu_upload_and_transition_ms": 0.51728,
+          "gpu_readback_and_transition_ms": 0.5724,
+          "batch_cpu_build_submit_wait_ms": 2.3674,
+          "setup_including_shader_compile_ms": 392.184,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.12436
+          ]
+        }
+      },
+      {
+        "index": 77,
+        "input_sha256": "874b5600ef7ec377a812efedda978eceb2560659b964ad58dfc50f44d069648e",
+        "output_sha256": "e6d119691126de2a58e042017d4f90b606255548d86f35f9fe8b60b2c7da8295",
+        "output": "output-00077.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3589999999967404,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1176,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1176,
+          "gpu_upload_and_transition_ms": 0.51744,
+          "gpu_readback_and_transition_ms": 0.48388,
+          "batch_cpu_build_submit_wait_ms": 2.1897,
+          "setup_including_shader_compile_ms": 403.756,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1176
+          ]
+        }
+      },
+      {
+        "index": 78,
+        "input_sha256": "c2e95461a67a9d1edb54a2fea589b5a4a282dd301e628b84afcb3a977e9a7fb9",
+        "output_sha256": "26eb667021b2244c43a79a81c8dca5f790a9dab73d9c3481205f097c570f5472",
+        "output": "output-00078.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.4209999999984575,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1178,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1178,
+          "gpu_upload_and_transition_ms": 0.51704,
+          "gpu_readback_and_transition_ms": 0.49688,
+          "batch_cpu_build_submit_wait_ms": 2.1656,
+          "setup_including_shader_compile_ms": 425.071,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1178
+          ]
+        }
+      },
+      {
+        "index": 79,
+        "input_sha256": "329988a8cfe8c9890042919fb025313d377336cd2203d3fc6624f2ee818ac081",
+        "output_sha256": "3820c248e3a6280d56a90542768929951ea17fc19d79d985e5866bd563b59c0b",
+        "output": "output-00079.png",
+        "rgb_max_error_8bit": 1,
+        "alpha_exact": true,
+        "processing_and_cpu_verification_seconds": 1.3590000000003783,
+        "gpu": {
+          "adapter": "AMD Radeon RX 7800 XT",
+          "dedicated_video_memory_bytes": 16963133440,
+          "pixels": 3686400,
+          "rgba_bytes": 14745600,
+          "warmup_dispatches": 0,
+          "measured_dispatches": 1,
+          "gpu_dispatch_including_uav_barrier_p50_ms": 0.1184,
+          "gpu_dispatch_including_uav_barrier_p95_ms": 0.1184,
+          "gpu_upload_and_transition_ms": 1.20908,
+          "gpu_readback_and_transition_ms": 0.4894,
+          "batch_cpu_build_submit_wait_ms": 2.9487,
+          "setup_including_shader_compile_ms": 415.539,
+          "gpu_default_buffer_bytes": 29491200,
+          "dispatch_ms": [
+            0.1184
+          ]
+        }
+      }
+    ],
+    "scope": "One GPU output for each captured source frame. Offline export, processing and retimed playback; not live performance.",
+    "scratch": "input.rgba/output.rgba are reused only after that frame passes CPU verification and its PNG/hash/timings are retained.",
+    "total_processing_seconds": 116.64099999999962
+  },
+  "video": {
+    "schema_version": 1,
+    "sha256": "9ea1ff18fb0242179bec745715ff2f8fc9923a3502905150ba23134e4aa0f378",
+    "bytes": 36179090,
+    "dimensions": [
+      3840,
+      1080
+    ],
+    "frames": 80,
+    "playback_fps": 20,
+    "duration_seconds": 4.0,
+    "codec": "H.264 / yuv420p / CRF 16",
+    "transformation": "Each full frame scaled from 2560x1440 to 1920x1080 with Lanczos; source left, GPU output right, encoded together without interpolation or dropped samples.",
+    "capture_manifest_sha256": "34677ca5f873dc311849026101663fa20bd4e3316f79e6ca6c70add1211b0885",
+    "motion_manifest_sha256": "5f9ce4080b66027cc334f2e90e7fdab2cc864cf3bbc099e04c83277711adc5f1"
+  },
+  "validation": {
+    "every_frame_cpu_checked": true,
+    "maximum_rgb_error_8bit": 1,
+    "alpha_exact": true,
+    "frame_count": 80
+  }
+}

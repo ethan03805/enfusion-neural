@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 8 September 2026. Milestone: published visual comparisons and reference scene gallery. Read [objectives](vision.md) before choosing the next model or performance target.
+Updated 8 September 2026. Milestone: controlled camera-path capture, synchronized neural comparison video and an original material-room reference pair. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
@@ -11,8 +11,11 @@ Updated 8 September 2026. Milestone: published visual comparisons and reference 
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Fourteen-page Markdown documentation site with system/light/dark themes and an accessible before-and-after comparison; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
-- Five reviewed screenshots published without image transformations, with source records, hashes and attribution. Model output was checked against retained GPU output bytes and the CPU reference before publication. No continuous motion sequence has been recorded.
+- Sixteen-page Markdown documentation site with system/light/dark themes, still comparisons and a synchronized video; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
+- Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
+- Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
+- Ten reviewed PNGs and one video with source records, hashes and attribution. The video and its poster explicitly record their scaling and compression; original source/model frame PNGs remain available.
 
 Exact observed results and limitations are in [evidence](evidence.md). The source commit and CI/deployment outcomes are visible in the repository history and Actions; do not assume later revisions have the same measurements.
 
@@ -31,7 +34,11 @@ Use the prepared environment with the documented dependencies. Reviewed manifest
 
 ## Next task
 
-Pin render scale, FSR, quality preset and camera projection for the scene pack. Investigate residual image differences before calling the capture deterministic. Then add an original controlled scene with known geometry/materials and define aligned appearance targets. See [reference scenes](reference-scenes.md) and [roadmap gate 02](roadmap.md#02-reference-scenes-and-appearance-data). The supported renderer bridge remains a separate research task.
+Resolve internal Workbench viewport render scale and FSR. Stored engine settings describe a separate preview workspace and are insufficient proof. Export and inspect the viewport diagnostic settings, apply a positive control that visibly changes resolution/FSR behavior, then capture three repeats with the accepted override. Do not relabel current captures as fully pinned. See [capture controls](capture-controls.md).
+
+Next, import the original material-room geometry into an isolated Enfusion scene and validate matching camera, materials, light and color conventions before using engine/reference pairs for training. The accepted synthetic pair only validates the reference-generation method. See [material room](material-room.md) and [roadmap gate 02](roadmap.md#02-reference-scenes-and-appearance-data). The supported renderer bridge remains a separate research task.
+
+Current local evidence: `experiments/local/motion-static-v1c/` for final repeats; `experiments/local/motion-v1b/runs/20260909T003650-5d8d09c360/` for the 80-frame sequence; `experiments/local/motion-output-v1/` for GPU outputs and video; `experiments/local/material-room-v1d/` for the accepted synthetic pair. Earlier probes and failed runs were retained. Portable reports are `evidence/capture-controls-v1.json`, `evidence/motion-v1.json` and `evidence/material-room-v1.json`.
 
 The first measured reference batch is retained locally under `experiments/local/reference-v1/`; its reviewed numerical report is `evidence/reference-scenes-v1.json`. All camera/environment checks passed, but every scene had nonzero pixel variation. These captures remain diagnostic data, not supervised appearance targets.
 

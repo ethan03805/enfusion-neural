@@ -11,7 +11,7 @@ import markdown
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('comparisons','Comparisons'),
+PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('comparisons','Comparisons'),
        ('architecture','Architecture'),('integration','Enfusion integration'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
@@ -41,6 +41,19 @@ def copy_media(output):
         record = (ROOT/entry['source_record']).resolve()
         if not record.is_relative_to((ROOT/'evidence').resolve()) or not record.is_file():
             raise RuntimeError('Missing or invalid media source record: '+name)
+    for entry in manifest.get('videos',[]):
+        name = entry['file']
+        if not re.fullmatch(r'[a-z0-9-]+\.mp4',name) or name in expected:
+            raise RuntimeError('Invalid or duplicate video filename')
+        expected.add(name)
+        path = source/name
+        if path.is_symlink() or path.stat().st_size != entry['bytes'] or hashlib.sha256(path.read_bytes()).hexdigest() != entry['sha256']:
+            raise RuntimeError('Video differs from reviewed manifest: '+name)
+        with path.open('rb') as stream:
+            if stream.read(12)[4:8] != b'ftyp': raise RuntimeError('Video is not an MP4 container')
+        record = (ROOT/entry['source_record']).resolve()
+        if not record.is_relative_to((ROOT/'evidence').resolve()) or not record.is_file():
+            raise RuntimeError('Missing video source record')
     if {path.name for path in source.iterdir()} != expected:
         raise RuntimeError('Review unexpected files in docs/media before publishing')
     destination = output/'media'
@@ -51,7 +64,7 @@ def copy_media(output):
         raise RuntimeError('Review stale media output before publishing')
     for name in expected:
         shutil.copyfile(source/name, destination/name)
-    print(f'Verified {len(manifest["images"])} published images against their hashes and dimensions.')
+    print(f'Verified {len(manifest["images"])} images and {len(manifest.get("videos",[]))} videos against the reviewed media manifest.')
 
 
 class Links(HTMLParser):
@@ -61,7 +74,8 @@ class Links(HTMLParser):
         attrs=dict(attrs)
         if 'id' in attrs: self.ids.add(attrs['id'])
         if tag in ('a','link') and 'href' in attrs: self.links.append(attrs['href'])
-        if tag in ('img','script') and 'src' in attrs: self.links.append(attrs['src'])
+        if tag in ('img','script','video','source') and 'src' in attrs: self.links.append(attrs['src'])
+        if tag == 'video' and 'poster' in attrs: self.links.append(attrs['poster'])
 
 
 def main():

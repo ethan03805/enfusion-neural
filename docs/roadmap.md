@@ -10,9 +10,11 @@ Train a small network, execute it on the recorded test configuration, compare ev
 
 **In progress.** The first pack defines three diagnostic Arland views with explicit camera, date, time, weather and wind controls. It supports three independent repeats per scene and image-difference analysis. See [reference scenes](reference-scenes.md) for the exact scope and unverified settings.
 
-Next, pin render scale, FSR, quality preset and projection; then add an original controlled scene with a material chart, fine geometry and exposure-transition sequences. Keep scene provenance and run manifests with each experiment.
+The newer [capture adapter](capture-controls.md) verifies projection, fixed exposure, environment, output size and engine settings readback. Internal viewport scale and FSR still need a positive control. Three final repeats retain measurable variation, especially in foliage.
 
-The immediate experiment should hold the scene and camera constant, vary one capture setting at a time, and measure repeated image differences. Then record a short fixed camera path with synchronized source/output frames for a before-and-after video. Keep the current [still comparisons](comparisons.md) available as a baseline.
+An 80-frame path and [synchronized before/after video](comparisons.md#motion) are implemented. The [material room](material-room.md) provides an original synthetic pair with exact depth/object-ID alignment and a measured reference noise check. Neither milestone establishes a live engine renderer or a valid Enfusion appearance-training pair.
+
+Next: close the viewport settings gap, isolate residual temporal variation, and import the controlled geometry into Enfusion. Verify source/reference camera, light, material and color conventions before training on engine pairs. Add exposure transitions and separate scene families for held-out evaluation.
 
 Acceptance: a versioned scene/config manifest; three repeat captures with measured alignment/drift; separate train/validation/test scene groups; a documented method for producing aligned appearance targets. Captures without a valid target can measure stability and appearance, but must not be relabeled as supervised photorealistic ground truth.
 
