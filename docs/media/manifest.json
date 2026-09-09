@@ -2,12 +2,13 @@
   "schema_version": 1,
   "publication_date": "2026-09-08",
   "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match. Frozen-model motion: both complete 32-frame sequences; frame 16 selected in the committed plan for stills and posters. No performance/quality selection.",
-  "rights": "Arland game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original material-room imagery is MIT licensed.",
+  "rights": "Arma Reforger game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original procedural imagery is MIT licensed.",
   "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
   "output_verification": {
     "matches_retained_gpu_rgba": true,
     "cpu_reference_rgb_max_error_8bit": 1,
-    "alpha_exact": true
+    "alpha_exact": true,
+    "scope": "Original arland-before/arland-after v0 benchmark pair only; other media retain their own evidence."
   },
   "images": [
     {
@@ -497,6 +498,107 @@
       "role": "source / model / independent-reference untouched-test poster",
       "source_artifact": "experiments/local/lighting-diversity-test-video-v1/cross-courtyard-rgb/frame-0024.png",
       "transformation": "Preselected frame 24. Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "file": "arma-st-philippe-entities.png",
+      "bytes": 7922443,
+      "sha256": "f09dc7dd9b33efbc036948c6d4d7faa0070b16f948ed177ba744f9e034dda558",
+      "role": "unprocessed Enfusion source view with placed entities",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-st-philippe-entities-v3/runs/20260909T082011-cfcb0669c5/frame.png",
+      "run_id": "20260909T082011-cfcb0669c5",
+      "transformation": "none; byte-for-byte copy",
+      "selection": "First inspected run with the intended upright vehicle and character placement. Both failed placement attempts remain in the evidence.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license.",
+      "dimensions": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "arma-factory-yard.png",
+      "sha256": "e224996898212c02d27f9c05f64b3f98d69137c6f9a185db15a9a0be788f2525",
+      "bytes": 5634729,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed Enfusion industrial source view",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-factory-v1/runs/20260909T083625-6955579c29/profile/profile/sample-00002.png",
+      "run_id": "20260909T083625-6955579c29",
+      "sample": 2,
+      "transformation": "none; byte-for-byte copy",
+      "selection": "Sample 2 chosen after inspection to show the factory complex. No model was evaluated; all four scout views remain in the evidence.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
+    },
+    {
+      "file": "arma-warehouse-interior.png",
+      "sha256": "125d2ba0c87045c0cde2d382d1a144e2635c4f57643627c2060b05fcfd9c71d1",
+      "bytes": 5775151,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed Enfusion interior source view",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-warehouse-interior-v1/runs/20260909T083946-9fa8adeff0/profile/profile/sample-00002.png",
+      "run_id": "20260909T083946-9fa8adeff0",
+      "sample": 2,
+      "transformation": "none; byte-for-byte copy",
+      "selection": "Aisle view and the source anomaly retained after visual inspection. All four views remain in the evidence; no model was evaluated.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
+    },
+    {
+      "file": "arma-warehouse-source-anomaly.png",
+      "sha256": "0caf011694df23a37aa329894e14301ec7194dcee52de14e758bd5909abb001d",
+      "bytes": 5401788,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed Enfusion interior source view",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-warehouse-interior-v1/runs/20260909T083946-9fa8adeff0/profile/profile/sample-00001.png",
+      "run_id": "20260909T083946-9fa8adeff0",
+      "sample": 1,
+      "transformation": "none; byte-for-byte copy",
+      "selection": "Aisle view and the source anomaly retained after visual inspection. All four views remain in the evidence; no model was evaluated.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
+    },
+    {
+      "file": "arma-montignac-street.png",
+      "sha256": "37d516b8ea81e0b77df58a00f8b712507f8a1b46d3b90d3970b381ef41498355",
+      "bytes": 5763310,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed Enfusion town source view",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-montignac-v1/runs/20260909T084342-7e3588d4b3/profile/profile/sample-00002.png",
+      "run_id": "20260909T084342-7e3588d4b3",
+      "sample": 2,
+      "transformation": "none; byte-for-byte copy",
+      "selection": "Street view and visible source anomaly selected after inspecting all four views. No model was evaluated.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
+    },
+    {
+      "file": "arma-montignac-source-anomaly.png",
+      "sha256": "25c0779a4df6f6473a1f2655c8a9474348928e7999f5c7811104de9f82ddbd8c",
+      "bytes": 6933340,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed Enfusion town source view",
+      "source_record": "evidence/enfusion-arma-scenes-v1.json",
+      "source_artifact": "experiments/local/everon-montignac-v1/runs/20260909T084342-7e3588d4b3/profile/profile/sample-00001.png",
+      "run_id": "20260909T084342-7e3588d4b3",
+      "sample": 1,
+      "transformation": "none; byte-for-byte copy",
+      "selection": "Street view and visible source anomaly selected after inspecting all four views. No model was evaluated.",
+      "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
     }
   ],
   "videos": [

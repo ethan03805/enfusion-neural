@@ -38,6 +38,19 @@ class ImageBridgeControls(unittest.TestCase):
             with self.assertRaises(ValueError):bridge.process_image(folder,'identity')
             self.assertFalse((folder/'bridge-worker.done').exists())
 
+    def test_explicit_file_rgb_preserves_code_values_and_records_absent_alpha(self):
+        source=np.random.default_rng(12).integers(0,256,(9,13,3),dtype=np.uint8)
+        with tempfile.TemporaryDirectory() as name:
+            folder=Path(name);path=folder/'bridge-input.png';Image.fromarray(source).save(path)
+            report=bridge.process_image(folder,'identity',allow_opaque_rgb=True)
+            actual=np.array(Image.open(folder/'bridge-output.png'))
+            np.testing.assert_array_equal(actual[...,:3],source)
+            self.assertTrue(np.all(actual[...,3]==255))
+            self.assertFalse(report['source_alpha_present'])
+            self.assertIsNone(report['alpha_exact'])
+            with self.assertRaises(ValueError):image_bridge.pixels(path,[13,9])
+            np.testing.assert_array_equal(image_bridge.pixels(path,[13,9],allow_opaque_rgb=True),actual)
+
     def fixture(self,root,mode='invert',bad_screen=False,failure=False):
         c=sequence.load_config(ROOT/'scenes/arland-motion-v1.json');c['samples']=1;w,h=129,131;c['dimensions']=[w,h]
         cap='20260909T010000-1234567890';val='20260909T000000-1234567890'
@@ -103,6 +116,22 @@ class ImageBridgeControls(unittest.TestCase):
             checked=image_bridge.inspect(root)
             self.assertIn('Workbench timed out.',checked['errors'])
             self.assertFalse(any(checked['verification'].values()))
+
+    def test_file_source_still_requires_texture_and_screen_pixel_agreement(self):
+        for bad_screen in (False, True):
+            with self.subTest(bad_screen=bad_screen), tempfile.TemporaryDirectory() as name:
+                root=Path(name);self.fixture(root,bad_screen=bad_screen)
+                report=json.loads((root/'bridge.json').read_text())
+                console=root/'runs'/report['capture_run']/'console.log'
+                lines=[line for line in console.read_text().splitlines() if 'bridge-input.png' not in line]
+                lines.append('ENR_BRIDGE '+json.dumps({'event':'source_file','submitted':1,'tick_ms':105}))
+                console.write_text('\n'.join(lines))
+                report.update(source_interface='file',console_sha256=bridge.digest(console))
+                bridge.write_json(root/'bridge.json',report)
+                checked=image_bridge.inspect(root)
+                self.assertEqual(checked['verification']['pixel_exact_screenshot_ui_return'],not bad_screen)
+                self.assertFalse(checked['verification']['live_neural_lighting_integration'])
+                self.assertIn('uploaded_texture',checked['comparisons'])
 
     def test_additional_world_requires_observed_resource_without_relaxing_default(self):
         with tempfile.TemporaryDirectory() as name:

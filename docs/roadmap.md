@@ -36,9 +36,18 @@ Acceptance: blinded visual improvement with geometry, identity, visibility and t
 
 The [scene-transfer and motion test](lighting-motion.md) evaluates frozen models on two 32-frame paths, including a new partitioned layout. It retains independent references at every frame and records regional/temporal regressions. Average error improves, but the scene-conditioned model loses its advantage over RGB-only on the new layout and worsens marking contrast. The broad faithful-appearance gate remains open.
 
-Next acceptance: multiple original training layouts; a further untouched evaluation scene; a fixed-budget ablation of absolute world position; marking-contrast and boundary checks; higher-convergence temporal references. Treat the published paths as regression data. Keep new test scenes out of fitting and checkpoint selection. Native execution must separately match the CPU lighting reference and measure feature/inference/composition cost.
+The subsequent experiment uses multiple original training layouts, an untouched evaluation scene, a fixed-budget ablation of absolute world position, marking-contrast and boundary checks, and higher-convergence temporal references. The earlier paths remain regression data. Native execution must separately match the CPU lighting reference and measure feature, inference and composition cost.
 
 The [scene-diversity experiment](lighting-diversity.md) has completed four training layouts, one validation layout, three locked feature variants and two affine controls. The validation-selected full-input model and relative-input variant pass the untouched 48-frame cross-courtyard test at the predeclared sample count. RGB-only fails aggregate spatial and temporal checks. All three complete test clips and the existing regression paths are retained. Next: prove the supported input/output route and test actual Arma city, interior, vegetation and entity scenes. World-resource discovery alone does not meet that acceptance criterion; the lighting graph still requires a verified native implementation and engine feature mapping.
+
+Current [Arma source captures](arma-scenes.md) cover Saint-Philippe vegetation and entities, a factory yard, a warehouse interior and Montignac streets. All views were inspected. Two placement failures and source visibility anomalies remain recorded. These captures establish environment coverage for scouting; model fidelity on these scenes remains untested.
+
+The immediate priorities are:
+
+1. Establish a supported input/output interface. Require a documented extension and a reproducible identity/inversion control at the intended rendering stage, then verify the lighting model's required surface inputs. The screenshot/widget probes have failed; more training cannot resolve this interface.
+2. Diagnose the source visibility anomalies with bounded, single-variable repeat captures. Preserve both passing and failing views. Accept a fixture only after its geometry and object visibility are understood.
+3. Add short motion paths and an aligned engine/reference lighting pair. Verify exposure, camera, material and light conventions; keep town, interior, foliage and entity scenes separate in evaluation.
+4. Implement the accepted lighting graph on the native backend, verify it against the CPU, then measure complete-frame cost through the supported adapter. Use those results to decide whether larger training is warranted.
 
 ## 05 · Playable local demonstration
 

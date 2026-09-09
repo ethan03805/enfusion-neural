@@ -52,9 +52,21 @@ python scripts/summarize_enfusion_image_bridge.py --root experiments/local/bridg
 
 Run scene/capture experiments serially with other GPU experiments. Use a new output directory per attempt; preserve failures. Inspect actual images before publishing them as environment coverage. For additional worlds, the probe requires `--world-inventory` pointing to a completed native resource inventory that observed the exact requested world. This establishes the resource name, not successful loading or useful framing. The default sequence adapter retains its established Arland restriction.
 
+## Ordinary file export
+
+The ordinary screenshot function succeeds where the raw-data callback did not. It exports RGB8. The first worker rejected those channels; the revised file route preserves RGB exactly and supplies an explicitly recorded opaque alpha channel. Source alpha is unavailable.
+
+Both identity and inversion then complete the external CPU operation and load a 2560 × 1440 PNG into the widget. `GetTextureRawData` returns false for both. The final ordinary screenshot remains the rendered scene: mean RGB difference from worker output is 5.01 code values for identity and 129.20 for inversion. The [file-return evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-file-return-v1.json) retains all three attempts, independent CPU checks and final-capture differences. Every bridge verification field remains false.
+
+This establishes file export, CPU processing and an accepted widget load. It does not establish that the processed image reaches the viewport or display. Further work needs an authoritative presentation route and scene-buffer contract, rather than another identical callback retry.
+
+```powershell
+python scripts/probe_enfusion_image_bridge.py --mode invert --source-interface file --out experiments/local/file-return-recheck --lab-source <enfusion-lab-root>
+```
+
 ## Inventory without a world
 
-Normal ScriptEditor initialization now runs a search-only inventory without loading a world. It found eight `.ent` resources, including `{853E92315D1D9EFE}worlds/Eden/Eden.ent`, and exited naturally with code 0 after the completion callback. [Native inventory evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-world-inventory-v1.json) records script and log hashes. A subsequent WorldEditor run loaded Everon and exported a verified 2560 Ã— 1440 overview. Its distant coast-and-sky view does not establish city or interior coverage. The [Everon scout evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-everon-scout-v1.json) also retains an earlier timeout during material traversal.
+Normal ScriptEditor initialization now runs a search-only inventory without loading a world. It found eight `.ent` resources, including `{853E92315D1D9EFE}worlds/Eden/Eden.ent`, and exited naturally with code 0 after the completion callback. [Native inventory evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-world-inventory-v1.json) records script and log hashes. A subsequent WorldEditor run loaded Everon and exported a verified 2560 × 1440 overview. Its distant coast-and-sky view does not establish city or interior coverage. The [Everon scout evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-everon-scout-v1.json) also retains an earlier timeout during material traversal.
 
 The [Workbench plugin documentation](https://community.bistudio.com/wiki/Arma_Reforger:Workbench_Plugin) describes command-line callbacks. The probe uses Lab discovery, isolated initialization and compilation, followed by a separate bounded inventory operation. It requests an initially hidden module window and preserves private settings. Its completion check requires natural exit, exactly one callback completion and each requested search result; exit code 0 alone is insufficient.
 
@@ -67,3 +79,5 @@ The additional-world loader accepts this distinct inventory operation without pr
 Three earlier attempts remain visible. Two silent startups compiled and exited without invoking the callback; adding `-run` did not resolve them. A normal startup invoked the full callback but timed out before returning any inventory records. The successful version calls only the resource searches, omitting the earlier material-file traversal. [Silent-attempt evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-resource-inventory-silent-v1.json) and the native inventory report retain these failures. Other modules were not tested. None of these runs proves a neural rendering bridge.
 
 The revised WorldEditor location query reports all 170 named locations among 650 map descriptors, including Saint-Philippe and Montignac. [Named-location evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-everon-locations-v1.json) binds the completed capture and compiled script. `scripts/capture_enfusion_scout.py` accepts a camera config and the native world inventory, verifies the exported sequence, and records optional vehicle/character placement. Its output is source-only; each scene needs visual review before it counts as environment coverage.
+
+The first [Saint-Philippe source scene](arma-scenes.md) now has inspected buildings, foliage, fences, an upright M998 and a standing rifleman. Two failed placement attempts remain recorded. Source capture does not establish a matching lighting target or model behavior on those assets.
