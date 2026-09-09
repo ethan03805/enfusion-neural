@@ -80,11 +80,14 @@ def events(console):
     return records
 
 
-def pixels(path,dimensions):
+def pixels(path,dimensions,allow_opaque_rgb=False):
     with Image.open(path) as im:
-        if im.format!='PNG' or im.mode!='RGBA' or list(im.size)!=dimensions:
+        if im.format!='PNG' or (im.mode!='RGBA' and not (allow_opaque_rgb and im.mode=='RGB')) or list(im.size)!=dimensions:
             raise ValueError('Image format, channels or dimensions differ: '+path.name)
-        return np.array(im)
+        values=np.array(im)
+        if im.mode=='RGB':
+            values=np.concatenate((values,np.full((*values.shape[:2],1),255,dtype=np.uint8)),axis=-1)
+        return values
 
 
 def difference(actual,expected):
@@ -137,7 +140,10 @@ def inspect(root,model_path=None):
     text=(run_dir/'console.log').read_text(errors='replace');trace=events(text)
     errors=[e['reason'] for e in trace if e['event']=='failure']+probe['worker_errors']
     if probe.get('capture_error'):errors.append(probe['capture_error'])
-    result={'schema_version':1,'status':'analyzed','mode':probe['mode'],'world':run['world'],'config':config,
+    source_interface=probe.get('source_interface','raw')
+    if source_interface not in ('raw','file') or (source_interface=='file' and probe['mode']=='copy'):
+        raise ValueError('Invalid source interface')
+    result={'schema_version':1,'status':'analyzed','mode':probe['mode'],'source_interface':source_interface,'world':run['world'],'config':config,
             'probe_report_sha256':digest(path),'capture_manifest_sha256':probe['capture_manifest_sha256'],
             'world_binding':binding,
             'validation_manifest_sha256':probe['validation_manifest_sha256'],'console_sha256':probe['console_sha256'],
@@ -158,8 +164,9 @@ def inspect(root,model_path=None):
     for name in ('bridge-input','bridge-output','bridge-texture','bridge-presented'):
         p=profile/(name+'.png')
         if p.exists():
-            arrays[name]=pixels(p,dimensions)
-            result['images'][name]={'sha256':digest(p),'bytes':p.stat().st_size,'dimensions':dimensions}
+            arrays[name]=pixels(p,dimensions,allow_opaque_rgb=source_interface=='file' and name=='bridge-input')
+            with Image.open(p) as source_image:decoded_mode=source_image.mode
+            result['images'][name]={'sha256':digest(p),'bytes':p.stat().st_size,'dimensions':dimensions,'decoded_mode':decoded_mode}
     if errors or run['status']!='succeeded':return result
     # Read actual final camera and environment telemetry, not only launch arguments.
     native=[json.loads(line.split('ELAB ',1)[1]) for line in text.splitlines() if 'ELAB {' in line]
@@ -193,7 +200,9 @@ def inspect(root,model_path=None):
     if probe['mode']!='copy':required|={'bridge-input','bridge-output'}
     if not required<=arrays.keys():raise ValueError('Missing bridge image')
     expected_saves={'bridge-texture.png','bridge-presented.png'}
-    if probe['mode']!='copy':expected_saves.add('bridge-input.png')
+    if source_interface=='file':
+        if one('source_file')['submitted']!=1:raise ValueError('Source file screenshot rejected')
+    elif probe['mode']!='copy':expected_saves.add('bridge-input.png')
     saved=[e for e in trace if e['event']=='saved']
     if {e['name'] for e in saved}!=expected_saves or len(saved)!=len(expected_saves):raise ValueError('Missing or duplicated raw export')
     for e in saved:
@@ -210,6 +219,10 @@ def inspect(root,model_path=None):
             if worker[key]!=result['images'][name]['sha256']:raise ValueError('Worker image hash differs')
         if worker['status']!='succeeded' or worker['mode']!=probe['mode'] or worker['dimensions']!=dimensions or worker['worker_sha256']!=probe['worker_script_sha256']:
             raise ValueError('Worker contract differs')
+        if worker.get('input_mode','RGBA')!=result['images']['bridge-input']['decoded_mode']:
+            raise ValueError('Worker source channels differ')
+        result['source_alpha_present']=result['images']['bridge-input']['decoded_mode']=='RGBA'
+        result['input_alpha_policy']=worker.get('input_alpha_policy','preserved')
         weights=None
         if probe['mode']=='v0':
             if model_path is None or digest(model_path)!=worker['model_sha256']:raise ValueError('Missing or changed bootstrap model')

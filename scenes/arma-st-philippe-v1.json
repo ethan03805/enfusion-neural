@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "everon-st-philippe-scout-v1",
+  "world": "worlds/Eden/Eden.ent",
+  "group": "everon-st-philippe",
+  "split": "diagnostic",
+  "dimensions": [
+    2560,
+    1440
+  ],
+  "position_start": [
+    4502.76,
+    16.402,
+    10772
+  ],
+  "position_end": [
+    4502.76,
+    16.402,
+    10772
+  ],
+  "yaw_start_degrees": 90,
+  "yaw_end_degrees": 90,
+  "vertical_fov_degrees": 60,
+  "near_plane_m": 0.1,
+  "far_plane_m": 5000,
+  "hdr_brightness": 0.00456415,
+  "date": [
+    1989,
+    6,
+    21
+  ],
+  "hour": 13,
+  "weather_state": "Clear",
+  "wind_speed_mps": 0,
+  "wind_direction_degrees": 0,
+  "settle_seconds": 8,
+  "hold_ticks_per_sample": 6,
+  "samples": 1,
+  "playback_fps": 20,
+  "timeout_seconds": 240,
+  "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+  "requested_render_scale": 1,
+  "requested_fsr_enabled": false,
+  "viewport_render_scale_verified": false,
+  "viewport_fsr_verified": false,
+  "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+  "quality_readback": {
+    "VideoUserSettings": {
+      "ResolutionScale": 1,
+      "FsrEnabled": 0,
+      "Fsaa": 0,
+      "DistantShadowsQuality": 2,
+      "EnvironmentQuality": 2,
+      "Atoc": 0,
+      "Gamma": 0,
+      "Contrast": 0,
+      "Brightness": 0
+    },
+    "PPEffectsSettings": {
+      "HBAO": 1,
+      "SSDO": 1,
+      "SSR": 1,
+      "PPAA": 2
+    },
+    "PipelineUserSettings": {
+      "ShadowQuality": 2
+    },
+    "ResourceManagerUserSettings": {
+      "TextureDetail": 0,
+      "GeometricDetail": 2
+    },
+    "GrassMaterialSettings": {
+      "Distance": 175,
+      "Lod": 3,
+      "Quality": 0
+    },
+    "TerrainGenMaterialSettings": {
+      "Detail": 3
+    },
+    "MaterialSystemUserSettings": {
+      "TextureFilter": 2,
+      "MaxAniso": 4
+    }
+  }
+}

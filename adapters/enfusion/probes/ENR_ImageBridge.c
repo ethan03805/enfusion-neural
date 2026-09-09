@@ -79,6 +79,11 @@ class ENR_ImageBridge
  static bool Tick(BaseWorld world, int width, int height)
  {
   if (Done) return ELab_CaptureState.Elapsed - CompletedAt > 2;
+  if (Stage == 2 && FileIO.FileExists("$profile:bridge-worker.failed"))
+  {
+   Fail("external CPU worker failed; inspect retained worker error");
+   return false;
+  }
   if (Stage == 0)
   {
    ENR_BridgeEntities.Record();
@@ -91,6 +96,13 @@ class ENR_ImageBridge
    PrintFormat("ENR_BRIDGE {\"event\":\"requested\",\"mode\":\"%1\",\"width\":%2,\"height\":%3,\"world_frame\":%4,\"tick_ms\":%5}", ENR_BridgeConfig.Mode, width, height, world.GetFrameNumber(), System.GetTickCount());
    if (ENR_BridgeConfig.Mode == "copy")
     System.MakeScreenshotTexture(OnScreenshotTexture, 0, 0, width, height, width, height);
+   else if (ENR_BridgeConfig.SourceFile)
+   {
+    bool submitted = System.MakeScreenshot("$profile:bridge-input");
+    PrintFormat("ENR_BRIDGE {\"event\":\"source_file\",\"submitted\":%1,\"tick_ms\":%2}", submitted, System.GetTickCount());
+    if (!submitted) Fail("source file screenshot rejected");
+    else Stage = 2;
+   }
    else
     System.MakeScreenshotRawData(OnSource, 0, 0, width, height, width, height);
   }

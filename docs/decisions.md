@@ -75,3 +75,9 @@ The completed untouched test passes for the validation-selected full-input model
 ## 015 · Publish completed tests while keeping integration unresolved
 
 Accepted 9 September 2026. Publish the complete untouched synthetic test and all controls with their failures. Do not hold finished evidence behind an unproven engine interface. Keep the full goal active: supported scene inputs/output and varied real Arma coverage remain required. Record runtime failures separately from compilation, and separate source-only environment scouts from neural integration tests. A native crash cannot become a successful proof because a later screenshot exists.
+
+## 016 · Preserve source and presentation failures
+
+Accepted 9 September 2026. The ordinary screenshot route exports RGB8. Accept it only through an explicit file-source contract that preserves RGB values and records supplied opaque alpha. Keep strict RGBA validation elsewhere. A correct CPU file and successful widget load do not satisfy texture readback or presentation verification.
+
+Publish reviewed real-scene captures with exact source bytes, including source visibility anomalies and failed entity placements. They remain source observations, with no aligned appearance target or lighting-model result. Resolve those anomalies and the supported rendering interface before treating broader asset collection as training progress.

@@ -8,17 +8,19 @@ class ENR_BridgeEntities
 
  static void Spawn(BaseWorld world, ResourceName name, vector position, vector direction)
  {
-  WorldEditor editor = Workbench.GetModule(WorldEditor);
-  position[1] = editor.GetApi().GetTerrainSurfaceY(position[0], position[2]) + 0.15;
+  // Query the simulation world. The editor API returned zero while the game
+  // simulation was active and placed the first Everon test below the terrain.
+  position[1] = world.GetSurfaceY(position[0], position[2]) + 0.15;
+  PrintFormat("ENR_PROP ground resource=%1 position=%2", name, position);
   Resource resource = Resource.Load(name);
   if (!resource || !resource.IsValid()) { PrintFormat("ENR_PROP failed resource=%1", name); return; }
   EntitySpawnParams parameters = new EntitySpawnParams();
   parameters.TransformMode = ETransformMode.WORLD;
   Math3D.MatrixIdentity4(parameters.Transform);
+  Math3D.DirectionAndUpMatrix(direction, "0 1 0", parameters.Transform);
   parameters.Transform[3] = position;
   IEntity entity = GetGame().SpawnEntityPrefab(resource, world, parameters);
   if (!entity) { PrintFormat("ENR_PROP failed spawn=%1", name); return; }
-  entity.SetAngles(direction.VectorToAngles());
   Spawned.Insert(entity);
   PrintFormat("ENR_PROP spawned resource=%1 position=%2", name, entity.GetOrigin());
  }
@@ -37,7 +39,7 @@ class ENR_BridgeEntities
  {
   foreach (IEntity entity : Spawned)
   {
-   if (entity) PrintFormat("ENR_PROP at_capture name=%1 position=%2", entity.GetName(), entity.GetOrigin());
+   if (entity) PrintFormat("ENR_PROP at_capture name=%1 position=%2 yaw_pitch_roll=%3", entity.GetName(), entity.GetOrigin(), entity.GetYawPitchRoll());
   }
  }
 }
