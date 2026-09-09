@@ -16,7 +16,9 @@ The [frozen-model motion test](docs/lighting-motion.md) adds 64 frames across th
 
 The [scene-diversity experiment](docs/lighting-diversity.md) adds four training layouts, a separate validation layout and a 48-frame untouched test. The validation-selected full-input model passes the declared spatial, regional, contrast and temporal non-regression checks on that test. Complete clips retain all three input variants, including RGB-only's failed aggregate checks. These synthetic results do not establish live Enfusion integration.
 
-This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
+The [camera color-lookup control](docs/color-lookup.md) verifies original volume import and visible native post-processing. The exported colors reject the direct RGB8 mapping hypothesis. This limited effect runs no neural model and provides no scene buffers.
+
+This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported neural presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
 
 ## Run
 

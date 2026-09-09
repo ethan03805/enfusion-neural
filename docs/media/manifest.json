@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "publication_date": "2026-09-08",
-  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match. Frozen-model motion: both complete 32-frame sequences; frame 16 selected in the committed plan for stills and posters. No performance/quality selection.",
+  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match. Frozen-model motion: both complete 32-frame sequences; frame 16 selected in the committed plan for stills and posters. No performance/quality selection. Color lookup: every image from the initial rejected-priority batch and all seven separately declared priority-19 controls, including every off repeat. Full-size review of all nine; no quality-based selection.",
   "rights": "Arma Reforger game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original procedural imagery is MIT licensed.",
   "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
   "output_verification": {
@@ -1033,6 +1033,132 @@
       "role": "Original Cycles point-light reference many-bounces-check; no neural processing",
       "transformation": "Declared scalar gain, clipped standard sRGB transfer, nearest-integer RGB8; no alignment, denoising or retouching; scalar gain 0.12533096255755358",
       "rights": "MIT; original procedural geometry, materials and synthetic illumination."
+    },
+    {
+      "file": "color-lookup-off.png",
+      "sha256": "a8ee45daf7ae17ba64227bb5a6a8919ac481942f8d7d47b76c9e1fdadf9cc6c9",
+      "bytes": 6366008,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-off-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-off-v2/runs/20260909T134637-04b9067cbc/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134637-04b9067cbc"
+    },
+    {
+      "file": "color-lookup-identity.png",
+      "sha256": "6839c6f79d6c30984293d1d76f90d94289fb58697c51cc727373bb63a20435df",
+      "bytes": 6262692,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-identity-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-identity-v2/runs/20260909T134713-b615f27e1c/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134713-b615f27e1c"
+    },
+    {
+      "file": "color-lookup-inversion.png",
+      "sha256": "4ae18216e2d6dbcd7717c27743ff301a6b9db147f2d8a6f9308c29d1dab91d05",
+      "bytes": 3430669,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-inversion-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-inversion-v2/runs/20260909T134750-a61054a157/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134750-a61054a157"
+    },
+    {
+      "file": "color-lookup-constant.png",
+      "sha256": "8c56e4b7dd2edd8f54e65e310a2068572a5b04b3da6b903ed76b2b3259b0ea6e",
+      "bytes": 52070,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-constant-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-constant-v2/runs/20260909T134826-f94ffc6c90/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134826-f94ffc6c90"
+    },
+    {
+      "file": "color-lookup-removed.png",
+      "sha256": "55fe66963da6e932cd00e1a9cd0677ddbbf60a6b35beacb5e499c23c90624021",
+      "bytes": 6365578,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-removed-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-removed-v2/runs/20260909T134902-d9a4130a8a/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134902-d9a4130a8a"
+    },
+    {
+      "file": "color-lookup-off-repeat2.png",
+      "sha256": "5887253af0906c7047e87f8093382674661bc2ad80f2683102bdb1cdb43b7726",
+      "bytes": 6365144,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-off-repeat2-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-off-repeat2-v2/runs/20260909T134938-924a44a049/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134938-924a44a049"
+    },
+    {
+      "file": "color-lookup-off-repeat3.png",
+      "sha256": "1b459f486bf9539ba8a19cdbf0567f961004b33c0120bf481430aeca324dd8bb",
+      "bytes": 6367122,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-off-repeat3-v2; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-off-repeat3-v2/runs/20260909T135014-69d5ec2158/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T135014-69d5ec2158"
+    },
+    {
+      "file": "color-lookup-initial-off.png",
+      "sha256": "3a581aca1af87964d9a7cfd5f38925d98efa24c5838d9bb580c274e24a697f95",
+      "bytes": 6365196,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-off-v1; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-off-v1/runs/20260909T134239-5f95654836/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134239-5f95654836"
+    },
+    {
+      "file": "color-lookup-rejected-identity.png",
+      "sha256": "4732bdfc675639235f0b12b1a60068bdce1109f29e09dd4086aca7061cc065eb",
+      "bytes": 6367660,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Native camera color-lookup diagnostic; color-lookup-identity-v1; no neural output",
+      "source_record": "evidence/enfusion-color-lookup-v1.json",
+      "source_artifact": "experiments/local/color-lookup-identity-v1/runs/20260909T134316-7279ee75f2/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte copy",
+      "run_id": "20260909T134316-7279ee75f2"
     }
   ],
   "videos": [

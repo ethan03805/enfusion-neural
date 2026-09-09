@@ -105,3 +105,9 @@ Use native read-only container inspection to discover available material fields.
 Accepted 9 September 2026. The point-light display hypothesis is fitted only on three declared intensities and one neutral patch. Commit its two coefficients before reserved numerical checks, retain every failure, and do not change the original fixture or locked model to improve this diagnostic. Seven of 22 reserved checks fail. The one-bounce reference already contains indirect illumination; it cannot isolate direct light.
 
 Investigate the documented color-grading/volume-texture workflow as a bounded integration control, starting with native schema inspection and original identity/known-color textures. A lookup-table approximation would support only a pointwise RGB function. It cannot stand in for the full scene-conditioned model, supply missing buffers or pass the broader integration goal. Model quality, effect placement and complete-frame cost require separate evidence.
+
+## 021 · Separate visible lookup response from color accuracy
+
+Accepted 9 September 2026. Original volume imports retain exact RGBA lattice values. The engine rejects the initial priority 1000; a separately committed priority-19 follow-up visibly applies inversion and constant-color controls. Preserve both batches and the complete native texture readback, including its trailing field. Do not infer successful application from material readback alone.
+
+The constant output differs from the stored RGB8 code values, and all unchanged-scene repeats differ. Record every CPU hypothesis and repeat comparison without fitting a transfer or changing previous limits. Declare new color controls, select the convention and freeze accuracy limits before reserved evaluation. Test dynamic switching and exposure separately. The working lookup cannot replace the full lighting graph, scene inputs or actual-Arma fidelity and complete-frame tests.

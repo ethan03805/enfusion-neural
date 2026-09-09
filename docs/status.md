@@ -2,7 +2,17 @@
 
 Updated 9 September 2026. Milestone: the locked full-input model passes the 48-frame untouched synthetic test. All three test clips and both regression paths are retained. The Enfusion integration proof remains in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
-## Latest calibration experiment
+## Latest native effect experiment
+
+The [color-lookup controls](color-lookup.md) now visibly affect the actual Enfusion camera export. Native schema inspection finds `ColorGradingEffect.ColorTable`; all three original 16³ compiled volumes match every source RGBA voxel. The initial priority-1000 identity request is explicitly rejected. A separately committed priority-19 follow-up completes all seven validations/captures with matching material readback and request order. The native getter's trailing `0` field is preserved rather than silently discarded.
+
+The constant [51, 102, 204] lookup produces a uniform [123, 169, 231] image. Visible response passes; direct RGB8 display mapping does not. Identity/inversion/constant/removal CPU-hypothesis MAE values are 1.2856/69.7983/55.3333/0.4741. All three off-repeat pairs differ, with MAE 0.5608–2.4749 and maximum channel difference 194. No accuracy gate, motion fidelity or trained-model integration follows. Removal is requested immediately after application, before settling.
+
+All nine retained frames were inspected at 2560 × 1440. `evidence/enfusion-color-lookup-v1.json` binds the build, read-only schema/inventory, native captures, all numerical comparisons and `enfusion-color-lookup-review-v1.json`. It retains the silent-inventory callback failure and both initial priority-1000 captures. Raw roots are `color-lookup-{build,schema,inventory}-v1`, `color-lookup-inventory-v2`, `color-lookup-{off,identity}-v1`, and `color-lookup-{off,identity,inversion,constant,removed,off-repeat2,off-repeat3}-v2`, under `experiments/local/`. All jobs are terminal, including batch session 58057; do not restart them. The CPU suite passes 65 tests. Nine unchanged PNGs bring the documentation to 75 PNGs and 12 videos across 24 pages.
+
+Next: separately declare constant colors and ramps to distinguish lookup transfer/sampling hypotheses, then freeze numerical limits before reserved color checks. Follow with dynamic activation/removal, camera cuts, exposure changes and a second resolution. The full goal still requires supported scene inputs and execution, native lighting-model/CPU agreement, aligned actual-Arma model/reference/motion tests across towns, interiors, foliage and entities, and complete-frame timings. No model, earlier calibration fit or fidelity threshold changed. The Bohemia inquiry remains drafted and unsent; do not repeat the unanswered authorization question or unchanged failed screenshot/widget routes.
+
+## Previous calibration experiment
 
 The [point-light calibration](light-calibration.md) completed eight native captures and four 4,096-sample Cycles renders. The committed two-coefficient mapping uses only one patch at LV 8, 10 and 12. Seven of 22 reserved patch checks fail: the floor reaches 29.95 RGB8 MAE against a limit of 10, and the fitting patch at a reserved intensity reaches 10.51 against 5. The separate back-wall patch passes at all five settings. Object identity, patch sampling noise and fit-patch clipping checks pass; the calibration candidate does not.
 
@@ -10,7 +20,7 @@ All images were inspected at full resolution. Twelve additional published PNGs r
 
 Portable evidence is `evidence/point-light-calibration-v1.json`, with the fit lock and both visual reviews alongside it. Raw native roots are `point-light-calibration-{off,lv8,lv9,lv10,lv11,lv12,lv10-repeat2,lv10-repeat3}-v1`; reference and analysis roots are `point-light-reference-v1` and `point-light-calibration-analysis-v1`, all under `experiments/local/`. Native, Blender and queued analysis jobs are terminal and successful as operations. Do not restart them. No model or threshold changed. The suite has 62 CPU tests; the site has 23 pages, 66 PNGs and 12 videos.
 
-Next: the bounded [color lookup control](integration.md#color-lookup-control), beginning with native schema inspection. Supported scene inputs, a complete lighting-model implementation, actual Arma model/reference/motion tests and complete-frame performance remain required. Environment/reflection and material/color isolation are still needed before using engine/reference pairs for training.
+The subsequent [color lookup control](color-lookup.md) establishes visible effect response, while its display-color mapping remains unresolved. Supported scene inputs, a complete lighting-model implementation, actual Arma model/reference/motion tests and complete-frame performance remain required. Environment/reflection and material/color isolation are still needed before using engine/reference pairs for training.
 
 ## Previous lighting controls
 
@@ -37,11 +47,11 @@ The center sphere responds visibly to both channels. Its preselected region chan
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Twenty-three-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Twenty-four-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 - Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
 - Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
 - Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
-- Sixty-six reviewed PNGs and twelve videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
+- Seventy-five reviewed PNGs and twelve videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
 - Eighteen original lighting cases with paired diffuse-bounce controls, 12 training/two validation/three test/one stress splits within one scene group, and two independent-seed reference checks. A 1,827-parameter scene-conditioned CPU model beats RGB-only and affine controls on the three test cases. Weights, gradients, serialization, features and partitioned inference are checked. See [lighting study](lighting-study.md); no game-frame saving or temporal fidelity is established.
 - Read-only [technical feasibility review](feasibility.md) of installed SDK declarations, asset-specific representations, photographs and data-use scope. Material replacement is documented; native scene buffers and output composition remain unverified.
 - [Frozen-model scene transfer and motion](lighting-motion.md): 32 frames in the original room and 32 in a new partitioned room, with an independent reference at every frame. No fitting or checkpoint selection on these paths. The scene-conditioned model lowers average error but loses to RGB-only on the new layout and worsens marking contrast. Mean temporal changes are too small relative to sampling noise to establish meaningful stability. Two synchronized source/model/reference clips and the preselected frame-16 stills are published.

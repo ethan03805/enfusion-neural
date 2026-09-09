@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "color-lookup-priority-v2",
+  "base_plan": "scenes/color-lookup-control-v1.json",
+  "reason": "Native identity control rejects priority 1000 with maximum available 19; ColorTable getter returns the exact resource followed by a space and 0.",
+  "priority": 19,
+  "expected_table_raw_suffix": " 0",
+  "readback_scope": "Preserve the complete raw texture readback; the trailing zero's semantics are not independently verified",
+  "unchanged": ["original texture build and RGBA lattice", "camera", "exposure", "environment", "capture settings", "case order", "positive-control threshold"],
+  "runs": ["off", "identity", "inversion", "constant", "removed", "off", "off"],
+  "limits": ["V1 priority rejection and failed readback expectation remain retained", "Absence of an application error is not proof of visible output", "Characterization only; no reserved fidelity test or trained model"]
+}

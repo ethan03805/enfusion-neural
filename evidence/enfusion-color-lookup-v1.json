@@ -1,0 +1,1759 @@
+{
+  "schema_version": 1,
+  "operation": "color-lookup-characterization",
+  "evidence_verification": "succeeded",
+  "plan": {
+    "schema_version": 1,
+    "id": "color-lookup-control-v1",
+    "scope": "Original volume lookup import and static camera color-grading controls; no trained model or full scene-renderer bridge",
+    "schema_plan": "scenes/color-lookup-schema-v1.json",
+    "effect_class": "ColorGradingEffect",
+    "texture_field": "ColorTable",
+    "priority": 1000,
+    "volume_edge": 16,
+    "source_dimensions": [
+      256,
+      16
+    ],
+    "source_layout": "horizontal Z slices; x = R index + 16 * B index, y = G index; normalized RGB lattice coordinates i/15",
+    "texture_import": {
+      "Conversion": "None",
+      "ColorSpace": "ToLinear",
+      "GenerateMips": 0,
+      "VolumeTexture": 1
+    },
+    "textures": [
+      "identity",
+      "inversion",
+      "constant"
+    ],
+    "constant_rgb8": [
+      51,
+      102,
+      204
+    ],
+    "capture_base": "scenes/arland-motion-v1.json",
+    "capture_overrides": {
+      "samples": 1,
+      "position_end": [
+        2048,
+        60,
+        2048
+      ],
+      "yaw_end_degrees": 90,
+      "hold_ticks_per_sample": 120
+    },
+    "runs": [
+      "off",
+      "identity",
+      "inversion",
+      "constant",
+      "removed",
+      "off",
+      "off"
+    ],
+    "removal": "Apply inversion and then remove only this priority/type in the same initialization before settling",
+    "numerical_scope": "Characterization of lookup encoding/order and presentation. Record all pixel errors against CPU identity, inversion and constant without fitting. These are not reserved acceptance tests.",
+    "positive_control": {
+      "case": "constant",
+      "minimum_rgb8_mae_vs_first_off": 5,
+      "interpretation": "Visible response only, not correct color encoding or neural integration"
+    },
+    "limits": [
+      "Color encoding and interpolation conventions are not assumed verified",
+      "SetCameraPostProcessEffect has no getter verification here; material readback and visible response are distinct checks",
+      "Later reserved controls need separately declared limits and scenes, fixed after this characterization",
+      "A pointwise color lookup cannot implement the full scene-conditioned model or reconstruct spatial detail",
+      "Scene buffers, HUD/scopes, temporal rendering, runtime packaging and complete-frame cost remain unverified"
+    ]
+  },
+  "plan_sha256": "7869568626dcaf685540bfc67ca5f43c9dcd79b04be740e8f39d51085fb10fb0",
+  "followup": {
+    "schema_version": 1,
+    "id": "color-lookup-priority-v2",
+    "base_plan": "scenes/color-lookup-control-v1.json",
+    "reason": "Native identity control rejects priority 1000 with maximum available 19; ColorTable getter returns the exact resource followed by a space and 0.",
+    "priority": 19,
+    "expected_table_raw_suffix": " 0",
+    "readback_scope": "Preserve the complete raw texture readback; the trailing zero's semantics are not independently verified",
+    "unchanged": [
+      "original texture build and RGBA lattice",
+      "camera",
+      "exposure",
+      "environment",
+      "capture settings",
+      "case order",
+      "positive-control threshold"
+    ],
+    "runs": [
+      "off",
+      "identity",
+      "inversion",
+      "constant",
+      "removed",
+      "off",
+      "off"
+    ],
+    "limits": [
+      "V1 priority rejection and failed readback expectation remain retained",
+      "Absence of an application error is not proof of visible output",
+      "Characterization only; no reserved fidelity test or trained model"
+    ]
+  },
+  "followup_sha256": "836a69069db80178c357d5aa5c1d5a9423cf3210ce94ae4ac3740206ebf56fe3",
+  "summarizer_sha256": "66b620a69bc5b58db1d95da4ddde9d4316b82c0b6f58d68a1786ce8e271d2344",
+  "lookup_verifier_sha256": "06e66f1852e2cbd64054405fa6b05b49ec077be2d292618bf4c1cfb2c4f477b7",
+  "inventory": {
+    "run_id": "20260909T133106-4be244e4f3",
+    "report_sha256": "40146e3fe15b2d3c6b0c61c33b42fa944d5b790deb03f2b8b3157877c745d4be",
+    "console_sha256": "bef45b4ceacb38cdbb1ea9bd10ea7cd601473914dee6c3a12cc9088e8222f46a",
+    "query_outcomes": [
+      "query=ColorGrading count=0 success=1",
+      "query=LUT count=53 success=1",
+      "query=PostProcess count=0 success=1",
+      "query=Colors count=4 success=1",
+      "query=HDR count=40 success=1"
+    ],
+    "initial_failure": {
+      "run_id": "20260909T133004-2cb44e861e",
+      "manifest_sha256": "47bbbd20418c2629bdd3eb2c9cc721930059b59ee8e7b785adbde09f46dc5df8",
+      "process_exit_code": 0,
+      "error": "Inventory did not exit naturally with exactly one completion",
+      "records": []
+    }
+  },
+  "material_schema": {
+    "schema_version": 1,
+    "operation": "material-schema",
+    "status": "succeeded",
+    "plan": {
+      "schema_version": 1,
+      "id": "color-lookup-schema-v1",
+      "scope": "Native read-only material-container schema inspection; no image processing or renderer integration claim",
+      "basis": "Public PostProcessEffectType documentation states that material classes use the enum name followed by Effect. The two original empty materials test that documented class convention.",
+      "materials": [
+        {
+          "name": "original_color_grading",
+          "class": "ColorGradingEffect"
+        },
+        {
+          "name": "original_colors",
+          "class": "ColorsEffect"
+        },
+        {
+          "name": "observed_editor_colors",
+          "resource": "{B18D0050792C7B8C}UI/Materials/Editor/Colors.emat"
+        },
+        {
+          "name": "observed_hdr",
+          "resource": "{9DEECCABE8357209}Common/Postprocess/HDR.emat"
+        }
+      ],
+      "max_fields_per_container": 256,
+      "max_container_depth": 4,
+      "limits": [
+        "Schema presence and loadability do not prove rendering behavior or field semantics",
+        "Existing resources are inspected through native containers and not copied into the published addon",
+        "Original empty containers are new isolated addon resources, not replacements for game resources",
+        "No scene, capture, model, lookup table, live presentation or performance claim"
+      ]
+    },
+    "plan_sha256": "e143ef481e190d5b4b23ae346b0e2a2be022368bf551120ec9710a7394478dba",
+    "inventory": {
+      "report_sha256": "40146e3fe15b2d3c6b0c61c33b42fa944d5b790deb03f2b8b3157877c745d4be",
+      "run_id": "20260909T133106-4be244e4f3",
+      "console_sha256": "bef45b4ceacb38cdbb1ea9bd10ea7cd601473914dee6c3a12cc9088e8222f46a",
+      "manifest_sha256": "d0b0435bc4437ced55d322740ad72fc98c3ceafc0ef9603ef60e9d97144a5712"
+    },
+    "materials": [
+      {
+        "name": "original_color_grading",
+        "class": "ColorGradingEffect",
+        "resource": "{5D350B00ACFB4EB5}Assets/ENR_Schema/original_color_grading.emat"
+      },
+      {
+        "name": "original_colors",
+        "class": "ColorsEffect",
+        "resource": "{ABF7EEAAD7E64AA9}Assets/ENR_Schema/original_colors.emat"
+      },
+      {
+        "name": "observed_editor_colors",
+        "resource": "{B18D0050792C7B8C}UI/Materials/Editor/Colors.emat"
+      },
+      {
+        "name": "observed_hdr",
+        "resource": "{9DEECCABE8357209}Common/Postprocess/HDR.emat"
+      }
+    ],
+    "run_id": "20260909T133508-b2f048c2bb",
+    "manifest_sha256": "93e17ea83c93cf16b492395835792f822a9b67f1243f1b5002b4269f3d8ca3a4",
+    "validation_run": "20260909T133456-c01794ddc8",
+    "validation_manifest_sha256": "7e0a08dba1432817b02e697a4e15075c05bf065c967eb2c69be9c6698dcca7c7",
+    "driver_sha256": "30d08ec5f077adfcd39e4c040875b6d716da707588a7e65586ae7d9b13c60027",
+    "plugin_sha256": "42eb8e82d980b1206639e13bb51d811f7705b9f36251031622abcae42d6763c7",
+    "console_sha256": "6430da5a9f7fe7d1fb410de83de35e5e2155a499902f639f4696624065b10388",
+    "records": [
+      " started",
+      "_CONTAINER path=original_color_grading class=ColorGradingEffect fields=2",
+      "_FIELD path=original_color_grading name=Enabled type=9 has_default=1 default=1",
+      "_NUMBER path=original_color_grading name=Enabled read=1 value=1",
+      "_FIELD path=original_color_grading name=ColorTable type=8 has_default=1 default=$flags;0;$fps;0",
+      "_TEXT path=original_color_grading name=ColorTable read=1 value=",
+      "_RESULT name=original_color_grading loaded=1 class=ColorGradingEffect fields=2",
+      "_CONTAINER path=original_colors class=ColorsEffect fields=10",
+      "_FIELD path=original_colors name=Enabled type=9 has_default=1 default=1",
+      "_NUMBER path=original_colors name=Enabled read=1 value=1",
+      "_FIELD path=original_colors name=Contrast type=1 has_default=1 default=1",
+      "_NUMBER path=original_colors name=Contrast read=1 value=1",
+      "_FIELD path=original_colors name=Gamma type=1 has_default=1 default=0.5",
+      "_NUMBER path=original_colors name=Gamma read=1 value=0.5",
+      "_FIELD path=original_colors name=Brightness type=1 has_default=1 default=0",
+      "_NUMBER path=original_colors name=Brightness read=1 value=0",
+      "_FIELD path=original_colors name=ImageOffset type=1 has_default=1 default=1",
+      "_NUMBER path=original_colors name=ImageOffset read=1 value=1",
+      "_FIELD path=original_colors name=OverlayFactor type=1 has_default=1 default=0",
+      "_NUMBER path=original_colors name=OverlayFactor read=1 value=0",
+      "_FIELD path=original_colors name=OverlayColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=original_colors name=OverlayColor read=1 rgba=1 1 1 0",
+      "_FIELD path=original_colors name=Saturation type=1 has_default=1 default=1",
+      "_NUMBER path=original_colors name=Saturation read=1 value=1",
+      "_FIELD path=original_colors name=ColorizationColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=original_colors name=ColorizationColor read=1 rgba=1 1 1 0",
+      "_FIELD path=original_colors name=DesaturationWeights type=4 has_default=1 default=0.299 0.587 0.114 0",
+      "_RESULT name=original_colors loaded=1 class=ColorsEffect fields=10",
+      "_CONTAINER path=observed_editor_colors class=ColorsEffect fields=10",
+      "_FIELD path=observed_editor_colors name=Enabled type=9 has_default=1 default=1",
+      "_NUMBER path=observed_editor_colors name=Enabled read=1 value=1",
+      "_FIELD path=observed_editor_colors name=Contrast type=1 has_default=1 default=1",
+      "_NUMBER path=observed_editor_colors name=Contrast read=1 value=1",
+      "_FIELD path=observed_editor_colors name=Gamma type=1 has_default=1 default=0.5",
+      "_NUMBER path=observed_editor_colors name=Gamma read=1 value=0.5",
+      "_FIELD path=observed_editor_colors name=Brightness type=1 has_default=1 default=0",
+      "_NUMBER path=observed_editor_colors name=Brightness read=1 value=0",
+      "_FIELD path=observed_editor_colors name=ImageOffset type=1 has_default=1 default=1",
+      "_NUMBER path=observed_editor_colors name=ImageOffset read=1 value=1",
+      "_FIELD path=observed_editor_colors name=OverlayFactor type=1 has_default=1 default=0",
+      "_NUMBER path=observed_editor_colors name=OverlayFactor read=1 value=0",
+      "_FIELD path=observed_editor_colors name=OverlayColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=observed_editor_colors name=OverlayColor read=1 rgba=1 1 1 0",
+      "_FIELD path=observed_editor_colors name=Saturation type=1 has_default=1 default=1",
+      "_NUMBER path=observed_editor_colors name=Saturation read=1 value=1",
+      "_FIELD path=observed_editor_colors name=ColorizationColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=observed_editor_colors name=ColorizationColor read=1 rgba=1 1 1 0",
+      "_FIELD path=observed_editor_colors name=DesaturationWeights type=4 has_default=1 default=0.299 0.587 0.114 0",
+      "_RESULT name=observed_editor_colors loaded=1 class=ColorsEffect fields=10",
+      "_CONTAINER path=observed_hdr class=HDREffect fields=96",
+      "_FIELD path=observed_hdr name=Enabled type=9 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=Enabled read=1 value=1",
+      "_FIELD path=observed_hdr name=VisiblePercentWhite type=1 has_default=1 default=90",
+      "_NUMBER path=observed_hdr name=VisiblePercentWhite read=1 value=90",
+      "_FIELD path=observed_hdr name=VisiblePercentBlack type=1 has_default=1 default=10",
+      "_NUMBER path=observed_hdr name=VisiblePercentBlack read=1 value=10",
+      "_FIELD path=observed_hdr name=TargetBrightness type=1 has_default=1 default=0.18",
+      "_NUMBER path=observed_hdr name=TargetBrightness read=1 value=0.18",
+      "_FIELD path=observed_hdr name=SpeedDarkToBright type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=SpeedDarkToBright read=1 value=500",
+      "_FIELD path=observed_hdr name=SpeedBrightToDark type=1 has_default=1 default=0.5",
+      "_NUMBER path=observed_hdr name=SpeedBrightToDark read=1 value=500",
+      "_FIELD path=observed_hdr name=ImageWeightMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "_TEXT path=observed_hdr name=ImageWeightMap read=1 value={8EE474586CD656CE}Common/Postprocess/HDR/HDR_MeasureArea_01_Mask.edds 0",
+      "_FIELD path=observed_hdr name=ToneMapping type=7 has_default=1 default=2",
+      "_NUMBER path=observed_hdr name=ToneMapping read=1 value=2",
+      "_FIELD path=observed_hdr name=HDR type=9 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=HDR read=1 value=1",
+      "_FIELD path=observed_hdr name=BrightnessComputation type=7 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=BrightnessComputation read=1 value=2",
+      "_FIELD path=observed_hdr name=SceneLVAverageTime type=1 has_default=1 default=0.5",
+      "_NUMBER path=observed_hdr name=SceneLVAverageTime read=1 value=0.5",
+      "_FIELD path=observed_hdr name=PerPixel type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=PerPixel read=1 value=0",
+      "_FIELD path=observed_hdr name=UseAlphaAsMask type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=UseAlphaAsMask read=1 value=0",
+      "_FIELD path=observed_hdr name=EnableSceneLVToApertureCurve type=7 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=EnableSceneLVToApertureCurve read=1 value=0",
+      "_FIELD path=observed_hdr name=SceneLVToApertureCurve type=13 has_default=1 default=",
+      "_FIELD path=observed_hdr name=SunToApertureCurve type=13 has_default=1 default=",
+      "_FIELD path=observed_hdr name=MoonToApertureCurve type=13 has_default=1 default=",
+      "_FIELD path=observed_hdr name=SemiAutomaticLVRange type=1 has_default=1 default=2",
+      "_NUMBER path=observed_hdr name=SemiAutomaticLVRange read=1 value=2",
+      "_FIELD path=observed_hdr name=BasicSceneLV type=1 has_default=1 default=-20",
+      "_NUMBER path=observed_hdr name=BasicSceneLV read=1 value=0",
+      "_FIELD path=observed_hdr name=FilmicShoulderStrength type=1 has_default=1 default=0.153",
+      "_NUMBER path=observed_hdr name=FilmicShoulderStrength read=1 value=0.088",
+      "_FIELD path=observed_hdr name=FilmicLinearStrength type=1 has_default=1 default=0.357",
+      "_NUMBER path=observed_hdr name=FilmicLinearStrength read=1 value=0.08",
+      "_FIELD path=observed_hdr name=FilmicLinearAngle type=1 has_default=1 default=0.231",
+      "_NUMBER path=observed_hdr name=FilmicLinearAngle read=1 value=0.11",
+      "_FIELD path=observed_hdr name=FilmicToeStrength type=1 has_default=1 default=0.157",
+      "_NUMBER path=observed_hdr name=FilmicToeStrength read=1 value=3",
+      "_FIELD path=observed_hdr name=FilmicToeNumerator type=1 has_default=1 default=0.011",
+      "_NUMBER path=observed_hdr name=FilmicToeNumerator read=1 value=0.011",
+      "_FIELD path=observed_hdr name=FilmicToeDenumerator type=1 has_default=1 default=3.75",
+      "_NUMBER path=observed_hdr name=FilmicToeDenumerator read=1 value=0.1",
+      "_FIELD path=observed_hdr name=FilmicExposureBias type=1 has_default=1 default=4",
+      "_NUMBER path=observed_hdr name=FilmicExposureBias read=1 value=20",
+      "_FIELD path=observed_hdr name=FilmicWhitePoint type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=FilmicWhitePoint read=1 value=1.5",
+      "_FIELD path=observed_hdr name=SecondSceneLV type=1 has_default=1 default=-20",
+      "_NUMBER path=observed_hdr name=SecondSceneLV read=1 value=-6",
+      "_FIELD path=observed_hdr name=FilmicShoulderStrength2 type=1 has_default=1 default=0.153",
+      "_NUMBER path=observed_hdr name=FilmicShoulderStrength2 read=1 value=0.3",
+      "_FIELD path=observed_hdr name=FilmicLinearStrength2 type=1 has_default=1 default=0.357",
+      "_NUMBER path=observed_hdr name=FilmicLinearStrength2 read=1 value=2",
+      "_FIELD path=observed_hdr name=FilmicLinearAngle2 type=1 has_default=1 default=0.231",
+      "_NUMBER path=observed_hdr name=FilmicLinearAngle2 read=1 value=0.11",
+      "_FIELD path=observed_hdr name=FilmicToeStrength2 type=1 has_default=1 default=0.157",
+      "_NUMBER path=observed_hdr name=FilmicToeStrength2 read=1 value=0.001",
+      "_FIELD path=observed_hdr name=FilmicToeNumerator2 type=1 has_default=1 default=0.011",
+      "_NUMBER path=observed_hdr name=FilmicToeNumerator2 read=1 value=0.011",
+      "_FIELD path=observed_hdr name=FilmicToeDenumerator2 type=1 has_default=1 default=3.75",
+      "_NUMBER path=observed_hdr name=FilmicToeDenumerator2 read=1 value=0.1",
+      "_FIELD path=observed_hdr name=FilmicExposureBias2 type=1 has_default=1 default=4",
+      "_NUMBER path=observed_hdr name=FilmicExposureBias2 read=1 value=10",
+      "_FIELD path=observed_hdr name=FilmicWhitePoint2 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=FilmicWhitePoint2 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=ColorTableBase type=8 has_default=1 default=$flags;0;$fps;0",
+      "_TEXT path=observed_hdr name=ColorTableBase read=1 value=",
+      "_FIELD path=observed_hdr name=ColorTableSecond type=8 has_default=1 default=$flags;0;$fps;0",
+      "_TEXT path=observed_hdr name=ColorTableSecond read=1 value=",
+      "_FIELD path=observed_hdr name=ToneMapBlend type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=ToneMapBlend read=1 value=1",
+      "_FIELD path=observed_hdr name=TableBlendByLV type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=TableBlendByLV read=1 value=0",
+      "_FIELD path=observed_hdr name=BlendBetweenTables type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=BlendBetweenTables read=1 value=0",
+      "_FIELD path=observed_hdr name=BloomIntensity type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=BloomIntensity read=1 value=0.32",
+      "_FIELD path=observed_hdr name=BloomColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=observed_hdr name=BloomColor read=1 rgba=1 1 1 0",
+      "_FIELD path=observed_hdr name=BloomUseThreshold type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=BloomUseThreshold read=1 value=0",
+      "_FIELD path=observed_hdr name=BloomThreshold type=1 has_default=1 default=0.9",
+      "_NUMBER path=observed_hdr name=BloomThreshold read=1 value=0.9",
+      "_FIELD path=observed_hdr name=BloomSteepness type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=BloomSteepness read=1 value=1",
+      "_FIELD path=observed_hdr name=BloomFlickerReduction type=9 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=BloomFlickerReduction read=1 value=1",
+      "_FIELD path=observed_hdr name=BloomDownsampleHalfRes type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=BloomDownsampleHalfRes read=1 value=0",
+      "_FIELD path=observed_hdr name=BloomDownsampleQuality type=7 has_default=1 default=2",
+      "_NUMBER path=observed_hdr name=BloomDownsampleQuality read=1 value=2",
+      "_FIELD path=observed_hdr name=BloomStrength0 type=1 has_default=1 default=0.35",
+      "_NUMBER path=observed_hdr name=BloomStrength0 read=1 value=1",
+      "_FIELD path=observed_hdr name=BloomStrength1 type=1 has_default=1 default=0.15",
+      "_NUMBER path=observed_hdr name=BloomStrength1 read=1 value=0.58",
+      "_FIELD path=observed_hdr name=BloomStrength2 type=1 has_default=1 default=0.12",
+      "_NUMBER path=observed_hdr name=BloomStrength2 read=1 value=0.43",
+      "_FIELD path=observed_hdr name=BloomStrength3 type=1 has_default=1 default=0.07",
+      "_NUMBER path=observed_hdr name=BloomStrength3 read=1 value=0.23",
+      "_FIELD path=observed_hdr name=BloomStrength4 type=1 has_default=1 default=0.065",
+      "_NUMBER path=observed_hdr name=BloomStrength4 read=1 value=0.13",
+      "_FIELD path=observed_hdr name=BloomStrength5 type=1 has_default=1 default=0.06",
+      "_NUMBER path=observed_hdr name=BloomStrength5 read=1 value=0.06",
+      "_FIELD path=observed_hdr name=BloomStrength6 type=1 has_default=1 default=0.055",
+      "_NUMBER path=observed_hdr name=BloomStrength6 read=1 value=0.03",
+      "_FIELD path=observed_hdr name=BloomRadius0 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius0 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius1 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius1 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius2 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius2 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius3 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius3 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius4 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius4 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius5 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius5 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=BloomRadius6 type=1 has_default=1 default=1.5",
+      "_NUMBER path=observed_hdr name=BloomRadius6 read=1 value=1.5",
+      "_FIELD path=observed_hdr name=Contrast type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=Contrast read=1 value=1",
+      "_FIELD path=observed_hdr name=Gamma type=1 has_default=1 default=0.5",
+      "_NUMBER path=observed_hdr name=Gamma read=1 value=0.5",
+      "_FIELD path=observed_hdr name=Brightness type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=Brightness read=1 value=0",
+      "_FIELD path=observed_hdr name=ImageOffset type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=ImageOffset read=1 value=1",
+      "_FIELD path=observed_hdr name=OverlayFactor type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=OverlayFactor read=1 value=0",
+      "_FIELD path=observed_hdr name=OverlayColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=observed_hdr name=OverlayColor read=1 rgba=1 1 1 0",
+      "_FIELD path=observed_hdr name=Saturation type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=Saturation read=1 value=1",
+      "_FIELD path=observed_hdr name=ColorizationColor type=6 has_default=1 default=1 1 1 0",
+      "_COLOR path=observed_hdr name=ColorizationColor read=1 rgba=1 1 1 0",
+      "_FIELD path=observed_hdr name=DesaturationWeights type=4 has_default=1 default=0.299 0.587 0.114 0",
+      "_FIELD path=observed_hdr name=VignetteMode type=7 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=VignetteMode read=1 value=0",
+      "_FIELD path=observed_hdr name=Vignette type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=Vignette read=1 value=0.25",
+      "_FIELD path=observed_hdr name=VignetteColor type=6 has_default=1 default=0 0 0 0",
+      "_COLOR path=observed_hdr name=VignetteColor read=1 rgba=0 0 0 0",
+      "_FIELD path=observed_hdr name=VignetteCenterX type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=VignetteCenterX read=1 value=0",
+      "_FIELD path=observed_hdr name=VignetteCenterY type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=VignetteCenterY read=1 value=0",
+      "_FIELD path=observed_hdr name=VignetteSharpness type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=VignetteSharpness read=1 value=0",
+      "_FIELD path=observed_hdr name=EdgeMin type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=EdgeMin read=1 value=1",
+      "_FIELD path=observed_hdr name=EdgeMax type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=EdgeMax read=1 value=1",
+      "_FIELD path=observed_hdr name=EdgeCenterX type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=EdgeCenterX read=1 value=0",
+      "_FIELD path=observed_hdr name=EdgeCenterY type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=EdgeCenterY read=1 value=0",
+      "_FIELD path=observed_hdr name=ReticleMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "_TEXT path=observed_hdr name=ReticleMap read=1 value=",
+      "_FIELD path=observed_hdr name=ReticleROnly type=9 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=ReticleROnly read=1 value=1",
+      "_FIELD path=observed_hdr name=ReticleBehindPlane type=9 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=ReticleBehindPlane read=1 value=1",
+      "_FIELD path=observed_hdr name=ReticleColor type=6 has_default=1 default=0 0 0 0",
+      "_COLOR path=observed_hdr name=ReticleColor read=1 rgba=0 0 0 0",
+      "_FIELD path=observed_hdr name=ReticleMove type=1 has_default=1 default=0.5",
+      "_NUMBER path=observed_hdr name=ReticleMove read=1 value=0.5",
+      "_FIELD path=observed_hdr name=ReticleScale type=1 has_default=1 default=1",
+      "_NUMBER path=observed_hdr name=ReticleScale read=1 value=1",
+      "_FIELD path=observed_hdr name=ReticleOffsetX type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=ReticleOffsetX read=1 value=0",
+      "_FIELD path=observed_hdr name=ReticleOffsetY type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=ReticleOffsetY read=1 value=0",
+      "_FIELD path=observed_hdr name=LensDistort type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=LensDistort read=1 value=0",
+      "_FIELD path=observed_hdr name=MaxChromAbberation type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=MaxChromAbberation read=1 value=0.5",
+      "_FIELD path=observed_hdr name=LensCenterX type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=LensCenterX read=1 value=0",
+      "_FIELD path=observed_hdr name=LensCenterY type=1 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=LensCenterY read=1 value=0",
+      "_FIELD path=observed_hdr name=LensFlaresEnabled type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=LensFlaresEnabled read=1 value=1",
+      "_FIELD path=observed_hdr name=LensFlaresHalfRes type=9 has_default=1 default=0",
+      "_NUMBER path=observed_hdr name=LensFlaresHalfRes read=1 value=0",
+      "_RESULT name=observed_hdr loaded=1 class=HDREffect fields=96",
+      " completed"
+    ],
+    "renderer_integration": false,
+    "scope": "Native read-only material-container schema inspection; no image processing or renderer integration claim"
+  },
+  "build": {
+    "schema_version": 1,
+    "operation": "color-lookup-build",
+    "status": "succeeded",
+    "plan": {
+      "schema_version": 1,
+      "id": "color-lookup-control-v1",
+      "scope": "Original volume lookup import and static camera color-grading controls; no trained model or full scene-renderer bridge",
+      "schema_plan": "scenes/color-lookup-schema-v1.json",
+      "effect_class": "ColorGradingEffect",
+      "texture_field": "ColorTable",
+      "priority": 1000,
+      "volume_edge": 16,
+      "source_dimensions": [
+        256,
+        16
+      ],
+      "source_layout": "horizontal Z slices; x = R index + 16 * B index, y = G index; normalized RGB lattice coordinates i/15",
+      "texture_import": {
+        "Conversion": "None",
+        "ColorSpace": "ToLinear",
+        "GenerateMips": 0,
+        "VolumeTexture": 1
+      },
+      "textures": [
+        "identity",
+        "inversion",
+        "constant"
+      ],
+      "constant_rgb8": [
+        51,
+        102,
+        204
+      ],
+      "capture_base": "scenes/arland-motion-v1.json",
+      "capture_overrides": {
+        "samples": 1,
+        "position_end": [
+          2048,
+          60,
+          2048
+        ],
+        "yaw_end_degrees": 90,
+        "hold_ticks_per_sample": 120
+      },
+      "runs": [
+        "off",
+        "identity",
+        "inversion",
+        "constant",
+        "removed",
+        "off",
+        "off"
+      ],
+      "removal": "Apply inversion and then remove only this priority/type in the same initialization before settling",
+      "numerical_scope": "Characterization of lookup encoding/order and presentation. Record all pixel errors against CPU identity, inversion and constant without fitting. These are not reserved acceptance tests.",
+      "positive_control": {
+        "case": "constant",
+        "minimum_rgb8_mae_vs_first_off": 5,
+        "interpretation": "Visible response only, not correct color encoding or neural integration"
+      },
+      "limits": [
+        "Color encoding and interpolation conventions are not assumed verified",
+        "SetCameraPostProcessEffect has no getter verification here; material readback and visible response are distinct checks",
+        "Later reserved controls need separately declared limits and scenes, fixed after this characterization",
+        "A pointwise color lookup cannot implement the full scene-conditioned model or reconstruct spatial detail",
+        "Scene buffers, HUD/scopes, temporal rendering, runtime packaging and complete-frame cost remain unverified"
+      ]
+    },
+    "plan_sha256": "7869568626dcaf685540bfc67ca5f43c9dcd79b04be740e8f39d51085fb10fb0",
+    "identities": [
+      {
+        "case": "identity",
+        "name": "identity_lut",
+        "source": "identity_lut.tif",
+        "source_sha256": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "resource": "{11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds"
+      },
+      {
+        "case": "inversion",
+        "name": "inversion_lut",
+        "source": "inversion_lut.tif",
+        "source_sha256": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "resource": "{68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds"
+      },
+      {
+        "case": "constant",
+        "name": "constant_lut",
+        "source": "constant_lut.tif",
+        "source_sha256": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "resource": "{03372A4E25C24054}Assets/ENR_ColorLookup/constant_lut.edds"
+      }
+    ],
+    "run_id": "20260909T133751-b34346157e",
+    "manifest_sha256": "a3126c3f2ece1b64d794a55a10c2f1442cd12d7e390d2953989d9e9c965705ab",
+    "validation_run": "20260909T133738-c319788b88",
+    "validation_manifest_sha256": "f25dad1cd6f1cdc466e044abe7e0a322ddef88724680ffe433f427a26b35b65e",
+    "driver_sha256": "3990ca80314e42e6443c3e92873bf55fc13945010a9bcd9c49d4272488666d8f",
+    "plugin_sha256": "e47be9692c4a797f2c4634cc344a0fc0a4f45c3bc1352aa28d78b0100e00ec79",
+    "console_sha256": "2af2581ba07d436a160d3a7994345da6ee461713250fecc9e5ae1b67a547f295",
+    "retained_assets": [
+      {
+        "file": "constant_lut.edds",
+        "sha256": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "bytes": 222
+      },
+      {
+        "file": "constant_lut.edds.meta",
+        "sha256": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "bytes": 439
+      },
+      {
+        "file": "constant_lut.tif",
+        "sha256": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "bytes": 576
+      },
+      {
+        "file": "identity_lut.edds",
+        "sha256": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "bytes": 16520
+      },
+      {
+        "file": "identity_lut.edds.meta",
+        "sha256": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "bytes": 439
+      },
+      {
+        "file": "identity_lut.tif",
+        "sha256": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "bytes": 9238
+      },
+      {
+        "file": "inversion_lut.edds",
+        "sha256": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "bytes": 16520
+      },
+      {
+        "file": "inversion_lut.edds.meta",
+        "sha256": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "bytes": 441
+      },
+      {
+        "file": "inversion_lut.tif",
+        "sha256": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "bytes": 9214
+      }
+    ],
+    "rendered_response_verified": false
+  },
+  "build_verification": {
+    "build_report_sha256": "fc2f551090e2d4acb29ea8380b82c735b7f45028abadfde3cc5b5c516ced734a",
+    "run_id": "20260909T133751-b34346157e",
+    "manifest_sha256": "a3126c3f2ece1b64d794a55a10c2f1442cd12d7e390d2953989d9e9c965705ab",
+    "volume_checks": [
+      {
+        "case": "identity",
+        "dimensions": [
+          16,
+          16,
+          16
+        ],
+        "source_dimensions": [
+          256,
+          16
+        ],
+        "mips": 1,
+        "format": "BGRA8",
+        "encoding": "COPY",
+        "exact_rgba_lattice_match": true,
+        "scope": "Original fixture bytes and axis layout only; engine lookup sampling and color stage unverified"
+      },
+      {
+        "case": "inversion",
+        "dimensions": [
+          16,
+          16,
+          16
+        ],
+        "source_dimensions": [
+          256,
+          16
+        ],
+        "mips": 1,
+        "format": "BGRA8",
+        "encoding": "COPY",
+        "exact_rgba_lattice_match": true,
+        "scope": "Original fixture bytes and axis layout only; engine lookup sampling and color stage unverified"
+      },
+      {
+        "case": "constant",
+        "dimensions": [
+          16,
+          16,
+          16
+        ],
+        "source_dimensions": [
+          256,
+          16
+        ],
+        "mips": 1,
+        "format": "BGRA8",
+        "encoding": "LZ4",
+        "exact_rgba_lattice_match": true,
+        "scope": "Original fixture bytes and axis layout only; engine lookup sampling and color stage unverified"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "trial": "color-lookup-off-v2",
+      "case": "off",
+      "run_id": "20260909T134637-04b9067cbc",
+      "validation_run": "20260909T134625-f1bbfbd7e5",
+      "report_sha256": "9c0f56cb52368ae10a45cb7f248a9d5de2717fc11d03f1bf90f9dadef24dc6ad",
+      "capture_manifest_sha256": "6f3d64b695e6cbfd42258c82dc14396389ff9f9af4a27143740510338c690dda",
+      "validation_manifest_sha256": "d63a940b9dad1a6e6012419316cf5b161c36f8792e503477c5ad911e868959d0",
+      "console_sha256": "a0ef35a9a6b79de36d8af346425cb8eb9f4cdddc55b20edaaafddfea0849ff6d",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "99ed2594d39c8c8aaaea1bc5a32ee9f2d568afdc475d2a8854734fba38dc0e34",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "04f32f37796e7131200bc4578cbe0e162909e92fc01e46c3b94a48dfab386662",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "a8ee45daf7ae17ba64227bb5a6a8919ac481942f8d7d47b76c9e1fdadf9cc6c9",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6366008
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 793,
+        "simulation_seconds": 9.22988,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=off camera=0 priority=19",
+        "requested=none"
+      ],
+      "selected_material": {
+        "case": "identity",
+        "resource": "{1C32F485495EC511}Assets/ENR_ColorLookup/identity.emat",
+        "table": "{11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds",
+        "sha256": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a"
+      }
+    },
+    {
+      "trial": "color-lookup-identity-v2",
+      "case": "identity",
+      "run_id": "20260909T134713-b615f27e1c",
+      "validation_run": "20260909T134701-2fa0857805",
+      "report_sha256": "41a3b6a78ba7007736d8d38abf516d673f0cbbcb2fac5169196443136c47e4fb",
+      "capture_manifest_sha256": "c9c5c7b0a069fd1540ae4a51d746fc3e00a07e940c43ffd74bbb0c15cbcc4184",
+      "validation_manifest_sha256": "2fd1e8731550947d869e724fc58e73105652a4471095c874413b599e64b5b230",
+      "console_sha256": "bb85a21a755a41891e5c02cc629183c43cd55e5222f3c1c09d27a99bf56ce91e",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "9bbd0541fe288d88f6bea1473b9f09c5c27e84e4feb587a6b0de13e69d4884ac",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "4b3bdf5e17b58f9f027e04cc2209dc325d6984e22e980b25af6e9f50e26c2058",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "6839c6f79d6c30984293d1d76f90d94289fb58697c51cc727373bb63a20435df",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6262692
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 803,
+        "simulation_seconds": 9.26433,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [
+          "material_class=ColorGradingEffect table_read=1 table={11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds 0 enabled_read=1 enabled=1"
+        ],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=identity camera=0 priority=19",
+        "material_class=ColorGradingEffect table_read=1 table={11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds 0 enabled_read=1 enabled=1",
+        "requested=apply"
+      ],
+      "selected_material": {
+        "case": "identity",
+        "resource": "{1C32F485495EC511}Assets/ENR_ColorLookup/identity.emat",
+        "table": "{11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds",
+        "sha256": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a"
+      }
+    },
+    {
+      "trial": "color-lookup-inversion-v2",
+      "case": "inversion",
+      "run_id": "20260909T134750-a61054a157",
+      "validation_run": "20260909T134738-a891b5890f",
+      "report_sha256": "6697cc6b07e49e5c7df63670e530f25afe904d62a65bc7331aba0a514a6ae066",
+      "capture_manifest_sha256": "d5f0eef52fd87004ea4738aede561a3e04e70b946f6f9f3237812fd8cb7b4397",
+      "validation_manifest_sha256": "fe285d5a809d64c6580e7c6686d7ab8ac28c5d12d267d1921e81af70f355805c",
+      "console_sha256": "59e23d68d1be37002f1584d3ea29fe620b5cb55814e67c814003b878f7edca6c",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "7823f9c4bd88939553f14cfb3f3f81346d43d9ddc542bd67aaf821243ca9ba14",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "73616da4635f4d73d8fedbc2002491c9f3016357e6f52bb132f7a331ad0b4f51",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "4ae18216e2d6dbcd7717c27743ff301a6b9db147f2d8a6f9308c29d1dab91d05",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 3430669
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 797,
+        "simulation_seconds": 9.26329,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [
+          "material_class=ColorGradingEffect table_read=1 table={68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds 0 enabled_read=1 enabled=1"
+        ],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=inversion camera=0 priority=19",
+        "material_class=ColorGradingEffect table_read=1 table={68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds 0 enabled_read=1 enabled=1",
+        "requested=apply"
+      ],
+      "selected_material": {
+        "case": "inversion",
+        "resource": "{B00B89A7EFB21419}Assets/ENR_ColorLookup/inversion.emat",
+        "table": "{68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds",
+        "sha256": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865"
+      }
+    },
+    {
+      "trial": "color-lookup-constant-v2",
+      "case": "constant",
+      "run_id": "20260909T134826-f94ffc6c90",
+      "validation_run": "20260909T134814-4275519d27",
+      "report_sha256": "05e5e446a41a895b99c425b0c717f7b4506efcb028283e56463f407cdbaa7a81",
+      "capture_manifest_sha256": "ab34d3aa9e659161cef061e8d140da7a92a37e601cd712ea32358e93a481e83b",
+      "validation_manifest_sha256": "b0e9533aa7b8aa87d679c317b4d1af451a488d64ac01e20393961f1c08589ee3",
+      "console_sha256": "39cfd0890feb6b05239843f383bec0aec3dbcc51cae1211aa33f8915e3cf9b4a",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "46257ebba9143513709e5d2f7535ba6d6da0af865dfc3e3a94b4ecdbb70289f2",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "91e399b6599de1fc68db8dc549395a67f953a5e1ee2671dfc9dc7d6b64ddca34",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "8c56e4b7dd2edd8f54e65e310a2068572a5b04b3da6b903ed76b2b3259b0ea6e",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 52070
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 793,
+        "simulation_seconds": 9.23896,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [
+          "material_class=ColorGradingEffect table_read=1 table={03372A4E25C24054}Assets/ENR_ColorLookup/constant_lut.edds 0 enabled_read=1 enabled=1"
+        ],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=constant camera=0 priority=19",
+        "material_class=ColorGradingEffect table_read=1 table={03372A4E25C24054}Assets/ENR_ColorLookup/constant_lut.edds 0 enabled_read=1 enabled=1",
+        "requested=apply"
+      ],
+      "selected_material": {
+        "case": "constant",
+        "resource": "{4E0FD7FB467439CC}Assets/ENR_ColorLookup/constant.emat",
+        "table": "{03372A4E25C24054}Assets/ENR_ColorLookup/constant_lut.edds",
+        "sha256": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9"
+      }
+    },
+    {
+      "trial": "color-lookup-removed-v2",
+      "case": "removed",
+      "run_id": "20260909T134902-d9a4130a8a",
+      "validation_run": "20260909T134850-276644ff95",
+      "report_sha256": "a8fc1c86c9a8ff1326081339a63bd6e1c2072ed0d4a8bbd96c265a19d4b77471",
+      "capture_manifest_sha256": "52e5450bf86b2ea01044438109126b074a2326d6fb07c67c858ddc95d83fa1fc",
+      "validation_manifest_sha256": "28a97bf5eed26773b39b39a19711e5faecb0d89a48e3fe83bad7655f7f1c7968",
+      "console_sha256": "70e7905fc1fd11b131a3e2862ea80793970e21331683b51a6ef8cab6e92f0f2a",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "c3822cdc032a154182670219251242b0513e5747689b0298a4c7edd7efddf705",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "3fb83254e51080f1a2ce5854f8e36884f1af01ad39da371e7016c108434c58ea",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "55fe66963da6e932cd00e1a9cd0677ddbbf60a6b35beacb5e499c23c90624021",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6365578
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 783,
+        "simulation_seconds": 9.22434,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [
+          "material_class=ColorGradingEffect table_read=1 table={68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds 0 enabled_read=1 enabled=1"
+        ],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=removed camera=0 priority=19",
+        "material_class=ColorGradingEffect table_read=1 table={68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds 0 enabled_read=1 enabled=1",
+        "requested=apply",
+        "requested=remove"
+      ],
+      "selected_material": {
+        "case": "inversion",
+        "resource": "{B00B89A7EFB21419}Assets/ENR_ColorLookup/inversion.emat",
+        "table": "{68036FB269CB4C63}Assets/ENR_ColorLookup/inversion_lut.edds",
+        "sha256": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865"
+      }
+    },
+    {
+      "trial": "color-lookup-off-repeat2-v2",
+      "case": "off",
+      "run_id": "20260909T134938-924a44a049",
+      "validation_run": "20260909T134926-09b5eb204b",
+      "report_sha256": "ee7bc01905a498897c935f0a6a934b13be8654bd54aec45a02038ab0346ea847",
+      "capture_manifest_sha256": "e1ad3d13bc8bfa881380c367a5ea3909f75d6ac4176a0c2fab44978c315a9eeb",
+      "validation_manifest_sha256": "115bad99b36fa6a94101b05647243f1f47bf5452623cf04be1096e2084bd1990",
+      "console_sha256": "8f654940585b11818ab4ca7779efdd0061dc3ef1047bf9ddd041f98b086dc6a4",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "49337f51f5a6f60bf78521e2494bc69f0258e6e68eb1b6bdc274af7c434309ee",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "04f32f37796e7131200bc4578cbe0e162909e92fc01e46c3b94a48dfab386662",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "5887253af0906c7047e87f8093382674661bc2ad80f2683102bdb1cdb43b7726",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6365144
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 776,
+        "simulation_seconds": 9.29328,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=off camera=0 priority=19",
+        "requested=none"
+      ],
+      "selected_material": {
+        "case": "identity",
+        "resource": "{1C32F485495EC511}Assets/ENR_ColorLookup/identity.emat",
+        "table": "{11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds",
+        "sha256": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a"
+      }
+    },
+    {
+      "trial": "color-lookup-off-repeat3-v2",
+      "case": "off",
+      "run_id": "20260909T135014-69d5ec2158",
+      "validation_run": "20260909T135003-11965de87e",
+      "report_sha256": "ce1325fa1ebfb3952e88ec3daed3810b7d968b589076ec44fb9c625eb3b2c0c9",
+      "capture_manifest_sha256": "a83821337c1d2ce4350a07b466bae4767d9e29710d21b81532eaaaa948678f2b",
+      "validation_manifest_sha256": "20cd66c0bd535a9256ba9a850b6e7fce423e9e58357d556d6849c4878136d558",
+      "console_sha256": "bd5fcd5e19e21af1ffeda175764c1f419c1556ba8b8f63c518afd707713aa254",
+      "driver_sha256": "19e4e9b71ef9511e209bdcdfe99b54f2d5df913975be51a8a87ec78b83672afb",
+      "addon_sha256": {
+        "addon.gproj": "bf621720af6d2225c7f720d0943e39f8b3e246edac787a3a62e98edd17eeeb36",
+        "Assets/ENR_ColorLookup/constant.emat": "ef6c8816e35fc8c6a676af6963d5d2a090cbe1f97cf6179feb361e18c83c8de9",
+        "Assets/ENR_ColorLookup/constant.emat.meta": "62a7cc0ec08552ec07c6f763b4cd43e4ff4942471d118387b4ec6a0f381603ff",
+        "Assets/ENR_ColorLookup/constant_lut.edds": "52ea0a92343efe1323b37ee453a936663186149d5d4531a0b25d81d1438ffaa6",
+        "Assets/ENR_ColorLookup/constant_lut.edds.meta": "1b974c2454e2490a5ce13dcf3c1c581f74ba7b9845af90986ba00cf5f2173e2f",
+        "Assets/ENR_ColorLookup/constant_lut.tif": "2af96ff7a18a710ba76691b394ab7639bb3f008d9028880ab82890cd0ab86e5c",
+        "Assets/ENR_ColorLookup/identity.emat": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a",
+        "Assets/ENR_ColorLookup/identity.emat.meta": "c9252ae60f0f214160843506ab9282e061635d1c2b081164733cc4139b074460",
+        "Assets/ENR_ColorLookup/identity_lut.edds": "bb00bc4bbd8474062cab86fe9acab2afe8be3f20ab20c7992e65cee4aa279c48",
+        "Assets/ENR_ColorLookup/identity_lut.edds.meta": "fa9b2e0b163d00fea56435b0ef62a0395f2da48861a73184ce7a4092bafe40c8",
+        "Assets/ENR_ColorLookup/identity_lut.tif": "d283f08ed6bebcfc77c954a156d0bf8cf6bdc3e5a01996416e786f303c920e9c",
+        "Assets/ENR_ColorLookup/inversion.emat": "57565e97f795727223f0cdadbab4e04dd620d0e7ec2bfd31142fb6dce0b06865",
+        "Assets/ENR_ColorLookup/inversion.emat.meta": "15ac18f95b082ed78500dcf85b6d3b020db4bfdaaf2500942255bf770cf7dbe0",
+        "Assets/ENR_ColorLookup/inversion_lut.edds": "9163a952533d7210b51d1f1c6d5392eaa7f201ef8af09bb64ec709a39e012c53",
+        "Assets/ENR_ColorLookup/inversion_lut.edds.meta": "df32f9464895a9945b63402e25ba51cfccf86fe9ca4ae8eef0ccd6db81716325",
+        "Assets/ENR_ColorLookup/inversion_lut.tif": "f0c09c1d1b5830d70a9cb3a3c542152f8f23f0371abc913afff5ccf1db81aab4",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "83aa958289378dcada951e0063793df688b81a26d5d9408bc86f914c22de1cec",
+        "Scripts/Game/ENR_ColorLookup.c": "f80980033157544a03e62e604a87c720129832f00fe2f1c008f2a84d51aa74ab",
+        "Scripts/Game/ENR_LookupConfig.c": "04f32f37796e7131200bc4578cbe0e162909e92fc01e46c3b94a48dfab386662",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "22dac9e02d384fb09263d92ac7e33cc602d4d5d19ef5aca91dc8228801bdee45",
+        "Scripts/Game/ENR_SequenceConfig.c": "9d090f9cda2f254deaac656e47ff735611ea9be1d61c2153e503544b38b91893",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "1b459f486bf9539ba8a19cdbf0567f961004b33c0120bf481430aeca324dd8bb",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6367122
+      },
+      "camera": {
+        "protocol": 2,
+        "event": "sample",
+        "index": 0,
+        "world_frame": 796,
+        "simulation_seconds": 9.29944,
+        "position": [
+          2048,
+          60,
+          2048
+        ],
+        "direction": [
+          1,
+          0,
+          -4.37114e-08
+        ]
+      },
+      "projection": {
+        "protocol": 2,
+        "event": "projection",
+        "index": 0,
+        "width": 2560,
+        "height": 1440,
+        "up_xy": [
+          1280,
+          595.292
+        ],
+        "right_xy": [
+          1404.71,
+          720
+        ],
+        "far_plane": 2000,
+        "hdr_brightness": 0.00456415
+      },
+      "request_checks": {
+        "checks": {
+          "request_order": true,
+          "native_readback": true,
+          "single_initialization": true,
+          "no_explicit_engine_rejection": true,
+          "no_script_failure": true
+        },
+        "passed": true,
+        "raw_readback": [],
+        "engine_rejections": [],
+        "scope": "Requested call and container readback; visible response and correct color mapping require pixel evidence"
+      },
+      "lookup_records": [
+        "case=off camera=0 priority=19",
+        "requested=none"
+      ],
+      "selected_material": {
+        "case": "identity",
+        "resource": "{1C32F485495EC511}Assets/ENR_ColorLookup/identity.emat",
+        "table": "{11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds",
+        "sha256": "a6ee6b4551fffc9c80c2a8f0ba1c8c1bbe600a9c2bae49edc33feca52f39985a"
+      }
+    }
+  ],
+  "capture_config": {
+    "schema_version": 1,
+    "id": "arland-motion-v1",
+    "world": "worlds/Arland/Arland.ent",
+    "group": "arland-center",
+    "split": "diagnostic",
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "position_start": [
+      2048,
+      60,
+      2048
+    ],
+    "position_end": [
+      2048,
+      60,
+      2048
+    ],
+    "yaw_start_degrees": 90,
+    "yaw_end_degrees": 90,
+    "vertical_fov_degrees": 60,
+    "near_plane_m": 0.1,
+    "far_plane_m": 2000,
+    "hdr_brightness": 0.00456415,
+    "date": [
+      1989,
+      6,
+      21
+    ],
+    "hour": 13,
+    "weather_state": "Clear",
+    "wind_speed_mps": 0,
+    "wind_direction_degrees": 0,
+    "settle_seconds": 8,
+    "hold_ticks_per_sample": 120,
+    "samples": 1,
+    "playback_fps": 20,
+    "timeout_seconds": 180,
+    "time_convention": "Uniform camera-path samples; simulation continues during export. Playback is retimed, not a measurement of real-time throughput.",
+    "requested_render_scale": 1,
+    "requested_fsr_enabled": false,
+    "viewport_render_scale_verified": false,
+    "viewport_fsr_verified": false,
+    "quality_file": "adapters/enfusion/sequence/ENR_Engine.conf",
+    "quality_readback": {
+      "VideoUserSettings": {
+        "ResolutionScale": 1,
+        "FsrEnabled": 0,
+        "Fsaa": 0,
+        "DistantShadowsQuality": 2,
+        "EnvironmentQuality": 2,
+        "Atoc": 0,
+        "Gamma": 0,
+        "Contrast": 0,
+        "Brightness": 0
+      },
+      "PPEffectsSettings": {
+        "HBAO": 1,
+        "SSDO": 1,
+        "SSR": 1,
+        "PPAA": 2
+      },
+      "PipelineUserSettings": {
+        "ShadowQuality": 2
+      },
+      "ResourceManagerUserSettings": {
+        "TextureDetail": 0,
+        "GeometricDetail": 2
+      },
+      "GrassMaterialSettings": {
+        "Distance": 175,
+        "Lod": 3,
+        "Quality": 0
+      },
+      "TerrainGenMaterialSettings": {
+        "Detail": 3
+      },
+      "MaterialSystemUserSettings": {
+        "TextureFilter": 2,
+        "MaxAniso": 4
+      }
+    }
+  },
+  "prior_controls": [
+    {
+      "trial": "color-lookup-off-v1",
+      "case": "off",
+      "run_id": "20260909T134239-5f95654836",
+      "capture_manifest_sha256": "826538d4f656b8717276ff5345c797e610d1fc54ce4e40431664cacd52e53f72",
+      "validation_manifest_sha256": "2110633e23617322fa5d8a417228a39f76daeb738bfd7db954427aef4bbfac49",
+      "console_sha256": "7a1367fba01c2e531d214261ef847e0a26729e7f5c2e48c85c0b96fcc3817315",
+      "driver_sha256": "4e4ec0bafdb3e4d3e9c1b8efebd3dac31f3c2b027795568356b30fbc903fc895",
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "3a581aca1af87964d9a7cfd5f38925d98efa24c5838d9bb580c274e24a697f95",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6365196
+      },
+      "lookup_records": [
+        "case=off camera=0 priority=1000",
+        "requested=none"
+      ],
+      "engine_rejections": [],
+      "effect_control_passed": false,
+      "scope": "Initial priority-1000 batch stops after rejected identity; remaining five cases were not launched"
+    },
+    {
+      "trial": "color-lookup-identity-v1",
+      "case": "identity",
+      "run_id": "20260909T134316-7279ee75f2",
+      "capture_manifest_sha256": "24c5602d47c32dc3ffdebc955fd938b4f532d8d245d5894aa4f02ab0baaac954",
+      "validation_manifest_sha256": "7c1f4ab511474a5f8b943ad85f355b6b758f194c00accc78563bd5a166d8bd32",
+      "console_sha256": "b09910d7af9f4c4a7f63b65f30a40a147cd3978d5c405151630595a68f91966c",
+      "driver_sha256": "4e4ec0bafdb3e4d3e9c1b8efebd3dac31f3c2b027795568356b30fbc903fc895",
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "4732bdfc675639235f0b12b1a60068bdce1109f29e09dd4086aca7061cc065eb",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "bytes": 6367660
+      },
+      "lookup_records": [
+        "case=identity camera=0 priority=1000",
+        "material_class=ColorGradingEffect table_read=1 table={11ADFE433356458C}Assets/ENR_ColorLookup/identity_lut.edds 0 enabled_read=1 enabled=1",
+        "requested=apply"
+      ],
+      "engine_rejections": [
+        "09:43:28.547 WORLD     (E): Cannot set ColorGradingEffect PP effect (material Assets/ENR_ColorLookup/identity.emat) with priority 1000, max available is 19"
+      ],
+      "effect_control_passed": false,
+      "scope": "Initial priority-1000 batch stops after rejected identity; remaining five cases were not launched"
+    }
+  ],
+  "visual_review": {
+    "schema_version": 1,
+    "scope": "All nine retained native controls, inspected at original 2560 by 1440 resolution.",
+    "frames": [
+      {
+        "trial": "color-lookup-off-v1",
+        "sha256": "3a581aca1af87964d9a7cfd5f38925d98efa24c5838d9bb580c274e24a697f95",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Normal forest view with blue sky, pines, shadowed foliage, clearing and a small building. Initial baseline capture; no effect claimed."
+      },
+      {
+        "trial": "color-lookup-identity-v1",
+        "sha256": "4732bdfc675639235f0b12b1a60068bdce1109f29e09dd4086aca7061cc065eb",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Normal forest appearance. The native log explicitly rejects priority 1000; this image does not verify identity-effect application."
+      },
+      {
+        "trial": "color-lookup-off-v2",
+        "sha256": "a8ee45daf7ae17ba64227bb5a6a8919ac481942f8d7d47b76c9e1fdadf9cc6c9",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Normal forest view with blue sky, pines, ground shadows and small building."
+      },
+      {
+        "trial": "color-lookup-identity-v2",
+        "sha256": "6839c6f79d6c30984293d1d76f90d94289fb58697c51cc727373bb63a20435df",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Forest retains normal colors and visible silhouettes, with no obvious large color shift. Visual similarity does not imply pixel equality."
+      },
+      {
+        "trial": "color-lookup-inversion-v2",
+        "sha256": "4ae18216e2d6dbcd7717c27743ff301a6b9db147f2d8a6f9308c29d1dab91d05",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Strong color change in the actual engine image: peach-orange sky, near-white forest and pale cyan/purple ground. Tree and terrain silhouettes remain visible."
+      },
+      {
+        "trial": "color-lookup-constant-v2",
+        "sha256": "8c56e4b7dd2edd8f54e65e310a2068572a5b04b3da6b903ed76b2b3259b0ea6e",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Uniform light blue across the full frame; forest detail is no longer visible. This is a positive effect control, not neural output."
+      },
+      {
+        "trial": "color-lookup-removed-v2",
+        "sha256": "55fe66963da6e932cd00e1a9cd0677ddbbf60a6b35beacb5e499c23c90624021",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Normal forest appearance returns after apply/remove requests before settling. This does not test removal during motion or prove pixel equality."
+      },
+      {
+        "trial": "color-lookup-off-repeat2-v2",
+        "sha256": "5887253af0906c7047e87f8093382674661bc2ad80f2683102bdb1cdb43b7726",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Full-size forest remains visibly complete, with blue sky, fine pine branches, ground vegetation, rocks, shadows and the small building. No obvious missing region."
+      },
+      {
+        "trial": "color-lookup-off-repeat3-v2",
+        "sha256": "1b459f486bf9539ba8a19cdbf0567f961004b33c0120bf481430aeca324dd8bb",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "full_size_inspected": true,
+        "observation": "Full-size forest remains visibly complete, with blue sky, fine pine branches, ground vegetation, rocks, shadows and the small building. No obvious missing region; repeatability requires numerical comparison."
+      }
+    ]
+  },
+  "visual_review_sha256": "8bb3a1112e87d1ffc95b85d5e98b954e90161ac03725bbf181abca6e5bfdbe08",
+  "cpu_display_hypothesis_errors": {
+    "identity": {
+      "rgb8_mae": 1.285573097511574,
+      "rgb8_rmse": 4.571005536643999,
+      "max_abs_rgb8": 182.0,
+      "exact_rgb_equal": false
+    },
+    "inversion": {
+      "rgb8_mae": 69.798260724103,
+      "rgb8_rmse": 79.46982182746974,
+      "max_abs_rgb8": 215.0,
+      "exact_rgb_equal": false
+    },
+    "constant": {
+      "rgb8_mae": 55.333333333333336,
+      "rgb8_rmse": 58.884066888533894,
+      "max_abs_rgb8": 72.0,
+      "exact_rgb_equal": false
+    },
+    "removed": {
+      "rgb8_mae": 0.4741409866898148,
+      "rgb8_rmse": 2.394817983821855,
+      "max_abs_rgb8": 162.0,
+      "exact_rgb_equal": false
+    }
+  },
+  "changes_vs_first_off": {
+    "identity": {
+      "rgb8_mae": 1.285573097511574,
+      "rgb8_rmse": 4.571005536643999,
+      "max_abs_rgb8": 182.0,
+      "exact_rgb_equal": false
+    },
+    "inversion": {
+      "rgb8_mae": 148.1594396520544,
+      "rgb8_rmse": 164.93147517132144,
+      "max_abs_rgb8": 252.0,
+      "exact_rgb_equal": false
+    },
+    "constant": {
+      "rgb8_mae": 83.90201958550347,
+      "rgb8_rmse": 109.3862869056389,
+      "max_abs_rgb8": 229.0,
+      "exact_rgb_equal": false
+    },
+    "removed": {
+      "rgb8_mae": 0.4741409866898148,
+      "rgb8_rmse": 2.394817983821855,
+      "max_abs_rgb8": 162.0,
+      "exact_rgb_equal": false
+    }
+  },
+  "off_repeat_pairs": [
+    {
+      "before_run": "20260909T134637-04b9067cbc",
+      "after_run": "20260909T134938-924a44a049",
+      "rgb8_mae": 0.5608143446180556,
+      "rgb8_rmse": 2.68122308811928,
+      "max_abs_rgb8": 153.0,
+      "exact_rgb_equal": false
+    },
+    {
+      "before_run": "20260909T134637-04b9067cbc",
+      "after_run": "20260909T135014-69d5ec2158",
+      "rgb8_mae": 2.3194251844618057,
+      "rgb8_rmse": 7.189687349582814,
+      "max_abs_rgb8": 192.0,
+      "exact_rgb_equal": false
+    },
+    {
+      "before_run": "20260909T134938-924a44a049",
+      "after_run": "20260909T135014-69d5ec2158",
+      "rgb8_mae": 2.4749006257233797,
+      "rgb8_rmse": 7.551252462675556,
+      "max_abs_rgb8": 194.0,
+      "exact_rgb_equal": false
+    }
+  ],
+  "constant_observed_rgb8": {
+    "mean": [
+      123.0,
+      169.0,
+      231.0
+    ],
+    "min": [
+      123,
+      169,
+      231
+    ],
+    "max": [
+      123,
+      169,
+      231
+    ]
+  },
+  "verified": {
+    "native_material_schema": true,
+    "original_volume_pixels": true,
+    "all_followup_request_checks": true,
+    "constant_positive_response": true,
+    "exact_display_mapping": false,
+    "full_lighting_model": false,
+    "scene_buffers": false,
+    "renderer_integration": false,
+    "motion_fidelity": false,
+    "complete_frame_performance": false
+  },
+  "limits": [
+    "Color encoding and interpolation conventions are not assumed verified",
+    "SetCameraPostProcessEffect has no getter verification here; material readback and visible response are distinct checks",
+    "Later reserved controls need separately declared limits and scenes, fixed after this characterization",
+    "A pointwise color lookup cannot implement the full scene-conditioned model or reconstruct spatial detail",
+    "Scene buffers, HUD/scopes, temporal rendering, runtime packaging and complete-frame cost remain unverified",
+    "V1 priority rejection and failed readback expectation remain retained",
+    "Absence of an application error is not proof of visible output",
+    "Characterization only; no reserved fidelity test or trained model",
+    "This first characterization has no reserved color-accuracy gate. All identity/inversion/constant/removal errors and all off pairs are retained."
+  ]
+}

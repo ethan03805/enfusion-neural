@@ -65,7 +65,7 @@ The disabled native light reports radius −15 for a requested +15; that signed 
 
 ## Continue
 
-The next integration experiment should inspect the supported color-grading material schema, then test an original identity and known-color lookup texture with fixed camera/exposure controls. A working lookup effect would establish a limited color-output route. It would not supply the depth, normals and material data required by the full lighting model. See [integration](integration.md#color-lookup-control).
+The subsequent [color-lookup experiment](color-lookup.md) verifies original volume import and a visible camera effect. Its direct display-code hypothesis fails; color transfer and sampling require independent controls next. The lookup supplies none of the depth, normals or material data required by the full lighting model. See [integration](integration.md#color-lookup-control).
 
 Before training on engine pairs, isolate environment/reflection contributions and verify the color/material response with a separately declared experiment. Keep this failed mapping, the original area-light fixture, locked models and acceptance limits intact.
 
