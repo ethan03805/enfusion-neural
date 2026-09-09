@@ -32,7 +32,7 @@ def locked_models():
     return models,{'plan':plan,'plan_sha256':digest(plan_path),'model_lock_sha256':digest(lock_path),'models':records}
 
 
-def run(out,exe,records,model,identity,limits,warmup=0,samples=1,allow_no_gpu=False):
+def run(out,exe,records,model,identity,limits,warmup=0,samples=1,allow_no_gpu=False,save_linear=True):
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     exe=Path(exe).resolve();h,w,fields=records.shape;columns=fields-5
     lighting_gpu.dimensions(w,h)
@@ -69,8 +69,10 @@ def run(out,exe,records,model,identity,limits,warmup=0,samples=1,allow_no_gpu=Fa
         report['comparison']=lighting_gpu.compare(actual,expected,records,limits)
         report['gpu']=gpu;report['output_sha256']=digest(out/'output.fp32');report['gpu_report_sha256']=digest(out/'gpu.json')
         # Reconstructed linear RGBA is the artifact consumed by fidelity evaluation.
-        np.save(out/'linear.npy',actual[...,3:7])
-        report['linear_rgba_sha256']=digest(out/'linear.npy')
+        if save_linear:
+            np.save(out/'linear.npy',actual[...,3:7])
+            report['linear_rgba_sha256']=digest(out/'linear.npy')
+        report['linear_rgba_storage']='linear.npy and output.fp32 columns 3:7' if save_linear else 'output.fp32 columns 3:7; no redundant NPY copy'
         report['status']='succeeded' if report['comparison']['passed'] else 'failed'
         if not report['comparison']['passed']:raise ValueError('Native lighting failed the predeclared CPU tolerances')
         return report

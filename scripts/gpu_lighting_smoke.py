@@ -13,6 +13,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out',required=True);p.add_argument('--exe',default='build/Release/enr_gpu.exe')
     p.add_argument('--allow-no-gpu',action='store_true')
+    p.add_argument('--compact-inputs',action='store_true',help='Verify fixture regeneration then remove redundant generated input files; keep all GPU output records')
     a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=False)
     models,binding=locked_models();plan=binding['plan']
     report={'schema_version':1,'status':'running',**binding,'driver_sha256':digest(__file__),
@@ -27,17 +28,24 @@ def main():
             for variant,model in models.items():
                 name=f'{variant}-{w}x{h}';print('Starting '+name,flush=True)
                 records=lighting_gpu.pack(diversity.select(x,variant),rgb,alpha,valid)
-                result=run(out/name,a.exe,records,model,binding['models'][variant],plan['limits'],allow_no_gpu=a.allow_no_gpu)
+                result=run(out/name,a.exe,records,model,binding['models'][variant],plan['limits'],allow_no_gpu=a.allow_no_gpu,save_linear=False)
                 report['runs'].append({'id':name,'variant':variant,'kind':'smoke','report_sha256':digest(out/name/'run.json'),**result});save()
                 if result['status']=='skipped':report['status']='skipped';return
                 print(json.dumps({'id':name,'comparison':result['comparison'],'dispatch_ms':result['gpu']['dispatch_ms']}),flush=True)
+                if a.compact_inputs:
+                    from compact_lighting_gpu_fixtures import compact
+                    compact(out,only=name)
             del x,rgb,alpha,valid,records
         b=plan['benchmark'];w,h=b['dimensions'];variant=b['variant']
         x,rgb,alpha,valid=lighting_gpu.fixture(w,h,plan['fixture_seed']+w+h)
         name='scene-1440p-benchmark';print('Starting '+name,flush=True)
         records=lighting_gpu.pack(diversity.select(x,variant),rgb,alpha,valid)
-        result=run(out/name,a.exe,records,models[variant],binding['models'][variant],plan['limits'],b['warmup'],b['samples'])
+        result=run(out/name,a.exe,records,models[variant],binding['models'][variant],plan['limits'],b['warmup'],b['samples'],save_linear=False)
         report['runs'].append({'id':name,'variant':variant,'kind':'benchmark','report_sha256':digest(out/name/'run.json'),**result})
+        save()
+        if a.compact_inputs:
+            from compact_lighting_gpu_fixtures import compact
+            compact(out,only=name)
         report['status']='succeeded'
     except Exception as error:report.update(status='failed',error=str(error));raise
     finally:save()

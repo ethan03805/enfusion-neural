@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "base_plan": "scenes/lighting-gpu-v1.json",
+  "reason": "The initial RGB-only 4K shader produces one residual 0.2500000298023224, exceeding the defined 0.25 bound despite passing numerical error tolerances.",
+  "change": "Explicitly clamp the shader tanh residual to the existing model bound. No weights, normalization, model selection, numerical tolerances or fidelity limits change.",
+  "verification": "Repeat all 21 numerical size/variant checks after this shader change; then run the originally planned 1440p benchmark and all 112 rendered frames.",
+  "retention": "Keep the initial disk-write failure and GPU bound failure. Generated random input buffers may be removed only after byte-exact regeneration, retaining their recipes and source snapshots. All GPU outputs remain. Rendered source EXRs remain; their derived packed transfer buffers are temporary.",
+  "scope": "Standalone native model correctness only; supported Enfusion inputs/execution and actual-Arma fidelity remain required."
+}

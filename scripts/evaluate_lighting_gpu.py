@@ -77,8 +77,8 @@ def main():
                 retained=np.load(old_path,allow_pickle=False)
                 records=lighting_gpu.pack(d['x'],d['rgb'],d['alpha'],d['valid'])
                 folder=out/identity
-                native=run(folder,a.exe,records,model,binding['models']['scene'],gpu_plan['limits'])
-                actual=np.load(folder/'linear.npy',allow_pickle=False);value=actual[...,:3]
+                native=run(folder,a.exe,records,model,binding['models']['scene'],gpu_plan['limits'],save_linear=False)
+                actual=np.fromfile(folder/'output.fp32',dtype='<f4').reshape(*records.shape[:2],7)[...,3:7];value=actual[...,:3]
                 delta=np.abs(actual[...,:3].astype(np.float64)-retained[...,:3])
                 tolerance=gpu_plan['limits']['linear_rgb_absolute_tolerance']+gpu_plan['limits']['linear_rgb_relative_tolerance']*np.abs(retained[...,:3])
                 old_parity={'linear_rgb_within_tolerance':bool(np.all(delta<=tolerance)),
@@ -93,7 +93,7 @@ def main():
                 case['paired_reference_metrics']['scene']=metric(value,d['paired'])
                 case['marking_contrast']['scene']=marking_contrast(value,ids,objects)
                 # Display-referred metrics have not been recomputed for native outputs.
-                case['outputs']['scene']={'linear_rgba_sha256':digest(folder/'linear.npy'),'display_evaluated':False}
+                case['outputs']['scene']={'native_output_sha256':digest(folder/'output.fp32'),'linear_rgba_columns':[3,7],'display_evaluated':False}
                 error=np.log1p(value)-np.log1p(d['target']);paired_error=np.log1p(value)-np.log1p(d['paired'])
                 if previous is not None:
                     xy,mask,coverage=temporal.correspondence(d,previous,previous['camera_matrix'],evaluated['plan']['vertical_fov_degrees'])

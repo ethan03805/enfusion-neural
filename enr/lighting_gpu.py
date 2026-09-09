@@ -1,7 +1,4 @@
 """FP32 lighting shader and offline record contract; the CPU model stays independent."""
-import json
-from pathlib import Path
-
 import numpy as np
 
 from . import lighting
@@ -112,7 +109,7 @@ def hlsl(model):
               'second[j]=max(sum,0.0); }',
               '[unroll] for(uint j=0;j<3;j++) { precise float sum=b3[j];',
               '[unroll] for(uint i=0;i<32;i++) sum += second[i]*w3[i*3+j];',
-              'float residual=0.25*tanh(sum); target[dst+j]=residual;',
+              'float residual=clamp(0.25*tanh(sum),-0.25,0.25); target[dst+j]=residual;',
               'float value=max(source[base+j]+residual,0.0);',
               # exp(x)-1 cancels near zero; the short series is accurate over this tiny interval.
               'float rgb=value<0.001 ? value*(1.0+value*(0.5+value*(0.166666667+value*0.041666667))) : exp(value)-1.0;',

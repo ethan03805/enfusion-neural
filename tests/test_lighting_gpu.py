@@ -1,4 +1,3 @@
-import copy
 import unittest
 import numpy as np
 
@@ -45,6 +44,14 @@ class LightingGPUContract(unittest.TestCase):
             self.assertTrue(np.array_equal(output[...,3:6][~valid].view(np.uint32),rgb[~valid].view(np.uint32)))
             self.assertTrue(np.array_equal(output[...,6].view(np.uint32),alpha.view(np.uint32)))
             self.assertTrue(lighting_gpu.compare(output,output,records,self.limits)['passed'])
+
+    def test_single_ulp_bound_escape_fails_even_inside_numeric_tolerance(self):
+        expected=lighting_gpu.reference(self.records,self.model);expected[0,0,0]=.25
+        actual=expected.copy();actual[0,0,0]=np.nextafter(np.float32(.25),np.float32(1))
+        result=lighting_gpu.compare(actual,expected,self.records,self.limits)
+        self.assertTrue(result['checks']['residual_error'])
+        self.assertFalse(result['checks']['bounded_residual'])
+        self.assertFalse(result['passed'])
 
 
 if __name__=='__main__':unittest.main()
