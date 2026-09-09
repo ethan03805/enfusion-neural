@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "material-room-light-control-v1",
+  "source_scene": "scenes/material-room-v1.json",
+  "texture_case": "packed",
+  "hour": 0,
+  "light": {
+    "type": "POINT",
+    "local_position_enfusion_xyz": [0, 3.8, 0.2],
+    "radius_m": 15,
+    "near_plane_m": 0.05,
+    "distance_attenuation": 2,
+    "color_rgb": [1, 1, 1],
+    "cast_shadow": true,
+    "lens_flare_index": -1
+  },
+  "cases": {
+    "night-off": {"enabled": false, "native_LV": 10},
+    "night-low": {"enabled": true, "native_LV": 10},
+    "night-high": {"enabled": true, "native_LV": 12}
+  },
+  "runs": ["night-off", "night-low", "night-high", "night-high", "night-high"],
+  "regions_xyxy": {
+    "neutral_back": [850, 260, 1700, 520],
+    "neutral_floor": [850, 1180, 1700, 1320],
+    "metal_sphere": [1150, 620, 1410, 740]
+  },
+  "response_gate": {
+    "region": "neutral_back",
+    "mean_rgb8_high_minus_off_min": 5,
+    "mean_rgb8_high_minus_low_min": 1,
+    "interpretation": "Positive display-response control, not radiometric calibration or fidelity"
+  },
+  "repeat_analysis": "All three high-light captures; full and declared-region RGB8 MAE for every pair. No image alignment or fitting.",
+  "readback": ["enabled", "casts_shadow", "radius", "near_plane", "world_position"],
+  "requested_without_native_getter": ["color_rgb", "native_LV", "distance_attenuation", "lens_flare_index"],
+  "unchanged": ["geometry", "material maps and constants", "camera/projection", "fixed exposure", "weather/date/wind", "render settings"],
+  "limits": [
+    "Night sky, moon and environment probes are not disabled; the off case measures their residual appearance",
+    "A point light differs from the original square area light; no accepted engine/reference appearance pair",
+    "Native LV is an engine parameter; no watts, candela or exact brightness ratio is assumed",
+    "No neural inference, renderer-buffer access, motion fidelity or performance claim"
+  ]
+}

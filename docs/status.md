@@ -2,7 +2,15 @@
 
 Updated 9 September 2026. Milestone: the locked full-input model passes the 48-frame untouched synthetic test. All three test clips and both regression paths are retained. The Enfusion integration proof remains in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
-## Latest material experiment
+## Latest lighting experiment
+
+The [room-lighting controls](room-lighting.md) completed all five planned native captures and one separately declared clipping follow-up. The fixed-exposure neutral back-wall mean is 0 at disabled/LV 10 defaults and 221.65 at LV 12. Requesting clipping bias −10 restores the LV 10 region to 102.15 without changing light intensity or camera exposure. Three independent LV 12 captures differ by at most 3 RGB8 values, with all-pair mean errors at or below 0.00000281. They are not exactly identical and do not establish motion stability.
+
+All native validations and captures succeeded. The disabled light reports radius −15 for requested +15; the signed readback check remains false. Intensity/color/attenuation/clipping values are requests without getter verification. Hard black shadows and coarse reflections remain visible. Night environment light is not isolated, and the original reference uses an area light rather than this point light.
+
+`evidence/enfusion-room-lights-v1.json` binds all six captures and `enfusion-room-lights-review-v1.json`. Raw roots are `material-room-light-{off,low,high,high-repeat2,high-repeat3,low-clip}-v1` under `experiments/local/`. All jobs are terminal. The CPU suite passes 59 tests; six unchanged PNGs bring the documentation to 54 PNGs and 12 videos across 22 pages. Next: a separately versioned point-light reference and fixed-exposure calibration sweep with a declared clipping policy. No model, original plan or fidelity threshold changed. Supported integration, actual-Arma model/reference/motion tests and complete-frame performance remain required.
+
+## Previous material experiment
 
 The [packed-texture controls](material-room.md#packed-texture-controls) built all 18 original TIFFs and completed all four planned captures. Native readback matches the declared material maps and Color values. Original source variants change only roughness alpha or metalness blue. The asymmetric back-wall diagnostic agrees with direct TXO sampling at four declared points; only two colored points distinguish an additional V flip. This narrow diagnostic does not overturn the earlier precision failures.
 
@@ -19,11 +27,11 @@ The center sphere responds visibly to both channels. Its preselected region chan
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Twenty-one-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Twenty-two-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 - Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
 - Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
 - Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
-- Forty-two reviewed PNGs and twelve videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
+- Fifty-four reviewed PNGs and twelve videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
 - Eighteen original lighting cases with paired diffuse-bounce controls, 12 training/two validation/three test/one stress splits within one scene group, and two independent-seed reference checks. A 1,827-parameter scene-conditioned CPU model beats RGB-only and affine controls on the three test cases. Weights, gradients, serialization, features and partitioned inference are checked. See [lighting study](lighting-study.md); no game-frame saving or temporal fidelity is established.
 - Read-only [technical feasibility review](feasibility.md) of installed SDK declarations, asset-specific representations, photographs and data-use scope. Material replacement is documented; native scene buffers and output composition remain unverified.
 - [Frozen-model scene transfer and motion](lighting-motion.md): 32 frames in the original room and 32 in a new partitioned room, with an independent reference at every frame. No fitting or checkpoint selection on these paths. The scene-conditioned model lowers average error but loses to RGB-only on the new layout and worsens marking contrast. Mean temporal changes are too small relative to sampling noise to establish meaningful stability. Two synchronized source/model/reference clips and the preselected frame-16 stills are published.

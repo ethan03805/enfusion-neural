@@ -25,9 +25,15 @@ def main():
     parser.add_argument('--color-control', choices=('white', 'reference-colors'), help='Change only original material Color constants under the declared control plan')
     parser.add_argument('--texture-build', help='Verified completed original texture build')
     parser.add_argument('--texture-case', choices=('orientation', 'packed', 'metal-matte', 'metal-dielectric'))
+    parser.add_argument('--light-case', choices=('night-off', 'night-low', 'night-high'))
+    parser.add_argument('--light-clip-control', action='store_true', help='Apply the separately declared LV10 intensity-clipping follow-up')
     args = parser.parse_args()
     if bool(args.texture_build) != bool(args.texture_case) or (args.texture_case and args.color_control):
         raise ValueError('Texture build and case are required together and exclude Color-only control')
+    if args.light_case and args.texture_case != 'packed':
+        raise ValueError('Light controls require the original packed texture case')
+    if args.light_clip_control and args.light_case != 'night-low':
+        raise ValueError('The clipping follow-up requires the original night-low case')
     texture_build = texture_copies = texture_provenance = None
     if args.texture_build:
         texture_build, texture_copies, texture_provenance = room_textures.load_build(args.texture_build, ROOT)
@@ -68,6 +74,18 @@ def main():
     room = json.loads((ROOT / 'scenes/material-room-v1.json').read_text(encoding='utf-8'))
     color_control = None
     texture_control = None
+    light_control = None
+    if args.light_case:
+        light_plan_path = ROOT / 'scenes/material-room-light-control-v1.json'
+        light_plan = json.loads(light_plan_path.read_text(encoding='utf-8'))
+        light_control = {'case': args.light_case, 'plan': light_plan,
+                         'plan_sha256': digest(light_plan_path), 'requested': light_plan['cases'][args.light_case]}
+        if args.light_clip_control:
+            clip_path = ROOT / 'scenes/material-room-light-clip-control-v1.json'
+            clip_plan = json.loads(clip_path.read_text(encoding='utf-8'))
+            light_control['clipping_followup'] = {'plan': clip_plan, 'plan_sha256': digest(clip_path),
+                                                   'base_plan_sha256': digest(light_plan_path)}
+        config['hour'] = light_plan['hour']
     if args.color_control:
         plan_path = ROOT / 'scenes/material-room-color-control-v1.json'
         plan = json.loads(plan_path.read_text(encoding='utf-8'))
@@ -125,6 +143,20 @@ def main():
             texture_control['materials'].append(dict(recipe, before_sha256=before, after_sha256=digest(material_path)))
         write_json(out / 'texture-control.json', texture_control)
     material_control = color_control or texture_control
+    if light_control:
+        light_spec = light_control['plan']['light']
+        light_position = [a+b for a, b in zip(origin, light_spec['local_position_enfusion_xyz'])]
+        light_control['world_position'] = light_position
+        write_json(out / 'light-control.json', light_control)
+        shutil.copyfile(ROOT / 'adapters/enfusion/probes/ENR_RoomLight.c', out / 'addon/Scripts/Game/ENR_RoomLight.c')
+        light_config = ('#ifdef WORKBENCH\nclass ENR_RoomLightConfig {\n static string Case = "' + args.light_case + '";\n'
+                        ' static vector Position = "' + ' '.join(map(str, light_position)) + '";\n'
+                        ' static float Radius = ' + str(light_spec['radius_m']) + ';\n'
+                        ' static float Near = ' + str(light_spec['near_plane_m']) + ';\n'
+                        ' static float LV = ' + str(light_control['requested']['native_LV']) + ';\n'
+                        ' static bool Enabled = ' + str(light_control['requested']['enabled']).lower() + ';\n'
+                        ' static bool UseClipControl = ' + str(args.light_clip_control).lower() + ';\n}\n#endif\n')
+        (out / 'addon/Scripts/Game/ENR_RoomLightConfig.c').write_bytes(light_config.encode('utf-8'))
     plugin = ROOT / 'adapters/enfusion/probes/ENR_MaterialRoom.c'
     shutil.copyfile(plugin, out / 'addon/Scripts/Game/ENR_MaterialRoom.c')
     material_lookup = ' static ResourceName MaterialResource(string slot) {\n'
@@ -147,7 +179,10 @@ def main():
     needle = 'ENR_Sequence.Camera(world);'
     if text.count(needle) != 1:
         raise ValueError('Capture entry point changed')
-    capture.write_text(text.replace(needle, needle + '\n  ENR_MaterialRoom.Init(world);'), encoding='utf-8')
+    addition = '\n  ENR_MaterialRoom.Init(world);'
+    if light_control:
+        addition += '\n  ENR_RoomLight.Init();'
+    capture.write_text(text.replace(needle, needle + addition), encoding='utf-8')
     with sequence.private_settings(runner):
         validation = run_workbench(out, 'validate', timeout=180)
         if validation['status'] != 'succeeded':
@@ -180,6 +215,11 @@ def main():
                       color_records=[line.split('ENR_ROOM_COLOR ', 1)[1] for line in log_text.splitlines() if 'ENR_ROOM_COLOR ' in line],
                       texture_records=[line.split('ENR_ROOM_MAP ', 1)[1] for line in log_text.splitlines() if 'ENR_ROOM_MAP ' in line],
                       scope='Original packed-texture response control; material/light photometry and neural integration remain unverified')
+    if light_control:
+        light_log = (directory / 'console.log').read_text(encoding='utf-8')
+        result.update(light_control=light_control, light_control_sha256=digest(out / 'light-control.json'),
+                      light_records=[line.split('ENR_ROOM_LIGHT ', 1)[1] for line in light_log.splitlines() if 'ENR_ROOM_LIGHT ' in line],
+                      scope='Original room scripted point-light response at night; environment light/reflections are not isolated, no calibrated reference or neural processing')
     write_json(out / 'room.json', result)
     print(json.dumps({'status': result['status'], 'run': run['run_id'], 'records': records, 'image': run['image']}, indent=2))
 

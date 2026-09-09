@@ -2,7 +2,7 @@
 
 The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
 
-**Immediate next task:** establish controlled illumination and reflections in the imported original room. The [packed-texture controls](material-room.md#packed-texture-controls) now verify visible roughness/metalness changes, but the shiny sphere reflects exterior scenery. Acceptance: declared light/environment controls with native readback and positive image controls; fixed exposure/color mapping checked on independent patches; three repeat captures; a documented engine/reference correspondence with residual mismatches retained. Do not use the current outdoor capture as an aligned appearance target. Supported scene inputs/output remain a separate required integration gate.
+**Immediate next task:** calibrate a point-light reference for the imported room. The [room-lighting controls](room-lighting.md) establish visible response and three static repeats; a clipping follow-up restores the lower light without changing intensity or exposure. Use a declared clipping policy for the next intensity sweep. Create a separately versioned point-light reference rather than changing the original area-light fixture. Acceptance: fixed-exposure brightness/color mapping checked on independent patches, measured environment/reflection contribution, repeat measurements, and explicit residual material/shadow differences. Do not fit on held-out calibration checks or label the current images an aligned appearance pair. Supported scene inputs/output remain a separate required integration gate.
 
 ## 01 · Neural foundation
 

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "scope": "Every frame in the five-run declared point-light plan and one separately selected clipping follow-up; all inspected at 2560 by 1440",
+  "frames": [
+    {
+      "trial": "material-room-light-off-v1",
+      "sha256": "629aef7015247bc1c79b779a811bb8a464d79ca95fc3153d8143bb63bd09755a",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "Almost black at the fixed exposure, with a faint small bluish spot near the center. Room geometry is not discernible in the image; native bounds alone do not establish visible geometry here."
+    },
+    {
+      "trial": "material-room-light-low-v1",
+      "sha256": "23c62cf80ed7aaf46b1257a02c355dd9aafd01dad293b1c10a312e4992b5413f",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "Visually almost black like the disabled control, with the same faint central bluish spot. The enabled LV10 light does not visibly illuminate the room under its default clipping behavior."
+    },
+    {
+      "trial": "material-room-light-high-v1",
+      "sha256": "2150e5e0269b6c6b38ec20c3bc4ff73c478371517687dce4aa3ffbcb089fb790",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "Room walls, sphere lit portions, box, floor and thin posts are visible under the point light against a black background. Large hard shadows and black lower sphere regions remain. The metallic sphere has a bright compact highlight and visibly coarse/mottled colored reflection edges. Plinth front is dark. No reference or neural fidelity is established."
+    },
+    {
+      "trial": "material-room-light-high-repeat2-v1",
+      "sha256": "f0ee8f2dbfe1592b39db85a2f09e551d34a83cb6db7ed56fdb08f74efca23ca4",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "Same visible room arrangement, compact highlights and hard black shadows as the first high-light capture. Coarse/mottled reflection edges and the dark plinth front persist. No additional visible fixture changes were observed."
+    },
+    {
+      "trial": "material-room-light-high-repeat3-v1",
+      "sha256": "05c50afaed0a4f1e210af7da67a76013d047116471759b7d304e48c87fcf79fd",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "Same room arrangement and lighting appearance as the first two high-light captures. Hard shadows, black lower sphere regions, dark plinth front and coarse reflection edges remain visible. Static visual agreement is not a motion test."
+    },
+    {
+      "trial": "material-room-light-low-clip-v1",
+      "sha256": "368f759387ad2f06dafb3969cdfb4a5afe6c7233a77beff094ae4d5b64d5a524",
+      "dimensions": [2560, 1440], "full_size_inspected": true,
+      "observation": "The room becomes visible after requesting a less strict intensity clipping bias at the unchanged LV10 setting. It is darker than LV12, retaining the same arrangement, compact highlights, hard black shadows and coarse reflection edges. Camera exposure is unchanged."
+    }
+  ]
+}
