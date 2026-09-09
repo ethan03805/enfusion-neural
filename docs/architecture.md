@@ -52,3 +52,11 @@ The file backend accepts dimensions from 1 to 16,384 per axis, with at most 16,7
 Before live integration, a versioned frame must identify color format and transfer, dimensions, frame ID, timestamp, camera/projection and exposure convention. Optional depth, normals, motion, material data and protected masks need explicit availability flags and separate validation.
 
 Native integration must establish device/queue ownership, resource lifetime, barriers, fences and the presentation stage. Reset temporal history on camera cuts, resolution changes, scope transitions, invalid inputs and device recreation. Until a supported bridge proves these rules, image export remains the only implemented Enfusion interface.
+
+## Lighting study
+
+The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.
+
+`scripts/render_lighting_study.py` changes only diffuse-bounce depth within each pair. `scripts/train_lighting_study.py` validates hashes and alignment, fits only training cases, and selects checkpoints on validation cases. `scripts/display_lighting_study.py` applies the recorded display transform; `scripts/summarize_lighting_study.py` checks the conversion and retains metrics for every case, including independent-seed reference checks. Models carry a versioned feature/color contract and normalization statistics.
+
+This experiment keeps the scene's original material information. It tests the value of supplying source surface data to lighting reconstruction; it does not infer missing textures or establish that Enfusion exposes these inputs. See [technical feasibility](feasibility.md) before changing the integration architecture or scaling asset collection.

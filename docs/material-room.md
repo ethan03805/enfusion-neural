@@ -36,6 +36,8 @@ The checker reads every EXR part, verifies file hashes, checks geometry alignmen
 
 ## Training use
 
+The [lighting study](lighting-study.md) now uses this room for a controlled within-scene experiment. Its paired renders use equal sample counts and change only diffuse-bounce depth. It trains and compares scene-conditioned, RGB-only and affine corrections; it does not use the original unequal-sample pair as its training dataset.
+
 Keep this entire scene in one diagnostic group. Moving its camera, changing a material or rendering more noise seeds does not create an independent test scene. Add distinct scene families and asset provenance before assigning train, validation and test splits.
 
 A model trained only on this synthetic source cannot establish improvement in Enfusion. The next data step is to import the original geometry, reproduce the camera and lighting in an isolated engine scene, and check depth, silhouettes, normals, material interpretation and color transfer against these references. Engine exports must pass that check before becoming paired appearance data.

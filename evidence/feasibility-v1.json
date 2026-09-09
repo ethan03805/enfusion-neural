@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-09-08",
+  "scope": "Read-only SDK, prior experiment evidence and primary-source feasibility review. No Workbench/GPU execution, asset extraction or photo collection.",
+  "builds": {
+    "tools": 24870687,
+    "game": 24903726
+  },
+  "local_sdk_root": "C:/Program Files (x86)/Steam/steamapps/common/Arma Reforger Tools/Workbench/docs",
+  "sdk_files": [
+    {
+      "path": "EnfusionScriptAPI/html/interfaceMaterial.html",
+      "sha256": "28f81b583422fadcb3ec35f043d6a211a0d1ea4ed4956a14c487cb3a8c941fb8"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceMeshObject.html",
+      "sha256": "30583130481cb6b80eb2d09586962757e31d907464a6a61bdc64246bbf14a797"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceWorkbench.html",
+      "sha256": "6da66bb00dd8cadb84463605e7272d93a01e179c8bd651dbdc614d3a68bbdf0f"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceExportTextureResourceRequest.html",
+      "sha256": "2289b09dd9883e0855028f5ffc8023a34ae13a6fc695790b9758a8a04bca6f98"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html",
+      "sha256": "af9141774584f07813c4e9962a8e9ad4f412c082af4598ab30b7fb7d986ede41"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceImageWidget.html",
+      "sha256": "1745131bfafdd2a17e5cc4f0ca3eb15708121668948d1924062e1545ff2002ff"
+    },
+    {
+      "path": "EnfusionScriptAPI/html/interfaceBaseWorld.html",
+      "sha256": "cbcb36ba62bd8a0731ea46701bdbf06cf764b00644487a981ba2cfcbe0429282"
+    }
+  ],
+  "prior_evidence": [
+    "evidence/viewport-probes-v1.json",
+    "evidence/viewport-followup-v1.json",
+    "docs/integration.md",
+    "docs/capture-controls.md"
+  ],
+  "conclusions": {
+    "all_shipped_editable_assets_available": "not established",
+    "auxiliary_scene_buffers_verified": false,
+    "live_neural_bridge_verified": false,
+    "main_viewport_scale_verified": false,
+    "offline_asset_conditioned_research_feasible": true,
+    "ml_specific_license_interpretation": "not established"
+  },
+  "sources": [
+    "https://community.bistudio.com/wiki/Arma_Reforger%3AWeapon_Modding",
+    "https://community.bistudio.com/wiki/Arma_Reforger%3AData_Modding_Basics",
+    "https://community.bistudio.com/wiki/Arma_Reforger%3ATextures",
+    "https://research.nvidia.com/publication/2023-08_random-access-neural-compression-material-textures",
+    "https://arxiv.org/abs/1904.12356",
+    "https://xiuming.info/projects/nerfactor/",
+    "https://isl-org.github.io/PhotorealismEnhancement/",
+    "https://store.steampowered.com/eula/1874910_eula_1",
+    "https://reforger.armaplatform.com/eula",
+    "https://reforger.armaplatform.com/news/eula-faq"
+  ],
+  "report": "docs/feasibility.md"
+}
