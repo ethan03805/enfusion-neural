@@ -10,6 +10,8 @@ The [reference scene pack](docs/reference-scenes.md) adds three static camera/li
 
 The [camera-path adapter](docs/capture-controls.md) records verified sample telemetry and an [80-frame before/after video](docs/comparisons.md#motion). An original [material room](docs/material-room.md) adds aligned synthetic lighting targets, EXR passes and a reference-noise check. Workbench viewport scale/FSR and an aligned Enfusion appearance pair remain open.
 
+The [lighting study](docs/lighting-study.md) trains a separate scene-conditioned model on 18 controlled synthetic cases and publishes before/after/reference images. It improves held-out view/light combinations within one room; engine integration, other assets, temporal fidelity and net frame savings remain unverified. Read the [technical feasibility review](docs/feasibility.md) before scaling asset-specific training.
+
 This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
 
 ## Run

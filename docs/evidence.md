@@ -63,3 +63,11 @@ The [viewport investigation](https://github.com/ethan03805/enfusion-neural/blob/
 The [motion comparison](comparisons.md#motion) contains 80 paired source/GPU frames. All pass the independent CPU reference with maximum RGB error of one 8-bit value and exact alpha. A four-second, 20 FPS encoded clip is retimed from a sequence spanning 21.762 simulation seconds; offline processing and CPU checks took 116.641 seconds. See the [full frame and video record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/motion-v1.json).
 
 The [material-room report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/material-room-v1.json) records exact source/reference depth and object-ID alignment. Independent reference seeds differ by 0.356 RGB code values on average and about 0.497% relative RMSE in scene-linear RGB. This is an original synthetic target-generation test, not neural quality on Enfusion.
+
+## Controlled lighting reconstruction
+
+The [lighting study](lighting-study.md) contains 18 paired synthetic cases at 480 × 270 with equal sample counts and only diffuse-bounce depth changed. The 1,827-parameter CPU network receives original scene features; a smaller RGB-only network and an affine fit provide controls. Mean display RGB error over the three test cases is 2.568 for source, 1.019 for affine, 1.059 for RGB-only and 0.538 for scene-conditioned output. Test cases share the training room/assets and remain a within-scene diagnostic.
+
+The independent-seed test-view reference gives source/model errors of 2.523/0.847; the stress case gives 4.602/1.907. Noise, display roundtrip error, boundary/thin-post metrics, raw render-call timings and all individual cases are retained in [the full evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-study-v1.json). No native GPU execution, temporal acceptance, independent scene generalization or net engine-frame saving is established for this model.
+
+The [feasibility review](feasibility.md) records inspected SDK capabilities and research precedents separately from demonstrated integration. [SDK hashes and sources](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/feasibility-v1.json).

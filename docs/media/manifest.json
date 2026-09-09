@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "publication_date": "2026-09-08",
-  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings.",
+  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match.",
   "rights": "Arland game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original material-room imagery is MIT licensed.",
   "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
   "output_verification": {
@@ -155,6 +155,98 @@
       "source_artifact": "experiments/local/material-room-v1d/reference.png",
       "transformation": "none; byte-for-byte copy",
       "rights": "MIT; original procedural scene"
+    },
+    {
+      "file": "lighting-view-source.png",
+      "sha256": "27e1b7aaf9fac089d6e5a0c10572a8a6237aa438e0da2dd4878092bae8c35269",
+      "bytes": 159314,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "limited diffuse lighting source",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/test-view/source.png",
+      "case_id": "test-view",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model"
+    },
+    {
+      "file": "lighting-view-output.png",
+      "sha256": "16195f17c8285e4c4ecec39a5caa0e5f13c4afa6e903babba8250d967b41f7b6",
+      "bytes": 157336,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "scene-conditioned lighting model output",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/test-view/scene.png",
+      "case_id": "test-view",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model",
+      "model_sha256": "ca4b7565d5638e277ec691153ea960e14179ac0c9e1c9264b876a132736b83c7"
+    },
+    {
+      "file": "lighting-view-reference.png",
+      "sha256": "2a87411db8d9b2d73ebf599a78ac995dd26546de68450fa1fbb4f71114521183",
+      "bytes": 167695,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "synthetic twelve diffuse bounce target",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/test-view/reference.png",
+      "case_id": "test-view",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model"
+    },
+    {
+      "file": "lighting-stress-source.png",
+      "sha256": "e07a4f017b5dd00d0540d4a49f7e95f586ae38c40101ce898c7dbfd8ac9c5f09",
+      "bytes": 194117,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "limited diffuse lighting source",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/stress-outside/source.png",
+      "case_id": "stress-outside",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model"
+    },
+    {
+      "file": "lighting-stress-output.png",
+      "sha256": "4d34dab1004e4177e6f62fafa0bc0dbb9d5f23cac257f8b9443daf70d298a4d8",
+      "bytes": 191248,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "scene-conditioned lighting model output",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/stress-outside/scene.png",
+      "case_id": "stress-outside",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model",
+      "model_sha256": "ca4b7565d5638e277ec691153ea960e14179ac0c9e1c9264b876a132736b83c7"
+    },
+    {
+      "file": "lighting-stress-reference.png",
+      "sha256": "ecf2f06b46aa3df5cbfd5842e505d86d8b77e2810789d906ade550be158a1484",
+      "bytes": 206333,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "synthetic twelve diffuse bounce target",
+      "source_record": "evidence/lighting-study-v1.json",
+      "source_artifact": "experiments/local/lighting-fit-v1b/stress-outside/reference.png",
+      "case_id": "stress-outside",
+      "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
+      "license": "MIT; original geometry, material constants and trained model"
     }
   ],
   "videos": [

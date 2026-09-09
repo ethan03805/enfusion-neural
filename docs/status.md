@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 8 September 2026. Milestone: controlled camera-path capture, synchronized neural comparison video and an original material-room reference pair. Read [objectives](vision.md) before choosing the next model or performance target.
+Updated 8 September 2026. Milestone: a controlled synthetic lighting reconstruction study and an installed-SDK feasibility review. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
@@ -11,11 +11,13 @@ Updated 8 September 2026. Milestone: controlled camera-path capture, synchronize
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Sixteen-page Markdown documentation site with system/light/dark themes, still comparisons and a synchronized video; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Eighteen-page Markdown documentation site with system/light/dark themes, still comparisons and a synchronized video; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 - Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
 - Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
 - Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
-- Ten reviewed PNGs and one video with source records, hashes and attribution. The video and its poster explicitly record their scaling and compression; original source/model frame PNGs remain available.
+- Sixteen reviewed PNGs and one video with source records, hashes and attribution. The video and its poster explicitly record their scaling and compression; original source/model frame PNGs remain available.
+- Eighteen original lighting cases with paired diffuse-bounce controls, 12 training/two validation/three test/one stress splits within one scene group, and two independent-seed reference checks. A 1,827-parameter scene-conditioned CPU model beats RGB-only and affine controls on the three test cases. Weights, gradients, serialization, features and partitioned inference are checked. See [lighting study](lighting-study.md); no game-frame saving or temporal fidelity is established.
+- Read-only [technical feasibility review](feasibility.md) of installed SDK declarations, asset-specific representations, photographs and data-use scope. Material replacement is documented; native scene buffers and output composition remain unverified.
 
 Exact observed results and limitations are in [evidence](evidence.md). The source commit and CI/deployment outcomes are visible in the repository history and Actions; do not assume later revisions have the same measurements.
 
@@ -33,6 +35,14 @@ python scripts/build_docs.py
 Use the prepared environment with the documented dependencies. Reviewed manifests live in `evidence/`. Local captures and full raw workspaces are ignored under `experiments/local/` and `runs/`. The bootstrap training record lives inside `models/bootstrap-v0.json`.
 
 ## Next task
+
+Add a distinct original scene family and a smooth held-out camera/light path to the lighting study. Preserve markings and occlusion boundaries. Acceptance: fixed splits before training, an independent reference-noise check, improvement over identity/RGB/affine baselines, and reported boundary/temporal failures. The current model only learned one room; none of its test combinations establishes new-asset generalization.
+
+In parallel, identify an authoritative supported renderer extension for a minimal identity/inversion control. Verify source color, required surface inputs, synchronization and presentation before scaling Reforger asset training. The [feasibility report](feasibility.md) separates documented declarations from tested capabilities. No native lighting-model implementation or timing exists yet.
+
+Current lighting evidence: `experiments/local/lighting-study-v1/` (18 rendered cases), `experiments/local/lighting-fit-v1b/` (published weights and predictions), and `evidence/lighting-study-v1.json` (all metrics and source records). Earlier `lighting-fit-v1/` is retained; it has identical numerical outputs before adding the portable JSON model contract. Both fits use the same fixed plan and hyperparameters.
+
+## Prior capture work
 
 Resolve internal Workbench viewport render scale and FSR. The diagnostic save succeeded, and a black-frame control confirms that the isolated file loads. Neither the diagnostic scale presets nor the settled workspace controls established the required viewport effect. The separate render-target callback rejected export. See [capture controls](capture-controls.md#diagnostic-investigation) and `evidence/viewport-probes-v1.json` before repeating these attempts.
 

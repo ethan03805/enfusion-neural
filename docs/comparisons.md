@@ -46,6 +46,6 @@ Both sides are encoded in one stream to maintain synchronization. Each full fram
 
 The source sequence spans 21.762 simulation seconds and is retimed to four seconds. This is not a real-time recording or a 20 FPS performance claim. Render scale and FSR in Workbench's actual viewport remain unverified. [Capture controls and reproduction](capture-controls.md) · [Complete frame records](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/motion-v1.json).
 
-For aligned lighting targets, see the separate [material room](material-room.md). Its path-traced references are synthetic targets, not outputs from this neural model.
+For a trained synthetic lighting comparison, see the [lighting study](lighting-study.md). Its model, source passes and reference targets are separate from the Arland v0 pipeline. The original [material room](material-room.md) documents reference generation.
 
 Arma Reforger imagery © Bohemia Interactive a.s. This independent website is not affiliated with or authorized by Bohemia Interactive. Game names, designs and associated trademarks belong to their owners. Screenshots are shared under the [game content usage rules](https://www.bohemia.net/en/community/game-content-usage-rules); game imagery is outside this repository's MIT code license.

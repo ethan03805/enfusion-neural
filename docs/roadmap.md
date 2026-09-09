@@ -24,11 +24,17 @@ Acceptance: a versioned scene/config manifest; three repeat captures with measur
 
 Acceptance: a minimal reproducible adapter and a verified available/missing field table. Without this, keep experiments offline. This track can invalidate a proposed product route before expensive training.
 
+The [installed-SDK review](feasibility.md) confirms documented material/resource workflows but establishes no native neural processing bridge. It also evaluates asset-specific features and photographic reference data. A complete asset inventory and all-asset training are not implemented.
+
 ## 04 · Faithful appearance model
+
+**Initial synthetic diagnostic completed.** The [lighting study](lighting-study.md) changes only diffuse-bounce depth and trains a small scene-conditioned model with RGB-only and affine controls. Held-out camera/light combinations improve, including an independently seeded reference check. The same room/assets appear in every split; temporal behavior and independent scene-family generalization remain open. Six reviewed PNGs show an ordinary test and an out-of-range stress case. No GPU or game-frame performance claim follows.
 
 Train a compact deterministic model on the accepted paired references. Begin with constrained lighting/material correction, preserve detail and assess whether the available inputs support the effect. Compare with identity, the v0 reference and simpler non-neural correction. Introduce temporal information only after motion/exposure validation.
 
 Acceptance: blinded visual improvement with geometry, identity, visibility and temporal checks passing on held-out scenes. Publish failures. More parameters or an appealing single frame do not satisfy this gate.
+
+Next acceptance: a distinct original scene family and smooth held-out motion/light path; predeclared splits; source-only features; independent-noise references; boundary/marking and temporal comparisons against simple baselines. Keep test scenes out of model and checkpoint selection. Native execution must separately match the CPU lighting reference and measure feature/inference/composition cost.
 
 ## 05 · Playable local demonstration
 

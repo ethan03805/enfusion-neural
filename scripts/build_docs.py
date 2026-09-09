@@ -11,8 +11,8 @@ import markdown
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('comparisons','Comparisons'),
-       ('architecture','Architecture'),('integration','Enfusion integration'),
+PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('lighting-study','Lighting study'),('comparisons','Comparisons'),
+       ('architecture','Architecture'),('integration','Enfusion integration'),('feasibility','Technical feasibility'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
 REPO='https://github.com/ethan03805/enfusion-neural'
@@ -98,7 +98,7 @@ def main():
         theme='<label class="theme-label">Theme<select data-theme-control aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>'
         nextpage=PAGES[position+1] if position+1<len(PAGES) else PAGES[0]
         title='Enfusion Neural' if slug=='index' else label+' · Enfusion Neural'
-        comparison_script='<script src="compare.js" defer></script>' if slug=='comparisons' else ''
+        comparison_script='<script src="compare.js" defer></script>' if slug in ('comparisons','lighting-study') else ''
         page=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="Enfusion Neural documentation: reference scenes, capture procedures, model implementation and evaluation.">

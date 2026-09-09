@@ -16,6 +16,8 @@ The installed Workbench can validate isolated addons and export a rendered viewp
 
 These states describe the inspected interface and local evidence. They are not claims that the engine lacks these buffers internally.
 
+The [technical feasibility review](feasibility.md) adds installed-SDK declarations for material/resource workflows, render-target scaling and camera post-processing. None establishes arbitrary neural dispatch and composition. The [lighting model](lighting-study.md) currently consumes original Cycles surface passes; its inputs are not verified Enfusion exports.
+
 ## Bridge experiment
 
 Find an authoritative supported extension interface and a minimal sample. Demonstrate an identity pass at the intended scene stage, then an invert control with exact pixel validation. Record resource formats, color conventions, frame identity, queue ownership, synchronization and output placement relative to HUD, scopes and tone mapping.
