@@ -11,7 +11,7 @@ The fixed brightness mapping **fails its reserved checks**. This experiment comp
 <label class="comparison-control" hidden>Reveal Enfusion<input type="range" min="0" max="100" value="50" aria-label="Enfusion visible"><output>50% Enfusion</output></label>
 </section>
 
-The reference uses the original room geometry and packed materials, with a point emitter at the corresponding position. It is a comparison fixture, not ground truth for the engine's current lighting. Material response, environment reflections, color transfer and internal render scale remain unresolved.
+The reference uses the original room geometry and material definitions, with a point emitter at the corresponding position. It is a comparison fixture, not ground truth for the engine's current lighting. Material response, environment reflections, color transfer and internal render scale remain unresolved.
 
 ## Fixed mapping
 
