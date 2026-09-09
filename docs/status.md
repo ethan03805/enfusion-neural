@@ -128,3 +128,11 @@ All 18,570 faces and 73,872 corners retain connectivity and named material assig
 The follow-up adds decimal-grid diagnostics without changing results or thresholds. All TXO normals occupy a four-decimal grid and UVs a five-decimal grid, consistent with serialization precision. Rounded source values still differ at some sphere ties; compiled XOB precision and raster shading are untested. Do not rerun unchanged probes to seek a passing label. These jobs are terminal, and no material edits, new captures or model changes were made.
 
 Next: original asymmetric texture and controlled-light captures to verify texture orientation, material/color response and silhouettes. Then calibrate illumination/exposure for a valid engine/reference pair. The supported renderer interface, real Arma model/motion tests and native lighting graph remain unfinished.
+
+## Material color response
+
+The [color control](material-room.md#material-color-control) changes only seven `MatPBRBasic Color` constants in fresh isolated addon copies. White and original-color cases share the same camera/environment/configuration. Both compile, capture and pass native RGBA readback; predeclared left/right wall color-dominance checks pass. The red/blue walls, brown box/right sphere, neutral room surfaces and dark posts are visually verified at full resolution. Packed-map parameters remain default, and the intended metal sphere remains visually nonmetallic.
+
+`evidence/enfusion-room-color-v1.json` binds the plan, original imported assets, material edits, driver/native script snapshots, logs, settings and sample images. `material-room-color-white-v2` and `material-room-color-reference-v1` under `experiments/local/` are successful and terminal. The earlier `material-room-color-white-v1` timed out after the reader used a mesh slot name as a resource path; its native failure and validation remain retained. The corrected reader resolves slots through verified `.emat.meta` GUIDs.
+
+Two unchanged PNGs add a labeled slider to the material-room page. The site now contains 44 PNGs and 12 videos across 21 pages. No training weights or thresholds changed. Next import asymmetric original packed textures, check UV orientation and roughness/metalness response, then match the light/exposure/color convention. Native renderer integration and real Arma model/motion fidelity remain unfinished.

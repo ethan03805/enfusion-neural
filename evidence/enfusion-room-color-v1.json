@@ -1,0 +1,903 @@
+{
+  "schema_version": 1,
+  "operation": "original-room-color-constant-control",
+  "summarizer_sha256": "b455777feec9f7bead013213334852982db86251359c62cfb114235ff7e3bb4d",
+  "evidence_verification": "succeeded",
+  "plan_sha256": "9bf525b8f63c24fefab68f0472ad3510806cd2405b310399046284ba928dff06",
+  "plan": {
+    "schema_version": 1,
+    "id": "material-room-color-control-v1",
+    "purpose": "Test original material color assignments in Enfusion before packed textures or illumination calibration",
+    "source_scene": "scenes/material-room-v1.json",
+    "cases": [
+      "white",
+      "reference-colors"
+    ],
+    "changed_parameter": "MatPBRBasic Color only; alpha remains 1",
+    "reference_color_mapping": "Copy original base_color_linear numbers directly as a candidate material constant mapping; color transfer is not proven",
+    "unchanged": [
+      "original mesh and GUIDs",
+      "camera",
+      "world environment",
+      "exposure",
+      "render settings",
+      "roughness/metalness and texture defaults"
+    ],
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "regions_xyxy": {
+      "left_wall": [
+        300,
+        250,
+        600,
+        700
+      ],
+      "right_wall": [
+        1950,
+        250,
+        2300,
+        700
+      ],
+      "back_wall": [
+        1000,
+        250,
+        1700,
+        500
+      ],
+      "white_sphere": [
+        900,
+        680,
+        1040,
+        800
+      ],
+      "metal_sphere": [
+        1200,
+        650,
+        1300,
+        730
+      ],
+      "rough_sphere": [
+        1500,
+        680,
+        1640,
+        800
+      ]
+    },
+    "region_selection": "Chosen on the previously published white-material geometry control before either new capture",
+    "positive_control": {
+      "left_wall": "Mean R exceeds both G and B by more than 20 RGB8 code values",
+      "right_wall": "Mean B exceeds both R and G by more than 20 RGB8 code values",
+      "native_color_readback_tolerance": 1e-06
+    },
+    "limits": [
+      "Color-response control only; no accepted photometric match or appearance training pair",
+      "Materials remain default roughness/metalness without packed maps",
+      "Outdoor engine illumination differs from the original reference area light",
+      "No neural processing, renderer-buffer access or performance measurement"
+    ]
+  },
+  "loaded_import": {
+    "trial": "material-room-original-load-v1",
+    "run_id": "20260909T103654-5b3026fbb4",
+    "operation": "original-room-import",
+    "route": "load-completed",
+    "report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+    "run_manifest_sha256": "525bdfc1f1a9657b2cdb5e1a8c608221cfab5edcc0d304a1216bdf6ef44e4fe1",
+    "validation_run": "20260909T103642-a95933f5c2",
+    "validation_manifest_sha256": "38a33bf010ca32153fca4626daf7ee48690fe4aa8605fb0b00e040488bbd92ee",
+    "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+    "console_sha256": "e37ef7bca3c273176562556010039738bd36f4b4ba8eaa3384435cada9682b31",
+    "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+    "native_exit_code": 0,
+    "terminated_owned_process": false,
+    "alive_after_build_observation": null,
+    "build_observation_seconds": null,
+    "prior_import": {
+      "run_id": "20260909T103558-ed1a9e322d",
+      "report_sha256": "4f60e4508a583db745c5e84f95bcffe621d5b81f1f07544c688f282309c1d749"
+    },
+    "native_events": [
+      {
+        "event": "started"
+      },
+      {
+        "event": "module",
+        "available": 1
+      },
+      {
+        "event": "source_resolved"
+      },
+      {
+        "event": "load_completed_build"
+      },
+      {
+        "event": "mesh_loaded",
+        "resource": "{7CEDDBB7858D45F0}Assets/ENR_ReferenceRoom/material-room.xob"
+      },
+      {
+        "event": "materials",
+        "count": 7
+      },
+      {
+        "event": "completed"
+      }
+    ],
+    "metadata_records": [],
+    "retained_assets": [
+      {
+        "file": "Data/blue.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/blue.emat.meta",
+        "bytes": 326,
+        "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+      },
+      {
+        "file": "Data/dark.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/dark.emat.meta",
+        "bytes": 326,
+        "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+      },
+      {
+        "file": "Data/metal.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/metal.emat.meta",
+        "bytes": 327,
+        "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+      },
+      {
+        "file": "Data/neutral.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/neutral.emat.meta",
+        "bytes": 329,
+        "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+      },
+      {
+        "file": "Data/red.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/red.emat.meta",
+        "bytes": 325,
+        "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+      },
+      {
+        "file": "Data/rough.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/rough.emat.meta",
+        "bytes": 327,
+        "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+      },
+      {
+        "file": "Data/white.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/white.emat.meta",
+        "bytes": 327,
+        "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+      },
+      {
+        "file": "material-room.fbx",
+        "bytes": 728780,
+        "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+      },
+      {
+        "file": "material-room.txo",
+        "bytes": 3508410,
+        "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+      },
+      {
+        "file": "material-room.xob",
+        "bytes": 865929,
+        "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+      },
+      {
+        "file": "material-room.xob.meta",
+        "bytes": 2129,
+        "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "trial": "material-room-color-white-v2",
+      "run_id": "20260909T112032-a4bf0444a5",
+      "report_sha256": "e2caa6a24cf0c4f20d767ddc7ca6c24ad121955c982606ed637898f8a983cef9",
+      "capture_manifest_sha256": "4f2867fef80706bd0698b590305aad1745b117105f485044aceaebbd42d9170e",
+      "console_sha256": "be52a934db2375f2b4fa794786a65b8c025d5c30f45347558b231bd106e64558",
+      "validation_manifest_sha256": "fde4e9ef27e6a71b0a835403f9ad5d42a92e800da8ef984e3db967c206cfc565",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "78006aa745535533175ebd429213ffc091ec5f01b14d99b4c447f1c2bf945c9a",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1474,
+            "simulation_seconds": 8.6685,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "visual_review": "All room objects remain visible with white constants.",
+      "case": "white",
+      "control": {
+        "case": "white",
+        "plan_sha256": "9bf525b8f63c24fefab68f0472ad3510806cd2405b310399046284ba928dff06",
+        "source_scene_sha256": "331f0c85f709c1b13f5cab78320a281ca6dd77a593476fa87f817b5c5baa4b9a",
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-color-control-v1",
+          "purpose": "Test original material color assignments in Enfusion before packed textures or illumination calibration",
+          "source_scene": "scenes/material-room-v1.json",
+          "cases": [
+            "white",
+            "reference-colors"
+          ],
+          "changed_parameter": "MatPBRBasic Color only; alpha remains 1",
+          "reference_color_mapping": "Copy original base_color_linear numbers directly as a candidate material constant mapping; color transfer is not proven",
+          "unchanged": [
+            "original mesh and GUIDs",
+            "camera",
+            "world environment",
+            "exposure",
+            "render settings",
+            "roughness/metalness and texture defaults"
+          ],
+          "dimensions": [
+            2560,
+            1440
+          ],
+          "regions_xyxy": {
+            "left_wall": [
+              300,
+              250,
+              600,
+              700
+            ],
+            "right_wall": [
+              1950,
+              250,
+              2300,
+              700
+            ],
+            "back_wall": [
+              1000,
+              250,
+              1700,
+              500
+            ],
+            "white_sphere": [
+              900,
+              680,
+              1040,
+              800
+            ],
+            "metal_sphere": [
+              1200,
+              650,
+              1300,
+              730
+            ],
+            "rough_sphere": [
+              1500,
+              680,
+              1640,
+              800
+            ]
+          },
+          "region_selection": "Chosen on the previously published white-material geometry control before either new capture",
+          "positive_control": {
+            "left_wall": "Mean R exceeds both G and B by more than 20 RGB8 code values",
+            "right_wall": "Mean B exceeds both R and G by more than 20 RGB8 code values",
+            "native_color_readback_tolerance": 1e-06
+          },
+          "limits": [
+            "Color-response control only; no accepted photometric match or appearance training pair",
+            "Materials remain default roughness/metalness without packed maps",
+            "Outdoor engine illumination differs from the original reference area light",
+            "No neural processing, renderer-buffer access or performance measurement"
+          ]
+        },
+        "materials": [
+          {
+            "name": "blue",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "dark",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "metal",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "neutral",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "red",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "rough",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "white",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "5e2b6d812d318c5f17061558bf6940810966bfe76a101c6c834fafd3e4922a4b",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      "driver_sha256": "bd593f4967ac9e4aa62367598ba7fd604f8f1bf294775ea8fce6e35c93f16e51",
+      "native_readback_rgba": {
+        "neutral": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "blue": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "red": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rough": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "white": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metal": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dark": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "native_readback_max_error": 0.0,
+      "native_readback_passed": true,
+      "region_mean_rgb8": {
+        "left_wall": [
+          215.90269629629628,
+          220.9202,
+          228.7594962962963
+        ],
+        "right_wall": [
+          237.47835555555557,
+          237.68735873015873,
+          238.98932063492063
+        ],
+        "back_wall": [
+          234.19697714285715,
+          234.15022857142858,
+          235.46632
+        ],
+        "white_sphere": [
+          239.80815476190477,
+          239.87785714285715,
+          240.87738095238095
+        ],
+        "metal_sphere": [
+          242.947875,
+          242.9445,
+          243.67875
+        ],
+        "rough_sphere": [
+          240.27261904761906,
+          240.2679761904762,
+          241.165
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "78006aa745535533175ebd429213ffc091ec5f01b14d99b4c447f1c2bf945c9a",
+        "bytes": 733763,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      }
+    },
+    {
+      "trial": "material-room-color-reference-v1",
+      "run_id": "20260909T112136-63e236c280",
+      "report_sha256": "e9fb0fbc80cc3cba3d22560d5d7946045aee954d29f2aa1b8455fa757a885025",
+      "capture_manifest_sha256": "3ca67324ea696d11248e61d73432e09b7626e5ecfca033d596ccc16c12118ffb",
+      "console_sha256": "e39e75b0dd9fe2791791e3d2dfad5d2a310e6b92e1d5c0617fe2743d6973b865",
+      "validation_manifest_sha256": "3fe23dc268b54f9a9179499f1395c9cbcdc6f72ef87e427c73d934d54b490e01",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "f11dd5263b83878995f89d99d1873d6908083415dc2491590e1dc3d79b1d1194",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1458,
+            "simulation_seconds": 8.66034,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "visual_review": "Red left wall, blue right wall, neutral back/floor/plinth, brown box/right sphere and dark posts are visible. White and intended-metal spheres remain visually nonmetallic under default packed-map parameters.",
+      "case": "reference-colors",
+      "control": {
+        "case": "reference-colors",
+        "plan_sha256": "9bf525b8f63c24fefab68f0472ad3510806cd2405b310399046284ba928dff06",
+        "source_scene_sha256": "331f0c85f709c1b13f5cab78320a281ca6dd77a593476fa87f817b5c5baa4b9a",
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-color-control-v1",
+          "purpose": "Test original material color assignments in Enfusion before packed textures or illumination calibration",
+          "source_scene": "scenes/material-room-v1.json",
+          "cases": [
+            "white",
+            "reference-colors"
+          ],
+          "changed_parameter": "MatPBRBasic Color only; alpha remains 1",
+          "reference_color_mapping": "Copy original base_color_linear numbers directly as a candidate material constant mapping; color transfer is not proven",
+          "unchanged": [
+            "original mesh and GUIDs",
+            "camera",
+            "world environment",
+            "exposure",
+            "render settings",
+            "roughness/metalness and texture defaults"
+          ],
+          "dimensions": [
+            2560,
+            1440
+          ],
+          "regions_xyxy": {
+            "left_wall": [
+              300,
+              250,
+              600,
+              700
+            ],
+            "right_wall": [
+              1950,
+              250,
+              2300,
+              700
+            ],
+            "back_wall": [
+              1000,
+              250,
+              1700,
+              500
+            ],
+            "white_sphere": [
+              900,
+              680,
+              1040,
+              800
+            ],
+            "metal_sphere": [
+              1200,
+              650,
+              1300,
+              730
+            ],
+            "rough_sphere": [
+              1500,
+              680,
+              1640,
+              800
+            ]
+          },
+          "region_selection": "Chosen on the previously published white-material geometry control before either new capture",
+          "positive_control": {
+            "left_wall": "Mean R exceeds both G and B by more than 20 RGB8 code values",
+            "right_wall": "Mean B exceeds both R and G by more than 20 RGB8 code values",
+            "native_color_readback_tolerance": 1e-06
+          },
+          "limits": [
+            "Color-response control only; no accepted photometric match or appearance training pair",
+            "Materials remain default roughness/metalness without packed maps",
+            "Outdoor engine illumination differs from the original reference area light",
+            "No neural processing, renderer-buffer access or performance measurement"
+          ]
+        },
+        "materials": [
+          {
+            "name": "blue",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "8c264222354d96e614013c1bee0c59dd09cef5be7a7d4cf9361d085f6200efa8",
+            "rgba": [
+              0.04,
+              0.1,
+              0.4,
+              1
+            ]
+          },
+          {
+            "name": "dark",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "8a4ad175ae5b29b96c9bc46e7ab13b56798f728a73dd9b8431acdceb5a544967",
+            "rgba": [
+              0.035,
+              0.035,
+              0.035,
+              1
+            ]
+          },
+          {
+            "name": "metal",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "eaeb1f77fec8261061cfb44890db9296c57f8bd3cdc70c09ca57364d7f60517d",
+            "rgba": [
+              0.65,
+              0.65,
+              0.65,
+              1
+            ]
+          },
+          {
+            "name": "neutral",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "20dff5b801dabbdc5d653e690ba63b00776e90227eea2447272b776034e4ebf8",
+            "rgba": [
+              0.55,
+              0.55,
+              0.55,
+              1
+            ]
+          },
+          {
+            "name": "red",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "ef3fd5b2c2b69ad084d1b3795a9e8f0406d338e1a602c4d8992ab6ebb4987bf1",
+            "rgba": [
+              0.5,
+              0.055,
+              0.035,
+              1
+            ]
+          },
+          {
+            "name": "rough",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "93559991d8dcec00a04b970e7507dc57b54a3d1cbff05a3eef3f390c11541727",
+            "rgba": [
+              0.22,
+              0.13,
+              0.055,
+              1
+            ]
+          },
+          {
+            "name": "white",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "1cf37ee5bda66ef441e8c39f02ed61bfc9f1d3bd8ed51d7f77c9c016d7057159",
+            "rgba": [
+              0.72,
+              0.72,
+              0.72,
+              1
+            ]
+          }
+        ]
+      },
+      "driver_sha256": "bd593f4967ac9e4aa62367598ba7fd604f8f1bf294775ea8fce6e35c93f16e51",
+      "native_readback_rgba": {
+        "neutral": [
+          0.55,
+          0.55,
+          0.55,
+          1.0
+        ],
+        "blue": [
+          0.04,
+          0.1,
+          0.4,
+          1.0
+        ],
+        "red": [
+          0.5,
+          0.055,
+          0.035,
+          1.0
+        ],
+        "rough": [
+          0.22,
+          0.13,
+          0.055,
+          1.0
+        ],
+        "white": [
+          0.72,
+          0.72,
+          0.72,
+          1.0
+        ],
+        "metal": [
+          0.65,
+          0.65,
+          0.65,
+          1.0
+        ],
+        "dark": [
+          0.035,
+          0.035,
+          0.035,
+          1.0
+        ]
+      },
+      "native_readback_max_error": 0.0,
+      "native_readback_passed": true,
+      "region_mean_rgb8": {
+        "left_wall": [
+          141.02094074074074,
+          19.5414,
+          17.212637037037037
+        ],
+        "right_wall": [
+          30.603568253968255,
+          73.42942222222223,
+          188.05516825396825
+        ],
+        "back_wall": [
+          188.1881657142857,
+          186.97492571428572,
+          189.4965542857143
+        ],
+        "white_sphere": [
+          223.17958333333334,
+          222.54196428571427,
+          224.11059523809524
+        ],
+        "metal_sphere": [
+          226.21,
+          225.141125,
+          226.214
+        ],
+        "rough_sphere": [
+          133.12535714285715,
+          87.34833333333333,
+          39.73095238095238
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "f11dd5263b83878995f89d99d1873d6908083415dc2491590e1dc3d79b1d1194",
+        "bytes": 1178897,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      }
+    }
+  ],
+  "positive_control": {
+    "left_red_margin_rgb8": 121.47954074074075,
+    "right_blue_margin_rgb8": 114.62574603174602,
+    "required_margin_rgb8": 20,
+    "passed": true
+  },
+  "full_image_difference_rgb8_mae": 90.94010769314237,
+  "failed_initial_control": {
+    "run_id": "20260909T111647-236f685881",
+    "run_manifest_sha256": "69958bfacf300f8a71939e14bbcbfff4e6cc1f39814b07524e5265acec055692",
+    "validation_run": "20260909T111635-a41ea9cda5",
+    "validation_manifest_sha256": "ba53115432756be0f3ba115ca94268e9459daa6991e7ff6ce690b05661df0c9e",
+    "console_sha256": "363311ae9ba840a7d40cf6ee1aa70081e55731602bb2d3c58d72350afa1817e6",
+    "native_script_sha256": "41c495c5ec76929ae33675c4f2159ab90384bf5b84f603e35045825ea726c11d",
+    "status": "failed",
+    "exit_code": 3,
+    "native_exit_code": 1,
+    "terminated_owned_process": true,
+    "error": "Workbench timed out. Logs retained; a modal dialog may require attention.",
+    "cause": "Probe treated GetMaterials slot names as resource paths. Fixed by binding each original slot to its verified .emat.meta GUID before LoadContainer."
+  },
+  "verified": {
+    "native_color_readback": true,
+    "wall_color_response": true,
+    "only_color_constants_changed": true,
+    "reference_photometry": false,
+    "roughness_and_metalness": false,
+    "aligned_appearance_pair": false,
+    "renderer_integration": false
+  },
+  "scope": "Material constant and visible surface-assignment control only. No neural processing or faithful appearance/performance claim.",
+  "next": "Import original asymmetric BCR/NMO textures, verify rendered UV/material response, and calibrate light/exposure against the reference. Supported scene inputs/output remain separate."
+}
