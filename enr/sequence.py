@@ -28,6 +28,12 @@ def load_config(path, *, validated_world=None):
                           ("settle_seconds",1,60),("timeout_seconds",10,600),
                           ("samples",1,300),("hold_ticks_per_sample",3,120),("playback_fps",1,60)]:
         number(c[key], low, high, key)
+    pitch_keys = ('pitch_start_degrees', 'pitch_end_degrees')
+    if any(key in c for key in pitch_keys):
+        if not all(key in c for key in pitch_keys):
+            raise ValueError('Pitch requires both path endpoints')
+        for key in pitch_keys:
+            number(c[key], -89, 89, key)
     if len(c["date"]) != 3 or any(type(v) is not int for v in c["date"]):
         raise ValueError("Date must contain three integers")
     date(*c["date"])
@@ -48,7 +54,8 @@ def camera(c, index):
     t = index / (c["samples"] - 1) if c["samples"] > 1 else 0
     p = np.array(c["position_start"]) + t * (np.array(c["position_end"]) - c["position_start"])
     yaw = math.radians(c["yaw_start_degrees"] + t*(c["yaw_end_degrees"]-c["yaw_start_degrees"]))
-    return p.tolist(), [math.sin(yaw), 0, math.cos(yaw)]
+    pitch = math.radians(c.get('pitch_start_degrees', 0) + t*(c.get('pitch_end_degrees', 0)-c.get('pitch_start_degrees', 0)))
+    return p.tolist(), [math.sin(yaw)*math.cos(pitch), math.sin(pitch), math.cos(yaw)*math.cos(pitch)]
 
 
 def prepare(project, c):
@@ -73,6 +80,8 @@ class ENR_SequenceConfig
  static vector End = {vec(c['position_end'])};
  static float YawStart = {c['yaw_start_degrees']};
  static float YawEnd = {c['yaw_end_degrees']};
+ static float PitchStart = {c.get('pitch_start_degrees', 0)};
+ static float PitchEnd = {c.get('pitch_end_degrees', 0)};
  static float FOV = {c['vertical_fov_degrees']};
  static float Near = {c['near_plane_m']};
  static float Far = {c['far_plane_m']};

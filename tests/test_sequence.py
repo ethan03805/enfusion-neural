@@ -25,6 +25,40 @@ class SequenceContract(unittest.TestCase):
         self.config["samples"] = 1
         self.assertEqual(camera(self.config,0)[0],self.config["position_start"])
 
+    def test_pitch_points_at_the_reference_target(self):
+        # Independent look-at vector for the material-room camera, mapped to Y-up.
+        c = copy.deepcopy(self.config)
+        c.update(samples=1, position_start=[0, 3, -7.5], position_end=[0, 3, -7.5],
+                 yaw_start_degrees=0, yaw_end_degrees=0,
+                 pitch_start_degrees=math.degrees(math.atan2(-1.8, 8.1)),
+                 pitch_end_degrees=math.degrees(math.atan2(-1.8, 8.1)))
+        position, direction = camera(c, 0)
+        target = [0, 1.2, 0.6]
+        distance = math.sqrt(sum((b-a)**2 for a,b in zip(position,target)))
+        for actual, a, b in zip(direction, position, target):
+            self.assertAlmostEqual(actual, (b-a)/distance)
+
+    def test_pitch_rejects_missing_endpoint_nonfinite_and_vertical_singularity(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp)/'config.json'
+            for fields in [{'pitch_start_degrees': 10},
+                           {'pitch_start_degrees': 0, 'pitch_end_degrees': float('nan')},
+                           {'pitch_start_degrees': -90, 'pitch_end_degrees': 0}]:
+                bad = copy.deepcopy(self.config); bad.update(fields)
+                path.write_text(json.dumps(bad))
+                with self.assertRaises(ValueError): load_config(path)
+
+    def test_pitched_capture_rejects_level_camera_readback(self):
+        self.config.update(pitch_start_degrees=-30, pitch_end_degrees=-30)
+        with tempfile.TemporaryDirectory() as temp:
+            c, events, run = self.fixture(temp)
+            path = Path(temp)/'console.log'
+            path.write_text('\n'.join('ENR '+json.dumps(e) for e in events))
+            self.assertEqual(len(verify(c,run)['frames']),2)
+            next(e for e in events if e['event']=='sample')['direction'] = [1,0,0]
+            path.write_text('\n'.join('ENR '+json.dumps(e) for e in events))
+            with self.assertRaisesRegex(ValueError,'Camera mismatch'): verify(c,run)
+
     def fixture(self,directory):
         c = copy.deepcopy(self.config);c["samples"]=2;c["dimensions"]=[128,128]
         delta = 128/(20*math.tan(math.radians(c["vertical_fov_degrees"])/2))

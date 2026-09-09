@@ -41,3 +41,15 @@ The [lighting study](lighting-study.md) now uses this room for a controlled with
 Keep this entire scene in one diagnostic group. Moving its camera, changing a material or rendering more noise seeds does not create an independent test scene. Add distinct scene families and asset provenance before assigning train, validation and test splits.
 
 A model trained only on this synthetic source cannot establish improvement in Enfusion. The next data step is to import the original geometry, reproduce the camera and lighting in an isolated engine scene, and check depth, silhouettes, normals, material interpretation and color transfer against these references. Engine exports must pass that check before becoming paired appearance data.
+
+## Engine import controls
+
+Seven isolated Workbench trials have not produced a usable room. All seven addons passed native script validation. Registration and the FBX handler stalled when starting with the unregistered source. Explicit model metadata allowed a build to finish, but its TXO contained only header tags and its XOB was 80 bytes. A fresh process could load that resource and reported **zero materials**. Load success alone is therefore insufficient.
+
+Blender independently reads all 12 meshes from the original FBX. A derived export adds explicit `_LOD0` object names; topology and material slots survive its roundtrip, with maximum coordinate drift below one micrometre. That export produced the same empty TXO/XOB. Calling the FBX handler after registration also returned, but retained the empty output. These observations narrow the import problem without establishing its cause.
+
+The [trial report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-material-import-v1.json) preserves every outcome and asset hash. The [review](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-material-import-review-v1.json) records the manually stopped trial and the earlier check that incorrectly accepted an empty resource. The current gate rejects missing or zero material sections. No imported-room picture exists to publish.
+
+Next, inspect the model import configuration and material assignments through the supported Workbench workflow. Require visible geometry, expected dimensions, all material regions and the original camera before comparing lighting. A matching camera needs approximately −12.53° pitch; the capture adapter now supports pitched paths, with CPU direction/readback checks and native compile validation. A pitched engine capture remains unverified. Geometry import and renderer integration are separate requirements.
+
+The probe tools are `scripts/prepare_enfusion_material_room.py`, `scripts/import_enfusion_material_room.py` and `scripts/summarize_enfusion_material_import.py`. Use `--help` for inputs and choose new output directories. The preparation script runs inside Blender and requires `--` before its arguments. Retain failed runs; do not promote a resource load to an accepted appearance pair.
