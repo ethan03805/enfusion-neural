@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "operation": "point-light-calibration-lock",
+  "plan_sha256": "a6344dc14cccc68d9e24585dc743274797866f816bcd9842eda9436f48558a2a",
+  "reference_exr_sha256": "53f3e1d625c2fb4fdebfa8ad4c8a50271edf06b05e3e0027c7dbfa99ed4b16a4",
+  "reference_generator_sha256": "b656eb8e2b293dacca6c96890fa3de61ee00f6a2397ca69af5f7025bcd8e45c2",
+  "photometry_sha256": "47b28f2ba1bafacf90e2e677cbae7d2ecd527c0a2679a8cdd818dc78b4cb44a9",
+  "locker_sha256": "72308d720e667b659781cc57a88231571f0f8880a3937d11801622ef0ccbe109",
+  "native_fit_inputs": [
+    {
+      "case": "lv8",
+      "run_id": "20260909T124448-969cd56cf1",
+      "image_sha256": "e53f1510aec49225e1ffee96e573c4c0b88b201fc9e4eb236df8f2226b2536b0"
+    },
+    {
+      "case": "lv10",
+      "run_id": "20260909T124523-a8fe6ae0d8",
+      "image_sha256": "879ea22ebd969cc3c905474506d8ff002057667fa5d010bb04893563e3c8a4c8"
+    },
+    {
+      "case": "lv12",
+      "run_id": "20260909T124558-b087489847",
+      "image_sha256": "cd8e1da3ec5baaf815eecd99627f0a67a85858a3c60c1c9e3321a89c5706778a"
+    }
+  ],
+  "fit": {
+    "slope": 1.1417137977850145,
+    "intercept": -14.413323201493062,
+    "fits": [
+      {
+        "case": "lv8",
+        "native_LV": 8,
+        "scalar_gain": 0.026179333592843728,
+        "source_mean_linear": 1.2633931636810303,
+        "engine_mean_rgb8": 50.879444444444445,
+        "clipped_fraction": 0.0,
+        "single_gain_patch_mae_rgb8": 0.7225069690947719
+      },
+      {
+        "case": "lv10",
+        "native_LV": 10,
+        "scalar_gain": 0.12119858587799147,
+        "source_mean_linear": 1.2633931636810303,
+        "engine_mean_rgb8": 108.88361904761905,
+        "clipped_fraction": 0.0,
+        "single_gain_patch_mae_rgb8": 1.255027036209257
+      },
+      {
+        "case": "lv12",
+        "native_LV": 12,
+        "scalar_gain": 0.6204674248896549,
+        "source_mean_linear": 1.2633931636810303,
+        "engine_mean_rgb8": 228.68484126984126,
+        "clipped_fraction": 0.0,
+        "single_gain_patch_mae_rgb8": 5.997508323845953
+      }
+    ],
+    "scope": "Candidate sRGB display/gain curve; does not prove native engine transfer or physical light units"
+  },
+  "scope": "Fit uses only the first LV8/LV10/LV12 images and one declared back-wall patch. All other images/patches are excluded from fitting. The reference role named direct permits one bounce; it is not a direct-light-only renderer."
+}

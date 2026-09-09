@@ -8,7 +8,8 @@ def check_readback(control, records):
     creation = ('created case=' + control['case'] + ' requested_lv=' + format(expected['native_LV'], '.9g')
                 + ' requested_rgb=1,1,1 requested_attenuation=2 requested_flare=-1')
     followup = control.get('clipping_followup')
-    count = 3 if followup else 2
+    clip_ev = followup['plan']['change']['requested_EV_bias'] if followup else control['plan']['light'].get('intensity_clip_ev_bias')
+    count = 3 if clip_ev is not None else 2
     if len(records) != count or records[0] != creation:
         raise ValueError('Light creation record differs or is incomplete')
     match = re.fullmatch(r'readback enabled=([01]) shadow=([01]) radius=([0-9.eE+\-]+) near=([0-9.eE+\-]+) position=<([^>]+)>', records[1])
@@ -24,8 +25,8 @@ def check_readback(control, records):
               'radius_raw': math.isclose(radius, spec['radius_m'], abs_tol=1e-5, rel_tol=0),
               'near_plane': math.isclose(near, spec['near_plane_m'], abs_tol=1e-5, rel_tol=0),
               'position': all(abs(a-b) <= .001 for a,b in zip(position, control['world_position']))}
-    if followup:
-        required = 'clip requested_ev=' + format(followup['plan']['change']['requested_EV_bias'], '.9g')
+    if clip_ev is not None:
+        required = 'clip requested_ev=' + format(clip_ev, '.9g')
         if records[2] != required:
             raise ValueError('Light clipping request record differs')
     return {'enabled': bool(int(match[1])), 'cast_shadow': bool(int(match[2])), 'radius_raw': radius,
