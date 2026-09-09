@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 8 September 2026. Milestone: a controlled synthetic lighting reconstruction study and an installed-SDK feasibility review. Read [objectives](vision.md) before choosing the next model or performance target.
+Updated 9 September 2026. Milestone: frozen-model scene transfer and camera/light motion evaluation. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
@@ -11,13 +11,14 @@ Updated 8 September 2026. Milestone: a controlled synthetic lighting reconstruct
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Eighteen-page Markdown documentation site with system/light/dark themes, still comparisons and a synchronized video; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Nineteen-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 - Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
 - Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
 - Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
-- Sixteen reviewed PNGs and one video with source records, hashes and attribution. The video and its poster explicitly record their scaling and compression; original source/model frame PNGs remain available.
+- Twenty-four reviewed PNGs and three videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
 - Eighteen original lighting cases with paired diffuse-bounce controls, 12 training/two validation/three test/one stress splits within one scene group, and two independent-seed reference checks. A 1,827-parameter scene-conditioned CPU model beats RGB-only and affine controls on the three test cases. Weights, gradients, serialization, features and partitioned inference are checked. See [lighting study](lighting-study.md); no game-frame saving or temporal fidelity is established.
 - Read-only [technical feasibility review](feasibility.md) of installed SDK declarations, asset-specific representations, photographs and data-use scope. Material replacement is documented; native scene buffers and output composition remain unverified.
+- [Frozen-model scene transfer and motion](lighting-motion.md): 32 frames in the original room and 32 in a new partitioned room, with an independent reference at every frame. No fitting or checkpoint selection on these paths. The scene-conditioned model lowers average error but loses to RGB-only on the new layout and worsens marking contrast. Mean temporal changes are too small relative to sampling noise to establish meaningful stability. Two synchronized source/model/reference clips and the preselected frame-16 stills are published.
 
 Exact observed results and limitations are in [evidence](evidence.md). The source commit and CI/deployment outcomes are visible in the repository history and Actions; do not assume later revisions have the same measurements.
 
@@ -36,11 +37,15 @@ Use the prepared environment with the documented dependencies. Reviewed manifest
 
 ## Next task
 
-Add a distinct original scene family and a smooth held-out camera/light path to the lighting study. Preserve markings and occlusion boundaries. Acceptance: fixed splits before training, an independent reference-noise check, improvement over identity/RGB/affine baselines, and reported boundary/temporal failures. The current model only learned one room; none of its test combinations establishes new-asset generalization.
+Design a scene-diversity and input-ablation experiment. Add multiple original training layouts and reserve a new untouched scene for evaluation. Compare the current feature contract with an ablation that excludes absolute world position under the same training budget. Keep current weights and both published motion paths as regression controls; these paths have now been inspected and must not serve as the sole unseen test for the next model.
+
+Acceptance: declare groups before fitting, beat identity and simple baselines on the untouched scene, preserve marking contrast and boundary/visibility tests, and use higher-convergence references to distinguish temporal behavior from sampling noise. The current experiment suggests dependence on training layout but does not isolate its cause. No broad scene/asset or temporal-fidelity gate has passed.
 
 In parallel, identify an authoritative supported renderer extension for a minimal identity/inversion control. Verify source color, required surface inputs, synchronization and presentation before scaling Reforger asset training. The [feasibility report](feasibility.md) separates documented declarations from tested capabilities. No native lighting-model implementation or timing exists yet.
 
 Current lighting evidence: `experiments/local/lighting-study-v1/` (18 rendered cases), `experiments/local/lighting-fit-v1b/` (published weights and predictions), and `evidence/lighting-study-v1.json` (all metrics and source records). Earlier `lighting-fit-v1/` is retained; it has identical numerical outputs before adding the portable JSON model contract. Both fits use the same fixed plan and hyperparameters.
+
+Current motion evidence: `experiments/local/lighting-motion-v1/` (192 source/paired-reference/independent-reference renders), `experiments/local/lighting-motion-evaluation-v1/` (all frozen model outputs), and `experiments/local/lighting-motion-video-v1b/` (published encoding). The earlier video directory is retained and has identical image/video bytes before normalizing portable report line endings. Reports are `evidence/lighting-motion-v1.json` and `evidence/lighting-motion-video-v1.json`. The renderer finished normally; it launched no Workbench process.
 
 ## Prior capture work
 

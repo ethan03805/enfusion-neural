@@ -12,6 +12,8 @@ The [camera-path adapter](docs/capture-controls.md) records verified sample tele
 
 The [lighting study](docs/lighting-study.md) trains a separate scene-conditioned model on 18 controlled synthetic cases and publishes before/after/reference images. It improves held-out view/light combinations within one room; engine integration, other assets, temporal fidelity and net frame savings remain unverified. Read the [technical feasibility review](docs/feasibility.md) before scaling asset-specific training.
 
+The [frozen-model motion test](docs/lighting-motion.md) adds 64 frames across the original room and a new partitioned layout, with independently sampled references and synchronized comparison clips. The model improves average error but loses its advantage over simpler methods on the new layout and makes marking contrast less accurate. Those regressions guide the next data/model experiment.
+
 This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
 
 ## Run

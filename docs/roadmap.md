@@ -34,7 +34,9 @@ Train a compact deterministic model on the accepted paired references. Begin wit
 
 Acceptance: blinded visual improvement with geometry, identity, visibility and temporal checks passing on held-out scenes. Publish failures. More parameters or an appealing single frame do not satisfy this gate.
 
-Next acceptance: a distinct original scene family and smooth held-out motion/light path; predeclared splits; source-only features; independent-noise references; boundary/marking and temporal comparisons against simple baselines. Keep test scenes out of model and checkpoint selection. Native execution must separately match the CPU lighting reference and measure feature/inference/composition cost.
+The [scene-transfer and motion test](lighting-motion.md) evaluates frozen models on two 32-frame paths, including a new partitioned layout. It retains independent references at every frame and records regional/temporal regressions. Average error improves, but the scene-conditioned model loses its advantage over RGB-only on the new layout and worsens marking contrast. The broad faithful-appearance gate remains open.
+
+Next acceptance: multiple original training layouts; a further untouched evaluation scene; a fixed-budget ablation of absolute world position; marking-contrast and boundary checks; higher-convergence temporal references. Treat the published paths as regression data. Keep new test scenes out of fitting and checkpoint selection. Native execution must separately match the CPU lighting reference and measure feature/inference/composition cost.
 
 ## 05 · Playable local demonstration
 

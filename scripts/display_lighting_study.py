@@ -22,7 +22,13 @@ def main():
     run = json.loads((root/"run.json").read_text()); render = json.loads((renders/"run.json").read_text())
     if run["status"] != "succeeded" or run["renderer_run_sha256"] != hashlib.sha256((renders/"run.json").read_bytes()).hexdigest():
         raise ValueError("Incomplete training or mismatched render run")
-    scene = bpy.context.scene; color = render["base_config"]["color"]
+    scene = bpy.context.scene
+    if "base_config" in render:
+        color = render["base_config"]["color"]
+    else:
+        color = render["sequences"][0]["config"]["color"]
+        if any(sequence["config"]["color"] != color for sequence in render["sequences"]):
+            raise ValueError("Sequence color conventions differ")
     for key,value in color.items(): setattr(scene.view_settings,key,value)
     scene.render.image_settings.file_format = "PNG"; scene.render.image_settings.color_mode = "RGBA"
     scene.render.image_settings.color_depth = "8"

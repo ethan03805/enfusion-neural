@@ -71,3 +71,9 @@ The [lighting study](lighting-study.md) contains 18 paired synthetic cases at 48
 The independent-seed test-view reference gives source/model errors of 2.523/0.847; the stress case gives 4.602/1.907. Noise, display roundtrip error, boundary/thin-post metrics, raw render-call timings and all individual cases are retained in [the full evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-study-v1.json). No native GPU execution, temporal acceptance, independent scene generalization or net engine-frame saving is established for this model.
 
 The [feasibility review](feasibility.md) records inspected SDK capabilities and research precedents separately from demonstrated integration. [SDK hashes and sources](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/feasibility-v1.json).
+
+## Frozen-model scene transfer and motion
+
+The [motion study](lighting-motion.md) evaluates 64 frames without retraining. Mean display RGB error is 2.670 → 0.881 in the original room and 2.954 → 2.335 in the new partitioned room. RGB-only gives 1.520 on the new room. The scene-conditioned model's marking-contrast error increases from 0.0195 to 0.0306 despite lower region-average error. Mean reprojected temporal error is slightly below identity, but five new-room transitions worsen and sampling-noise comparisons exceed the small average difference. No perceptual temporal acceptance is claimed.
+
+Every frame has an independent reference. Paired depth/object IDs match exactly; source-camera self-projection checks pass; temporal correspondence coverage is 88.4–92.6%; display roundtrip error is at most one code value and alpha is exact. [All frame/region/transition records](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-motion-v1.json) · [Complete encoded frame provenance](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-motion-video-v1.json).

@@ -48,4 +48,6 @@ The source sequence spans 21.762 simulation seconds and is retimed to four secon
 
 For a trained synthetic lighting comparison, see the [lighting study](lighting-study.md). Its model, source passes and reference targets are separate from the Arland v0 pipeline. The original [material room](material-room.md) documents reference generation.
 
+The [scene-transfer and motion page](lighting-motion.md) adds two synchronized source/model/reference clips using frozen lighting models, including the new-layout and marking-contrast regressions. Those original synthetic scenes are separate from the Arland captures above.
+
 Arma Reforger imagery © Bohemia Interactive a.s. This independent website is not affiliated with or authorized by Bohemia Interactive. Game names, designs and associated trademarks belong to their owners. Screenshots are shared under the [game content usage rules](https://www.bohemia.net/en/community/game-content-usage-rules); game imagery is outside this repository's MIT code license.
