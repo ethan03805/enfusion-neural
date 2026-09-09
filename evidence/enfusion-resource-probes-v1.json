@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded read-only Workbench resource and location inventory. No renderer texture or neural presentation bridge proven.",
+  "probes": [
+    {
+      "validation_run": "20260909T045953-fb1b171f0f",
+      "capture_run": "20260909T050008-19be4e5427",
+      "status": "succeeded",
+      "probe_sha256": "32337be217f60f514077b0ee03ff7d976d5d4c245f8716382cc42c6785616d8c",
+      "console_sha256": "85c77bb5a8ac75140b6396e7d1040f98d3c1b374787af0bbecc9ed02f1847c77",
+      "version": 1,
+      "validation_manifest_sha256": "33a83901bfe3f4d1fd584c1428522a86fe8961a79650060705f45a3794b53e96",
+      "capture_manifest_sha256": "2b399e3b6441933c9483e2e210dc7a3ef4ed694f4833be01a191fea0ccd54942",
+      "resource_summary_sha256": "b51235ffb28f6c8d329c8d9d1dd6f340eb9209454684fea15c46ed4cd98ec8f7",
+      "world": "worlds/Arland/Arland.ent",
+      "camera_position": [
+        2048.0,
+        60.0,
+        2048.0
+      ],
+      "camera_direction": [
+        1.0,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "addon_sha256": {
+        "addon.gproj": "021e05f928b266c882ed40e3ce1abd24722b83ece79615ebb24f6256b085dfe0",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "517468e7ee09357f522942712741038796a0e6ef99438babf5a0b7d0f73cf883",
+        "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "32337be217f60f514077b0ee03ff7d976d5d4c245f8716382cc42c6785616d8c"
+      },
+      "capture_image": {
+        "width": 2560,
+        "height": 1440,
+        "bytes": 6369099,
+        "sha256": "23d8bc3cca39ef44f2be62a12acf1a644d4b8b2fe3719955da01c2d6ec52160a"
+      },
+      "query_counts": [
+        "ENR_RESOURCE_DONE query=colorgrading count=0 success=1",
+        "ENR_RESOURCE_DONE query=postprocess count=0 success=1",
+        "ENR_RESOURCE_DONE query=lut count=291 success=1",
+        "ENR_RESOURCE_DONE query=M998 count=118 success=1",
+        "ENR_RESOURCE_DONE query=UAZ count=470 success=1",
+        "ENR_RESOURCE_DONE query=Character_US count=271 success=1",
+        "ENR_RESOURCE_DONE query=Everon count=38 success=1",
+        "ENR_LOCATION_DONE count=109"
+      ]
+    },
+    {
+      "validation_run": "20260909T050217-4a749ff61a",
+      "capture_run": "20260909T050230-3c4b840c92",
+      "status": "succeeded",
+      "probe_sha256": "7fe6ab569f19e9bef372c8062591df303498dfb912843843e8f989633b8f2ceb",
+      "console_sha256": "a6f3742325ec1b708488ad31bd90738f7ab7cc47e22ff882bd3b1e776fc626cf",
+      "version": 2,
+      "validation_manifest_sha256": "f3fe84e52062fd069256918e8570ba16c816805af5c0ae75820ea62f00000f6f",
+      "capture_manifest_sha256": "cf36533640b5f76f000ef27fd8ebcab174d2ca79ffd6dfd51ead033bb3022671",
+      "resource_summary_sha256": "312ecf08826bee421aa1a57da5590d6bb675edfd76a7c4d51a31eea69f9c495a",
+      "world": "worlds/Arland/Arland.ent",
+      "camera_position": [
+        2048.0,
+        60.0,
+        2048.0
+      ],
+      "camera_direction": [
+        1.0,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "addon_sha256": {
+        "addon.gproj": "fe12feb4a09204e8f789ac820084d56421cd5782d380bc34d8a41fa0ccb29b33",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "517468e7ee09357f522942712741038796a0e6ef99438babf5a0b7d0f73cf883",
+        "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "7fe6ab569f19e9bef372c8062591df303498dfb912843843e8f989633b8f2ceb"
+      },
+      "capture_image": {
+        "width": 2560,
+        "height": 1440,
+        "bytes": 6368091,
+        "sha256": "a237965ff88b0003847878f6a669b7b11b0142bf1d227007ad4a731996b6fa89"
+      },
+      "query_counts": [
+        "ENR_RESOURCE_DONE query=ColorGrading count=0 success=1",
+        "ENR_RESOURCE_DONE query=PostProcess count=0 success=1",
+        "ENR_RESOURCE_DONE query=LUT count=291 success=1",
+        "ENR_RESOURCE_DONE query=Color count=261 success=1",
+        "ENR_RESOURCE_DONE query=HDR count=48 success=1",
+        "ENR_LOCATION_DONE count=109"
+      ]
+    },
+    {
+      "validation_run": "20260909T050359-3c4057bd1d",
+      "capture_run": "20260909T050412-b03024bfe7",
+      "status": "succeeded",
+      "probe_sha256": "598f11646e92234a76024be1c05e8eace49be5db7d9bd99c074bb33f1a2c2ada",
+      "console_sha256": "eefebb94f184bf374f6cdad3b837e138b34383af0bbf645507ad8611cd6dd2cd",
+      "version": 3,
+      "validation_manifest_sha256": "c816366b2207bd9500170734c9d116932d2029bd7fc6299c90909005537a83e9",
+      "capture_manifest_sha256": "b057da7d15eff156aed7a98b97170fc5abc56cc8983054aac0f1e0e055413dc3",
+      "resource_summary_sha256": "040595e9683f0426dc398b02622b7e0eecaee91467061aaac2f909a46af56f17",
+      "world": "worlds/Arland/Arland.ent",
+      "camera_position": [
+        2048.0,
+        60.0,
+        2048.0
+      ],
+      "camera_direction": [
+        1.0,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "addon_sha256": {
+        "addon.gproj": "7eeb1d7bd3c57ab7034b66efec37d05122536ca7b8ab395becc3f26879963f69",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "517468e7ee09357f522942712741038796a0e6ef99438babf5a0b7d0f73cf883",
+        "Scripts/WorkbenchGame/ENR_ResourceProbe.c": "598f11646e92234a76024be1c05e8eace49be5db7d9bd99c074bb33f1a2c2ada"
+      },
+      "capture_image": {
+        "width": 2560,
+        "height": 1440,
+        "bytes": 6369216,
+        "sha256": "c70485a20d3852e8a2463763fe7d912e667c8b5fa675a5e51548816da29bed43"
+      },
+      "query_counts": [
+        "ENR_CORE_DONE query=system/materials count=9 success=1",
+        "ENR_CORE_DONE query=System/Materials count=9 success=1",
+        "ENR_CORE_DONE query=$core:system/materials count=9 success=1",
+        "ENR_CORE_DONE query=Common/PostProcess count=40 success=1",
+        "ENR_RESOURCE_DONE query=ColorGrade count=0 success=1",
+        "ENR_RESOURCE_DONE query=Post count=414 success=1",
+        "ENR_RESOURCE_DONE query=PP_ count=11 success=1",
+        "ENR_RESOURCE_DONE query=HDR count=48 success=1",
+        "ENR_LOCATION_DONE count=109"
+      ]
+    }
+  ],
+  "findings": {
+    "resource_database_does_not_list_all_readable_postprocess_materials": true,
+    "postprocess_files_under_Common_PostProcess": 40,
+    "observed_hdr_material_class": "HDREffect",
+    "observed_hdr_material_contains_LUT_parameter": false,
+    "all_asset_inventory_complete": false,
+    "live_neural_bridge_verified": false
+  },
+  "next_probes": [
+    "Documented screenshot texture copy and local-file image presentation",
+    "Verified world resource discovery and varied town/interior/vehicle/character captures",
+    "Required scene buffers, frame identity and presentation stage remain unresolved"
+  ],
+  "observed_locations": [
+    "ENR_LOCATION name=Harbour_2 type=58 position=<3386.2,0,2973.09>",
+    "ENR_LOCATION name=Beauregard_Bay type=68 position=<3265.95,0,3198.08>",
+    "ENR_LOCATION name=Beauregard type=59 position=<3165.96,11.605,2800.03>",
+    "ENR_LOCATION name=Arleville_Heights type=64 position=<3184.54,66.258,1603.96>",
+    "ENR_LOCATION name=Harbour type=58 position=<3211.26,0,1124.03>",
+    "ENR_LOCATION name=Arleville type=59 position=<2776.83,75.094,1623.51>",
+    "ENR_LOCATION name=Harbour_3 type=58 position=<1029.17,0,3325.67>"
+  ]
+}

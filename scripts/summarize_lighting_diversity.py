@@ -77,11 +77,13 @@ def main():
     for s in report['sequences']:
         cases=[c for c in report['cases'] if c['sequence']==s['id']]
         s.update(summarize(cases,report['selected_candidate'],report['plan']['gates']))
-    expected=report['plan']['test_sequence']['frames']+sum(len(s['frames']) for s in report['regression_rendering']['sequences'])
+    scope=report['evaluation_scope']
+    expected=(report['plan']['test_sequence']['frames'] if scope!='regression' else 0)
+    if scope!='test':expected+=sum(len(s['frames']) for s in report['regression_rendering']['sequences'])
     if len(report['cases'])!=expected:raise ValueError('Missing test/regression cases')
     report['verification']={'all_display_roundtrips_within_one_code_value':True,'all_output_alpha_exact':True,
-                            'frozen_models':True,'all_test_and_regression_frames_reported':True,
-                            'test_gate_passed':next(s['passed'] for s in report['sequences'] if s['split']=='test'),
+                            'frozen_models':True,'all_frames_in_declared_scope_reported':True,
+                            'test_gate_passed':next((s['passed'] for s in report['sequences'] if s['split']=='test'),None),
                             'live_engine_performance_verified':False}
     write(a.out,report)
     print(json.dumps({'candidate':report['selected_candidate'],'sequences':report['sequences']},indent=2))

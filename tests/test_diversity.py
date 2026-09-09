@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -24,6 +25,18 @@ class DiversityTests(unittest.TestCase):
             elif mutation=='case':p['cases'][0]['split']='test'
             else:p['cases'].pop()
             with self.assertRaises(ValueError):diversity.validate_plan(p)
+
+    def test_committed_model_lock_binds_weights_fit_report_and_plan(self):
+        folder=ROOT/'models/lighting-diversity-v1';lock=json.loads((folder/'model-lock.json').read_text())
+        def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+        self.assertEqual(lock['plan_sha256'],digest(ROOT/'scenes/lighting-diversity-v1.json'))
+        self.assertEqual(lock['fit_report_sha256'],digest(ROOT/'evidence/lighting-diversity-fit-v1.json'))
+        for name,entry in lock['models'].items():
+            self.assertEqual(entry['sha256'],digest(folder/entry['file']))
+            if name in diversity.FEATURE_COLUMNS:
+                _,model=lighting.load(folder/entry['file'])
+                self.assertEqual(model['features'],diversity.names(name))
+        self.assertTrue(lock['training_complete']);self.assertFalse(lock['test_accessed'])
 
     def test_fit_manifest_rejects_test_phase_or_additional_case(self):
         run={'status':'succeeded','phase':'fit','plan':self.plan,'cases':copy.deepcopy(self.plan['cases']),

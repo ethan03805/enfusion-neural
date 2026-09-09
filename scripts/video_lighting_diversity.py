@@ -10,7 +10,7 @@ from lighting_diversity_data import sha,write
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',required=True);p.add_argument('--report',required=True);p.add_argument('--out',required=True)
     a=p.parse_args();root=Path(a.root);report=json.loads(Path(a.report).read_text());out=Path(a.out)
-    if report['status']!='succeeded' or not all(report['verification'][k] for k in ('all_display_roundtrips_within_one_code_value','all_output_alpha_exact','frozen_models','all_test_and_regression_frames_reported')):
+    if report['status']!='succeeded' or not all(report['verification'][k] for k in ('all_display_roundtrips_within_one_code_value','all_output_alpha_exact','frozen_models','all_frames_in_declared_scope_reported')):
         raise ValueError('Unverified evaluation')
     out.mkdir(parents=True,exist_ok=False);w,h=report['plan']['dimensions'];font=ImageFont.load_default(size=16)
     result={'schema_version':1,'status':'running','report_sha256':sha(a.report),'encoder_sha256':sha(__file__),

@@ -23,15 +23,21 @@ def marking_contrast(value,ids,objects):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--test-root',required=True);p.add_argument('--models',required=True)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--test-root');p.add_argument('--models',required=True)
     p.add_argument('--regression-root',required=True);p.add_argument('--out',required=True)
-    a=p.parse_args();test_root=Path(a.test_root).resolve();model_root=Path(a.models).resolve();old_root=Path(a.regression_root).resolve();out=Path(a.out).resolve()
-    test=json.loads((test_root/'run.json').read_text());plan=json.loads((ROOT/'scenes/lighting-diversity-v1.json').read_text())
+    p.add_argument('--scope',choices=['all','test','regression'],default='all')
+    a=p.parse_args();test_root=Path(a.test_root).resolve() if a.test_root else None
+    model_root=Path(a.models).resolve();old_root=Path(a.regression_root).resolve();out=Path(a.out).resolve()
+    plan=json.loads((ROOT/'scenes/lighting-diversity-v1.json').read_text());test=None
     diversity.validate_plan(plan);lock_path=model_root/'model-lock.json';lock=json.loads(lock_path.read_text())
-    if test['status']!='succeeded' or test['phase']!='test' or test['plan']!=plan or test['plan_sha256']!=sha(ROOT/'scenes/lighting-diversity-v1.json'):
-        raise ValueError('Incomplete or changed test definition')
-    if test['model_lock_sha256']!=sha(lock_path) or lock['test_accessed'] or not lock['training_complete']:
+    if lock['plan_sha256']!=sha(ROOT/'scenes/lighting-diversity-v1.json') or lock['test_accessed'] or not lock['training_complete']:
         raise ValueError('Test did not follow a frozen validation selection')
+    if a.scope!='regression':
+        if not test_root:raise ValueError('Test evaluation needs --test-root')
+        test=json.loads((test_root/'run.json').read_text())
+        if test['status']!='succeeded' or test['phase']!='test' or test['plan']!=plan or test['plan_sha256']!=lock['plan_sha256']:
+            raise ValueError('Incomplete or changed test definition')
+        if test['model_lock_sha256']!=sha(lock_path):raise ValueError('Test model lock changed')
     models={};affines={}
     for name,entry in lock['models'].items():
         path=model_root/entry['file']
@@ -48,23 +54,26 @@ def main():
         if sha(path)!=definition['sha256']:raise ValueError('Frozen regression control changed')
         models['old-'+name]=lighting.load(path)[0]
     out.mkdir(parents=True,exist_ok=False)
-    report={'schema_version':1,'status':'running','plan':plan,'plan_sha256':test['plan_sha256'],
-            'renderer_run_sha256':sha(test_root/'run.json'),'regression_run_sha256':sha(old_root/'run.json'),
+    report={'schema_version':1,'status':'running','evaluation_scope':a.scope,'plan':plan,'plan_sha256':lock['plan_sha256'],
+            'renderer_run_sha256':sha((test_root if test else old_root)/'run.json'),'regression_run_sha256':sha(old_root/'run.json'),
             'model_lock':lock,'model_lock_sha256':sha(lock_path),'evaluator_sha256':sha(__file__),
             'temporal_code_sha256':sha(ROOT/'enr/temporal.py'),'model_code_sha256':sha(ROOT/'enr/lighting.py'),
             'selected_candidate':lock['selected_candidate'],'training_performed':False,'selection_performed':False,
-            'rendering':test,'regression_rendering':old,'sequences':[],'cases':[]}
+            'rendering':test if test else old,'regression_rendering':old,'sequences':[],'cases':[]}
     def save():write(out/'run.json',report)
     save()
     try:
         definition=next(s for s in plan['scenes'] if s['split']=='test');motion=plan['test_sequence']
-        if len(test['cases'])!=motion['frames'] or set(test['scenes'])!={definition['id']}:raise ValueError('Missing/unplanned test frames')
-        path_plan={**motion,'camera_target':plan['camera_target']}
-        temporal.validate_sequence({'id':definition['id'],'frames':test['cases']},{'id':definition['id']},path_plan)
-        sequences=[(definition['id'],'test',test['cases'],test['scenes'][definition['id']],plan['evaluation_samples'])]
-        for s,d in zip(old['sequences'],old['plan']['sequences']):
-            temporal.validate_sequence(s,d,old['plan'])
-            sequences.append((s['id'],'regression',s['frames'],s,old['plan']['samples']))
+        sequences=[]
+        if test:
+            if len(test['cases'])!=motion['frames'] or set(test['scenes'])!={definition['id']}:raise ValueError('Missing/unplanned test frames')
+            path_plan={**motion,'camera_target':plan['camera_target']}
+            temporal.validate_sequence({'id':definition['id'],'frames':test['cases']},{'id':definition['id']},path_plan)
+            sequences.append((definition['id'],'test',test['cases'],test['scenes'][definition['id']],plan['evaluation_samples']))
+        if a.scope!='test':
+            for s,d in zip(old['sequences'],old['plan']['sequences']):
+                temporal.validate_sequence(s,d,old['plan'])
+                sequences.append((s['id'],'regression',s['frames'],s,old['plan']['samples']))
         for seq,split,cases,scene,samples in sequences:
             summary={'id':seq,'split':split,'frames':len(cases),'samples':samples,'playback_fps':20,
                      'publication_frame':motion['publication_frame'] if split=='test' else old['plan']['publication_frame']}
