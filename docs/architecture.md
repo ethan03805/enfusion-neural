@@ -26,6 +26,8 @@ Enfusion Lab export or original procedural fixture
 | `enr/motion.py` | Per-frame GPU/CPU verification and synchronized video encoding |
 | `scripts/render_material_room.py` | Original Cycles scene and aligned reference generation |
 | `scripts/check_material_room.py` | All-part EXR validation, geometry and noise checks |
+| `scripts/import_enfusion_material_room.py` | Isolated asynchronous original-mesh build and separate native load |
+| `scripts/capture_enfusion_material_room.py` | Original mesh placement with the reference camera; appearance calibration remains open |
 | `scenes/` | Versioned scene definitions and control settings |
 | `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
 | `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |
@@ -52,6 +54,8 @@ The file backend accepts dimensions from 1 to 16,384 per axis, with at most 16,7
 Before live integration, a versioned frame must identify color format and transfer, dimensions, frame ID, timestamp, camera/projection and exposure convention. Optional depth, normals, motion, material data and protected masks need explicit availability flags and separate validation.
 
 Native integration must establish device/queue ownership, resource lifetime, barriers, fences and the presentation stage. Reset temporal history on camera cuts, resolution changes, scope transitions, invalid inputs and device recreation. Until a supported bridge proves these rules, image export remains the only implemented Enfusion interface.
+
+The original material-room adapter now imports mesh resources and places them in an isolated simulation. Resource building is asynchronous: the runner keeps its editor alive through build observation, then validates loading in a separate process. Vertex comparisons use the original FBX and Enfusion TXO without fitting; camera pitch is an optional sequence field and passes runtime readback. This establishes a geometric fixture, not matching appearance or a renderer-buffer interface.
 
 ## Lighting study
 
