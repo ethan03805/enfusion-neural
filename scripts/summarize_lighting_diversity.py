@@ -9,10 +9,10 @@ from lighting_diversity_data import sha,write
 def read(path):return np.array(Image.open(path).convert('RGBA'))
 
 
-def summarize(cases,candidate,gates):
+def summarize(cases,candidate,gates,include_display=True):
     names=list(cases[0]['metrics']);pairs=[c for c in cases if 'temporal' in c]
     result={'mean_log1p_rmse':{n:float(np.mean([c['metrics'][n]['all']['log1p_rmse'] for c in cases])) for n in names},
-            'mean_display_rgb_mae_8bit':{n:float(np.mean([c['outputs'][n]['rgb_mae_8bit'] for c in cases])) for n in names},
+            'mean_display_rgb_mae_8bit':{n:float(np.mean([c['outputs'][n]['rgb_mae_8bit'] for c in cases])) for n in names} if include_display else None,
             'mean_temporal_error_rmse':{n:float(np.mean([c['temporal']['error_change'][n]['rmse'] for c in pairs])) for n in names},
             'mean_reference_seed_log1p_rmse':float(np.mean([c['reference_seed_difference']['log1p_rmse'] for c in cases])),
             'temporal_coverage_min_mean_max':[float(f([c['temporal']['coverage']['valid_fraction'] for c in pairs])) for f in (np.min,np.mean,np.max)]}
