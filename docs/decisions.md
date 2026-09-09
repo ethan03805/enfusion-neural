@@ -44,7 +44,9 @@ Accepted 8 September 2026. Capture numbered frames along one fixed path, hold th
 
 ## 010 · Separate stored settings from viewport verification
 
-Accepted. Start Workbench with isolated editor, engine and diagnostic settings files. Validate actual camera projection, exposure, environment, exported dimensions and engine setting readback. Do not infer main-viewport scale or FSR from the unrelated 128 × 128 game workspace. The current capture contract leaves those fields unverified until a positive control succeeds.
+Accepted. Start Workbench with isolated editor, engine and diagnostic settings files. Validate actual camera projection, exposure, environment, exported dimensions and engine setting readback. Do not infer main-viewport scale or FSR from workspace settings or startup preview dimensions. The current capture contract leaves those fields unverified until a positive control succeeds.
+
+Follow-up probes confirm diagnostic-file loading, but neither diagnostic resolution presets nor workspace controls establish the main viewport's behavior. The workspace changes dimensions after startup, so readback timing must be explicit. The separate render-target callback rejects export. Preserve these negative results and keep the existing capture contract unchanged; see [the investigation](capture-controls.md#diagnostic-investigation).
 
 ## 011 · Original path-traced reference data
 
