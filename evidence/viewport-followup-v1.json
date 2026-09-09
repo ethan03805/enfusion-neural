@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scope": "Follow-up UI inspection and settings-change notification probe. Internal viewport scale/FSR remain unverified.",
+  "viewport_scale_verified": false,
+  "viewport_fsr_verified": false,
+  "ui_inspection": {
+    "run_id": "20260909T020324-c126a31578",
+    "runner_status": "failed",
+    "process_exit_code": 0,
+    "capture_accepted": false,
+    "reason": "Exited simulation to inspect native editor menus, then closed the isolated Workbench normally before its capture deadline.",
+    "observations": [
+      "UI inspection completed with user permission. Workbench 1.8.0.13.",
+      "Read Resource Manager File > Options: General and World Editor tabs. These are editor preferences (FPS cap, autosave, selection outlines, etc.). Cancelled without applying changes.",
+      "Read File > Project Settings for the isolated addon: PC configuration, engine default settings, engine settings path EngineUserSettings.conf. Cancelled without applying changes. No main-viewport effective scale/FSR readout was observed.",
+      "Returned the isolated World Editor from simulation to edit mode. Read Shading (Lighting, Channels), View (visualizers/gizmos/world bounds), Camera (near/far/FOV/aspect ratio and navigation). No scale/FSR control was observed in those menus.",
+      "Exited only the isolated Workbench instance via its close button. The runner recorded natural exit 0 without capture completion; this run is UI inspection evidence, not a capture.",
+      "No UI screenshots were saved or published."
+    ],
+    "notes_sha256": "54d646c0b33a4490830c5fa21083342e814f48797b84b36e7532591b77e06811"
+  },
+  "notification_probe": {
+    "run_id": "20260909T021217-53c09a57b5",
+    "capture_status": "succeeded",
+    "sequence_status": "succeeded",
+    "addon_sha256": {
+      "addon.gproj": "be869ab935f8c645ec91f8dc002947465c067d9a4184e64dd463a7f93a18ae53",
+      "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+      "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Scripts/Game/ELab_GameCapture.c": "cb79da46b3c388d9fa8d777a6d7076cc28193a808c488a2bd5de159e5158f204",
+      "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+      "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+      "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+      "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+      "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+    },
+    "operation": "After two simulation seconds, set VideoUserSettings.ResolutionScale to 0.25, set FsrEnabled to false and call GetGame().UserSettingsChanged() once. Continue the controlled camera and environment capture. No SaveUserSettings call.",
+    "notification_log": [
+      "ENR_NOTIFY settings changed, scale=0.25, fsr=false"
+    ],
+    "image": {
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "sha256": "ed7b8ed63f658424d30c1d48a74d44b8c93ee6f08328fa560ae42d725ec9010a",
+      "horizontal_rgb_gradient_mae": 4.9448495144225895,
+      "measurement": "Mean absolute horizontal RGB difference in 8-bit code values, no resizing or alignment. Descriptive only; not an estimator of internal resolution."
+    },
+    "visual_review": "Forest, terrain and sky remain detailed, without a clear quarter-resolution effect. No image published.",
+    "limits": [
+      "Set calls and notification were requested; this probe does not verify the effective render pipeline state.",
+      "The normal sequence contract is still insufficient to establish internal scale or FSR."
+    ]
+  }
+}
