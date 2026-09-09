@@ -2,7 +2,13 @@
 
 The [reference scene pack](reference-scenes.md#first-measured-batch) adds nine repeated captures with verified camera/environment settings and measured image differences. The earlier model execution results follow below.
 
-Measured locally on 8 September 2026. The results establish an offline neural path on the recorded test configuration. They do not establish photorealism or live game performance.
+Measured locally on 8–9 September 2026. The results establish an offline neural path on the recorded test configuration. They do not establish photorealism or live game performance.
+
+## Camera color lookup
+
+The [static lookup controls](color-lookup.md) verify three original compiled 16³ volumes and visible native camera effects. Seven priority-19 captures pass native request/readback checks. A constant [51, 102, 204] lattice produces a uniform [123, 169, 231] export, so visible application passes while direct display-code mapping fails. Identity, inversion, constant and removal CPU-hypothesis MAE values are 1.286, 69.798, 55.333 and 0.474. Three off captures vary by 0.561–2.475 MAE, with maximum channel difference 194. No color-accuracy or motion gate passes by inference from these diagnostics.
+
+All nine images, including the rejected priority-1000 identity control and its baseline, are retained. A silent inventory callback failure is also recorded before the successful native inspection. This effect runs no trained model and supplies no scene buffers or complete-frame performance result. [Metrics, original build checks and native provenance](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-color-lookup-v1.json).
 
 ## Point-light calibration
 

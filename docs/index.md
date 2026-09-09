@@ -10,6 +10,7 @@ This repository contains Workbench capture tools, reference scene definitions, a
 | [Get started](getting-started.md) | Build, train and run the first neural component |
 | [Reference scenes](reference-scenes.md) | Capture repeated views and measure image differences |
 | [Capture controls](capture-controls.md) | Camera path, verified settings and remaining viewport limitations |
+| [Color lookup](color-lookup.md) | Native camera effect, failed display-color hypothesis and all controls |
 | [Material room](material-room.md) | Original geometry and aligned synthetic lighting targets |
 | [Lighting study](lighting-study.md) | Trained lighting correction, baselines and held-out comparisons |
 | [Scene transfer and motion](lighting-motion.md) | Frozen-model evaluation on a new layout and moving camera/light paths |

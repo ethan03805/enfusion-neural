@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "scope": "All nine retained native controls, inspected at original 2560 by 1440 resolution.",
+  "frames": [
+    {
+      "trial": "color-lookup-off-v1",
+      "sha256": "3a581aca1af87964d9a7cfd5f38925d98efa24c5838d9bb580c274e24a697f95",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Normal forest view with blue sky, pines, shadowed foliage, clearing and a small building. Initial baseline capture; no effect claimed."
+    },
+    {
+      "trial": "color-lookup-identity-v1",
+      "sha256": "4732bdfc675639235f0b12b1a60068bdce1109f29e09dd4086aca7061cc065eb",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Normal forest appearance. The native log explicitly rejects priority 1000; this image does not verify identity-effect application."
+    },
+    {
+      "trial": "color-lookup-off-v2",
+      "sha256": "a8ee45daf7ae17ba64227bb5a6a8919ac481942f8d7d47b76c9e1fdadf9cc6c9",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Normal forest view with blue sky, pines, ground shadows and small building."
+    },
+    {
+      "trial": "color-lookup-identity-v2",
+      "sha256": "6839c6f79d6c30984293d1d76f90d94289fb58697c51cc727373bb63a20435df",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Forest retains normal colors and visible silhouettes, with no obvious large color shift. Visual similarity does not imply pixel equality."
+    },
+    {
+      "trial": "color-lookup-inversion-v2",
+      "sha256": "4ae18216e2d6dbcd7717c27743ff301a6b9db147f2d8a6f9308c29d1dab91d05",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Strong color change in the actual engine image: peach-orange sky, near-white forest and pale cyan/purple ground. Tree and terrain silhouettes remain visible."
+    },
+    {
+      "trial": "color-lookup-constant-v2",
+      "sha256": "8c56e4b7dd2edd8f54e65e310a2068572a5b04b3da6b903ed76b2b3259b0ea6e",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Uniform light blue across the full frame; forest detail is no longer visible. This is a positive effect control, not neural output."
+    },
+    {
+      "trial": "color-lookup-removed-v2",
+      "sha256": "55fe66963da6e932cd00e1a9cd0677ddbbf60a6b35beacb5e499c23c90624021",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Normal forest appearance returns after apply/remove requests before settling. This does not test removal during motion or prove pixel equality."
+    },
+    {
+      "trial": "color-lookup-off-repeat2-v2",
+      "sha256": "5887253af0906c7047e87f8093382674661bc2ad80f2683102bdb1cdb43b7726",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Full-size forest remains visibly complete, with blue sky, fine pine branches, ground vegetation, rocks, shadows and the small building. No obvious missing region."
+    },
+    {
+      "trial": "color-lookup-off-repeat3-v2",
+      "sha256": "1b459f486bf9539ba8a19cdbf0567f961004b33c0120bf481430aeca324dd8bb",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "full_size_inspected": true,
+      "observation": "Full-size forest remains visibly complete, with blue sky, fine pine branches, ground vegetation, rocks, shadows and the small building. No obvious missing region; repeatability requires numerical comparison."
+    }
+  ]
+}

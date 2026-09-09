@@ -2,7 +2,7 @@
 
 The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
 
-**Immediate next task:** inspect the supported color-grading material schema, then declare and test an original identity/known-color lookup control. The [integration plan](integration.md#color-lookup-control) defines the required evidence and its limited scope. Prove import, effect placement, numerical response and removal before using a trained transform. This route does not supply the full lighting model's scene inputs, and its success cannot close the broader integration goal.
+**Immediate next task:** characterize the color transfer and sampling of the visibly working [camera lookup](color-lookup.md), using separately declared constant colors and ramps. Original volume pixels and native effect response are verified. Direct display-code mapping fails, and independent off captures vary. Fix the convention and numerical limits before reserved color controls, then test activation/removal during motion, camera cuts, exposure changes and a second resolution. Keep the full lighting-model input/execution bridge as a separate requirement; a lookup does not supply its scene inputs.
 
 The [point-light calibration](light-calibration.md) is complete and fails seven of 22 reserved response checks. All eight native captures, four reference passes, unchanged fit coefficients and failures are retained. Before accepting an appearance-training pair, separately isolate environment/reflection contributions and verify color/material response on independent controls. Do not rerun the same fit, select a new curve on reserved data or loosen its thresholds. The original area-light fixture and locked models remain unchanged.
 
