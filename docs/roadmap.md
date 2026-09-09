@@ -2,6 +2,8 @@
 
 The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
 
+**Immediate next task:** establish controlled illumination and reflections in the imported original room. The [packed-texture controls](material-room.md#packed-texture-controls) now verify visible roughness/metalness changes, but the shiny sphere reflects exterior scenery. Acceptance: declared light/environment controls with native readback and positive image controls; fixed exposure/color mapping checked on independent patches; three repeat captures; a documented engine/reference correspondence with residual mismatches retained. Do not use the current outdoor capture as an aligned appearance target. Supported scene inputs/output remain a separate required integration gate.
+
 ## 01 · Neural foundation
 
 Train a small network, execute it on the recorded test configuration, compare every pixel with an independent reference and retain raw timings. Provide an engine-independent core, reproducible commands, CI and documentation. This repository begins here; see [evidence](evidence.md) for measured scope.

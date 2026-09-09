@@ -62,6 +62,8 @@ The surface checker compares faces by their existing vertex identities, then nor
 
 The optional material-room color control changes only `Color` in fresh copied material files. Mesh material slots are names, so the reader binds them to the original GUIDs from verified metadata before loading containers. The verifier checks unchanged geometry/metadata/configuration, exact declared material edits, native RGBA readback and preselected image regions. This verifies a visible material assignment workflow, not a reference photometric mapping or neural rendering pass.
 
+Original texture controls use `scripts/generate_enfusion_room_textures.py`, `scripts/build_enfusion_room_textures.py` and the optional `--texture-build/--texture-case` room-capture arguments. The asynchronous build retains TIFF sources, typed import metadata and compiled textures. Fresh addon captures bind materials to those assets and record native Color/BCRMap/NMOMap readback. The summarizer verifies source-channel isolation and image response; the orientation checker projects declared points analytically through the camera. This fixture supports appearance calibration but provides no scene-buffer or output-composition interface.
+
 ## Lighting study
 
 The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.

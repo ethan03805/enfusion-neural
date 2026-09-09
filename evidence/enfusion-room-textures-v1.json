@@ -1,0 +1,5351 @@
+{
+  "schema_version": 1,
+  "operation": "original-room-packed-texture-controls",
+  "evidence_verification": "succeeded",
+  "summarizer_sha256": "6391d2a9aaaa6a584d69ac3275e0270be85133018a97d2794228807c4c61f049",
+  "plan": {
+    "schema_version": 1,
+    "id": "material-room-texture-control-v1",
+    "source_scene": "scenes/material-room-v1.json",
+    "license": "MIT; original procedural texture patterns and material constants",
+    "texture_dimensions": [
+      512,
+      512
+    ],
+    "source_format": "RGBA8 TIFF with LZW compression",
+    "encoding": {
+      "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+      "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+      "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+      "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+      "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+    },
+    "cases": [
+      "orientation",
+      "packed",
+      "metal-matte",
+      "metal-dielectric"
+    ],
+    "case_changes": {
+      "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+      "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+      "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+      "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+    },
+    "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+    "orientation_probe_points_room_xyz": [
+      [
+        -1.8,
+        2.2,
+        2.9
+      ],
+      [
+        1.8,
+        2.2,
+        2.9
+      ],
+      [
+        -1.8,
+        3.4,
+        2.9
+      ],
+      [
+        1.8,
+        3.4,
+        2.9
+      ]
+    ],
+    "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+    "response_region_xyxy": [
+      1150,
+      620,
+      1410,
+      740
+    ],
+    "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+    "unchanged": [
+      "original mesh and material GUIDs",
+      "camera",
+      "environment",
+      "exposure",
+      "render settings"
+    ],
+    "limits": [
+      "No neural processing",
+      "No renderer-buffer interface",
+      "Outdoor illumination is not the reference area light",
+      "Textures and raster response need native verification before acceptance"
+    ]
+  },
+  "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+  "source": {
+    "schema_version": 1,
+    "operation": "original-room-packed-texture-generation",
+    "status": "succeeded",
+    "generator_sha256": "d3abe3f51da22d169ffd3865f1ba58f391093d08e28fa46143744407bf9e9822",
+    "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+    "plan": {
+      "schema_version": 1,
+      "id": "material-room-texture-control-v1",
+      "source_scene": "scenes/material-room-v1.json",
+      "license": "MIT; original procedural texture patterns and material constants",
+      "texture_dimensions": [
+        512,
+        512
+      ],
+      "source_format": "RGBA8 TIFF with LZW compression",
+      "encoding": {
+        "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+        "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+        "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+        "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+        "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+      },
+      "cases": [
+        "orientation",
+        "packed",
+        "metal-matte",
+        "metal-dielectric"
+      ],
+      "case_changes": {
+        "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+        "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+        "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+        "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+      },
+      "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+      "orientation_probe_points_room_xyz": [
+        [
+          -1.8,
+          2.2,
+          2.9
+        ],
+        [
+          1.8,
+          2.2,
+          2.9
+        ],
+        [
+          -1.8,
+          3.4,
+          2.9
+        ],
+        [
+          1.8,
+          3.4,
+          2.9
+        ]
+      ],
+      "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+      "response_region_xyxy": [
+        1150,
+        620,
+        1410,
+        740
+      ],
+      "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+      "unchanged": [
+        "original mesh and material GUIDs",
+        "camera",
+        "environment",
+        "exposure",
+        "render settings"
+      ],
+      "limits": [
+        "No neural processing",
+        "No renderer-buffer interface",
+        "Outdoor illumination is not the reference area light",
+        "Textures and raster response need native verification before acceptance"
+      ]
+    },
+    "source_scene_sha256": "331f0c85f709c1b13f5cab78320a281ca6dd77a593476fa87f817b5c5baa4b9a",
+    "textures": [
+      {
+        "name": "blue_BCR",
+        "file": "blue_BCR.tif",
+        "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68",
+        "bytes": 14282,
+        "pixel_sha256": "467deb0446c36f22b573797dff13ed383c555abec170bfdbbbf5794e85aa5379",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          56,
+          89,
+          170,
+          153
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "blue_NMO",
+        "file": "blue_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "dark_BCR",
+        "file": "dark_BCR.tif",
+        "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781",
+        "bytes": 14266,
+        "pixel_sha256": "a275e12436b04504d0b5b82ca54c145044389dfef6707dc5cc5fc1a2f1bfa4b7",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          53,
+          53,
+          53,
+          128
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "dark_NMO",
+        "file": "dark_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "metal_BCR",
+        "file": "metal_BCR.tif",
+        "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85",
+        "bytes": 14266,
+        "pixel_sha256": "4629fce7e956109f9ee84c11056d28bb66401734f1c3ee8eb4f676c01b0599ef",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          211,
+          211,
+          211,
+          38
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "metal_NMO",
+        "file": "metal_NMO.tif",
+        "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf",
+        "bytes": 14282,
+        "pixel_sha256": "9671e84e7218c48068d96399f6054a7ff7381b4a8747c105a3fad8ac6b4f9c3f",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          255,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "neutral_BCR",
+        "file": "neutral_BCR.tif",
+        "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0",
+        "bytes": 14266,
+        "pixel_sha256": "449567c88a4c1718a277b960873e985d4d5b101fbf9551930974f087d1d76aff",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          196,
+          196,
+          196,
+          153
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "neutral_NMO",
+        "file": "neutral_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "red_BCR",
+        "file": "red_BCR.tif",
+        "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14",
+        "bytes": 14282,
+        "pixel_sha256": "cd0c1ad4592f2ec4e86c5ac5453de3f66e7e7d84941f494f08803c26b416b2bc",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          188,
+          66,
+          53,
+          153
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "red_NMO",
+        "file": "red_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "rough_BCR",
+        "file": "rough_BCR.tif",
+        "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a",
+        "bytes": 14282,
+        "pixel_sha256": "efb47c7ebfcec60a0a44faecb44f1d728261a0d46e70e2ef1c8deed0604d51e4",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          129,
+          101,
+          66,
+          217
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "rough_NMO",
+        "file": "rough_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "white_BCR",
+        "file": "white_BCR.tif",
+        "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5",
+        "bytes": 14266,
+        "pixel_sha256": "cfcb4d076b01afcdd01450c67f03a51b37c5825d506fa5efd61739a5d860b789",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "candidate original base color and roughness",
+        "constant_rgba8": [
+          221,
+          221,
+          221,
+          51
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "white_NMO",
+        "file": "white_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat normal, candidate original metalness, unoccluded",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "metal_matte_BCR",
+        "file": "metal_matte_BCR.tif",
+        "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88",
+        "bytes": 14266,
+        "pixel_sha256": "fdb8ac357cae5d5f1341457ed4be80bf3854df8c3cc26aa18c09c85f14f77b60",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "metal BCR with roughness-only change to 0.85",
+        "constant_rgba8": [
+          211,
+          211,
+          211,
+          217
+        ],
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "metal_dielectric_NMO",
+        "file": "metal_dielectric_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "metal NMO with metalness-only change to zero",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      },
+      {
+        "name": "orientation_BCR",
+        "file": "orientation_BCR.tif",
+        "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec",
+        "bytes": 29630,
+        "pixel_sha256": "b1a06ab6e325ebf66bd906edc5edf4ce58133ea9cd6564ddb3e135f658780cda",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "original asymmetric repeated color pattern; alpha roughness candidate 0.6",
+        "constant_rgba8": null,
+        "color_space": "ToSRGB"
+      },
+      {
+        "name": "orientation_NMO",
+        "file": "orientation_NMO.tif",
+        "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+        "bytes": 14282,
+        "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "flat dielectric normal/metalness/occlusion control",
+        "constant_rgba8": [
+          128,
+          128,
+          0,
+          255
+        ],
+        "color_space": "ToLinear"
+      }
+    ],
+    "native_import_verified": false,
+    "rendered_response_verified": false
+  },
+  "build": {
+    "build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+    "run_id": "20260909T114107-99b990377d",
+    "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+    "compiled_headers": [
+      {
+        "name": "blue_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "blue_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "dark_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "dark_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "metal_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "metal_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "neutral_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "neutral_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "red_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "red_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "rough_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "rough_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "white_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "white_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "metal_matte_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "metal_dielectric_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "orientation_BCR",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 99,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      },
+      {
+        "name": "orientation_NMO",
+        "width": 512,
+        "height": 512,
+        "mips": 10,
+        "dxgi_format": 98,
+        "container_tag_hex": "454e4631",
+        "pixel_decode_verified": false
+      }
+    ],
+    "report": {
+      "schema_version": 1,
+      "operation": "original-texture-build",
+      "status": "succeeded",
+      "run_id": "20260909T114107-99b990377d",
+      "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+      "validation_run": "20260909T114055-2d86c15672",
+      "validation_manifest_sha256": "d3e3be525656a10f08cfa5fb2930a1e20825de7b3d282f583180f9952f48a286",
+      "source_report_sha256": "76f22e32de200393d3dbea9d5a087f332c87a59ac5c5225e24504d93f6204c13",
+      "source": {
+        "schema_version": 1,
+        "operation": "original-room-packed-texture-generation",
+        "status": "succeeded",
+        "generator_sha256": "d3abe3f51da22d169ffd3865f1ba58f391093d08e28fa46143744407bf9e9822",
+        "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-texture-control-v1",
+          "source_scene": "scenes/material-room-v1.json",
+          "license": "MIT; original procedural texture patterns and material constants",
+          "texture_dimensions": [
+            512,
+            512
+          ],
+          "source_format": "RGBA8 TIFF with LZW compression",
+          "encoding": {
+            "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+            "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+            "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+            "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+            "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+          },
+          "cases": [
+            "orientation",
+            "packed",
+            "metal-matte",
+            "metal-dielectric"
+          ],
+          "case_changes": {
+            "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+            "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+            "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+            "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+          },
+          "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+          "orientation_probe_points_room_xyz": [
+            [
+              -1.8,
+              2.2,
+              2.9
+            ],
+            [
+              1.8,
+              2.2,
+              2.9
+            ],
+            [
+              -1.8,
+              3.4,
+              2.9
+            ],
+            [
+              1.8,
+              3.4,
+              2.9
+            ]
+          ],
+          "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+          "response_region_xyxy": [
+            1150,
+            620,
+            1410,
+            740
+          ],
+          "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+          "unchanged": [
+            "original mesh and material GUIDs",
+            "camera",
+            "environment",
+            "exposure",
+            "render settings"
+          ],
+          "limits": [
+            "No neural processing",
+            "No renderer-buffer interface",
+            "Outdoor illumination is not the reference area light",
+            "Textures and raster response need native verification before acceptance"
+          ]
+        },
+        "source_scene_sha256": "331f0c85f709c1b13f5cab78320a281ca6dd77a593476fa87f817b5c5baa4b9a",
+        "textures": [
+          {
+            "name": "blue_BCR",
+            "file": "blue_BCR.tif",
+            "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68",
+            "bytes": 14282,
+            "pixel_sha256": "467deb0446c36f22b573797dff13ed383c555abec170bfdbbbf5794e85aa5379",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              56,
+              89,
+              170,
+              153
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "blue_NMO",
+            "file": "blue_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "dark_BCR",
+            "file": "dark_BCR.tif",
+            "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781",
+            "bytes": 14266,
+            "pixel_sha256": "a275e12436b04504d0b5b82ca54c145044389dfef6707dc5cc5fc1a2f1bfa4b7",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              53,
+              53,
+              53,
+              128
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "dark_NMO",
+            "file": "dark_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "metal_BCR",
+            "file": "metal_BCR.tif",
+            "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85",
+            "bytes": 14266,
+            "pixel_sha256": "4629fce7e956109f9ee84c11056d28bb66401734f1c3ee8eb4f676c01b0599ef",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              211,
+              211,
+              211,
+              38
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "metal_NMO",
+            "file": "metal_NMO.tif",
+            "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf",
+            "bytes": 14282,
+            "pixel_sha256": "9671e84e7218c48068d96399f6054a7ff7381b4a8747c105a3fad8ac6b4f9c3f",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              255,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "neutral_BCR",
+            "file": "neutral_BCR.tif",
+            "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0",
+            "bytes": 14266,
+            "pixel_sha256": "449567c88a4c1718a277b960873e985d4d5b101fbf9551930974f087d1d76aff",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              196,
+              196,
+              196,
+              153
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "neutral_NMO",
+            "file": "neutral_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "red_BCR",
+            "file": "red_BCR.tif",
+            "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14",
+            "bytes": 14282,
+            "pixel_sha256": "cd0c1ad4592f2ec4e86c5ac5453de3f66e7e7d84941f494f08803c26b416b2bc",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              188,
+              66,
+              53,
+              153
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "red_NMO",
+            "file": "red_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "rough_BCR",
+            "file": "rough_BCR.tif",
+            "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a",
+            "bytes": 14282,
+            "pixel_sha256": "efb47c7ebfcec60a0a44faecb44f1d728261a0d46e70e2ef1c8deed0604d51e4",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              129,
+              101,
+              66,
+              217
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "rough_NMO",
+            "file": "rough_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "white_BCR",
+            "file": "white_BCR.tif",
+            "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5",
+            "bytes": 14266,
+            "pixel_sha256": "cfcb4d076b01afcdd01450c67f03a51b37c5825d506fa5efd61739a5d860b789",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "candidate original base color and roughness",
+            "constant_rgba8": [
+              221,
+              221,
+              221,
+              51
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "white_NMO",
+            "file": "white_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat normal, candidate original metalness, unoccluded",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "metal_matte_BCR",
+            "file": "metal_matte_BCR.tif",
+            "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88",
+            "bytes": 14266,
+            "pixel_sha256": "fdb8ac357cae5d5f1341457ed4be80bf3854df8c3cc26aa18c09c85f14f77b60",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "metal BCR with roughness-only change to 0.85",
+            "constant_rgba8": [
+              211,
+              211,
+              211,
+              217
+            ],
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "metal_dielectric_NMO",
+            "file": "metal_dielectric_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "metal NMO with metalness-only change to zero",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          },
+          {
+            "name": "orientation_BCR",
+            "file": "orientation_BCR.tif",
+            "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec",
+            "bytes": 29630,
+            "pixel_sha256": "b1a06ab6e325ebf66bd906edc5edf4ce58133ea9cd6564ddb3e135f658780cda",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "original asymmetric repeated color pattern; alpha roughness candidate 0.6",
+            "constant_rgba8": null,
+            "color_space": "ToSRGB"
+          },
+          {
+            "name": "orientation_NMO",
+            "file": "orientation_NMO.tif",
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+            "bytes": 14282,
+            "pixel_sha256": "53164ee960db17f21c7c046bbdaf504e354e7a390f7b0eac671c5966fc546f93",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "flat dielectric normal/metalness/occlusion control",
+            "constant_rgba8": [
+              128,
+              128,
+              0,
+              255
+            ],
+            "color_space": "ToLinear"
+          }
+        ],
+        "native_import_verified": false,
+        "rendered_response_verified": false
+      },
+      "identities": [
+        {
+          "name": "blue_BCR",
+          "resource": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+          "source": "blue_BCR.tif",
+          "source_sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "blue_NMO",
+          "resource": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+          "source": "blue_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "dark_BCR",
+          "resource": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+          "source": "dark_BCR.tif",
+          "source_sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "dark_NMO",
+          "resource": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+          "source": "dark_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "metal_BCR",
+          "resource": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds",
+          "source": "metal_BCR.tif",
+          "source_sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "metal_NMO",
+          "resource": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds",
+          "source": "metal_NMO.tif",
+          "source_sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "neutral_BCR",
+          "resource": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+          "source": "neutral_BCR.tif",
+          "source_sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "neutral_NMO",
+          "resource": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+          "source": "neutral_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "red_BCR",
+          "resource": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+          "source": "red_BCR.tif",
+          "source_sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "red_NMO",
+          "resource": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+          "source": "red_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "rough_BCR",
+          "resource": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+          "source": "rough_BCR.tif",
+          "source_sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "rough_NMO",
+          "resource": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+          "source": "rough_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "white_BCR",
+          "resource": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+          "source": "white_BCR.tif",
+          "source_sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "white_NMO",
+          "resource": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+          "source": "white_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "metal_matte_BCR",
+          "resource": "{E8C16B396F9C4DAF}Assets/ENR_OriginalTextures/metal_matte_BCR.edds",
+          "source": "metal_matte_BCR.tif",
+          "source_sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "metal_dielectric_NMO",
+          "resource": "{6CF19D38A1734CA9}Assets/ENR_OriginalTextures/metal_dielectric_NMO.edds",
+          "source": "metal_dielectric_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        },
+        {
+          "name": "orientation_BCR",
+          "resource": "{7030CEE2E2074045}Assets/ENR_OriginalTextures/orientation_BCR.edds",
+          "source": "orientation_BCR.tif",
+          "source_sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec",
+          "color_space": "ToSRGB"
+        },
+        {
+          "name": "orientation_NMO",
+          "resource": "{259B8E50A9AB43BF}Assets/ENR_OriginalTextures/orientation_NMO.edds",
+          "source": "orientation_NMO.tif",
+          "source_sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef",
+          "color_space": "ToLinear"
+        }
+      ],
+      "driver_sha256": "eb733a4dbf5137fc26e941f5285ffa13612bf30c42f0aa1cab3e284aa194333e",
+      "plugin_sha256": "e47be9692c4a797f2c4634cc344a0fc0a4f45c3bc1352aa28d78b0100e00ec79",
+      "console_sha256": "21dd88ba3047f3ec9975be263a2997fb45243ebf8d7a80cfd797f326ee56a3cf",
+      "retained_assets": [
+        {
+          "file": "blue_BCR.edds",
+          "bytes": 1897,
+          "sha256": "b74b0f591385348673b22b12269bd909f4b972392dd1f6f5b3c4af94ae1c8bfe"
+        },
+        {
+          "file": "blue_BCR.edds.meta",
+          "bytes": 429,
+          "sha256": "5f82267e07ed0166135580ee1ff653826c9c1f94764894c6bd48870f7b593bd4"
+        },
+        {
+          "file": "blue_BCR.tif",
+          "bytes": 14282,
+          "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68"
+        },
+        {
+          "file": "blue_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "blue_NMO.edds.meta",
+          "bytes": 431,
+          "sha256": "d3fa639f891a4cb1a845f483a14ed13ea69f54449d50424330f0a1bc21bffdc8"
+        },
+        {
+          "file": "blue_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "dark_BCR.edds",
+          "bytes": 1897,
+          "sha256": "b6eef8fd22ee04a8d3e3d7e6b44074ec40802ece579fa7f23c1ae637d9d5b74b"
+        },
+        {
+          "file": "dark_BCR.edds.meta",
+          "bytes": 429,
+          "sha256": "ad8fdca3a55caf889be891fb076c4352319c6b2b5c0d84b97508f520a140afab"
+        },
+        {
+          "file": "dark_BCR.tif",
+          "bytes": 14266,
+          "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781"
+        },
+        {
+          "file": "dark_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "dark_NMO.edds.meta",
+          "bytes": 431,
+          "sha256": "0b6ed283923b4df0b96f3896bd3680f2166fb62b598454216a3bb4fe67e1b740"
+        },
+        {
+          "file": "dark_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "metal_BCR.edds",
+          "bytes": 1897,
+          "sha256": "6c71bef3d41c2503bbd9f813e9b979b9399a88c45288b32daec2a06c833d7602"
+        },
+        {
+          "file": "metal_BCR.edds.meta",
+          "bytes": 431,
+          "sha256": "5a1bfc02e8cd3490d170d8d14f9c5bf9cc780c768a2da04d093e9d3b9652c4e0"
+        },
+        {
+          "file": "metal_BCR.tif",
+          "bytes": 14266,
+          "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85"
+        },
+        {
+          "file": "metal_dielectric_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "metal_dielectric_NMO.edds.meta",
+          "bytes": 455,
+          "sha256": "ccef04d17caa739da934cf552ded80d97e4a5508d40555ee900e3be5fd58893a"
+        },
+        {
+          "file": "metal_dielectric_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "metal_matte_BCR.edds",
+          "bytes": 1897,
+          "sha256": "7f50c886e1c15992d6d4352c443908f70902ad0ae8823a65c41217b82d135846"
+        },
+        {
+          "file": "metal_matte_BCR.edds.meta",
+          "bytes": 443,
+          "sha256": "a57dc043d0078b8af7ea1ea6a7b0aeb0215b637fc3315f41a7e23575d8d85ee0"
+        },
+        {
+          "file": "metal_matte_BCR.tif",
+          "bytes": 14266,
+          "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88"
+        },
+        {
+          "file": "metal_NMO.edds",
+          "bytes": 1897,
+          "sha256": "d89ff04ab63e1e2d8d79fc2bff4f68ef43ec9c07f07c34dfb83b914f8b5313cf"
+        },
+        {
+          "file": "metal_NMO.edds.meta",
+          "bytes": 433,
+          "sha256": "21e651b1a8815adcc2ab4857b748b4055a46de6434879aa808ad14e7ed2f5d44"
+        },
+        {
+          "file": "metal_NMO.tif",
+          "bytes": 14282,
+          "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf"
+        },
+        {
+          "file": "neutral_BCR.edds",
+          "bytes": 1897,
+          "sha256": "0b7111fe441807a1a0372f107b8a2543b8aae7220ece767a619e85ce0941f345"
+        },
+        {
+          "file": "neutral_BCR.edds.meta",
+          "bytes": 435,
+          "sha256": "61d832420b48593f4d507303e5e8e8a94deb02faa969414a68d4185a9b19b41b"
+        },
+        {
+          "file": "neutral_BCR.tif",
+          "bytes": 14266,
+          "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0"
+        },
+        {
+          "file": "neutral_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "neutral_NMO.edds.meta",
+          "bytes": 437,
+          "sha256": "7272d81220fa213dae99468fa155e1412d7a3b8f6b46366ee2efd81fa28fb4d3"
+        },
+        {
+          "file": "neutral_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "orientation_BCR.edds",
+          "bytes": 2264,
+          "sha256": "8db92d62f910453ec6c4ca5d6af463eaa67fc75ce7ea66e4ed73e48ec3b4f3b5"
+        },
+        {
+          "file": "orientation_BCR.edds.meta",
+          "bytes": 443,
+          "sha256": "0a6293abf073351d91d3765fa02dfd610a677cb26696d8c727d85e0df7b2d97e"
+        },
+        {
+          "file": "orientation_BCR.tif",
+          "bytes": 29630,
+          "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec"
+        },
+        {
+          "file": "orientation_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "orientation_NMO.edds.meta",
+          "bytes": 445,
+          "sha256": "fdf97f031cea2d16834438332cbe770b3fbd1fee10d15ca8e1331942367027e3"
+        },
+        {
+          "file": "orientation_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "red_BCR.edds",
+          "bytes": 1897,
+          "sha256": "6fe202bc0c5c7cc420c666b72203ee5883cadbcb84d4f8d21632a135de421f6b"
+        },
+        {
+          "file": "red_BCR.edds.meta",
+          "bytes": 427,
+          "sha256": "33cac6f086e00f814761129354cc4480611bee615e9c75305c7bb4c81bfeb10e"
+        },
+        {
+          "file": "red_BCR.tif",
+          "bytes": 14282,
+          "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14"
+        },
+        {
+          "file": "red_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "red_NMO.edds.meta",
+          "bytes": 429,
+          "sha256": "c1cfd0f6283b31f87feb87f245e14dafbe9d01383a7937922944562619762c3c"
+        },
+        {
+          "file": "red_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "rough_BCR.edds",
+          "bytes": 1897,
+          "sha256": "9355a733c9ac6b8a2266d39c6637f45cc23b5a5002301c8f1a4238178557f621"
+        },
+        {
+          "file": "rough_BCR.edds.meta",
+          "bytes": 431,
+          "sha256": "ec8d6aacc6b7e6d3d240d5440cfc0ee9e93a46bc49f47c519057f6c3a3698758"
+        },
+        {
+          "file": "rough_BCR.tif",
+          "bytes": 14282,
+          "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a"
+        },
+        {
+          "file": "rough_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "rough_NMO.edds.meta",
+          "bytes": 433,
+          "sha256": "99ffb5d9d5edddf81c18d0136f97edf58200f22cc3da4be5accc354f56b93f4e"
+        },
+        {
+          "file": "rough_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        },
+        {
+          "file": "white_BCR.edds",
+          "bytes": 1897,
+          "sha256": "2f374d302e6823ffe566beb13f698ac21df535b342db700784750678c89c7058"
+        },
+        {
+          "file": "white_BCR.edds.meta",
+          "bytes": 431,
+          "sha256": "2661b1f28ccb96395da18b61e9ba57bf03510e4dd0ef575dfb0be58d0ee295de"
+        },
+        {
+          "file": "white_BCR.tif",
+          "bytes": 14266,
+          "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5"
+        },
+        {
+          "file": "white_NMO.edds",
+          "bytes": 1890,
+          "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+        },
+        {
+          "file": "white_NMO.edds.meta",
+          "bytes": 433,
+          "sha256": "8c05d749860f0403baa50720ea823e14b961804bf32cad820f22f38cf20ab6a4"
+        },
+        {
+          "file": "white_NMO.tif",
+          "bytes": 14282,
+          "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+        }
+      ],
+      "native_records": [
+        "requested=Assets/ENR_OriginalTextures/blue_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/blue_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/dark_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/dark_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/metal_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/metal_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/neutral_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/neutral_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/red_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/red_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/rough_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/rough_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/white_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/white_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/metal_matte_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/metal_dielectric_NMO.tif",
+        "requested=Assets/ENR_OriginalTextures/orientation_BCR.tif",
+        "requested=Assets/ENR_OriginalTextures/orientation_NMO.tif",
+        "queued=18"
+      ],
+      "error": null,
+      "rendered_response_verified": false
+    }
+  },
+  "loaded_import": {
+    "trial": "material-room-original-load-v1",
+    "run_id": "20260909T103654-5b3026fbb4",
+    "operation": "original-room-import",
+    "route": "load-completed",
+    "report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+    "run_manifest_sha256": "525bdfc1f1a9657b2cdb5e1a8c608221cfab5edcc0d304a1216bdf6ef44e4fe1",
+    "validation_run": "20260909T103642-a95933f5c2",
+    "validation_manifest_sha256": "38a33bf010ca32153fca4626daf7ee48690fe4aa8605fb0b00e040488bbd92ee",
+    "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+    "console_sha256": "e37ef7bca3c273176562556010039738bd36f4b4ba8eaa3384435cada9682b31",
+    "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+    "native_exit_code": 0,
+    "terminated_owned_process": false,
+    "alive_after_build_observation": null,
+    "build_observation_seconds": null,
+    "prior_import": {
+      "run_id": "20260909T103558-ed1a9e322d",
+      "report_sha256": "4f60e4508a583db745c5e84f95bcffe621d5b81f1f07544c688f282309c1d749"
+    },
+    "native_events": [
+      {
+        "event": "started"
+      },
+      {
+        "event": "module",
+        "available": 1
+      },
+      {
+        "event": "source_resolved"
+      },
+      {
+        "event": "load_completed_build"
+      },
+      {
+        "event": "mesh_loaded",
+        "resource": "{7CEDDBB7858D45F0}Assets/ENR_ReferenceRoom/material-room.xob"
+      },
+      {
+        "event": "materials",
+        "count": 7
+      },
+      {
+        "event": "completed"
+      }
+    ],
+    "metadata_records": [],
+    "retained_assets": [
+      {
+        "file": "Data/blue.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/blue.emat.meta",
+        "bytes": 326,
+        "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+      },
+      {
+        "file": "Data/dark.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/dark.emat.meta",
+        "bytes": 326,
+        "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+      },
+      {
+        "file": "Data/metal.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/metal.emat.meta",
+        "bytes": 327,
+        "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+      },
+      {
+        "file": "Data/neutral.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/neutral.emat.meta",
+        "bytes": 329,
+        "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+      },
+      {
+        "file": "Data/red.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/red.emat.meta",
+        "bytes": 325,
+        "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+      },
+      {
+        "file": "Data/rough.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/rough.emat.meta",
+        "bytes": 327,
+        "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+      },
+      {
+        "file": "Data/white.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/white.emat.meta",
+        "bytes": 327,
+        "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+      },
+      {
+        "file": "material-room.fbx",
+        "bytes": 728780,
+        "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+      },
+      {
+        "file": "material-room.txo",
+        "bytes": 3508410,
+        "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+      },
+      {
+        "file": "material-room.xob",
+        "bytes": 865929,
+        "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+      },
+      {
+        "file": "material-room.xob.meta",
+        "bytes": 2129,
+        "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "trial": "material-room-texture-orientation-v1",
+      "run_id": "20260909T114524-1cd599e555",
+      "report_sha256": "583fad82c72fd33da943fa14720a4499314a5b2870352559f0443152cc634cbe",
+      "capture_manifest_sha256": "1eddef8662c9159aef93626e28b0abc65b81c9909e62864705fd7afb5a541f85",
+      "console_sha256": "8a674aa2062274693888b59b8ebcf05f78174de93cb24b5026afab3195dbc156",
+      "validation_manifest_sha256": "f1dd2d4d4f69d4b4456f07b3755d92faf92809fa12b1c43631be4a3c8d54585c",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "7b86387224dd4e807aef95b95a380e1136e4678601113cb24dae3b0012ff3320",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1479,
+            "simulation_seconds": 8.65445,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "case": "orientation",
+      "control": {
+        "case": "orientation",
+        "build": {
+          "build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+          "run_id": "20260909T114107-99b990377d",
+          "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+          "compiled_headers": [
+            {
+              "name": "blue_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "blue_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_matte_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_dielectric_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            }
+          ]
+        },
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-texture-control-v1",
+          "source_scene": "scenes/material-room-v1.json",
+          "license": "MIT; original procedural texture patterns and material constants",
+          "texture_dimensions": [
+            512,
+            512
+          ],
+          "source_format": "RGBA8 TIFF with LZW compression",
+          "encoding": {
+            "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+            "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+            "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+            "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+            "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+          },
+          "cases": [
+            "orientation",
+            "packed",
+            "metal-matte",
+            "metal-dielectric"
+          ],
+          "case_changes": {
+            "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+            "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+            "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+            "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+          },
+          "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+          "orientation_probe_points_room_xyz": [
+            [
+              -1.8,
+              2.2,
+              2.9
+            ],
+            [
+              1.8,
+              2.2,
+              2.9
+            ],
+            [
+              -1.8,
+              3.4,
+              2.9
+            ],
+            [
+              1.8,
+              3.4,
+              2.9
+            ]
+          ],
+          "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+          "response_region_xyxy": [
+            1150,
+            620,
+            1410,
+            740
+          ],
+          "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+          "unchanged": [
+            "original mesh and material GUIDs",
+            "camera",
+            "environment",
+            "exposure",
+            "render settings"
+          ],
+          "limits": [
+            "No neural processing",
+            "No renderer-buffer interface",
+            "Outdoor illumination is not the reference area light",
+            "Textures and raster response need native verification before acceptance"
+          ]
+        },
+        "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+        "materials": [
+          {
+            "name": "blue",
+            "rgba": [
+              0.04,
+              0.1,
+              0.4,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.04 0.1 0.4 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "8c264222354d96e614013c1bee0c59dd09cef5be7a7d4cf9361d085f6200efa8"
+          },
+          {
+            "name": "dark",
+            "rgba": [
+              0.035,
+              0.035,
+              0.035,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.035 0.035 0.035 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "8a4ad175ae5b29b96c9bc46e7ab13b56798f728a73dd9b8431acdceb5a544967"
+          },
+          {
+            "name": "metal",
+            "rgba": [
+              0.65,
+              0.65,
+              0.65,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.65 0.65 0.65 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "eaeb1f77fec8261061cfb44890db9296c57f8bd3cdc70c09ca57364d7f60517d"
+          },
+          {
+            "name": "neutral",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{7030CEE2E2074045}Assets/ENR_OriginalTextures/orientation_BCR.edds",
+            "nmo": "{259B8E50A9AB43BF}Assets/ENR_OriginalTextures/orientation_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{7030CEE2E2074045}Assets/ENR_OriginalTextures/orientation_BCR.edds\"\n NMOMap \"{259B8E50A9AB43BF}Assets/ENR_OriginalTextures/orientation_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "851b4ea613c6268cf25eba36b573d5172986c02e653d19c71d83ccf5a2545443"
+          },
+          {
+            "name": "red",
+            "rgba": [
+              0.5,
+              0.055,
+              0.035,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.5 0.055 0.035 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "ef3fd5b2c2b69ad084d1b3795a9e8f0406d338e1a602c4d8992ab6ebb4987bf1"
+          },
+          {
+            "name": "rough",
+            "rgba": [
+              0.22,
+              0.13,
+              0.055,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.22 0.13 0.055 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "93559991d8dcec00a04b970e7507dc57b54a3d1cbff05a3eef3f390c11541727"
+          },
+          {
+            "name": "white",
+            "rgba": [
+              0.72,
+              0.72,
+              0.72,
+              1
+            ],
+            "bcr": null,
+            "nmo": null,
+            "material_text": "MatPBRBasic {\n Color 0.72 0.72 0.72 1\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "1cf37ee5bda66ef441e8c39f02ed61bfc9f1d3bd8ed51d7f77c9c016d7057159"
+          }
+        ],
+        "texture_assets": [
+          {
+            "file": "blue_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b74b0f591385348673b22b12269bd909f4b972392dd1f6f5b3c4af94ae1c8bfe"
+          },
+          {
+            "file": "blue_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "5f82267e07ed0166135580ee1ff653826c9c1f94764894c6bd48870f7b593bd4"
+          },
+          {
+            "file": "blue_BCR.tif",
+            "bytes": 14282,
+            "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68"
+          },
+          {
+            "file": "blue_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "blue_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "d3fa639f891a4cb1a845f483a14ed13ea69f54449d50424330f0a1bc21bffdc8"
+          },
+          {
+            "file": "blue_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "dark_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b6eef8fd22ee04a8d3e3d7e6b44074ec40802ece579fa7f23c1ae637d9d5b74b"
+          },
+          {
+            "file": "dark_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "ad8fdca3a55caf889be891fb076c4352319c6b2b5c0d84b97508f520a140afab"
+          },
+          {
+            "file": "dark_BCR.tif",
+            "bytes": 14266,
+            "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781"
+          },
+          {
+            "file": "dark_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "dark_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "0b6ed283923b4df0b96f3896bd3680f2166fb62b598454216a3bb4fe67e1b740"
+          },
+          {
+            "file": "dark_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6c71bef3d41c2503bbd9f813e9b979b9399a88c45288b32daec2a06c833d7602"
+          },
+          {
+            "file": "metal_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "5a1bfc02e8cd3490d170d8d14f9c5bf9cc780c768a2da04d093e9d3b9652c4e0"
+          },
+          {
+            "file": "metal_BCR.tif",
+            "bytes": 14266,
+            "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds.meta",
+            "bytes": 455,
+            "sha256": "ccef04d17caa739da934cf552ded80d97e4a5508d40555ee900e3be5fd58893a"
+          },
+          {
+            "file": "metal_dielectric_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_matte_BCR.edds",
+            "bytes": 1897,
+            "sha256": "7f50c886e1c15992d6d4352c443908f70902ad0ae8823a65c41217b82d135846"
+          },
+          {
+            "file": "metal_matte_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "a57dc043d0078b8af7ea1ea6a7b0aeb0215b637fc3315f41a7e23575d8d85ee0"
+          },
+          {
+            "file": "metal_matte_BCR.tif",
+            "bytes": 14266,
+            "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88"
+          },
+          {
+            "file": "metal_NMO.edds",
+            "bytes": 1897,
+            "sha256": "d89ff04ab63e1e2d8d79fc2bff4f68ef43ec9c07f07c34dfb83b914f8b5313cf"
+          },
+          {
+            "file": "metal_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "21e651b1a8815adcc2ab4857b748b4055a46de6434879aa808ad14e7ed2f5d44"
+          },
+          {
+            "file": "metal_NMO.tif",
+            "bytes": 14282,
+            "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf"
+          },
+          {
+            "file": "neutral_BCR.edds",
+            "bytes": 1897,
+            "sha256": "0b7111fe441807a1a0372f107b8a2543b8aae7220ece767a619e85ce0941f345"
+          },
+          {
+            "file": "neutral_BCR.edds.meta",
+            "bytes": 435,
+            "sha256": "61d832420b48593f4d507303e5e8e8a94deb02faa969414a68d4185a9b19b41b"
+          },
+          {
+            "file": "neutral_BCR.tif",
+            "bytes": 14266,
+            "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0"
+          },
+          {
+            "file": "neutral_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "neutral_NMO.edds.meta",
+            "bytes": 437,
+            "sha256": "7272d81220fa213dae99468fa155e1412d7a3b8f6b46366ee2efd81fa28fb4d3"
+          },
+          {
+            "file": "neutral_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "orientation_BCR.edds",
+            "bytes": 2264,
+            "sha256": "8db92d62f910453ec6c4ca5d6af463eaa67fc75ce7ea66e4ed73e48ec3b4f3b5"
+          },
+          {
+            "file": "orientation_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "0a6293abf073351d91d3765fa02dfd610a677cb26696d8c727d85e0df7b2d97e"
+          },
+          {
+            "file": "orientation_BCR.tif",
+            "bytes": 29630,
+            "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec"
+          },
+          {
+            "file": "orientation_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "orientation_NMO.edds.meta",
+            "bytes": 445,
+            "sha256": "fdf97f031cea2d16834438332cbe770b3fbd1fee10d15ca8e1331942367027e3"
+          },
+          {
+            "file": "orientation_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "red_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6fe202bc0c5c7cc420c666b72203ee5883cadbcb84d4f8d21632a135de421f6b"
+          },
+          {
+            "file": "red_BCR.edds.meta",
+            "bytes": 427,
+            "sha256": "33cac6f086e00f814761129354cc4480611bee615e9c75305c7bb4c81bfeb10e"
+          },
+          {
+            "file": "red_BCR.tif",
+            "bytes": 14282,
+            "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14"
+          },
+          {
+            "file": "red_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "red_NMO.edds.meta",
+            "bytes": 429,
+            "sha256": "c1cfd0f6283b31f87feb87f245e14dafbe9d01383a7937922944562619762c3c"
+          },
+          {
+            "file": "red_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "rough_BCR.edds",
+            "bytes": 1897,
+            "sha256": "9355a733c9ac6b8a2266d39c6637f45cc23b5a5002301c8f1a4238178557f621"
+          },
+          {
+            "file": "rough_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "ec8d6aacc6b7e6d3d240d5440cfc0ee9e93a46bc49f47c519057f6c3a3698758"
+          },
+          {
+            "file": "rough_BCR.tif",
+            "bytes": 14282,
+            "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a"
+          },
+          {
+            "file": "rough_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "rough_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "99ffb5d9d5edddf81c18d0136f97edf58200f22cc3da4be5accc354f56b93f4e"
+          },
+          {
+            "file": "rough_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "white_BCR.edds",
+            "bytes": 1897,
+            "sha256": "2f374d302e6823ffe566beb13f698ac21df535b342db700784750678c89c7058"
+          },
+          {
+            "file": "white_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "2661b1f28ccb96395da18b61e9ba57bf03510e4dd0ef575dfb0be58d0ee295de"
+          },
+          {
+            "file": "white_BCR.tif",
+            "bytes": 14266,
+            "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5"
+          },
+          {
+            "file": "white_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "white_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "8c05d749860f0403baa50720ea823e14b961804bf32cad820f22f38cf20ab6a4"
+          },
+          {
+            "file": "white_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          }
+        ]
+      },
+      "driver_sha256": "e587fe0027c7cae938777ada080250bba89a0da7dc62fe56454477ff900cb600",
+      "native_maps": {
+        "neutral": {
+          "bcr": {
+            "resource": "{7030CEE2E2074045}Assets/ENR_OriginalTextures/orientation_BCR.edds",
+            "native_raw": "{7030CEE2E2074045}Assets/ENR_OriginalTextures/orientation_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{259B8E50A9AB43BF}Assets/ENR_OriginalTextures/orientation_NMO.edds",
+            "native_raw": "{259B8E50A9AB43BF}Assets/ENR_OriginalTextures/orientation_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "blue": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        },
+        "red": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        },
+        "rough": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        },
+        "white": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        },
+        "metal": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        },
+        "dark": {
+          "bcr": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          },
+          "nmo": {
+            "resource": null,
+            "native_raw": "",
+            "native_suffix": null
+          }
+        }
+      },
+      "native_colors": {
+        "neutral": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "blue": [
+          0.04,
+          0.1,
+          0.4,
+          1.0
+        ],
+        "red": [
+          0.5,
+          0.055,
+          0.035,
+          1.0
+        ],
+        "rough": [
+          0.22,
+          0.13,
+          0.055,
+          1.0
+        ],
+        "white": [
+          0.72,
+          0.72,
+          0.72,
+          1.0
+        ],
+        "metal": [
+          0.65,
+          0.65,
+          0.65,
+          1.0
+        ],
+        "dark": [
+          0.035,
+          0.035,
+          0.035,
+          1.0
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "7b86387224dd4e807aef95b95a380e1136e4678601113cb24dae3b0012ff3320",
+        "bytes": 1269460,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      },
+      "visual_review": "Asymmetric red/green/blue/yellow pattern and white bars are visible on the neutral back wall, floor and plinth. Red/blue side walls, three spheres, box and three dark posts remain visible. Back-wall quadrant appearance follows the original UV chart axes, not an assumed image-axis layout. Other materials retain Color constants and default maps."
+    },
+    {
+      "trial": "material-room-texture-packed-v1",
+      "run_id": "20260909T114720-7718593692",
+      "report_sha256": "5ea803ba78c90e22a336508d2b97075fdd89ebb59281c6dc58e603ef00e05105",
+      "capture_manifest_sha256": "69f623e496336712e1c6545cfae75af2e3d806c6588eb4fe0470e7eea7b2fe5d",
+      "console_sha256": "df12da617096b04410080fc1634037a8ec993fec04ad92fca55039b30ff9586f",
+      "validation_manifest_sha256": "4dfd08ef472600a66e369f6b5159e6f13b2c6032081743621a3b50b6dc13e461",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "fb41dd3909d83179cc341617c8c12189d414ebce7718df2a0a71f8cda1f31941",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1471,
+            "simulation_seconds": 8.66341,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "case": "packed",
+      "control": {
+        "case": "packed",
+        "build": {
+          "build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+          "run_id": "20260909T114107-99b990377d",
+          "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+          "compiled_headers": [
+            {
+              "name": "blue_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "blue_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_matte_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_dielectric_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            }
+          ]
+        },
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-texture-control-v1",
+          "source_scene": "scenes/material-room-v1.json",
+          "license": "MIT; original procedural texture patterns and material constants",
+          "texture_dimensions": [
+            512,
+            512
+          ],
+          "source_format": "RGBA8 TIFF with LZW compression",
+          "encoding": {
+            "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+            "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+            "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+            "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+            "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+          },
+          "cases": [
+            "orientation",
+            "packed",
+            "metal-matte",
+            "metal-dielectric"
+          ],
+          "case_changes": {
+            "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+            "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+            "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+            "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+          },
+          "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+          "orientation_probe_points_room_xyz": [
+            [
+              -1.8,
+              2.2,
+              2.9
+            ],
+            [
+              1.8,
+              2.2,
+              2.9
+            ],
+            [
+              -1.8,
+              3.4,
+              2.9
+            ],
+            [
+              1.8,
+              3.4,
+              2.9
+            ]
+          ],
+          "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+          "response_region_xyxy": [
+            1150,
+            620,
+            1410,
+            740
+          ],
+          "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+          "unchanged": [
+            "original mesh and material GUIDs",
+            "camera",
+            "environment",
+            "exposure",
+            "render settings"
+          ],
+          "limits": [
+            "No neural processing",
+            "No renderer-buffer interface",
+            "Outdoor illumination is not the reference area light",
+            "Textures and raster response need native verification before acceptance"
+          ]
+        },
+        "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+        "materials": [
+          {
+            "name": "blue",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "nmo": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds\"\n NMOMap \"{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "7a565bce00f544ac71f1a98c41e3702bd161eb6b53a93a2f654d7de6c9811681"
+          },
+          {
+            "name": "dark",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "nmo": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds\"\n NMOMap \"{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "b777d762d9eb3bc6bcc4b63a915fda7462aa8d4285b546291d35777c83f007a8"
+          },
+          {
+            "name": "metal",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds",
+            "nmo": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds\"\n NMOMap \"{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "e85d53d517aa5bee82f1bc0d4fee937d974108f3cca1ee76297db64004eeeb2b"
+          },
+          {
+            "name": "neutral",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "nmo": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds\"\n NMOMap \"{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "e43d6b82ce7d79ad09d83ea9aaf54e434b71374d5119b9836c09553770104723"
+          },
+          {
+            "name": "red",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "nmo": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds\"\n NMOMap \"{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "6b31712259ad8e67159eeaa7fa6feef7342a2712819f7a923afb78a6c9ae2c67"
+          },
+          {
+            "name": "rough",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "nmo": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds\"\n NMOMap \"{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "56df183b82d8f18a66fa0ab28ae027c885f0cc3436fa68129b0f8e41b6bbcaa0"
+          },
+          {
+            "name": "white",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "nmo": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds\"\n NMOMap \"{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "2cc8f8b124d6f423081dd1978ee169aa922bccfb77c0bf26c61b6afe299a7492"
+          }
+        ],
+        "texture_assets": [
+          {
+            "file": "blue_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b74b0f591385348673b22b12269bd909f4b972392dd1f6f5b3c4af94ae1c8bfe"
+          },
+          {
+            "file": "blue_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "5f82267e07ed0166135580ee1ff653826c9c1f94764894c6bd48870f7b593bd4"
+          },
+          {
+            "file": "blue_BCR.tif",
+            "bytes": 14282,
+            "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68"
+          },
+          {
+            "file": "blue_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "blue_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "d3fa639f891a4cb1a845f483a14ed13ea69f54449d50424330f0a1bc21bffdc8"
+          },
+          {
+            "file": "blue_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "dark_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b6eef8fd22ee04a8d3e3d7e6b44074ec40802ece579fa7f23c1ae637d9d5b74b"
+          },
+          {
+            "file": "dark_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "ad8fdca3a55caf889be891fb076c4352319c6b2b5c0d84b97508f520a140afab"
+          },
+          {
+            "file": "dark_BCR.tif",
+            "bytes": 14266,
+            "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781"
+          },
+          {
+            "file": "dark_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "dark_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "0b6ed283923b4df0b96f3896bd3680f2166fb62b598454216a3bb4fe67e1b740"
+          },
+          {
+            "file": "dark_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6c71bef3d41c2503bbd9f813e9b979b9399a88c45288b32daec2a06c833d7602"
+          },
+          {
+            "file": "metal_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "5a1bfc02e8cd3490d170d8d14f9c5bf9cc780c768a2da04d093e9d3b9652c4e0"
+          },
+          {
+            "file": "metal_BCR.tif",
+            "bytes": 14266,
+            "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds.meta",
+            "bytes": 455,
+            "sha256": "ccef04d17caa739da934cf552ded80d97e4a5508d40555ee900e3be5fd58893a"
+          },
+          {
+            "file": "metal_dielectric_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_matte_BCR.edds",
+            "bytes": 1897,
+            "sha256": "7f50c886e1c15992d6d4352c443908f70902ad0ae8823a65c41217b82d135846"
+          },
+          {
+            "file": "metal_matte_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "a57dc043d0078b8af7ea1ea6a7b0aeb0215b637fc3315f41a7e23575d8d85ee0"
+          },
+          {
+            "file": "metal_matte_BCR.tif",
+            "bytes": 14266,
+            "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88"
+          },
+          {
+            "file": "metal_NMO.edds",
+            "bytes": 1897,
+            "sha256": "d89ff04ab63e1e2d8d79fc2bff4f68ef43ec9c07f07c34dfb83b914f8b5313cf"
+          },
+          {
+            "file": "metal_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "21e651b1a8815adcc2ab4857b748b4055a46de6434879aa808ad14e7ed2f5d44"
+          },
+          {
+            "file": "metal_NMO.tif",
+            "bytes": 14282,
+            "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf"
+          },
+          {
+            "file": "neutral_BCR.edds",
+            "bytes": 1897,
+            "sha256": "0b7111fe441807a1a0372f107b8a2543b8aae7220ece767a619e85ce0941f345"
+          },
+          {
+            "file": "neutral_BCR.edds.meta",
+            "bytes": 435,
+            "sha256": "61d832420b48593f4d507303e5e8e8a94deb02faa969414a68d4185a9b19b41b"
+          },
+          {
+            "file": "neutral_BCR.tif",
+            "bytes": 14266,
+            "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0"
+          },
+          {
+            "file": "neutral_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "neutral_NMO.edds.meta",
+            "bytes": 437,
+            "sha256": "7272d81220fa213dae99468fa155e1412d7a3b8f6b46366ee2efd81fa28fb4d3"
+          },
+          {
+            "file": "neutral_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "orientation_BCR.edds",
+            "bytes": 2264,
+            "sha256": "8db92d62f910453ec6c4ca5d6af463eaa67fc75ce7ea66e4ed73e48ec3b4f3b5"
+          },
+          {
+            "file": "orientation_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "0a6293abf073351d91d3765fa02dfd610a677cb26696d8c727d85e0df7b2d97e"
+          },
+          {
+            "file": "orientation_BCR.tif",
+            "bytes": 29630,
+            "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec"
+          },
+          {
+            "file": "orientation_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "orientation_NMO.edds.meta",
+            "bytes": 445,
+            "sha256": "fdf97f031cea2d16834438332cbe770b3fbd1fee10d15ca8e1331942367027e3"
+          },
+          {
+            "file": "orientation_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "red_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6fe202bc0c5c7cc420c666b72203ee5883cadbcb84d4f8d21632a135de421f6b"
+          },
+          {
+            "file": "red_BCR.edds.meta",
+            "bytes": 427,
+            "sha256": "33cac6f086e00f814761129354cc4480611bee615e9c75305c7bb4c81bfeb10e"
+          },
+          {
+            "file": "red_BCR.tif",
+            "bytes": 14282,
+            "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14"
+          },
+          {
+            "file": "red_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "red_NMO.edds.meta",
+            "bytes": 429,
+            "sha256": "c1cfd0f6283b31f87feb87f245e14dafbe9d01383a7937922944562619762c3c"
+          },
+          {
+            "file": "red_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "rough_BCR.edds",
+            "bytes": 1897,
+            "sha256": "9355a733c9ac6b8a2266d39c6637f45cc23b5a5002301c8f1a4238178557f621"
+          },
+          {
+            "file": "rough_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "ec8d6aacc6b7e6d3d240d5440cfc0ee9e93a46bc49f47c519057f6c3a3698758"
+          },
+          {
+            "file": "rough_BCR.tif",
+            "bytes": 14282,
+            "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a"
+          },
+          {
+            "file": "rough_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "rough_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "99ffb5d9d5edddf81c18d0136f97edf58200f22cc3da4be5accc354f56b93f4e"
+          },
+          {
+            "file": "rough_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "white_BCR.edds",
+            "bytes": 1897,
+            "sha256": "2f374d302e6823ffe566beb13f698ac21df535b342db700784750678c89c7058"
+          },
+          {
+            "file": "white_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "2661b1f28ccb96395da18b61e9ba57bf03510e4dd0ef575dfb0be58d0ee295de"
+          },
+          {
+            "file": "white_BCR.tif",
+            "bytes": 14266,
+            "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5"
+          },
+          {
+            "file": "white_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "white_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "8c05d749860f0403baa50720ea823e14b961804bf32cad820f22f38cf20ab6a4"
+          },
+          {
+            "file": "white_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          }
+        ]
+      },
+      "driver_sha256": "e587fe0027c7cae938777ada080250bba89a0da7dc62fe56454477ff900cb600",
+      "native_maps": {
+        "neutral": {
+          "bcr": {
+            "resource": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "native_raw": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "native_raw": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "blue": {
+          "bcr": {
+            "resource": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "native_raw": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "native_raw": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "red": {
+          "bcr": {
+            "resource": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "native_raw": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "native_raw": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "rough": {
+          "bcr": {
+            "resource": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "native_raw": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "native_raw": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "white": {
+          "bcr": {
+            "resource": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "native_raw": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "native_raw": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "metal": {
+          "bcr": {
+            "resource": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds",
+            "native_raw": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds",
+            "native_raw": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "dark": {
+          "bcr": {
+            "resource": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "native_raw": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "native_raw": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        }
+      },
+      "native_colors": {
+        "neutral": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "blue": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "red": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rough": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "white": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metal": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dark": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "fb41dd3909d83179cc341617c8c12189d414ebce7718df2a0a71f8cda1f31941",
+        "bytes": 1188107,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      },
+      "visual_review": "All room fixtures remain visible. The center sphere has a bright highlight and a sharp, visibly coarse reflection containing exterior trees/terrain and foreground posts. The right sphere and box are tan/brown, left sphere white, walls red/blue. Environment reflection differs from the isolated Cycles reference and remains a calibration concern."
+    },
+    {
+      "trial": "material-room-texture-matte-v1",
+      "run_id": "20260909T115450-5e1ae4d719",
+      "report_sha256": "490994779fa0b0f19406ce08a4dfcfcea45ddae3ab3bc7d4244d86b4aef06002",
+      "capture_manifest_sha256": "434454e9ff654b8ba7281166d839d2e4371f10ab934583cfe39e95cfe5bcb025",
+      "console_sha256": "4b6a9bf360a644f64edc693ee8140217502b1bb772063eeb2b2fc33d27c11f99",
+      "validation_manifest_sha256": "eb2fe2d13eb688f6f399ab0208f84059aa08f4bbf12f6a2e92b02e2f342d2d70",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "6d65530b2fbd726003b645fae989332dc4605b1df15c4e44311857821ce1cea5",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1475,
+            "simulation_seconds": 8.65917,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "case": "metal-matte",
+      "control": {
+        "case": "metal-matte",
+        "build": {
+          "build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+          "run_id": "20260909T114107-99b990377d",
+          "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+          "compiled_headers": [
+            {
+              "name": "blue_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "blue_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_matte_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_dielectric_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            }
+          ]
+        },
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-texture-control-v1",
+          "source_scene": "scenes/material-room-v1.json",
+          "license": "MIT; original procedural texture patterns and material constants",
+          "texture_dimensions": [
+            512,
+            512
+          ],
+          "source_format": "RGBA8 TIFF with LZW compression",
+          "encoding": {
+            "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+            "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+            "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+            "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+            "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+          },
+          "cases": [
+            "orientation",
+            "packed",
+            "metal-matte",
+            "metal-dielectric"
+          ],
+          "case_changes": {
+            "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+            "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+            "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+            "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+          },
+          "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+          "orientation_probe_points_room_xyz": [
+            [
+              -1.8,
+              2.2,
+              2.9
+            ],
+            [
+              1.8,
+              2.2,
+              2.9
+            ],
+            [
+              -1.8,
+              3.4,
+              2.9
+            ],
+            [
+              1.8,
+              3.4,
+              2.9
+            ]
+          ],
+          "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+          "response_region_xyxy": [
+            1150,
+            620,
+            1410,
+            740
+          ],
+          "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+          "unchanged": [
+            "original mesh and material GUIDs",
+            "camera",
+            "environment",
+            "exposure",
+            "render settings"
+          ],
+          "limits": [
+            "No neural processing",
+            "No renderer-buffer interface",
+            "Outdoor illumination is not the reference area light",
+            "Textures and raster response need native verification before acceptance"
+          ]
+        },
+        "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+        "materials": [
+          {
+            "name": "blue",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "nmo": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds\"\n NMOMap \"{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "7a565bce00f544ac71f1a98c41e3702bd161eb6b53a93a2f654d7de6c9811681"
+          },
+          {
+            "name": "dark",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "nmo": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds\"\n NMOMap \"{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "b777d762d9eb3bc6bcc4b63a915fda7462aa8d4285b546291d35777c83f007a8"
+          },
+          {
+            "name": "metal",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{E8C16B396F9C4DAF}Assets/ENR_OriginalTextures/metal_matte_BCR.edds",
+            "nmo": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{E8C16B396F9C4DAF}Assets/ENR_OriginalTextures/metal_matte_BCR.edds\"\n NMOMap \"{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "a297c675ed946093eaca1f6892054313e5496eca4a8f64b19d231b6c68925e66"
+          },
+          {
+            "name": "neutral",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "nmo": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds\"\n NMOMap \"{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "e43d6b82ce7d79ad09d83ea9aaf54e434b71374d5119b9836c09553770104723"
+          },
+          {
+            "name": "red",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "nmo": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds\"\n NMOMap \"{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "6b31712259ad8e67159eeaa7fa6feef7342a2712819f7a923afb78a6c9ae2c67"
+          },
+          {
+            "name": "rough",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "nmo": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds\"\n NMOMap \"{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "56df183b82d8f18a66fa0ab28ae027c885f0cc3436fa68129b0f8e41b6bbcaa0"
+          },
+          {
+            "name": "white",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "nmo": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds\"\n NMOMap \"{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "2cc8f8b124d6f423081dd1978ee169aa922bccfb77c0bf26c61b6afe299a7492"
+          }
+        ],
+        "texture_assets": [
+          {
+            "file": "blue_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b74b0f591385348673b22b12269bd909f4b972392dd1f6f5b3c4af94ae1c8bfe"
+          },
+          {
+            "file": "blue_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "5f82267e07ed0166135580ee1ff653826c9c1f94764894c6bd48870f7b593bd4"
+          },
+          {
+            "file": "blue_BCR.tif",
+            "bytes": 14282,
+            "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68"
+          },
+          {
+            "file": "blue_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "blue_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "d3fa639f891a4cb1a845f483a14ed13ea69f54449d50424330f0a1bc21bffdc8"
+          },
+          {
+            "file": "blue_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "dark_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b6eef8fd22ee04a8d3e3d7e6b44074ec40802ece579fa7f23c1ae637d9d5b74b"
+          },
+          {
+            "file": "dark_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "ad8fdca3a55caf889be891fb076c4352319c6b2b5c0d84b97508f520a140afab"
+          },
+          {
+            "file": "dark_BCR.tif",
+            "bytes": 14266,
+            "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781"
+          },
+          {
+            "file": "dark_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "dark_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "0b6ed283923b4df0b96f3896bd3680f2166fb62b598454216a3bb4fe67e1b740"
+          },
+          {
+            "file": "dark_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6c71bef3d41c2503bbd9f813e9b979b9399a88c45288b32daec2a06c833d7602"
+          },
+          {
+            "file": "metal_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "5a1bfc02e8cd3490d170d8d14f9c5bf9cc780c768a2da04d093e9d3b9652c4e0"
+          },
+          {
+            "file": "metal_BCR.tif",
+            "bytes": 14266,
+            "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds.meta",
+            "bytes": 455,
+            "sha256": "ccef04d17caa739da934cf552ded80d97e4a5508d40555ee900e3be5fd58893a"
+          },
+          {
+            "file": "metal_dielectric_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_matte_BCR.edds",
+            "bytes": 1897,
+            "sha256": "7f50c886e1c15992d6d4352c443908f70902ad0ae8823a65c41217b82d135846"
+          },
+          {
+            "file": "metal_matte_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "a57dc043d0078b8af7ea1ea6a7b0aeb0215b637fc3315f41a7e23575d8d85ee0"
+          },
+          {
+            "file": "metal_matte_BCR.tif",
+            "bytes": 14266,
+            "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88"
+          },
+          {
+            "file": "metal_NMO.edds",
+            "bytes": 1897,
+            "sha256": "d89ff04ab63e1e2d8d79fc2bff4f68ef43ec9c07f07c34dfb83b914f8b5313cf"
+          },
+          {
+            "file": "metal_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "21e651b1a8815adcc2ab4857b748b4055a46de6434879aa808ad14e7ed2f5d44"
+          },
+          {
+            "file": "metal_NMO.tif",
+            "bytes": 14282,
+            "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf"
+          },
+          {
+            "file": "neutral_BCR.edds",
+            "bytes": 1897,
+            "sha256": "0b7111fe441807a1a0372f107b8a2543b8aae7220ece767a619e85ce0941f345"
+          },
+          {
+            "file": "neutral_BCR.edds.meta",
+            "bytes": 435,
+            "sha256": "61d832420b48593f4d507303e5e8e8a94deb02faa969414a68d4185a9b19b41b"
+          },
+          {
+            "file": "neutral_BCR.tif",
+            "bytes": 14266,
+            "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0"
+          },
+          {
+            "file": "neutral_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "neutral_NMO.edds.meta",
+            "bytes": 437,
+            "sha256": "7272d81220fa213dae99468fa155e1412d7a3b8f6b46366ee2efd81fa28fb4d3"
+          },
+          {
+            "file": "neutral_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "orientation_BCR.edds",
+            "bytes": 2264,
+            "sha256": "8db92d62f910453ec6c4ca5d6af463eaa67fc75ce7ea66e4ed73e48ec3b4f3b5"
+          },
+          {
+            "file": "orientation_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "0a6293abf073351d91d3765fa02dfd610a677cb26696d8c727d85e0df7b2d97e"
+          },
+          {
+            "file": "orientation_BCR.tif",
+            "bytes": 29630,
+            "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec"
+          },
+          {
+            "file": "orientation_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "orientation_NMO.edds.meta",
+            "bytes": 445,
+            "sha256": "fdf97f031cea2d16834438332cbe770b3fbd1fee10d15ca8e1331942367027e3"
+          },
+          {
+            "file": "orientation_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "red_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6fe202bc0c5c7cc420c666b72203ee5883cadbcb84d4f8d21632a135de421f6b"
+          },
+          {
+            "file": "red_BCR.edds.meta",
+            "bytes": 427,
+            "sha256": "33cac6f086e00f814761129354cc4480611bee615e9c75305c7bb4c81bfeb10e"
+          },
+          {
+            "file": "red_BCR.tif",
+            "bytes": 14282,
+            "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14"
+          },
+          {
+            "file": "red_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "red_NMO.edds.meta",
+            "bytes": 429,
+            "sha256": "c1cfd0f6283b31f87feb87f245e14dafbe9d01383a7937922944562619762c3c"
+          },
+          {
+            "file": "red_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "rough_BCR.edds",
+            "bytes": 1897,
+            "sha256": "9355a733c9ac6b8a2266d39c6637f45cc23b5a5002301c8f1a4238178557f621"
+          },
+          {
+            "file": "rough_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "ec8d6aacc6b7e6d3d240d5440cfc0ee9e93a46bc49f47c519057f6c3a3698758"
+          },
+          {
+            "file": "rough_BCR.tif",
+            "bytes": 14282,
+            "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a"
+          },
+          {
+            "file": "rough_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "rough_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "99ffb5d9d5edddf81c18d0136f97edf58200f22cc3da4be5accc354f56b93f4e"
+          },
+          {
+            "file": "rough_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "white_BCR.edds",
+            "bytes": 1897,
+            "sha256": "2f374d302e6823ffe566beb13f698ac21df535b342db700784750678c89c7058"
+          },
+          {
+            "file": "white_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "2661b1f28ccb96395da18b61e9ba57bf03510e4dd0ef575dfb0be58d0ee295de"
+          },
+          {
+            "file": "white_BCR.tif",
+            "bytes": 14266,
+            "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5"
+          },
+          {
+            "file": "white_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "white_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "8c05d749860f0403baa50720ea823e14b961804bf32cad820f22f38cf20ab6a4"
+          },
+          {
+            "file": "white_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          }
+        ]
+      },
+      "driver_sha256": "e587fe0027c7cae938777ada080250bba89a0da7dc62fe56454477ff900cb600",
+      "native_maps": {
+        "neutral": {
+          "bcr": {
+            "resource": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "native_raw": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "native_raw": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "blue": {
+          "bcr": {
+            "resource": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "native_raw": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "native_raw": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "red": {
+          "bcr": {
+            "resource": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "native_raw": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "native_raw": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "rough": {
+          "bcr": {
+            "resource": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "native_raw": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "native_raw": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "white": {
+          "bcr": {
+            "resource": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "native_raw": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "native_raw": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "metal": {
+          "bcr": {
+            "resource": "{E8C16B396F9C4DAF}Assets/ENR_OriginalTextures/metal_matte_BCR.edds",
+            "native_raw": "{E8C16B396F9C4DAF}Assets/ENR_OriginalTextures/metal_matte_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds",
+            "native_raw": "{E73E9807E9724A43}Assets/ENR_OriginalTextures/metal_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "dark": {
+          "bcr": {
+            "resource": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "native_raw": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "native_raw": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        }
+      },
+      "native_colors": {
+        "neutral": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "blue": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "red": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rough": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "white": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metal": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dark": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "6d65530b2fbd726003b645fae989332dc4605b1df15c4e44311857821ce1cea5",
+        "bytes": 1099781,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      },
+      "visual_review": "The center sphere has broad smooth shading without the sharp scenery reflection of the packed control. Other fixtures remain in the same visible arrangement. This is a roughness-channel response under outdoor light, not a measured physical roughness match."
+    },
+    {
+      "trial": "material-room-texture-dielectric-v1",
+      "run_id": "20260909T115541-31482fb249",
+      "report_sha256": "2fa1732f813ff24b79ab2ec71c3ffe56078edee207aacf2d779f86ddef369d78",
+      "capture_manifest_sha256": "da2d4f10d6cf1eb93862af9f922b850d4305c64e5bff18a36601a7466941e408",
+      "console_sha256": "aa6b46858133291b67271b2ee41e6a7144abcb9df0f2ceee910c811eb07d9bae",
+      "validation_manifest_sha256": "f2ceac12dfc85c8c8ef5270df34bff2db24b4d40c74f0e4905dfff2dcacd44de",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "2b8b28e40054251f32469eec7b445dde4e2d5251773def507a4b96d2252dcad9",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1464,
+            "simulation_seconds": 8.66374,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "case": "metal-dielectric",
+      "control": {
+        "case": "metal-dielectric",
+        "build": {
+          "build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+          "run_id": "20260909T114107-99b990377d",
+          "run_manifest_sha256": "f7e8c816ecd892fbc3f7cc2e068cf246564f77b121e8032522e47717e1478dcd",
+          "compiled_headers": [
+            {
+              "name": "blue_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "blue_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "dark_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "neutral_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "red_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "rough_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "white_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_matte_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "metal_dielectric_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_BCR",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 99,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            },
+            {
+              "name": "orientation_NMO",
+              "width": 512,
+              "height": 512,
+              "mips": 10,
+              "dxgi_format": 98,
+              "container_tag_hex": "454e4631",
+              "pixel_decode_verified": false
+            }
+          ]
+        },
+        "plan": {
+          "schema_version": 1,
+          "id": "material-room-texture-control-v1",
+          "source_scene": "scenes/material-room-v1.json",
+          "license": "MIT; original procedural texture patterns and material constants",
+          "texture_dimensions": [
+            512,
+            512
+          ],
+          "source_format": "RGBA8 TIFF with LZW compression",
+          "encoding": {
+            "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+            "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+            "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+            "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+            "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+          },
+          "cases": [
+            "orientation",
+            "packed",
+            "metal-matte",
+            "metal-dielectric"
+          ],
+          "case_changes": {
+            "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+            "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+            "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+            "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+          },
+          "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+          "orientation_probe_points_room_xyz": [
+            [
+              -1.8,
+              2.2,
+              2.9
+            ],
+            [
+              1.8,
+              2.2,
+              2.9
+            ],
+            [
+              -1.8,
+              3.4,
+              2.9
+            ],
+            [
+              1.8,
+              3.4,
+              2.9
+            ]
+          ],
+          "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+          "response_region_xyxy": [
+            1150,
+            620,
+            1410,
+            740
+          ],
+          "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+          "unchanged": [
+            "original mesh and material GUIDs",
+            "camera",
+            "environment",
+            "exposure",
+            "render settings"
+          ],
+          "limits": [
+            "No neural processing",
+            "No renderer-buffer interface",
+            "Outdoor illumination is not the reference area light",
+            "Textures and raster response need native verification before acceptance"
+          ]
+        },
+        "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+        "materials": [
+          {
+            "name": "blue",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "nmo": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds\"\n NMOMap \"{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "7a565bce00f544ac71f1a98c41e3702bd161eb6b53a93a2f654d7de6c9811681"
+          },
+          {
+            "name": "dark",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "nmo": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds\"\n NMOMap \"{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "b777d762d9eb3bc6bcc4b63a915fda7462aa8d4285b546291d35777c83f007a8"
+          },
+          {
+            "name": "metal",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds",
+            "nmo": "{6CF19D38A1734CA9}Assets/ENR_OriginalTextures/metal_dielectric_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds\"\n NMOMap \"{6CF19D38A1734CA9}Assets/ENR_OriginalTextures/metal_dielectric_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "9c438a3407614e559790b3b864f15d910529f5ff760e7bfe6aebdc3736a0122c"
+          },
+          {
+            "name": "neutral",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "nmo": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds\"\n NMOMap \"{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "e43d6b82ce7d79ad09d83ea9aaf54e434b71374d5119b9836c09553770104723"
+          },
+          {
+            "name": "red",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "nmo": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds\"\n NMOMap \"{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "6b31712259ad8e67159eeaa7fa6feef7342a2712819f7a923afb78a6c9ae2c67"
+          },
+          {
+            "name": "rough",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "nmo": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds\"\n NMOMap \"{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "56df183b82d8f18a66fa0ab28ae027c885f0cc3436fa68129b0f8e41b6bbcaa0"
+          },
+          {
+            "name": "white",
+            "rgba": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "bcr": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "nmo": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "material_text": "MatPBRBasic {\n Color 1 1 1 1\n BCRMap \"{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds\"\n NMOMap \"{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds\"\n}\n",
+            "before_sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255",
+            "after_sha256": "2cc8f8b124d6f423081dd1978ee169aa922bccfb77c0bf26c61b6afe299a7492"
+          }
+        ],
+        "texture_assets": [
+          {
+            "file": "blue_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b74b0f591385348673b22b12269bd909f4b972392dd1f6f5b3c4af94ae1c8bfe"
+          },
+          {
+            "file": "blue_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "5f82267e07ed0166135580ee1ff653826c9c1f94764894c6bd48870f7b593bd4"
+          },
+          {
+            "file": "blue_BCR.tif",
+            "bytes": 14282,
+            "sha256": "477d259ad609bddb6844909f6633fbfb7fef195f0deb031cb069521d626e6c68"
+          },
+          {
+            "file": "blue_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "blue_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "d3fa639f891a4cb1a845f483a14ed13ea69f54449d50424330f0a1bc21bffdc8"
+          },
+          {
+            "file": "blue_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "dark_BCR.edds",
+            "bytes": 1897,
+            "sha256": "b6eef8fd22ee04a8d3e3d7e6b44074ec40802ece579fa7f23c1ae637d9d5b74b"
+          },
+          {
+            "file": "dark_BCR.edds.meta",
+            "bytes": 429,
+            "sha256": "ad8fdca3a55caf889be891fb076c4352319c6b2b5c0d84b97508f520a140afab"
+          },
+          {
+            "file": "dark_BCR.tif",
+            "bytes": 14266,
+            "sha256": "7ba6e1e1c5a56bfb3c9c22fd001fd095319a0f016bb3317bed8703c44f575781"
+          },
+          {
+            "file": "dark_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "dark_NMO.edds.meta",
+            "bytes": 431,
+            "sha256": "0b6ed283923b4df0b96f3896bd3680f2166fb62b598454216a3bb4fe67e1b740"
+          },
+          {
+            "file": "dark_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6c71bef3d41c2503bbd9f813e9b979b9399a88c45288b32daec2a06c833d7602"
+          },
+          {
+            "file": "metal_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "5a1bfc02e8cd3490d170d8d14f9c5bf9cc780c768a2da04d093e9d3b9652c4e0"
+          },
+          {
+            "file": "metal_BCR.tif",
+            "bytes": 14266,
+            "sha256": "ab5d10482f43ad3576ccaf6780fa9f49346f95756c0dd37ecd6afde6a47aaa85"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "metal_dielectric_NMO.edds.meta",
+            "bytes": 455,
+            "sha256": "ccef04d17caa739da934cf552ded80d97e4a5508d40555ee900e3be5fd58893a"
+          },
+          {
+            "file": "metal_dielectric_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "metal_matte_BCR.edds",
+            "bytes": 1897,
+            "sha256": "7f50c886e1c15992d6d4352c443908f70902ad0ae8823a65c41217b82d135846"
+          },
+          {
+            "file": "metal_matte_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "a57dc043d0078b8af7ea1ea6a7b0aeb0215b637fc3315f41a7e23575d8d85ee0"
+          },
+          {
+            "file": "metal_matte_BCR.tif",
+            "bytes": 14266,
+            "sha256": "fa540e4de36751b3db3e063092e0897818a7a82f0ade8ad3bf26e2da36754d88"
+          },
+          {
+            "file": "metal_NMO.edds",
+            "bytes": 1897,
+            "sha256": "d89ff04ab63e1e2d8d79fc2bff4f68ef43ec9c07f07c34dfb83b914f8b5313cf"
+          },
+          {
+            "file": "metal_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "21e651b1a8815adcc2ab4857b748b4055a46de6434879aa808ad14e7ed2f5d44"
+          },
+          {
+            "file": "metal_NMO.tif",
+            "bytes": 14282,
+            "sha256": "87fcdd611fc6148b1c85ab8098c37491a9889662e46c3d2b7df11d60a1395ccf"
+          },
+          {
+            "file": "neutral_BCR.edds",
+            "bytes": 1897,
+            "sha256": "0b7111fe441807a1a0372f107b8a2543b8aae7220ece767a619e85ce0941f345"
+          },
+          {
+            "file": "neutral_BCR.edds.meta",
+            "bytes": 435,
+            "sha256": "61d832420b48593f4d507303e5e8e8a94deb02faa969414a68d4185a9b19b41b"
+          },
+          {
+            "file": "neutral_BCR.tif",
+            "bytes": 14266,
+            "sha256": "187c6c6c262b01fef6a48a39648b55ab2848094efffeb97d5c610ab05df63cb0"
+          },
+          {
+            "file": "neutral_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "neutral_NMO.edds.meta",
+            "bytes": 437,
+            "sha256": "7272d81220fa213dae99468fa155e1412d7a3b8f6b46366ee2efd81fa28fb4d3"
+          },
+          {
+            "file": "neutral_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "orientation_BCR.edds",
+            "bytes": 2264,
+            "sha256": "8db92d62f910453ec6c4ca5d6af463eaa67fc75ce7ea66e4ed73e48ec3b4f3b5"
+          },
+          {
+            "file": "orientation_BCR.edds.meta",
+            "bytes": 443,
+            "sha256": "0a6293abf073351d91d3765fa02dfd610a677cb26696d8c727d85e0df7b2d97e"
+          },
+          {
+            "file": "orientation_BCR.tif",
+            "bytes": 29630,
+            "sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec"
+          },
+          {
+            "file": "orientation_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "orientation_NMO.edds.meta",
+            "bytes": 445,
+            "sha256": "fdf97f031cea2d16834438332cbe770b3fbd1fee10d15ca8e1331942367027e3"
+          },
+          {
+            "file": "orientation_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "red_BCR.edds",
+            "bytes": 1897,
+            "sha256": "6fe202bc0c5c7cc420c666b72203ee5883cadbcb84d4f8d21632a135de421f6b"
+          },
+          {
+            "file": "red_BCR.edds.meta",
+            "bytes": 427,
+            "sha256": "33cac6f086e00f814761129354cc4480611bee615e9c75305c7bb4c81bfeb10e"
+          },
+          {
+            "file": "red_BCR.tif",
+            "bytes": 14282,
+            "sha256": "68f3136467295cafd24420360aee386663d7ebac23c59c9d125be76f738c1c14"
+          },
+          {
+            "file": "red_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "red_NMO.edds.meta",
+            "bytes": 429,
+            "sha256": "c1cfd0f6283b31f87feb87f245e14dafbe9d01383a7937922944562619762c3c"
+          },
+          {
+            "file": "red_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "rough_BCR.edds",
+            "bytes": 1897,
+            "sha256": "9355a733c9ac6b8a2266d39c6637f45cc23b5a5002301c8f1a4238178557f621"
+          },
+          {
+            "file": "rough_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "ec8d6aacc6b7e6d3d240d5440cfc0ee9e93a46bc49f47c519057f6c3a3698758"
+          },
+          {
+            "file": "rough_BCR.tif",
+            "bytes": 14282,
+            "sha256": "5709a601b1af1de34a97dd0131a923bf8eeec5cc16090caf2b85c4dcd3fe081a"
+          },
+          {
+            "file": "rough_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "rough_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "99ffb5d9d5edddf81c18d0136f97edf58200f22cc3da4be5accc354f56b93f4e"
+          },
+          {
+            "file": "rough_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          },
+          {
+            "file": "white_BCR.edds",
+            "bytes": 1897,
+            "sha256": "2f374d302e6823ffe566beb13f698ac21df535b342db700784750678c89c7058"
+          },
+          {
+            "file": "white_BCR.edds.meta",
+            "bytes": 431,
+            "sha256": "2661b1f28ccb96395da18b61e9ba57bf03510e4dd0ef575dfb0be58d0ee295de"
+          },
+          {
+            "file": "white_BCR.tif",
+            "bytes": 14266,
+            "sha256": "57941b5d91ffda3e0ef6fe8c126fc4c36c36fe879fa66774a40f2bda67fdacf5"
+          },
+          {
+            "file": "white_NMO.edds",
+            "bytes": 1890,
+            "sha256": "a50b7e3ed11258e6a8e005e7dac8aeeb05ae1a67ce113f0f4672d464fc21c526"
+          },
+          {
+            "file": "white_NMO.edds.meta",
+            "bytes": 433,
+            "sha256": "8c05d749860f0403baa50720ea823e14b961804bf32cad820f22f38cf20ab6a4"
+          },
+          {
+            "file": "white_NMO.tif",
+            "bytes": 14282,
+            "sha256": "570a5ed712a4a7d098066482b5ea99575182d1772e64582f2475167161f19bef"
+          }
+        ]
+      },
+      "driver_sha256": "e587fe0027c7cae938777ada080250bba89a0da7dc62fe56454477ff900cb600",
+      "native_maps": {
+        "neutral": {
+          "bcr": {
+            "resource": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds",
+            "native_raw": "{0929500A874D46C6}Assets/ENR_OriginalTextures/neutral_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds",
+            "native_raw": "{BA70379E362A48B9}Assets/ENR_OriginalTextures/neutral_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "blue": {
+          "bcr": {
+            "resource": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds",
+            "native_raw": "{5FABB14E8F784C40}Assets/ENR_OriginalTextures/blue_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds",
+            "native_raw": "{92EF113655DA4ACC}Assets/ENR_OriginalTextures/blue_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "red": {
+          "bcr": {
+            "resource": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds",
+            "native_raw": "{EA998613FA424D09}Assets/ENR_OriginalTextures/red_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds",
+            "native_raw": "{D37A0CED1E194F2B}Assets/ENR_OriginalTextures/red_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "rough": {
+          "bcr": {
+            "resource": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds",
+            "native_raw": "{A88531D27C714A72}Assets/ENR_OriginalTextures/rough_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds",
+            "native_raw": "{68182B8DC2714B54}Assets/ENR_OriginalTextures/rough_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "white": {
+          "bcr": {
+            "resource": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds",
+            "native_raw": "{C4261F1F3F824E73}Assets/ENR_OriginalTextures/white_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds",
+            "native_raw": "{A9B29285DA614743}Assets/ENR_OriginalTextures/white_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "metal": {
+          "bcr": {
+            "resource": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds",
+            "native_raw": "{4FA90A5918934339}Assets/ENR_OriginalTextures/metal_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{6CF19D38A1734CA9}Assets/ENR_OriginalTextures/metal_dielectric_NMO.edds",
+            "native_raw": "{6CF19D38A1734CA9}Assets/ENR_OriginalTextures/metal_dielectric_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        },
+        "dark": {
+          "bcr": {
+            "resource": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds",
+            "native_raw": "{54A7FE4100EE4389}Assets/ENR_OriginalTextures/dark_BCR.edds 0",
+            "native_suffix": " 0"
+          },
+          "nmo": {
+            "resource": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds",
+            "native_raw": "{13EE823C4E9A402B}Assets/ENR_OriginalTextures/dark_NMO.edds 0",
+            "native_suffix": " 0"
+          }
+        }
+      },
+      "native_colors": {
+        "neutral": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "blue": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "red": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rough": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "white": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metal": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dark": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "image": {
+        "file": "profile/profile/sample-00000.png",
+        "sha256": "2b8b28e40054251f32469eec7b445dde4e2d5251773def507a4b96d2252dcad9",
+        "bytes": 1102934,
+        "dimensions": [
+          2560,
+          1440
+        ]
+      },
+      "visual_review": "The center sphere appears white and nonmetallic with a small highlight; the sharp scenery reflection is absent. Fine mottling remains along its lower edge, also visible on the left sphere. All fixtures remain visible. This does not establish fidelity to a reference BRDF or motion stability."
+    }
+  ],
+  "visual_review_sha256": "d2f22e1fd7cbe8e159fc74bd3408458517cb5c98a9648c17290691dd5628e13e",
+  "orientation": {
+    "schema_version": 1,
+    "operation": "original-texture-raster-orientation",
+    "status": "succeeded",
+    "script_sha256": "b201d90181bab79a628cf03e466f13015680955bd0c2a67fd5e6e9049818aad2",
+    "capture_report_sha256": "583fad82c72fd33da943fa14720a4499314a5b2870352559f0443152cc634cbe",
+    "texture_build_report_sha256": "9a4c00dbfd6ed00865d389fb7dec1072ba945253f802e3c058df6c6b7538ac3a",
+    "txo_sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631",
+    "source_texture_sha256": "c901f84d14e69544bb9b565c5e56ac69bff3c05d864a705f4e4d09a099828aec",
+    "frame_sha256": "7b86387224dd4e807aef95b95a380e1136e4678601113cb24dae3b0012ff3320",
+    "plan_sha256": "222702171e9f37f39f39ccc77666a0780a30bca2a9840d951a5d3226f8441c3b",
+    "observations": [
+      {
+        "point_local": [
+          -1.8,
+          2.2,
+          2.9
+        ],
+        "projected_xy": [
+          953.0358839967644,
+          452.0479819171993
+        ],
+        "sample_center_xy": [
+          953,
+          452
+        ],
+        "observed_mean_rgb8": [
+          240.0,
+          239.0,
+          237.56
+        ],
+        "observed_hue": "neutral",
+        "candidates": {
+          "txo_direct": {
+            "uv": [
+              0.5125,
+              0.05
+            ],
+            "texture_xy": [
+              262,
+              25
+            ],
+            "source_rgb8": [
+              245.0,
+              245.0,
+              245.0
+            ],
+            "hue": "neutral",
+            "matches": true
+          },
+          "txo_v_flipped": {
+            "uv": [
+              0.5125,
+              0.95
+            ],
+            "texture_xy": [
+              262,
+              486
+            ],
+            "source_rgb8": [
+              245.0,
+              245.0,
+              245.0
+            ],
+            "hue": "neutral",
+            "matches": true
+          }
+        }
+      },
+      {
+        "point_local": [
+          1.8,
+          2.2,
+          2.9
+        ],
+        "projected_xy": [
+          1606.964116003277,
+          452.0479819171993
+        ],
+        "sample_center_xy": [
+          1607,
+          452
+        ],
+        "observed_mean_rgb8": [
+          240.0,
+          239.0,
+          237.0
+        ],
+        "observed_hue": "neutral",
+        "candidates": {
+          "txo_direct": {
+            "uv": [
+              0.5125,
+              0.2
+            ],
+            "texture_xy": [
+              262,
+              102
+            ],
+            "source_rgb8": [
+              245.0,
+              245.0,
+              245.0
+            ],
+            "hue": "neutral",
+            "matches": true
+          },
+          "txo_v_flipped": {
+            "uv": [
+              0.5125,
+              0.8
+            ],
+            "texture_xy": [
+              262,
+              409
+            ],
+            "source_rgb8": [
+              245.0,
+              245.0,
+              245.0
+            ],
+            "hue": "neutral",
+            "matches": true
+          }
+        }
+      },
+      {
+        "point_local": [
+          -1.8,
+          3.4,
+          2.9
+        ],
+        "projected_xy": [
+          944.5799154794399,
+          226.82969085624728
+        ],
+        "sample_center_xy": [
+          945,
+          227
+        ],
+        "observed_mean_rgb8": [
+          239.0,
+          49.92,
+          52.0
+        ],
+        "observed_hue": "red",
+        "candidates": {
+          "txo_direct": {
+            "uv": [
+              0.5875,
+              0.05
+            ],
+            "texture_xy": [
+              300,
+              25
+            ],
+            "source_rgb8": [
+              230.0,
+              25.0,
+              25.0
+            ],
+            "hue": "red",
+            "matches": true
+          },
+          "txo_v_flipped": {
+            "uv": [
+              0.5875,
+              0.95
+            ],
+            "texture_xy": [
+              300,
+              486
+            ],
+            "source_rgb8": [
+              25.0,
+              25.0,
+              230.0
+            ],
+            "hue": "blue",
+            "matches": false
+          }
+        }
+      },
+      {
+        "point_local": [
+          1.8,
+          3.4,
+          2.9
+        ],
+        "projected_xy": [
+          1615.4200845206026,
+          226.82969085624728
+        ],
+        "sample_center_xy": [
+          1615,
+          227
+        ],
+        "observed_mean_rgb8": [
+          47.0,
+          46.0,
+          237.0
+        ],
+        "observed_hue": "blue",
+        "candidates": {
+          "txo_direct": {
+            "uv": [
+              0.5875,
+              0.2
+            ],
+            "texture_xy": [
+              300,
+              102
+            ],
+            "source_rgb8": [
+              25.0,
+              25.0,
+              230.0
+            ],
+            "hue": "blue",
+            "matches": true
+          },
+          "txo_v_flipped": {
+            "uv": [
+              0.5875,
+              0.8
+            ],
+            "texture_xy": [
+              300,
+              409
+            ],
+            "source_rgb8": [
+              230.0,
+              25.0,
+              25.0
+            ],
+            "hue": "red",
+            "matches": false
+          }
+        }
+      }
+    ],
+    "matching_conventions": [
+      "txo_direct"
+    ],
+    "method": "Predeclared world points; affine UV interpolation from original TXO corners; analytic camera projection without image alignment; mean hue in fixed 5x5 image patches",
+    "analysis_selection": "Points and asymmetric pattern declared before capture. Hue classification thresholds/patch size implemented after visual inspection; this is a diagnostic, not a held-out fidelity gate.",
+    "limits": [
+      "Only four back-wall points under one camera; other faces, mip transitions and normal maps require separate checks",
+      "Hue agreement does not establish photometric equivalence, compiled-pixel equality or neural integration"
+    ]
+  },
+  "orientation_report_sha256": "ac4d9037939525564793e22321d24ed4bff47e87e387720cb1fef46542ba2092",
+  "source_changed_channels_zero_based": {
+    "roughness": [
+      3
+    ],
+    "metalness": [
+      2
+    ]
+  },
+  "responses": [
+    {
+      "before": "packed",
+      "after": "metal-matte",
+      "region_xyxy": [
+        1150,
+        620,
+        1410,
+        740
+      ],
+      "region_rgb8_mae": 32.700908119658116,
+      "full_rgb8_mae": 0.8164133029513889,
+      "region_before_mean_rgb8": [
+        190.59330128205127,
+        199.4666346153846,
+        210.2406730769231
+      ],
+      "region_after_mean_rgb8": [
+        232.92070512820513,
+        231.25073717948717,
+        230.60342948717948
+      ]
+    },
+    {
+      "before": "packed",
+      "after": "metal-dielectric",
+      "region_xyxy": [
+        1150,
+        620,
+        1410,
+        740
+      ],
+      "region_rgb8_mae": 41.1094764957265,
+      "full_rgb8_mae": 1.0732478841145834,
+      "region_before_mean_rgb8": [
+        190.59330128205127,
+        199.4666346153846,
+        210.2406730769231
+      ],
+      "region_after_mean_rgb8": [
+        242.86916666666667,
+        240.99852564102565,
+        239.14134615384614
+      ]
+    }
+  ],
+  "verified": {
+    "native_texture_build_and_load": true,
+    "declared_map_readback": true,
+    "single_channel_source_controls": true,
+    "back_wall_orientation_diagnostic": true,
+    "region_response_nonzero": true,
+    "physical_roughness_calibration": false,
+    "reference_photometry": false,
+    "aligned_appearance_pair": false,
+    "renderer_integration": false
+  },
+  "scope": "Original material/texture response in one native room/camera; no model processing.",
+  "limits": [
+    "One capture per case; no estimate of repeat variation or motion stability in this batch",
+    "Header format is checked; Enfusion payload is not independently decoded",
+    "Roughness alpha is a candidate direct encoding, not a calibrated Cycles BRDF match",
+    "The shiny sphere reflects surrounding scenery; environment/reflection control remains open",
+    "Four back-wall orientation samples do not validate all surfaces, mips or tangent-space normals",
+    "Earlier strict TXO precision failures remain failed",
+    "No matched reference, live model, scene buffers or complete-frame performance proof"
+  ],
+  "next": "Control surrounding light/reflections and establish exposure/color mapping before an engine/reference lighting pair."
+}

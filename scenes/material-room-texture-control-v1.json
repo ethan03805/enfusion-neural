@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "material-room-texture-control-v1",
+  "source_scene": "scenes/material-room-v1.json",
+  "license": "MIT; original procedural texture patterns and material constants",
+  "texture_dimensions": [512, 512],
+  "source_format": "RGBA8 TIFF with LZW compression",
+  "encoding": {
+    "BCR": "Standard piecewise linear-to-sRGB encoding of source albedo into RGB; roughness copied directly to alpha as a candidate convention",
+    "NMO": "Linear channels: flat normal X/Y encoded as 128/255, metalness in B, occlusion 255 in A",
+    "import": "TIFFResourceClass PC; ColorHQCompression; explicit ToSRGB for BCR and ToLinear for NMO; generated mipmaps",
+    "quantization": "Clamp to [0,1], multiply by 255 and round to nearest with floor(x+0.5)",
+    "limitation": "No calibrated BRDF/roughness or photometric equivalence to Cycles is asserted"
+  },
+  "cases": ["orientation", "packed", "metal-matte", "metal-dielectric"],
+  "case_changes": {
+    "orientation": "Original color constants on other materials; neutral uses a repeated asymmetric color pattern in BCR and flat dielectric NMO",
+    "packed": "All seven materials use original candidate BCR/NMO constants; Color multiplier white",
+    "metal-matte": "Same as packed except intended metal material BCR alpha encodes roughness 0.85 instead of 0.15",
+    "metal-dielectric": "Same as packed except intended metal material NMO B channel is 0 instead of 255"
+  },
+  "orientation_pattern": "Each 128x128 tile: top-left red, top-right green, bottom-left blue, bottom-right yellow; 8px white L along top and left tile edges. Pixel origin is image top-left.",
+  "orientation_probe_points_room_xyz": [[-1.8, 2.2, 2.9], [1.8, 2.2, 2.9], [-1.8, 3.4, 2.9], [1.8, 3.4, 2.9]],
+  "orientation_probe_coordinates": "Enfusion local [x,height,z]; back wall front surface; project using verified camera and compare with TXO face UVs. No fitted screen alignment.",
+  "response_region_xyxy": [1150, 620, 1410, 740],
+  "response_acceptance": "Report pixel changes in the preselected intended-metal sphere region and inspect full images; any change alone does not establish physical BRDF correctness",
+  "unchanged": ["original mesh and material GUIDs", "camera", "environment", "exposure", "render settings"],
+  "limits": ["No neural processing", "No renderer-buffer interface", "Outdoor illumination is not the reference area light", "Textures and raster response need native verification before acceptance"]
+}

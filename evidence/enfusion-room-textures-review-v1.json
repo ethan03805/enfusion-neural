@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "scope": "Full-resolution visual review of every sample in the four predeclared original texture controls; no model processing",
+  "frames": [
+    {
+      "case": "orientation",
+      "sha256": "7b86387224dd4e807aef95b95a380e1136e4678601113cb24dae3b0012ff3320",
+      "dimensions": [2560, 1440],
+      "full_size_inspected": true,
+      "observation": "Asymmetric red/green/blue/yellow pattern and white bars are visible on the neutral back wall, floor and plinth. Red/blue side walls, three spheres, box and three dark posts remain visible. Back-wall quadrant appearance follows the original UV chart axes, not an assumed image-axis layout. Other materials retain Color constants and default maps."
+    },
+    {
+      "case": "packed",
+      "sha256": "fb41dd3909d83179cc341617c8c12189d414ebce7718df2a0a71f8cda1f31941",
+      "dimensions": [2560, 1440],
+      "full_size_inspected": true,
+      "observation": "All room fixtures remain visible. The center sphere has a bright highlight and a sharp, visibly coarse reflection containing exterior trees/terrain and foreground posts. The right sphere and box are tan/brown, left sphere white, walls red/blue. Environment reflection differs from the isolated Cycles reference and remains a calibration concern."
+    },
+    {
+      "case": "metal-matte",
+      "sha256": "6d65530b2fbd726003b645fae989332dc4605b1df15c4e44311857821ce1cea5",
+      "dimensions": [2560, 1440],
+      "full_size_inspected": true,
+      "observation": "The center sphere has broad smooth shading without the sharp scenery reflection of the packed control. Other fixtures remain in the same visible arrangement. This is a roughness-channel response under outdoor light, not a measured physical roughness match."
+    },
+    {
+      "case": "metal-dielectric",
+      "sha256": "2b8b28e40054251f32469eec7b445dde4e2d5251773def507a4b96d2252dcad9",
+      "dimensions": [2560, 1440],
+      "full_size_inspected": true,
+      "observation": "The center sphere appears white and nonmetallic with a small highlight; the sharp scenery reflection is absent. Fine mottling remains along its lower edge, also visible on the left sphere. All fixtures remain visible. This does not establish fidelity to a reference BRDF or motion stability."
+    }
+  ]
+}
