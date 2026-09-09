@@ -45,6 +45,13 @@ class ENR_MaterialRoom
     Color colorValue = new Color(0, 0, 0, 0);
     bool read = materialContainer.Get("Color", colorValue);
     PrintFormat("ENR_ROOM_COLOR resource=%1 read=%2 rgba=%3 %4 %5 %6", materials[m], read, colorValue.R(), colorValue.G(), colorValue.B(), colorValue.A());
+    if (ENR_RoomConfig.InspectTextureMaps)
+    {
+     ResourceName bcrName, nmoName;
+     bool bcrRead = materialContainer.Get("BCRMap", bcrName);
+     bool nmoRead = materialContainer.Get("NMOMap", nmoName);
+     PrintFormat("ENR_ROOM_MAP slot=%1 bcr_read=%2 bcr=%3 nmo_read=%4 nmo=%5", materials[m], bcrRead, bcrName, nmoRead, nmoName);
+    }
    }
   }
  }

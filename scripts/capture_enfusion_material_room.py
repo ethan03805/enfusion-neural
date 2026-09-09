@@ -13,6 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from enr import sequence
+from enr import room_textures
 from enr.references import digest, lab_modules, write_json
 
 
@@ -22,7 +23,14 @@ def main():
     parser.add_argument('--loaded-import', required=True)
     parser.add_argument('--lab-source', required=True)
     parser.add_argument('--color-control', choices=('white', 'reference-colors'), help='Change only original material Color constants under the declared control plan')
+    parser.add_argument('--texture-build', help='Verified completed original texture build')
+    parser.add_argument('--texture-case', choices=('orientation', 'packed', 'metal-matte', 'metal-dielectric'))
     args = parser.parse_args()
+    if bool(args.texture_build) != bool(args.texture_case) or (args.texture_case and args.color_control):
+        raise ValueError('Texture build and case are required together and exclude Color-only control')
+    texture_build = texture_copies = texture_provenance = None
+    if args.texture_build:
+        texture_build, texture_copies, texture_provenance = room_textures.load_build(args.texture_build, ROOT)
     source_root = Path(args.loaded_import).resolve()
     report_path = source_root / 'import.json'
     report = json.loads(report_path.read_text(encoding='utf-8'))
@@ -59,6 +67,7 @@ def main():
     config = sequence.load_config(ROOT / 'scenes/arland-motion-v1.json')
     room = json.loads((ROOT / 'scenes/material-room-v1.json').read_text(encoding='utf-8'))
     color_control = None
+    texture_control = None
     if args.color_control:
         plan_path = ROOT / 'scenes/material-room-color-control-v1.json'
         plan = json.loads(plan_path.read_text(encoding='utf-8'))
@@ -98,11 +107,29 @@ def main():
             color_control['materials'].append({'name': name, 'before_sha256': before,
                                               'after_sha256': digest(material_path), 'rgba': rgba})
         write_json(out / 'color-control.json', color_control)
+    if texture_build:
+        for source, name in texture_copies:
+            destination = out / 'addon/Assets/ENR_OriginalTextures' / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, destination)
+        recipes = room_textures.material_recipe(args.texture_case, room['materials'], texture_build['identities'])
+        texture_control = {'case': args.texture_case, 'build': texture_provenance,
+                           'plan': texture_build['source']['plan'], 'plan_sha256': texture_build['source']['plan_sha256'],
+                           'materials': [], 'texture_assets': texture_build['retained_assets']}
+        for recipe in recipes:
+            material_path = out / 'addon/Assets/ENR_ReferenceRoom/Data' / (recipe['name'] + '.emat')
+            if material_path.read_text(encoding='utf-8').strip() != 'MatPBRBasic {\n}':
+                raise ValueError('Texture control requires original default materials')
+            before = digest(material_path)
+            material_path.write_bytes(recipe['material_text'].encode('utf-8'))
+            texture_control['materials'].append(dict(recipe, before_sha256=before, after_sha256=digest(material_path)))
+        write_json(out / 'texture-control.json', texture_control)
+    material_control = color_control or texture_control
     plugin = ROOT / 'adapters/enfusion/probes/ENR_MaterialRoom.c'
     shutil.copyfile(plugin, out / 'addon/Scripts/Game/ENR_MaterialRoom.c')
     material_lookup = ' static ResourceName MaterialResource(string slot) {\n'
-    if color_control:
-        for item in color_control['materials']:
+    if material_control:
+        for item in material_control['materials']:
             name = item['name']
             meta = out / 'addon/Assets/ENR_ReferenceRoom/Data' / (name + '.emat.meta')
             match = re.search(r'Name "(\{[0-9A-F]{16}\}Assets/ENR_ReferenceRoom/Data/' + re.escape(name) + r'\.emat)"', meta.read_text(encoding='utf-8'))
@@ -113,7 +140,8 @@ def main():
     (out / 'addon/Scripts/Game/ENR_RoomConfig.c').write_text(
         '#ifdef WORKBENCH\nclass ENR_RoomConfig { static ResourceName Model = "' + models[0] +
         '"; static vector Origin = "' + ' '.join(map(str, origin)) + '"; static bool InspectMaterialColors = ' +
-        str(bool(color_control)).lower() + ';\n' + material_lookup + '}\n#endif\n', encoding='utf-8')
+        str(bool(material_control)).lower() + '; static bool InspectTextureMaps = ' + str(bool(texture_control)).lower() +
+        ';\n' + material_lookup + '}\n#endif\n', encoding='utf-8')
     capture = out / 'addon/Scripts/Game/ELab_GameCapture.c'
     text = capture.read_text(encoding='utf-8')
     needle = 'ENR_Sequence.Camera(world);'
@@ -146,6 +174,12 @@ def main():
         result.update(color_control=color_control, color_control_sha256=digest(out / 'color-control.json'),
                       color_records=color_records,
                       scope='Original material Color constant response control; outdoor illumination and default packed-map parameters, no matched appearance or neural processing')
+    if texture_control:
+        log_text = (directory / 'console.log').read_text(encoding='utf-8')
+        result.update(texture_control=texture_control, texture_control_sha256=digest(out / 'texture-control.json'),
+                      color_records=[line.split('ENR_ROOM_COLOR ', 1)[1] for line in log_text.splitlines() if 'ENR_ROOM_COLOR ' in line],
+                      texture_records=[line.split('ENR_ROOM_MAP ', 1)[1] for line in log_text.splitlines() if 'ENR_ROOM_MAP ' in line],
+                      scope='Original packed-texture response control; material/light photometry and neural integration remain unverified')
     write_json(out / 'room.json', result)
     print(json.dumps({'status': result['status'], 'run': run['run_id'], 'records': records, 'image': run['image']}, indent=2))
 

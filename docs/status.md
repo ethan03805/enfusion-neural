@@ -2,6 +2,14 @@
 
 Updated 9 September 2026. Milestone: the locked full-input model passes the 48-frame untouched synthetic test. All three test clips and both regression paths are retained. The Enfusion integration proof remains in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
+## Latest material experiment
+
+The [packed-texture controls](material-room.md#packed-texture-controls) built all 18 original TIFFs and completed all four planned captures. Native readback matches the declared material maps and Color values. Original source variants change only roughness alpha or metalness blue. The asymmetric back-wall diagnostic agrees with direct TXO sampling at four declared points; only two colored points distinguish an additional V flip. This narrow diagnostic does not overturn the earlier precision failures.
+
+The center sphere responds visibly to both channels. Its preselected region changes by 32.70 RGB8 MAE for roughness and 41.11 for metalness; these are response measurements, not fidelity scores. The shiny sphere reflects exterior scenery, making surrounding light/reflection control the next task. Roughness/BRDF calibration, exposure/color mapping and an aligned appearance pair remain unfinished.
+
+`evidence/enfusion-room-textures-v1.json` binds the source plan, build/header checks, all four native captures, orientation analysis and `enfusion-room-textures-review-v1.json`. Raw roots are `material-room-textures-source-v1`, `material-room-texture-build-v1`, and `material-room-texture-{orientation,packed,matte,dielectric}-v1` under `experiments/local/`. All native jobs are terminal. Four unchanged reviewed PNGs bring the site to 48 PNGs and 12 videos across 21 pages. No model or threshold changed. Native lighting inference, supported integration, varied actual-Arma model/motion tests and complete-frame performance remain required.
+
 ## Implemented and checked
 
 - Original procedural training data and a 251-parameter residual CNN with all weights trained locally.

@@ -1,5 +1,7 @@
 # Material room
 
+The latest [texture controls](#packed-texture-controls) verify visible roughness and metalness changes in the imported Enfusion room. Matching its illumination and color response to the reference remains the next step.
+
 An original controlled scene provides aligned references for lighting and material experiments. It contains a neutral room with colored walls, three material spheres, a box and three thin posts. All geometry, material constants, lighting and camera settings come from one versioned JSON file.
 
 These are synthetic renders made in Blender Cycles. The source limits light transport to one bounce; the reference allows twelve. **Neither image is an Enfusion render or a neural result.** The pair can test a training method before an Enfusion appearance dataset is available.
@@ -102,4 +104,50 @@ An initial run timed out because the probe treated a mesh material slot name as 
 
 To reproduce, add `--color-control white` or `--color-control reference-colors` to the capture command above, with a separate new output directory for each case. `scripts/summarize_enfusion_room_color.py` verifies the material edits, native readback, image regions and retained initial failure.
 
-The intended metal sphere still appears nonmetallic: roughness, metalness and packed-map defaults are unchanged. Outdoor sunlight and sky still differ from the reference area light. Next import original asymmetric BCR/NMO textures, verify texture orientation and material response, then calibrate illumination and color/exposure. This control does not establish an aligned appearance pair or a supported neural renderer interface.
+In this Color-only control, the intended metal sphere still appears nonmetallic because packed-map defaults are unchanged. The controls below add those maps. Outdoor lighting still differs from the reference area light; neither control establishes an aligned appearance pair or a neural renderer interface.
+
+## Packed texture controls
+
+All 18 original textures build in Workbench. Four captures verify an asymmetric pattern, the candidate material maps, and separate roughness and metalness changes. Every declared map matches native readback. Geometry, camera, environment, exposure and capture settings are held fixed across these cases.
+
+The layout follows Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger%3ATextures): BCR carries base color and roughness; NMO carries normal components, metalness and occlusion. Base colors use an explicit linear-to-sRGB conversion. Roughness is copied directly into alpha as a **candidate encoding**, whose physical correspondence to the reference is uncalibrated. Original sources are 512 × 512 TIFFs. Compiled headers report BC7 sRGB for BCR, BC7 linear for NMO and ten mip levels; the engine-specific payload has not been independently decoded.
+
+<figure class="scene-image"><a href="media/material-room-texture-orientation.png"><img src="media/material-room-texture-orientation.png" width="2560" height="1440" loading="lazy" alt="Asymmetric colored tiles and white bars on the imported back wall, floor and plinth"></a><figcaption>Original texture orientation control · Enfusion · no neural processing</figcaption></figure>
+
+Four predeclared back-wall points are projected through the recorded camera and compared with TXO face UVs. All four hues agree with direct TXO sampling; an additional V flip fails the two colored points. The two white-bar samples cannot distinguish those conventions. Hue thresholds were implemented after image inspection, so this is a diagnostic, not an untouched fidelity test. Other faces, mip transitions and tangent-space normals remain outside its scope. Earlier strict normal/UV precision failures remain failed.
+
+### Roughness
+
+Only the center sphere's BCR alpha changes, from 38/255 to 217/255: requested roughness 0.15 and 0.85 before quantization. Its sharp reflection becomes broad shading.
+
+<section class="comparison" data-comparison data-before-label="Low roughness" data-after-label="High roughness" aria-label="Enfusion roughness texture control">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/material-room-texture-packed.png" width="2560" height="1440" loading="lazy" alt="Center metallic sphere with a sharp scenery reflection at low candidate roughness"><figcaption>Low roughness</figcaption></figure>
+<figure class="comparison-after"><img src="media/material-room-texture-metal-matte.png" width="2560" height="1440" loading="lazy" alt="Same sphere with broad shading after increasing only the roughness texture channel"><figcaption>High roughness</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal low roughness<input type="range" min="0" max="100" value="50" aria-label="Low roughness control visible"><output>50% Low roughness</output></label>
+</section>
+
+### Metalness
+
+Only the center sphere's NMO blue channel changes, from 255 to 0. The sphere appears nonmetallic, with a small highlight and no sharp scenery reflection.
+
+<section class="comparison" data-comparison data-before-label="Metal" data-after-label="Nonmetal" aria-label="Enfusion metalness texture control">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/material-room-texture-packed.png" width="2560" height="1440" loading="lazy" alt="Center metallic sphere with a sharp scenery reflection"><figcaption>Metal</figcaption></figure>
+<figure class="comparison-after"><img src="media/material-room-texture-metal-dielectric.png" width="2560" height="1440" loading="lazy" alt="Same sphere appearing white and nonmetallic after changing only the metalness texture channel"><figcaption>Nonmetal</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal metal<input type="range" min="0" max="100" value="50" aria-label="Metal control visible"><output>50% Metal</output></label>
+</section>
+
+Within the preselected center-sphere rectangle, mean absolute RGB8 changes are **32.70** for roughness and **41.11** for metalness. These measure visible response, not improved fidelity. There is one capture per case, without a repeat-variation estimate. All four images are unchanged 2560 × 1440 exports. No model runs in this experiment.
+
+The shiny sphere reflects exterior trees and terrain, and parts of its reflection look coarse. White/nonmetallic spheres retain mottling along their lower edges. These observations remain in the [full-resolution review](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-textures-review-v1.json). Surrounding light and reflections need control before comparison with the isolated reference.
+
+[Control plan](https://github.com/ethan03805/enfusion-neural/blob/main/scenes/material-room-texture-control-v1.json) · [Build, readback and pixel evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-textures-v1.json)
+
+Generate sources with `scripts/generate_enfusion_room_textures.py --out NEW_SOURCE`, then build with `scripts/build_enfusion_room_textures.py --source-root NEW_SOURCE --out NEW_BUILD --lab-source PATH_TO_LAB`. Add `--texture-build NEW_BUILD --texture-case CASE` to the room capture command above. Run `orientation`, `packed`, `metal-matte` and `metal-dielectric` serially, each in a new output directory. The orientation checker and `scripts/summarize_enfusion_room_textures.py --help` describe evidence inputs. Keep all raw runs and supply a hash-bound visual review after inspecting every image.
+
+Next control illumination and reflections, then verify exposure/color transfer using independent material patches. Accept an engine/reference lighting pair only after those checks.

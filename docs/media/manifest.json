@@ -685,6 +685,70 @@
       "run_id": "20260909T112136-63e236c280",
       "selection": "The only frame in each of the two predeclared material-color cases, both inspected at full resolution",
       "rights": "Original room geometry and constants are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-texture-orientation.png",
+      "sha256": "7b86387224dd4e807aef95b95a380e1136e4678601113cb24dae3b0012ff3320",
+      "bytes": 1269460,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion packed-texture control: orientation; no neural processing",
+      "source_record": "evidence/enfusion-room-textures-v1.json",
+      "source_artifact": "experiments/local/material-room-texture-orientation-v1/runs/20260909T114524-1cd599e555/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T114524-1cd599e555",
+      "selection": "The only frame in each of all four predeclared texture cases; every frame inspected at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-texture-packed.png",
+      "sha256": "fb41dd3909d83179cc341617c8c12189d414ebce7718df2a0a71f8cda1f31941",
+      "bytes": 1188107,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion packed-texture control: packed; no neural processing",
+      "source_record": "evidence/enfusion-room-textures-v1.json",
+      "source_artifact": "experiments/local/material-room-texture-packed-v1/runs/20260909T114720-7718593692/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T114720-7718593692",
+      "selection": "The only frame in each of all four predeclared texture cases; every frame inspected at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-texture-metal-matte.png",
+      "sha256": "6d65530b2fbd726003b645fae989332dc4605b1df15c4e44311857821ce1cea5",
+      "bytes": 1099781,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion packed-texture control: metal-matte; no neural processing",
+      "source_record": "evidence/enfusion-room-textures-v1.json",
+      "source_artifact": "experiments/local/material-room-texture-matte-v1/runs/20260909T115450-5e1ae4d719/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T115450-5e1ae4d719",
+      "selection": "The only frame in each of all four predeclared texture cases; every frame inspected at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-texture-metal-dielectric.png",
+      "sha256": "2b8b28e40054251f32469eec7b445dde4e2d5251773def507a4b96d2252dcad9",
+      "bytes": 1102934,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion packed-texture control: metal-dielectric; no neural processing",
+      "source_record": "evidence/enfusion-room-textures-v1.json",
+      "source_artifact": "experiments/local/material-room-texture-dielectric-v1/runs/20260909T115541-31482fb249/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T115541-31482fb249",
+      "selection": "The only frame in each of all four predeclared texture cases; every frame inspected at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
     }
   ],
   "videos": [

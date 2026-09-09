@@ -78,6 +78,10 @@ The [motion study](lighting-motion.md) evaluates 64 frames without retraining. M
 
 Every frame has an independent reference. Paired depth/object IDs match exactly; source-camera self-projection checks pass; temporal correspondence coverage is 88.4–92.6%; display roundtrip error is at most one code value and alpha is exact. [All frame/region/transition records](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-motion-v1.json) · [Complete encoded frame provenance](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-motion-video-v1.json).
 
+## Original packed-texture response
+
+The [material-room controls](material-room.md#packed-texture-controls) retain all four captures and all 18 original texture builds. Native map/Color readback and source-channel isolation pass. The declared sphere region changes by 32.70 RGB8 MAE for roughness and 41.11 for metalness. The four-point orientation diagnostic supports direct TXO sampling on the tested back wall. Neither image difference nor hue agreement establishes physical material equivalence or neural fidelity. [Full evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-textures-v1.json) retains headers, recipes, hashes, telemetry and scope; the [visual review](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-textures-review-v1.json) records exterior scenery reflections and visible coarse/mottled shading.
+
 ## Disjoint-layout lighting test
 
 The [scene-diversity experiment](lighting-diversity.md) uses four training layouts, one validation layout and one untouched test layout. Validation selected and locked the full-input candidate before its 48-frame test rendered. Mean test log-radiance RMSE is 0.025340 for source, 0.012754 for the stronger affine, 0.009360 for full inputs, 0.009837 without absolute position and 0.013509 for RGB-only. Full and relative-input models pass the declared checks. RGB-only fails aggregate spatial improvement and temporal non-regression; its full clip remains available.
