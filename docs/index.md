@@ -12,6 +12,7 @@ This repository contains Workbench capture tools, reference scene definitions, a
 | [Capture controls](capture-controls.md) | Camera path, verified settings and remaining viewport limitations |
 | [Material room](material-room.md) | Original geometry and aligned synthetic lighting targets |
 | [Lighting study](lighting-study.md) | Trained lighting correction, baselines and held-out comparisons |
+| [Scene transfer and motion](lighting-motion.md) | Frozen-model evaluation on a new layout and moving camera/light paths |
 | [Technical feasibility](feasibility.md) | Workbench interfaces, asset-specific training and photographic references |
 | [Comparisons](comparisons.md) | Inspect source/output images and synchronized motion |
 | [Architecture](architecture.md) | Model, GPU backend and engine boundaries |

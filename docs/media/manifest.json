@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "publication_date": "2026-09-08",
-  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match.",
+  "selection": "Existing Arland benchmark pair, plus the first capture in run order from each v1 scene variant. No quality-based selection. Motion: complete first successful path using the corrected explicit quality preset, plus its first paired frame. Material room: first complete run with the final EXR-first generator and 4096-sample reference settings. Lighting: test-view and stress-outside selected in the versioned plan before training; source, model output and reference for each, all reviewed. Earlier and final fit image bytes match. Frozen-model motion: both complete 32-frame sequences; frame 16 selected in the committed plan for stills and posters. No performance/quality selection.",
   "rights": "Arland game imagery belongs to Bohemia Interactive a.s. and is outside the MIT code license. Original material-room imagery is MIT licensed.",
   "usage_policy": "https://www.bohemia.net/en/community/game-content-usage-rules",
   "output_verification": {
@@ -247,6 +247,130 @@
       "case_id": "stress-outside",
       "transformation": "unchanged copy of the recorded AgX display PNG; scene-linear input converted by display_lighting_study.py",
       "license": "MIT; original geometry, material constants and trained model"
+    },
+    {
+      "file": "lighting-motion-known-source.png",
+      "sha256": "4a46b282cceffe1d8075b0855cf367b9157f5258808bb054621783ba4eafbb98",
+      "bytes": 163514,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "source from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/known-room-0016/source.png",
+      "sequence": "known-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-known-output.png",
+      "sha256": "bd55dc45cfbfd1439cf09ddc8dd457c6432b4df17deb060b5879e0e4311513ab",
+      "bytes": 161090,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "scene from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/known-room-0016/scene.png",
+      "sequence": "known-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-known-reference.png",
+      "sha256": "b57db891366da6ce7a22f88f21595002d974a8fcd5ecfdb77c35d19da3a8c981",
+      "bytes": 171795,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "reference from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/known-room-0016/reference.png",
+      "sequence": "known-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-known-poster.png",
+      "sha256": "c0c9f89db95aefd7c8d68232778d47ea7f8edf88a995d43cf25c8a1566c926f7",
+      "bytes": 363706,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "three-panel motion comparison poster",
+      "source_record": "evidence/lighting-motion-video-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-video-v1b/known-room/frame-0016.png",
+      "transformation": "three unchanged display images concatenated with 32px label band; no scaling",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-new-source.png",
+      "sha256": "2a6f5485a1ad66f10f06c7e148bede780fab0233c6b9f924b05b77c1735f5f32",
+      "bytes": 153311,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "source from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/new-room-0016/source.png",
+      "sequence": "new-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-new-output.png",
+      "sha256": "8d76c0f62941d46812e19742302cd3d46bb2b326312e73f5a626ce9b7a3c9e8b",
+      "bytes": 150546,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "scene from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/new-room-0016/scene.png",
+      "sequence": "new-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-new-reference.png",
+      "sha256": "939434a45f0ee1002b785eab7695a49516241c263d3d64ef591144303ece2db7",
+      "bytes": 164032,
+      "dimensions": [
+        480,
+        270
+      ],
+      "role": "reference from frozen-model motion study",
+      "source_record": "evidence/lighting-motion-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-evaluation-v1/new-room-0016/reference.png",
+      "sequence": "new-room",
+      "frame_index": 16,
+      "transformation": "unchanged copy of reviewed AgX display PNG",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-new-poster.png",
+      "sha256": "bd6865d9cbb467b6b56a25fa09b6718aa75f77f5f4090191dbce3a00cf2e5cfd",
+      "bytes": 339408,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "three-panel motion comparison poster",
+      "source_record": "evidence/lighting-motion-video-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-video-v1b/new-room/frame-0016.png",
+      "transformation": "three unchanged display images concatenated with 32px label band; no scaling",
+      "license": "MIT; original scene and trained model"
     }
   ],
   "videos": [
@@ -268,6 +392,38 @@
       "transformation": "Each full frame scaled from 2560x1440 to 1920x1080 with Lanczos; source left, GPU output right, encoded together without interpolation or dropped samples.",
       "capture_manifest_sha256": "34677ca5f873dc311849026101663fa20bd4e3316f79e6ca6c70add1211b0885",
       "motion_manifest_sha256": "5f9ce4080b66027cc334f2e90e7fdab2cc864cf3bbc099e04c83277711adc5f1"
+    },
+    {
+      "file": "lighting-motion-known.mp4",
+      "sha256": "ba67306f9da252f853d88420b1f98f7f26317a7faa43d4b20ec961bbb6871ef9",
+      "bytes": 220249,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-motion-video-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-video-v1b/known-room.mp4",
+      "transformation": "Source, frozen model and independent reference concatenated horizontally at original resolution; 32px label band added above images. H.264 encoding changes pixels. No interpolation, scaling, dropped frames or retiming.",
+      "license": "MIT; original scene and trained model"
+    },
+    {
+      "file": "lighting-motion-new.mp4",
+      "sha256": "fca93c3f1b6b5a249c8cdf801830387833ebf3591849a8e0909c3cb57e89e1d9",
+      "bytes": 214146,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-motion-video-v1.json",
+      "source_artifact": "experiments/local/lighting-motion-video-v1b/new-room.mp4",
+      "transformation": "Source, frozen model and independent reference concatenated horizontally at original resolution; 32px label band added above images. H.264 encoding changes pixels. No interpolation, scaling, dropped frames or retiming.",
+      "license": "MIT; original scene and trained model"
     }
   ]
 }

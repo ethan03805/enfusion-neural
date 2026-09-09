@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "report_sha256": "8ad41ffdf525c824e74d0c302db8f9f578f984690a394877c8a3213ad759d51e",
+  "encoder_sha256": "1551589a07b126da0ec56081ddcb2b65911dfae5afac33f79e06cad927ae41bc",
+  "videos": [
+    {
+      "sequence": "known-room",
+      "file": "known-room.mp4",
+      "sha256": "ba67306f9da252f853d88420b1f98f7f26317a7faa43d4b20ec961bbb6871ef9",
+      "bytes": 220249,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "codec": "H.264, yuv420p, CRF 16",
+      "transform": "Source, frozen model and independent reference concatenated horizontally at original resolution; 32px label band added above images. H.264 encoding changes pixels. No interpolation, scaling, dropped frames or retiming.",
+      "frame_records": [
+        {
+          "index": 0,
+          "sha256": "d57e336ddf1c24ba75062fc98c328799029532b226917dd6c059f629fb59c3e5"
+        },
+        {
+          "index": 1,
+          "sha256": "6ee28533f4e63363fa062ababd24e32e53f70d9ca74ba374078c15c6a6e309f3"
+        },
+        {
+          "index": 2,
+          "sha256": "e0a258f4f6676a042c187439ff597e6b8ad25d638d00c23349b169cde361a890"
+        },
+        {
+          "index": 3,
+          "sha256": "98b3bee3fec73acf7892acd7b55a33cab260a8f19af72de1173a183f234cf672"
+        },
+        {
+          "index": 4,
+          "sha256": "49502fdd4be6a429187066a40e1d4f0efbdba5c53f842191da43b9c301ce3c2e"
+        },
+        {
+          "index": 5,
+          "sha256": "fed5c77133f08e78cf6d4921f658a30fc9ddb13b9937f285f4cff6748d2eafb8"
+        },
+        {
+          "index": 6,
+          "sha256": "641a81f14f66d8edb740c95648e0b08f7af19965b4ce0c6f1a4443289f58dfc6"
+        },
+        {
+          "index": 7,
+          "sha256": "12d348fdb40b23df38faa9d6ef0a6d3a33f5c4ef0cdcad713a716e8ad9d9f934"
+        },
+        {
+          "index": 8,
+          "sha256": "11528b921903d86c37c1e0a262aaa5c0504a5c250006e30ec68c5f10903984fc"
+        },
+        {
+          "index": 9,
+          "sha256": "9148b4748c257013224ccb38c26753f123b81034bc110e05919346d34993f9b7"
+        },
+        {
+          "index": 10,
+          "sha256": "868a1777439d1f6ab0dac8fcda19efff7f02d8446452042f50caddaaf000102c"
+        },
+        {
+          "index": 11,
+          "sha256": "70b8c2aad9aae4cb7ee04995a3613fb6a588411dd27d3d3d88a18a66a3bf8b28"
+        },
+        {
+          "index": 12,
+          "sha256": "e03873ce2a1435d679bee8884b1216524cbc249d2360b330d7f3dca617c0beb1"
+        },
+        {
+          "index": 13,
+          "sha256": "25d740f7a8ce5225a812e946e2779506aee2f2fe3b8dfee513608aa578de72fb"
+        },
+        {
+          "index": 14,
+          "sha256": "1e3b6930368cf77017bf8d4022875c95680678f68bead615d34d90ea9fdd9f0f"
+        },
+        {
+          "index": 15,
+          "sha256": "4c45f41e775522b7731c246d4d1a002c3281b261990e232215059d39861a86f3"
+        },
+        {
+          "index": 16,
+          "sha256": "c0c9f89db95aefd7c8d68232778d47ea7f8edf88a995d43cf25c8a1566c926f7"
+        },
+        {
+          "index": 17,
+          "sha256": "62888cd05fc48855623430767264952c8da7feed00ddcc47b334b5bfeedba659"
+        },
+        {
+          "index": 18,
+          "sha256": "d0a47673ef5a7e71be59863198f7643fc43591bf7e848d6198195e27d9cddfe8"
+        },
+        {
+          "index": 19,
+          "sha256": "6f9fc7552544b60bed1b584185a93777bc30791e3dd12844acb780f541200604"
+        },
+        {
+          "index": 20,
+          "sha256": "2de28954382d53c4845902b2f721350b3e932228bdcdbfa1f074dc89bb2e4845"
+        },
+        {
+          "index": 21,
+          "sha256": "d451a6090b0b73cfa1c277bdf8c44d98f3f48db8085e52ee2dfe88dd25a80c9b"
+        },
+        {
+          "index": 22,
+          "sha256": "1249f19ecc818baa60ae5ff6b1e703f5f230bdcbf7730d106358369692c77785"
+        },
+        {
+          "index": 23,
+          "sha256": "e64a417ac1babf52669b003df3e5024795eced13c37faffe9c8acfda51560c78"
+        },
+        {
+          "index": 24,
+          "sha256": "a1978d3abe5b49ba4f790df3c7a6c44396474e684f11e85260140c200279abee"
+        },
+        {
+          "index": 25,
+          "sha256": "942b6bd403ff74398b9d58d8de5fe98c498f962defec6d510bb5ae2e7d218723"
+        },
+        {
+          "index": 26,
+          "sha256": "5781a0f002ff1ad745fdf7bf47b5411ce105e1fcc96044057d6fa2fb802f1ea8"
+        },
+        {
+          "index": 27,
+          "sha256": "bd152a7ae7d1eccd804e8bccc2313e5ea0c3b186536c5093353b2a57dc428883"
+        },
+        {
+          "index": 28,
+          "sha256": "5e90aa25ea6f9f091c8c83180c751f2e04c0e65e55ca14602129b4c29022aefb"
+        },
+        {
+          "index": 29,
+          "sha256": "1ac52ae583647835c2815480f4ef1035ef20673dd07d4f93d24671d3f083f1e1"
+        },
+        {
+          "index": 30,
+          "sha256": "c1d101da2a87cc8a0d3364f2d0de19982363bbf6bb6c3e26bb1cbc6f23e82c0e"
+        },
+        {
+          "index": 31,
+          "sha256": "d43cc41954830324fd87090315423710ab801df04e404f6267514423575b04bd"
+        }
+      ],
+      "poster_frame": 16,
+      "poster_sha256": "c0c9f89db95aefd7c8d68232778d47ea7f8edf88a995d43cf25c8a1566c926f7"
+    },
+    {
+      "sequence": "new-room",
+      "file": "new-room.mp4",
+      "sha256": "fca93c3f1b6b5a249c8cdf801830387833ebf3591849a8e0909c3cb57e89e1d9",
+      "bytes": 214146,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "codec": "H.264, yuv420p, CRF 16",
+      "transform": "Source, frozen model and independent reference concatenated horizontally at original resolution; 32px label band added above images. H.264 encoding changes pixels. No interpolation, scaling, dropped frames or retiming.",
+      "frame_records": [
+        {
+          "index": 0,
+          "sha256": "cef7d4e1f78d0d00a57bfa439594d0e88fdb6d57df5f3a5cd82276e12ee47ada"
+        },
+        {
+          "index": 1,
+          "sha256": "0b4fc46c01300a1a5f1c4898f331630f2d191cb4daecda76620f360629da8996"
+        },
+        {
+          "index": 2,
+          "sha256": "81892c6bef9a18f5cb767dbf19c721cc6737e00453af898cf42f60bae4541e48"
+        },
+        {
+          "index": 3,
+          "sha256": "be96f2481f66ecdfb1c7e362931a74b70f26d5270e22cc7b323f169432ba14b6"
+        },
+        {
+          "index": 4,
+          "sha256": "6b9feead68de6deddb48a22d417b30a29f833dbf60a2e0a5d78152b9aacba7cd"
+        },
+        {
+          "index": 5,
+          "sha256": "620a9d60f6607dbe684db2f8eff62ebfd6556bdb43ef9f2df3d65577217f63fe"
+        },
+        {
+          "index": 6,
+          "sha256": "32936e27d1c8185368a02203bbfd76ace048640f11f1178f6e49b026621cf41d"
+        },
+        {
+          "index": 7,
+          "sha256": "a47ada281841543e3dfd17b2331bc1f3bfe6cfca2e6ce346b53a54ae1ff0c209"
+        },
+        {
+          "index": 8,
+          "sha256": "a0aa99378c0314628b1c2424d81d4090b37133d19438df32b722b82d481a0327"
+        },
+        {
+          "index": 9,
+          "sha256": "25f0d4dcaa4f524fa5bf0c82843dc5aba7f4808e3d2e5730e1e516418c48793d"
+        },
+        {
+          "index": 10,
+          "sha256": "7f0b9434ce23611f3ca55a0c6e065ad76ee52ecf9b0e51f018dfb1c7e389a899"
+        },
+        {
+          "index": 11,
+          "sha256": "144eca083f82aebfd75b2e2230481287bde7c97e78b711b2d26348bdb2f7cc11"
+        },
+        {
+          "index": 12,
+          "sha256": "ce5acf1ff81d2aa8ea90b31173131799376f696d2508135d8f7e44a98f0a6eea"
+        },
+        {
+          "index": 13,
+          "sha256": "854f73b34e6d2138863978f63030df1d5a3cd4b29cb777dc4b0c85c6911bd061"
+        },
+        {
+          "index": 14,
+          "sha256": "addca7ea4f1c778b038d582a8365a093057ae09cd0c3514475195023ee0a4c62"
+        },
+        {
+          "index": 15,
+          "sha256": "131ccb3a16788b55d8f8f5193748af1ae0c52a4590fbc9d047c0bf7656c3840d"
+        },
+        {
+          "index": 16,
+          "sha256": "bd6865d9cbb467b6b56a25fa09b6718aa75f77f5f4090191dbce3a00cf2e5cfd"
+        },
+        {
+          "index": 17,
+          "sha256": "5c53d41c47c79168d586e4d5ff18cc61c0d45a2379cf4a44a1c783eabadf9d40"
+        },
+        {
+          "index": 18,
+          "sha256": "5c42c0d3451139346376f80256d76f0f2e7a3b7514eff785d3684346d29c460e"
+        },
+        {
+          "index": 19,
+          "sha256": "0e489edaef83929318a37edca28ced559a428cec714d37962d4128d4f5675bf9"
+        },
+        {
+          "index": 20,
+          "sha256": "a2d783bc56ef71537c55b6aad9285f5668126f9ae9b3f4d8e717a22c1fae1948"
+        },
+        {
+          "index": 21,
+          "sha256": "c6518bdc44ca2b415ba88c45d1c43d957e44c8a0f40dac2ff8eeb043e2314b0f"
+        },
+        {
+          "index": 22,
+          "sha256": "b625f78eb52065101b347296dc163f41024ff2b90ca7aadccaa0fe09ce9eedae"
+        },
+        {
+          "index": 23,
+          "sha256": "a503d01e81a41812a3008b9d7e97cfcd621f2faf07bb43be1fe79b505fe147cf"
+        },
+        {
+          "index": 24,
+          "sha256": "553a75139c49cb1259762841d5fc33297d40081362388fc55b7a6eaab0da544f"
+        },
+        {
+          "index": 25,
+          "sha256": "4a8f9de750f1d868b45f9ebd1737184849a385c0c42332f051ff8ae0c7e4ccd8"
+        },
+        {
+          "index": 26,
+          "sha256": "836c4a60fb5ec02888d6a94c02f1114d358de905c7e6cf858bbee1fec39f8750"
+        },
+        {
+          "index": 27,
+          "sha256": "d52db77cefd8622a49fa21faee8f17fdaee4d8135a9df59d9aff7dfc0c142753"
+        },
+        {
+          "index": 28,
+          "sha256": "31689b5cd59246010cd8d4b90576f46589a61c847791c7d1e2b7aef9c62f8e32"
+        },
+        {
+          "index": 29,
+          "sha256": "b2483322062bbb3089898a0be27eb60b23926bfa6798df25a366072d3c1d8b72"
+        },
+        {
+          "index": 30,
+          "sha256": "1e443b32f424d901b1be14a3c8140bc9cd763341423869359e0c268e73a61d8d"
+        },
+        {
+          "index": 31,
+          "sha256": "cf6c2ebc856d15bcb2c800a7e9e36a514d29bff9d395dbdbb8bcbdada38e8a0a"
+        }
+      ],
+      "poster_frame": 16,
+      "poster_sha256": "bd6865d9cbb467b6b56a25fa09b6718aa75f77f5f4090191dbce3a00cf2e5cfd"
+    }
+  ]
+}

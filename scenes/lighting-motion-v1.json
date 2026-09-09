@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "lighting-motion-v1",
+  "scope": "Frozen-model scene transfer and temporal error diagnostic; no fitting on these sequences",
+  "frozen_model_commit": "6123d0d71d32ba67b5a894b88e52d8dacfef1eac",
+  "models": {
+    "scene": {"path":"models/lighting-v1.json","sha256":"ca4b7565d5638e277ec691153ea960e14179ac0c9e1c9264b876a132736b83c7"},
+    "rgb": {"path":"models/lighting-rgb-v1.json","sha256":"0ce7cc85871e16383d719c441f2eedc8ffc78bfd6b97602c53b1852be1675146"}
+  },
+  "affine_source_sha256": "3acdbbd4d576b6b5e433af9a83c3b267d1adf1b759434948686cfebfb47dada9",
+  "dimensions": [480,270],
+  "frames": 32,
+  "playback_fps": 20,
+  "samples": 1024,
+  "source_diffuse_bounces": 1,
+  "reference_diffuse_bounces": 12,
+  "max_bounces": 12,
+  "glossy_bounces": 12,
+  "paired_seed": 131,
+  "independent_seed": 4001,
+  "seed_stride": 17,
+  "camera_start": [-0.9,-7.3,3.2],
+  "camera_end": [0.9,-7.0,3.2],
+  "camera_target": [0,0.6,1.2],
+  "vertical_fov_degrees": 42,
+  "light_start": [-0.8,0.2,3.8],
+  "light_end": [0.8,0.2,3.8],
+  "light_power_watts": 900,
+  "light_size_m": 2,
+  "path_interpolation": "cubic smoothstep t*t*(3-2*t), t=index/(frames-1)",
+  "sequences": [
+    {"id":"known-room","scene":"material-room-v1.json","group":"material-room-v1","role":"within-scene motion control"},
+    {"id":"new-room","scene":"partition-room-v1.json","group":"partition-room-v1","role":"held-out scene and motion test"}
+  ],
+  "temporal": {"world_tolerance_m":0.04,"normal_dot_min":0.98,"minimum_valid_pixels":1000,"minimum_valid_fraction":0.1},
+  "publication_frame": 16,
+  "acceptance": "For each sequence, lower mean independent-reference log1p RMSE and mean reprojected temporal error than identity; report regional regressions and reference sampling noise separately. No perceptual or gameplay pass is inferred.",
+  "limitations": ["One new synthetic scene family", "Static geometry, moving camera and one area light", "Geometric markings rather than texture decals", "No exposure transitions, animated objects, vegetation or engine integration", "No retraining or model selection on these test sequences"]
+}

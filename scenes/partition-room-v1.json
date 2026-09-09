@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "partition-room-v1",
+  "group": "partition-room-v1",
+  "split": "test-only",
+  "license": "MIT; original geometry and geometric markings",
+  "material_library": "material-room-v1.json",
+  "description": "Staggered partitions and crates with contrasting geometric bars, an occluded rear surface and thin foreground posts. Material constants are unchanged from the first room.",
+  "boxes": [
+    {"id":"floor","position":[0,0.5,-0.1],"size":[6,7,0.2],"material":"neutral"},
+    {"id":"back","position":[0,4,2],"size":[6,0.2,4],"material":"red"},
+    {"id":"left","position":[-3,0.5,2],"size":[0.2,7,4],"material":"neutral"},
+    {"id":"right","position":[3,0.5,2],"size":[0.2,7,4],"material":"blue"},
+    {"id":"partition","position":[-0.5,1.4,1.25],"size":[0.2,2.8,2.5],"material":"neutral"},
+    {"id":"rear-block","position":[-1.4,2.5,0.9],"size":[1.4,1.2,1.8],"material":"blue"},
+    {"id":"crate","position":[1.1,1.3,0.7],"size":[1.3,1.1,1.4],"material":"rough"},
+    {"id":"upper-crate","position":[1.4,1.5,1.75],"size":[0.6,0.7,0.7],"material":"metal"},
+    {"id":"mark-board","position":[1.1,0.744,0.88],"size":[0.9,0.012,0.5],"material":"white"},
+    {"id":"mark-bar-0","position":[0.76,0.734,0.88],"size":[0.035,0.008,0.36],"material":"dark"},
+    {"id":"mark-bar-1","position":[0.90,0.734,0.88],"size":[0.060,0.008,0.36],"material":"dark"},
+    {"id":"mark-bar-2","position":[1.07,0.734,0.88],"size":[0.035,0.008,0.36],"material":"dark"},
+    {"id":"mark-bar-3","position":[1.21,0.734,0.88],"size":[0.085,0.008,0.36],"material":"dark"},
+    {"id":"mark-bar-4","position":[1.40,0.734,0.88],"size":[0.035,0.008,0.36],"material":"dark"}
+  ],
+  "spheres": [{"id":"low-white","position":[-1.6,-0.5,0.4],"radius":0.4,"material":"white"}],
+  "thin_posts":{"diameters_m":[0.015,0.03,0.06],"height_m":1.6,"x_positions":[0.25,0.55,0.85],"y":-1.1,"material":"dark"}
+}

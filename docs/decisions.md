@@ -57,3 +57,9 @@ Accepted. Generate one original room from shared JSON geometry, camera, light an
 Accepted at the user's request. Hold resolution, sample count, geometry, materials and other transport settings fixed while reducing diffuse-bounce depth. Fit a compact scene-conditioned model, an RGB-only ablation and a simple affine baseline. Keep train, validation and test view/light combinations explicit within one diagnostic scene group. Use additional reference seeds to reveal correlated sampling noise; publish a preselected ordinary test and out-of-range case.
 
 The resulting lighting graph is independent of the v0 D3D12 bootstrap. It has a versioned CPU model contract, not a live runtime. Investigate retained surface/material representations and a supported Enfusion bridge before collecting all-game assets. Photographs require correspondence and illumination separation to become faithful targets. See [lighting results](lighting-study.md) and [technical feasibility](feasibility.md).
+
+## 013 · Freeze models before scene-transfer and motion evaluation
+
+Accepted 9 September 2026. Commit the path, new geometric layout, model hashes and publication frame before rendering. Evaluate the existing models without training on the new sequences. Produce an independent reference at every frame and measure changes in reconstruction error on matched static surfaces. Preserve boundary, unmatched-region and marking-contrast metrics rather than inferring fidelity from whole-image averages.
+
+The [result](lighting-motion.md) narrows the claim: average error improves, but the scene-conditioned model loses to RGB-only on the new layout and worsens marking contrast. Tiny mean temporal differences do not establish perceptual stability. The next model experiment needs scene diversity, a further untouched test scene and explicit input/contrast checks; the published paths become regression data.
