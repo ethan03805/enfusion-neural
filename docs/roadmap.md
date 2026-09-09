@@ -14,7 +14,7 @@ The newer [capture adapter](capture-controls.md) verifies projection, fixed expo
 
 An 80-frame path and [synchronized before/after video](comparisons.md#motion) are implemented. The [material room](material-room.md) provides an original synthetic pair with exact depth/object-ID alignment and a measured reference noise check. Neither milestone establishes a live engine renderer or a valid Enfusion appearance-training pair.
 
-Next: close the viewport settings gap, isolate residual temporal variation, and import the controlled geometry into Enfusion. Verify source/reference camera, light, material and color conventions before training on engine pairs. Add exposure transitions and separate scene families for held-out evaluation.
+Next: close the viewport settings gap, isolate residual temporal variation, and calibrate the imported controlled geometry in Enfusion. Verify source/reference light, material, shading and color conventions before training on engine pairs. Add exposure transitions and separate scene families for held-out evaluation.
 
 Acceptance: a versioned scene/config manifest; three repeat captures with measured alignment/drift; separate train/validation/test scene groups; a documented method for producing aligned appearance targets. Captures without a valid target can measure stability and appearance, but must not be relabeled as supervised photorealistic ground truth.
 
@@ -49,7 +49,7 @@ The immediate priorities are:
 3. Add short motion paths and an aligned engine/reference lighting pair. Verify exposure, camera, material and light conventions; keep town, interior, foliage and entity scenes separate in evaluation.
 4. Implement the accepted lighting graph on the native backend, verify it against the CPU, then measure complete-frame cost through the supported adapter. Use those results to decide whether larger training is warranted.
 
-The original-room import controls now isolate an additional prerequisite: a loadable resource may contain no geometry. The [seven retained trials](material-room.md#engine-import-controls) have not produced a visible room. Next inspect actual import configuration/material assignments; repeating registration, waiting longer or renaming the same meshes has not resolved this. Acceptance requires visible nonempty geometry, expected bounds and material regions, then verified camera, lighting and color correspondence. Keep the existing synthetic references and selected model frozen during that work.
+The [original-room control](material-room.md#engine-import-controls) now imports and visibly renders all 12 meshes. The empty outputs came from requesting editor shutdown before asynchronous rebuilding finished. Three build/load controls, per-vertex comparisons and pitched-camera captures establish geometry progress. Next map material constants and isolate illumination, then verify shading normals, UVs, silhouettes and exposure/color correspondence. Keep the existing synthetic references and selected model frozen. Geometry import does not resolve the supported neural input/output interface.
 
 ## 05 · Playable local demonstration
 

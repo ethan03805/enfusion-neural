@@ -1,0 +1,1518 @@
+{
+  "schema_version": 1,
+  "status": "geometry_import_verified",
+  "script_sha256": "9379b29f55ea5529c6cb87c3303e4a2e2512089e5cb2bb85e4c0660fa562cebb",
+  "scope": "Original-room geometry and camera correspondence; default engine appearance only",
+  "imports": [
+    {
+      "trial": "material-room-config-v1",
+      "run_id": "20260909T102647-cac39e2d43",
+      "operation": "original-room-metadata",
+      "route": "inspect-metadata",
+      "report_sha256": "e88277a2ee5a652da8fdec7672e0564484b8713eff5ba62d8bf47bda8ce365b0",
+      "run_manifest_sha256": "be785edf028cb0b7709d593277a3cb25db7bfd93c89f0dde002e18f2b51e9b5a",
+      "validation_run": "20260909T102634-3ebd94efd6",
+      "validation_manifest_sha256": "64b99f32f0b73c2702f7dd64167c8c1f2fba9f37bf17a6afca1439984af6ca70",
+      "plugin_sha256": "fae150930b7d6562183667c362d14f64bfa219d56be095b01ab87b784de79bb6",
+      "console_sha256": "7c5d28ad741c470b164975b23a9c38dd724ad19f8543a630e8d82179eda8200b",
+      "source_fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+      "native_exit_code": 0,
+      "terminated_owned_process": false,
+      "alive_after_build_observation": null,
+      "build_observation_seconds": null,
+      "prior_import": {
+        "run_id": "20260909T101343-c4df0fbadc",
+        "report_sha256": "ed4647ca620e67c1c5d54fd66fdcfa2b0572a5a8b78f031945cf53a1c7c09848"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "metadata_inspected",
+          "configurations": 1
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "metadata_records": [
+        "CONTAINER path=metadata class=MetaFileClass name= vars=6",
+        "FIELD path=metadata name=Name type=10 has_default=1 default=",
+        "FIELD path=metadata name=Configurations type=141 has_default=1 default=",
+        "FIELD path=metadata name=Tags type=10 has_default=1 default=",
+        "FIELD path=metadata name=InternalTags type=138 has_default=1 default=",
+        "FIELD path=metadata name=License type=10 has_default=1 default=",
+        "FIELD path=metadata name=UserNote type=10 has_default=1 default=",
+        "CONTAINER path=PC class=FBXResourceClass name=PC vars=28",
+        "FIELD path=PC name=Present type=7 has_default=1 default=1",
+        "VALUE path=PC name=Present read=1 value=1",
+        "FIELD path=PC name=BuildTags type=138 has_default=1 default=",
+        "FIELD path=PC name=SourceFile type=10 has_default=1 default=",
+        "FIELD path=PC name=MergeMeshes type=9 has_default=1 default=1",
+        "VALUE path=PC name=MergeMeshes read=1 value=1",
+        "FIELD path=PC name=ExportSkinning type=9 has_default=1 default=0",
+        "VALUE path=PC name=ExportSkinning read=1 value=0",
+        "FIELD path=PC name=ExportMorphs type=9 has_default=1 default=0",
+        "VALUE path=PC name=ExportMorphs read=1 value=0",
+        "FIELD path=PC name=GenerateDefaultProfile type=9 has_default=1 default=0",
+        "VALUE path=PC name=GenerateDefaultProfile read=1 value=0",
+        "FIELD path=PC name=ExportSceneHierarchy type=9 has_default=1 default=0",
+        "VALUE path=PC name=ExportSceneHierarchy read=1 value=0",
+        "FIELD path=PC name=Animated type=9 has_default=1 default=0",
+        "VALUE path=PC name=Animated read=1 value=0",
+        "FIELD path=PC name=Scale type=3 has_default=1 default=1 1 1",
+        "FIELD path=PC name=Offset type=3 has_default=1 default=0 0 0",
+        "FIELD path=PC name=Rotate type=3 has_default=1 default=0 0 0",
+        "FIELD path=PC name=RemoveLods type=7 has_default=1 default=0",
+        "VALUE path=PC name=RemoveLods read=1 value=0",
+        "FIELD path=PC name=NoOptimize type=9 has_default=1 default=0",
+        "VALUE path=PC name=NoOptimize read=1 value=0",
+        "FIELD path=PC name=MaterialAssigns type=141 has_default=1 default=",
+        "FIELD path=PC name=VolumeParams type=141 has_default=1 default=",
+        "FIELD path=PC name=MeshParams type=141 has_default=1 default=",
+        "FIELD path=PC name=FurParams type=141 has_default=1 default=",
+        "FIELD path=PC name=MergeTriMeshes type=9 has_default=1 default=1",
+        "VALUE path=PC name=MergeTriMeshes read=1 value=1",
+        "FIELD path=PC name=PhysMaterialAssigns type=141 has_default=1 default=",
+        "FIELD path=PC name=GeometryParams type=141 has_default=1 default=",
+        "FIELD path=PC name=COMAutocenter type=9 has_default=1 default=0",
+        "VALUE path=PC name=COMAutocenter read=1 value=0",
+        "FIELD path=PC name=Common type=13 has_default=1 default=",
+        "CONTAINER path=PC.Common class=TXOCommonClass name= vars=7",
+        "FIELD path=PC.Common name=SkipLods type=7 has_default=1 default=0",
+        "VALUE path=PC.Common name=SkipLods read=1 value=0",
+        "FIELD path=PC.Common name=VolumeMinObjectSize type=1 has_default=1 default=0.2",
+        "VALUE path=PC.Common name=VolumeMinObjectSize read=1 value=0.2",
+        "FIELD path=PC.Common name=VolumeCellSize type=1 has_default=1 default=1",
+        "VALUE path=PC.Common name=VolumeCellSize read=1 value=1",
+        "FIELD path=PC.Common name=VolumeMaxCells type=7 has_default=1 default=128",
+        "VALUE path=PC.Common name=VolumeMaxCells read=1 value=128",
+        "FIELD path=PC.Common name=GenerateBSP type=9 has_default=1 default=0",
+        "VALUE path=PC.Common name=GenerateBSP read=1 value=0",
+        "FIELD path=PC.Common name=ForceCreatePortals type=9 has_default=1 default=0",
+        "VALUE path=PC.Common name=ForceCreatePortals read=1 value=0",
+        "FIELD path=PC.Common name=BSPDiagnostics type=13 has_default=1 default=",
+        "FIELD path=PC name=ApplicationVendor type=10 has_default=1 default=",
+        "FIELD path=PC name=ApplicationName type=10 has_default=1 default=",
+        "FIELD path=PC name=ApplicationVersion type=10 has_default=1 default=",
+        "FIELD path=PC name=Modify material names type=9 has_default=1 default=0",
+        "VALUE path=PC name=Modify material names read=1 value=0",
+        "FIELD path=PC name=LegacySupport type=9 has_default=1 default=0",
+        "VALUE path=PC name=LegacySupport read=1 value=0"
+      ],
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 820028,
+          "sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 219,
+          "sha256": "501280fd17bd1fa45504353235fc48891d6069decc9e4f3d7e85b1700f633b86"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 80,
+          "sha256": "ffd7df421bce330284867f6afcab7281c29375c0422781bc5e15c636f7563f8e"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 569,
+          "sha256": "a280f69fd2ffa7e9e7cac4e57033c197306e6474f0dd91b7313aaaf7c7df497b"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-live-build-v1",
+      "run_id": "20260909T102914-b3cac1723a",
+      "operation": "original-room-build-observation",
+      "route": "build-live",
+      "report_sha256": "1caabf5084b74527907b619798bd8f968d20784d1f70ab48761e6e2762acfd2f",
+      "run_manifest_sha256": "773fdba59a18f6549b2f68d1605161fe935adb61d45161176486831be0b199e7",
+      "validation_run": "20260909T102902-5348859083",
+      "validation_manifest_sha256": "104c6ffe27e0c2b8e9652cc87cb18ce547cdb5481aea40fbba59098e58e1fa8a",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "16b40c066a14d337177524299017153064e85f813639ef007c0c274fb7d84ff5",
+      "source_fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+      "native_exit_code": 1,
+      "terminated_owned_process": true,
+      "alive_after_build_observation": true,
+      "build_observation_seconds": 10.014999999999418,
+      "prior_import": {
+        "run_id": "20260909T101343-c4df0fbadc",
+        "report_sha256": "ed4647ca620e67c1c5d54fd66fdcfa2b0572a5a8b78f031945cf53a1c7c09848"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "live_build_requested"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 820028,
+          "sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508472,
+          "sha256": "3aa919dc789526c8e61400940720441c03e80702d23919e4feacf8100035226b"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 879877,
+          "sha256": "60f1169f6ef5dbf16443df0cc0439c3d8b617761759a9e8e23ec1521754bdfd6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "f6ab40d63c6f6fba7bb20597643dafde906fb4435de3b3e6fb6ed4122436f4ae"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-load-v1",
+      "run_id": "20260909T103002-c0443d3469",
+      "operation": "original-room-import",
+      "route": "load-completed",
+      "report_sha256": "881c5cb64c4b265a7a8fd15fd0e4e2ff7368d0ac34722704a254b9daaa63665e",
+      "run_manifest_sha256": "00189532353a44f25eb7e6ffd6044fb1ee8f4c84a243cd9f309e4de1f525d723",
+      "validation_run": "20260909T102949-b505015faf",
+      "validation_manifest_sha256": "5224a08f18f18fc19b0287d3ce890fa7acfd342b12a7062621e4332fe6d67217",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "e76ad8d24a60fbfd2cfc34ba1d5d156fc0d31ec64de99c45273ad301a3d4faff",
+      "source_fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+      "native_exit_code": 0,
+      "terminated_owned_process": false,
+      "alive_after_build_observation": null,
+      "build_observation_seconds": null,
+      "prior_import": {
+        "run_id": "20260909T102914-b3cac1723a",
+        "report_sha256": "1caabf5084b74527907b619798bd8f968d20784d1f70ab48761e6e2762acfd2f"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "load_completed_build"
+        },
+        {
+          "event": "mesh_loaded",
+          "resource": "{53F82DAED63D49C6}Assets/ENR_ReferenceRoom/material-room.xob"
+        },
+        {
+          "event": "materials",
+          "count": 7
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 820028,
+          "sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508472,
+          "sha256": "3aa919dc789526c8e61400940720441c03e80702d23919e4feacf8100035226b"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 879877,
+          "sha256": "60f1169f6ef5dbf16443df0cc0439c3d8b617761759a9e8e23ec1521754bdfd6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "f6ab40d63c6f6fba7bb20597643dafde906fb4435de3b3e6fb6ed4122436f4ae"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-original-live-build-v1",
+      "run_id": "20260909T103558-ed1a9e322d",
+      "operation": "original-room-build-observation",
+      "route": "build-live",
+      "report_sha256": "4f60e4508a583db745c5e84f95bcffe621d5b81f1f07544c688f282309c1d749",
+      "run_manifest_sha256": "cc54b0bd26a04374b0c9cfc527f2dfb56a4035d778f1b2a23f7ec12092303699",
+      "validation_run": "20260909T103547-ef282a9799",
+      "validation_manifest_sha256": "2bd265bed3b20a8dc8aa19425e3578204f87abc0872f4643e30fe5be64aac0f4",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "a468fb731113ff6667e84ca482e91771a39957d0168e24f234e04f645262ca20",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "native_exit_code": 1,
+      "terminated_owned_process": true,
+      "alive_after_build_observation": true,
+      "build_observation_seconds": 10.031000000002678,
+      "prior_import": {
+        "run_id": "20260909T100244-4ee11e9c9e",
+        "report_sha256": "c0142453d4b952dc650c03914a4956b182f86374b9d7cbfd748cd29a2d7bcdeb"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "live_build_requested"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508410,
+          "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 865929,
+          "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-original-load-v1",
+      "run_id": "20260909T103654-5b3026fbb4",
+      "operation": "original-room-import",
+      "route": "load-completed",
+      "report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "run_manifest_sha256": "525bdfc1f1a9657b2cdb5e1a8c608221cfab5edcc0d304a1216bdf6ef44e4fe1",
+      "validation_run": "20260909T103642-a95933f5c2",
+      "validation_manifest_sha256": "38a33bf010ca32153fca4626daf7ee48690fe4aa8605fb0b00e040488bbd92ee",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "e37ef7bca3c273176562556010039738bd36f4b4ba8eaa3384435cada9682b31",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "native_exit_code": 0,
+      "terminated_owned_process": false,
+      "alive_after_build_observation": null,
+      "build_observation_seconds": null,
+      "prior_import": {
+        "run_id": "20260909T103558-ed1a9e322d",
+        "report_sha256": "4f60e4508a583db745c5e84f95bcffe621d5b81f1f07544c688f282309c1d749"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "load_completed_build"
+        },
+        {
+          "event": "mesh_loaded",
+          "resource": "{7CEDDBB7858D45F0}Assets/ENR_ReferenceRoom/material-room.xob"
+        },
+        {
+          "event": "materials",
+          "count": 7
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508410,
+          "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 865929,
+          "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-fresh-build-v1",
+      "run_id": "20260909T103845-c46e2ad160",
+      "operation": "original-room-build-observation",
+      "route": "build-live",
+      "report_sha256": "545450ba00379299939b13836b4b2ff83bd79c3aac06e5bd306610acce1b141c",
+      "run_manifest_sha256": "f59da596d073da01fe4d211a9ae4c8acdb36ce82a9f3a50932d2cee79ae0b011",
+      "validation_run": "20260909T103833-69e29c4e23",
+      "validation_manifest_sha256": "cc359163064038067cdff157ff491052cb8716d9477406550dba99f2c7f43f4b",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "05e74a7038e226533249029ecf30852a2193c5792d946438eae8735287824c9a",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "native_exit_code": 1,
+      "terminated_owned_process": true,
+      "alive_after_build_observation": true,
+      "build_observation_seconds": 10.01600000000326,
+      "prior_import": null,
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "live_build_requested"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508410,
+          "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 865929,
+          "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "f99666b8df3c5b1b830bdd814d52d1540c742f8e8dc01f76d6026e5401efca76"
+        }
+      ]
+    },
+    {
+      "trial": "material-room-fresh-load-v1",
+      "run_id": "20260909T103941-2d4f88f4a3",
+      "operation": "original-room-import",
+      "route": "load-completed",
+      "report_sha256": "fea8e21362150060eb90589704bb0ad1b5017ff49cd66f74cb8b4bd94c1e9734",
+      "run_manifest_sha256": "aa1d100fc96e1daa3f00a66ff34f0edbb7b0abc7fb8c72a0ebc6834acb7d9e0f",
+      "validation_run": "20260909T103929-939f0c092f",
+      "validation_manifest_sha256": "f19ff087919730c48f60ae70b7eb3b56c25eb9d45c6a7c109cf2c00a75b48c5e",
+      "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+      "console_sha256": "2bdb4f0bcc9049c069d8e5e233e1ca4408d4a82b2541ee00fdd270dac7fd886a",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "native_exit_code": 0,
+      "terminated_owned_process": false,
+      "alive_after_build_observation": null,
+      "build_observation_seconds": null,
+      "prior_import": {
+        "run_id": "20260909T103845-c46e2ad160",
+        "report_sha256": "545450ba00379299939b13836b4b2ff83bd79c3aac06e5bd306610acce1b141c"
+      },
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "load_completed_build"
+        },
+        {
+          "event": "mesh_loaded",
+          "resource": "{FA5158F318EC4C9A}Assets/ENR_ReferenceRoom/material-room.xob"
+        },
+        {
+          "event": "materials",
+          "count": 7
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "metadata_records": [],
+      "retained_assets": [
+        {
+          "file": "Data/blue.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/blue.emat.meta",
+          "bytes": 326,
+          "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+        },
+        {
+          "file": "Data/dark.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/dark.emat.meta",
+          "bytes": 326,
+          "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+        },
+        {
+          "file": "Data/metal.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/metal.emat.meta",
+          "bytes": 327,
+          "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+        },
+        {
+          "file": "Data/neutral.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/neutral.emat.meta",
+          "bytes": 329,
+          "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+        },
+        {
+          "file": "Data/red.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/red.emat.meta",
+          "bytes": 325,
+          "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+        },
+        {
+          "file": "Data/rough.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/rough.emat.meta",
+          "bytes": 327,
+          "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+        },
+        {
+          "file": "Data/white.emat",
+          "bytes": 15,
+          "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+        },
+        {
+          "file": "Data/white.emat.meta",
+          "bytes": 327,
+          "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+        },
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 3508410,
+          "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 865929,
+          "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 2129,
+          "sha256": "f99666b8df3c5b1b830bdd814d52d1540c742f8e8dc01f76d6026e5401efca76"
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "trial": "material-room-geometry-v2",
+      "run_id": "20260909T103249-abb350876a",
+      "report_sha256": "3b8689367592632462f7f80fc3145a4f230aca6da89f074dd8f2af9844ef5f9e",
+      "capture_manifest_sha256": "282f2152ec3bbf05c7d6784de9958791e8606d0572510df35f4e1eacad041706",
+      "console_sha256": "bbbfdf595a6eeadb79a9b1120ffe12593cf3e394b5ed8214da5d4cb86081595e",
+      "validation_manifest_sha256": "c2aec8b0850ac8bf03f5db8a9d9c831fd104b09072f9a86d22fb1896490abdba",
+      "source_import_report_sha256": "881c5cb64c4b265a7a8fd15fd0e4e2ff7368d0ac34722704a254b9daaa63665e",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "6eeb31a76499d3626ae5d2966bc874af0653cef3823338ed97b068d7995b1f8e",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1469,
+            "simulation_seconds": 8.66922,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.200001,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "visual_review": "Visible walls, floor, plinth, three spheres, box and three thin posts; default white materials, sunlight and sky differ from the Cycles reference"
+    },
+    {
+      "trial": "material-room-original-geometry-v1",
+      "run_id": "20260909T103800-fb8a953de0",
+      "report_sha256": "b062830468512e309859066cf2f041a1276c1dd0d3d15489b018d4a6a3f3e6ce",
+      "capture_manifest_sha256": "7bf52d738e1e45bec7811c2419e6c3088aef68ffc4935a4f08c6f4c18e583293",
+      "console_sha256": "7a854af8e2478afd20bc4a86c686d7a6068a35a0dd697a14407b4d9ebda14f75",
+      "validation_manifest_sha256": "180fc931c6200e4ae992d613a24ce026a90e6fe30c653967db161c402e3a1a3c",
+      "source_import_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+      "config_sha256": "9af59c71bf0693940f5fd18399f95342ea499f2ebc07c597b5dc7223d48166f4",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "file": "profile\\profile\\sample-00000.png",
+          "sha256": "85f67d5397bdfaf58a3f862d311b678c19b88e67ca90c82e59f0019ccee499cd",
+          "camera": {
+            "protocol": 2,
+            "event": "sample",
+            "index": 0,
+            "world_frame": 1429,
+            "simulation_seconds": 8.65129,
+            "position": [
+              2048,
+              1003,
+              2040.5
+            ],
+            "direction": [
+              0,
+              -0.21693,
+              0.976187
+            ]
+          },
+          "projection": {
+            "protocol": 2,
+            "event": "projection",
+            "index": 0,
+            "width": 2560,
+            "height": 1440,
+            "up_xy": [
+              1280,
+              532.429
+            ],
+            "right_xy": [
+              1467.56,
+              719.998
+            ],
+            "far_plane": 100,
+            "hdr_brightness": 0.00456415
+          }
+        }
+      ],
+      "origin": [
+        2048.0,
+        1000.0,
+        2048.0
+      ],
+      "local_bounds": [
+        [
+          -3.1,
+          -0.2,
+          -3.0
+        ],
+        [
+          3.1,
+          4.0,
+          3.1
+        ]
+      ],
+      "material_count": 7,
+      "camera_and_projection_readback_passed": true,
+      "engine_geometry_bounds_passed": true,
+      "appearance_pair_verified": false,
+      "visual_review": "Visible walls, floor, plinth, three spheres, box and three thin posts; default white materials, sunlight and sky differ from the Cycles reference"
+    }
+  ],
+  "vertex_checks": [
+    {
+      "report_sha256": "a031694e3e63cd952d3753fbea56e7858b87af71cd50ad8bea2e4c890f75550d",
+      "result": {
+        "schema_version": 1,
+        "status": "succeeded",
+        "operation": "original-fbx-txo-vertex-comparison",
+        "script_sha256": "12cc565dcc58c14cd8120e5a95134b840fa03e6830cd6112b6e0300b9567ab41",
+        "blender": "5.1.2",
+        "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+        "load_report_sha256": "881c5cb64c4b265a7a8fd15fd0e4e2ff7368d0ac34722704a254b9daaa63665e",
+        "txo_sha256": "3aa919dc789526c8e61400940720441c03e80702d23919e4feacf8100035226b",
+        "mapping": "Blender [x,y,z] to Enfusion [x,z,y]",
+        "comparison": "All vertex positions by existing index; no alignment fitting or reordering",
+        "tolerance_m": 5e-06,
+        "meshes": [
+          {
+            "mesh": "back",
+            "vertices": 8,
+            "max_coordinate_error_m": 6.662139893087726e-07,
+            "imported_min": [
+              -3.0,
+              -0.0,
+              2.899999
+            ],
+            "imported_max": [
+              3.0,
+              4.0,
+              3.100001
+            ]
+          },
+          {
+            "mesh": "box",
+            "vertices": 8,
+            "max_coordinate_error_m": 2.384185791015625e-07,
+            "imported_min": [
+              0.65,
+              -0.0,
+              1.35
+            ],
+            "imported_max": [
+              1.55,
+              1.5,
+              2.25
+            ]
+          },
+          {
+            "mesh": "floor",
+            "vertices": 8,
+            "max_coordinate_error_m": 5.201826095702078e-07,
+            "imported_min": [
+              -3.0,
+              -0.200001,
+              -3.0
+            ],
+            "imported_max": [
+              3.0,
+              1e-06,
+              3.0
+            ]
+          },
+          {
+            "mesh": "left",
+            "vertices": 8,
+            "max_coordinate_error_m": 5.23162841936653e-07,
+            "imported_min": [
+              -3.1,
+              -1e-06,
+              -3.0
+            ],
+            "imported_max": [
+              -2.9,
+              4.000001,
+              3.0
+            ]
+          },
+          {
+            "mesh": "metal-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.179962158681107e-07,
+            "imported_min": [
+              -0.65,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              0.65,
+              1.7,
+              1.05
+            ]
+          },
+          {
+            "mesh": "plinth",
+            "vertices": 8,
+            "max_coordinate_error_m": 1.7782183192593948e-07,
+            "imported_min": [
+              -2.2,
+              -0.0,
+              -0.6
+            ],
+            "imported_max": [
+              2.2,
+              0.4,
+              1.4
+            ]
+          },
+          {
+            "mesh": "post-0",
+            "vertices": 64,
+            "max_coordinate_error_m": 5.932846069978126e-07,
+            "imported_min": [
+              -0.3575,
+              -0.0,
+              -1.4075
+            ],
+            "imported_max": [
+              -0.3425,
+              1.5,
+              -1.3925
+            ]
+          },
+          {
+            "mesh": "post-1",
+            "vertices": 64,
+            "max_coordinate_error_m": 5.549926758163792e-07,
+            "imported_min": [
+              -0.015,
+              -0.0,
+              -1.415
+            ],
+            "imported_max": [
+              0.015,
+              1.5,
+              -1.385
+            ]
+          },
+          {
+            "mesh": "post-2",
+            "vertices": 64,
+            "max_coordinate_error_m": 6.039123534584689e-07,
+            "imported_min": [
+              0.32,
+              -0.0,
+              -1.43
+            ],
+            "imported_max": [
+              0.38,
+              1.5,
+              -1.37
+            ]
+          },
+          {
+            "mesh": "right",
+            "vertices": 8,
+            "max_coordinate_error_m": 5.23162841936653e-07,
+            "imported_min": [
+              2.9,
+              -1e-06,
+              -3.0
+            ],
+            "imported_max": [
+              3.1,
+              4.000001,
+              3.0
+            ]
+          },
+          {
+            "mesh": "rough-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.179962158681107e-07,
+            "imported_min": [
+              0.65,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              1.95,
+              1.7,
+              1.05
+            ]
+          },
+          {
+            "mesh": "white-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.179962158681107e-07,
+            "imported_min": [
+              -1.95,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              -0.65,
+              1.7,
+              1.05
+            ]
+          }
+        ],
+        "max_coordinate_error_m": 6.662139893087726e-07,
+        "limits": [
+          "TXO mesh points only; compiled-mesh quantization, shading normals, UVs and raster silhouettes require separate checks",
+          "Materials, lighting and color are not matched; no accepted appearance-training pair"
+        ]
+      }
+    },
+    {
+      "report_sha256": "476b7b90990b8c8ed8632d68a899e71e5e421a2fec8599a41461485c316ea4b8",
+      "result": {
+        "schema_version": 1,
+        "status": "succeeded",
+        "operation": "original-fbx-txo-vertex-comparison",
+        "script_sha256": "db76415e7f1861818eeec5ec94dbf20bbd018f8d6893b344c1e194d2721f9c0c",
+        "blender": "5.1.2",
+        "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+        "load_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+        "txo_sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631",
+        "mapping": "Blender [x,y,z] to Enfusion [x,z,y]",
+        "comparison": "All vertex positions by existing index; no alignment fitting or reordering",
+        "tolerance_m": 5e-06,
+        "meshes": [
+          {
+            "mesh": "back",
+            "vertices": 8,
+            "max_coordinate_error_m": 3.8146972647368216e-07,
+            "imported_min": [
+              -3.0,
+              -0.0,
+              2.9
+            ],
+            "imported_max": [
+              3.0,
+              4.0,
+              3.1
+            ]
+          },
+          {
+            "mesh": "box",
+            "vertices": 8,
+            "max_coordinate_error_m": 2.384185791015625e-07,
+            "imported_min": [
+              0.65,
+              -0.0,
+              1.35
+            ],
+            "imported_max": [
+              1.55,
+              1.5,
+              2.25
+            ]
+          },
+          {
+            "mesh": "floor",
+            "vertices": 8,
+            "max_coordinate_error_m": 4.962125785823446e-07,
+            "imported_min": [
+              -3.0,
+              -0.2,
+              -3.0
+            ],
+            "imported_max": [
+              3.0,
+              -0.0,
+              3.0
+            ]
+          },
+          {
+            "mesh": "left",
+            "vertices": 8,
+            "max_coordinate_error_m": 4.887619979854207e-07,
+            "imported_min": [
+              -3.1,
+              -0.0,
+              -3.0
+            ],
+            "imported_max": [
+              -2.9,
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "mesh": "metal-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.137084960222694e-07,
+            "imported_min": [
+              -0.65,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              0.65,
+              1.7,
+              1.05
+            ]
+          },
+          {
+            "mesh": "plinth",
+            "vertices": 8,
+            "max_coordinate_error_m": 1.7782183192593948e-07,
+            "imported_min": [
+              -2.2,
+              -0.0,
+              -0.6
+            ],
+            "imported_max": [
+              2.2,
+              0.4,
+              1.4
+            ]
+          },
+          {
+            "mesh": "post-0",
+            "vertices": 64,
+            "max_coordinate_error_m": 4.207534789468781e-07,
+            "imported_min": [
+              -0.3575,
+              -0.0,
+              -1.4075
+            ],
+            "imported_max": [
+              -0.3425,
+              1.5,
+              -1.3925
+            ]
+          },
+          {
+            "mesh": "post-1",
+            "vertices": 64,
+            "max_coordinate_error_m": 5.511703491389852e-07,
+            "imported_min": [
+              -0.015,
+              -0.0,
+              -1.415
+            ],
+            "imported_max": [
+              0.015,
+              1.5,
+              -1.385
+            ]
+          },
+          {
+            "mesh": "post-2",
+            "vertices": 64,
+            "max_coordinate_error_m": 4.991073607740759e-07,
+            "imported_min": [
+              0.32,
+              -0.0,
+              -1.43
+            ],
+            "imported_max": [
+              0.38,
+              1.5,
+              -1.37
+            ]
+          },
+          {
+            "mesh": "right",
+            "vertices": 8,
+            "max_coordinate_error_m": 4.887619979854207e-07,
+            "imported_min": [
+              2.9,
+              -0.0,
+              -3.0
+            ],
+            "imported_max": [
+              3.1,
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "mesh": "rough-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.169433592884133e-07,
+            "imported_min": [
+              0.65,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              1.95,
+              1.7,
+              1.05
+            ]
+          },
+          {
+            "mesh": "white-sphere",
+            "vertices": 6050,
+            "max_coordinate_error_m": 6.17668151958739e-07,
+            "imported_min": [
+              -1.95,
+              0.4,
+              -0.25
+            ],
+            "imported_max": [
+              -0.65,
+              1.7,
+              1.05
+            ]
+          }
+        ],
+        "max_coordinate_error_m": 6.17668151958739e-07,
+        "limits": [
+          "TXO mesh points only; compiled-mesh quantization, shading normals, UVs and raster silhouettes require separate checks",
+          "Materials, lighting and color are not matched; no accepted appearance-training pair"
+        ]
+      }
+    }
+  ],
+  "earlier_failures": "evidence/enfusion-material-import-v1.json",
+  "correction": "Earlier rebuild probes requested Workbench.Exit before asynchronous import completion. Keeping the private editor alive produces nonempty geometry for both unchanged original and LOD0-derived FBX. A fresh project also builds successfully. Earlier empty outputs do not establish an asset-format limitation.",
+  "retained_compile_failure": {
+    "run_id": "20260909T103203-33465720c5",
+    "reason": "Room variable conflicted with an engine type name; renamed RoomEntity before successful native validation"
+  },
+  "geometry_import_verified": true,
+  "aligned_appearance_pair_verified": false,
+  "renderer_integration_verified": false,
+  "limits": [
+    "No matched material parameters, lighting or color transfer",
+    "TXO vertices and native entity bounds are verified; compiled-mesh quantization and shading normals/UVs have not been numerically compared",
+    "Engine screenshots establish visible geometry; they expose no depth, normals, motion vectors or supported neural output pass",
+    "No lighting-model inference, real-Arma fidelity result, motion study or complete-frame performance claim follows"
+  ]
+}

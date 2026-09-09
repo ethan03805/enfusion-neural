@@ -87,3 +87,9 @@ Publish reviewed real-scene captures with exact source bytes, including source v
 Accepted 9 September 2026. Ten controlled runs show that a 120-update camera hold restores the observed warehouse supports and Montignac surfaces/markings in three independent runs per scene. A 30-second startup wait with the original six-update hold retains incomplete detail. Use the longer per-view hold as a candidate for subsequent offline fixtures and inspect every new view.
 
 Keep the initial single-variable plan separate from the follow-up repeats chosen after seeing its results. Preserve short-hold failures and publish unchanged sample-1 comparisons from the first long-hold runs. Simulation updates are not GPU fences, the precise internal cause remains unverified, and pixel differences between independent sources are not model-fidelity scores. This capture improvement does not close the supported renderer bridge or aligned engine/reference requirements.
+
+## 018 · Separate asynchronous resource building from validation
+
+Accepted 9 September 2026. Workbench rebuild requests return before import completes. Keep the isolated editor alive while observing build completion and retained output, then load the result in a separate process with natural exit. The previous immediate shutdown produced header-only resources that were still loadable. Preserve those failed controls and reject empty material-section telemetry.
+
+The original-room fixture now has per-vertex coordinate checks, expected entity bounds and a visible pitched-camera capture. Treat this as geometry correspondence only. Default engine materials and outdoor lighting do not match the synthetic reference, and successful asset import supplies no neural renderer extension.

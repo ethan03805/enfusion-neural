@@ -32,7 +32,7 @@ def main():
     parser.add_argument('--source-root', required=True)
     parser.add_argument('--lab-source', required=True)
     parser.add_argument('--timeout-seconds', type=int, default=120, choices=range(30,301))
-    parser.add_argument('--route', choices=('generic', 'fbx-handler', 'typed-metadata', 'load-completed', 'handler-completed'), default='generic')
+    parser.add_argument('--route', choices=('generic', 'fbx-handler', 'typed-metadata', 'load-completed', 'handler-completed', 'inspect-metadata', 'build-live'), default='build-live')
     parser.add_argument('--built-import', help='Prior retained import project, required for a completed-resource route')
     parser.add_argument('--derived-root', help='Optional LOD0 export with verified derivation.json')
     args = parser.parse_args()
@@ -58,7 +58,7 @@ def main():
         derivation = {'report': derivation, 'report_sha256': digest(derivation_path)}
     completed_assets = []
     prior = None
-    if args.route in ('load-completed', 'handler-completed'):
+    if args.route in ('load-completed', 'handler-completed', 'inspect-metadata') or (args.route == 'build-live' and args.built_import):
         if not args.built_import:
             raise ValueError('Completed-resource routes require --built-import')
         prior_root = Path(args.built_import).resolve()
@@ -102,7 +102,7 @@ def main():
         target = asset_dir / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
-    if args.route == 'typed-metadata':
+    if args.route == 'typed-metadata' or (args.route == 'build-live' and not args.built_import):
         # Metadata syntax and the standard PC common resource are documented by
         # Bohemia's public sample models. Fresh IDs belong to this original mesh.
         model_guid = uuid.uuid4().hex[:16].upper()
@@ -125,6 +125,8 @@ def main():
         'class ENR_ImportConfig { static bool FBXHandler = ' + str(args.route in ('fbx-handler', 'handler-completed')).lower() +
         '; static bool TypedMetadata = ' + str(args.route == 'typed-metadata').lower() +
         '; static bool LoadCompleted = ' + str(args.route == 'load-completed').lower() +
+        '; static bool InspectMetadata = ' + str(args.route == 'inspect-metadata').lower() +
+        '; static bool BuildLive = ' + str(args.route == 'build-live').lower() +
         '; static ResourceName Model = "' + model + '"; }\n', encoding='utf-8')
     with sequence.private_settings(runner):
         validation = run_workbench(out, 'validate', timeout=180)
@@ -132,7 +134,13 @@ def main():
         raise ValueError('Import addon failed validation')
     root, config = load_project(out)
     executable, game = resolve_installation(config)
-    run_dir, record = runner.allocate_run(root, 'original-room-import')
+    operation = 'original-room-metadata' if args.route == 'inspect-metadata' else 'original-room-import'
+    scope = ('Read-only inspection of original-room import metadata; no import or rendering verification'
+             if args.route == 'inspect-metadata' else 'Original mesh registration/import only; visual and appearance correspondence unverified')
+    if args.route == 'build-live':
+        operation = 'original-room-build-observation'
+        scope = 'Observe asynchronous rebuild while the private editor remains alive; subsequent resource load and geometry checks required'
+    run_dir, record = runner.allocate_run(root, operation)
     argv = [str(executable), '-gproj', str(run_dir / 'addon/addon.gproj'),
             '-addonsDir', str(game / 'addons'), '-profile', str(run_dir / 'profile'),
             '-cfg', str(run_dir / 'addon/ENR_Engine.conf'),
@@ -142,7 +150,7 @@ def main():
     record.update(argv=argv, timeout_seconds=args.timeout_seconds, world=None, capture_mode=None,
                   validation_run=validation['run_id'], script_sha256=digest(__file__),
                   source_fbx_sha256=digest(original), source_evidence_sha256=digest(evidence_path),
-                  scope='Original mesh registration/import only; visual and appearance correspondence unverified')
+                  scope=scope)
     record['route'] = args.route
     record['prior_import'] = prior
     record['derivation'] = derivation
@@ -164,16 +172,43 @@ def main():
                                            stdin=subprocess.DEVNULL, shell=False, startupinfo=startup)
                 record['pid'] = process.pid
                 write_json(run_dir / 'run.json', record)
-                code = process.wait(timeout=args.timeout_seconds)
+                if args.route == 'build-live':
+                    observed_at = None
+                    while time.monotonic() - start < args.timeout_seconds:
+                        live_text = runner.collect_logs(profile)
+                        requested = 'ENR_IMPORT {"event":"live_build_requested"}' in live_text
+                        if requested and observed_at is None:
+                            observed_at = time.monotonic()
+                        if observed_at is not None and time.monotonic() - observed_at >= 10:
+                            break
+                        if process.poll() is not None:
+                            break
+                        time.sleep(0.2)
+                    record['alive_after_build_observation'] = process.poll() is None
+                    record['build_observation_seconds'] = time.monotonic() - observed_at if observed_at else None
+                    code = process.poll()
+                else:
+                    code = process.wait(timeout=args.timeout_seconds)
             text = runner.collect_logs(profile)
-            if code != 0 or text.count('ENR_IMPORT {"event":"started"}') != 1 or text.count('ENR_IMPORT {"event":"completed"}') != 1:
+            if args.route == 'build-live':
+                if (text.count('ENR_IMPORT {"event":"live_build_requested"}') != 1
+                        or 'Build successful' not in text or not record['alive_after_build_observation']):
+                    raise ValueError('Did not observe a completed rebuild while the editor remained alive')
+            elif code != 0 or text.count('ENR_IMPORT {"event":"started"}') != 1 or text.count('ENR_IMPORT {"event":"completed"}') != 1:
                 raise ValueError('Import did not exit naturally with one native completion')
             imported = run_dir / 'addon/Assets/ENR_ReferenceRoom'
             if not (imported / 'material-room.xob').is_file() or not (imported / 'material-room.xob.meta').is_file():
                 raise ValueError('Native completion did not produce model and import metadata')
             if digest(imported / original.name) != digest(original):
                 raise ValueError('Original FBX changed during import')
-            require_material_sections(text)
+            if args.route == 'build-live':
+                if (imported / 'material-room.xob').stat().st_size <= 80:
+                    raise ValueError('Editor stayed alive but the output remains a header-only resource')
+            elif args.route == 'inspect-metadata':
+                if text.count('ENR_IMPORT {"event":"metadata_inspected","configurations":1}') != 1:
+                    raise ValueError('Metadata inspection did not observe one PC configuration')
+            else:
+                require_material_sections(text)
             record['status'] = 'succeeded'
         except subprocess.TimeoutExpired:
             record.update(status='failed', error='Workbench original-room import timed out after ' + str(args.timeout_seconds) + ' seconds')
@@ -192,7 +227,7 @@ def main():
             record.update(finished_at=runner.utc_now(), wall_seconds=time.monotonic() - start,
                           console_sha256=digest(run_dir / 'console.log'))
             write_json(run_dir / 'run.json', record)
-    report = {'schema_version': 1, 'status': record['status'], 'operation': 'original-room-import',
+    report = {'schema_version': 1, 'status': record['status'], 'operation': operation,
               'run_id': record['run_id'], 'run_manifest_sha256': digest(run_dir / 'run.json'),
               'validation_run': validation['run_id'],
               'validation_manifest_sha256': digest(Path(validation['directory']) / 'run.json'),
@@ -205,6 +240,7 @@ def main():
               'console_sha256': record['console_sha256'],
               'retained_assets': record['retained_assets'],
               'native_records': [line.split('ENR_IMPORT ', 1)[1] for line in text.splitlines() if 'ENR_IMPORT ' in line],
+              'metadata_records': [line.split('ENR_META_', 1)[1] for line in text.splitlines() if 'ENR_META_' in line],
               'scope': record['scope'], 'visual_review': 'pending',
               'engine_geometry_verified': False,
               'aligned_appearance_pair_verified': False, 'renderer_integration_verified': False}

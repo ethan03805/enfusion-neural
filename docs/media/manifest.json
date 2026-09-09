@@ -635,6 +635,24 @@
       "selection": "Declared anomaly view from the first 120-update run; all three long-hold runs and all controls reviewed.",
       "transformation": "none; byte-for-byte copy",
       "license": "Arma Reforger imagery, Bohemia Interactive a.s.; outside MIT code license"
+    },
+    {
+      "file": "material-room-engine-geometry.png",
+      "sha256": "85f67d5397bdfaf58a3f862d311b678c19b88e67ca90c82e59f0019ccee499cd",
+      "bytes": 733338,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed engine geometry control; default materials and outdoor illumination",
+      "source_record": "evidence/enfusion-room-geometry-v1.json",
+      "source_record_sha256": "bdf5079b5ae7a595425a5f065081c42d4e1df86c9d6f473c06874276fcf96ad7",
+      "source_artifact": "experiments/local/material-room-original-geometry-v1/runs/20260909T103800-fb8a953de0/profile/profile/sample-00000.png",
+      "run_id": "20260909T103800-fb8a953de0",
+      "sample_index": 0,
+      "selection": "Only sample in the unchanged-original-FBX geometry capture; derived-input capture also inspected",
+      "transformation": "none; byte-for-byte copy",
+      "license": "Original room geometry is MIT; rendered Enfusion environment/engine imagery includes Bohemia Interactive content outside the MIT code license"
     }
   ],
   "videos": [
