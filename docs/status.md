@@ -118,3 +118,13 @@ The [original-room import](material-room.md#engine-import-controls) now works. E
 All runs are terminal. The original-source controls are under `experiments/local/material-room-original-live-build-v1/`, `material-room-original-load-v1/` and `material-room-original-geometry-v1/`; independent fresh builds/loads are in `material-room-fresh-build-v1/` and `material-room-fresh-load-v1/`. The derived control is in `material-room-live-build-v1/`, `material-room-load-v1/` and `material-room-geometry-v2/`. Geometry reports and their executed Blender script snapshots are retained alongside these directories. Continue with material and illumination calibration, not repeated empty-import probes.
 
 The CPU suite has 53 tests. The site has 21 pages, 42 reviewed PNGs and 12 videos; the new image is an unchanged original-room engine capture with its appearance limitations labeled.
+
+## Material schema and face-corner checks
+
+`evidence/enfusion-room-surface-v1.json` verifies a native read-only material-container inspection and two offline Blender comparisons. The inspection compiles and exits naturally, exposes 142 `MatPBRBasic` fields, and retains all original assets unchanged. `Color` has a white default; actual scalar readback gives `RoughnessScale` and `MetalnessScale` as 1. Packed-map and color semantics remain unverified. Raw native evidence is `experiments/local/material-room-schema-v1/`.
+
+All 18,570 faces and 73,872 corners retain connectivity and named material assignments. Winding consistently reverses under the axis reflection. The strict normal/UV check fails for the spheres and posts: maximum normal component error is 0.00005004 (0.0044° angular error), and maximum UV error after V inversion is 0.000005. The limits remain 0.00002 and 0.000002. The initial report and follow-up script snapshots are retained as `material-room-surface-check-v1` and `v2` under `experiments/local/`.
+
+The follow-up adds decimal-grid diagnostics without changing results or thresholds. All TXO normals occupy a four-decimal grid and UVs a five-decimal grid, consistent with serialization precision. Rounded source values still differ at some sphere ties; compiled XOB precision and raster shading are untested. Do not rerun unchanged probes to seek a passing label. These jobs are terminal, and no material edits, new captures or model changes were made.
+
+Next: original asymmetric texture and controlled-light captures to verify texture orientation, material/color response and silhouettes. Then calibrate illumination/exposure for a valid engine/reference pair. The supported renderer interface, real Arma model/motion tests and native lighting graph remain unfinished.

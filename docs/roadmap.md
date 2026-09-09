@@ -49,7 +49,9 @@ The immediate priorities are:
 3. Add short motion paths and an aligned engine/reference lighting pair. Verify exposure, camera, material and light conventions; keep town, interior, foliage and entity scenes separate in evaluation.
 4. Implement the accepted lighting graph on the native backend, verify it against the CPU, then measure complete-frame cost through the supported adapter. Use those results to decide whether larger training is warranted.
 
-The [original-room control](material-room.md#engine-import-controls) now imports and visibly renders all 12 meshes. The empty outputs came from requesting editor shutdown before asynchronous rebuilding finished. Three build/load controls, per-vertex comparisons and pitched-camera captures establish geometry progress. Next map material constants and isolate illumination, then verify shading normals, UVs, silhouettes and exposure/color correspondence. Keep the existing synthetic references and selected model frozen. Geometry import does not resolve the supported neural input/output interface.
+The [original-room control](material-room.md#engine-import-controls) now imports and visibly renders all 12 meshes. The empty outputs came from requesting editor shutdown before asynchronous rebuilding finished. Three build/load controls, per-vertex comparisons and pitched-camera captures establish geometry progress. The [surface follow-up](material-room.md#surface-controls) verifies face connectivity and material assignments, while retaining failed strict normal/UV precision checks. Native material schema inspection succeeds; parameter semantics remain open.
+
+Next use an asymmetric original texture and controlled light to verify rendered orientation, material response and silhouettes. Map material constants, isolate illumination and verify exposure/color correspondence before accepting an engine/reference pair. TXO decimal-grid observations do not establish compiled shading precision. Keep the existing synthetic references and selected model frozen. Geometry import does not resolve the supported neural input/output interface.
 
 ## 05 · Playable local demonstration
 

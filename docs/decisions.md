@@ -93,3 +93,9 @@ Keep the initial single-variable plan separate from the follow-up repeats chosen
 Accepted 9 September 2026. Workbench rebuild requests return before import completes. Keep the isolated editor alive while observing build completion and retained output, then load the result in a separate process with natural exit. The previous immediate shutdown produced header-only resources that were still loadable. Preserve those failed controls and reject empty material-section telemetry.
 
 The original-room fixture now has per-vertex coordinate checks, expected entity bounds and a visible pitched-camera capture. Treat this as geometry correspondence only. Default engine materials and outdoor lighting do not match the synthetic reference, and successful asset import supplies no neural renderer extension.
+
+## 019 · Preserve surface precision failures and separate schema from semantics
+
+Accepted 9 September 2026. Compare face topology, named material assignments and face-corner data before claiming appearance correspondence. Retain the initial normal/UV failures and their original tolerances. Decimal-grid diagnostics explain a plausible source of small differences but cannot certify the compiled mesh or retroactively pass the check.
+
+Use native read-only container inspection to discover available material fields. A `Color` default or `RoughnessScale` readback does not establish a reference-to-engine material mapping. Validate that mapping with controlled original textures, illumination and raster observations before accepting appearance-training pairs.

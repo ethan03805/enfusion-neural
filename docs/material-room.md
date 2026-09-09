@@ -63,3 +63,20 @@ python scripts/capture_enfusion_material_room.py --loaded-import experiments/loc
 ```
 
 Use `scripts/check_enfusion_room_geometry.py` inside Blender to compare every TXO vertex with the original FBX. The naming-only exporter and the earlier failing import routes remain available for reproducing controls; they are not required by the working path. A regenerated source needs a reviewed source record before replacing the retained FBX.
+
+## Surface controls
+
+The [surface report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-surface-v1.json) extends the check to **18,570 faces and 73,872 face corners** across all 12 meshes. Face connectivity and named material assignments match. Every face reverses its cyclic order under the reflected axis mapping. This checks the TXO intermediary; compiled shading and raster silhouettes remain unverified.
+
+| Check | Observed result |
+| --- | --- |
+| Maximum normal component difference | 0.00005004; declared limit 0.00002 |
+| Maximum normal angle difference | 0.0044° |
+| Maximum UV difference after `v → 1 − v` | 0.000005; declared limit 0.000002 |
+| Strict surface result | Six box meshes pass; three spheres and three posts fail |
+
+The initial failed result is retained. A follow-up with unchanged tolerances finds all imported normals on a four-decimal grid and all UVs on a five-decimal grid. This is consistent with serialization precision, but rounding the source does not exactly reproduce every sphere value. It does not prove the precision of the compiled XOB or texture sampling orientation. The checker is `scripts/check_enfusion_room_surface.py`, run inside Blender with the same source/load arguments as the vertex checker and a new `--out` path.
+
+A separate native read-only inspection successfully loads the original neutral `MatPBRBasic` container and enumerates 142 fields. `Color` has a white default; scalar readback gives `RoughnessScale = 1` and `MetalnessScale = 1`. `BCRMap` and `NMOMap` fields are present. These observations establish the available schema, **not the meaning of its color transfer or texture channels**. No material was changed. Bohemia documents that the [prop importer creates default MatPBRBasic materials](https://community.bistudio.com/wiki/Arma_Reforger%3AProp_Creation).
+
+Next use an asymmetric original texture and controlled light to check orientation and material response, then calibrate illumination and color/exposure against the reference. Preserve the white-material image above. Accept a pair only after geometry, materials, camera and lighting conventions are accounted for; resolve neural input/output integration separately.
