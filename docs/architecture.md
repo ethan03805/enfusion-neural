@@ -28,6 +28,7 @@ Enfusion Lab export or original procedural fixture
 | `scripts/check_material_room.py` | All-part EXR validation, geometry and noise checks |
 | `scripts/import_enfusion_material_room.py` | Isolated asynchronous original-mesh build and separate native load |
 | `scripts/capture_enfusion_material_room.py` | Original mesh placement with the reference camera; appearance calibration remains open |
+| `scripts/check_enfusion_room_surface.py` | Hash-bound FBX/TXO topology, material-slot, normal and UV comparisons in Blender |
 | `scenes/` | Versioned scene definitions and control settings |
 | `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
 | `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |
@@ -56,6 +57,8 @@ Before live integration, a versioned frame must identify color format and transf
 Native integration must establish device/queue ownership, resource lifetime, barriers, fences and the presentation stage. Reset temporal history on camera cuts, resolution changes, scope transitions, invalid inputs and device recreation. Until a supported bridge proves these rules, image export remains the only implemented Enfusion interface.
 
 The original material-room adapter now imports mesh resources and places them in an isolated simulation. Resource building is asynchronous: the runner keeps its editor alive through build observation, then validates loading in a separate process. Vertex comparisons use the original FBX and Enfusion TXO without fitting; camera pitch is an optional sequence field and passes runtime readback. This establishes a geometric fixture, not matching appearance or a renderer-buffer interface.
+
+The surface checker compares faces by their existing vertex identities, then normals and UVs at corresponding corners. It records cyclic winding and tests identity/V-inversion UV conventions explicitly. Initial precision failures remain failed after decimal-grid diagnostics; no fitted alignment or adjusted threshold is used. A separate `inspect-material` route loads the original material container read-only and records schema/defaults and numeric readback. Neither route verifies compiled shading, texture sampling or engine feature buffers.
 
 ## Lighting study
 

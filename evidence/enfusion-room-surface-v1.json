@@ -1,0 +1,1320 @@
+{
+  "schema_version": 1,
+  "operation": "original-room-surface-and-material-controls",
+  "evidence_verification": "succeeded; surface precision acceptance remains failed",
+  "summarizer_sha256": "6805451fa1888ee2aa6ddcb1b74e539ca4f74a1379ade0b35c18cfba934f4ee8",
+  "prior_geometry_evidence_sha256": "bdf5079b5ae7a595425a5f065081c42d4e1df86c9d6f473c06874276fcf96ad7",
+  "material_schema": {
+    "trial": "material-room-schema-v1",
+    "run_id": "20260909T105535-d4996875f3",
+    "operation": "original-room-material-schema",
+    "route": "inspect-material",
+    "report_sha256": "4587b9437507d1612f6f6e2767419e5b4ab003b3443aa51810c4d0b4bbf4b3a7",
+    "run_manifest_sha256": "df265ea3deea09e0e02da9818f3503f8fb4b51367e936d219af1e51688c725d0",
+    "validation_run": "20260909T105523-7822de25ef",
+    "validation_manifest_sha256": "d0c513fce3f12a4e7d602a9e3774fc983c951985ce2559f8e25c05a7d4538ea3",
+    "plugin_sha256": "08d6e91f1d36e2cc6cd58ce62cfaa6474bacc400389bc40d0a6da670d10a4ccc",
+    "console_sha256": "cd1bcc73e5dfa99336d8e22689647e23b927cbb41a1f97d025d5ce4771bf6d42",
+    "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+    "native_exit_code": 0,
+    "terminated_owned_process": false,
+    "alive_after_build_observation": null,
+    "build_observation_seconds": null,
+    "prior_import": {
+      "run_id": "20260909T103654-5b3026fbb4",
+      "report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221"
+    },
+    "native_events": [
+      {
+        "event": "started"
+      },
+      {
+        "event": "module",
+        "available": 1
+      },
+      {
+        "event": "source_resolved"
+      },
+      {
+        "event": "material_inspected",
+        "fields": 142
+      },
+      {
+        "event": "completed"
+      }
+    ],
+    "metadata_records": [
+      "CONTAINER path=material class=MatPBRBasic name=Assets/ENR_ReferenceRoom/Data/neutral.emat vars=142",
+      "FIELD path=material name=Color type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=DiffuseIBL type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=SpecularIBL type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=Diffuse type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=Ambient type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=Emissive type=6 has_default=1 default=0 0 0 0",
+      "FIELD path=material name=EmissiveLV type=1 has_default=1 default=0",
+      "VALUE path=material name=EmissiveLV read=1 value=0",
+      "FIELD path=material name=EmissiveAbsoluteLV type=9 has_default=1 default=1",
+      "VALUE path=material name=EmissiveAbsoluteLV read=1 value=1",
+      "FIELD path=material name=ApplyAlbedoToEmissive type=9 has_default=1 default=0",
+      "VALUE path=material name=ApplyAlbedoToEmissive read=1 value=0",
+      "FIELD path=material name=ZEnable type=9 has_default=1 default=1",
+      "VALUE path=material name=ZEnable read=1 value=1",
+      "FIELD path=material name=ZWrite type=9 has_default=1 default=1",
+      "VALUE path=material name=ZWrite read=1 value=1",
+      "FIELD path=material name=ZBias type=7 has_default=1 default=0",
+      "VALUE path=material name=ZBias read=1 value=0",
+      "FIELD path=material name=Cull type=7 has_default=1 default=0",
+      "VALUE path=material name=Cull read=1 value=0",
+      "FIELD path=material name=Sort type=7 has_default=1 default=0",
+      "VALUE path=material name=Sort read=1 value=0",
+      "FIELD path=material name=SortBias type=7 has_default=1 default=0",
+      "VALUE path=material name=SortBias read=1 value=0",
+      "FIELD path=material name=CastShadow type=9 has_default=1 default=1",
+      "VALUE path=material name=CastShadow read=1 value=1",
+      "FIELD path=material name=ReceiveShadow type=9 has_default=1 default=1",
+      "VALUE path=material name=ReceiveShadow read=1 value=1",
+      "FIELD path=material name=OccludeRain type=9 has_default=1 default=1",
+      "VALUE path=material name=OccludeRain read=1 value=1",
+      "FIELD path=material name=OccludeWetness type=9 has_default=1 default=1",
+      "VALUE path=material name=OccludeWetness read=1 value=1",
+      "FIELD path=material name=AddWetness type=9 has_default=1 default=0",
+      "VALUE path=material name=AddWetness read=1 value=0",
+      "FIELD path=material name=DisableFog type=9 has_default=1 default=0",
+      "VALUE path=material name=DisableFog read=1 value=0",
+      "FIELD path=material name=DisableInteriorProbes type=9 has_default=1 default=0",
+      "VALUE path=material name=DisableInteriorProbes read=1 value=0",
+      "FIELD path=material name=DisablePriorityProbes type=9 has_default=1 default=0",
+      "VALUE path=material name=DisablePriorityProbes read=1 value=0",
+      "FIELD path=material name=TCModFuncs type=141 has_default=1 default=",
+      "FIELD path=material name=NoDecals type=9 has_default=1 default=0",
+      "VALUE path=material name=NoDecals read=1 value=0",
+      "FIELD path=material name=SurfaceProperties type=14 has_default=1 default=",
+      "FIELD path=material name=TIThermalProfile type=14 has_default=1 default={CC547D988287BF7C}system/thermal/thermalProfileDefault.conf",
+      "FIELD path=material name= type=13 has_default=0 default=",
+      "FIELD path=material name=TIMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=TITemperature1 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperature1 read=1 value=0",
+      "FIELD path=material name=TITemperatureCoef1 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureCoef1 read=1 value=0",
+      "FIELD path=material name=TITemperatureChannel1 type=7 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureChannel1 read=1 value=0",
+      "FIELD path=material name=TITemperatureOp1 type=7 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureOp1 read=1 value=0",
+      "FIELD path=material name=TITemperature2 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperature2 read=1 value=0",
+      "FIELD path=material name=TITemperatureCoef2 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureCoef2 read=1 value=0",
+      "FIELD path=material name=TITemperatureChannel2 type=7 has_default=1 default=1",
+      "VALUE path=material name=TITemperatureChannel2 read=1 value=1",
+      "FIELD path=material name=TITemperatureOp2 type=7 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureOp2 read=1 value=0",
+      "FIELD path=material name=TITemperature3 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperature3 read=1 value=0",
+      "FIELD path=material name=TITemperatureCoef3 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureCoef3 read=1 value=0",
+      "FIELD path=material name=TITemperatureChannel3 type=7 has_default=1 default=2",
+      "VALUE path=material name=TITemperatureChannel3 read=1 value=2",
+      "FIELD path=material name=TITemperatureOp3 type=7 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureOp3 read=1 value=0",
+      "FIELD path=material name=TITemperature4 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperature4 read=1 value=0",
+      "FIELD path=material name=TITemperatureCoef4 type=1 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureCoef4 read=1 value=0",
+      "FIELD path=material name=TITemperatureChannel4 type=7 has_default=1 default=3",
+      "VALUE path=material name=TITemperatureChannel4 read=1 value=3",
+      "FIELD path=material name=TITemperatureOp4 type=7 has_default=1 default=0",
+      "VALUE path=material name=TITemperatureOp4 read=1 value=0",
+      "FIELD path=material name=TITemperatureCombineOp type=7 has_default=1 default=2",
+      "VALUE path=material name=TITemperatureCombineOp read=1 value=2",
+      "FIELD path=material name= type=7 has_default=0 default=",
+      "VALUE path=material name= read=0 value=0",
+      "FIELD path=material name=Specular type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=SpecularMul type=1 has_default=1 default=1",
+      "VALUE path=material name=SpecularMul read=1 value=1",
+      "FIELD path=material name=WetnessScale type=1 has_default=1 default=1",
+      "VALUE path=material name=WetnessScale read=1 value=1",
+      "FIELD path=material name=PorosityScale type=1 has_default=1 default=1",
+      "VALUE path=material name=PorosityScale read=1 value=1",
+      "FIELD path=material name=CustomWetnessChannel type=7 has_default=1 default=0",
+      "VALUE path=material name=CustomWetnessChannel read=1 value=0",
+      "FIELD path=material name=SlidingDropsVisibility type=1 has_default=1 default=1",
+      "VALUE path=material name=SlidingDropsVisibility read=1 value=1",
+      "FIELD path=material name=AlphaTest type=1 has_default=1 default=0",
+      "VALUE path=material name=AlphaTest read=1 value=0",
+      "FIELD path=material name=AlphaMul type=1 has_default=1 default=1",
+      "VALUE path=material name=AlphaMul read=1 value=1",
+      "FIELD path=material name=BlendMode type=7 has_default=1 default=0",
+      "VALUE path=material name=BlendMode read=1 value=0",
+      "FIELD path=material name=CrossFade type=9 has_default=1 default=1",
+      "VALUE path=material name=CrossFade read=1 value=1",
+      "FIELD path=material name=AllowUserAlphaBias type=9 has_default=1 default=0",
+      "VALUE path=material name=AllowUserAlphaBias read=1 value=0",
+      "FIELD path=material name=DisableUserAphaInShadow type=9 has_default=1 default=0",
+      "VALUE path=material name=DisableUserAphaInShadow read=1 value=0",
+      "FIELD path=material name=GlobalLayerMode type=7 has_default=1 default=0",
+      "VALUE path=material name=GlobalLayerMode read=1 value=0",
+      "FIELD path=material name=GlobalLayerDirection type=3 has_default=1 default=0 1 0",
+      "FIELD path=material name=GlobalLayerAngleStart type=1 has_default=1 default=25",
+      "VALUE path=material name=GlobalLayerAngleStart read=1 value=25",
+      "FIELD path=material name=GlobalLayerAngleEnd type=1 has_default=1 default=75",
+      "VALUE path=material name=GlobalLayerAngleEnd read=1 value=75",
+      "FIELD path=material name=GlobalLayerPosition type=1 has_default=1 default=0.5",
+      "VALUE path=material name=GlobalLayerPosition read=1 value=0.5",
+      "FIELD path=material name=GlobalLayerContrast type=1 has_default=1 default=0",
+      "VALUE path=material name=GlobalLayerContrast read=1 value=0",
+      "FIELD path=material name=GlobalLayerGlobalAO type=1 has_default=1 default=0",
+      "VALUE path=material name=GlobalLayerGlobalAO read=1 value=0",
+      "FIELD path=material name=GlobalLayerHeightPower type=1 has_default=1 default=0",
+      "VALUE path=material name=GlobalLayerHeightPower read=1 value=0",
+      "FIELD path=material name=GlobalThermalProfile type=14 has_default=1 default={CC547D988287BF7C}system/thermal/thermalProfileDefault.conf",
+      "FIELD path=material name= type=13 has_default=0 default=",
+      "FIELD path=material name=GlobalLayerBlending type=7 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerBlending read=1 value=1",
+      "FIELD path=material name=GlobalLayerUVSrc type=7 has_default=1 default=0",
+      "VALUE path=material name=GlobalLayerUVSrc read=1 value=0",
+      "FIELD path=material name=GlobalLayerUVTransform type=13 has_default=1 default=",
+      "FIELD path=material name= type=132 has_default=0 default=",
+      "FIELD path=material name=VFXMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=RoughnessScale type=1 has_default=1 default=1",
+      "VALUE path=material name=RoughnessScale read=1 value=1",
+      "FIELD path=material name=MetalnessScale type=1 has_default=1 default=1",
+      "VALUE path=material name=MetalnessScale read=1 value=1",
+      "FIELD path=material name=AOScale type=1 has_default=1 default=1",
+      "VALUE path=material name=AOScale read=1 value=1",
+      "FIELD path=material name=DielectricReflectance type=1 has_default=1 default=0.04",
+      "VALUE path=material name=DielectricReflectance read=1 value=0.04",
+      "FIELD path=material name=CavityFromAO type=1 has_default=1 default=0",
+      "VALUE path=material name=CavityFromAO read=1 value=0",
+      "FIELD path=material name=GlobalAOPower type=1 has_default=1 default=0.9",
+      "VALUE path=material name=GlobalAOPower read=1 value=0.9",
+      "FIELD path=material name=EnableFarHiding type=9 has_default=1 default=0",
+      "VALUE path=material name=EnableFarHiding read=1 value=0",
+      "FIELD path=material name=EnvReflMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=EmissiveMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=GlobalLayerBCRMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=GlobalLayerNMOMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=GlobalLayerNormalPower type=1 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerNormalPower read=1 value=1",
+      "FIELD path=material name=GlobalLayerNoiseMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=GlobalLayerNoiseUVScale type=1 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerNoiseUVScale read=1 value=1",
+      "FIELD path=material name=GlobalLayerNoisePower type=1 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerNoisePower read=1 value=1",
+      "FIELD path=material name=GlobalLayerNoiseMap2 type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=GlobalLayerNoiseUVScale2 type=1 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerNoiseUVScale2 read=1 value=1",
+      "FIELD path=material name=GlobalLayerNoisePower2 type=1 has_default=1 default=1",
+      "VALUE path=material name=GlobalLayerNoisePower2 read=1 value=1",
+      "FIELD path=material name=BentNormalMode type=7 has_default=1 default=0",
+      "VALUE path=material name=BentNormalMode read=1 value=0",
+      "FIELD path=material name=BentNormalMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=BentNormalPower type=1 has_default=1 default=1",
+      "VALUE path=material name=BentNormalPower read=1 value=1",
+      "FIELD path=material name=BentNormalAOIntensity type=1 has_default=1 default=1",
+      "VALUE path=material name=BentNormalAOIntensity read=1 value=1",
+      "FIELD path=material name=BentNormalDetail type=1 has_default=1 default=1",
+      "VALUE path=material name=BentNormalDetail read=1 value=1",
+      "FIELD path=material name=MudUserOpacity type=9 has_default=1 default=0",
+      "VALUE path=material name=MudUserOpacity read=1 value=0",
+      "FIELD path=material name=MudOpacity type=1 has_default=1 default=0",
+      "VALUE path=material name=MudOpacity read=1 value=0",
+      "FIELD path=material name=MudColor type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=MudRoughness type=1 has_default=1 default=1",
+      "VALUE path=material name=MudRoughness read=1 value=1",
+      "FIELD path=material name=MudMetalness type=1 has_default=1 default=1",
+      "VALUE path=material name=MudMetalness read=1 value=1",
+      "FIELD path=material name=MudAO type=1 has_default=1 default=1",
+      "VALUE path=material name=MudAO read=1 value=1",
+      "FIELD path=material name=MudDetNormal type=1 has_default=1 default=1",
+      "VALUE path=material name=MudDetNormal read=1 value=1",
+      "FIELD path=material name=MudBCRMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=MudNMOMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=MudMaskMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=MudUVTransform type=13 has_default=1 default=",
+      "FIELD path=material name= type=132 has_default=0 default=",
+      "FIELD path=material name=UVSrcMud type=7 has_default=1 default=0",
+      "VALUE path=material name=UVSrcMud read=1 value=0",
+      "FIELD path=material name=MudThermalProfile type=14 has_default=1 default={CC547D988287BF7C}system/thermal/thermalProfileDefault.conf",
+      "FIELD path=material name= type=13 has_default=0 default=",
+      "FIELD path=material name=DirtUserOpacity type=9 has_default=1 default=0",
+      "VALUE path=material name=DirtUserOpacity read=1 value=0",
+      "FIELD path=material name=DirtOpacity type=1 has_default=1 default=0",
+      "VALUE path=material name=DirtOpacity read=1 value=0",
+      "FIELD path=material name=DirtLayerSharpness type=1 has_default=1 default=0",
+      "VALUE path=material name=DirtLayerSharpness read=1 value=0",
+      "FIELD path=material name=DirtColor type=6 has_default=1 default=1 1 1 1",
+      "FIELD path=material name=DirtRoughness type=1 has_default=1 default=1",
+      "VALUE path=material name=DirtRoughness read=1 value=1",
+      "FIELD path=material name=DirtBCRMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=DirtMaskMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=DirtUVTransform type=13 has_default=1 default=",
+      "FIELD path=material name= type=132 has_default=0 default=",
+      "FIELD path=material name=UVSrcDirt type=7 has_default=1 default=0",
+      "VALUE path=material name=UVSrcDirt read=1 value=0",
+      "FIELD path=material name=DirtThermalProfile type=14 has_default=1 default={CC547D988287BF7C}system/thermal/thermalProfileDefault.conf",
+      "FIELD path=material name= type=13 has_default=0 default=",
+      "FIELD path=material name= type=7 has_default=0 default=",
+      "VALUE path=material name= read=0 value=0",
+      "FIELD path=material name=BCRMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=OpacityMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=NormalPower type=1 has_default=1 default=1",
+      "VALUE path=material name=NormalPower read=1 value=1",
+      "FIELD path=material name=NMOMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=UVSrcGlobalMaps type=7 has_default=1 default=0",
+      "VALUE path=material name=UVSrcGlobalMaps read=1 value=0",
+      "FIELD path=material name=GlobalMapsUVTransform type=13 has_default=1 default=",
+      "FIELD path=material name= type=132 has_default=0 default=",
+      "FIELD path=material name=DetailNormalPower type=1 has_default=1 default=0",
+      "VALUE path=material name=DetailNormalPower read=1 value=0",
+      "FIELD path=material name=DetailNormalMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=UVSrcDetailNormalMap type=7 has_default=1 default=0",
+      "VALUE path=material name=UVSrcDetailNormalMap read=1 value=0",
+      "FIELD path=material name=DetailNormalMapUVTransform type=13 has_default=1 default=",
+      "FIELD path=material name= type=132 has_default=0 default=",
+      "FIELD path=material name=HeightMap type=8 has_default=1 default=$flags;0;$fps;0",
+      "FIELD path=material name=ParallaxScale type=1 has_default=1 default=0",
+      "VALUE path=material name=ParallaxScale read=1 value=0",
+      "FIELD path=material name=ParallaxMidlePlane type=1 has_default=1 default=1",
+      "VALUE path=material name=ParallaxMidlePlane read=1 value=1",
+      "FIELD path=material name=ParallaxShadowScale type=1 has_default=1 default=0.5",
+      "VALUE path=material name=ParallaxShadowScale read=1 value=0.5",
+      "FIELD path=material name=ManualCascadesShadows type=9 has_default=1 default=0",
+      "VALUE path=material name=ManualCascadesShadows read=1 value=0"
+    ],
+    "retained_assets": [
+      {
+        "file": "Data/blue.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/blue.emat.meta",
+        "bytes": 326,
+        "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+      },
+      {
+        "file": "Data/dark.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/dark.emat.meta",
+        "bytes": 326,
+        "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+      },
+      {
+        "file": "Data/metal.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/metal.emat.meta",
+        "bytes": 327,
+        "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+      },
+      {
+        "file": "Data/neutral.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/neutral.emat.meta",
+        "bytes": 329,
+        "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+      },
+      {
+        "file": "Data/red.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/red.emat.meta",
+        "bytes": 325,
+        "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+      },
+      {
+        "file": "Data/rough.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/rough.emat.meta",
+        "bytes": 327,
+        "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+      },
+      {
+        "file": "Data/white.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/white.emat.meta",
+        "bytes": 327,
+        "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+      },
+      {
+        "file": "material-room.fbx",
+        "bytes": 728780,
+        "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+      },
+      {
+        "file": "material-room.txo",
+        "bytes": 3508410,
+        "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+      },
+      {
+        "file": "material-room.xob",
+        "bytes": 865929,
+        "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+      },
+      {
+        "file": "material-room.xob.meta",
+        "bytes": 2129,
+        "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+      }
+    ]
+  },
+  "loaded_import": {
+    "trial": "material-room-original-load-v1",
+    "run_id": "20260909T103654-5b3026fbb4",
+    "operation": "original-room-import",
+    "route": "load-completed",
+    "report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+    "run_manifest_sha256": "525bdfc1f1a9657b2cdb5e1a8c608221cfab5edcc0d304a1216bdf6ef44e4fe1",
+    "validation_run": "20260909T103642-a95933f5c2",
+    "validation_manifest_sha256": "38a33bf010ca32153fca4626daf7ee48690fe4aa8605fb0b00e040488bbd92ee",
+    "plugin_sha256": "dd7086c5e757794695c1dede354e5e5c4a3e99bffb3496b7f69b8da965c0d421",
+    "console_sha256": "e37ef7bca3c273176562556010039738bd36f4b4ba8eaa3384435cada9682b31",
+    "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+    "native_exit_code": 0,
+    "terminated_owned_process": false,
+    "alive_after_build_observation": null,
+    "build_observation_seconds": null,
+    "prior_import": {
+      "run_id": "20260909T103558-ed1a9e322d",
+      "report_sha256": "4f60e4508a583db745c5e84f95bcffe621d5b81f1f07544c688f282309c1d749"
+    },
+    "native_events": [
+      {
+        "event": "started"
+      },
+      {
+        "event": "module",
+        "available": 1
+      },
+      {
+        "event": "source_resolved"
+      },
+      {
+        "event": "load_completed_build"
+      },
+      {
+        "event": "mesh_loaded",
+        "resource": "{7CEDDBB7858D45F0}Assets/ENR_ReferenceRoom/material-room.xob"
+      },
+      {
+        "event": "materials",
+        "count": 7
+      },
+      {
+        "event": "completed"
+      }
+    ],
+    "metadata_records": [],
+    "retained_assets": [
+      {
+        "file": "Data/blue.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/blue.emat.meta",
+        "bytes": 326,
+        "sha256": "b4c70fd9ca853cdd17a619200b84bfdb6e3af13232dc1afd7118cc0a12bd692d"
+      },
+      {
+        "file": "Data/dark.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/dark.emat.meta",
+        "bytes": 326,
+        "sha256": "0507ba3c1cbd393787fec625548abc931e703507a2be4f024e6bed46b80bae92"
+      },
+      {
+        "file": "Data/metal.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/metal.emat.meta",
+        "bytes": 327,
+        "sha256": "dad946eccf918db960f1c5430c36cba091810fffbce37cde732fa27937b535cf"
+      },
+      {
+        "file": "Data/neutral.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/neutral.emat.meta",
+        "bytes": 329,
+        "sha256": "5b50a14f8b653218bdf00a70aead48151e783f0507812519dc29e5af26a2f7c2"
+      },
+      {
+        "file": "Data/red.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/red.emat.meta",
+        "bytes": 325,
+        "sha256": "c358291255abf04b2ad221c5bee6d5e1e8a05009aa113addf583a214d6ce8d73"
+      },
+      {
+        "file": "Data/rough.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/rough.emat.meta",
+        "bytes": 327,
+        "sha256": "9cb07d582da00b9465165e8f507404eb192c4c82872fb0b21ba0ad675b0c7b0d"
+      },
+      {
+        "file": "Data/white.emat",
+        "bytes": 15,
+        "sha256": "324a4d878cbd343d17e60f25455eca9dbc7b40dfab562a6e0b91e627fc43f255"
+      },
+      {
+        "file": "Data/white.emat.meta",
+        "bytes": 327,
+        "sha256": "200f9aca823204c10b3238ed23876d8f24d99c3b2c34ae211dae9235e31bbd6a"
+      },
+      {
+        "file": "material-room.fbx",
+        "bytes": 728780,
+        "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+      },
+      {
+        "file": "material-room.txo",
+        "bytes": 3508410,
+        "sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631"
+      },
+      {
+        "file": "material-room.xob",
+        "bytes": 865929,
+        "sha256": "00c3ebdbae60e4c83c153b9eaf7672f88a2f25df10255597a16ee13c202fb6d6"
+      },
+      {
+        "file": "material-room.xob.meta",
+        "bytes": 2129,
+        "sha256": "ab9ce61b735d5185388edf33216517fbe4d06460d5288a6d041e8c10d1db9a4c"
+      }
+    ]
+  },
+  "surface_checks": {
+    "initial": {
+      "report_sha256": "3acfdc12381cbadd6ad0e13376925f9e890530274787e91aa92468e9a06cafd5",
+      "result": {
+        "schema_version": 1,
+        "status": "failed",
+        "operation": "original-fbx-txo-face-corner-comparison",
+        "blender": "5.1.2",
+        "script_sha256": "bf6f6ec56a87452a323ad6f02b868fda757b5046a3dd59475c3767ccae0ca764",
+        "source_evidence_sha256": "fb221dd6fb565942376ea2273d58375fbcf9bcf907a04c831d430f7f6c1a3923",
+        "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+        "load_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+        "txo_sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631",
+        "position_and_normal_mapping": "Blender [x,y,z] to Enfusion [x,z,y]; inverse-transpose world normal transform",
+        "comparison": "Exact face vertex identities, cyclic orders and named material slots; face/corner order may differ. No fitted alignment.",
+        "uv_candidates_declared_before_execution": [
+          "identity",
+          "v_to_one_minus_v"
+        ],
+        "matching_uv_convention_all_meshes": [],
+        "winding_all_meshes": [
+          "reversed_cyclic_order"
+        ],
+        "tolerances": {
+          "position_m": 5e-06,
+          "normal_component": 2e-05,
+          "uv_component": 2e-06
+        },
+        "failed_meshes": [
+          "metal-sphere",
+          "post-0",
+          "post-1",
+          "post-2",
+          "rough-sphere",
+          "white-sphere"
+        ],
+        "materials": [
+          "neutral",
+          "rough",
+          "red",
+          "metal",
+          "dark",
+          "blue",
+          "white"
+        ],
+        "meshes": [
+          {
+            "mesh": "back",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 3.8146972647368216e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "box",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 2.384185791015625e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "floor",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.962125785823446e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "left",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.887619979854207e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "metal-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.137084960222694e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "plinth",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 1.7782183192593948e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "post-0",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 4.207534789468781e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "post-1",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 5.511703491389852e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "post-2",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 4.991073607740759e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "right",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.887619979854207e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "rough-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.169433592884133e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "white-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.17668151958739e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          }
+        ],
+        "limits": [
+          "TXO intermediary only; compiled XOB normals, UVs, tangents and raster silhouettes are unverified",
+          "Matching material assignments do not verify material parameter semantics or rendered appearance",
+          "A fixed numerical UV relationship does not verify texture sampling orientation",
+          "No appearance-training pair, engine scene-buffer access, neural integration or performance claim"
+        ]
+      }
+    },
+    "decimal_precision_diagnostic": {
+      "report_sha256": "ad3ff6b2fd140a3dd3c83a9bb4467b3976bd7930d0cc4cf133dc7a5863086182",
+      "result": {
+        "schema_version": 1,
+        "status": "failed",
+        "operation": "original-fbx-txo-face-corner-comparison",
+        "blender": "5.1.2",
+        "script_sha256": "4a744183ac41187ab392d39dc2eb023f8225ec5d32b97cc1e24fbc3cc6fea560",
+        "source_evidence_sha256": "fb221dd6fb565942376ea2273d58375fbcf9bcf907a04c831d430f7f6c1a3923",
+        "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+        "load_report_sha256": "b80a29aa1e97260696e00de0c35007e19cd234558221793f466e828154f75221",
+        "txo_sha256": "961709c5b305a9ac4f17eb27838239b249cdd61f550163be3bef9cd40481c631",
+        "position_and_normal_mapping": "Blender [x,y,z] to Enfusion [x,z,y]; inverse-transpose world normal transform",
+        "comparison": "Exact face vertex identities, cyclic orders and named material slots; face/corner order may differ. No fitted alignment.",
+        "uv_candidates_declared_before_execution": [
+          "identity",
+          "v_to_one_minus_v"
+        ],
+        "matching_uv_convention_all_meshes": [],
+        "winding_all_meshes": [
+          "reversed_cyclic_order"
+        ],
+        "tolerances": {
+          "position_m": 5e-06,
+          "normal_component": 2e-05,
+          "uv_component": 2e-06
+        },
+        "failed_meshes": [
+          "metal-sphere",
+          "post-0",
+          "post-1",
+          "post-2",
+          "rough-sphere",
+          "white-sphere"
+        ],
+        "materials": [
+          "neutral",
+          "rough",
+          "red",
+          "metal",
+          "dark",
+          "blue",
+          "white"
+        ],
+        "meshes": [
+          {
+            "mesh": "back",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 3.8146972647368216e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "box",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 2.384185791015625e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "floor",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.962125785823446e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "left",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.887619979854207e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "metal-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.137084960222694e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 9.999999999998899e-05,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 1.0000000000065512e-05,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "plinth",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 1.7782183192593948e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "post-0",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 4.207534789468781e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "post-1",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 5.511703491389852e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "post-2",
+            "passed": false,
+            "vertices": 64,
+            "faces": 34,
+            "corners": 192,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 34,
+              "other": 0
+            },
+            "max_position_error_m": 4.991073607740759e-07,
+            "max_normal_component_error": 4.0412521362331866e-05,
+            "max_normal_angle_degrees": 0.0015228854607626482,
+            "max_imported_normal_length_error": 3.415058313127606e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 4.385552406338533e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "right",
+            "passed": true,
+            "vertices": 8,
+            "faces": 6,
+            "corners": 24,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6,
+              "other": 0
+            },
+            "max_position_error_m": 4.887619979854207e-07,
+            "max_normal_component_error": 1.6292067073209182e-07,
+            "max_normal_angle_degrees": 9.35262170110869e-06,
+            "max_imported_normal_length_error": 0.0,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 0.0,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 0.0,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 0.0
+            },
+            "matching_fixed_uv_conventions": [
+              "v_to_one_minus_v"
+            ]
+          },
+          {
+            "mesh": "rough-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.169433592884133e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 9.999999999998899e-05,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 1.0000000000065512e-05,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          },
+          {
+            "mesh": "white-sphere",
+            "passed": false,
+            "vertices": 6050,
+            "faces": 6144,
+            "corners": 24384,
+            "topology_equal_by_vertex_index": true,
+            "material_mismatches": 0,
+            "winding": {
+              "same_cyclic_order": 0,
+              "reversed_cyclic_order": 6144,
+              "other": 0
+            },
+            "max_position_error_m": 6.17668151958739e-07,
+            "max_normal_component_error": 5.00427246094004e-05,
+            "max_normal_angle_degrees": 0.004394069225368297,
+            "max_imported_normal_length_error": 7.77080192682078e-05,
+            "precision_diagnostics_only": {
+              "max_imported_normal_off_four_decimal_grid": 0.0,
+              "max_imported_normal_minus_source_rounded_four_decimals": 9.999999999998899e-05,
+              "max_imported_uv_off_five_decimal_grid": 0.0,
+              "max_imported_uv_minus_flipped_source_rounded_five_decimals": 1.0000000000065512e-05,
+              "note": "Added after the initial failed check to test decimal serialization; does not change acceptance tolerances"
+            },
+            "uv_max_component_errors": {
+              "identity": 1.0,
+              "v_to_one_minus_v": 5.000000000032756e-06
+            },
+            "matching_fixed_uv_conventions": []
+          }
+        ],
+        "limits": [
+          "TXO intermediary only; compiled XOB normals, UVs, tangents and raster silhouettes are unverified",
+          "Matching material assignments do not verify material parameter semantics or rendered appearance",
+          "A fixed numerical UV relationship does not verify texture sampling orientation",
+          "No appearance-training pair, engine scene-buffer access, neural integration or performance claim"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "meshes": 12,
+    "vertices": 18390,
+    "faces": 18570,
+    "face_corners": 73872,
+    "material_slots_equal": true,
+    "topology_equal_by_vertex_index": true,
+    "winding": "All faces reverse cyclic order under the reflected axis mapping",
+    "normal_max_component_error": 5.00427246094004e-05,
+    "normal_max_angle_degrees": 0.004394069225368297,
+    "uv_identity_max_error": 1.0,
+    "uv_v_flip_max_error": 5.000000000032756e-06,
+    "normals_on_four_decimal_grid": true,
+    "uvs_on_five_decimal_grid": true,
+    "initial_thresholds_passed": false,
+    "thresholds_changed": false,
+    "interpretation": "Observed decimal precision is consistent with the small differences. Source rounding is not exactly identical for sphere tie cases; compiled XOB precision has not been measured."
+  },
+  "verified": {
+    "material_container_schema": true,
+    "face_topology_and_named_slots": true,
+    "compiled_mesh_shading": false,
+    "material_parameter_mapping": false,
+    "aligned_appearance_pair": false,
+    "renderer_integration": false
+  },
+  "next_acceptance": [
+    "Test original material colors and packed-map conventions in new isolated captures, preserving the white-material control",
+    "Use an asymmetric texture and controlled light to verify raster orientation, material response and silhouettes",
+    "Verify color/exposure/light correspondence before accepting an engine/reference appearance pair",
+    "Resolve the supported scene-buffer and output-composition route separately"
+  ],
+  "scope": "Read-only native material schema plus offline FBX/TXO surface checks; no new capture, model fitting, game asset extraction or performance measurement"
+}

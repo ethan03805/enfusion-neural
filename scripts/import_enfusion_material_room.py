@@ -32,7 +32,7 @@ def main():
     parser.add_argument('--source-root', required=True)
     parser.add_argument('--lab-source', required=True)
     parser.add_argument('--timeout-seconds', type=int, default=120, choices=range(30,301))
-    parser.add_argument('--route', choices=('generic', 'fbx-handler', 'typed-metadata', 'load-completed', 'handler-completed', 'inspect-metadata', 'build-live'), default='build-live')
+    parser.add_argument('--route', choices=('generic', 'fbx-handler', 'typed-metadata', 'load-completed', 'handler-completed', 'inspect-metadata', 'inspect-material', 'build-live'), default='build-live')
     parser.add_argument('--built-import', help='Prior retained import project, required for a completed-resource route')
     parser.add_argument('--derived-root', help='Optional LOD0 export with verified derivation.json')
     args = parser.parse_args()
@@ -58,7 +58,7 @@ def main():
         derivation = {'report': derivation, 'report_sha256': digest(derivation_path)}
     completed_assets = []
     prior = None
-    if args.route in ('load-completed', 'handler-completed', 'inspect-metadata') or (args.route == 'build-live' and args.built_import):
+    if args.route in ('load-completed', 'handler-completed', 'inspect-metadata', 'inspect-material') or (args.route == 'build-live' and args.built_import):
         if not args.built_import:
             raise ValueError('Completed-resource routes require --built-import')
         prior_root = Path(args.built_import).resolve()
@@ -121,12 +121,21 @@ def main():
         if not match:
             raise ValueError('Model metadata lacks its expected resource identity')
         model = match.group(1)
+    material = 'Assets/ENR_ReferenceRoom/Data/neutral.emat'
+    if args.route == 'inspect-material':
+        material_meta = asset_dir / 'Data/neutral.emat.meta'
+        match = re.search(r'Name "(\{[0-9A-F]{16}\}Assets/ENR_ReferenceRoom/Data/neutral\.emat)"', material_meta.read_text(encoding='utf-8'))
+        if not match:
+            raise ValueError('Expected original neutral material resource identity')
+        material = match.group(1)
     (out / 'addon/Scripts/WorkbenchGame/ENR_ImportConfig.c').write_text(
         'class ENR_ImportConfig { static bool FBXHandler = ' + str(args.route in ('fbx-handler', 'handler-completed')).lower() +
         '; static bool TypedMetadata = ' + str(args.route == 'typed-metadata').lower() +
         '; static bool LoadCompleted = ' + str(args.route == 'load-completed').lower() +
         '; static bool InspectMetadata = ' + str(args.route == 'inspect-metadata').lower() +
         '; static bool BuildLive = ' + str(args.route == 'build-live').lower() +
+        '; static bool InspectMaterial = ' + str(args.route == 'inspect-material').lower() +
+        '; static ResourceName MaterialResource = "' + material + '"' +
         '; static ResourceName Model = "' + model + '"; }\n', encoding='utf-8')
     with sequence.private_settings(runner):
         validation = run_workbench(out, 'validate', timeout=180)
@@ -140,6 +149,9 @@ def main():
     if args.route == 'build-live':
         operation = 'original-room-build-observation'
         scope = 'Observe asynchronous rebuild while the private editor remains alive; subsequent resource load and geometry checks required'
+    elif args.route == 'inspect-material':
+        operation = 'original-room-material-schema'
+        scope = 'Read-only original material container schema; parameter interpretation and appearance remain unverified'
     run_dir, record = runner.allocate_run(root, operation)
     argv = [str(executable), '-gproj', str(run_dir / 'addon/addon.gproj'),
             '-addonsDir', str(game / 'addons'), '-profile', str(run_dir / 'profile'),
@@ -204,6 +216,10 @@ def main():
             if args.route == 'build-live':
                 if (imported / 'material-room.xob').stat().st_size <= 80:
                     raise ValueError('Editor stayed alive but the output remains a header-only resource')
+            elif args.route == 'inspect-material':
+                fields = re.findall(r'ENR_IMPORT \{"event":"material_inspected","fields":([0-9]+)\}', text)
+                if len(fields) != 1 or int(fields[0]) < 1:
+                    raise ValueError('Did not observe material container fields')
             elif args.route == 'inspect-metadata':
                 if text.count('ENR_IMPORT {"event":"metadata_inspected","configurations":1}') != 1:
                     raise ValueError('Metadata inspection did not observe one PC configuration')

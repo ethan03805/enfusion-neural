@@ -39,7 +39,19 @@ class ENR_MaterialRoomImportPlugin : WorkbenchPlugin
    return;
   }
   Print("ENR_IMPORT {\"event\":\"source_resolved\"}");
-  if (ENR_ImportConfig.InspectMetadata)
+  if (ENR_ImportConfig.InspectMaterial)
+  {
+   Resource materialResource = BaseContainerTools.LoadContainer(ENR_ImportConfig.MaterialResource);
+   if (!materialResource || !materialResource.IsValid()) { Print("ENR_IMPORT {\"event\":\"failed\",\"stage\":\"material_container_load\"}"); Workbench.Exit(8); return; }
+   BaseContainer materialContainer = materialResource.GetResource().ToBaseContainer();
+   if (!materialContainer) { Print("ENR_IMPORT {\"event\":\"failed\",\"stage\":\"material_container_type\"}"); Workbench.Exit(9); return; }
+   InspectContainer(materialContainer, "material", 0);
+   PrintFormat("ENR_IMPORT {\"event\":\"material_inspected\",\"fields\":%1}", materialContainer.GetNumVars());
+   Print("ENR_IMPORT {\"event\":\"completed\"}");
+   Workbench.Exit(0);
+   return;
+  }
+  else if (ENR_ImportConfig.InspectMetadata)
   {
    MetaFile meta = manager.GetMetaFile(absolutePath);
    if (!meta) { Print("ENR_IMPORT {\"event\":\"failed\",\"stage\":\"metadata\"}"); Workbench.Exit(6); return; }
