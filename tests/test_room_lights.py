@@ -35,6 +35,14 @@ class LightReadbackTests(unittest.TestCase):
             with self.subTest(records=records),self.assertRaises(ValueError):
                 check_readback(self.control,records)
 
+    def test_declared_clip_policy_requires_the_exact_native_request(self):
+        control=copy.deepcopy(self.control)
+        control['plan']['light']['intensity_clip_ev_bias']=-10
+        self.assertTrue(check_readback(control,self.records+['clip requested_ev=-10'])['all_readbacks_match'])
+        for suffix in [[], ['clip requested_ev=-9'], ['clip requested_ev=-10', 'clip requested_ev=-10']]:
+            with self.subTest(suffix=suffix),self.assertRaises(ValueError):
+                check_readback(control,self.records+suffix)
+
 
 if __name__=='__main__':
     unittest.main()

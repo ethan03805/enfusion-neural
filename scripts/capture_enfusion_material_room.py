@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--texture-case', choices=('orientation', 'packed', 'metal-matte', 'metal-dielectric'))
     parser.add_argument('--light-case', choices=('night-off', 'night-low', 'night-high'))
     parser.add_argument('--light-clip-control', action='store_true', help='Apply the separately declared LV10 intensity-clipping follow-up')
+    parser.add_argument('--calibration-case', choices=('off', 'lv8', 'lv9', 'lv10', 'lv11', 'lv12'), help='Run a declared point-light calibration case with fixed clipping policy')
     args = parser.parse_args()
     if bool(args.texture_build) != bool(args.texture_case) or (args.texture_case and args.color_control):
         raise ValueError('Texture build and case are required together and exclude Color-only control')
@@ -34,6 +35,8 @@ def main():
         raise ValueError('Light controls require the original packed texture case')
     if args.light_clip_control and args.light_case != 'night-low':
         raise ValueError('The clipping follow-up requires the original night-low case')
+    if args.calibration_case and (args.texture_case != 'packed' or args.light_case or args.light_clip_control):
+        raise ValueError('Calibration requires packed textures and excludes the original light-case flags')
     texture_build = texture_copies = texture_provenance = None
     if args.texture_build:
         texture_build, texture_copies, texture_provenance = room_textures.load_build(args.texture_build, ROOT)
@@ -75,11 +78,14 @@ def main():
     color_control = None
     texture_control = None
     light_control = None
-    if args.light_case:
-        light_plan_path = ROOT / 'scenes/material-room-light-control-v1.json'
+    if args.light_case or args.calibration_case:
+        light_plan_path = ROOT / ('scenes/point-light-calibration-v1.json' if args.calibration_case else 'scenes/material-room-light-control-v1.json')
         light_plan = json.loads(light_plan_path.read_text(encoding='utf-8'))
-        light_control = {'case': args.light_case, 'plan': light_plan,
-                         'plan_sha256': digest(light_plan_path), 'requested': light_plan['cases'][args.light_case]}
+        case = args.calibration_case or args.light_case
+        light_control = {'case': case, 'plan': light_plan,
+                         'plan_sha256': digest(light_plan_path), 'requested': light_plan['cases'][case]}
+        if args.calibration_case and light_plan['light']['intensity_clip_ev_bias'] != -10:
+            raise ValueError('Native fixture supports the declared -10 clipping bias only')
         if args.light_clip_control:
             clip_path = ROOT / 'scenes/material-room-light-clip-control-v1.json'
             clip_plan = json.loads(clip_path.read_text(encoding='utf-8'))
@@ -149,13 +155,13 @@ def main():
         light_control['world_position'] = light_position
         write_json(out / 'light-control.json', light_control)
         shutil.copyfile(ROOT / 'adapters/enfusion/probes/ENR_RoomLight.c', out / 'addon/Scripts/Game/ENR_RoomLight.c')
-        light_config = ('#ifdef WORKBENCH\nclass ENR_RoomLightConfig {\n static string Case = "' + args.light_case + '";\n'
+        light_config = ('#ifdef WORKBENCH\nclass ENR_RoomLightConfig {\n static string Case = "' + light_control['case'] + '";\n'
                         ' static vector Position = "' + ' '.join(map(str, light_position)) + '";\n'
                         ' static float Radius = ' + str(light_spec['radius_m']) + ';\n'
                         ' static float Near = ' + str(light_spec['near_plane_m']) + ';\n'
                         ' static float LV = ' + str(light_control['requested']['native_LV']) + ';\n'
                         ' static bool Enabled = ' + str(light_control['requested']['enabled']).lower() + ';\n'
-                        ' static bool UseClipControl = ' + str(args.light_clip_control).lower() + ';\n}\n#endif\n')
+                        ' static bool UseClipControl = ' + str(bool(args.light_clip_control or args.calibration_case)).lower() + ';\n}\n#endif\n')
         (out / 'addon/Scripts/Game/ENR_RoomLightConfig.c').write_bytes(light_config.encode('utf-8'))
     plugin = ROOT / 'adapters/enfusion/probes/ENR_MaterialRoom.c'
     shutil.copyfile(plugin, out / 'addon/Scripts/Game/ENR_MaterialRoom.c')

@@ -11,7 +11,7 @@ import markdown
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('room-lighting','Room lighting'),('lighting-study','Lighting study'),('lighting-motion','Scene transfer & motion'),('lighting-diversity','Scene diversity'),('arma-scenes','Arma scenes'),('comparisons','Comparisons'),
+PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('room-lighting','Room lighting'),('light-calibration','Light calibration'),('lighting-study','Lighting study'),('lighting-motion','Scene transfer & motion'),('lighting-diversity','Scene diversity'),('arma-scenes','Arma scenes'),('comparisons','Comparisons'),
        ('architecture','Architecture'),('integration','Enfusion integration'),('feasibility','Technical feasibility'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]

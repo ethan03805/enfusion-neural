@@ -99,3 +99,9 @@ The original-room fixture now has per-vertex coordinate checks, expected entity 
 Accepted 9 September 2026. Compare face topology, named material assignments and face-corner data before claiming appearance correspondence. Retain the initial normal/UV failures and their original tolerances. Decimal-grid diagnostics explain a plausible source of small differences but cannot certify the compiled mesh or retroactively pass the check.
 
 Use native read-only container inspection to discover available material fields. A `Color` default or `RoughnessScale` readback does not establish a reference-to-engine material mapping. Validate that mapping with controlled original textures, illumination and raster observations before accepting appearance-training pairs.
+
+## 020 · Freeze calibration and keep a lookup control separate from the lighting model
+
+Accepted 9 September 2026. The point-light display hypothesis is fitted only on three declared intensities and one neutral patch. Commit its two coefficients before reserved numerical checks, retain every failure, and do not change the original fixture or locked model to improve this diagnostic. Seven of 22 reserved checks fail. The one-bounce reference already contains indirect illumination; it cannot isolate direct light.
+
+Investigate the documented color-grading/volume-texture workflow as a bounded integration control, starting with native schema inspection and original identity/known-color textures. A lookup-table approximation would support only a pointwise RGB function. It cannot stand in for the full scene-conditioned model, supply missing buffers or pass the broader integration goal. Model quality, effect placement and complete-frame cost require separate evidence.

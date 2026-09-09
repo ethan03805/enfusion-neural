@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "point-light-calibration-v1",
+  "source_scene": "scenes/material-room-v1.json",
+  "base_evidence": "evidence/material-room-v1.json",
+  "dimensions": [2560, 1440],
+  "texture_case": "packed",
+  "hour": 0,
+  "light": {
+    "type": "POINT", "local_position_enfusion_xyz": [0, 3.8, 0.2],
+    "radius_m": 15, "near_plane_m": 0.05, "distance_attenuation": 2,
+    "color_rgb": [1, 1, 1], "cast_shadow": true, "lens_flare_index": -1,
+    "intensity_clip_ev_bias": -10
+  },
+  "cases": {
+    "off": {"enabled": false, "native_LV": 10},
+    "lv8": {"enabled": true, "native_LV": 8},
+    "lv9": {"enabled": true, "native_LV": 9},
+    "lv10": {"enabled": true, "native_LV": 10},
+    "lv11": {"enabled": true, "native_LV": 11},
+    "lv12": {"enabled": true, "native_LV": 12}
+  },
+  "runs": ["off", "lv8", "lv10", "lv12", "lv9", "lv11", "lv10", "lv10"],
+  "fit_cases": ["lv8", "lv10", "lv12"],
+  "validation_cases": ["lv9", "lv11"],
+  "patches": {
+    "fit_back": {"xyxy": [1000, 280, 1150, 420], "object": "back", "split": "fit"},
+    "check_back": {"xyxy": [1450, 280, 1620, 420], "object": "back", "split": "validation"},
+    "check_floor": {"xyxy": [1650, 1240, 1750, 1320], "object": "floor", "split": "validation"},
+    "check_red": {"xyxy": [400, 300, 550, 500], "object": "left", "split": "validation"},
+    "check_blue": {"xyxy": [2050, 300, 2200, 500], "object": "right", "split": "validation"}
+  },
+  "reference": {
+    "light_type": "POINT", "position_blender_xyz": [0, 0.2, 3.8],
+    "power_watts": 900, "emitter_radius_m": 0,
+    "world_strength": 0, "samples": 4096, "seeds": [17, 29],
+    "roles": ["direct", "direct_check", "multibounce", "multibounce_check"],
+    "direct_max_bounces": 1, "multibounce_max_bounces": 12,
+    "display": {"view_transform": "Standard", "look": "None", "exposure": 0, "gamma": 1},
+    "denoising": false, "adaptive_sampling": false
+  },
+  "calibration": {
+    "candidate_transfer": "clipped standard sRGB encoding of scene-linear reference RGB times one scalar gain; a hypothesis about engine display, not a verified native color pipeline",
+    "fit": "For LV8, LV10, LV12 only, match the mean RGB8 of fit_back by scalar gain via 64 bisection steps in log2 gain [-20,20]. Fit log2(gain) = slope * native_LV + intercept by ordinary least squares. No per-channel fit or image alignment.",
+    "freeze": "All held-out intensity and spatial-patch checks use the two fitted coefficients unchanged. The first capture per case is used; LV10 repeats only measure variation.",
+    "reference_for_fit": "direct",
+    "reference_for_noise": "direct_check",
+    "validation_fit_patch_mae_rgb8_max": 5,
+    "independent_patch_mae_rgb8_max": 10,
+    "direct_seed_patch_relative_rmse_max": 0.01,
+    "patch_object_fraction_min": 0.999,
+    "fit_patch_clipped_fraction_max": 0.01,
+    "illustration_case": "lv10"
+  },
+  "scope": "Calibration diagnostic before an Enfusion appearance pair; no model fitting, renderer-buffer access or live rendering. The multibounce output is a synthetic transport illustration using the same frozen display mapping.",
+  "limits": [
+    "Night environment and reflection probes remain active in Enfusion; the off case measures only their display response",
+    "Enfusion light radius controls influence while Cycles emitter radius controls source size; no equality between these quantities",
+    "Light LV, material BRDF and color transfer remain uncalibrated until independent checks pass",
+    "Earlier geometry export normal/UV precision failures remain retained",
+    "This diagnostic scene and all its settings have been inspected; they do not replace an untouched model test"
+  ]
+}

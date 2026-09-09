@@ -4,6 +4,12 @@ The [reference scene pack](reference-scenes.md#first-measured-batch) adds nine r
 
 Measured locally on 8 September 2026. The results establish an offline neural path on the recorded test configuration. They do not establish photorealism or live game performance.
 
+## Point-light calibration
+
+The [calibration comparison](light-calibration.md) retains eight successful native captures and four independent-seed reference passes. Its frozen brightness mapping fails seven of 22 reserved checks. Worst floor error is 29.95 RGB8 MAE against a limit of 10. Object identity, reference-patch noise and fit-patch clipping checks pass; they do not override the response failure. Three independent LV 10 captures are close but not identical, with maximum channel difference 19. This is a static calibration diagnostic, with no neural inference, accepted appearance pair or live performance claim.
+
+[Complete metrics and hashes](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/point-light-calibration-v1.json) · [Frozen fit](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/point-light-calibration-lock-v1.json)
+
 ## Neural GPU execution
 
 | Input | Dimensions | Dispatch p50 | Dispatch p95 | CPU comparison |
