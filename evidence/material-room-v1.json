@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "render_run": {
+    "schema_version": 1,
+    "status": "succeeded",
+    "config": {
+      "schema_version": 1,
+      "id": "material-room-v1",
+      "license": "MIT; original geometry and material constants",
+      "group": "material-room-v1",
+      "split": "diagnostic",
+      "coordinate_system": "metres, Blender Z up, camera looks toward positive Y",
+      "dimensions": [
+        960,
+        540
+      ],
+      "camera": {
+        "position": [
+          0,
+          -7.5,
+          3
+        ],
+        "target": [
+          0,
+          0.6,
+          1.2
+        ],
+        "vertical_fov_degrees": 42
+      },
+      "light": {
+        "position": [
+          0,
+          0.2,
+          3.8
+        ],
+        "power_watts": 900,
+        "size_m": 2
+      },
+      "materials": {
+        "neutral": {
+          "base_color_linear": [
+            0.55,
+            0.55,
+            0.55
+          ],
+          "roughness": 0.6,
+          "metallic": 0
+        },
+        "red": {
+          "base_color_linear": [
+            0.5,
+            0.055,
+            0.035
+          ],
+          "roughness": 0.6,
+          "metallic": 0
+        },
+        "blue": {
+          "base_color_linear": [
+            0.04,
+            0.1,
+            0.4
+          ],
+          "roughness": 0.6,
+          "metallic": 0
+        },
+        "white": {
+          "base_color_linear": [
+            0.72,
+            0.72,
+            0.72
+          ],
+          "roughness": 0.2,
+          "metallic": 0
+        },
+        "metal": {
+          "base_color_linear": [
+            0.65,
+            0.65,
+            0.65
+          ],
+          "roughness": 0.15,
+          "metallic": 1
+        },
+        "rough": {
+          "base_color_linear": [
+            0.22,
+            0.13,
+            0.055
+          ],
+          "roughness": 0.85,
+          "metallic": 0
+        },
+        "dark": {
+          "base_color_linear": [
+            0.035,
+            0.035,
+            0.035
+          ],
+          "roughness": 0.5,
+          "metallic": 0
+        }
+      },
+      "boxes": [
+        {
+          "id": "floor",
+          "position": [
+            0,
+            0,
+            -0.1
+          ],
+          "size": [
+            6,
+            6,
+            0.2
+          ],
+          "material": "neutral"
+        },
+        {
+          "id": "back",
+          "position": [
+            0,
+            3,
+            2
+          ],
+          "size": [
+            6,
+            0.2,
+            4
+          ],
+          "material": "neutral"
+        },
+        {
+          "id": "left",
+          "position": [
+            -3,
+            0,
+            2
+          ],
+          "size": [
+            0.2,
+            6,
+            4
+          ],
+          "material": "red"
+        },
+        {
+          "id": "right",
+          "position": [
+            3,
+            0,
+            2
+          ],
+          "size": [
+            0.2,
+            6,
+            4
+          ],
+          "material": "blue"
+        },
+        {
+          "id": "plinth",
+          "position": [
+            0,
+            0.4,
+            0.2
+          ],
+          "size": [
+            4.4,
+            2,
+            0.4
+          ],
+          "material": "neutral"
+        },
+        {
+          "id": "box",
+          "position": [
+            1.1,
+            1.8,
+            0.75
+          ],
+          "size": [
+            0.9,
+            0.9,
+            1.5
+          ],
+          "material": "rough"
+        }
+      ],
+      "spheres": [
+        {
+          "id": "white-sphere",
+          "position": [
+            -1.3,
+            0.4,
+            1.05
+          ],
+          "radius": 0.65,
+          "material": "white"
+        },
+        {
+          "id": "metal-sphere",
+          "position": [
+            0,
+            0.4,
+            1.05
+          ],
+          "radius": 0.65,
+          "material": "metal"
+        },
+        {
+          "id": "rough-sphere",
+          "position": [
+            1.3,
+            0.4,
+            1.05
+          ],
+          "radius": 0.65,
+          "material": "rough"
+        }
+      ],
+      "thin_posts": {
+        "diameters_m": [
+          0.015,
+          0.03,
+          0.06
+        ],
+        "height_m": 1.5,
+        "x_positions": [
+          -0.35,
+          0,
+          0.35
+        ],
+        "y": -1.4,
+        "material": "dark"
+      },
+      "source": {
+        "renderer": "Cycles",
+        "samples": 512,
+        "max_bounces": 1,
+        "seed": 17
+      },
+      "reference": {
+        "renderer": "Cycles",
+        "samples": 4096,
+        "max_bounces": 12,
+        "seed": 17
+      },
+      "convergence_check": {
+        "samples": 4096,
+        "seed": 29
+      },
+      "color": {
+        "view_transform": "AgX",
+        "look": "AgX - Medium High Contrast",
+        "exposure": 0,
+        "gamma": 1
+      },
+      "limitations": [
+        "Synthetic lighting/material transport pair, not an Enfusion render or a photograph.",
+        "One scene group cannot establish held-out appearance generalization.",
+        "Reference has finite sampling noise; inspect the independent seed check before training.",
+        "No normal maps, textured assets, foliage, people or temporal ground truth."
+      ]
+    },
+    "config_sha256": "331f0c85f709c1b13f5cab78320a281ca6dd77a593476fa87f817b5c5baa4b9a",
+    "generator_sha256": "b0a33a56445f24d40df48346868dc7a1581d27ab261fac4c222a52462fbdefe1",
+    "blender": "5.1.2",
+    "devices": [
+      {
+        "name": "AMD Radeon RX 7800 XT",
+        "type": "HIP"
+      }
+    ],
+    "object_ids": {
+      "floor": 1,
+      "back": 2,
+      "left": 3,
+      "right": 4,
+      "plinth": 5,
+      "box": 6,
+      "white-sphere": 7,
+      "metal-sphere": 8,
+      "rough-sphere": 9,
+      "post-0": 10,
+      "post-1": 11,
+      "post-2": 12
+    },
+    "camera_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.21693040430545807,
+        -0.9761870503425598,
+        -7.5
+      ],
+      [
+        0.0,
+        0.9761870503425598,
+        0.21693040430545807,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "renders": [
+      {
+        "role": "source",
+        "samples": 512,
+        "seed": 17,
+        "max_bounces": 1,
+        "seconds": 5.506403499999578,
+        "png_sha256": "6f05514fa58ac5d07daa6fb0019259a76caa8e447831fdf5844ecd99f101c4ea",
+        "exr_sha256": "a30aba7cff8698229ee6a9c07657608bf017cdf2b3af34cbd15bd8f6017395c1"
+      },
+      {
+        "role": "reference",
+        "samples": 4096,
+        "seed": 17,
+        "max_bounces": 12,
+        "seconds": 57.60878389999925,
+        "png_sha256": "a8154d68831e83233796a8eb7dda715a9e901ad3fafeddafcaa616742bda2d63",
+        "exr_sha256": "a39833826379fd7f8edcba7145f1591fadf5be88f2f4ef6579864ba0dc8c99a8"
+      },
+      {
+        "role": "convergence_check",
+        "samples": 4096,
+        "seed": 29,
+        "max_bounces": 12,
+        "seconds": 54.912898000002315,
+        "png_sha256": "a85ab06aa6bd6c2f9b92007e590a23cb187e0041e57a86c6675a27497d64ffac",
+        "exr_sha256": "adbd814254f6edf13a1ad4e1f95fc77f0628383bf32d2b9f4209c3f186494fa3"
+      }
+    ]
+  },
+  "openexr_version": "3.4.15",
+  "channels": [
+    "ViewLayer.Combined.A",
+    "ViewLayer.Combined.B",
+    "ViewLayer.Combined.G",
+    "ViewLayer.Combined.R",
+    "ViewLayer.Depth.Z",
+    "ViewLayer.Normal.X",
+    "ViewLayer.Normal.Y",
+    "ViewLayer.Normal.Z",
+    "ViewLayer.Object Index.X"
+  ],
+  "geometry_alignment": {
+    "ViewLayer.Depth.Z": {
+      "exact": true,
+      "max_error": 0.0
+    },
+    "ViewLayer.Object Index.X": {
+      "exact": true,
+      "max_error": 0.0
+    },
+    "normal": {
+      "max_absolute_component_error": 0.0197061188519001,
+      "mean_absolute_component_error": 3.802907667704858e-05
+    }
+  },
+  "source_reference_display_metrics": {
+    "rgb_mae_8bit": 3.909238576889038,
+    "rgb_rmse_8bit": 7.806997085385067,
+    "rgb_p95_absolute_error_8bit": 12.0,
+    "changed_rgb_fraction": 0.8664178240740741,
+    "alpha_exact": true,
+    "mean_rgb_drift_8bit": [
+      4.231136322021484,
+      3.584616184234619,
+      3.8839659690856934
+    ],
+    "psnr_db": 30.281123264119863,
+    "alignment": {
+      "available": true,
+      "estimated_translation_px": [
+        0,
+        0
+      ],
+      "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+      "search_radius_px": 3,
+      "search_boundary": false,
+      "edge_mse": 2.0663435459136963,
+      "zero_offset_edge_mse": 2.0663435459136963,
+      "improvement_fraction": 0.0,
+      "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+    }
+  },
+  "reference_seed_display_metrics": {
+    "rgb_mae_8bit": 0.3564782738685608,
+    "rgb_rmse_8bit": 0.7903412381306061,
+    "rgb_p95_absolute_error_8bit": 1.0,
+    "changed_rgb_fraction": 0.48790702160493826,
+    "alpha_exact": true,
+    "mean_rgb_drift_8bit": [
+      0.0011689814273267984,
+      2.8935184673173353e-05,
+      -0.0006944444612599909
+    ],
+    "psnr_db": 50.174510748957736,
+    "alignment": {
+      "available": true,
+      "estimated_translation_px": [
+        0,
+        0
+      ],
+      "sign_convention": "reference(x,y) corresponds to repeat(x+dx,y+dy)",
+      "search_radius_px": 3,
+      "search_boundary": false,
+      "edge_mse": 0.26504093408584595,
+      "zero_offset_edge_mse": 0.26504093408584595,
+      "improvement_fraction": 0.0,
+      "method": "integer gradient matching on a fixed interior ROI, every fourth pixel"
+    }
+  },
+  "reference_seed_linear_relative_rmse": 0.004968131426721811,
+  "scope": "Synthetic shared-scene pair; finite-sample path-traced reference, not photographic ground truth or an Enfusion appearance result.",
+  "acceptance": {
+    "geometry_depth_and_ids_exact": true,
+    "reference_noise_display_mae_below_0_5": true
+  },
+  "source_artifacts": {
+    "blend_sha256": "d41356f32c22aea8cecfd7e44af90197a1824be7c37f86047bc5fbc778faf784",
+    "fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+  }
+}

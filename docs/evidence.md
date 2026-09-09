@@ -29,7 +29,7 @@ The [follow-up hosted run](https://github.com/ethan03805/enfusion-neural/actions
 
 ## Learning result
 
-Training fits all network weights on the local CPU with seed 7, 1,200 Adam steps and original procedural data. Train scene seeds are 0–11; validation scenes 100–103; test scenes 200–203. No game captures, photographs or downloaded model weights were used in training.
+Training fits all network weights on the local CPU with seed 7, 1,200 Adam steps and original procedural data. Train scene seeds are 0â€“11; validation scenes 100â€“103; test scenes 200â€“203. No game captures, photographs or downloaded model weights were used in training.
 
 | Held-out scene | Bicubic PSNR | Neural PSNR |
 | --- | --- | --- |
@@ -53,3 +53,11 @@ Arland capture used position [2048,60,2048], direction [1,0,0] and a five-second
 ## Still unverified
 
 Live integration, linear/HDR scene color, depth, motion vectors, material buffers, pre-HUD presentation, semantic fidelity, temporal stability, total frame times and live memory budget. No cloud GPU has been rented. No claim of broad Enfusion or multi-vendor support is made.
+
+## Camera path and synthetic reference
+
+The [capture controls](capture-controls.md) report three checked static repeats, an earlier probe batch and the unresolved viewport scale/FSR issue. Final pairwise RGB MAE is 0.379–0.891; earlier probes reached 2.358. Every pair has estimated integer translation [0,0], which does not establish deterministic foliage.
+
+The [motion comparison](comparisons.md#motion) contains 80 paired source/GPU frames. All pass the independent CPU reference with maximum RGB error of one 8-bit value and exact alpha. A four-second, 20 FPS encoded clip is retimed from a sequence spanning 21.762 simulation seconds; offline processing and CPU checks took 116.641 seconds. See the [full frame and video record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/motion-v1.json).
+
+The [material-room report](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/material-room-v1.json) records exact source/reference depth and object-ID alignment. Independent reference seeds differ by 0.356 RGB code values on average and about 0.497% relative RMSE in scene-linear RGB. This is an original synthetic target-generation test, not neural quality on Enfusion.

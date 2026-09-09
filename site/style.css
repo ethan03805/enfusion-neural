@@ -95,3 +95,7 @@ img { max-width: 100%; height: auto; }
   .comparison-images { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: no-preference) { a { transition: color .12s, background .12s; } }
+
+.motion-comparison { margin: 1.8rem 0; }
+.motion-comparison video { display: block; width: 100%; height: auto; background: #101214; border: 1px solid var(--line); }
+.motion-comparison figcaption { margin-top: .65rem; color: var(--muted); font-size: .875rem; }
