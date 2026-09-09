@@ -41,3 +41,9 @@ python scripts/summarize_enfusion_image_bridge.py --root experiments/local/bridg
 ```
 
 Run scene/capture experiments serially with other GPU experiments. Use a new output directory per attempt; preserve failures. Inspect actual images before publishing them as environment coverage. For additional worlds, the probe requires `--world-inventory` pointing to a completed native resource inventory that observed the exact requested world. This establishes the resource name, not successful loading or useful framing. The default sequence adapter retains its established Arland restriction.
+
+## Inventory without a world
+
+Two attempts to invoke a resource inventory in silent ScriptEditor mode compiled and exited naturally with code 0, but neither executed the inventory callback. No resource names were returned. The attempts differed only in whether the module received `-run`; the [startup parameter documentation](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters) describes that flag as opening the selected module. Neither attempt requested a world or simulation. These are failed inventories, recorded in [the retained evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-resource-inventory-silent-v1.json).
+
+`scripts/probe_enfusion_resource_inventory.py` reproduces the second attempt with Lab discovery, isolated initialization and compilation, followed by a separate bounded inventory operation. Its completion check requires natural exit, the callback and each requested search result; exit code 0 alone is insufficient. This experimental command remains unsuccessful on the observed installation. Continue world-resource discovery with the previously verified `scripts/probe_enfusion_resources.py` route after scene rendering finishes. Non-silent or other-module invocation has not been tested by these attempts.

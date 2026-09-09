@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only resource inventory callback in silent ScriptEditor; no world or scene capture requested",
+  "result": "Both addons compiled. Both inventory processes exited naturally with code 0 but produced no inventory callback or resource records. Neither is a successful inventory.",
+  "runs": [
+    {
+      "variant": "silent ScriptEditor without module run",
+      "status": "failed",
+      "validation_status": "succeeded",
+      "inventory_run": "20260909T063728-c0b6c26985",
+      "validation_run": "20260909T063714-cb355510bf",
+      "inventory_manifest_sha256": "60416baf109c132050fd83944659bbdd04a97292f7eae80c9b7c9e8cf2fca656",
+      "validation_manifest_sha256": "497b13f5d031df8eb7b4721b26fb982ddb09015a32075cf4f95e88b00c45243e",
+      "console_sha256": "5fe367b0890bc62acf5d313b1e993428db5059f1ad6110335b700e2135f619eb",
+      "plugin_sha256": "9e33d6fb44c2e7e96f65e74148f00528853408f42bda8a2a65bc7407118f6e58",
+      "probe_sha256": "9f7ac6348a2ef8f6449fc8041efe477d8c880196c9273d2056c2e681537d89f8",
+      "runner_sha256": "78777239f4d8e7505d33b5580697a1e56e695c3b30e2bf48b285033e2cdf90ef",
+      "process_exit_code": 0,
+      "terminated_owned_process": false,
+      "wall_seconds": 5.921999999998661,
+      "queries": [
+        "Eden",
+        "Everon"
+      ],
+      "record_count": 0,
+      "error": "Inventory did not exit naturally with exactly one completion"
+    },
+    {
+      "variant": "silent ScriptEditor with module run",
+      "status": "failed",
+      "validation_status": "succeeded",
+      "inventory_run": "20260909T063824-2824665759",
+      "validation_run": "20260909T063810-29dd1de13c",
+      "inventory_manifest_sha256": "1c0bdc91b084045bd05b59ca445d38c5725de07b0708bfe1b802d1059bdb477a",
+      "validation_manifest_sha256": "cae818e0d9016864fd1c109b7bf17d4b1a306d5f607115c1e53a0429becd345a",
+      "console_sha256": "d27eb1f8c3fca62b0ae36a7059ee5ed518942950dced5641390d2fb561adcd8d",
+      "plugin_sha256": "9e33d6fb44c2e7e96f65e74148f00528853408f42bda8a2a65bc7407118f6e58",
+      "probe_sha256": "9f7ac6348a2ef8f6449fc8041efe477d8c880196c9273d2056c2e681537d89f8",
+      "runner_sha256": "b2bea3be9a519de233eac638fd4cbaad83bd58bd8e975fa286d54cf45248033a",
+      "process_exit_code": 0,
+      "terminated_owned_process": false,
+      "wall_seconds": 5.671999999998661,
+      "queries": [
+        "Eden",
+        "Everon"
+      ],
+      "record_count": 0,
+      "error": "Inventory did not exit naturally with exactly one completion"
+    }
+  ],
+  "interpretation": "Silent ScriptEditor inventory remains unverified. This does not establish that other modules or non-silent invocation cannot run the plugin. Use the previously validated WorldEditor inventory after scene rendering finishes.",
+  "sources": [
+    "https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters",
+    "https://community.bistudio.com/wiki/Arma_Reforger:Workbench_Plugin"
+  ],
+  "live_neural_integration_proven": false
+}
