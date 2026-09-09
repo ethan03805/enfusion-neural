@@ -4,12 +4,14 @@ document.querySelectorAll("[data-comparison]").forEach(comparison => {
   const control = comparison.querySelector(".comparison-control");
   const range = control.querySelector("input");
   const output = control.querySelector("output");
+  const beforeLabel = comparison.dataset.beforeLabel || "original";
+  const afterLabel = comparison.dataset.afterLabel || "model output";
   const update = () => {
     const value = Math.max(0, Math.min(100, Number(range.value) || 0));
     comparison.style.setProperty("--reveal", `${value}%`);
-    const description = `${value}% original, ${100 - value}% model output`;
+    const description = `${value}% ${beforeLabel}, ${100 - value}% ${afterLabel}`;
     range.setAttribute("aria-valuetext", description);
-    output.textContent = `${value}% original`;
+    output.textContent = `${value}% ${beforeLabel}`;
   };
   const ready = () => {
     if (!images.every(img => img.complete && img.naturalWidth > 0)) return;

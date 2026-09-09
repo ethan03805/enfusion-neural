@@ -599,6 +599,42 @@
       "transformation": "none; byte-for-byte copy",
       "selection": "Street view and visible source anomaly selected after inspecting all four views. No model was evaluated.",
       "rights": "Arma Reforger imagery belongs to Bohemia Interactive a.s.; outside the MIT code license."
+    },
+    {
+      "file": "arma-warehouse-settled.png",
+      "sha256": "25f2dce52e673ad298b0f801f00f05de4da1c38470961f9ecc2cf5a3971d9628",
+      "bytes": 5591933,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed source; 120-update camera hold",
+      "source_record": "evidence/enfusion-source-visibility-v1.json",
+      "source_record_sha256": "ccb1077fd9d5269ebd6f2ed2bb55bc763e77a138619104ab39616b56331786ef",
+      "source_artifact": "experiments/local/source-visibility-v1/warehouse-camera-hold/capture/runs/20260909T091010-5512732763/profile/profile/sample-00001.png",
+      "run_id": "20260909T091010-5512732763",
+      "sample_index": 1,
+      "selection": "Declared anomaly view from the first 120-update run; all three long-hold runs and all controls reviewed.",
+      "transformation": "none; byte-for-byte copy",
+      "license": "Arma Reforger imagery, Bohemia Interactive a.s.; outside MIT code license"
+    },
+    {
+      "file": "arma-montignac-settled.png",
+      "sha256": "c7866b8f5adeac85419e3d9071d359a8e928d422897fc7716ab007fc4a6d6589",
+      "bytes": 6979256,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "unprocessed source; 120-update camera hold",
+      "source_record": "evidence/enfusion-source-visibility-v1.json",
+      "source_record_sha256": "ccb1077fd9d5269ebd6f2ed2bb55bc763e77a138619104ab39616b56331786ef",
+      "source_artifact": "experiments/local/source-visibility-v1/montignac-camera-hold/capture/runs/20260909T091456-0b09683359/profile/profile/sample-00001.png",
+      "run_id": "20260909T091456-0b09683359",
+      "sample_index": 1,
+      "selection": "Declared anomaly view from the first 120-update run; all three long-hold runs and all controls reviewed.",
+      "transformation": "none; byte-for-byte copy",
+      "license": "Arma Reforger imagery, Bohemia Interactive a.s.; outside MIT code license"
     }
   ],
   "videos": [

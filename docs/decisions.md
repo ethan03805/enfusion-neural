@@ -81,3 +81,9 @@ Accepted 9 September 2026. Publish the complete untouched synthetic test and all
 Accepted 9 September 2026. The ordinary screenshot route exports RGB8. Accept it only through an explicit file-source contract that preserves RGB values and records supplied opaque alpha. Keep strict RGBA validation elsewhere. A correct CPU file and successful widget load do not satisfy texture readback or presentation verification.
 
 Publish reviewed real-scene captures with exact source bytes, including source visibility anomalies and failed entity placements. They remain source observations, with no aligned appearance target or lighting-model result. Resolve those anomalies and the supported rendering interface before treating broader asset collection as training progress.
+
+## 017 · Settle each source view before judging its detail
+
+Accepted 9 September 2026. Ten controlled runs show that a 120-update camera hold restores the observed warehouse supports and Montignac surfaces/markings in three independent runs per scene. A 30-second startup wait with the original six-update hold retains incomplete detail. Use the longer per-view hold as a candidate for subsequent offline fixtures and inspect every new view.
+
+Keep the initial single-variable plan separate from the follow-up repeats chosen after seeing its results. Preserve short-hold failures and publish unchanged sample-1 comparisons from the first long-hold runs. Simulation updates are not GPU fences, the precise internal cause remains unverified, and pixel differences between independent sources are not model-fidelity scores. This capture improvement does not close the supported renderer bridge or aligned engine/reference requirements.

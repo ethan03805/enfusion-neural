@@ -45,7 +45,7 @@ Current [Arma source captures](arma-scenes.md) cover Saint-Philippe vegetation a
 The immediate priorities are:
 
 1. Establish a supported input/output interface. Require a documented extension and a reproducible identity/inversion control at the intended rendering stage, then verify the lighting model's required surface inputs. The screenshot/widget probes have failed; more training cannot resolve this interface.
-2. Diagnose the source visibility anomalies with bounded, single-variable repeat captures. Preserve both passing and failing views. Accept a fixture only after its geometry and object visibility are understood.
+2. Use the [tested 120-update hold](arma-scenes.md#capture-settling) as the starting point for the next source fixtures. Ten controlled runs show that a longer per-view hold restores the observed warehouse supports and town surfaces; a longer startup wait alone does not. The exact engine mechanism and behavior on new views remain unverified. Preserve the original failures and inspect each new path.
 3. Add short motion paths and an aligned engine/reference lighting pair. Verify exposure, camera, material and light conventions; keep town, interior, foliage and entity scenes separate in evaluation.
 4. Implement the accepted lighting graph on the native backend, verify it against the CPU, then measure complete-frame cost through the supported adapter. Use those results to decide whether larger training is warranted.
 

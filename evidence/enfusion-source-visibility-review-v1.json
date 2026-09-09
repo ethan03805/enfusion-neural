@@ -1,0 +1,262 @@
+{
+  "warehouse-repeat": {
+    "run_id": "20260909T090624-63d5b6b1f4",
+    "summary": "Short per-view hold retains incomplete scene detail despite a fresh run or longer startup wait.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "255d46599bfb0a5b1844af24c88d203da96ab3e47a84ba9c1df7b7a268be3d0b",
+        "observation": "Timber stacks and corrugated wall inspected. The focal shelving anomaly is in sample 1."
+      },
+      {
+        "index": 1,
+        "sha256": "85cde7c9e3626c90864a46202f368649d23c9e8cbee16109f0ddcf85293e5e8d",
+        "observation": "Shelf supports are absent around the stored objects at the right. Objects appear unsupported."
+      },
+      {
+        "index": 2,
+        "sha256": "03bdc59b872bdc2f5f2a2bca36e45e55c9fda510abdff3c4afbf982239baa90a",
+        "observation": "Racks and crates show incomplete material/structural detail compared with the 120-update captures."
+      },
+      {
+        "index": 3,
+        "sha256": "e73d74b7cb550fb5707a44f9693d2c03ecd28010b85c035717be18db0eb2837d",
+        "observation": "Wall, post, timber and crate inspected. The focal shelving anomaly is in sample 1."
+      }
+    ]
+  },
+  "warehouse-initial-settle": {
+    "run_id": "20260909T090740-6d9438c21c",
+    "summary": "Short per-view hold retains incomplete scene detail despite a fresh run or longer startup wait.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "9006a05237a53045e4df59a590e8e785300e2bf6095aaaf0f406ef65e9ce23a2",
+        "observation": "Timber stacks and corrugated wall inspected. The focal shelving anomaly is in sample 1."
+      },
+      {
+        "index": 1,
+        "sha256": "4242a55cac4b1580ba709df2a30d1ac3897f0d5d6e082dfd46caff1b2e22ec5a",
+        "observation": "Shelf supports are absent around the stored objects at the right. Objects appear unsupported."
+      },
+      {
+        "index": 2,
+        "sha256": "95dc39a7cf145ddce29fe441b0cc80782aa4999ae3a96a12cac1b807ecec307b",
+        "observation": "Racks and crates show incomplete material/structural detail compared with the 120-update captures."
+      },
+      {
+        "index": 3,
+        "sha256": "0829b2175c201e453c63596943d672e8fc0beb8f86d0c6045981d2da0f80de91",
+        "observation": "Wall, post, timber and crate inspected. The focal shelving anomaly is in sample 1."
+      }
+    ]
+  },
+  "warehouse-camera-hold": {
+    "run_id": "20260909T091010-5512732763",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "8f1df7ad47b1661b7a1485f1660bfd29f1a5d5c0f11f28c35c6ee276b9df12da",
+        "observation": "Timber stacks and corrugated wall remain visible."
+      },
+      {
+        "index": 1,
+        "sha256": "25f2dce52e673ad298b0f801f00f05de4da1c38470961f9ecc2cf5a3971d9628",
+        "observation": "Metal shelf uprights and cross-bracing are visible around the stored crates at the right."
+      },
+      {
+        "index": 2,
+        "sha256": "b91dd61c02d28d367fe23457e821dd66cda36b69319b73f069b0f03feffb6238",
+        "observation": "Shelf structure, crate faces and markings are visible, with fuller detail than the short-hold controls."
+      },
+      {
+        "index": 3,
+        "sha256": "1d0e921431532f44e6c6085d89b61cf76f27ed5bdc8171b007da7db4f4719bb3",
+        "observation": "Wall, post, timber and crate remain visible."
+      }
+    ]
+  },
+  "warehouse-hold-repeat2": {
+    "run_id": "20260909T091732-f8e6592df0",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "130ea0107690dbb2fcc95660ced1051fae2c9f0d1fae4a5c95f042f253c385df",
+        "observation": "Timber stacks and corrugated wall remain visible."
+      },
+      {
+        "index": 1,
+        "sha256": "59869fc733b9a4d1b361b859bbf3e8de9298345ccefb5bf96bdcc0e350fce848",
+        "observation": "Metal shelf uprights and cross-bracing are visible around the stored crates at the right."
+      },
+      {
+        "index": 2,
+        "sha256": "434c7c3599322ba838b2c3199425807369ad551676f637e7a3a7d6f75a54834b",
+        "observation": "Shelf structure, crate faces and markings are visible, with fuller detail than the short-hold controls."
+      },
+      {
+        "index": 3,
+        "sha256": "805a2c7862d2d01b97ca252145e3b6273ea88f82c6c1850a9c06dd7f6d79a5b3",
+        "observation": "Wall, post, timber and crate remain visible."
+      }
+    ]
+  },
+  "warehouse-hold-repeat3": {
+    "run_id": "20260909T092019-aad9b01ed6",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "931f01abb4315ebcb4685d932ff7e2180f66550196784ede497d422c9f3f9565",
+        "observation": "Timber stacks and corrugated wall remain visible."
+      },
+      {
+        "index": 1,
+        "sha256": "1925ae7296ae932c936a613163c6e621d8260ea0e814886fc915c5b2ef3ccabd",
+        "observation": "Metal shelf uprights and cross-bracing are visible around the stored crates at the right."
+      },
+      {
+        "index": 2,
+        "sha256": "04a538dec09091322c7abe21f587b17690eecbf521595c0ec689784f07f47c6f",
+        "observation": "Shelf structure, crate faces and markings are visible, with fuller detail than the short-hold controls."
+      },
+      {
+        "index": 3,
+        "sha256": "78ab608ab280fc25e47f26ecde0072471eeb45335f5ce87f0e5ecd2243c26682",
+        "observation": "Wall, post, timber and crate remain visible."
+      }
+    ]
+  },
+  "montignac-repeat": {
+    "run_id": "20260909T091129-7d5d2c8abb",
+    "summary": "Short per-view hold retains incomplete scene detail despite a fresh run or longer startup wait.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "79284cf01d05a0e8d7fd9c0fc0e18b65141cd277063d9f0c94da392f638c1104",
+        "observation": "Road, vegetation and houses inspected. The focal building anomaly is in sample 1."
+      },
+      {
+        "index": 1,
+        "sha256": "d8c5b787c42c67c80e21d7d8166fc38d7264318afcc7934afa05368508213a4d",
+        "observation": "The far-right building surface is absent. Floating-looking contents are less apparent than in the original."
+      },
+      {
+        "index": 2,
+        "sha256": "be730bbaa5858c55d1525614cc20e643ee0178aa2f251b267944379825430eed",
+        "observation": "Church has red roof detail, but the crossing-sign artwork is absent."
+      },
+      {
+        "index": 3,
+        "sha256": "531f411219523662b2456e1780852ff478d876c7f677de467bc5ee12bf360197",
+        "observation": "Street and outdoor furniture are visible; the pub chalkboard lacks writing."
+      }
+    ]
+  },
+  "montignac-initial-settle": {
+    "run_id": "20260909T091258-cf9e455585",
+    "summary": "Short per-view hold retains incomplete scene detail despite a fresh run or longer startup wait.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "7cc29ddc0c4a7f9164959e7e5941e612f58b18540214f423a1e5f227e004dcb4",
+        "observation": "Road, vegetation and houses inspected. The focal building anomaly is in sample 1."
+      },
+      {
+        "index": 1,
+        "sha256": "8187e6d7eb1d98b6b37d086cd1828644d636a198443c91ffda50397ac04cc1a2",
+        "observation": "Far-right building surface is absent and unsupported-looking contents are visible again."
+      },
+      {
+        "index": 2,
+        "sha256": "8cfae427aa3e9bd4ca2d69d2a36fe74fa043f078461f294e8fa2381e6737d968",
+        "observation": "Church is pale/low detail and crossing-sign artwork is absent."
+      },
+      {
+        "index": 3,
+        "sha256": "3af1f507c0fe5384c03a73499ee4b34ada29cc07520552395f470faebbae5405",
+        "observation": "Street and outdoor furniture are visible; the pub chalkboard lacks writing."
+      }
+    ]
+  },
+  "montignac-camera-hold": {
+    "run_id": "20260909T091456-0b09683359",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "4a78179a43daae2871de25ad1b2c2ea66105066d37e73014134d7ef5bbb14723",
+        "observation": "Road, foliage, guardrail and house detail are visible."
+      },
+      {
+        "index": 1,
+        "sha256": "c7866b8f5adeac85419e3d9071d359a8e928d422897fc7716ab007fc4a6d6589",
+        "observation": "Far-right building shell and roadside barrier are visible; the former unsupported-looking contents are occluded."
+      },
+      {
+        "index": 2,
+        "sha256": "45ab448ba589c71add7830eac82e5103e6c8d9bca8e0f4895410380eda140971",
+        "observation": "Blue crossing-sign artwork, church roof detail and fuller building facades are visible."
+      },
+      {
+        "index": 3,
+        "sha256": "d480cb999508f407bddbdbdec69207773b90c651794cafcef6183c8f54a78c1c",
+        "observation": "Pub chalkboard writing and outdoor furniture are visible."
+      }
+    ]
+  },
+  "montignac-hold-repeat2": {
+    "run_id": "20260909T092551-c75a4158fb",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "a1c78328004f5e3a40af34faa0cf2b78649b971356aa7ac66ecc207a62613dbb",
+        "observation": "Road, foliage, guardrail and house detail are visible."
+      },
+      {
+        "index": 1,
+        "sha256": "9d84da547ad53d4f1a9568b18839ee3cf254dfedfe830dd38791c2b1e5a8249c",
+        "observation": "Far-right building shell and roadside barrier are visible; the former unsupported-looking contents are occluded."
+      },
+      {
+        "index": 2,
+        "sha256": "9528fd0925528e48e9f933e7e82e8c3855806706b1788cbb2abbc2ccd9caf307",
+        "observation": "Blue crossing-sign artwork, church roof detail and fuller building facades are visible."
+      },
+      {
+        "index": 3,
+        "sha256": "650e06b90598121b6ca07344e69c78bad6aaa834ea3a689be06ba90a99ea0563",
+        "observation": "Pub chalkboard writing and outdoor furniture are visible."
+      }
+    ]
+  },
+  "montignac-hold-repeat3": {
+    "run_id": "20260909T092716-0bee9791b8",
+    "summary": "Longer hold retains the observed structure and markings in all four reviewed views.",
+    "frames": [
+      {
+        "index": 0,
+        "sha256": "90c502d15d6270ffcc6239d622ceeaf829cf76c9b8747166025fd0d5f87e1b4d",
+        "observation": "Road, foliage, guardrail and house detail are visible."
+      },
+      {
+        "index": 1,
+        "sha256": "f4c8596a1f79d2d350bcdb28f653fd4efda8b100f29f69742c600e6780d81b34",
+        "observation": "Far-right building shell and roadside barrier are visible; the former unsupported-looking contents are occluded."
+      },
+      {
+        "index": 2,
+        "sha256": "473ca133897ef1336d08de84c8295a4c347ba84e1600853ad3d08e6f0d2c1a65",
+        "observation": "Blue crossing-sign artwork, church roof detail and fuller building facades are visible."
+      },
+      {
+        "index": 3,
+        "sha256": "714fc9fd41846a13cc09fd9aa51dbddfdb0695584033d1b494d9abc2cf17eac2",
+        "observation": "Pub chalkboard writing and outdoor furniture are visible."
+      }
+    ]
+  }
+}
