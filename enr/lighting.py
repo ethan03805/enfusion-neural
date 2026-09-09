@@ -12,6 +12,7 @@ FEATURES = ["log_r", "log_g", "log_b", "position_x/4", "position_y/4", "position
             "roughness", "metallic", "view_x", "view_y", "view_z",
             "light_offset_x/4", "light_offset_y/4", "light_offset_z/4"]
 LIMIT = 0.25
+RELATIVE_FEATURES = FEATURES[:3] + FEATURES[6:]
 
 
 def features(rgb, position, normal, material, camera, light):
@@ -92,10 +93,13 @@ def predict(x, model, chunk=65536):
     return output
 
 
-def save(path, model, metadata):
+def save(path, model, metadata, feature_names=None):
     columns = len(model["mean"])
+    names = FEATURES[:columns] if feature_names is None else list(feature_names)
+    if names not in (FEATURES,FEATURES[:3],RELATIVE_FEATURES) or len(names)!=columns:
+        raise ValueError("Unsupported feature order")
     record = {"schema_version":1,"architecture":"lighting-mlp-32x32",
-              "features":FEATURES[:columns],"residual_limit_log1p":LIMIT,
+              "features":names,"residual_limit_log1p":LIMIT,
               "color_space":"scene-linear Rec.709; log1p residual",
               "mean":model["mean"].tolist(),"scale":model["scale"].tolist(),
               "weights":{k:v.tolist() for k,v in model["weights"].items()},"training":metadata}
@@ -111,7 +115,7 @@ def load(path):
             or record.get("color_space") != "scene-linear Rec.709; log1p residual"):
         raise ValueError("Unsupported lighting model contract")
     names = record.get("features")
-    if names not in (FEATURES,FEATURES[:3]): raise ValueError("Unsupported feature order")
+    if names not in (FEATURES,FEATURES[:3],RELATIVE_FEATURES): raise ValueError("Unsupported feature order")
     columns = len(names)
     weights = {k:np.asarray(v,np.float32) for k,v in record["weights"].items()}
     shapes = {"w1":(columns,32),"b1":(32,),"w2":(32,32),"b2":(32,),"w3":(32,3),"b3":(3,)}
