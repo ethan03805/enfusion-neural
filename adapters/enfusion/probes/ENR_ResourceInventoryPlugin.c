@@ -6,7 +6,7 @@ class ENR_ResourceInventoryPlugin : WorkbenchPlugin
  {
   Print("ENR_INVENTORY {\"event\":\"started\"}");
   ENR_ResourceProbe probe = new ENR_ResourceProbe();
-  probe.Run();
+  probe.RunSearches();
   Print("ENR_INVENTORY {\"event\":\"completed\"}");
   Workbench.Exit(0);
  }

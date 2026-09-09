@@ -113,3 +113,35 @@ class ImageBridgeControls(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'was not observed'):image_bridge.load_probe_config(config,inventory)
             c['world']=None;bridge.write_json(config,c)
             with self.assertRaises(ValueError):sequence.load_config(config)
+
+    def test_resource_only_inventory_requires_real_completion_and_unchanged_manifests(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);config=root/'config.json';c=sequence.load_config(ROOT/'scenes/arland-motion-v1.json')
+            c['world']='worlds/UnitFixture/UnitFixture.ent';bridge.write_json(config,c)
+            inv='20260909T030000-1234567890';val='20260909T020000-1234567890'
+            folder=root/'runs'/inv;vfolder=root/'runs'/val;vfolder.mkdir(parents=True)
+            snapshot=folder/'addon/Scripts/WorkbenchGame';snapshot.mkdir(parents=True)
+            for f in ('ENR_ResourceProbe.c','ENR_ResourceInventoryPlugin.c'):(snapshot/f).write_text('unit fixture; not native evidence\n')
+            native={'run_id':inv,'command':'resource-inventory','status':'succeeded','process_exit_code':0,'terminated_owned_process':False}
+            bridge.write_json(folder/'run.json',native)
+            bridge.write_json(vfolder/'run.json',{'run_id':val,'command':'validate','status':'succeeded'})
+            console=folder/'console.log'
+            trace='ENR_INVENTORY {"event":"started"}\nENR_RESOURCE query=Fixture resource={1234567890ABCDEF}worlds/UnitFixture/UnitFixture.ent path=fixture\nENR_RESOURCE_DONE query=Fixture count=1 success=1\nENR_INVENTORY {"event":"completed"}\n'
+            console.write_text(trace)
+            record={'schema_version':1,'status':'succeeded','operation':'resource-inventory','inventory_run':inv,'validation_run':val,'queries':['Fixture'],
+                    'inventory_manifest_sha256':bridge.digest(folder/'run.json'),'validation_manifest_sha256':bridge.digest(vfolder/'run.json'),
+                    'probe_sha256':bridge.digest(snapshot/'ENR_ResourceProbe.c'),'plugin_sha256':bridge.digest(snapshot/'ENR_ResourceInventoryPlugin.c'),
+                    'console_sha256':bridge.digest(console)}
+            inventory=root/'resources.json';bridge.write_json(inventory,record)
+            checked,binding=image_bridge.load_probe_config(config,inventory)
+            self.assertEqual(checked['world'],c['world']);self.assertEqual(binding['inventory_run'],inv)
+            self.assertNotIn('capture_run',binding)
+            native['process_exit_code']=1;bridge.write_json(folder/'run.json',native)
+            with self.assertRaisesRegex(ValueError,'manifest changed'):image_bridge.load_probe_config(config,inventory)
+            record['inventory_manifest_sha256']=bridge.digest(folder/'run.json');bridge.write_json(inventory,record)
+            with self.assertRaisesRegex(ValueError,'exit naturally'):image_bridge.load_probe_config(config,inventory)
+            native['process_exit_code']=0;bridge.write_json(folder/'run.json',native)
+            record['inventory_manifest_sha256']=bridge.digest(folder/'run.json')
+            console.write_text(trace.replace('ENR_INVENTORY {"event":"completed"}\n',''))
+            record['console_sha256']=bridge.digest(console);bridge.write_json(inventory,record)
+            with self.assertRaisesRegex(ValueError,'callback did not complete'):image_bridge.load_probe_config(config,inventory)

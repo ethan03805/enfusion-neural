@@ -25,19 +25,37 @@ def load_probe_config(path,inventory_path=None):
     if inventory_path is None:raise ValueError('Additional world needs a completed resource inventory')
     inventory_path=Path(inventory_path).resolve();inventory=json.loads(inventory_path.read_text(encoding='utf-8'))
     if inventory.get('schema_version')!=1 or inventory['status']!='succeeded':raise ValueError('Incomplete world inventory')
-    manifests={}
-    for key,command in [('capture_run','capture'),('validation_run','validate')]:
+    operation=inventory.get('operation')
+    if operation not in (None,'resource-inventory'):raise ValueError('Unsupported inventory operation')
+    inventory_key='inventory_run' if operation=='resource-inventory' else 'capture_run'
+    inventory_command='resource-inventory' if operation=='resource-inventory' else 'capture'
+    manifests={};runs={}
+    for key,command in [(inventory_key,inventory_command),('validation_run','validate')]:
         name=inventory[key]
         if not re.fullmatch(r'[0-9]{8}T[0-9]{6}-[a-f0-9]{10}',name):raise ValueError('Invalid inventory run ID')
         p=(inventory_path.parent/'runs'/name/'run.json').resolve()
         if not p.is_relative_to(inventory_path.parent):raise ValueError('Escaping inventory run')
         r=json.loads(p.read_text())
         if r['run_id']!=name or r['command']!=command or r['status']!='succeeded':raise ValueError('Inventory run did not complete')
-        manifests[key]=p
-    console=manifests['capture_run'].parent/'console.log'
+        manifests[key]=p;runs[key]=r
+    console=manifests[inventory_key].parent/'console.log'
     if digest(console)!=inventory['console_sha256']:raise ValueError('World inventory console changed')
-    if digest(manifests['capture_run'].parent/'addon/Scripts/WorkbenchGame/ENR_ResourceProbe.c')!=inventory['probe_sha256']:
+    if digest(manifests[inventory_key].parent/'addon/Scripts/WorkbenchGame/ENR_ResourceProbe.c')!=inventory['probe_sha256']:
         raise ValueError('World inventory probe snapshot changed')
+    if operation=='resource-inventory':
+        for key,hash_key in [(inventory_key,'inventory_manifest_sha256'),('validation_run','validation_manifest_sha256')]:
+            if digest(manifests[key])!=inventory[hash_key]:raise ValueError('World inventory manifest changed')
+        native=runs[inventory_key]
+        if native.get('process_exit_code')!=0 or native.get('terminated_owned_process') is not False:
+            raise ValueError('World inventory did not exit naturally')
+        plugin=manifests[inventory_key].parent/'addon/Scripts/WorkbenchGame/ENR_ResourceInventoryPlugin.c'
+        if digest(plugin)!=inventory['plugin_sha256']:raise ValueError('World inventory plugin snapshot changed')
+        trace=console.read_text(errors='replace')
+        if any(trace.count('ENR_INVENTORY '+json.dumps({'event':event},separators=(',',':')))!=1 for event in ('started','completed')):
+            raise ValueError('World inventory callback did not complete')
+        for query in inventory['queries']:
+            matches=re.findall(r'ENR_RESOURCE_DONE query='+re.escape(query)+r' count=(\d+) success=(\d+)',trace)
+            if len(matches)!=1 or matches[0][1]!='1':raise ValueError('World inventory search did not complete')
     observed=[]
     for line in console.read_text(errors='replace').splitlines():
         if 'ENR_RESOURCE query=' not in line:continue
@@ -45,8 +63,9 @@ def load_probe_config(path,inventory_path=None):
         if match:observed.append(match[1])
     if world not in observed:raise ValueError('Requested world was not observed by the native inventory')
     binding={'world':world,'inventory_sha256':digest(inventory_path),'console_sha256':digest(console),
-             'capture_run':inventory['capture_run'],'validation_run':inventory['validation_run'],
-             'capture_manifest_sha256':digest(manifests['capture_run']),'validation_manifest_sha256':digest(manifests['validation_run']),
+             inventory_key:inventory[inventory_key],'validation_run':inventory['validation_run'],
+             ('inventory_manifest_sha256' if operation else 'capture_manifest_sha256'):digest(manifests[inventory_key]),
+             'validation_manifest_sha256':digest(manifests['validation_run']),
              'scope':'Observed resource name; actual loading, framing, environment and coverage still require validation.'}
     return sequence.load_config(path,validated_world=world),binding
 

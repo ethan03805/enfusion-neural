@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "scope": "Native Workbench resource inventory through ScriptEditor; no world load, simulation or screenshot requested",
+  "result": "Search-only callback completed after normal ScriptEditor initialization. Eight .ent resources were observed, including the base Everon world. Earlier full callback timed out and remains retained.",
+  "runs": [
+    {
+      "status": "failed",
+      "inventory_run": "20260909T064412-8462a69e12",
+      "validation_run": "20260909T064358-9df80af4c7",
+      "inventory_manifest_sha256": "5569f3d66b067691eb50b69b9223ba2ae7885e804c331d3139df7c9edf0c72dc",
+      "validation_manifest_sha256": "a3eba6184873064265a6bb681d436e163e4e9dc6b5242ad2c4a739f6f91f15f4",
+      "console_sha256": "acd0e7d9204505ad8a61c6ff494d1533b18441d50374bcab9018fe110094c2ad",
+      "probe_sha256": "a43909314cf865345f7ed35514927888feb9b0e578536cbf73ed6768f1a1b97a",
+      "plugin_sha256": "9e33d6fb44c2e7e96f65e74148f00528853408f42bda8a2a65bc7407118f6e58",
+      "startup": "module",
+      "extensions": [
+        "ent"
+      ],
+      "queries": [
+        "Eden",
+        "Everon"
+      ],
+      "runner_sha256": "da1d062500e0369bb3bc53dbaec48a50e9cd7ba2cfdad636d2922d6d93feee57",
+      "process_exit_code": 1,
+      "terminated_owned_process": true,
+      "wall_seconds": 46.34399999999732,
+      "callback_started": 1,
+      "callback_completed": 0,
+      "resources": [],
+      "error": "Callback began but no inventory records or completion arrived within the 45-second bound."
+    },
+    {
+      "status": "succeeded",
+      "inventory_run": "20260909T064601-ce4ce45c40",
+      "validation_run": "20260909T064547-379438a423",
+      "inventory_manifest_sha256": "aba97c8f5616cfa985f68cf918477501915d4c5ef9b24d40c0b4188334295534",
+      "validation_manifest_sha256": "b39e244c899371d12e7307a741797bb51a9ccbed4fded1567fe81c965155b454",
+      "console_sha256": "2ecf24e8a997acf95dafeb9e8fd7e6a224365030bb362d086d87975bba7f37ac",
+      "probe_sha256": "2e414488d68251fe5bebc52ae553d0ed78145678cef8abfaa950b3eb2f9a2c26",
+      "plugin_sha256": "4555edbe1aef4564c3faee9622e8f521657c5c07e28a1701e1ff32aab97a8e09",
+      "startup": "module",
+      "extensions": [
+        "ent"
+      ],
+      "queries": [
+        "Eden",
+        "Everon"
+      ],
+      "runner_sha256": "04a71abc6c19005c4e32efede0e0344adde36f885e080af399c76332d4d037b8",
+      "process_exit_code": 0,
+      "terminated_owned_process": false,
+      "wall_seconds": 9.26600000000326,
+      "callback_started": 1,
+      "callback_completed": 1,
+      "resources": [
+        {
+          "query": "Eden",
+          "resource": "{DD7AD4B9C86CFDCE}worlds/MP/Coop_CombatOps_Eden.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{55A3176BBDD01AAE}worlds/Eden/EmptyEden.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{9DF143A76F5C6461}worlds/MP/CTI_Campaign_HQC_Eden.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{853E92315D1D9EFE}worlds/Eden/Eden.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{9DF143A76F5C6460}worlds/MP/CTI_Campaign_Eden.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{D323A91931597EBD}worlds/Editor/Slots/AssetImages/Eden_AssetImages.ent"
+        },
+        {
+          "query": "Eden",
+          "resource": "{BEF094A5F7F3211B}worlds/GameMaster/GM_Eden.ent"
+        },
+        {
+          "query": "Everon",
+          "resource": "{312CDBA105554B51}worlds/MP/CTI_Campaign_WesternEveron.ent"
+        }
+      ]
+    }
+  ],
+  "verified_world": "{853E92315D1D9EFE}worlds/Eden/Eden.ent",
+  "world_loaded": false,
+  "city_scene_coverage_verified": false,
+  "live_neural_integration_proven": false,
+  "sources": [
+    "https://community.bistudio.com/wiki/Arma_Reforger:Workbench_Plugin",
+    "https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters"
+  ]
+}

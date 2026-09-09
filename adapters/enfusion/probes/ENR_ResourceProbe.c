@@ -75,6 +75,11 @@ class ENR_ResourceProbe
    bool found = FileIO.FindFiles(CoreFile, folder, ".emat");
    PrintFormat("ENR_CORE_DONE query=%1 count=%2 success=%3", Query, Count, found);
   }
+  RunSearches();
+ }
+
+ void RunSearches()
+ {
   array<string> queries = {"ColorGrade", "Post", "PP_", "HDR"};
   array<string> extensions = {"emat", "edds", "et", "ent", "conf"};
   foreach (string query : queries)
