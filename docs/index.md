@@ -15,6 +15,7 @@ This repository contains Workbench capture tools, reference scene definitions, a
 | [Lighting study](lighting-study.md) | Trained lighting correction, baselines and held-out comparisons |
 | [Scene transfer and motion](lighting-motion.md) | Frozen-model evaluation on a new layout and moving camera/light paths |
 | [Scene diversity](lighting-diversity.md) | Passed unseen-scene checks, all three input variants and complete test/regression clips |
+| [Lighting GPU](lighting-gpu.md) | Native graph, all 112 CPU comparisons, timings and retained failures |
 | [Arma scenes](arma-scenes.md) | Inspected source environments and vehicle/character placement |
 | [Technical feasibility](feasibility.md) | Workbench interfaces, asset-specific training and photographic references |
 | [Comparisons](comparisons.md) | Inspect source/output images and synchronized motion |

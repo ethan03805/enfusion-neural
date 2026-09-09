@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "lighting-gpu-v1",
+  "scope": "Native FP32 implementation of the three locked lighting graphs; numerical equivalence and standalone timings, not Enfusion integration",
+  "model_lock": "models/lighting-diversity-v1/model-lock.json",
+  "variants": ["scene", "relative", "rgb"],
+  "input_layout": "Interleaved little-endian FP32: model features in serialized order, original scene-linear source RGB, alpha, valid flag (0 or 1)",
+  "output_layout": "Interleaved little-endian FP32: predicted log1p residual RGB, corrected scene-linear RGB, original alpha",
+  "output_operation": "max(expm1(source log1p RGB + residual), 0); invalid pixels preserve original source RGB exactly; alpha always preserved",
+  "precision": "FP32 weights, normalization, dense layers, activation and output; no quantization or retraining",
+  "limits": {
+    "maximum_absolute_residual_error": 0.00001,
+    "linear_rgb_absolute_tolerance": 0.00002,
+    "linear_rgb_relative_tolerance": 0.00002,
+    "alpha_bits_exact": true,
+    "invalid_source_rgb_bits_exact": true,
+    "all_outputs_finite": true
+  },
+  "smoke_dimensions": [[1, 1], [1, 17], [31, 1], [127, 65], [480, 270], [2560, 1440], [3840, 2160]],
+  "fixture_seed": 314159,
+  "fixture_scope": "Deterministic original feature/mask/color controls at each size; these are numerical workloads, not rendered quality comparisons",
+  "smoke_dispatches": {"warmup": 0, "samples": 1},
+  "benchmark": {"variant": "scene", "dimensions": [2560, 1440], "warmup": 10, "samples": 100},
+  "rendered_cases": "All 48 existing cross-courtyard test frames and both 32-frame regression paths, without rendering, fitting or candidate selection; compare native output against the retained CPU evaluation",
+  "unchanged_contracts": ["frozen model selection", "original train/validation/test split", "all spatial/contrast/boundary/temporal thresholds"],
+  "unverified": ["Enfusion scene inputs", "supported native dispatch/composition in engine", "actual Arma model/reference fidelity", "complete-frame performance", "runtime packaging"]
+}
