@@ -51,6 +51,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',required=True);p.add_argument('--lab-source',required=True)
     p.add_argument('--mode',choices=['copy','identity','invert','v0'],required=True)
     p.add_argument('--config',default=str(ROOT/'scenes/arland-motion-v1.json'))
+    p.add_argument('--entities',action='store_true',help='Spawn one observed M998 and US rifleman prefab inside this private simulation')
     a=p.parse_args();out=Path(a.out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Use a new empty probe directory')
     initialize,run_workbench,doctor=lab_modules(a.lab_source)
@@ -59,10 +60,15 @@ def main():
     sequence.prepare(out,c);write_json(out/'doctor.json',doctor());write_json(out/'capture-config.json',c)
     script=ROOT/'adapters/enfusion/probes/ENR_ImageBridge.c'
     (out/'addon/Scripts/Game/ENR_ImageBridge.c').write_bytes(script.read_bytes())
-    (out/'addon/Scripts/Game/ENR_BridgeConfig.c').write_text('#ifdef WORKBENCH\nclass ENR_BridgeConfig { static string Mode = '+json.dumps(a.mode)+'; }\n#endif\n')
+    entities=ROOT/'adapters/enfusion/probes/ENR_BridgeEntities.c'
+    (out/'addon/Scripts/Game/ENR_BridgeEntities.c').write_bytes(entities.read_bytes())
+    (out/'addon/Scripts/Game/ENR_BridgeConfig.c').write_text('#ifdef WORKBENCH\nclass ENR_BridgeConfig { static string Mode = '+json.dumps(a.mode)+'; static bool Entities = '+str(a.entities).lower()+'; }\n#endif\n')
     capture=out/'addon/Scripts/Game/ELab_GameCapture.c';text=capture.read_text()
     needle='if (!ENR_Sequence.Tick(world, width, height)) return;'
     if text.count(needle)!=1:raise ValueError('Capture entry point changed')
+    init='ENR_Sequence.Camera(world);'
+    if text.count(init)!=1:raise ValueError('Camera entry point changed')
+    text=text.replace(init,init+'\n  ENR_BridgeEntities.Init(world);')
     capture.write_text(text.replace(needle,'if (!ENR_ImageBridge.Tick(world, width, height)) return;'))
     stop=threading.Event();worker_records=[];worker_errors=[]
     def worker():
@@ -94,7 +100,8 @@ def main():
     directory=Path(run['directory']);lines=(directory/'console.log').read_text(errors='replace').splitlines()
     report={'schema_version':1,'mode':a.mode,'capture_status':run['status'],'validation_run':validation['run_id'],
             'capture_run':run['run_id'],'probe_sha256':digest(script),'console_sha256':digest(directory/'console.log'),
-            'records':[s for s in lines if 'ENR_BRIDGE ' in s],'worker_records':worker_records,'worker_errors':worker_errors,
+            'entities_requested':a.entities,'entities_script_sha256':digest(entities),
+            'records':[s for s in lines if 'ENR_BRIDGE ' in s or 'ENR_PROP ' in s],'worker_records':worker_records,'worker_errors':worker_errors,
             'scope':'Screenshot capture and UI presentation only; no scene-buffer, HUD exclusion, GPU fence or live neural lighting integration claim.'}
     write_json(out/'bridge.json',report)
     print(json.dumps(report,indent=2))

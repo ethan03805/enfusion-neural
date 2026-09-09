@@ -49,6 +49,8 @@ Three read-only Workbench resource probes compiled and completed before the test
 
 The active goal also requires varied actual Arma tests, including cities, interiors, vegetation, vehicles, characters and objects. Resource discovery is preparation, not coverage. These captures and the supported integration proof remain required; synthetic results cannot close them.
 
+Prepared local scout configs are under `experiments/local/arma-diversity-scouts-v1/` for Beauregard, Arleville and a harbour. Their camera framing is unverified, and Arland towns do not replace the required larger city test. The image probe accepts `--config` and optional `--entities` for a vehicle/rifleman placement test using resource names found by the inventory. Placement is not yet compiled or visually validated. The resource probe accepts repeated `--query` arguments, so verified Everon world-resource discovery can begin with `--query Eden --query Everon` after the test render finishes.
+
 ## Original acceptance
 
 Design a scene-diversity and input-ablation experiment. Add multiple original training layouts and reserve a new untouched scene for evaluation. Compare the current feature contract with an ablation that excludes absolute world position under the same training budget. Keep current weights and both published motion paths as regression controls; these paths have now been inspected and must not serve as the sole unseen test for the next model.

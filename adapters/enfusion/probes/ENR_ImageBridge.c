@@ -73,6 +73,7 @@ class ENR_ImageBridge
   if (Done) return ELab_CaptureState.Elapsed - CompletedAt > 2;
   if (Stage == 0)
   {
+   ENR_BridgeEntities.Record();
    WorkspaceWidget root = GetGame().GetWorkspace();
    Image = ImageWidget.Cast(root.CreateWidgetInWorkspace(WidgetType.ImageWidgetTypeID, 0, 0, width, height, WidgetFlags.VISIBLE, Color.FromInt(0xffffffff), 1000));
    if (!Image) { Fail("image widget creation failed"); return false; }

@@ -2,6 +2,8 @@
 
 Reviewed 8 September 2026 against the installed public SDK and existing capture evidence. Recorded builds: game 24903726, Tools 24870687. This review used read-only inspection and primary sources; it launched no engine or GPU experiment and collected no game assets or photographs.
 
+Subsequent work is tracked in [scene diversity](lighting-diversity.md): bounded resource/location inventories have now run in isolated Workbench addons. They do not establish an all-asset inventory or a live neural bridge. The dated review below describes what was established when it was written.
+
 **The proposal is technically credible as a research architecture, but a live Reforger implementation is not established today.** We can train asset-conditioned models offline and use documented material replacement workflows. We have not verified the renderer access needed to reduce selected shading work, pass the necessary surface information to a network, and return its output at the correct scene stage. Training on every asset would not resolve that interface gap.
 
 ## What the installed tools establish
