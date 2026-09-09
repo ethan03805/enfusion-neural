@@ -79,7 +79,7 @@ The untouched-test gate requires at least 5% mean error improvement over source 
 
 Three isolated Workbench resource probes compiled and completed. They found town locations and vehicle/character resource names, plus 40 readable materials under `Common/PostProcess`. The resource database search omitted some materials that the documented file interface could read. A built-in HDR material declaration does not establish a custom neural shader interface.
 
-A screenshot-to-widget and external CPU file-return probe is prepared; its Workbench execution is pending. Even successful UI presentation would leave scene-linear inputs, surface buffers, synchronization, HUD/scopes and a supported scene-composition stage unresolved. Varied actual Arma environments—including cities, interiors, vegetation, vehicles, characters and objects—remain required for the integration work.
+A screenshot-to-widget and external CPU file-return probe has passed silent Workbench compilation; runtime execution is pending. Its verifier compares the processed file, uploaded texture and displayed pixels separately. Even successful UI presentation would leave scene-linear inputs, surface buffers, synchronization, HUD/scopes and a supported scene-composition stage unresolved. Varied actual Arma environments—including cities, interiors, vegetation, vehicles, characters and objects—remain required for the integration work. See the [probe contract](integration.md#screenshot-return-probe).
 
 ## Reproduce
 

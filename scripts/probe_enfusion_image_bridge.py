@@ -16,7 +16,7 @@ from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from enr import sequence,model
+from enr import sequence,model,image_bridge
 from enr.references import lab_modules,write_json,digest
 
 
@@ -51,12 +51,15 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',required=True);p.add_argument('--lab-source',required=True)
     p.add_argument('--mode',choices=['copy','identity','invert','v0'],required=True)
     p.add_argument('--config',default=str(ROOT/'scenes/arland-motion-v1.json'))
+    p.add_argument('--world-inventory',help='Completed native resource inventory required for a world beyond the established Arland control')
     p.add_argument('--entities',action='store_true',help='Spawn one observed M998 and US rifleman prefab inside this private simulation')
+    p.add_argument('--validate-only',action='store_true',help='Silent ScriptEditor compile only; do not load a world or run a capture')
     a=p.parse_args();out=Path(a.out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Use a new empty probe directory')
     initialize,run_workbench,doctor=lab_modules(a.lab_source)
     from enfusion_lab import runner
-    initialize(out);c=sequence.load_config(a.config);c['samples']=1;c['position_end']=c['position_start'];c['yaw_end_degrees']=c['yaw_start_degrees']
+    c,world_binding=image_bridge.load_probe_config(a.config,a.world_inventory)
+    initialize(out);c['samples']=1;c['position_end']=c['position_start'];c['yaw_end_degrees']=c['yaw_start_degrees']
     sequence.prepare(out,c);write_json(out/'doctor.json',doctor());write_json(out/'capture-config.json',c)
     script=ROOT/'adapters/enfusion/probes/ENR_ImageBridge.c'
     (out/'addon/Scripts/Game/ENR_ImageBridge.c').write_bytes(script.read_bytes())
@@ -89,6 +92,11 @@ def main():
     with sequence.private_settings(runner):
         validation=run_workbench(out,'validate',timeout=180)
         if validation['status']!='succeeded':raise ValueError('Bridge addon did not compile')
+        if a.validate_only:
+            report={'schema_version':1,'status':validation['status'],'scope':'Silent ScriptEditor compile; no world load, image capture, widget execution or neural integration proof.',
+                    'validation_run':validation['run_id'],'validation_manifest_sha256':digest(Path(validation['directory'])/'run.json'),
+                    'probe_sha256':digest(script),'entities_script_sha256':digest(entities),'worker_script_sha256':digest(__file__)}
+            write_json(out/'validation-only.json',report);print(json.dumps(report,indent=2));return
         thread=threading.Thread(target=worker,daemon=True)
         if a.mode!='copy':thread.start()
         try:
@@ -100,6 +108,10 @@ def main():
     directory=Path(run['directory']);lines=(directory/'console.log').read_text(errors='replace').splitlines()
     report={'schema_version':1,'mode':a.mode,'capture_status':run['status'],'validation_run':validation['run_id'],
             'capture_run':run['run_id'],'probe_sha256':digest(script),'console_sha256':digest(directory/'console.log'),
+            'capture_manifest_sha256':digest(directory/'run.json'),
+            'validation_manifest_sha256':digest(Path(validation['directory'])/'run.json'),
+            'config_sha256':digest(out/'capture-config.json'),'worker_script_sha256':digest(__file__),
+            'world_binding':world_binding,'world_inventory_local_path':str(Path(a.world_inventory).resolve()) if a.world_inventory else None,
             'entities_requested':a.entities,'entities_script_sha256':digest(entities),
             'records':[s for s in lines if 'ENR_BRIDGE ' in s or 'ENR_PROP ' in s],'worker_records':worker_records,'worker_errors':worker_errors,
             'scope':'Screenshot capture and UI presentation only; no scene-buffer, HUD exclusion, GPU fence or live neural lighting integration claim.'}

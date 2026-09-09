@@ -13,7 +13,8 @@ from PIL import Image
 from .references import ROOT, digest, lab_modules, number, scene_config, write_json
 
 
-def load_config(path):
+def load_config(path, *, validated_world=None):
+    """Keep the Arland default; bridge callers can supply a natively observed world."""
     c = json.loads(Path(path).read_text(encoding="utf-8"))
     if c["schema_version"] != 1 or c["split"] != "diagnostic":
         raise ValueError("Sequence data is diagnostic only")
@@ -36,7 +37,7 @@ def load_config(path):
         if type(c[key]) is not int: raise ValueError(key + " must be an integer")
     if len(c["dimensions"]) != 2 or any(type(v) is not int or v < 128 or v > 7680 for v in c["dimensions"]):
         raise ValueError("Invalid dimensions")
-    if c["world"] != "worlds/Arland/Arland.ent" or c["weather_state"] != "Clear":
+    if (c["world"] != "worlds/Arland/Arland.ent" and (validated_world is None or c["world"] != validated_world)) or c["weather_state"] != "Clear":
         raise ValueError("This adapter currently supports the documented Arland path")
     if c["quality_file"] != "adapters/enfusion/sequence/ENR_Engine.conf":
         raise ValueError("Unknown quality preset")

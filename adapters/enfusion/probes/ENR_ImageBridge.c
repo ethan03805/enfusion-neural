@@ -14,14 +14,14 @@ class ENR_ImageBridge
   bool saved;
   if (Workbench.GetAbsolutePath("$profile:" + name, absolute, false))
    saved = Workbench.SavePixelRawData(absolute, data, width, height, stride);
-  PrintFormat("ENR_BRIDGE saved name=%1 width=%2 height=%3 stride=%4 success=%5", name, width, height, stride, saved);
+  PrintFormat("ENR_BRIDGE {\"event\":\"saved\",\"name\":\"%1\",\"width\":%2,\"height\":%3,\"stride\":%4,\"success\":%5,\"tick_ms\":%6}", name, width, height, stride, saved, System.GetTickCount());
   if (!saved) Fail("raw data save failed");
   return saved;
  }
 
  static void Fail(string reason)
  {
-  PrintFormat("ENR_BRIDGE failure reason=%1", reason);
+  PrintFormat("ENR_BRIDGE {\"event\":\"failure\",\"reason\":\"%1\",\"tick_ms\":%2}", reason, System.GetTickCount());
   Done = true;
   CompletedAt = ELab_CaptureState.Elapsed;
  }
@@ -40,7 +40,7 @@ class ENR_ImageBridge
  {
   if (Save("bridge-presented.png", data, width, height, stride))
   {
-   Print("ENR_BRIDGE completed");
+   PrintFormat("ENR_BRIDGE {\"event\":\"completed\",\"tick_ms\":%1}", System.GetTickCount());
    Done = true;
    CompletedAt = ELab_CaptureState.Elapsed;
   }
@@ -49,7 +49,7 @@ class ENR_ImageBridge
  static void OnScreenshotTexture(ScreenshotTextureData data)
  {
   bool copied = Image.CopyImageTexture(0, data);
-  PrintFormat("ENR_BRIDGE screenshot_texture copied=%1", copied);
+  PrintFormat("ENR_BRIDGE {\"event\":\"screenshot_texture\",\"copied\":%1,\"tick_ms\":%2}", copied, System.GetTickCount());
   if (!copied) { Fail("screenshot texture copy rejected"); return; }
   Present();
  }
@@ -64,7 +64,7 @@ class ENR_ImageBridge
   GetGame().GetWorkspace().Update();
   float sw, sh;
   Image.GetScreenSize(sw, sh);
-  PrintFormat("ENR_BRIDGE presented texture=%1x%2 screen=%3x%4 visible=%5 raw_requested=%6 world_frame=%7", width, height, sw, sh, Image.IsVisibleInHierarchy(), requested, GetGame().GetWorld().GetFrameNumber());
+  PrintFormat("ENR_BRIDGE {\"event\":\"presented\",\"texture_size\":[%1,%2],\"screen_size\":[%3,%4],\"visible\":%5,\"raw_requested\":%6,\"world_frame\":%7,\"tick_ms\":%8}", width, height, sw, sh, Image.IsVisibleInHierarchy(), requested, GetGame().GetWorld().GetFrameNumber(), System.GetTickCount());
   Stage = 3;
  }
 
@@ -80,7 +80,7 @@ class ENR_ImageBridge
    FrameSlot.SetSize(Image, root.DPIUnscale(width), root.DPIUnscale(height));
    Image.SetVisible(false);
    Stage = 1;
-   PrintFormat("ENR_BRIDGE requested mode=%1 width=%2 height=%3 world_frame=%4", ENR_BridgeConfig.Mode, width, height, world.GetFrameNumber());
+   PrintFormat("ENR_BRIDGE {\"event\":\"requested\",\"mode\":\"%1\",\"width\":%2,\"height\":%3,\"world_frame\":%4,\"tick_ms\":%5}", ENR_BridgeConfig.Mode, width, height, world.GetFrameNumber(), System.GetTickCount());
    if (ENR_BridgeConfig.Mode == "copy")
     System.MakeScreenshotTexture(OnScreenshotTexture, 0, 0, width, height, width, height);
    else
@@ -89,7 +89,7 @@ class ENR_ImageBridge
   else if (Stage == 2 && FileIO.FileExists("$profile:bridge-worker.done"))
   {
    bool loaded = Image.LoadImageTexture(0, "$profile:bridge-output.png", true, true);
-   PrintFormat("ENR_BRIDGE file_texture loaded=%1", loaded);
+   PrintFormat("ENR_BRIDGE {\"event\":\"file_texture\",\"loaded\":%1,\"tick_ms\":%2}", loaded, System.GetTickCount());
    if (!loaded) { Fail("local PNG load rejected"); return false; }
    Present();
   }

@@ -7,13 +7,14 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from enr import sequence
+from enr import sequence,image_bridge
 from enr.references import lab_modules,write_json,digest
 
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',required=True);p.add_argument('--lab-source',required=True)
     p.add_argument('--config',default=str(ROOT/'scenes/arland-motion-v1.json'))
+    p.add_argument('--world-inventory',help='Prior native inventory that observed an additional world resource')
     p.add_argument('--query',action='append',help='Replace the default resource-search terms; repeat for several bounded searches')
     a=p.parse_args();out=Path(a.out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Use a new empty inventory directory')
@@ -21,7 +22,8 @@ def main():
         raise ValueError('Use at most eight simple resource search terms')
     initialize,run_workbench,doctor=lab_modules(a.lab_source)
     from enfusion_lab import runner
-    initialize(out);config=sequence.load_config(a.config);config['samples']=1
+    config,world_binding=image_bridge.load_probe_config(a.config,a.world_inventory)
+    initialize(out);config['samples']=1
     sequence.prepare(out,config);write_json(out/'doctor.json',doctor())
     source=ROOT/'adapters/enfusion/probes/ENR_ResourceProbe.c'
     installed=out/'addon/Scripts/WorkbenchGame/ENR_ResourceProbe.c';probe=source.read_text()
@@ -43,6 +45,7 @@ def main():
     report={'schema_version':1,'scope':'Read-only resource names/material declarations; no live neural bridge established',
             'validation_run':validation['run_id'],'capture_run':run['run_id'],'status':run['status'],
             'probe_sha256':digest(installed),'template_sha256':digest(source),'queries':a.query,
+            'world_binding':world_binding,
             'console_sha256':digest(directory/'console.log'),
             'records':[line for line in lines if 'ENR_RESOURCE' in line or 'ENR_MATERIAL' in line or 'ENR_LOCATION' in line or 'ENR_CORE' in line]}
     write_json(out/'resources.json',report)
