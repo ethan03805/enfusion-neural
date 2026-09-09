@@ -28,6 +28,37 @@ If an external Windows capture viewer is used as an intermediate experiment, rep
 
 The same separation applies to other Enfusion games. A shared neural core does not imply access to every game's renderer or asset data. Build and validate each adapter independently.
 
+## Feature and execution requirements
+
+The verified GPU graph expects 20 ordered values per pixel. The mapping below follows `enr/lighting.py` and the frozen model, rather than assuming any image or similarly named engine property is interchangeable with a training input.
+
+| Input | Required meaning | Current Enfusion evidence |
+| --- | --- | --- |
+| Source RGB, 3 values | Nonnegative scene-linear radiance, transformed with `log1p` | RGB8 screenshot export works; a matching linear/exposure convention is unverified |
+| Position, 3 values | Visible surface position in the original scene coordinate convention, divided by four | Entity and camera positions are available; per-pixel visible surface positions are unverified |
+| Normal, 3 values | Surface shading normal in the same coordinate convention | Collision traces report polygon normals; equality with rendered shading normals is unverified |
+| Material, 5 values | Surface albedo RGB, roughness and metallic value evaluated at the pixel | Material resources and selected parameters are available; evaluated surface buffers are unverified |
+| View, 3 values | Normalized surface-to-camera direction | Camera controls work; reconstruction also requires the missing surface positions |
+| Light offset, 3 values | The controlled light position minus surface position, divided by four | A light can be placed; equivalence to the training light and mapping of sun, environment or multiple lights are unverified |
+
+Source alpha and a validity flag are additional transport fields. Invalid pixels must retain source RGB, and alpha must survive exactly. Coordinate origin, axis orientation, units, normal transforms and exposure must be verified together; feeding native world coordinates directly into the frozen graph is not an established mapping. The model's single light-position input also does not describe arbitrary game illumination by itself.
+
+`TraceParam` is explicitly a collision-query structure. Its polygon normal, collider and surface-material fields do not establish a rendered G-buffer, texture sampling, normal maps or alpha-tested visibility. They must not silently replace the surface inputs above. [Collision trace API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceTraceParam.html)
+
+The execution proof additionally needs an identified resource format and owner, a defined rendering stage, frame identity and synchronization, an independently checked passthrough/change/bypass sequence, and execution of the actual scene-conditioned graph. A camera frame counter alone is not a GPU completion fence. After this contract works, measure the whole frame and test aligned actual-Arma references and motion across the required environments. Standalone GPU agreement cannot establish any of these engine properties.
+
+## Interface audit
+
+The follow-up audit reads both installed generated SDKs, including full interface HTML for static methods omitted from JavaScript member indexes. The retained first index-only scan is therefore a discovery pass, not a complete member inventory. Even the expanded keyword scan cannot prove that differently named, undocumented or private interfaces are absent; method signatures and behavior remain the deciding evidence.
+
+The completed scan covers 8,984 full interface pages and 73,747 own-member rows. Its two custom-GPU keyword matches are unrelated log-buffer and spline-point methods. Known static-method controls are present. One source page contains an invalid UTF-8 byte; the initial decoding failure is retained and the completed scan preserves the source bytes while validating extracted names. The [review record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-renderer-interface-v1.json) binds source hashes, exact search expressions, both earlier attempts and the feature contract. Run `scripts/audit_enfusion_interfaces.py --sdk-root <Workbench/docs> --out <new-directory>` to reproduce the inventory. It reads documentation and launches no engine process.
+
+The reviewed material API constructs or loads an existing material class and changes its parameters. The post-process enum names built-in effect classes. Neither reviewed declaration identifies a custom shader compilation or dispatch entry point. The Resource Manager options list a “Generate Shaders” setting, but the page provides no custom shader source format or extension example for it. [Material API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html) · [Effect types](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/group__World.html) · [Resource Manager options](https://community.bistudio.com/wiki/Arma_Reforger:Resource_Manager:_Options)
+
+`RTTextureWidget` binds a widget render resource to an entity material through `$rendertarget` or `$renderview`. `RenderTargetWidget` selects a world/camera and controls refresh, size and format. These declarations describe engine-managed views; they do not provide a native texture handle, queue or external model-output import in the reviewed signatures. `TextureResourceInfo` describes source-texture conversion metadata. Its name is not evidence of a live GPU resource interface. [RTTextureWidget](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceRTTextureWidget.html) · [RenderTargetWidget](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceRenderTargetWidget.html) · [TextureResourceInfo](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceTextureResourceInfo.html)
+
+The integration requirements remain unmet. A specific supported interface and minimal sample are needed before another full-model engine attempt. Continue the separately scoped color-lookup study only for questions it can resolve; a pointwise color transform cannot supply the missing surface inputs. More training or repetitions of the failed screenshot/widget routes cannot close this contract.
+
 ## Color lookup control
 
 The [completed static control](color-lookup.md) uses the documented camera post-processing path. `SetCameraPostProcessEffect` accepts a material, and the public effect types include `ColorGrading`. Native schema inspection, original volume import and visible inversion/constant-color responses now work. This is a limited color effect, with no arbitrary neural dispatch or scene-buffer access. [BaseWorld API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceBaseWorld.html) · [Effect types](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/group__World.html)

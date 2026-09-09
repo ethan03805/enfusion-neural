@@ -6,6 +6,8 @@ Measured locally on 8–9 September 2026. The results establish an offline neura
 
 ## Native lighting graph
 
+The subsequent [interface review](integration.md#interface-audit) inventories installed SDK declarations and maps the graph's 20 inputs to the unresolved engine requirements. It is read-only documentation evidence, not a runtime integration test. Its [portable record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-renderer-interface-v1.json) retains the incomplete index-only pass and the corrected source-encoding failure.
+
 The [lighting GPU result](lighting-gpu.md) verifies all three locked variants on 21 numerical controls through 4K, plus the full model on every one of the 48 test and 64 regression frames. All native outputs match the CPU tolerances with exact alpha and invalid-source fallback. The test's original fidelity gates pass. Its temporal error is 0.735% above source, within tolerance. The original room's missing contrast panel and loss to its older specialized model remain documented.
 
 Full-input 1440p dispatch p50/p95 is 0.962/1.961 ms. One upload/readback pair adds 17.173 ms, with 3,775.76 ms setup and a 4,070.42 ms native process for all 110 dispatches. These are standalone timings on prepared features, not game frame time. A disk-write failure and the initial one-step residual-bound violation remain in the [complete evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-gpu-v1.json). Six unchanged RGBA8 hardware checks are retained in the [bootstrap regression record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/lighting-gpu-v0-regression-v1.json).
