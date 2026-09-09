@@ -21,7 +21,8 @@ class ENR_Sequence
   if (ENR_SequenceConfig.Samples > 1 && Index < ENR_SequenceConfig.Samples)
    t = Index / (ENR_SequenceConfig.Samples - 1.0);
   float yaw = ENR_SequenceConfig.YawStart + t * (ENR_SequenceConfig.YawEnd - ENR_SequenceConfig.YawStart);
-  return Vector(Math.Sin(yaw * Math.DEG2RAD), 0, Math.Cos(yaw * Math.DEG2RAD));
+  float pitch = ENR_SequenceConfig.PitchStart + t * (ENR_SequenceConfig.PitchEnd - ENR_SequenceConfig.PitchStart);
+  return Vector(Math.Sin(yaw * Math.DEG2RAD) * Math.Cos(pitch * Math.DEG2RAD), Math.Sin(pitch * Math.DEG2RAD), Math.Cos(yaw * Math.DEG2RAD) * Math.Cos(pitch * Math.DEG2RAD));
  }
 
  static void Camera(BaseWorld world)

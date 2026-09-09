@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "status": "import_not_verified",
+  "scope": "Original material-room FBX registration and resource-load probes only",
+  "script_sha256": "0ba0caf8fcffd5806fa967582f754105e2ace17d2afcbf00569769d5df5e7285",
+  "trials": [
+    {
+      "trial": "material-room-import-v1",
+      "run_id": "20260909T094822-15af017989",
+      "report_sha256": "3aaa3872fc240601fc54c85fa8d5644ef61cc984815597ec35f943c0b02ba0a9",
+      "run_manifest_sha256": "0c8874032e76516260cb1f3cc24a03b29d9af95c1dd916f3a3f08b2a224f5517",
+      "validation_run": "20260909T094809-fc2727a07e",
+      "validation_manifest_sha256": "0c8a8848e6906155ee1986d4a8fe4706cec11185867e1901b6e50358f3bafc20",
+      "native_compile_validation_passed": true,
+      "route": "generic",
+      "reported_status": "failed",
+      "native_exit_code": 1,
+      "terminated_by_runner": true,
+      "error": "Workbench original-room import timed out after 120 seconds",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "plugin_sha256": "68288f668d4ffbdc7275b479ee260b728c1ebf74668300b53130ca2b516e7a32",
+      "console_sha256": "2b253fb40b795a7b5d594d3745770f4acfe0d54b96edbfa3b12b8a699d828b87",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        }
+      ],
+      "material_counts": [],
+      "txo_contains_only_header": false,
+      "resource_load_observed": false,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": null
+    },
+    {
+      "trial": "material-room-import-v2",
+      "run_id": "20260909T095429-3df0492688",
+      "report_sha256": "297d67b077c0dde67b7c98a951b39610d21c524352ffb4a2172c6d4459c57fda",
+      "run_manifest_sha256": "a0648a52e3f7e3c0c0dd43e733dd801d13acda459b4c424f546b6fb294cd5d44",
+      "validation_run": "20260909T095416-8e0e1f85c9",
+      "validation_manifest_sha256": "da60922622a3cd0354bcbf045adbf5cf87c95fc493b413fd2a9afa4471585af0",
+      "native_compile_validation_passed": true,
+      "route": "generic",
+      "reported_status": "failed",
+      "native_exit_code": 4294967295,
+      "terminated_by_runner": false,
+      "error": "Import did not exit naturally with one native completion",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "plugin_sha256": "0b45006639348bda768b3a443bde6b60faffbd15a856f83ab362b4154e28a516",
+      "console_sha256": "5118bdae28d5370802bc44595e39bd2c1c912bfab13fd46549f818a34b1c9511",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        }
+      ],
+      "material_counts": [],
+      "txo_contains_only_header": false,
+      "resource_load_observed": false,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": null
+    },
+    {
+      "trial": "material-room-import-v3",
+      "run_id": "20260909T095735-ce455f81ea",
+      "report_sha256": "b27d4d2bdf96726298b14ae0c783aace895a8d189bffa1d851de60f4877c2c4d",
+      "run_manifest_sha256": "70d72c8e2ffbc32cae30376966ad0e2de7ce339551fa9700aec1b60ed3656492",
+      "validation_run": "20260909T095723-4948d3be6c",
+      "validation_manifest_sha256": "3c27ac37e7a384013ebffae23bc978165da3332d76695053477fa5418b569d7b",
+      "native_compile_validation_passed": true,
+      "route": "fbx-handler",
+      "reported_status": "failed",
+      "native_exit_code": 1,
+      "terminated_by_runner": true,
+      "error": "Workbench original-room import timed out after 120 seconds",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "plugin_sha256": "980bb461a9538871964dd287505bb4356b50a3988aa00194d789ca21caa29883",
+      "console_sha256": "08dcbbe643f64d59467fcc1bbc83a2e7fd62cc77780e7e2fb001f0d5cc772057",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        }
+      ],
+      "material_counts": [],
+      "txo_contains_only_header": false,
+      "resource_load_observed": false,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": null
+    },
+    {
+      "trial": "material-room-import-v4",
+      "run_id": "20260909T100244-4ee11e9c9e",
+      "report_sha256": "c0142453d4b952dc650c03914a4956b182f86374b9d7cbfd748cd29a2d7bcdeb",
+      "run_manifest_sha256": "924274a5f8840ce48a4d0bb4dc545f05ee1dba814f05c4aead4bbe7d9139f880",
+      "validation_run": "20260909T100232-d20f565bb8",
+      "validation_manifest_sha256": "6fde013ebcd772e4701e43f691141a4156c573153167c51b8f27add3854a4a01",
+      "native_compile_validation_passed": true,
+      "route": "typed-metadata",
+      "reported_status": "failed",
+      "native_exit_code": 4,
+      "terminated_by_runner": false,
+      "error": "Import did not exit naturally with one native completion",
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "plugin_sha256": "334ba5c1c250011a1c10565aa4835d231279c8ebd6b067a237e1dd1ebd4ccfed",
+      "console_sha256": "5932087f577048480ac84489aff513042f2eb468d3a3bfcd9b1f70efb9e565ff",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 219,
+          "sha256": "501280fd17bd1fa45504353235fc48891d6069decc9e4f3d7e85b1700f633b86"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 80,
+          "sha256": "ffd7df421bce330284867f6afcab7281c29375c0422781bc5e15c636f7563f8e"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 569,
+          "sha256": "36dbc34a742c4b26052dda81af60e643e23d8dbf6e5cb4b288378d1f8416c40d"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "typed_rebuild_returned"
+        },
+        {
+          "event": "failed",
+          "stage": "mesh_load"
+        }
+      ],
+      "material_counts": [],
+      "txo_contains_only_header": true,
+      "resource_load_observed": false,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": null
+    },
+    {
+      "trial": "material-room-import-v5",
+      "run_id": "20260909T101042-cf0107141e",
+      "report_sha256": "34839c9aabf5f237cf592a3ab08ebb925e749fa50c33e25ebbe9f0605904388b",
+      "run_manifest_sha256": "a6299f9c3402354df5df885503fb2f14ff4f6dcbca05f1ac8b2cac3a9a951356",
+      "validation_run": "20260909T101030-dcbb6e7e66",
+      "validation_manifest_sha256": "094adcf3664870b7a3a7809afe5760a38106c9e0387a168067a8f837cde8dc97",
+      "native_compile_validation_passed": true,
+      "route": "load-completed",
+      "reported_status": "succeeded",
+      "native_exit_code": 0,
+      "terminated_by_runner": false,
+      "error": null,
+      "source_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+      "plugin_sha256": "436d98e822c8e72080ad7b76999e32f03665d0b0a62b0b6caf5ea569e133296c",
+      "console_sha256": "9defd302d380f16d3f4ad4fc8b477ca58de99f33366dff68646ee6c1b0f93e29",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 728780,
+          "sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 219,
+          "sha256": "501280fd17bd1fa45504353235fc48891d6069decc9e4f3d7e85b1700f633b86"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 80,
+          "sha256": "ffd7df421bce330284867f6afcab7281c29375c0422781bc5e15c636f7563f8e"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 569,
+          "sha256": "36dbc34a742c4b26052dda81af60e643e23d8dbf6e5cb4b288378d1f8416c40d"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "load_completed_build"
+        },
+        {
+          "event": "mesh_loaded",
+          "resource": "{7CEDDBB7858D45F0}Assets/ENR_ReferenceRoom/material-room.xob"
+        },
+        {
+          "event": "materials",
+          "count": 0
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "material_counts": [
+        0
+      ],
+      "txo_contains_only_header": true,
+      "resource_load_observed": true,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": null
+    },
+    {
+      "trial": "material-room-import-v6",
+      "run_id": "20260909T101243-91709ae253",
+      "report_sha256": "a75e8783a42760806362f133ee76422078ab1e274d5ba183de2b9fa0379a6e76",
+      "run_manifest_sha256": "62c5a7857d5c0fd3c0854eecb2438e49cef57ad7b53f2c8bb02753ab4721d7f7",
+      "validation_run": "20260909T101232-607873cbdc",
+      "validation_manifest_sha256": "ae95c6913b43eaef66a226bf08b1f9c7f67a2ffae717273134d0769ec24d2175",
+      "native_compile_validation_passed": true,
+      "route": "typed-metadata",
+      "reported_status": "failed",
+      "native_exit_code": 4,
+      "terminated_by_runner": false,
+      "error": "Import did not exit naturally with one native completion",
+      "source_fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+      "plugin_sha256": "436d98e822c8e72080ad7b76999e32f03665d0b0a62b0b6caf5ea569e133296c",
+      "console_sha256": "50a4837531295fac139cc1c4634a19c9f5ad192bad9c3c1474deef191b1c9f2a",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 820028,
+          "sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 219,
+          "sha256": "501280fd17bd1fa45504353235fc48891d6069decc9e4f3d7e85b1700f633b86"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 80,
+          "sha256": "ffd7df421bce330284867f6afcab7281c29375c0422781bc5e15c636f7563f8e"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 569,
+          "sha256": "a280f69fd2ffa7e9e7cac4e57033c197306e6474f0dd91b7313aaaf7c7df497b"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "typed_rebuild_returned"
+        },
+        {
+          "event": "failed",
+          "stage": "mesh_load"
+        }
+      ],
+      "material_counts": [],
+      "txo_contains_only_header": true,
+      "resource_load_observed": false,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": {
+        "report": {
+          "schema_version": 1,
+          "status": "succeeded",
+          "operation": "original-room-lod0-export",
+          "blender": "5.1.2",
+          "script_sha256": "ac8243d9ad73dc4867d93f595d8512caa7a44330629393735938d59aff6c36d4",
+          "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+          "source_evidence_sha256": "fb221dd6fb565942376ea2273d58375fbcf9bcf907a04c831d430f7f6c1a3923",
+          "fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+          "mesh_count": 12,
+          "in_memory_geometry_unchanged": true,
+          "topology_and_material_slots_equal": true,
+          "max_roundtrip_coordinate_error_m": 4.76837158203125e-07,
+          "coordinate_tolerance_m": 2e-06,
+          "change": "Append _LOD0 to each object name and re-export with the original axis settings",
+          "engine_geometry_verified": false,
+          "aligned_appearance_pair_verified": false
+        },
+        "report_sha256": "11c82b147c6477e8d5e94e28cf7e420a7dcbf480c8b125f2d0541e0806e9d4a8"
+      }
+    },
+    {
+      "trial": "material-room-import-v7",
+      "run_id": "20260909T101343-c4df0fbadc",
+      "report_sha256": "ed4647ca620e67c1c5d54fd66fdcfa2b0572a5a8b78f031945cf53a1c7c09848",
+      "run_manifest_sha256": "d8a6928323420d9b14f3990f62ddb24be706008267447e5f278b8e66c88d9ef6",
+      "validation_run": "20260909T101331-b7a19c10d4",
+      "validation_manifest_sha256": "1ab573b809ee6b2998876f5d6191fc70b0ec75767ebfba0b248b6383bfe57871",
+      "native_compile_validation_passed": true,
+      "route": "handler-completed",
+      "reported_status": "failed",
+      "native_exit_code": 0,
+      "terminated_by_runner": false,
+      "error": "Loaded resource has no observed material sections; room import remains unverified",
+      "source_fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+      "plugin_sha256": "436d98e822c8e72080ad7b76999e32f03665d0b0a62b0b6caf5ea569e133296c",
+      "console_sha256": "4b05ce9a5d9034ce7104ba363bb3d50cad4a338e25fbefc3965fa8fe3243032d",
+      "retained_assets": [
+        {
+          "file": "material-room.fbx",
+          "bytes": 820028,
+          "sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62"
+        },
+        {
+          "file": "material-room.txo",
+          "bytes": 219,
+          "sha256": "501280fd17bd1fa45504353235fc48891d6069decc9e4f3d7e85b1700f633b86"
+        },
+        {
+          "file": "material-room.xob",
+          "bytes": 80,
+          "sha256": "ffd7df421bce330284867f6afcab7281c29375c0422781bc5e15c636f7563f8e"
+        },
+        {
+          "file": "material-room.xob.meta",
+          "bytes": 569,
+          "sha256": "a280f69fd2ffa7e9e7cac4e57033c197306e6474f0dd91b7313aaaf7c7df497b"
+        }
+      ],
+      "native_events": [
+        {
+          "event": "started"
+        },
+        {
+          "event": "module",
+          "available": 1
+        },
+        {
+          "event": "source_resolved"
+        },
+        {
+          "event": "handler_returned"
+        },
+        {
+          "event": "mesh_loaded",
+          "resource": "{53F82DAED63D49C6}Assets/ENR_ReferenceRoom/material-room.xob"
+        },
+        {
+          "event": "materials",
+          "count": 0
+        },
+        {
+          "event": "completed"
+        }
+      ],
+      "material_counts": [
+        0
+      ],
+      "txo_contains_only_header": true,
+      "resource_load_observed": true,
+      "room_import_accepted": false,
+      "engine_geometry_verified": false,
+      "derivation": {
+        "report": {
+          "schema_version": 1,
+          "status": "succeeded",
+          "operation": "original-room-lod0-export",
+          "blender": "5.1.2",
+          "script_sha256": "ac8243d9ad73dc4867d93f595d8512caa7a44330629393735938d59aff6c36d4",
+          "original_fbx_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+          "source_evidence_sha256": "fb221dd6fb565942376ea2273d58375fbcf9bcf907a04c831d430f7f6c1a3923",
+          "fbx_sha256": "3063f6eb06426d88daf7f14601e79307166beeaa78d23220eb5826b4d5f00e62",
+          "mesh_count": 12,
+          "in_memory_geometry_unchanged": true,
+          "topology_and_material_slots_equal": true,
+          "max_roundtrip_coordinate_error_m": 4.76837158203125e-07,
+          "coordinate_tolerance_m": 2e-06,
+          "change": "Append _LOD0 to each object name and re-export with the original axis settings",
+          "engine_geometry_verified": false,
+          "aligned_appearance_pair_verified": false
+        },
+        "report_sha256": "11c82b147c6477e8d5e94e28cf7e420a7dcbf480c8b125f2d0541e0806e9d4a8"
+      }
+    }
+  ],
+  "interpretation": "Resource-load success is insufficient: completed outputs contain no TXO mesh sections; observed loads report zero materials.",
+  "visual_review": "No imported room image exists; no geometry or appearance claim is accepted",
+  "engine_geometry_verified": false,
+  "aligned_appearance_pair_verified": false,
+  "renderer_integration_verified": false
+}

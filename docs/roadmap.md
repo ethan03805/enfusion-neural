@@ -49,6 +49,8 @@ The immediate priorities are:
 3. Add short motion paths and an aligned engine/reference lighting pair. Verify exposure, camera, material and light conventions; keep town, interior, foliage and entity scenes separate in evaluation.
 4. Implement the accepted lighting graph on the native backend, verify it against the CPU, then measure complete-frame cost through the supported adapter. Use those results to decide whether larger training is warranted.
 
+The original-room import controls now isolate an additional prerequisite: a loadable resource may contain no geometry. The [seven retained trials](material-room.md#engine-import-controls) have not produced a visible room. Next inspect actual import configuration/material assignments; repeating registration, waiting longer or renaming the same meshes has not resolved this. Acceptance requires visible nonempty geometry, expected bounds and material regions, then verified camera, lighting and color correspondence. Keep the existing synthetic references and selected model frozen during that work.
+
 ## 05 · Playable local demonstration
 
 Integrate the accepted model and measure the complete application at 1440p. Preserve a disabled path and rapid fallback. Characterize multiple resolutions and quality profiles. Run the full frame-time and soak protocol.

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "report_sha256": "514920cb70f0d2db2f68d15631bd8bffe1f6eac4cce277ae286308c950ab3792",
+  "conclusion": "No usable imported room, aligned appearance pair or renderer integration is verified",
+  "original_fbx_inspection": {
+    "source_sha256": "997f8f495100feef595f82230ad5d2ddbe2baea02fbb9f03f080163e92c42fb0",
+    "script_sha256": "7c5de529ce937c7d69d99a5b2f8d3f766977396e2bc496468e33850cbcb4aa2b",
+    "report_sha256": "d3f1f487f611d04f1188882154ef40df7e207f0587279a96c01c035f517f6e49",
+    "mesh_count": 12,
+    "scope": "Blender FBX readback; not an Enfusion geometry check"
+  },
+  "trial_notes": {
+    "material-room-import-v2": "Stopped manually after checking PID 19544, executable and command line against the owned run ID. No experiment window/dialog appeared in the read-only window inventory. Its nonzero exit is not a natural completion or a full 300-second timeout.",
+    "material-room-import-v4": "Mesh load was attempted before the asynchronous build completed. The final retained TXO contains only header tags; XOB is 80 bytes.",
+    "material-room-import-v5": "Fresh process loaded the completed v4 resource and exited 0, reporting zero materials. The old runner marked load success; this review rejects that as a room import. Raw evidence remains unchanged.",
+    "material-room-import-v6": "Naming-only derived export produced identical TXO/XOB bytes; naming alone did not resolve the issue.",
+    "material-room-import-v7": "The handler returned on registered input. Zero materials and identical empty TXO/XOB remain; the stricter runner correctly marks failure."
+  },
+  "sources": [
+    {
+      "url": "https://github.com/BohemiaInteractive/Arma-Reforger-Samples/blob/main/SampleMod_NewProp/Assets/Props/Military/Camps/PortableDesk_01/Dst/PortableDesk_01_dst_01.xob.meta",
+      "use": "PC FBXResourceClass metadata structure and standard MeshObjectCommon resource reference; fresh model IDs, no sample geometry copied"
+    },
+    {
+      "source": "Installed Enfusion Blender Tools core/collection_sorting.py and core/fbx/fbx_io.py",
+      "use": "LOD0 naming convention and ExportFBXResource request fields"
+    },
+    {
+      "source": "Installed Enfusion Script API: ResourceManager, Resource, VObject",
+      "use": "RegisterResourceFile, RebuildResourceFile, resource loading and material enumeration declarations"
+    }
+  ],
+  "next_acceptance": [
+    "Inspect import configuration and material assignments without repeating failed unchanged inputs",
+    "Obtain visible room geometry with expected bounds and all material regions",
+    "Verify pitched camera readback, silhouettes, light/material conventions and color transfer",
+    "Prove a separately supported renderer input/output interface before live model claims"
+  ],
+  "engine_geometry_verified": false,
+  "aligned_appearance_pair_verified": false,
+  "renderer_integration_verified": false
+}

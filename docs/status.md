@@ -108,3 +108,11 @@ The longer hold restores the observed shelf supports, building surfaces and sign
 Raw runs are under `experiments/local/source-visibility-v1/`. All earlier anomalous PNGs remain in the site; two new unchanged first-long-hold PNGs add warehouse/town sliders. The warehouse follow-up differences are 0.0021–0.0160 RGB8 MAE per view; Montignac is 0.1451–2.0184. These are source variation measurements. The full goal still requires supported integration, aligned lighting targets, real-scene model/motion checks and native complete-frame timings.
 
 A technical inquiry is drafted locally at `experiments/local/bohemia-renderer-questions.md`. It has not been sent; explicit authorization to contact Bohemia is pending. Do not substitute repeated failed screenshot/widget callbacks for an authoritative renderer extension.
+
+## Material-room import follow-up
+
+Seven [original-room import controls](material-room.md#engine-import-controls) are terminal. Generic registration and the FBX handler stalled on unregistered input. Explicit metadata produced header-only TXO and an 80-byte XOB; a separate process loaded it with zero materials. Explicit LOD0 naming and a subsequent registered-resource handler call retained the same empty output. The v5 runner's success reflected resource load only; the portable review rejects it as a room import, and the current gate rejects zero/missing material sections. No imported-room image, aligned lighting pair or renderer integration is established.
+
+The original and derived FBX, all native snapshots and logs remain under `experiments/local/material-room-import-v1/` through `material-room-import-v7/` and `material-room-lod0-v1/`. Reports are `evidence/enfusion-material-import-v1.json` and `evidence/enfusion-material-import-review-v1.json`. Do not repeat the same registrations, timing changes or naming-only export. Inspect import configuration and material assignments, using an independently visible geometry check before progressing to appearance. The optional pitched-camera extension passes CPU contract tests and native script compilation; native pitched readback is still untested.
+
+The CPU suite now passes 53 tests, including rejection of the observed empty-resource false positive. The site still has 21 pages, 41 reviewed PNGs and 12 videos; this import follow-up adds no media.
