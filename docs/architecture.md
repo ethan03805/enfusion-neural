@@ -64,6 +64,8 @@ The optional material-room color control changes only `Color` in fresh copied ma
 
 Original texture controls use `scripts/generate_enfusion_room_textures.py`, `scripts/build_enfusion_room_textures.py` and the optional `--texture-build/--texture-case` room-capture arguments. The asynchronous build retains TIFF sources, typed import metadata and compiled textures. Fresh addon captures bind materials to those assets and record native Color/BCRMap/NMOMap readback. The summarizer verifies source-channel isolation and image response; the orientation checker projects declared points analytically through the camera. This fixture supports appearance calibration but provides no scene-buffer or output-composition interface.
 
+The optional `--light-case` extension creates a scripted point light after room placement. `enr/room_lights.py` separates native getter values from requested intensity/color parameters, retaining the disabled light's negative radius as a raw mismatch. A separately planned `--light-clip-control` follow-up changes only the intensity-clipping bias. `scripts/summarize_enfusion_room_lights.py` binds all six validated captures, unchanged non-light inputs, visual reviews and all repeat pairs. This is a static appearance control, not renderer integration.
+
 ## Lighting study
 
 The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.

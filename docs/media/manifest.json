@@ -749,6 +749,102 @@
       "run_id": "20260909T115541-31482fb249",
       "selection": "The only frame in each of all four predeclared texture cases; every frame inspected at full resolution",
       "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-off.png",
+      "sha256": "629aef7015247bc1c79b779a811bb8a464d79ca95fc3153d8143bb63bd09755a",
+      "bytes": 51361,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: off; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-off-v1/runs/20260909T121427-70cc1371f7/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T121427-70cc1371f7",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-low.png",
+      "sha256": "23c62cf80ed7aaf46b1257a02c355dd9aafd01dad293b1c10a312e4992b5413f",
+      "bytes": 51365,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: low; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-low-v1/runs/20260909T121534-23f913de78/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T121534-23f913de78",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-high.png",
+      "sha256": "2150e5e0269b6c6b38ec20c3bc4ff73c478371517687dce4aa3ffbcb089fb790",
+      "bytes": 1211899,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: high; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-high-v1/runs/20260909T121702-4467db88af/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T121702-4467db88af",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-high-repeat2.png",
+      "sha256": "f0ee8f2dbfe1592b39db85a2f09e551d34a83cb6db7ed56fdb08f74efca23ca4",
+      "bytes": 1211928,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: high-repeat2; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-high-repeat2-v1/runs/20260909T121800-20a4b7c54d/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T121800-20a4b7c54d",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-high-repeat3.png",
+      "sha256": "05c50afaed0a4f1e210af7da67a76013d047116471759b7d304e48c87fcf79fd",
+      "bytes": 1211898,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: high-repeat3; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-high-repeat3-v1/runs/20260909T121920-e0f45bca13/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T121920-e0f45bca13",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
+    },
+    {
+      "file": "material-room-light-low-clip.png",
+      "sha256": "368f759387ad2f06dafb3969cdfb4a5afe6c7233a77beff094ae4d5b64d5a524",
+      "bytes": 867222,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "role": "Enfusion point-light control: low-clip; no neural processing",
+      "source_record": "evidence/enfusion-room-lights-v1.json",
+      "source_artifact": "experiments/local/material-room-light-low-clip-v1/runs/20260909T122128-c649d5ec94/profile/profile/sample-00000.png",
+      "transformation": "none; byte-for-byte sample-0 copy",
+      "run_id": "20260909T122128-c649d5ec94",
+      "selection": "All five planned point-light captures and the separately declared clipping follow-up; every sample reviewed at full resolution",
+      "rights": "Original room geometry and texture fixtures are MIT licensed. Enfusion environment imagery belongs to Bohemia Interactive a.s. and is outside the code license."
     }
   ],
   "videos": [

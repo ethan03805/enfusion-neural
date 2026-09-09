@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "material-room-light-clip-control-v1",
+  "base_plan": "scenes/material-room-light-control-v1.json",
+  "base_case": "night-low",
+  "hypothesis": "The LV10 light is suppressed by the engine intensity clipping test; a less strict documented clipping bias should restore a visible response without changing light intensity or exposure.",
+  "reason_for_followup": "Initial LV10 capture is black in all three declared regions; LV12 illuminates the room. Selected after those observations, not part of the original five-run plan.",
+  "change": {"api": "LightEntity.SetIntensityEVClip", "requested_EV_bias": -10},
+  "region": "neutral_back",
+  "minimum_mean_rgb8_increase_vs_original_low": 5,
+  "unchanged": ["native LV", "color", "radius", "position", "shadow flag", "geometry/materials", "camera", "exposure", "environment", "capture settings"],
+  "limits": ["No native getter for the bias was found; record the requested call and observe its image response", "No radiometric, reference-fidelity or renderer-integration claim"]
+}
