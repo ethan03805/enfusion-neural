@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "scope": "Viewport-control investigation; no accepted viewport scale/FSR control or texture export.",
+  "viewport_scale_verified": false,
+  "viewport_fsr_verified": false,
+  "builds": {
+    "game": 24903726,
+    "tools": 24870687
+  },
+  "manual_diagnostic_save": {
+    "source_run": "20260909T011324-91d23f0c81",
+    "bytes": 59,
+    "sha256": "2289a39fba57c7ee614b76b0f360676aac090ebc8ecaa0bdab76de938fcaad3e",
+    "contents": "\"AI diag\" 1\n\"VSync\" 2\n\"Entity diag\" 1\n\"   Height modif\" 50\n",
+    "interpretation": "Save succeeded. No explicit resolution-scale or FSR value appears; omitted entries cannot establish their state."
+  },
+  "comparison_baseline": {
+    "run_id": "20260909T003507-cdc00d29ab",
+    "sha256": "be775046420a5a3c6c5ff51fb64a2b892666c4d427fa633382e043faf6f2024f",
+    "measurement": "RGB code values, no alignment or scaling; horizontal gradient is descriptive, not proof of internal resolution."
+  },
+  "runs": [
+    {
+      "local_experiment": "viewport-low-off",
+      "run_id": "20260909T012327-f8d8c7aa1b",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "b6cd1ab9aba50973eff42ae2014bf2f8615b5d244e175e61944ce8d527fa181d",
+      "addon_sha256": {
+        "addon.gproj": "6a99f07456452110ab19ea0bc11e628481c6ab807b874f1a08d0104fff37928f",
+        "ENR_Diag.txt": "29d9cc2579fb0240c8f724048318d36494f572ad6be02180c0d9276c253e89b8",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 1\n\"Manual scale\" 0.25\n\"Override FSR settings\" 1\n\"FSR enabled\" 0\n",
+      "probe_telemetry": [],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "5159c06161fa90b6e006b3d268e39a0613151e6efdca92eaa9ba5f5ec4402b89",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.943522770034591,
+        "rgb_mae_to_baseline": 1.0761481843171297,
+        "rgb_rmse_to_baseline": 4.0986369306083645
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-low-on",
+      "run_id": "20260909T012423-fe0de62839",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "4b1df4ffce8394a1647ff06616d14db6eb98538365fc45d0a5d74a8af6403671",
+      "addon_sha256": {
+        "addon.gproj": "8eed7464217d4a44c815dbded05ae1ce7a5878ed3d69fc66116d4b6b9084746f",
+        "ENR_Diag.txt": "1cc8bbbbf5704c35162a6bab9a7eabc21fb7c1e641c6efa3149fb278745670e5",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 1\n\"Manual scale\" 0.25\n\"Override FSR settings\" 1\n\"FSR enabled\" 1\n",
+      "probe_telemetry": [],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "54dfd6dc49c9c9e4ce8c29bacc41428652e31439465774a3025210882aaeb3a1",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.93758584444155,
+        "rgb_mae_to_baseline": 0.6321525065104167,
+        "rgb_rmse_to_baseline": 2.884286045661947
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-b-low-off",
+      "run_id": "20260909T012545-079ab5a845",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "e12c0cacdc43d38430e49a417f7158073de701a4f6b87780ea20e9747ebae57f",
+      "addon_sha256": {
+        "addon.gproj": "3035f27cc5123a78460285e71968255bba57e5457ad552fa90d5ca7fd17e0bd1",
+        "ENR_Diag.txt": "8114faf6df4a37d8f985cf47772cfc21b74b3dcda834ae27beaaa58fe7643430",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 1\n\"  Manual scale\" 0.25\n\"Override FSR settings\" 1\n\"  FSR enabled\" 0\n",
+      "probe_telemetry": [],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "e14a878a594103433e74aac5c494b6ddabf8090108f39926d6bd4008c1b25b56",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.946288878757617,
+        "rgb_mae_to_baseline": 1.5985487196180554,
+        "rgb_rmse_to_baseline": 5.433475588735043
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-b-low-on",
+      "run_id": "20260909T012639-80a65442ae",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "2c9beb9d563c334636c34bcee36c8d5f192bda62ab54cda288157b39a293720d",
+      "addon_sha256": {
+        "addon.gproj": "d316f6acbd2eb7b2a787b076d8ff54554c281edf227b44e2fa09a3a041601707",
+        "ENR_Diag.txt": "8e835bb5feb763987a61db05495aa5fff3918e20f516115d836feb6d6fe514f6",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "cadc7540638c8360f1e04f8a545c9a9f9ab44b0a1183ace1769aa0dc5a011ccb",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 1\n\"  Manual scale\" 0.25\n\"Override FSR settings\" 1\n\"  FSR enabled\" 1\n",
+      "probe_telemetry": [],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "c6639757fd6a0d3e56d009dfc051a8b78b1e91ed8d1ac6fb21296e8b6c0098b5",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.939317387434327,
+        "rgb_mae_to_baseline": 0.26087700737847225,
+        "rgb_rmse_to_baseline": 1.6065694655918215
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-b-file-load",
+      "run_id": "20260909T012901-7486a8061b",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "5e52846adf240cc5ab41633cfe971ef9f3f576e656153032a9de9cc001ae14b1",
+      "addon_sha256": {
+        "addon.gproj": "e0eb9a36fef83e888786143d126e76de9d9ecbd9d624563de4835d9fa888262d",
+        "ENR_Diag.txt": "0c154d26054e577a31944da9b6ecbfdc1383516b79a87aa26efeac54c8cdfa7a",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "369bef5c0490ac1d8df9bcd6fa4e8d1d0a623fcec87ff69f236ac1dd4f5d1288",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"VSync\" 1\n\"Render world\" 1\n",
+      "probe_telemetry": [
+        "ENR_DIAG vsync=2"
+      ],
+      "sequence_contract": {
+        "status": "failed",
+        "error": "Exposure mismatch"
+      },
+      "image": {
+        "sha256": "c529506c0bf006fab92785fb851a88f7d06301de413414ed5351dcb24e428602",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": true,
+        "horizontal_rgb_gradient_mae": 0.0,
+        "rgb_mae_to_baseline": 96.69855088975694,
+        "rgb_rmse_to_baseline": 117.75989645798288
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-b-half-off",
+      "run_id": "20260909T013102-6a2e48c799",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "99dad849aadb0f234fe13ddc1dfe9c7bbaeb57d9c48d0a598604fc063f97b17e",
+      "addon_sha256": {
+        "addon.gproj": "f88b87ed1f13702677581ee7df829d8489f44334f493d7e4e9e6d6d8c46d0fb9",
+        "ENR_Diag.txt": "4f331f68628159515ef35b64a93b6e8f4fa19f3d0098985221037a8d5217f8be",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "369bef5c0490ac1d8df9bcd6fa4e8d1d0a623fcec87ff69f236ac1dd4f5d1288",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 6\n\"Override FSR settings\" 1\n\"  FSR enabled\" 0\n",
+      "probe_telemetry": [
+        "ENR_DIAG vsync=2"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "6950c39b2db113da22739848deef05dbcfe611475530ac24d1f0958fbe2092d9",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.94644030509603,
+        "rgb_mae_to_baseline": 1.2508000578703704,
+        "rgb_rmse_to_baseline": 4.554048290306089
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-b-half-on",
+      "run_id": "20260909T013213-f73b88e18d",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "e0548cd115d128def2005f3631ad7e27302dc264f713de9de1c90efb0735d014",
+      "addon_sha256": {
+        "addon.gproj": "19e86dc5f66053218b85cdf19232201e95f1ad6e067e325104991d10e1cf368f",
+        "ENR_Diag.txt": "64cb0c219b2bd45ead1c9ed0031e22ede5e59887393fbeca6a93e6d9c241428d",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "369bef5c0490ac1d8df9bcd6fa4e8d1d0a623fcec87ff69f236ac1dd4f5d1288",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "\"Resolution scale\" 6\n\"Override FSR settings\" 1\n\"  FSR enabled\" 1\n",
+      "probe_telemetry": [
+        "ENR_DIAG vsync=2"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "e9ec4cfbb13b4c4de812f731baa012f747a2b6f6f060beb563d13d8adaaee21f",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.944302154342697,
+        "rgb_mae_to_baseline": 1.0774958405671295,
+        "rgb_rmse_to_baseline": 4.129394623500789
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "render-target-v1",
+      "run_id": "20260909T014639-7e78acdbd2",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "22d79114a6fc22dc3831902184ae313bd04616e7c47a63332a56828f09245ee5",
+      "addon_sha256": {
+        "addon.gproj": "0dce0a611c22d9637ada6b161122ba002b86528f9dc0bbc14247ef83bd8218fc",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "b46e970e27ab324f331eea8c11fbba02b0ac539541843837b0304d2efd4df1e8",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_RenderTargetProbe.c": "8b9e3d8b0fbbb7b418fb8d0492f9f4846ac61cf225e219cbba09ea872ae0ed66",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_RT init root=128x128 target=1920x1080 scale=1 fsr=0",
+        "ENR_RT export accepted=0"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "bea2d6771ebd7dc10259d1e67954e503bd8682b9b48fdafd21ad0d1a6b677b85",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.940252901885864,
+        "rgb_mae_to_baseline": 2.0131080910011576,
+        "rgb_rmse_to_baseline": 6.534537365747178
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "render-target-v2",
+      "run_id": "20260909T014847-ff5847cecf",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "828d4b08a4b9f3c6ddce4960f46f091201fd3ed40959f987a6ea9b7c1131d35b",
+      "addon_sha256": {
+        "addon.gproj": "4eb067115aa7fbb8e8ebe8bb5a83d72a72f2ce9e3750f3f21ce12ff0958a3a5d",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "bcc4546051bdde9eb58c2362593b842219ded4f829bc90d1543576f5cd5e962b",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_RenderTargetProbe.c": "bc7f40f3dd5c40f431701b8fa02d78e6cffee0c63bb82be5bd58d5f9dbe33e36",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_RT init root=128x128 target=0x0 scale=1 fsr=0",
+        "ENR_RT export accepted=0 size=0x0 completed=0"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "6e13c8b71f304a16293a58b5801bdf231867ee022246b2a1e300e22c1b5d7c01",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.9356808034098965,
+        "rgb_mae_to_baseline": 1.279397876880787,
+        "rgb_rmse_to_baseline": 4.618837538873117
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "render-target-v3",
+      "run_id": "20260909T015044-a99b6246b9",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "f8cb9caefb415a2a8c6e5b514e6c32e91859bc01cd5909060f75ca38a1718fa2",
+      "addon_sha256": {
+        "addon.gproj": "28d8231eead4d9225fcbb842d24cebfe68b541e1eb611e896cccf77747ca324f",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "bcc4546051bdde9eb58c2362593b842219ded4f829bc90d1543576f5cd5e962b",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_RenderTargetProbe.c": "667ab5286ac5c98541e411162170849db7279963f894b67550af1921dbae8a73",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_RT init root=128x128 target=170.667x96 scale=1 fsr=0",
+        "ENR_RT export accepted=0 size=0x0 completed=0",
+        "ENR_RT geometry target=3413.33x1920 view=3413.33x1920 visible=1"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "f861ba836f50507ee1f7c0c302eea14c39978012e6f960ba0cf0019f25d810ed",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.938857952325127,
+        "rgb_mae_to_baseline": 0.9439874493634259,
+        "rgb_rmse_to_baseline": 3.714082475814555
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "render-target-v4",
+      "run_id": "20260909T015206-4e89e4fad2",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "b57717f72c8dd4b41734f2385f5c2e4461b1bea563b8d3a2b6d04358991b9d92",
+      "addon_sha256": {
+        "addon.gproj": "f9d0cdabf1ea8b65b7d70222d01f81fbd5776bed25f2ae0917bcd20cb4de1f65",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "bcc4546051bdde9eb58c2362593b842219ded4f829bc90d1543576f5cd5e962b",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_RenderTargetProbe.c": "c5f17a334dd26add668d0a5ea25e3275fec9cfaf40480313969b29612035c749",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_RT init root=2560x1440 target=2560x1440 scale=1 fsr=0",
+        "ENR_RT export accepted=0 size=2560x1440 completed=0",
+        "ENR_RT geometry target=2560x1440 view=2560x1440 visible=1",
+        "ENR_RT final root=2560x1440 native=2560x1440 rendering=128x128"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "e6be8409491f09a1b0f77bf07d2a039736bae29512fac920e044c0ad8d9624e3",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.938878757616545,
+        "rgb_mae_to_baseline": 0.3264944118923611,
+        "rgb_rmse_to_baseline": 1.7670296414086828
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "settled-workspace-low",
+      "run_id": "20260909T015322-4a33f6498c",
+      "command": "validate",
+      "capture_or_validation_status": "failed",
+      "run_manifest_sha256": "e78584fb9f65818e1ffc791b9f451fb09730dc2ed373b9ec0e905138ab6d92f7",
+      "addon_sha256": {
+        "addon.gproj": "f3138f9c6ced1ff2a074106a75ac806675aba65eee47337c3b1b1f63613ce092",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "383377b5e3d1767fa7caecadbb4dfb3e8b79702405f9dc9416da15d40cb998ba",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [],
+      "texture_export_present": false,
+      "compile_errors": [
+        "(E): @\"Scripts/Game/ELab_GameCapture.c,97\": Multiple declaration of variable 'current'",
+        "(E): @\"Scripts/Game/ELab_GameCapture.c,100\": Undefined function 'WorkspaceWidget.GetStateName'",
+        "(E): @\"Scripts/Game/ScenarioFramework/Actions/ActionGetters/SCR_ScenarioFrameworkGetCountEntitiesInTrigger.c,10\": Can't find class SCR_ScenarioFrameworkParam",
+        "(E): @\"Scripts/Game/ScenarioFramework/Actions/ActionGetters/SCR_ScenarioFrameworkGetLastFinishedTaskLayer.c,11\": Can't find class SCR_ScenarioFrameworkParam",
+        "(E): @\"Scripts/Game/UI/Components/SCR_SpinningWidgetComponent.c,25\": Can't find class SCR_SpinningWidgetAnimation",
+        "(E): @\"Scripts/Game/UI/Components/SCR_SpinningWidgetComponent.c,27\": Can't find class SCR_SpinningWidgetAnimation"
+      ]
+    },
+    {
+      "local_experiment": "settled-workspace-low-b",
+      "run_id": "20260909T015402-821e7d51ef",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "699ac7fe66186832d347a4c8d0ea6bc79b78acfd5691ad3eafd7242893e68388",
+      "addon_sha256": {
+        "addon.gproj": "5cbb31c21a11f7b615c70c0c2379936e5047f940ae148e5864b77fbdaea66c49",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "2107cae8371fe075ee98eff2d62d40b18e9e7b356abefb717fa5a298e7fdeb7c",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_WS workspace=2560x1440 native=2560x1440 rendering=128x128 scale=0.25 fsr=0"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "ad6670c375b75b585635dd34cb088ebdcfbbf2b124755ee8f95636e0b3464834",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.94580031624043,
+        "rgb_mae_to_baseline": 1.9738426830150464,
+        "rgb_rmse_to_baseline": 6.366911363587263
+      },
+      "texture_export_present": false
+    },
+    {
+      "local_experiment": "viewport-reproducer-v1",
+      "run_id": "20260909T015702-27e38a64e4",
+      "command": "capture",
+      "capture_or_validation_status": "succeeded",
+      "run_manifest_sha256": "b0a41ea47f63d01c2a8a3d5e4506f2d9e07c905e7eb72d8fa2179cd7eddacdb2",
+      "addon_sha256": {
+        "addon.gproj": "f268c89a2a65b91df3d3a12afc76eac9de1912dc05bf5f99963de544432b2018",
+        "ENR_Diag.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ENR_Engine.conf": "becd27ca61a79f5098f0f6ddeaf186c623242cc1b8201ba2396d55f37c34c642",
+        "ENR_Workbench.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Scripts/Game/ELab_GameCapture.c": "2107cae8371fe075ee98eff2d62d40b18e9e7b356abefb717fa5a298e7fdeb7c",
+        "Scripts/Game/ENR_ReferenceConfig.c": "d57e496750ac50b066c683a4c6625a365e5eb8be1c0732c2f1861a92e9e977ce",
+        "Scripts/Game/ENR_Sequence.c": "fe7d296da317fb39d163b95aaf815990c66edda24fa271c9f6d1f6e9eb94e9d9",
+        "Scripts/Game/ENR_SequenceConfig.c": "9a696f56f0c86307479250771b48d5378615f48c49129482952b4e7f3d595ca4",
+        "Scripts/Game/ENR_Settings.c": "05e71a36935bdcebbd4e68018ddcc25739fb9e94b1ca51fdaad9328fe5aa425e",
+        "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "081b5c863f9eb214a0b97a81f41cacab9d7a6bff62b6eab2f21a010b6b9cf179"
+      },
+      "diagnostic_preset": "",
+      "probe_telemetry": [
+        "ENR_WS workspace=2560x1440 native=2560x1440 rendering=128x128 scale=0.25 fsr=0"
+      ],
+      "sequence_contract": {
+        "status": "succeeded"
+      },
+      "image": {
+        "sha256": "118d62a1f614d03adc13441891da66c05e5aa70fe47535cc705aeee8df0f5c54",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "all_rgb_zero": false,
+        "horizontal_rgb_gradient_mae": 4.937760880262834,
+        "rgb_mae_to_baseline": 0.45038438585069446,
+        "rgb_rmse_to_baseline": 2.2371094823638327
+      },
+      "texture_export_present": false
+    }
+  ],
+  "conclusions": [
+    "The Render world diagnostic positive control produces an all-black full-size screenshot: the isolated diagnostic file is loaded. Its sequence exposure check fails as expected; this is not an accepted scene capture.",
+    "Named 50% scale and FSR on/off presets do not establish a resolution or FSR effect in the main viewport. Numeric diagnostic values are investigation inputs, not validated configuration semantics.",
+    "The game workspace starts at 128x128 but reports 2560x1440 after settling. System.GetRenderingResolution still reports 128x128. Repeatedly applying workspace scale 0.25 and FSR false after startup does not establish a corresponding change in the exported scene.",
+    "A deferred RTTextureWidget setup reports 2560x1440 texture dimensions and explicit scale/FSR values. ImageWidget.GetTextureRawData returns false and no texture file is exported. No offscreen export bridge is verified.",
+    "Existing static/motion captures remain diagnostic data with unverified internal scale and FSR."
+  ]
+}

@@ -29,7 +29,7 @@ The [follow-up hosted run](https://github.com/ethan03805/enfusion-neural/actions
 
 ## Learning result
 
-Training fits all network weights on the local CPU with seed 7, 1,200 Adam steps and original procedural data. Train scene seeds are 0â€“11; validation scenes 100â€“103; test scenes 200â€“203. No game captures, photographs or downloaded model weights were used in training.
+Training fits all network weights on the local CPU with seed 7, 1,200 Adam steps and original procedural data. Train scene seeds are 0–11; validation scenes 100–103; test scenes 200–203. No game captures, photographs or downloaded model weights were used in training.
 
 | Held-out scene | Bicubic PSNR | Neural PSNR |
 | --- | --- | --- |
@@ -57,6 +57,8 @@ Live integration, linear/HDR scene color, depth, motion vectors, material buffer
 ## Camera path and synthetic reference
 
 The [capture controls](capture-controls.md) report three checked static repeats, an earlier probe batch and the unresolved viewport scale/FSR issue. Final pairwise RGB MAE is 0.379–0.891; earlier probes reached 2.358. Every pair has estimated integer translation [0,0], which does not establish deterministic foliage.
+
+The [viewport investigation](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/viewport-probes-v1.json) records a successful diagnostic save and a black-frame control proving that the settings file loads. Scale/FSR presets and settled workspace controls remain unverified for the main viewport; the separate texture-export callback returned false. Fourteen investigation runs, including failed attempts, remain traceable in the report.
 
 The [motion comparison](comparisons.md#motion) contains 80 paired source/GPU frames. All pass the independent CPU reference with maximum RGB error of one 8-bit value and exact alpha. A four-second, 20 FPS encoded clip is retimed from a sequence spanning 21.762 simulation seconds; offline processing and CPU checks took 116.641 seconds. See the [full frame and video record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/motion-v1.json).
 

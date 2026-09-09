@@ -34,7 +34,9 @@ Use the prepared environment with the documented dependencies. Reviewed manifest
 
 ## Next task
 
-Resolve internal Workbench viewport render scale and FSR. Stored engine settings describe a separate preview workspace and are insufficient proof. Export and inspect the viewport diagnostic settings, apply a positive control that visibly changes resolution/FSR behavior, then capture three repeats with the accepted override. Do not relabel current captures as fully pinned. See [capture controls](capture-controls.md).
+Resolve internal Workbench viewport render scale and FSR. The diagnostic save succeeded, and a black-frame control confirms that the isolated file loads. Neither the diagnostic scale presets nor the settled workspace controls established the required viewport effect. The separate render-target callback rejected export. See [capture controls](capture-controls.md#diagnostic-investigation) and `evidence/viewport-probes-v1.json` before repeating these attempts.
+
+Next acceptance criteria: identify a supported setting or diagnostic that belongs to the main viewport, obtain its effective internal dimensions and FSR state, then demonstrate a corresponding image change with a reduced-resolution control. Only after that should a full-resolution, FSR-disabled preset receive three independent repeat captures. `scripts/probe_viewport.py` reproduces the current unresolved probes; its successful exit means the investigation ran, not that viewport controls were verified.
 
 Next, import the original material-room geometry into an isolated Enfusion scene and validate matching camera, materials, light and color conventions before using engine/reference pairs for training. The accepted synthetic pair only validates the reference-generation method. See [material room](material-room.md) and [roadmap gate 02](roadmap.md#02-reference-scenes-and-appearance-data). The supported renderer bridge remains a separate research task.
 
