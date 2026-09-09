@@ -371,6 +371,90 @@
       "source_artifact": "experiments/local/lighting-motion-video-v1b/new-room/frame-0016.png",
       "transformation": "three unchanged display images concatenated with 32px label band; no scaling",
       "license": "MIT; original scene and trained model"
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-scene-poster.png",
+      "sha256": "73d9cc6f2dbd3497631687d5d5d9e49b2623ef4ba1b98d11ed643492f9944f1e",
+      "bytes": 364408,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-scene/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-relative-poster.png",
+      "sha256": "5628f185fc39cb3cf2f19bc22030d28ecffadaa8979957eb6c4ab93be8176421",
+      "bytes": 365361,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-relative/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-rgb-poster.png",
+      "sha256": "1d443276e8f4505148c08e39028e4562b1013b042112cd6dd1aac03776595347",
+      "bytes": 365688,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-rgb/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-scene-poster.png",
+      "sha256": "d292aa53a9d24f4372c0391384aa9325e726d3173633c320c0bc097247a2b93f",
+      "bytes": 340041,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-scene/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-relative-poster.png",
+      "sha256": "711ed9de1177558e2c59c78f10323b9e5fea7482b446b97c3a45825bb2501aee",
+      "bytes": 341363,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-relative/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
+    },
+    {
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-rgb-poster.png",
+      "sha256": "dc247c52065c8260f757cbe9305165b5652c8e75e846804ec4dece20a1a1f286",
+      "bytes": 341657,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "role": "source / model / independent-reference regression poster",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-rgb/frame-0016.png",
+      "transformation": "Three unchanged 480x270 display images concatenated with a 32px label band above; no scaling."
     }
   ],
   "videos": [
@@ -424,6 +508,102 @@
       "source_artifact": "experiments/local/lighting-motion-video-v1b/new-room.mp4",
       "transformation": "Source, frozen model and independent reference concatenated horizontally at original resolution; 32px label band added above images. H.264 encoding changes pixels. No interpolation, scaling, dropped frames or retiming.",
       "license": "MIT; original scene and trained model"
+    },
+    {
+      "sha256": "6af75e378122ac5978908ce2f02ce5d6cb3bc414dfddd6f3392f76ac489a7d44",
+      "bytes": 220885,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-scene.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-scene.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
+    },
+    {
+      "sha256": "a77cf34b284cefd5bd60bf1d0c2ab0e9f1ee859dbd7b4d0f6d4b8040d4871d18",
+      "bytes": 220660,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-relative.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-relative.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
+    },
+    {
+      "sha256": "a8c0b187b890a4e3c853a2756a0a356c3da537dcbe99c5c2863c8ff99a0994ac",
+      "bytes": 219053,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-known-room-rgb.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/known-room-rgb.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
+    },
+    {
+      "sha256": "0174b63c28c6111c0e731a27042b4ed42769bc0b2d116f5de940ea3f279cfe77",
+      "bytes": 213228,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-scene.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-scene.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
+    },
+    {
+      "sha256": "918d5f682ce29a2249aeacbf295fdd6741f902ceb844ce5f927a644016e8633d",
+      "bytes": 215687,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-relative.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-relative.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
+    },
+    {
+      "sha256": "f666b6c9552a99c1a0f6c4b844f5c60a2728c9c410345022378eef2d57a05314",
+      "bytes": 215318,
+      "dimensions": [
+        1440,
+        302
+      ],
+      "frames": 32,
+      "playback_fps": 20,
+      "duration_seconds": 1.6,
+      "source_record": "evidence/lighting-diversity-regression-video-v1.json",
+      "license": "MIT; original scene and trained model",
+      "file": "diversity-new-room-rgb.mp4",
+      "source_artifact": "experiments/local/lighting-diversity-regression-v1-videos/new-room-rgb.mp4",
+      "transformation": "Original 480x270 panels concatenated horizontally with 32px labels above. H.264 CRF16 yuv420p alters pixels. No scaling, interpolation, dropped frames, retiming or audio. Offline playback cadence is not inference speed."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 9 September 2026. Milestone: frozen-model scene transfer and camera/light motion evaluation. Read [objectives](vision.md) before choosing the next model or performance target.
+Updated 9 September 2026. Milestone: disjoint scene-diversity training, locked input variants and completed regression evaluation. The untouched test and Enfusion integration proof remain in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
 ## Implemented and checked
 
@@ -11,11 +11,11 @@ Updated 9 September 2026. Milestone: frozen-model scene transfer and camera/ligh
 - Enfusion Lab doctor, isolated addon compile validation and visually inspected Arland capture.
 - Three diagnostic scene variants with explicit camera, date, time, weather and wind controls; nine independent captures and all nine pairwise comparisons.
 - Telemetry and image-hash checks, dataset-group split validation, unaligned image errors and a bounded integer alignment estimate.
-- Nineteen-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
+- Twenty-page Markdown documentation site with system/light/dark themes, still comparisons and synchronized videos; shared agent/human protocol, Linux CPU CI, Windows build/smoke workflow and GitHub Pages deployment workflow.
 - Eighty camera-path samples at 2560 × 1440, each with a GPU output checked against the independent CPU reference. One encoded stream keeps before/after playback synchronized. It is a retimed offline sequence, not live performance.
 - Camera projection, exposure, environment and selected engine settings readback checks. Three final static repeats and an earlier probe batch remain documented, including nonzero pixel differences.
 - Original material room generated with Blender Cycles, limited-bounce source, multi-bounce reference and independent-seed noise check. Exact source/reference depth and object-ID agreement; scene-linear RGBA and auxiliary EXR passes retained locally. This is synthetic data, not an Enfusion/reference pair.
-- Twenty-four reviewed PNGs and three videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
+- Thirty reviewed PNGs and nine videos with source records, hashes and attribution. Scaling, label bands and compression are recorded for each video/poster; original source/model frame PNGs remain available.
 - Eighteen original lighting cases with paired diffuse-bounce controls, 12 training/two validation/three test/one stress splits within one scene group, and two independent-seed reference checks. A 1,827-parameter scene-conditioned CPU model beats RGB-only and affine controls on the three test cases. Weights, gradients, serialization, features and partitioned inference are checked. See [lighting study](lighting-study.md); no game-frame saving or temporal fidelity is established.
 - Read-only [technical feasibility review](feasibility.md) of installed SDK declarations, asset-specific representations, photographs and data-use scope. Material replacement is documented; native scene buffers and output composition remain unverified.
 - [Frozen-model scene transfer and motion](lighting-motion.md): 32 frames in the original room and 32 in a new partitioned room, with an independent reference at every frame. No fitting or checkpoint selection on these paths. The scene-conditioned model lowers average error but loses to RGB-only on the new layout and worsens marking contrast. Mean temporal changes are too small relative to sampling noise to establish meaningful stability. Two synchronized source/model/reference clips and the preselected frame-16 stills are published.
@@ -35,7 +35,21 @@ python scripts/build_docs.py
 
 Use the prepared environment with the documented dependencies. Reviewed manifests live in `evidence/`. Local captures and full raw workspaces are ignored under `experiments/local/` and `runs/`. The bootstrap training record lives inside `models/bootstrap-v0.json`.
 
-## Next task
+## Active experiment
+
+The [scene-diversity comparison](lighting-diversity.md) has completed 48 training and 12 validation cases across five original layouts, followed by three fixed-budget fits and two affine controls. Validation selected the full-input candidate. `models/lighting-diversity-v1/model-lock.json` was committed before the cross-courtyard test began rendering. Do not retrain, change samples or thresholds, or select a different candidate from test/regression results.
+
+Both published 32-frame paths have been evaluated with all new and old controls. The full-input candidate improves average error, boundaries/posts and marking contrast relative to the source on the partitioned regression. It remains worse than the old specialized model on the original room; that room has no marking panel. Six complete regression clips and all frame metrics are retained. No temporal improvement is established.
+
+Next: finish the unchanged 48-frame test at 8,192 samples for each of source, paired reference and independent reference; evaluate with `--scope test`, verify display conversion, apply the declared gates and publish all three complete comparison clips and failures. Use `experiments/local/lighting-diversity-test-v1/run.json` and its live owned process to distinguish progress from failure. An observation timeout is not permission to restart the render. Serialize GPU experiments.
+
+The completed local fit is `experiments/local/lighting-diversity-fit-v1/`; CPU model fitting is `experiments/local/lighting-diversity-models-v1/`; regressions are `experiments/local/lighting-diversity-regression-v1/` and `experiments/local/lighting-diversity-regression-v1-videos/`. Portable reports are `evidence/lighting-diversity-fit-v1.json`, `evidence/lighting-diversity-regression-v1.json` and `evidence/lighting-diversity-regression-video-v1.json`. All 41 CPU tests pass at this milestone; the lighting graph has no native GPU implementation.
+
+Three read-only Workbench resource probes compiled and completed before the test render. `evidence/enfusion-resource-probes-v1.json` records their hashes and counts. Resource names and map locations are available; no live neural bridge was proven. The new `scripts/probe_enfusion_image_bridge.py` and `ENR_ImageBridge.c` prototype is **not yet compiled or exercised in Workbench**. Its external CPU identity, inversion and bootstrap-model controls pass numerical file tests. Run it after the GPU render, first with `--mode copy`, then identity/inversion only as actual API results justify. A successful screenshot/UI roundtrip would still leave the lighting model's scene buffers and presentation contract unresolved.
+
+The active goal also requires varied actual Arma tests, including cities, interiors, vegetation, vehicles, characters and objects. Resource discovery is preparation, not coverage. These captures and the supported integration proof remain required; synthetic results cannot close them.
+
+## Original acceptance
 
 Design a scene-diversity and input-ablation experiment. Add multiple original training layouts and reserve a new untouched scene for evaluation. Compare the current feature contract with an ablation that excludes absolute world position under the same training budget. Keep current weights and both published motion paths as regression controls; these paths have now been inspected and must not serve as the sole unseen test for the next model.
 

@@ -63,3 +63,9 @@ The resulting lighting graph is independent of the v0 D3D12 bootstrap. It has a 
 Accepted 9 September 2026. Commit the path, new geometric layout, model hashes and publication frame before rendering. Evaluate the existing models without training on the new sequences. Produce an independent reference at every frame and measure changes in reconstruction error on matched static surfaces. Preserve boundary, unmatched-region and marking-contrast metrics rather than inferring fidelity from whole-image averages.
 
 The [result](lighting-motion.md) narrows the claim: average error improves, but the scene-conditioned model loses to RGB-only on the new layout and worsens marking contrast. Tiny mean temporal differences do not establish perceptual stability. The next model experiment needs scene diversity, a further untouched test scene and explicit input/contrast checks; the published paths become regression data.
+
+## 014 · Separate layout selection from final evaluation
+
+Accepted 9 September 2026. Declare four training layouts, one validation layout and one untouched test layout before rendering. Compare full scene inputs, no absolute world position and RGB-only with identical sampled pixels and optimizer steps. Input-layer capacities differ explicitly. Select checkpoints and the candidate using validation only, then commit a lock before test rendering. Keep both published paths and old models as regression controls.
+
+Require source and affine-baseline improvement, source-relative boundary/post and marking-contrast limits, temporal non-regression and a reference-seed sensitivity check. Render all test roles at 8,192 samples and publish complete clips and failures. Current regression results improve the partitioned scene but do not replace the untouched test or the independent Enfusion integration requirement.
