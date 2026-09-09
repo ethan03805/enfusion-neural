@@ -1,0 +1,726 @@
+{
+  "schema_version": 1,
+  "operation": "renderer-interface-review",
+  "reviewed_date": "2026-09-09",
+  "status": "review_complete_integration_unverified",
+  "inventory_report_sha256": "9cac2a8d9fc656cad28578355f53b2a7eb130daa0b1a7243d8e1d86a20b824de",
+  "inventory": {
+    "schema_version": 1,
+    "operation": "documented-renderer-member-inventory",
+    "status": "succeeded",
+    "scanner_sha256": "a0ace3b85da2a64209fc428106e31d0363426c94038f71ef37fdfdb2696ceb26",
+    "scope": "Two installed generated interface-member index sets and their full interface HTML documents, including static methods omitted from indexes. This is neither a complete engine API nor a runtime capability test.",
+    "roots": [
+      {
+        "root": "EnfusionScriptAPI/html",
+        "member_index_files": 635,
+        "documented_members": 4817
+      },
+      {
+        "root": "ArmaReforgerScriptAPIPublic/html",
+        "member_index_files": 6006,
+        "documented_members": 60065
+      }
+    ],
+    "search_expressions": {
+      "custom_gpu": "ComputeShader|DispatchCompute|CompileShader|D3D|Vulkan|RenderDevice|CommandQueue|CommandBuffer|GraphicsFence|GPUFence|GBuffer|MotionVector|SharedTexture|NativeTexture",
+      "render_and_pixels": "RenderTarget|RenderView|RawData|Screenshot|CameraPostProcess|TextureResource|Shader"
+    },
+    "matches": {
+      "custom_gpu": [
+        {
+          "interface": "interfaceSCR__AutotestPrinter",
+          "member": "m_mLogBuffer",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__AutotestPrinter.html#ac3431f93a9532ee077635b377e52233e"
+        }
+      ],
+      "render_and_pixels": [
+        {
+          "interface": "interfaceBaseWorld",
+          "member": "SetCameraPostProcessEffect",
+          "documentation": "EnfusionScriptAPI/html/interfaceBaseWorld.html#aa0dab953c87f5fcf0c7d0abb7902b3a5"
+        },
+        {
+          "interface": "interfaceExportTextureResourceRequest",
+          "member": "ExportTextureResourceRequest",
+          "documentation": "EnfusionScriptAPI/html/interfaceExportTextureResourceRequest.html#a696bd170f4a7bd3a1d404de4d718e3e6"
+        },
+        {
+          "interface": "interfaceImageWidget",
+          "member": "GetTextureRawData",
+          "documentation": "EnfusionScriptAPI/html/interfaceImageWidget.html#a90f6d6f23160714e27471da61cbe2ffb"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "RemoveRenderTarget",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#a87cd1d518f9f74f94c465e483afc0db3"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "SetRenderTarget",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#ae0d40fd799416aa2c9be408821c912ea"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "SetRenderView",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#a01c5e8dafeeb57fa766cddbfe49b3490"
+        },
+        {
+          "interface": "interfaceScreenshot__Autotest",
+          "member": "Screenshot_Autotest",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Autotest.html#a3ec927da7b63590b6cf47897a3cdb730"
+        },
+        {
+          "interface": "interfaceScreenshot__Autotest",
+          "member": "~Screenshot_Autotest",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Autotest.html#a71fad2f905dc4579511337ed284a684b"
+        },
+        {
+          "interface": "interfaceScreenshot__Waypoint",
+          "member": "Screenshot_Waypoint",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Waypoint.html#af421d8d53b026ec069b9024235f376c3"
+        },
+        {
+          "interface": "interfaceScreenshot__Waypoint",
+          "member": "~Screenshot_Waypoint",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Waypoint.html#a45dd2ba167abd494d241c037ff7766d4"
+        },
+        {
+          "interface": "interfaceTextureResourceInfo",
+          "member": "TextureResourceInfo",
+          "documentation": "EnfusionScriptAPI/html/interfaceTextureResourceInfo.html#aea806a6aaefcedb4afe5358f226b2ac9"
+        },
+        {
+          "interface": "interfaceWorkshopAsset",
+          "member": "GetScreenshots",
+          "documentation": "EnfusionScriptAPI/html/interfaceWorkshopAsset.html#aceba164008e6d63c761a2684bbc89715"
+        },
+        {
+          "interface": "interfaceWorldSaveManifest",
+          "member": "m_aScreenshots",
+          "documentation": "EnfusionScriptAPI/html/interfaceWorldSaveManifest.html#a8e0faa7a4dc45071c1b5a2c417e1147e"
+        },
+        {
+          "interface": "interfaceSCR__2DPIPSightsComponent",
+          "member": "m_wRenderTargetTextureWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__2DPIPSightsComponent.html#a405071b185d718b4942af667bc8093ce"
+        },
+        {
+          "interface": "interfaceSCR__2DPIPSightsComponent",
+          "member": "m_wRenderTargetWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__2DPIPSightsComponent.html#af848b0c5af464f98aed32abc53f4d2ea"
+        },
+        {
+          "interface": "interfaceSCR__CameraPostProcessEffect",
+          "member": "~SCR_CameraPostProcessEffect",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__CameraPostProcessEffect.html#a61a5081dd9e542026a6e6af90c49f16d"
+        },
+        {
+          "interface": "interfaceSCR__DataDisplayGadgetComponent",
+          "member": "ClearRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__DataDisplayGadgetComponent.html#a1c7484755ec75b4afc03a830654f9c96"
+        },
+        {
+          "interface": "interfaceSCR__DataDisplayGadgetComponent",
+          "member": "InitializeRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__DataDisplayGadgetComponent.html#a6cb7d73f504f4092f3d4430e55383a4f"
+        },
+        {
+          "interface": "interfaceSCR__EditorImageGeneratorEntity",
+          "member": "m_bIsScreenshotMade",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__EditorImageGeneratorEntity.html#aafbdfba8b87c7b618e4676ade5dd83a8"
+        },
+        {
+          "interface": "interfaceSCR__MapRTWBaseUI",
+          "member": "m_wRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__MapRTWBaseUI.html#a5858369c9e7f117423bf31fb40105c8f"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnMakeScreenshot",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a90a2f74092c2fd788e85a6c51894baf1"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshot",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a16fa4704ad8fedadc8eb24329684c01f"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshotUseDialogCancel",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#ae3560360dfdec3650c6c2a754df284a7"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshotUseDialogConfirm",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#afa6a8bc232eeeccfcd2e630697179efe"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_sConfirmScreenshotAction",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#afc8a3fc77f1a032ac6d02b8165ba8de1"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_sConfirmScreenshotDialogTag",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a9023014ff0063e00ecf596785ebc06bc"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_UseScreenshotDialog",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a59765df4f38a71ed401af45dff1859d1"
+        },
+        {
+          "interface": "interfaceSCR__PIPSightsComponent",
+          "member": "m_wRenderTargetTextureWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PIPSightsComponent.html#a23f7ff5655fda8f6b5d5ba420437a5c6"
+        },
+        {
+          "interface": "interfaceSCR__PIPSightsComponent",
+          "member": "m_wRenderTargetWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PIPSightsComponent.html#a1ae45f93fa3b7366c1536acb7beedfdd"
+        },
+        {
+          "interface": "interfaceSCR__TakeScreenshotDebugToolbarAction",
+          "member": "m_wScreenshotDebug",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__TakeScreenshotDebugToolbarAction.html#a86b234b3a31911019aff5e0c599783d9"
+        }
+      ]
+    },
+    "member_index_manifest_sha256": "fa46329a5bdbdb41d37f3787a8528432de6f177007b9b24155dff7aceb009074",
+    "full_html_roots": [
+      {
+        "root": "EnfusionScriptAPI/html",
+        "full_interface_files": 899,
+        "own_member_rows": 5853
+      },
+      {
+        "root": "ArmaReforgerScriptAPIPublic/html",
+        "full_interface_files": 8085,
+        "own_member_rows": 67894
+      }
+    ],
+    "full_html_matches": {
+      "custom_gpu": [
+        {
+          "interface": "interfaceSCR__AutotestPrinter",
+          "member": "m_mLogBuffer",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__AutotestPrinter.html#ac3431f93a9532ee077635b377e52233e"
+        },
+        {
+          "interface": "interfaceSCR__ObstacleDetectorSplineInfo",
+          "member": "GetPoints2D3D",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__ObstacleDetectorSplineInfo.html#aa7bbff29ddebaa0d18a5fafd6bf58753"
+        }
+      ],
+      "render_and_pixels": [
+        {
+          "interface": "interfaceBaseWorld",
+          "member": "SetCameraPostProcessEffect",
+          "documentation": "EnfusionScriptAPI/html/interfaceBaseWorld.html#aa0dab953c87f5fcf0c7d0abb7902b3a5"
+        },
+        {
+          "interface": "interfaceExportTextureResourceRequest",
+          "member": "ExportTextureResourceRequest",
+          "documentation": "EnfusionScriptAPI/html/interfaceExportTextureResourceRequest.html#a696bd170f4a7bd3a1d404de4d718e3e6"
+        },
+        {
+          "interface": "interfaceImageWidget",
+          "member": "GetTextureRawData",
+          "documentation": "EnfusionScriptAPI/html/interfaceImageWidget.html#a90f6d6f23160714e27471da61cbe2ffb"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "SetRenderTarget",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#ae0d40fd799416aa2c9be408821c912ea"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "RemoveRenderTarget",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#a87cd1d518f9f74f94c465e483afc0db3"
+        },
+        {
+          "interface": "interfaceRTTextureWidget",
+          "member": "SetRenderView",
+          "documentation": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html#a01c5e8dafeeb57fa766cddbfe49b3490"
+        },
+        {
+          "interface": "interfaceScreenshot__Autotest",
+          "member": "Screenshot_Autotest",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Autotest.html#a3ec927da7b63590b6cf47897a3cdb730"
+        },
+        {
+          "interface": "interfaceScreenshot__Autotest",
+          "member": "~Screenshot_Autotest",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Autotest.html#a71fad2f905dc4579511337ed284a684b"
+        },
+        {
+          "interface": "interfaceScreenshot__Waypoint",
+          "member": "Screenshot_Waypoint",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Waypoint.html#af421d8d53b026ec069b9024235f376c3"
+        },
+        {
+          "interface": "interfaceScreenshot__Waypoint",
+          "member": "~Screenshot_Waypoint",
+          "documentation": "EnfusionScriptAPI/html/interfaceScreenshot__Waypoint.html#a45dd2ba167abd494d241c037ff7766d4"
+        },
+        {
+          "interface": "interfaceSystem",
+          "member": "MakeScreenshot",
+          "documentation": "EnfusionScriptAPI/html/interfaceSystem.html#a2fd980de9e554205d1fc7d4a7a03e3ee"
+        },
+        {
+          "interface": "interfaceSystem",
+          "member": "MakeScreenshotRawData",
+          "documentation": "EnfusionScriptAPI/html/interfaceSystem.html#afff62aabe5ff0db70cba189077621da6"
+        },
+        {
+          "interface": "interfaceSystem",
+          "member": "MakeScreenshotTexture",
+          "documentation": "EnfusionScriptAPI/html/interfaceSystem.html#ac19bfcc65c764767d80af6b1768454cb"
+        },
+        {
+          "interface": "interfaceTextureResourceInfo",
+          "member": "TextureResourceInfo",
+          "documentation": "EnfusionScriptAPI/html/interfaceTextureResourceInfo.html#aea806a6aaefcedb4afe5358f226b2ac9"
+        },
+        {
+          "interface": "interfaceWidgetType",
+          "member": "RenderTargetWidgetTypeID",
+          "documentation": "EnfusionScriptAPI/html/interfaceWidgetType.html#aae9b893ae5a44d5e4a1b1c414642e5e7"
+        },
+        {
+          "interface": "interfaceWorkbench",
+          "member": "SavePixelRawData",
+          "documentation": "EnfusionScriptAPI/html/interfaceWorkbench.html#acdab133c87f9936f66bec4f34a85005c"
+        },
+        {
+          "interface": "interfaceWorkshopAsset",
+          "member": "GetScreenshots",
+          "documentation": "EnfusionScriptAPI/html/interfaceWorkshopAsset.html#aceba164008e6d63c761a2684bbc89715"
+        },
+        {
+          "interface": "interfaceWorldSaveManifest",
+          "member": "m_aScreenshots",
+          "documentation": "EnfusionScriptAPI/html/interfaceWorldSaveManifest.html#a8e0faa7a4dc45071c1b5a2c417e1147e"
+        },
+        {
+          "interface": "interfaceSCR__2DPIPSightsComponent",
+          "member": "m_wRenderTargetTextureWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__2DPIPSightsComponent.html#a405071b185d718b4942af667bc8093ce"
+        },
+        {
+          "interface": "interfaceSCR__2DPIPSightsComponent",
+          "member": "m_wRenderTargetWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__2DPIPSightsComponent.html#af848b0c5af464f98aed32abc53f4d2ea"
+        },
+        {
+          "interface": "interfaceSCR__CameraPostProcessEffect",
+          "member": "~SCR_CameraPostProcessEffect",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__CameraPostProcessEffect.html#a61a5081dd9e542026a6e6af90c49f16d"
+        },
+        {
+          "interface": "interfaceSCR__DataDisplayGadgetComponent",
+          "member": "InitializeRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__DataDisplayGadgetComponent.html#a6cb7d73f504f4092f3d4430e55383a4f"
+        },
+        {
+          "interface": "interfaceSCR__DataDisplayGadgetComponent",
+          "member": "ClearRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__DataDisplayGadgetComponent.html#a1c7484755ec75b4afc03a830654f9c96"
+        },
+        {
+          "interface": "interfaceSCR__EditorImageGeneratorEntity",
+          "member": "m_bIsScreenshotMade",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__EditorImageGeneratorEntity.html#aafbdfba8b87c7b618e4676ade5dd83a8"
+        },
+        {
+          "interface": "interfaceSCR__ImageHelper",
+          "member": "GetTextureRawDataCallbackMethod",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__ImageHelper.html#aab65d3a594d1e32200c38d9948c8963b"
+        },
+        {
+          "interface": "interfaceSCR__MapRTWBaseUI",
+          "member": "m_wRenderTarget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__MapRTWBaseUI.html#a5858369c9e7f117423bf31fb40105c8f"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnMakeScreenshot",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a90a2f74092c2fd788e85a6c51894baf1"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshot",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a16fa4704ad8fedadc8eb24329684c01f"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshotUseDialogConfirm",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#afa6a8bc232eeeccfcd2e630697179efe"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshotUseDialogCancel",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#ae3560360dfdec3650c6c2a754df284a7"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnMakeScreenshotDebug",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a2595144a9927c2a384bb2854c5c35daf"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "OnScreenshotDebug",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a7abe3c752acdf86ffdb47d28e3e62ddd"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_sConfirmScreenshotDialogTag",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a9023014ff0063e00ecf596785ebc06bc"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_sConfirmScreenshotAction",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#afc8a3fc77f1a032ac6d02b8165ba8de1"
+        },
+        {
+          "interface": "interfaceSCR__PhotoSaveModeEditorUIComponent",
+          "member": "m_UseScreenshotDialog",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PhotoSaveModeEditorUIComponent.html#a59765df4f38a71ed401af45dff1859d1"
+        },
+        {
+          "interface": "interfaceSCR__PIPSightsComponent",
+          "member": "m_wRenderTargetTextureWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PIPSightsComponent.html#a23f7ff5655fda8f6b5d5ba420437a5c6"
+        },
+        {
+          "interface": "interfaceSCR__PIPSightsComponent",
+          "member": "m_wRenderTargetWidget",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__PIPSightsComponent.html#a1ae45f93fa3b7366c1536acb7beedfdd"
+        },
+        {
+          "interface": "interfaceSCR__TakeScreenshotDebugToolbarAction",
+          "member": "m_wScreenshotDebug",
+          "documentation": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__TakeScreenshotDebugToolbarAction.html#a86b234b3a31911019aff5e0c599783d9"
+        }
+      ]
+    },
+    "full_html_manifest_sha256": "b77eb22b289b08bf09602bcf72485ccda29141346f5856322a023c847a500f53",
+    "static_method_controls": {
+      "interfaceMaterial.Create": true,
+      "interfaceSystem.MakeScreenshot": true
+    },
+    "source_encoding_anomalies": [
+      {
+        "file": "ArmaReforgerScriptAPIPublic/html/interfacePersistentDamageEffect.html",
+        "sha256": "ad337e234c7352a6702a01fcaa096d5d51ffb1c43e9341743744829c5188f4b2",
+        "first_invalid_byte_offset": 30317,
+        "byte": "b4"
+      }
+    ],
+    "selected_full_documentation": [
+      {
+        "file": "EnfusionScriptAPI/html/interfaceBaseWorld.html",
+        "sha256": "cbcb36ba62bd8a0731ea46701bdbf06cf764b00644487a981ba2cfcbe0429282",
+        "bytes": 114342
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceMaterial.html",
+        "sha256": "28f81b583422fadcb3ec35f043d6a211a0d1ea4ed4956a14c487cb3a8c941fb8",
+        "bytes": 20294
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceRenderTargetWidget.html",
+        "sha256": "61de5b4a0dc7af954def8e61aa2a870c77e684e05377b4a136bf4d9e5e5a149c",
+        "bytes": 46858
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html",
+        "sha256": "af9141774584f07813c4e9962a8e9ad4f412c082af4598ab30b7fb7d986ede41",
+        "bytes": 47407
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceImageWidget.html",
+        "sha256": "1745131bfafdd2a17e5cc4f0ca3eb15708121668948d1924062e1545ff2002ff",
+        "bytes": 79663
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceSystem.html",
+        "sha256": "8dd89af37df55914a074d500300f2ac4e9f3fceae696b5a620c3e7a2175c3116",
+        "bytes": 67713
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceResourceManager.html",
+        "sha256": "c9dc9088b5dbe1437e25b630e927a35a1f287900cc5b5b5692eb0a69cd653995",
+        "bytes": 23326
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceTextureResourceInfo.html",
+        "sha256": "56162d46ffc4afcb8525d5617eaf4f654c968b26d7869ed571018980071f685d",
+        "bytes": 34045
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceExportTextureResourceRequest.html",
+        "sha256": "2289b09dd9883e0855028f5ffc8023a34ae13a6fc695790b9758a8a04bca6f98",
+        "bytes": 31450
+      },
+      {
+        "file": "EnfusionScriptAPI/html/interfaceMeshObject.html",
+        "sha256": "30583130481cb6b80eb2d09586962757e31d907464a6a61bdc64246bbf14a797",
+        "bytes": 24991
+      },
+      {
+        "file": "EnfusionScriptAPI/html/group__World.html",
+        "sha256": "1ee3afb1811a306dc5f1532d658ac846bd37136fb0f27a60f2686070fa896b9f",
+        "bytes": 36822
+      },
+      {
+        "file": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__CameraPostProcessEffect.html",
+        "sha256": "67a3d9528d890244a342908a262ff414545be4efe60863462ca0112ad62d2023",
+        "bytes": 14890
+      }
+    ],
+    "limits": [
+      "Names are discovery leads; overload signatures, descriptions and native behavior require separate inspection.",
+      "A missing keyword cannot prove that an undocumented, differently named or private interface is unavailable.",
+      "Generated .js indexes contain declared members, not implementation source. Inherited members can be in their parent interface.",
+      "Some full source pages contain invalid UTF-8 bytes. Their original hashes and offsets are retained; lossless surrogate escaping is used only for parsing, and extracted names must be valid UTF-8.",
+      "No engine process, GPU work, modification, asset extraction or message to Bohemia was performed."
+    ]
+  },
+  "reviewed_documentation": [
+    {
+      "file": "EnfusionScriptAPI/html/interfaceBaseWorld.html",
+      "sha256": "cbcb36ba62bd8a0731ea46701bdbf06cf764b00644487a981ba2cfcbe0429282",
+      "bytes": 114342
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceMaterial.html",
+      "sha256": "28f81b583422fadcb3ec35f043d6a211a0d1ea4ed4956a14c487cb3a8c941fb8",
+      "bytes": 20294
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceRenderTargetWidget.html",
+      "sha256": "61de5b4a0dc7af954def8e61aa2a870c77e684e05377b4a136bf4d9e5e5a149c",
+      "bytes": 46858
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceRTTextureWidget.html",
+      "sha256": "af9141774584f07813c4e9962a8e9ad4f412c082af4598ab30b7fb7d986ede41",
+      "bytes": 47407
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceImageWidget.html",
+      "sha256": "1745131bfafdd2a17e5cc4f0ca3eb15708121668948d1924062e1545ff2002ff",
+      "bytes": 79663
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceSystem.html",
+      "sha256": "8dd89af37df55914a074d500300f2ac4e9f3fceae696b5a620c3e7a2175c3116",
+      "bytes": 67713
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceResourceManager.html",
+      "sha256": "c9dc9088b5dbe1437e25b630e927a35a1f287900cc5b5b5692eb0a69cd653995",
+      "bytes": 23326
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceTextureResourceInfo.html",
+      "sha256": "56162d46ffc4afcb8525d5617eaf4f654c968b26d7869ed571018980071f685d",
+      "bytes": 34045
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceExportTextureResourceRequest.html",
+      "sha256": "2289b09dd9883e0855028f5ffc8023a34ae13a6fc695790b9758a8a04bca6f98",
+      "bytes": 31450
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceMeshObject.html",
+      "sha256": "30583130481cb6b80eb2d09586962757e31d907464a6a61bdc64246bbf14a797",
+      "bytes": 24991
+    },
+    {
+      "file": "EnfusionScriptAPI/html/group__World.html",
+      "sha256": "1ee3afb1811a306dc5f1532d658ac846bd37136fb0f27a60f2686070fa896b9f",
+      "bytes": 36822
+    },
+    {
+      "file": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__CameraPostProcessEffect.html",
+      "sha256": "67a3d9528d890244a342908a262ff414545be4efe60863462ca0112ad62d2023",
+      "bytes": 14890
+    },
+    {
+      "file": "EnfusionScriptAPI/html/interfaceTraceParam.html",
+      "sha256": "4c20a137c41e5642693451e0b0d1761e69061a73ba5e12fe4376ffc281b775dc",
+      "bytes": 25729
+    },
+    {
+      "file": "EnfusionScriptAPI/html/group__Visual.html",
+      "sha256": "ed0caff10546e104b940647d14eba569b671e1e046b4f9dcc24fa230f034ddcf",
+      "bytes": 39804
+    },
+    {
+      "file": "EnfusionScriptAPI/html/group__Resources.html",
+      "sha256": "1df10543a5cb58ee3484e549274463296438dd2f0f00fa11f04e2eb925dec4ca",
+      "bytes": 6926
+    },
+    {
+      "file": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__ImageHelper.html",
+      "sha256": "025e39cb4aadc518b07e1cda67b040ce8fd82009cd6ef69d0b547b3efd2356a3",
+      "bytes": 36278
+    },
+    {
+      "file": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__AutotestPrinter.html",
+      "sha256": "f66b5da04483e671dc65244929f150b0f5fb5f83e9689abbca9262fb3d2d33b0",
+      "bytes": 22088
+    },
+    {
+      "file": "ArmaReforgerScriptAPIPublic/html/interfaceSCR__ObstacleDetectorSplineInfo.html",
+      "sha256": "3765be3440c6521d94e7bc2db00d7456128dbb91d8bd6b69446e34467e9f3526",
+      "bytes": 22412
+    }
+  ],
+  "review": [
+    {
+      "lead": "Custom GPU keyword matches",
+      "assessment": "Both matches are unrelated: m_mLogBuffer is a map of log messages; GetPoints2D3D converts shape-spline points. No custom GPU entry point was identified by these expressions."
+    },
+    {
+      "lead": "Material and camera postprocess",
+      "assessment": "Material creation/loading and parameter methods refer to material classes; the postprocess enum names built-in effects. Reviewed signatures do not identify custom shader compilation/dispatch or scene-buffer ownership."
+    },
+    {
+      "lead": "RTTextureWidget and RenderTargetWidget",
+      "assessment": "Entity material bindings and engine-managed world/camera views are documented. Reviewed signatures do not return native texture/queue/fence handles or accept this backend output."
+    },
+    {
+      "lead": "TextureResourceInfo and SCR_ImageHelper",
+      "assessment": "Texture conversion metadata, image arrays, PNG writing, colorspace changes and raw-image callbacks are documented. These do not establish a scene-conditioned render pass."
+    },
+    {
+      "lead": "TraceParam",
+      "assessment": "Collision polygon normal/material fields are not verified rasterized shading normals, evaluated PBR values, or alpha-tested visibility. They cannot be silently substituted for model inputs."
+    },
+    {
+      "lead": "Generate Shaders option",
+      "assessment": "Official Resource Manager options list a setting by that name without a custom shader format or extension sample. A setting label is not proof of an extension interface."
+    }
+  ],
+  "feature_contract": {
+    "code": "enr/lighting.py",
+    "code_sha256": "c25f8b9a75a0e7cdbee17c46ab218d4a296286a728ed9b7b660796d19cf50f26",
+    "model_lock": "models/lighting-diversity-v1/model-lock.json",
+    "model_lock_sha256": "3e2b227b756d2f421fc03a22ed416312355fdc2d7b8b78699971c5b8491dcedd",
+    "ordered_features": [
+      "log_r",
+      "log_g",
+      "log_b",
+      "position_x/4",
+      "position_y/4",
+      "position_z/4",
+      "normal_x",
+      "normal_y",
+      "normal_z",
+      "albedo_r",
+      "albedo_g",
+      "albedo_b",
+      "roughness",
+      "metallic",
+      "view_x",
+      "view_y",
+      "view_z",
+      "light_offset_x/4",
+      "light_offset_y/4",
+      "light_offset_z/4"
+    ],
+    "extra_transport_fields": [
+      "source_RGB",
+      "alpha",
+      "valid"
+    ],
+    "required_mapping": [
+      "scene-linear radiance/exposure",
+      "visible surface position and coordinate convention",
+      "shading normals",
+      "evaluated albedo/roughness/metallic",
+      "surface-to-camera direction",
+      "controlled light semantics"
+    ],
+    "all_engine_fields_verified": false,
+    "notes": "A single controlled light-position input does not by itself represent sun, environment and multiple lights. A coordinate/lighting mapping must be validated before feeding native scenes to frozen weights."
+  },
+  "previous_attempts": {
+    "index_only": {
+      "report_sha256": "de8fa6ddd51344ea6c1113fc4b42b33c1e56f44ad4f758377dc7a4dbf475a2ec",
+      "scanner_sha256": "cb9ba3b68ac462ea0dd7e7971346367c79abb905251274413a1dc8e0d853878d",
+      "limitation": "Static methods and static-only interface pages are missing from generated JS indexes; not a complete member inventory."
+    },
+    "full_html_decode_failure": {
+      "record": {
+        "status": "failed",
+        "session_id": 40094,
+        "exit_code": 1,
+        "source": "Recorded from terminal tool output; no native engine process",
+        "completed_root": {
+          "root": "EnfusionScriptAPI/html",
+          "full_interface_files": 899,
+          "own_member_rows": 5853
+        },
+        "error": "UnicodeDecodeError: UTF-8 cannot decode byte 0xb4 at position 30317",
+        "filename": "Not included in the exception output",
+        "result_complete": false
+      },
+      "record_sha256": "cb966ccef616e5870f6e4a1505c44930d80fdc64cdd52728acc6370e668fd66a",
+      "scanner_sha256": "06049626dbd17599e8df1214d5248529a41e3bb4fd14326c737e4c43f609fc8a",
+      "resolution": "One installed HTML page has a non-UTF8 byte. Completed scan retains its hash/offset, losslessly escapes source bytes and requires valid UTF8 for extracted names."
+    }
+  },
+  "existing_runtime_evidence": [
+    {
+      "file": "evidence/enfusion-image-bridge-v1.json",
+      "sha256": "d2f28b2cc36956f8fa82ecc824a1086cb66d55844cc79c5792343f0b86a70654"
+    },
+    {
+      "file": "evidence/enfusion-file-return-v1.json",
+      "sha256": "ecdd595c4e2f793696edef955439589128d86e068261de2d63ec6ca2de1d868c"
+    },
+    {
+      "file": "evidence/enfusion-color-lookup-v1.json",
+      "sha256": "62003a1a6dc04bd4af717b5ee7c924d1e8cd968cc4dbe835cc7378e6971cd503"
+    },
+    {
+      "file": "evidence/lighting-gpu-v1.json",
+      "sha256": "1a19210d79595aa7ee4521210f3a4e55ec2fa56c300add214996eac3a8d0610f"
+    }
+  ],
+  "verified": {
+    "documented_member_inventory": true,
+    "selected_signature_review": true,
+    "enfusion_model_inputs": false,
+    "supported_model_execution": false,
+    "scene_stage_and_synchronization": false,
+    "actual_arma_model_fidelity": false,
+    "complete_frame_performance": false
+  },
+  "next_evidence_needed": [
+    "Identified supported entry point and minimal example for scene inputs and model output at a defined stage",
+    "Reproducible input mappings plus passthrough/change/bypass and synchronization proof",
+    "Actual Arma aligned model/reference/motion checks and whole-frame timing"
+  ],
+  "limits": [
+    "This is a scoped documentation review, not proof that differently named, undocumented, private or future APIs are impossible.",
+    "Automatic scan covers interface-member rows, not every free function or all implementation source. Relevant World/Visual/Resources groups were also reviewed.",
+    "No Workbench/GPU process was launched; no assets extracted, model trained, engine changed or message sent.",
+    "A working color lookup is a separate limited effect and does not supply the missing surface-conditioned graph."
+  ],
+  "sources": [
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/group__World.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceRTTextureWidget.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceRenderTargetWidget.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceTextureResourceInfo.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceTraceParam.html",
+    "https://community.bistudio.com/wiki/Arma_Reforger:Resource_Manager:_Options"
+  ]
+}

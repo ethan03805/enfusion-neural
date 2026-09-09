@@ -2,6 +2,12 @@
 
 Updated 9 September 2026. Milestone: the locked full-input model passes the 48-frame untouched synthetic test. All three test clips and both regression paths are retained. The Enfusion integration proof remains in progress. Read [objectives](vision.md) before choosing the next model or performance target.
 
+## Latest interface review
+
+The [interface audit](integration.md#interface-audit) covers 8,984 installed full interface pages and 73,747 own-member rows. The index-only pass omitted static methods; full-page controls now explicitly include them. Two custom-GPU keyword matches are unrelated log-buffer and spline methods. The review found no supported model entry point in the inspected declarations, without claiming that private or differently named interfaces cannot exist. The exact [20-feature contract](integration.md#feature-and-execution-requirements) distinguishes scene-linear radiance, visible positions, shading normals and evaluated material values from screenshots, entity metadata and collision traces. Coordinate and single-light semantics also require validation.
+
+`evidence/enfusion-renderer-interface-v1.json` binds both SDK inventories, reviewed signatures, unchanged model code/lock, the prior index-only limitation and a retained source-encoding failure. Completed audit session 5123 is terminal; earlier sessions 39811 and 40094 are also terminal. Raw roots are `renderer-interface-audit-v1`, `renderer-interface-audit-v2-failure` and `renderer-interface-audit-v3` under `experiments/local/`. No Workbench/GPU process was launched and no scene, model or threshold changed. The next required evidence is a specific supported interface/sample; the unsent Bohemia inquiry remains pending its existing authorization request. Keep the full goal active and do not repeat unchanged image-return failures.
+
 ## Latest native model experiment
 
 The [lighting GPU implementation](lighting-gpu.md) passes all 21 numerical size/variant checks and all 112 retained full-model test/regression comparisons. The shader performs normalization, both hidden layers, bounded residual and linear reconstruction. Alpha and invalid-pixel source fallback are exact. The 48-frame test and partitioned-room path pass the original fidelity gates; the original room has no marking panel and retains an untested contrast gate. The old specialized model remains better on that room. Test temporal error is 0.735% above source, within the original 2% limit; this is not temporal improvement.
