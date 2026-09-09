@@ -80,3 +80,26 @@ The initial failed result is retained. A follow-up with unchanged tolerances fin
 A separate native read-only inspection successfully loads the original neutral `MatPBRBasic` container and enumerates 142 fields. `Color` has a white default; scalar readback gives `RoughnessScale = 1` and `MetalnessScale = 1`. `BCRMap` and `NMOMap` fields are present. These observations establish the available schema, **not the meaning of its color transfer or texture channels**. No material was changed. Bohemia documents that the [prop importer creates default MatPBRBasic materials](https://community.bistudio.com/wiki/Arma_Reforger%3AProp_Creation).
 
 Next use an asymmetric original texture and controlled light to check orientation and material response, then calibrate illumination and color/exposure against the reference. Preserve the white-material image above. Accept a pair only after geometry, materials, camera and lighting conventions are accounted for; resolve neural input/output integration separately.
+
+## Material color control
+
+Changing only the seven materials' `Color` constants produces the intended visible assignments. Both captures use the same original mesh, camera, exposure, environment and render settings. Native readback matches every requested RGBA value at the recorded precision. The original material colors are copied numerically as a candidate mapping; their photometric correspondence to Cycles remains unverified.
+
+<section class="comparison" data-comparison data-before-label="White constants" data-after-label="Original colors" aria-label="Enfusion material color control">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/material-room-engine-white-control.png" width="2560" height="1440" loading="lazy" alt="Enfusion room with all seven material color constants set to white"><figcaption>White constants · engine control</figcaption></figure>
+<figure class="comparison-after"><img src="media/material-room-engine-color-constants.png" width="2560" height="1440" loading="lazy" alt="Same Enfusion room with red and blue walls, a brown box and sphere, and dark foreground posts"><figcaption>Original color constants · engine control</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal white control<input type="range" min="0" max="100" value="50" aria-label="White material control visible"><output>50% White constants</output></label>
+</section>
+
+[Open white control](media/material-room-engine-white-control.png) · [Open color control](media/material-room-engine-color-constants.png) · [Plan](https://github.com/ethan03805/enfusion-neural/blob/main/scenes/material-room-color-control-v1.json) · [Full evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/enfusion-room-color-v1.json)
+
+The preselected left-wall region has mean RGB8 values of **141.0, 19.5, 17.2**; the right wall has **30.6, 73.4, 188.1**. Both exceed the declared 20-code-value channel-dominance margin. These are color-response checks, not fidelity scores. Images are unchanged 2560 × 1440 sample exports, with no neural processing.
+
+An initial run timed out because the probe treated a mesh material slot name as a resource path. The corrected reader resolves each slot through its original material GUID. That failure remains in the report, alongside both successful captures and their native compile checks.
+
+To reproduce, add `--color-control white` or `--color-control reference-colors` to the capture command above, with a separate new output directory for each case. `scripts/summarize_enfusion_room_color.py` verifies the material edits, native readback, image regions and retained initial failure.
+
+The intended metal sphere still appears nonmetallic: roughness, metalness and packed-map defaults are unchanged. Outdoor sunlight and sky still differ from the reference area light. Next import original asymmetric BCR/NMO textures, verify texture orientation and material response, then calibrate illumination and color/exposure. This control does not establish an aligned appearance pair or a supported neural renderer interface.

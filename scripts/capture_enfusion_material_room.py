@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--out', required=True)
     parser.add_argument('--loaded-import', required=True)
     parser.add_argument('--lab-source', required=True)
+    parser.add_argument('--color-control', choices=('white', 'reference-colors'), help='Change only original material Color constants under the declared control plan')
     args = parser.parse_args()
     source_root = Path(args.loaded_import).resolve()
     report_path = source_root / 'import.json'
@@ -53,9 +54,17 @@ def main():
     initialize, run_workbench, doctor = lab_modules(args.lab_source)
     from enfusion_lab import runner
     initialize(out)
+    shutil.copyfile(__file__, out / 'capture_driver.py')
     write_json(out / 'doctor.json', doctor())
     config = sequence.load_config(ROOT / 'scenes/arland-motion-v1.json')
     room = json.loads((ROOT / 'scenes/material-room-v1.json').read_text(encoding='utf-8'))
+    color_control = None
+    if args.color_control:
+        plan_path = ROOT / 'scenes/material-room-color-control-v1.json'
+        plan = json.loads(plan_path.read_text(encoding='utf-8'))
+        color_control = {'case': args.color_control, 'plan_sha256': digest(plan_path),
+                         'source_scene_sha256': digest(ROOT / plan['source_scene']),
+                         'plan': plan, 'materials': []}
     origin = [2048, 1000, 2048]
     position = room['camera']['position']
     target = room['camera']['target']
@@ -75,11 +84,36 @@ def main():
         destination = out / 'addon/Assets/ENR_ReferenceRoom' / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)
+    if color_control:
+        # Only the fresh capture addon is changed. Retained import snapshots and
+        # the original scene remain immutable. Packed-map defaults are untouched.
+        for name, values in sorted(room['materials'].items()):
+            material_path = out / 'addon/Assets/ENR_ReferenceRoom/Data' / (name + '.emat')
+            before = digest(material_path)
+            if material_path.read_text(encoding='utf-8').strip() != 'MatPBRBasic {\n}':
+                raise ValueError('Color control requires the original default material: ' + name)
+            color = values['base_color_linear'] if args.color_control == 'reference-colors' else [1, 1, 1]
+            rgba = color + [1]
+            material_path.write_bytes(('MatPBRBasic {\n Color ' + ' '.join(format(v, '.9g') for v in rgba) + '\n}\n').encode('utf-8'))
+            color_control['materials'].append({'name': name, 'before_sha256': before,
+                                              'after_sha256': digest(material_path), 'rgba': rgba})
+        write_json(out / 'color-control.json', color_control)
     plugin = ROOT / 'adapters/enfusion/probes/ENR_MaterialRoom.c'
     shutil.copyfile(plugin, out / 'addon/Scripts/Game/ENR_MaterialRoom.c')
+    material_lookup = ' static ResourceName MaterialResource(string slot) {\n'
+    if color_control:
+        for item in color_control['materials']:
+            name = item['name']
+            meta = out / 'addon/Assets/ENR_ReferenceRoom/Data' / (name + '.emat.meta')
+            match = re.search(r'Name "(\{[0-9A-F]{16}\}Assets/ENR_ReferenceRoom/Data/' + re.escape(name) + r'\.emat)"', meta.read_text(encoding='utf-8'))
+            if not match:
+                raise ValueError('Material metadata lacks verified identity: ' + name)
+            material_lookup += '  if (slot == "' + name + '") return "' + match.group(1) + '";\n'
+    material_lookup += '  return "";\n }\n'
     (out / 'addon/Scripts/Game/ENR_RoomConfig.c').write_text(
         '#ifdef WORKBENCH\nclass ENR_RoomConfig { static ResourceName Model = "' + models[0] +
-        '"; static vector Origin = "' + ' '.join(map(str, origin)) + '"; }\n#endif\n', encoding='utf-8')
+        '"; static vector Origin = "' + ' '.join(map(str, origin)) + '"; static bool InspectMaterialColors = ' +
+        str(bool(color_control)).lower() + ';\n' + material_lookup + '}\n#endif\n', encoding='utf-8')
     capture = out / 'addon/Scripts/Game/ELab_GameCapture.c'
     text = capture.read_text(encoding='utf-8')
     needle = 'ENR_Sequence.Camera(world);'
@@ -99,6 +133,7 @@ def main():
     if len(records) != 1 or not records[0].startswith('spawned ') or not records[0].endswith('materials=7'):
         raise ValueError('Original room was not observed once with seven materials')
     result.update(source_import_report_sha256=digest(report_path),
+                  driver_sha256=digest(out / 'capture_driver.py'),
                   validation_run=validation['run_id'], validation_manifest_sha256=digest(Path(validation['directory']) / 'run.json'),
                   capture_manifest_sha256=digest(directory / 'run.json'), console_sha256=digest(directory / 'console.log'),
                   capture_config_sha256=digest(out / 'capture-config.json'), room_records=records,
@@ -106,6 +141,11 @@ def main():
                   visual_review='pending', engine_geometry_verified=False,
                   aligned_appearance_pair_verified=False, renderer_integration_verified=False,
                   scope='Imported original geometry and reference-camera scout; default engine materials and environment, no matched appearance or neural processing')
+    if color_control:
+        color_records = [line.split('ENR_ROOM_COLOR ', 1)[1] for line in (directory / 'console.log').read_text(encoding='utf-8').splitlines() if 'ENR_ROOM_COLOR ' in line]
+        result.update(color_control=color_control, color_control_sha256=digest(out / 'color-control.json'),
+                      color_records=color_records,
+                      scope='Original material Color constant response control; outdoor illumination and default packed-map parameters, no matched appearance or neural processing')
     write_json(out / 'room.json', result)
     print(json.dumps({'status': result['status'], 'run': run['run_id'], 'records': records, 'image': run['image']}, indent=2))
 

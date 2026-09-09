@@ -60,6 +60,8 @@ The original material-room adapter now imports mesh resources and places them in
 
 The surface checker compares faces by their existing vertex identities, then normals and UVs at corresponding corners. It records cyclic winding and tests identity/V-inversion UV conventions explicitly. Initial precision failures remain failed after decimal-grid diagnostics; no fitted alignment or adjusted threshold is used. A separate `inspect-material` route loads the original material container read-only and records schema/defaults and numeric readback. Neither route verifies compiled shading, texture sampling or engine feature buffers.
 
+The optional material-room color control changes only `Color` in fresh copied material files. Mesh material slots are names, so the reader binds them to the original GUIDs from verified metadata before loading containers. The verifier checks unchanged geometry/metadata/configuration, exact declared material edits, native RGBA readback and preselected image regions. This verifies a visible material assignment workflow, not a reference photometric mapping or neural rendering pass.
+
 ## Lighting study
 
 The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.

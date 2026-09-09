@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "material-room-color-control-v1",
+  "purpose": "Test original material color assignments in Enfusion before packed textures or illumination calibration",
+  "source_scene": "scenes/material-room-v1.json",
+  "cases": ["white", "reference-colors"],
+  "changed_parameter": "MatPBRBasic Color only; alpha remains 1",
+  "reference_color_mapping": "Copy original base_color_linear numbers directly as a candidate material constant mapping; color transfer is not proven",
+  "unchanged": ["original mesh and GUIDs", "camera", "world environment", "exposure", "render settings", "roughness/metalness and texture defaults"],
+  "dimensions": [2560, 1440],
+  "regions_xyxy": {
+    "left_wall": [300, 250, 600, 700],
+    "right_wall": [1950, 250, 2300, 700],
+    "back_wall": [1000, 250, 1700, 500],
+    "white_sphere": [900, 680, 1040, 800],
+    "metal_sphere": [1200, 650, 1300, 730],
+    "rough_sphere": [1500, 680, 1640, 800]
+  },
+  "region_selection": "Chosen on the previously published white-material geometry control before either new capture",
+  "positive_control": {
+    "left_wall": "Mean R exceeds both G and B by more than 20 RGB8 code values",
+    "right_wall": "Mean B exceeds both R and G by more than 20 RGB8 code values",
+    "native_color_readback_tolerance": 0.000001
+  },
+  "limits": [
+    "Color-response control only; no accepted photometric match or appearance training pair",
+    "Materials remain default roughness/metalness without packed maps",
+    "Outdoor engine illumination differs from the original reference area light",
+    "No neural processing, renderer-buffer access or performance measurement"
+  ]
+}

@@ -53,6 +53,8 @@ The [original-room control](material-room.md#engine-import-controls) now imports
 
 Next use an asymmetric original texture and controlled light to verify rendered orientation, material response and silhouettes. Map material constants, isolate illumination and verify exposure/color correspondence before accepting an engine/reference pair. TXO decimal-grid observations do not establish compiled shading precision. Keep the existing synthetic references and selected model frozen. Geometry import does not resolve the supported neural input/output interface.
 
+The [Color-only control](material-room.md#material-color-control) now passes native readback and predeclared wall-response checks, with both full images published. Roughness/metalness remain default and the engine environment remains unmatched. The next material acceptance requires original packed-map import, an asymmetric texture orientation check, and verified roughness/metalness response under a controlled light; color assignment alone does not satisfy it.
+
 ## 05 · Playable local demonstration
 
 Integrate the accepted model and measure the complete application at 1440p. Preserve a disabled path and rapid fallback. Characterize multiple resolutions and quality profiles. Run the full frame-time and soak protocol.
