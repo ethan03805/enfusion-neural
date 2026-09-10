@@ -155,3 +155,9 @@ Accepted 10 September 2026. Extend the owned benchmark session to 600 seconds wh
 Accepted 10 September 2026. Reject the second fence-colliding pilot, survey the actual town with Enfusion Lab and use the adjacent tree-lined street. Validate the isolated addon before launching. Require at least 50 metres of walking displacement, at least 1 m/s at interior one-second samples, and at most 0.5 metres of camera separation from the standard pass. The three completed passes travel 73.9–74.2 metres and meet those gates. Label coverage as street vegetation edges, not dense forest or semantic visibility acceptance.
 
 Preserve the first street launch's world-loading crash and the first complete standard pass's 295 ms presentation stall. Keep all 34 seconds at original speed and report recording overhead. Path acceptance does not establish substantial neural appearance improvement, physical input or displayed-frame latency.
+
+## 030 · Close the empty DXGI display-counter route after two probes
+
+Accepted 10 September 2026. Add optional `GetLastPresentCount`/`GetFrameStatistics` logging after Present, retaining raw HRESULTs and all counters. The first street run returns one initial disjoint result followed by 2,922 successful calls with all display counters zero. The single declared `DwmFlush` follow-up also returns zero counters across 2,918 successful calls, while adding synchronization cost. Submitted-present IDs advance but do not establish display timing.
+
+Stop this route. Keep the optional diagnostic implementation, raw traces and original non-probe binary. Leave flags off by default, retain the unchanged download and earlier separate software display join, and continue to label moving-path display and physical latency unavailable. The neural GPU shader remains byte-for-byte unchanged and the rebuilt native curve matches its independent CPU reference within 0.000000075.

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "purpose": "Check supported swapchain statistics for moving-gameplay display observations without renderer hooks or another ETW search.",
+  "maximum_probe_runs": 2,
+  "maximum_investigation_minutes": 20,
+  "scene": "foliage-walk",
+  "preset": "combined",
+  "mode": "neural",
+  "recording": false,
+  "first_probe": "Log GetLastPresentCount and GetFrameStatistics after Present. No DwmFlush or extra synchronization.",
+  "second_probe": "Only if the first returns stale/zero statistics, try explicitly labeled DwmFlush synchronization to test the documented hardware-flip-queue caveat. This changes scheduling and cannot inherit baseline performance claims.",
+  "mapping": "Map the returned PresentCount to a recorded successful GetLastPresentCount. Associate PresentRefreshCount with an observed SyncRefreshCount/SyncQPCTime anchor; exact anchor matches are preferred. Do not assume Present call count equals displayed frames, treat duplicate statistics as new frames, or label a refresh estimate as physical latency.",
+  "failure": "Stop if results remain unsupported, zero or unmappable after the declared probes. Keep all HRESULTs, counters, source hashes and the working non-probe binary.",
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-getframestatistics",
+    "https://learn.microsoft.com/en-us/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-getlastpresentcount",
+    "https://learn.microsoft.com/en-us/windows/win32/api/dxgi/ns-dxgi-dxgi_frame_statistics",
+    "https://learn.microsoft.com/en-us/windows/win32/direct3ddxgi/dxgi-flip-model"
+  ],
+  "limits": "Microsoft cautions that statistics can be unreliable with multiple monitors or other fullscreen applications. No physical input, scanout, panel-response or neural fidelity acceptance. Hardware/GPU processing remain unchanged."
+}

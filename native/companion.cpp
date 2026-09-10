@@ -45,7 +45,7 @@ struct Options {
   DWORD pid = 0;
   double seconds = 0, snapshot = 0;
   int mode = 0;
-  bool overlay = false, layered = false;
+  bool overlay = false, layered = false, statistics = false, statistics_flush = false;
   float strength = .35f;
   fs::path model;
   fs::path out = "runs/companion";
@@ -61,6 +61,10 @@ Options args(int argc, char **argv) {
     };
     if (a == "--layered-blt")
       o.layered = true;
+    else if (a == "--frame-statistics")
+      o.statistics = true;
+    else if (a == "--frame-statistics-flush")
+      o.statistics = o.statistics_flush = true;
     else if (a == "--pid")
       o.pid = std::stoul(value());
     else if (a == "--seconds")
@@ -94,7 +98,7 @@ Options args(int argc, char **argv) {
           "Usage: enr_companion --pid GAME_PID --out NEW_DIRECTORY [--overlay] "
           "[--mode identity|invert|basic|neural|neural-raw] "
           "[--model weights.bin] [--strength .35] [--seconds 30] "
-          "[--snapshot-after 5]");
+          "[--snapshot-after 5] [--frame-statistics | --frame-statistics-flush]");
   }
   if (!std::isfinite(o.strength) || o.strength < 0 || o.strength > 1)
     throw std::runtime_error("Strength must be 0..1");
@@ -230,6 +234,19 @@ int main(int argc, char **argv) try {
         "Choose a new output directory to retain earlier runs");
   fs::create_directories(o.out);
   std::ofstream log(o.out / "events.log"), csv(o.out / "frames.csv");
+  std::ofstream stats;
+  LARGE_INTEGER qpc_frequency;
+  QueryPerformanceFrequency(&qpc_frequency);
+  if (o.statistics) {
+    stats.open(o.out / "display-statistics.csv");
+    stats << "frame,capture_qpc_ms,present_call_qpc_ms,present_return_qpc_ms,"
+             "last_present_hresult,last_present_count,query_start_qpc_ms,"
+             "query_end_qpc_ms,flush_hresult,statistics_hresult,display_present_count,"
+             "present_refresh_count,sync_refresh_count,sync_qpc_ticks,sync_qpc_ms\n"
+          << std::fixed << std::setprecision(6);
+    if (!stats)
+      throw std::runtime_error("Cannot open frame statistics log");
+  }
   log << std::unitbuf;
   csv << "frame,capture_qpc_ms,receive_qpc_ms,present_call_qpc_ms,present_"
          "return_qpc_ms,capture_to_present_call_ms,present_interval_ms,gpu_"
@@ -408,6 +425,9 @@ int main(int argc, char **argv) try {
       << "\",\n  \"width\": " << size.Width << ", \"height\": " << size.Height
       << ",\n  \"overlay\": " << (o.overlay ? "true" : "false")
       << ",\n  \"initial_mode\": " << o.mode
+      << ",\n  \"frame_statistics\": " << (o.statistics ? "true" : "false")
+      << ",\n  \"frame_statistics_dwm_flush\": " << (o.statistics_flush ? "true" : "false")
+      << ",\n  \"qpc_frequency_hz\": " << qpc_frequency.QuadPart
       << ",\n  \"strength\": " << o.strength << ",\n  \"presentation\": \""
       << (o.layered ? "layered-bitblt-probe" : "hwnd-flip-discard") << "\""
       << ",\n  \"precision\": \"FP32\",\n  \"curve_dimensions\": [320, 180]"
@@ -569,6 +589,23 @@ int main(int argc, char **argv) try {
     t.present = now_ms();
     check(swap->Present(1, 0));
     t.returned = now_ms();
+    if (o.statistics) {
+      UINT last_count = 0;
+      auto last_hr = swap->GetLastPresentCount(&last_count);
+      DXGI_FRAME_STATISTICS s{};
+      double query_start = now_ms();
+      HRESULT flush_hr = o.statistics_flush ? DwmFlush() : S_FALSE;
+      auto stat_hr = swap->GetFrameStatistics(&s);
+      double query_end = now_ms();
+      // Retain errors, duplicates and raw counters. Joining belongs in analysis;
+      // SyncQPCTime alone is not the time this source frame reached the display.
+      stats << t.frame << ',' << t.captured << ',' << t.present << ',' << t.returned
+            << ',' << uint32_t(last_hr) << ',' << last_count << ',' << query_start
+            << ',' << query_end << ',' << uint32_t(flush_hr) << ',' << uint32_t(stat_hr)
+            << ',' << s.PresentCount << ',' << s.PresentRefreshCount << ','
+            << s.SyncRefreshCount << ',' << s.SyncQPCTime.QuadPart << ','
+            << s.SyncQPCTime.QuadPart * 1000.0 / qpc_frequency.QuadPart << '\n';
+    }
     t.interval = last_present ? t.present - last_present : 0;
     last_present = t.present;
     frame.Close();

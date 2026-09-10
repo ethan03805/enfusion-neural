@@ -28,8 +28,10 @@ def main():
     p.add_argument('--mode', choices=['off', 'identity', 'neural'], default='off')
     p.add_argument('--record', action='store_true')
     p.add_argument('--trace', choices=['cpu','display','both'], default='both')
+    p.add_argument('--frame-statistics', choices=['off', 'poll', 'flush'], default='off', help='Optional DXGI display-counter probe; flush adds DwmFlush synchronization and changes scheduling')
     p.add_argument('--soak-seconds', type=int, default=0, help='Extended runtime check after the existing 30–60s path; remaining time is stationary. Zero keeps the original benchmark.')
     a = p.parse_args()
+    if a.mode == 'off' and a.frame_statistics != 'off': p.error('Frame statistics require a running companion')
     if a.soak_seconds and not 60 <= a.soak_seconds <= 1800: p.error('Soak duration must be 60..1800 seconds')
     if a.soak_seconds and a.record: p.error('Soak measurement excludes recording')
     processes = subprocess.check_output(['tasklist','/FI','IMAGENAME eq ArmaReforgerSteam.exe','/FO','CSV','/NH'], text=True)
@@ -43,6 +45,7 @@ def main():
     argv = [str(game), '-profile', str(out/'profile'), '-gproj', str(addon/'addon.gproj'), '-addonsDir', str(game.parent/'addons'), '-world', 'worlds/GameMaster/GM_Eden.ent', '-play', '-nosplash', '-maxFPS', '120']
     manifest.update(created_unix_s=time.time(), qpc_anchor_ms=qpc(), mode=a.mode, recording=a.record, trace=a.trace, argv=argv)
     manifest['soak_seconds'] = a.soak_seconds
+    manifest['frame_statistics'] = a.frame_statistics
     if a.soak_seconds:
         manifest['soak_scope'] = 'Existing walking/turning path at simulation 30–60 seconds, then stationary town camera. Continuous runtime/cadence check; not ten minutes of movement, manual input or semantic acceptance.'
     manifest['processing_hashes']={str(f.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(f.read_bytes()).hexdigest() for f in [ROOT/'build/Release/enr_companion.exe',ROOT/'native/companion.cpp',ROOT/'native/curve_network.h',ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin']}
@@ -87,7 +90,10 @@ def main():
                 mismatches = {k: {'expected':v,'actual':settings.get(k)} for k,v in expected.items() if settings.get(k)!=v}
                 if mismatches: raise RuntimeError('Requested settings not active: '+json.dumps(mismatches))
                 if a.mode != 'off':
-                    start([ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', str(a.soak_seconds or 49)], 'companion-console.log')
+                    companion_command = [ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', str(a.soak_seconds or 49)]
+                    if a.frame_statistics != 'off':
+                        companion_command.append('--frame-statistics' if a.frame_statistics == 'poll' else '--frame-statistics-flush')
+                    start(companion_command, 'companion-console.log')
                 pm = ROOT/'runs/tools/PresentMon-2.5.1-x64.exe'
                 base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', str(a.soak_seconds or 47), '--terminate_after_timed', '--no_console_stats', '--no_track_input']
                 if a.trace in ['display','both']:

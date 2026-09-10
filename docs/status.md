@@ -4,7 +4,7 @@ Updated 10 September 2026. A runnable Windows companion now captures and process
 
 The controlled town path measures **88.0 game presents/s** with standard settings, **104.7** with the combined rendering reduction, and **88.1** with that reduction plus neural processing. The companion produces **60.7 presents/s**, with **30.4 ms p95** and **32.1 ms p99** intervals. Twelve intervals exceed 33.3 ms; the maximum is 41.5 ms. This is a short measured sample, not a locked-60 guarantee.
 
-GPU copy, inference and drawing take **3.44 ms median / 6.11 ms p95** in that path. The earlier 895-frame display join measures **12.61 ms median / 18.12 ms p95** capture-to-reported-display latency. Moving-path display traces remain unavailable after a bounded retry. Neither measurement is physical input-to-photon latency.
+GPU copy, inference and drawing take **3.44 ms median / 6.11 ms p95** in that path. The earlier 895-frame display join measures **12.61 ms median / 18.12 ms p95** capture-to-reported-display latency. Moving-path display traces remain unavailable after a bounded retry. Two subsequent DXGI-counter probes also return only zero display counters, including the documented `DwmFlush` variation; that route is closed with code and evidence retained. None of these measurements is physical input-to-photon latency.
 
 A separate **ten-minute runtime check** completes with 36,654 processed frames and no crash, recorded hide or presentation timeout. The game averages 89.3 presents/s and the companion 61.1, with 29.7 / 31.9 ms p95 / p99 intervals and one 52.9 ms interval. Most of this run is stationary after the existing walking segment; extended movement and manual interaction remain unverified.
 
