@@ -14,7 +14,22 @@ The default starts free play in the town with standard settings. Optional: `Star
 
 Each launch writes an isolated addon, copied settings and logs into a new `runs/play-...` folder. The Steam installation and original profile are unchanged. The package includes source, hashes and separate model attribution. [Build from source](getting-started.md).
 
-**Input limit:** engine actions verify a walking soldier and camera turn while enhancement is visible. Physical WASD/mouse routing through the overlay still awaits a user check. Use F8 or F10 if controls fail.
+**Input limit:** engine actions verify a walking soldier and camera turn while enhancement is visible. Physical WASD/mouse routing still awaits a user check. The [transition check](#menu-and-focus-check) does not verify menus or complete display recovery after focus changes. Use F8 or F10 if controls fail.
+
+## Menu and focus check
+
+One session uses the exact extracted guarded package, private town addon and combined settings. It closes in **15.1 minutes** within its original 20-minute limit, with no model or shader change. The packaged `play.py` is invoked with the existing Python runtime; this session does not test double-clicking the command file.
+
+| Control | Observed result |
+| --- | --- |
+| F8 bypass and resume | Source view appears; handler-to-hide is 0.77 ms in software logs |
+| Escape/menu | No menu appears with enhancement or after one diagnostic Escape in bypass; menu/resume acceptance fails |
+| Focus loss | Overlay hides; no companion presents occur during the 31.65-second interval after hide and before observed return |
+| Focus return | Fresh-frame processing resumes; first fresh Present is 129.25 ms after observed return, followed by 1,420 fresh frames |
+| Full view after return | Unverified: UI captures report 1280 × 720 at origin 1280,720 and show only part of the scene, including after F10; native logs show no resize |
+| F10 exit | Companion exits successfully; the original game remains alive five seconds later, then the test closes its owned session |
+
+There is no crash or presentation timeout across 9,756 processed frames. **The complete transition check does not pass.** Menu input and partial post-activation screenshots have unresolved causes. Foreground polling is nominally 10 ms; event differences are software observations, not physical input or panel latency. This stationary session is not another FPS benchmark. The screenshot that includes the other application remains private; all original observations and failed steps are retained locally. [Complete transition evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-transitions-v1.json).
 
 ## Normal-speed gameplay
 

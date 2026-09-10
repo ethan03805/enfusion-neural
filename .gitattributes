@@ -10,3 +10,5 @@ scenes/playable-dce-temporal-native-v2.json -text whitespace=cr-at-eol
 scenes/playable-dce-channel-guard-v1.json -text whitespace=cr-at-eol
 scenes/playable-live-guard-v1.json -text whitespace=cr-at-eol
 scripts/verify_live_guard.py -text whitespace=cr-at-eol
+scenes/playable-transitions-v1.json -text whitespace=cr-at-eol
+scripts/check_playable_transitions.py -text whitespace=cr-at-eol

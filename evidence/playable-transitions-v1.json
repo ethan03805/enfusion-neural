@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "outcome": "partial_control_verification_menu_and_complete_visual_recovery_unverified",
+  "started_at": "2026-09-10T14:10:06+00:00",
+  "closed_at": "2026-09-10T14:25:12.386277+00:00",
+  "minutes_since_original_start": 15.106437949999998,
+  "within_original_20_minute_bound": true,
+  "plan_sha256": "03446422eefecb5ec2cfb6ad53671a9553d0b461f9fbf5d2ef131d715ddbf35a",
+  "plan": {
+    "schema_version": 1,
+    "started_at": "2026-09-10T14:10:06+00:00",
+    "deadline": "2026-09-10T14:30:06+00:00",
+    "frozen_at": "2026-09-10T14:14:30.728163+00:00",
+    "package_record": "evidence/playable-package-v2.json",
+    "package_sha256": "fcffe06d6a32b9ac6eb591410a4795eb9f689ec9db2d83b829ff0c94d3bd53b1",
+    "package_manifest": {
+      "schema_version": 1,
+      "build": "playable-pipeline-2026-09-10-guarded",
+      "source_revision": "838ebab39321b646a820f4ef389417c887fe14b3",
+      "source_scope": "Exact included source hashes identify this build, including uncommitted packaging changes at creation.",
+      "model": "Zero-DCE++ Epoch99, bounded brightness-only composition",
+      "precision": "FP32",
+      "files": {
+        "LICENSE": "a83e70d331f5dd27b6f2945bb24136cde09575276d81b14ac6b79bd7b0c05005",
+        "RUNME.txt": "1883607fff742c8cbe734179f25677331cd4aefc8e1225d2265ab9c52443e173",
+        "Start-Playable.cmd": "36a652469c3cbeb37767aeea77c6755133234b3aa0fa6094c6d2db45cee2deda",
+        "adapters/playable/addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+        "adapters/playable/Scripts/Game/ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+        "adapters/playable/Scripts/Game/ENR_PlayableConfig.c": "92d36d8972b5afebc10061b10da2d9315546471f025029421d46c362beaf3a75",
+        "adapters/playable/Scripts/Game/ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99",
+        "build/Release/enr_companion.exe": "88ebb41b6d38712259adff2a4ac177e1895c1c63356dc66e2c592379b154e675",
+        "models/zero-dce-plusplus/export.json": "06d969d8232eda083af8f3eb2aab7334d62ffb5accb5fea061c958428967fdbb",
+        "models/zero-dce-plusplus/README.md": "0e18a0584cf4ddc92bd16045f226b3c6f99cc623ff96ff931c3236b234f1faa3",
+        "models/zero-dce-plusplus/source-pinned.json": "56ad6ee408c296b960c7e302b83fc0046d89a84a8a4a07380ed2412f096a9563",
+        "models/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+        "native/adapter_info.cpp": "fb3b77aac259d5c7129bcb8361cc8af926085fba4b6a979bb933f4f6b3a5dee9",
+        "native/CMakeLists.txt": "20cce9607b269c02e645cf810fbd1c80312bd1cadd2308aa951b7a9a96c43ce6",
+        "native/companion.cpp": "3770caed8be8406837c7383b37c36b82adc29b1d159201ee0c6ed0982115fb1f",
+        "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+        "native/curve_smoke.cpp": "8fb1ea0b48be74d8c972b3089f671fc280b7f46389fc19bf2a8ec5e280b7cf90",
+        "native/dce_replay.cpp": "c2512b00581e1a90e71b0523ab134aa949343782a0c104083bc3cc44b0a5f3fb",
+        "native/enr_gpu.cpp": "a4436b7c77dce1a73b3e27603ea0af2dc9baca16dd257063322d0b27ca126b06",
+        "scripts/launch_playable.py": "7da0905fd44464baca93b35d785cc351de3b8d2cebbe118451d94a29acb6b0d5",
+        "scripts/play.py": "167104f84d0c6866c0877a8f266c1d59f487a9a58b12428bca25e6bee71cc82e"
+      }
+    },
+    "prepared_addon_hashes": {
+      "addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+      "Scripts\\Game\\ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+      "Scripts\\Game\\ENR_PlayableConfig.c": "59ebede6852bf5750afd63a9f95318e6349627271a7537f2b999b76bd65743a3",
+      "Scripts\\Game\\ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99"
+    },
+    "prepared_settings_sha256": "626c5424aab6a4a8307de8bb00242dc10aaae6a0737a41023438b9cc1464e387",
+    "driver_sha256": "61d12a050c8d75dd4fd21e09a2e1e2867241037d8af09f8200cd7e70f6c43db2",
+    "scene": "town",
+    "preset": "combined",
+    "automatic": false,
+    "strength": 0.35,
+    "sequence": [
+      "observe live enhancement",
+      "Escape opens menu",
+      "F8 exposes original menu",
+      "click observed Resume through bypass",
+      "F8 resumes enhancement",
+      "Escape opens menu with enhancement",
+      "Escape closes menu",
+      "activate existing Steam window without input",
+      "observe game capture and native focus fallback without activating game",
+      "activate game and observe fresh-frame resumption",
+      "F10 quits companion; original game continues five seconds"
+    ],
+    "neutral_window": "Existing Steam main window. Chosen before launch instead of the roadmap Codex window because Windows Computer Use excludes ChatGPT desktop UI automation. No input or screenshot of Steam content is needed.",
+    "gates": [
+      "exact extracted package/addon/settings",
+      "visible menu open and close",
+      "source menu usable through bypass",
+      "overlay hides while game loses focus",
+      "new captured frames are presented after return",
+      "F10 exits successfully while game continues",
+      "no crash or presentation timeout"
+    ],
+    "timing_scope": "Read-only foreground polling at 10ms and before/after UI-call wall-clock timestamps. These bound observed transitions only, not physical input or display latency. No new FPS benchmark.",
+    "failure_policy": "One session, unchanged model/shader/preset. Preserve failed interactions and artifacts; do not extend the original 20-minute clock.",
+    "limits": "Automated UI inputs do not establish physical WASD/mouse routing, full visibility, temporal acceptance or substantial photorealistic appearance."
+  },
+  "gates": {
+    "exact_extracted_package_addon_settings": true,
+    "visible_menu_open_and_close": false,
+    "source_menu_usable_through_bypass": false,
+    "overlay_hides_while_game_loses_focus": true,
+    "fresh_captured_frames_presented_after_return": true,
+    "F10_success_game_continues": true,
+    "no_crash_or_presentation_timeout": true
+  },
+  "all_gates_pass": false,
+  "package_scope": "Exact extracted release play.py invoked with the existing Python runtime; Start-Playable.cmd itself was not clicked in this session. Unchanged guarded ZIP.",
+  "session": {
+    "scene": "town",
+    "preset": "combined",
+    "automatic": false,
+    "native_frame_count": 9756,
+    "native_elapsed_ms": 497341.413400002,
+    "foreground_changes": [
+      {
+        "qpc_ms": 44459485.431,
+        "unix_s": 1789049670.7451634,
+        "pid": 31100
+      },
+      {
+        "qpc_ms": 44461298.0497,
+        "unix_s": 1789049672.5577445,
+        "pid": 33216
+      },
+      {
+        "qpc_ms": 44928911.484,
+        "unix_s": 1789050140.1709876,
+        "pid": 2620
+      },
+      {
+        "qpc_ms": 44960562.544,
+        "unix_s": 1789050171.8221848,
+        "pid": 33216
+      }
+    ],
+    "game_alive_five_seconds_after_companion_exit": true,
+    "owned_session_cleaned_up": true
+  },
+  "software_observations": {
+    "f8_handler_to_hide_ms": 0.7739000022411346,
+    "foreground_away_qpc_ms": 44928911.484,
+    "focus_hide_qpc_ms": 44928912.139,
+    "observed_foreground_change_to_hide_ms": 0.6550000011920929,
+    "foreground_return_qpc_ms": 44960562.544,
+    "focus_away_ms": 31651.060000002384,
+    "frames_presented_between_hide_and_observed_return": 0,
+    "fresh_frames_after_observed_return": 1420,
+    "first_fresh_frame": {
+      "frame": 8336.0,
+      "capture_qpc_ms": 44960678.7074,
+      "receive_qpc_ms": 44960688.1716,
+      "present_call_qpc_ms": 44960691.7931,
+      "present_return_qpc_ms": 44960692.0974,
+      "capture_to_present_call_ms": 13.0857,
+      "present_interval_ms": 31795.9014,
+      "gpu_copy_draw_ms": 5.06292,
+      "mode": 3.0,
+      "dropped_before": 0.0
+    },
+    "observed_return_to_first_fresh_present_ms": 129.2490999996662
+  },
+  "visual_review": [
+    "Reviewed each retained UI screenshot after its action. Initial and source-bypass views are complete 2560x1440 street views.",
+    "Escape did not show a menu with enhancement, including a settled observation. One diagnostic Escape while bypassed also did not show a menu. No unseen Resume button was clicked; dependent menu steps were not attempted.",
+    "While another window was foreground, the source game remained visible behind it. That screenshot contains unrelated application content and remains private.",
+    "After game activation, screenshots report 1280x720 at origin 1280,720 and show only part of the street scene. The same partial view persists after F10. Native events record no resize. Full-frame visual recovery is not accepted; cause is not isolated.",
+    "Native capture/presentation resumes with fresh timestamps; this establishes processing recovery only. It does not establish complete display placement or physical input behavior."
+  ],
+  "retained_tool_error": "Metadata-only get_window_state after Steam activation was rejected. Requested text in the next observation without repeating activation; no Steam text is published.",
+  "limits": "Foreground is polled at a nominal 10 ms. Software event differences are observed offsets, not precise transition bounds, physical-input or display latency. This stationary control session is not a new performance benchmark. No WASD/mouse, menu, full visual recovery or appearance acceptance claim.",
+  "next_requirement": "Inspect the isolated session menu/input context and window activation geometry before another live transition trial; require specific source or geometry evidence and a frozen correction. Do not repeat Escape blindly.",
+  "actions": [
+    {
+      "name": "01-live",
+      "observed_unix_ms": 1789049745419,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": null,
+      "screenshots": [
+        {
+          "file": "01-live-0.jpg",
+          "sha256": "47a3ae1b66ffe076573c160acaab15807e6c825b35e18ca3a1700dcdb16b46df",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "02-menu-enhanced",
+      "observed_unix_ms": 1789049768110,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Escape opens menu",
+        "before_unix_ms": 1789049767411,
+        "after_unix_ms": 1789049767672
+      },
+      "screenshots": [
+        {
+          "file": "02-menu-enhanced-0.jpg",
+          "sha256": "31bf1aed73183978209f5f3503dbdd8e959a70efe31758eb4c23feab917b3a2a",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "02b-menu-settled",
+      "observed_unix_ms": 1789049792794,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": null,
+      "screenshots": [
+        {
+          "file": "02b-menu-settled-0.jpg",
+          "sha256": "018b062746914b0bbe4a8061e0eace6286e516e58b734df74786c7df5b0ce977",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "03-bypass",
+      "observed_unix_ms": 1789049828476,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "F8 bypass after menu did not open",
+        "before_unix_ms": 1789049828130,
+        "after_unix_ms": 1789049828228
+      },
+      "screenshots": [
+        {
+          "file": "03-bypass-0.jpg",
+          "sha256": "5b581dd5f579480729d0e1fdec5152dd7a9839d0987c5861b2e95926f6d03e59",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "04-source-menu-request",
+      "observed_unix_ms": 1789050110148,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Single diagnostic Escape while source bypass is active",
+        "before_unix_ms": 1789050109689,
+        "after_unix_ms": 1789050109770
+      },
+      "screenshots": [
+        {
+          "file": "04-source-menu-request-0.jpg",
+          "sha256": "6f6316c6e15dc6762e3d39dda3d23914c148da9f67292eb8101bcc7164c8025a",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "04b-source-menu-settled",
+      "observed_unix_ms": 1789050119717,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Observation without further input after source Escape"
+      },
+      "screenshots": [
+        {
+          "file": "04b-source-menu-settled-0.jpg",
+          "sha256": "399279d301fbe7b2390682a77cc4f2190ce377624b3b5fdfb54e7380d45139df",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "05-enhancement-resume",
+      "observed_unix_ms": 1789050131130,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "F8 resume enhancement; source Escape also did not show a menu",
+        "before_unix_ms": 1789050130526,
+        "after_unix_ms": 1789050130615
+      },
+      "screenshots": [
+        {
+          "file": "05-enhancement-resume-0.jpg",
+          "sha256": "3ccc90bf8a25eb85a67b10af339c471886fbe53e63b07a02dffddcaf001f8b52",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "06-focus-away",
+      "observed_unix_ms": 1789050151153,
+      "window": {
+        "title": "Steam",
+        "id": 1182072
+      },
+      "action": {
+        "kind": "Activate the previously observed Steam window; no input to Steam",
+        "before_unix_ms": 1789050140075,
+        "after_unix_ms": 1789050140267,
+        "observation_error": "Metadata-only get_window_state rejected: must request text or screenshot. Focus action already dispatched; no repeat activation."
+      },
+      "screenshots": []
+    },
+    {
+      "name": "07-game-observed-without-activation",
+      "observed_unix_ms": 1789050160993,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Observe game without activating it while Steam is foreground"
+      },
+      "screenshots": [
+        {
+          "file": "07-game-observed-without-activation-0.jpg",
+          "sha256": "b4b78599224417605c69bd14e162ce80435b04b71ac03600c16de3e06836c3d6",
+          "width": 2560,
+          "height": 1440,
+          "originX": 0,
+          "originY": 0
+        }
+      ]
+    },
+    {
+      "name": "08-focus-return",
+      "observed_unix_ms": 1789050172065,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Activate owned game after the focus-away interval",
+        "before_unix_ms": 1789050171658,
+        "after_unix_ms": 1789050171947
+      },
+      "screenshots": [
+        {
+          "file": "08-focus-return-0.jpg",
+          "sha256": "4fa47c94fefd55e714ede46c5dadebe8dd88ee403c8a53f39e78b3c678909688",
+          "width": 1280,
+          "height": 720,
+          "originX": 1280,
+          "originY": 720
+        }
+      ]
+    },
+    {
+      "name": "08b-focus-return-settled",
+      "observed_unix_ms": 1789050182224,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "Settled observation after game activation; no further input"
+      },
+      "screenshots": [
+        {
+          "file": "08b-focus-return-settled-0.jpg",
+          "sha256": "628dfab2415f1fc39f903d5983035358dd4f3b397d8d9f79c56abbb2095cd261",
+          "width": 1280,
+          "height": 720,
+          "originX": 1280,
+          "originY": 720
+        }
+      ]
+    },
+    {
+      "name": "09-companion-exit",
+      "observed_unix_ms": 1789050196402,
+      "window": {
+        "title": "Arma Reforger",
+        "id": 10489806
+      },
+      "action": {
+        "kind": "F10 exit companion; observer will check owned game remains alive for five seconds",
+        "before_unix_ms": 1789050196188,
+        "after_unix_ms": 1789050196297
+      },
+      "screenshots": [
+        {
+          "file": "09-companion-exit-0.jpg",
+          "sha256": "955c36055da7d876bcdff9d25c6b09310d33fcb673c2694b20279097a78f56c6",
+          "width": 1280,
+          "height": 720,
+          "originX": 1280,
+          "originY": 720
+        }
+      ]
+    }
+  ],
+  "native_events": [
+    "started 44487700.155",
+    "bypass 1 44616976.3427",
+    "hide 44616977.1166",
+    "bypass 0 44919359.3809",
+    "hide 44928912.139",
+    "complete frames 9756 elapsed_ms 497341.413400002"
+  ],
+  "retained_hashes": {
+    "scenes/playable-transitions-v1.json": "03446422eefecb5ec2cfb6ad53671a9553d0b461f9fbf5d2ef131d715ddbf35a",
+    "scripts/evaluate_playable_transitions.py": "35ea1d819bdfe69b1440bd1f47a7006d6c80fa054c1292eef86bdf0383d26c61",
+    "scripts/check_playable_transitions.py": "61d12a050c8d75dd4fd21e09a2e1e2867241037d8af09f8200cd7e70f6c43db2",
+    "runs/transitions-control-v1/observer.json": "905443e60b7bd5ee4f7a19a3bfe4074fb74b8f085b73b51a50b06fab8771501c",
+    "runs/transitions-control-v1/launcher.log": "a5d0fd27a6ed23f23ed698fdd4b6cb5e2250d1a2cb837f2ce77efe431d037257",
+    "runs/playable-transitions-v1/launch.json": "225df29a98bece075abc5ece1cb20f6549950358cae37b4f9b4b1ad1da13bab3",
+    "runs/playable-transitions-v1/companion/events.log": "cb439f3aaaf85fd36cb39702e46c147ff9179428b036beab5cc655bbf7be7f7f",
+    "runs/playable-transitions-v1/companion/frames.csv": "2eab9c8a26b99c4139c1fa2965e4e72bf8cedbb19a4f49b045178f85824b11f0"
+  },
+  "publication": "Only redacted evidence and documentation are published; all UI screenshots remain local. No package, model or shader change."
+}
