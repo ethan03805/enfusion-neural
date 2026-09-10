@@ -81,6 +81,8 @@ The packaged launch test processes 3,770 frames, verifies both F9 modes, F8 bypa
 
 ## Appearance and pretrained selection
 
+The [appearance candidate comparison](model-evaluation.md) now includes REGEN on RX 7800 XT DirectML and DeepLPF on CPU, with raw outputs and rejection evidence. The downloadable build still uses the verified exposure model below.
+
 The available input is **display-referred RGB with HUD**, not depth, normals, motion or material buffers. The model cannot recover a verified scene-lighting representation from those absent inputs.
 
 **Zero-DCE++** is the working native model: 10,561 parameters, 320 × 180 FP32 curve prediction and full-resolution bounded composition. Its output matches the independent author's checkpoint reference to a maximum error of 0.000000075 over 172,800 values. It preserves source pixel coordinates and chroma while limiting brightness change. The change is modest; some ground surfaces become flatter or brighter. No photorealistic material gain is accepted.

@@ -1247,6 +1247,188 @@
       "source_sha256": "bcd65c1e0faa816477e488f9d2e56c61677e5ec6c57f11c7e08a001322fedbc3",
       "transformation": "Frame at 10 seconds from the declared comparison; lossless PNG poster",
       "rights": "Arma Reforger game imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-00-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/00-source-input.png",
+      "sha256": "97a09c357df72b96769f62d2c470c4f7bd24a1e06950f948dfbcaecd5a63ff5e",
+      "bytes": 643821,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-00-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/00-raw-model.png",
+      "sha256": "6fa6f2866f4b4f7a67dc222bc715e1b92bab9e1b32ad6ef48ed375effa29949b",
+      "bytes": 710145,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-01-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/01-source-input.png",
+      "sha256": "f8a8c17e55e1a15c3bc5a081509dd64a1f24376d10997cb850cd4dc8cd0e2081",
+      "bytes": 604954,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-01-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/01-raw-model.png",
+      "sha256": "31df26ebc83d90b9d43a69d488552e0eded2703325673a7c9c9badf34452e4d3",
+      "bytes": 689929,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-02-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/02-source-input.png",
+      "sha256": "13762a93e074d102c57c22525466683669811bde8aef513f5342728486e52f77",
+      "bytes": 801502,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-02-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/02-raw-model.png",
+      "sha256": "c090a867ebb003ad0eecccd85e76c787c2872ab4c3bbe03def708169940059b1",
+      "bytes": 766505,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-00-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/00-source-input.png",
+      "sha256": "a0ae1659fc4003faade5ceae3a523ab25b1741d7dd4201b5b3f60bf1fd6c262b",
+      "bytes": 639326,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-00-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/00-raw-model.png",
+      "sha256": "81d9ce8e0e46c39212f947473d2bd94c51e63467c1fc42426ea323c345ff8c5b",
+      "bytes": 756278,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-01-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/01-source-input.png",
+      "sha256": "f1e5d387c1c4a9a3eee56eb3dad7e5aaab30b254396f2bd80cb866a8d8fb7058",
+      "bytes": 596867,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-01-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/01-raw-model.png",
+      "sha256": "204707544782eec2e6bb0fafb2fb1f339cf1d86b9ecb10fb7e53948b5c83941b",
+      "bytes": 747123,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-02-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/02-source-input.png",
+      "sha256": "f67b54f5771c55cec24e2c42cdaee725b517c3426128dec5bdd049e0cd578ba9",
+      "bytes": 791466,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-02-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/02-raw-model.png",
+      "sha256": "cf348e0dfc2589b547d07a15be101f1925aae3b50429aceed96c45c71780ec8d",
+      "bytes": 973290,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-facade-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+      "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "bytes": 3351853,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "transformation": "Exact full-resolution source or offline protected-transfer PNG copied without scaling. The model predicted at 960x544; a smoothed bounded RGB gain is applied to original pixels with source-shadow, highlight and fixed HUD protection. Not live output.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-facade-protected.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-transfer-v1/01-protected.png",
+      "sha256": "48e484b114eb951e8ff9fc43a2e3ae356a14e0e9008e2f56d17d38831301d300",
+      "bytes": 4185450,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "transformation": "Exact full-resolution source or offline protected-transfer PNG copied without scaling. The model predicted at 960x544; a smoothed bounded RGB gain is applied to original pixels with source-shadow, highlight and fixed HUD protection. Not live output.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
     }
   ],
   "videos": [

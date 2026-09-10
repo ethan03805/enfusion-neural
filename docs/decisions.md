@@ -139,3 +139,9 @@ Accepted 10 September 2026. Publish the tested standalone companion, isolated ad
 Count only DXGI non-null application swapchains in PresentMon CPU evidence, and decode both UTF-8 and UTF-16 loss logs. WGC internal events otherwise falsely double output throughput. Preserve missing display channels after one bounded display-only retry. Keep recording overhead separate. Normal-speed comparisons retain source timing and all 34 seconds, with explicit spatial scaling and encoding.
 
 The foliage attempt collides with a fence, and its reduced-only path differs around a tree. Retain it as a collision/visibility check, not a matched moving-path performance acceptance. The town route remains the primary controlled comparison. Physical input, full moving-path display latency and substantial appearance improvement remain open.
+
+## 027 · Reject stronger RGB models when identity or useful appearance fails
+
+Accepted 10 September 2026. Evaluate the pinned REGEN GTA2Cityscapes generator on three preselected gameplay frames before live integration. Its RX 7800 XT DirectML output matches the independent CPU result, but the 53–54 ms synchronized call at 960 × 544 is too costly and changes roof identity, sky texture and fine detail. Retain the complete model/export/profiling record and close that integration attempt.
+
+DeepLPF's local photographic filters retain broad colors but clip shaded visibility. A declared source-protection diagnostic prevents new black clipping and preserves dark source pixels, yet gives only color/contrast adjustment. Do not spend further GPU conversion work or call that substantial photorealism. Preserve the native exposure companion, publish concise reviewed comparisons, and require an identity-linked appearance reference before another broad model integration. Candidate code and weights keep their author's separate licenses; rejected weights are outside the playable package.

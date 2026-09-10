@@ -1,0 +1,9 @@
+# Optional Windows/Python 3.9 environment for the retained candidate evaluations.
+# Install torch==2.8.0 separately from https://download.pytorch.org/whl/cpu.
+numpy==2.0.2
+Pillow==11.3.0
+onnx==1.19.1
+onnxruntime-directml==1.19.2
+gdown==5.2.2
+matplotlib==3.9.4
+scikit-image==0.24.0

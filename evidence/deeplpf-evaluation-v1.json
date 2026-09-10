@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "candidate": "DeepLPF Adobe-DPE epoch 424",
+  "author": "https://github.com/sjmoran/deeplpf-image-enhancement",
+  "author_revision": "b6d6764b548667f51eda2f1a6aafd484822de3ec",
+  "license": "BSD-3-Clause",
+  "raw_report_sha256": "25105b1aab5bd1d71ac104fcc55b74482766f51e24869d0b0b8da876178060ee",
+  "measurement": {
+    "schema_version": 1,
+    "status": "completed",
+    "candidate": "DeepLPF Adobe-DPE epoch 424",
+    "plan_sha256": "0b6a84c11998ade3199906bf2730c58b013fa318bf2b4079023605899985c95e",
+    "checkpoint_sha256": "e23781cded4ee64177e4ff82f61dc562cf5f524e4e13dc32aa0175cb6f38c69b",
+    "source_hashes": {
+      "data.py": "eeae4569ec18d8cb46f46c4d25b686fef935f8a8504a2e70a6d527ee847c289e",
+      "main.py": "f00240cf04122493fafc168788b364b114ec7d3a23bd7a8120076b0a85945622",
+      "metric.py": "87889045531fb52d2bb724922cf11197e0248c24d23d047865132ec2bdacbdf7",
+      "model.py": "560963e3c44e84388134cd45704b6a6bc20df55f5bb7a39584cc04484886ba55",
+      "unet.py": "6870b8c20760493f04e930d1de38b41c7a8b74ee2c7da7fc96299650e5f1c7e9",
+      "util.py": "e59868b5aee225a82ec465a1d5683cd30229cd88652c9a8fe72654963c60aa2a"
+    },
+    "dimensions": [
+      960,
+      544
+    ],
+    "device": "CPU",
+    "precision": "FP32",
+    "torch": "2.8.0+cpu",
+    "threads": 4,
+    "preprocessing": "Pillow bilinear resize; RGB float32 0..1; NCHW. No additional gamma or color transform.",
+    "scope": "CPU model evaluation excluding decode, resize and file writes. No GPU or application performance claim.",
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "cpu_ms": 601.7714000000005,
+        "range": [
+          0.0,
+          0.9446281790733337
+        ],
+        "clamped_channel_fraction": 0.0764431423611111,
+        "source_extreme_channel_fraction": 2.9360702614379086e-05,
+        "max_abs_rgb_change": 0.22653037309646606,
+        "mean_abs_rgb_change": 0.0788583755493164,
+        "raw_sha256": "7a90e9274f85bce4c3ba45e7035be45a3a5cf10d7d47858c50e817a9883801e5"
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "cpu_ms": 472.55369999999976,
+        "range": [
+          0.0,
+          0.9026140570640564
+        ],
+        "clamped_channel_fraction": 0.034191814746732024,
+        "source_extreme_channel_fraction": 4.467933006535948e-06,
+        "max_abs_rgb_change": 0.20460572838783264,
+        "mean_abs_rgb_change": 0.06244806945323944,
+        "raw_sha256": "c8c1dea92579d7c5e3fb35658f524c316f4a48fd6ce575bd8efe2fea508aacb4"
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "cpu_ms": 462.1063000000003,
+        "range": [
+          0.0,
+          0.9389565587043762
+        ],
+        "clamped_channel_fraction": 0.08855634701797385,
+        "source_extreme_channel_fraction": 5.361519607843137e-05,
+        "max_abs_rgb_change": 0.278230220079422,
+        "mean_abs_rgb_change": 0.05753301829099655,
+        "raw_sha256": "4a2fd8aed6f27e3f2b06d5516b930a7a0965c3e22f084ccc354f48c77bc8f322"
+      }
+    ],
+    "parameters": 1769347
+  },
+  "review": [
+    "Road/sign: stronger contrast and saturation; shadow foliage is driven to black.",
+    "Facade: roof color retained, but dark doorway and window contrast decrease.",
+    "Foliage: darker, more saturated rendering; fine shaded foliage becomes harder to distinguish."
+  ],
+  "decision": "Raw output rejected as default because of visibility loss. The source-protected diagnostic avoids new black clipping but remains a color/contrast change without substantial material or lighting improvement. Close this integration attempt; no GPU or temporal acceptance.",
+  "published_media": [
+    {
+      "file": "deeplpf-00-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/00-source-input.png",
+      "sha256": "a0ae1659fc4003faade5ceae3a523ab25b1741d7dd4201b5b3f60bf1fd6c262b",
+      "bytes": 639326,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-00-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/00-raw-model.png",
+      "sha256": "81d9ce8e0e46c39212f947473d2bd94c51e63467c1fc42426ea323c345ff8c5b",
+      "bytes": 756278,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-01-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/01-source-input.png",
+      "sha256": "f1e5d387c1c4a9a3eee56eb3dad7e5aaab30b254396f2bd80cb866a8d8fb7058",
+      "bytes": 596867,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-01-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/01-raw-model.png",
+      "sha256": "204707544782eec2e6bb0fafb2fb1f339cf1d86b9ecb10fb7e53948b5c83941b",
+      "bytes": 747123,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-02-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/02-source-input.png",
+      "sha256": "f67b54f5771c55cec24e2c42cdaee725b517c3426128dec5bdd049e0cd578ba9",
+      "bytes": 791466,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-02-raw.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-evaluation-v1/02-raw-model.png",
+      "sha256": "cf348e0dfc2589b547d07a15be101f1925aae3b50429aceed96c45c71780ec8d",
+      "bytes": 973290,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-facade-source.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+      "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "bytes": 3351853,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "transformation": "Exact full-resolution source or offline protected-transfer PNG copied without scaling. The model predicted at 960x544; a smoothed bounded RGB gain is applied to original pixels with source-shadow, highlight and fixed HUD protection. Not live output.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "deeplpf-facade-protected.png",
+      "source_record": "evidence/deeplpf-evaluation-v1.json",
+      "source_artifact": "runs/deeplpf-transfer-v1/01-protected.png",
+      "sha256": "48e484b114eb951e8ff9fc43a2e3ae356a14e0e9008e2f56d17d38831301d300",
+      "bytes": 4185450,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "transformation": "Exact full-resolution source or offline protected-transfer PNG copied without scaling. The model predicted at 960x544; a smoothed bounded RGB gain is applied to original pixels with source-shadow, highlight and fixed HUD protection. Not live output.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    }
+  ],
+  "limitations": "Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Published images are 960x544 evaluation inputs/outputs, not native 1440p results.",
+  "provenance": {
+    "repository": "sjmoran/deeplpf-image-enhancement",
+    "revision": "b6d6764b548667f51eda2f1a6aafd484822de3ec",
+    "files": [
+      "LICENSE",
+      "README.md",
+      "model.py",
+      "unet.py",
+      "util.py",
+      "data.py",
+      "main.py",
+      "metric.py"
+    ],
+    "checkpoint": "adobe-dpe.pt",
+    "checkpoint_sha256": "e23781cded4ee64177e4ff82f61dc562cf5f524e4e13dc32aa0175cb6f38c69b",
+    "checkpoint_path": "pretrained_models/adobe_dpe/deeplpf_validpsnr_23.378_validloss_0.033_testpsnr_23.904_testloss_0.031_epoch_424_model.pt",
+    "source_hashes": {
+      "LICENSE": "a3d1ba950d55d757f89bcab0d6d2fd7294b5fc94baabb2577331d2c7a8ddedbd",
+      "README.md": "87effa4309a0f5d046702f22a1ab0817b73345a7f3503bef3b85d1a62f99e4bf",
+      "model.py": "560963e3c44e84388134cd45704b6a6bc20df55f5bb7a39584cc04484886ba55",
+      "unet.py": "6870b8c20760493f04e930d1de38b41c7a8b74ee2c7da7fc96299650e5f1c7e9",
+      "util.py": "e59868b5aee225a82ec465a1d5683cd30229cd88652c9a8fe72654963c60aa2a",
+      "data.py": "eeae4569ec18d8cb46f46c4d25b686fef935f8a8504a2e70a6d527ee847c289e",
+      "main.py": "f00240cf04122493fafc168788b364b114ec7d3a23bd7a8120076b0a85945622",
+      "metric.py": "87889045531fb52d2bb724922cf11197e0248c24d23d047865132ec2bdacbdf7"
+    },
+    "checkpoint_bytes": 7117913
+  },
+  "source_protected_diagnostic": {
+    "schema_version": 1,
+    "status": "completed",
+    "input_record": "evidence/deeplpf-evaluation-v1.json",
+    "composition": {
+      "gain_range": [
+        0.7,
+        1.35
+      ],
+      "strength": 0.75,
+      "log_gain_blur_sigma_model_pixels": 4,
+      "shadow_source_luminance_smoothstep": [
+        0.16,
+        0.4
+      ],
+      "highlight_source_luminance_reverse_smoothstep": [
+        0.85,
+        0.98
+      ],
+      "model_min_rgb_confidence_smoothstep": [
+        0.005,
+        0.04
+      ],
+      "max_abs_rgb_delta": 0.12
+    },
+    "scope": "CPU offline diagnostic from saved model outputs. No inference, game, latency or temporal-performance claim.",
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "model_output_sha256": "7a90e9274f85bce4c3ba45e7035be45a3a5cf10d7d47858c50e817a9883801e5",
+        "output_sha256": "691fd0a163caeedad72fb2077f72a2b93a13e13cc71286e40cdc0bced2ea1135",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "max_abs_rgb_change": 0.09000000357627869,
+        "mean_abs_rgb_change": 0.03553427383303642,
+        "new_black_channel_fraction_float": 0.0,
+        "shadow_max_abs_change_below_luma_016": 0.0,
+        "mean_transfer_weight": 0.4859744608402252
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "model_output_sha256": "c8c1dea92579d7c5e3fb35658f524c316f4a48fd6ce575bd8efe2fea508aacb4",
+        "output_sha256": "48e484b114eb951e8ff9fc43a2e3ae356a14e0e9008e2f56d17d38831301d300",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "max_abs_rgb_change": 0.09000000357627869,
+        "mean_abs_rgb_change": 0.024541255086660385,
+        "new_black_channel_fraction_float": 0.0,
+        "shadow_max_abs_change_below_luma_016": 0.0,
+        "mean_transfer_weight": 0.5323532819747925
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "model_output_sha256": "4a2fd8aed6f27e3f2b06d5516b930a7a0965c3e22f084ccc354f48c77bc8f322",
+        "output_sha256": "5e931abf55b0bcf370134536aa3220bbebd7c2c2adbd6ed99f07e1f082029717",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "max_abs_rgb_change": 0.09000000357627869,
+        "mean_abs_rgb_change": 0.016277357935905457,
+        "new_black_channel_fraction_float": 0.0,
+        "shadow_max_abs_change_below_luma_016": 0.0,
+        "mean_transfer_weight": 0.2492513358592987
+      }
+    ]
+  },
+  "source_protected_review": "All three full-resolution outputs inspected. Roof, openings, bark and fences retain source detail; sunlight/grass gain color and contrast. No new black clipping, but no substantial reconstruction or lighting gain. No motion review or native integration warranted for this appearance objective."
+}

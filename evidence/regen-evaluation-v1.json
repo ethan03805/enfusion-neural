@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "candidate": "REGEN GTA2Cityscapes",
+  "author": "https://github.com/stefanos50/REGEN",
+  "author_revision": "de240056522d066235b48b541e7d49f28c80f1ed",
+  "license": "BSD notices retained in author LICENSE",
+  "raw_report_sha256": "63fb2e64b899f3ee81dd8aa90e9aa2d25fa29da5c0f36307726ed10e2900a554",
+  "measurement": {
+    "schema_version": 1,
+    "status": "completed",
+    "candidate": "REGEN GTA2Cityscapes",
+    "dimensions": [
+      960,
+      544
+    ],
+    "checkpoint_sha256": "46258537fb99b04c9bc891691361f38c59f3fdff79ee9f495e69402aa58c6a69",
+    "source_hashes": {
+      "code/models/networks.py": "9dcca453a1e67bdb2a3e4c17dcb5a9dc7713e7ec0d89e5df0ad9b0f0436e4d11",
+      "code/options/base_options.py": "4bd13a6c15a7ebac839d9e023f5d5ff4cbb673e3e76ea28a6993ec85eb14a2d3",
+      "onnx_utils/generator.py": "3f0bbe70b1ac9951c4dae02fb20316fe44f4646739d90accb118faa8e3c8c6d8",
+      "onnx_utils/regen_onnx_eport.py": "22d936c3e54d8e411684f59d4ea1637882625dc6a264a1c01bf2f6c87762323c",
+      "onnx_utils/test_onnx.py": "4d845af1aab93866c1b4bcd0121e09e333ef41256eb5bdacff1f2799df73950b"
+    },
+    "plan_sha256": "ee5fca9c4e57f8b88a7a7285f8322843ab33fc2efa0637edf1053b2250dd3f28",
+    "adapter": {
+      "index": 0,
+      "description": "AMD Radeon RX 7800 XT",
+      "vendor_id": 4098,
+      "device_id": 29822,
+      "dedicated_video_bytes": 16963133440,
+      "software": false
+    },
+    "runtime": "1.19.2",
+    "torch": "2.8.0+cpu",
+    "precision": "FP32",
+    "scope": "Synchronized Python ONNX Runtime call, including CPU-input upload and output readback. File decode, resize, model initialization and PNG encoding excluded. Game is not running; not complete application FPS.",
+    "preprocessing": "Pillow bilinear resize to declared dimensions, RGB float32 mapped from 0..255 to -1..1, NCHW. Author normalization; resize uses Pillow instead of OpenCV.",
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "timings_ms": [
+          55.002200000000556,
+          54.91489999999999,
+          53.23779999999978,
+          52.4830000000005,
+          53.06000000000033
+        ],
+        "median_ms": 53.23779999999978,
+        "raw_max_abs_rgb_change": 0.6595091223716736,
+        "raw_mean_abs_rgb_change": 0.11531185358762741,
+        "range_min": -0.9355056285858154,
+        "range_max": 0.9516987800598145,
+        "raw_sha256": "f1f5b296c5da478f6ae3158d8d6eef5e2dba7a8a5a561d2e169149a6be971de5"
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "timings_ms": [
+          54.881800000000425,
+          54.07220000000024,
+          52.86550000000112,
+          53.98220000000009,
+          53.22960000000165
+        ],
+        "median_ms": 53.98220000000009,
+        "raw_max_abs_rgb_change": 0.6300556659698486,
+        "raw_mean_abs_rgb_change": 0.14500515162944794,
+        "range_min": -0.9434536695480347,
+        "range_max": 0.8794682621955872,
+        "raw_sha256": "5d09fe1779f5fae07add5d881525aa3395ee5ee4cf5b5a8d634bcbf05f9c21e0"
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "timings_ms": [
+          53.63439999999997,
+          53.34180000000188,
+          53.062600000000515,
+          54.21100000000223,
+          56.90440000000052
+        ],
+        "median_ms": 53.63439999999997,
+        "raw_max_abs_rgb_change": 0.6714550852775574,
+        "raw_mean_abs_rgb_change": 0.04734238609671593,
+        "range_min": -0.9566110968589783,
+        "range_max": 0.9972460865974426,
+        "raw_sha256": "df4a61939257d82b95f81edbd2e406f1625234c157f5372c4ba0f93f242c5189"
+      }
+    ],
+    "parameters": 182443267,
+    "cpu_reference_ms": 2755.1832000000004,
+    "export_ms": 5460.799,
+    "onnx_sha256": "69be77de80b4e6505cfebde0ba0c29de8a8661e36f11c2e4d066234d62bc2b23",
+    "session_setup_ms": 1045.267899999999,
+    "providers": [
+      "DmlExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "cpu_dml_parity": {
+      "max_abs": 2.2709369659423828e-05,
+      "mean_abs": 1.017251975099498e-06,
+      "limits": {
+        "max_abs": 0.01,
+        "mean_abs": 0.001
+      },
+      "passed": true
+    },
+    "profile_file": "ort-profile_2026-09-10_02-10-10.json",
+    "profile_provider_events": {
+      "DmlExecutionProvider": 18
+    }
+  },
+  "review": [
+    "Road/sign: sky develops coarse mottled texture; fine flowers and sign edge soften.",
+    "Facade: orange roof becomes green/gray; blue pole loses saturation; sky develops texture.",
+    "Foliage: fine leaves soften, bright sky gaps develop blotches and HUD text degrades."
+  ],
+  "decision": "Reject raw live integration: altered material identity and texture artifacts, plus 53\u201354 ms synchronized processing at only 960x544. CPU/DirectML parity passes, so this is not a backend conversion failure.",
+  "published_media": [
+    {
+      "file": "regen-00-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/00-source-input.png",
+      "sha256": "97a09c357df72b96769f62d2c470c4f7bd24a1e06950f948dfbcaecd5a63ff5e",
+      "bytes": 643821,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-00-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/00-raw-model.png",
+      "sha256": "6fa6f2866f4b4f7a67dc222bc715e1b92bab9e1b32ad6ef48ed375effa29949b",
+      "bytes": 710145,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-01-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/01-source-input.png",
+      "sha256": "f8a8c17e55e1a15c3bc5a081509dd64a1f24376d10997cb850cd4dc8cd0e2081",
+      "bytes": 604954,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-01-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/01-raw-model.png",
+      "sha256": "31df26ebc83d90b9d43a69d488552e0eded2703325673a7c9c9badf34452e4d3",
+      "bytes": 689929,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-02-source.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/02-source-input.png",
+      "sha256": "13762a93e074d102c57c22525466683669811bde8aef513f5342728486e52f77",
+      "bytes": 801502,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "regen-02-raw.png",
+      "source_record": "evidence/regen-evaluation-v1.json",
+      "source_artifact": "runs/regen-evaluation-v1/02-raw-model.png",
+      "sha256": "c090a867ebb003ad0eecccd85e76c787c2872ab4c3bbe03def708169940059b1",
+      "bytes": 766505,
+      "dimensions": [
+        960,
+        544
+      ],
+      "transformation": "Exact evaluation PNG copied without further scaling or editing. Original 2560x1440 gameplay frame was resized bilinearly to 960x544 before inference. Raw model output is labeled and unbounded.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    }
+  ],
+  "limitations": "Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Published images are 960x544 evaluation inputs/outputs, not native 1440p results.",
+  "provenance": {
+    "repository": "stefanos50/REGEN",
+    "revision": "de240056522d066235b48b541e7d49f28c80f1ed",
+    "files": [
+      "LICENSE",
+      "README.md",
+      "onnx_utils/generator.py",
+      "onnx_utils/regen_onnx_eport.py",
+      "onnx_utils/test_onnx.py",
+      "code/models/networks.py",
+      "code/options/base_options.py"
+    ],
+    "checkpoint": "gta2cityscapes.pth",
+    "checkpoint_sha256": "46258537fb99b04c9bc891691361f38c59f3fdff79ee9f495e69402aa58c6a69",
+    "drive_id": "18FpCT8x7eEangLio2cx_2C_M9wW7W2Hz",
+    "author_checkpoint_folder": "https://drive.google.com/drive/folders/19Q8E9wy3MR-vUfOfVwytIzv4QNpndYo0",
+    "source_hashes": {
+      "LICENSE": "8a06e45f6f56e0cbb43835b2a6fda2781575e6b928f797e0fbbbda2e0e178efc",
+      "README.md": "79d3d186ec8cd552868c879cb9ff10929f3345d2ea5b7d5bde317c69cc4b86c6",
+      "onnx_utils/generator.py": "3f0bbe70b1ac9951c4dae02fb20316fe44f4646739d90accb118faa8e3c8c6d8",
+      "onnx_utils/regen_onnx_eport.py": "22d936c3e54d8e411684f59d4ea1637882625dc6a264a1c01bf2f6c87762323c",
+      "onnx_utils/test_onnx.py": "4d845af1aab93866c1b4bcd0121e09e333ef41256eb5bdacff1f2799df73950b",
+      "code/models/networks.py": "9dcca453a1e67bdb2a3e4c17dcb5a9dc7713e7ec0d89e5df0ad9b0f0436e4d11",
+      "code/options/base_options.py": "4bd13a6c15a7ebac839d9e023f5d5ff4cbb673e3e76ea28a6993ec85eb14a2d3"
+    },
+    "checkpoint_bytes": 729794286
+  }
+}

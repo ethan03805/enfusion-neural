@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "candidate": "DeepLPF Adobe-DPE epoch 424",
+  "author_revision": "b6d6764b548667f51eda2f1a6aafd484822de3ec",
+  "checkpoint_sha256": "e23781cded4ee64177e4ff82f61dc562cf5f524e4e13dc32aa0175cb6f38c69b",
+  "purpose": "Test whether local parametric photographic retouching gives useful lighting and material appearance without REGEN's game-to-photo reconstruction artifacts.",
+  "inputs": [
+    "runs/video-review-town-v1/video-town-combined-v1-10.png",
+    "runs/video-review-town-v1/video-town-combined-v1-30.png",
+    "runs/video-review-additional-v1/video-foliage-standard-v1-02.png"
+  ],
+  "input_contract": "Captured display-referred RGB including HUD. No normals, depth, motion, material labels or paired photographic ground truth.",
+  "dimensions": [960, 544],
+  "order": [
+    "Run unchanged author model and checkpoint on CPU; inspect all raw outputs.",
+    "Only if raw output has useful appearance, try fixed-shape DirectML export with independent CPU parity and transfer-inclusive timing.",
+    "Only after spatial acceptance, evaluate consecutive frames and bounded full-resolution composition before native integration."
+  ],
+  "rejection": "Reject lost opening/foliage contrast, altered material identity, new texture artifacts or worse appearance. Reduced blend strength alone does not establish substantial improvement.",
+  "time_limit_minutes": 20,
+  "scope": "Candidate evaluation, not complete application performance. The existing working companion remains available."
+}

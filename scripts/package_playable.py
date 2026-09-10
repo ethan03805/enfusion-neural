@@ -25,7 +25,7 @@ def main():
     if sha(model/'weights.bin')!=expected: raise ValueError('Unrecognized exported checkpoint')
     out.mkdir(parents=True)
     paths = ['Start-Playable.cmd','LICENSE','scripts/play.py','scripts/launch_playable.py',
-             'native/companion.cpp','native/curve_network.h','native/curve_smoke.cpp','native/enr_gpu.cpp','native/CMakeLists.txt']
+             'native/companion.cpp','native/curve_network.h','native/curve_smoke.cpp','native/enr_gpu.cpp','native/adapter_info.cpp','native/CMakeLists.txt']
     for rel in paths:
         target=out/rel; target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(ROOT/rel,target)

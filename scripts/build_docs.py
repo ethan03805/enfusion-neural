@@ -12,7 +12,7 @@ from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
 PAGES=[('index','Overview'),('playable','Playable prototype'),('research-history','Research archive'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('room-lighting','Room lighting'),('light-calibration','Light calibration'),('color-lookup','Color lookup'),('lighting-study','Lighting study'),('lighting-motion','Scene transfer & motion'),('lighting-diversity','Scene diversity'),('lighting-gpu','Lighting GPU'),('arma-scenes','Arma scenes'),('comparisons','Comparisons'),
-       ('architecture','Architecture'),('integration','Enfusion integration'),('feasibility','Technical feasibility'),
+       ('model-evaluation','Appearance candidates'),('architecture','Architecture'),('integration','Enfusion integration'),('feasibility','Technical feasibility'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
 REPO='https://github.com/ethan03805/enfusion-neural'
