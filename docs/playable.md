@@ -25,7 +25,7 @@ One session uses the exact extracted guarded package, private town addon and com
 | F8 bypass and resume | Source view appears; handler-to-hide is 0.77 ms in software logs |
 | Escape/menu | No menu appears with enhancement or after one diagnostic Escape in bypass; menu/resume acceptance fails |
 | Focus loss | Overlay hides; no companion presents occur during the 31.65-second interval after hide and before observed return |
-| Focus return | Fresh-frame processing resumes; first fresh Present is 129.25 ms after observed return, followed by 1,420 fresh frames |
+| Focus return | 1,420 fresh frames are presented after return; the first is 129.25 ms after the observed foreground change |
 | Full view after return | Unverified: UI captures report 1280 × 720 at origin 1280,720 and show only part of the scene, including after F10; native logs show no resize |
 | F10 exit | Companion exits successfully; the original game remains alive five seconds later, then the test closes its owned session |
 
