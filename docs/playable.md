@@ -45,7 +45,7 @@ Review covers **552 chronological one-second samples and 24 full-size keys**. Th
 
 The enhanced recording contains 10,010 frames over 184 seconds, approximately **54.40 recorded frames/s**; standard/reduced contain 11,034 / 11,036. Capture does not record every companion Present. Original timestamp gaps are retained: maximum 66.67 / 50 / 50 ms, including the lead-in. These recording intervals are separate from the application measurements above.
 
-<details>
+<details markdown="1">
 <summary>Measurement corrections and retained failures</summary>
 
 The initial two passes meet the spatial gate but fail the direction gate at 7.88°. Those directions were interpolated from one-second logs. Decimating one denser recorded path to roughly that rate alone produces up to 14.43° of interpolation error at a turn boundary. One measurement amendment increases logging to 10 Hz while retaining the route, every threshold and the original time limit. The corrected final direction difference is 1.46° or less; the original failed result remains recorded.
@@ -58,7 +58,7 @@ Reproduce the route using `scripts/setup_sustained.py --telemetry-hz 10 --plan s
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Earlier 34-second town and street recordings</summary>
 
 Three independent town runs follow the same declared path: 20 seconds walking, then a 10-second heading sweep. Each complete recording lasts 34 seconds, including lead-in and tail. There is no speed change, optical flow or generated motion. Each native 1440p input is scaled to a 1280 × 720 panel for the web comparison; audio was not captured.
@@ -75,7 +75,7 @@ Three independent town runs follow the same declared path: 20 seconds walking, t
 
 The second accepted route travels **73.9–74.2 metres** along a Saint-Philippe street. All three passes clear the declared 50-metre displacement and 1 m/s minimum interior-speed gates. Sampled camera positions stay within **0.47 metres of the standard pass**, below the predeclared 0.5-metre limit. This adds tree canopies, trunks, poles, guardrails and building openings; it does not establish dense-forest coverage. The standard pass has a visible 283 ms recording gap near 9.7 seconds, retained at its original duration.
 
-<details>
+<details markdown="1">
 <summary>Retained failed foliage/fence comparison</summary>
 <figure class="motion-comparison">
 <video controls playsinline preload="none" poster="media/playable-foliage-poster.png" width="3840" height="760" aria-label="Normal-speed foliage gameplay, standard, reduced and reduced plus neural"><source src="media/playable-foliage-unretimed.mp4" type="video/mp4"><a href="media/playable-foliage-unretimed.mp4">Download foliage gameplay</a></video>
@@ -112,7 +112,7 @@ These are application Present calls, including frames that may never be displaye
 
 [Complete measurement record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-comparison-v1.json) contains frame quantiles, path telemetry, configuration readback and raw-artifact hashes.
 
-<details>
+<details markdown="1">
 <summary>Earlier street, evening and runtime checks</summary>
 
 ### Tree-lined street, with recording
@@ -131,7 +131,7 @@ The standard application's 295.11 ms stall occurs about 8.11 seconds into the me
 
 [Street route, complete measurements and retained failures](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-street-v1.json). Reproduce from the repository with `scripts/benchmark_playable.py --out NEW_DIRECTORY --scene foliage-walk --preset combined --mode neural --trace cpu --record`; use standard/off and combined/off for the other passes. The new automatic benchmark route is not a scene option in the earlier downloadable free-play package.
 
-<details>
+<details markdown="1">
 <summary>Earlier recorded fence and evening checks</summary>
 
 | Recorded case | Game presents/s | Game p95 / p99, ms | Companion presents/s | Companion p95 / p99, ms |

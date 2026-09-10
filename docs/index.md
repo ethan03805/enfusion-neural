@@ -2,7 +2,7 @@
 
 A playable neural appearance prototype for Arma Reforger, using an isolated addon and a Windows companion. Target: **2560 × 1440 at 30–60 FPS on RX 7800 XT in local single-player**.
 
-The [runnable Windows build and normal-speed gameplay comparison](playable.md) are available. Continuous capture, GPU processing, visible presentation and F8 bypass work. In the town path, the game runs at 88.1 presents/s with reduced settings plus enhancement, and the companion produces 60.7 presents/s. Frame pacing and latency limits are documented separately.
+The [runnable Windows build and 184-second normal-speed gameplay comparison](playable.md) are available. Continuous capture, GPU processing, visible presentation and F8 bypass work. The latest recorded route measures **70.0 / 85.7 / 72.0 game presents/s** for standard / reduced / enhanced rendering, with **60.2 companion presents/s**. Frame pacing and latency limits are documented separately.
 
 **Substantial photorealistic material and lighting improvement has not been achieved.** The current network makes a modest exposure change. Physical mouse/keyboard routing and broader visibility/stability acceptance remain unfinished.
 

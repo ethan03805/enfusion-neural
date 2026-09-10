@@ -95,7 +95,7 @@ def main():
         shutil.copyfile(source,destination/name)
     for position,(slug,label) in enumerate(PAGES):
         raw=(ROOT/'docs'/f'{slug}.md').read_text(encoding='utf-8')
-        content=markdown.markdown(raw,extensions=['fenced_code','tables','toc'])
+        content=markdown.markdown(raw,extensions=['fenced_code','tables','toc','md_in_html'])
         def rewrite(match):
             href=match.group(1)
             if not urlsplit(href).scheme: href=re.sub(r'\.md(?=#|$)','.html',href)

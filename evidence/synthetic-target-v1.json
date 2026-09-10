@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "rejected_synthetic_target",
+  "evaluation_closed_at": "2026-09-10T12:19:31.169872+00:00",
+  "minutes_since_plan_start": 3.5109907666666667,
+  "within_declared_time_bound": true,
+  "plan": {
+    "schema_version": 1,
+    "started_at": "2026-09-10T12:16:00.510426+00:00",
+    "deadline": "2026-09-10T12:36:00.510426+00:00",
+    "maximum_minutes": 20,
+    "source": {
+      "file": "sustained-reduced-020.png",
+      "sha256": "ad5c458854feeec934397fa61dd55e8f177904969af3b8d2f6fc26b9288fcc9d",
+      "bytes": 3248505,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-review-v3/sustained-reduced-v2/key-020.png",
+      "source_sha256": "ad5c458854feeec934397fa61dd55e8f177904969af3b8d2f6fc26b9288fcc9d",
+      "transformation": "Native 2560x1440 decoded frame requested at 20 seconds from its recorded pass. Separate repeats, no image alignment or grading.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
+    },
+    "source_dimensions": [
+      2560,
+      1440
+    ],
+    "tool": "built-in image_gen.imagegen",
+    "calls_allowed": 1,
+    "prompt": "Use case: style-transfer, strictly source-constrained lighting/material correction.\nAsset type: one offline synthetic art-direction proposal for a gameplay rendering study; not a new scene or a live frame.\nInput image 1 is the EDIT TARGET: a 2560 x 1440 Arma Reforger gameplay capture. Return exactly one image with the same 2560 x 1440 canvas, camera, framing, perspective, and pixel-coordinate scene layout.\nPrimary request: make the EXISTING plaster, weathered roof, asphalt, vegetation and metal read more naturally photographic through coherent broad illumination and material response. Improve diffuse/indirect-light balance and surface shading without replacing or inventing surface details. Preserve the existing clear daytime sky, sun direction, cast-shadow boundaries, exposure visibility and material colors/identity. A simple global brightness or saturation grade is not the requested improvement.\nHard invariants: every building outline, roof edge/tile/seam, facade opening, door/window corner, pole, antenna, branch/leaf/foliage gap, barrier bar/gap and road marking stays at its source coordinate. Keep the two painted wall logos and all text exactly as pictured, including partial/illegible characters; do not reconstruct them. Keep HUD, FPS/version text and TAB Quick slots overlay pixel-identical. Retain all source fine texture and wear patterns without new cracks, grain, bricks, leaves or legible writing. Preserve the shaded areas' visible detail; no crushing blacks, glowing edges, added depth of field or motion blur. No object additions/removals, crop, warp, new weather, new materials, relabeling, new shadows or change to cover/opening visibility.\nAllowed edit: source-aligned low-frequency lighting and material-response correction inside existing surfaces only. Keep high-frequency structure and scene identity. If an area cannot be improved under these constraints, leave that area unchanged. No caption, watermark or decorative border.",
+    "label": "Synthetic art direction, not photographic ground truth",
+    "landmark_coordinate_convention": "Manually selected source-pixel review rectangles [x0,y0,x1,y1], half-open. They are inspection regions, not measured feature correspondences.",
+    "landmarks": [
+      {
+        "name": "roof silhouette, seams and antenna",
+        "region": [
+          1200,
+          48,
+          2560,
+          710
+        ]
+      },
+      {
+        "name": "near facade door and window corners",
+        "region": [
+          1288,
+          560,
+          1815,
+          806
+        ]
+      },
+      {
+        "name": "thin central pole",
+        "region": [
+          1507,
+          0,
+          1556,
+          752
+        ]
+      },
+      {
+        "name": "middle barrier bars and gaps",
+        "region": [
+          1264,
+          733,
+          1560,
+          905
+        ]
+      },
+      {
+        "name": "foreground barrier and opening",
+        "region": [
+          2185,
+          735,
+          2560,
+          991
+        ]
+      },
+      {
+        "name": "right painted wall logo and text",
+        "region": [
+          2061,
+          223,
+          2440,
+          672
+        ]
+      },
+      {
+        "name": "left painted wall logo and text",
+        "region": [
+          399,
+          453,
+          582,
+          673
+        ]
+      },
+      {
+        "name": "road cast-shadow boundary",
+        "region": [
+          193,
+          780,
+          1029,
+          960
+        ]
+      },
+      {
+        "name": "left foliage, trunks and thin roadside cover",
+        "region": [
+          0,
+          0,
+          783,
+          965
+        ]
+      },
+      {
+        "name": "top HUD text",
+        "region": [
+          2265,
+          0,
+          2560,
+          36
+        ]
+      },
+      {
+        "name": "bottom HUD text",
+        "region": [
+          0,
+          1355,
+          260,
+          1440
+        ]
+      }
+    ],
+    "rejection_gates": [
+      "Moved boundaries or changed openings/cover/foliage gaps",
+      "Invented fine texture, new or modified text or logos",
+      "Different weather, material identity or lost shaded visibility",
+      "Only a brightness/color grade without useful material/lighting gain"
+    ],
+    "review": "Inspect the complete source and unchanged raw proposal at original dimensions, then every fixed landmark. Numeric image differences are diagnostic, not realism or correspondence measurements.",
+    "limits": "No prompt search, second candidate, cleanup edit, local generative integration, model training or frame-performance claim. A rejected target cannot be used for training. A passing still only permits a separate feasibility test of compact deterministic source-coordinate correction.",
+    "driver_sha256": "c9d0ce983751d7a70582103c09adb9f2d461fcb7f1504953a381a16cd38b6037",
+    "prompt_sha256": "b0eff5e41af55565a816c875ed4bf9ff90bb0d9992a8ee2ace22c139c09b9be0"
+  },
+  "generation": {
+    "received_at": "2026-09-10T12:17:06.348743+00:00",
+    "tool": "built-in image_gen.imagegen",
+    "calls": 1,
+    "dimensions": [
+      1672,
+      941
+    ],
+    "sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
+    "bytes": 2735178,
+    "transformation": "Original tool PNG copied byte-for-byte; no resampling or cleanup",
+    "tool_wall_seconds": 31.3,
+    "wall_time_scope": "Tool response wall time; remote image generation, not RX7800XT inference or application performance",
+    "source_path": "runs/synthetic-target-v1/source.png",
+    "proposal_path": "runs/synthetic-target-v1/proposal-raw.png"
+  },
+  "review": {
+    "decision": "reject",
+    "scope": "One complete 2560x1440 source and one complete unchanged 1672x941 proposal inspected at their original dimensions; every fixed source landmark region considered. Qualitative review only; no measured feature correspondence, temporal sequence or target-visibility experiment.",
+    "landmarks": [
+      {
+        "name": "roof silhouette, seams and antenna",
+        "region": [
+          1200,
+          48,
+          2560,
+          710
+        ],
+        "observation": "Roof outline and antenna remain recognizable. Roof tiles/seams acquire much denser, darker high-contrast texture; the original fine surface pattern is not retained."
+      },
+      {
+        "name": "near facade door and window corners",
+        "region": [
+          1288,
+          560,
+          1815,
+          806
+        ],
+        "observation": "Broad door/window arrangement remains recognizable. Facade shading becomes stronger and more sharply divided beneath the eaves. Exact corners and shadow boundaries are not certified."
+      },
+      {
+        "name": "thin central pole",
+        "region": [
+          1507,
+          0,
+          1556,
+          752
+        ],
+        "observation": "The central pole remains in approximately the same normalized position. Fine surface shading/texture changes; pixel-coordinate preservation is not established."
+      },
+      {
+        "name": "middle barrier bars and gaps",
+        "region": [
+          1264,
+          733,
+          1560,
+          905
+        ],
+        "observation": "The middle barrier and its placement remain recognizable. Small rail/bar details are redrawn; fine cover and gap equivalence is not certified."
+      },
+      {
+        "name": "foreground barrier and opening",
+        "region": [
+          2185,
+          735,
+          2560,
+          991
+        ],
+        "observation": "The foreground barrier and adjacent opening retain their broad arrangement. Shading and fine metal texture differ; no semantic visibility acceptance."
+      },
+      {
+        "name": "right painted wall logo and text",
+        "region": [
+          2061,
+          223,
+          2440,
+          672
+        ],
+        "observation": "The right painted logo remains recognizable, but the mermaid and faded small lettering are redrawn rather than preserved. It is not an exact text/texture target."
+      },
+      {
+        "name": "left painted wall logo and text",
+        "region": [
+          399,
+          453,
+          582,
+          673
+        ],
+        "observation": "The left painted logo retains the partial word and fruit motif at a coarse level; fine lettering and surrounding plaster texture are regenerated."
+      },
+      {
+        "name": "road cast-shadow boundary",
+        "region": [
+          193,
+          780,
+          1029,
+          960
+        ],
+        "observation": "Road and cast-shadow layout remain broadly recognizable, with stronger shadow contrast and new fine asphalt grain/crack markings. Exact source shadow boundaries are not accepted."
+      },
+      {
+        "name": "left foliage, trunks and thin roadside cover",
+        "region": [
+          0,
+          0,
+          783,
+          965
+        ],
+        "observation": "The two foreground trunks and broad foliage masses remain recognizable. Leaves, bark and fine vegetation gaps are reconstructed; preserved concealment is not established."
+      },
+      {
+        "name": "top HUD text",
+        "region": [
+          2265,
+          0,
+          2560,
+          36
+        ],
+        "observation": "Top HUD is recreated at the lower returned resolution, not pixel-identical to the 2560x1440 source."
+      },
+      {
+        "name": "bottom HUD text",
+        "region": [
+          0,
+          1355,
+          260,
+          1440
+        ],
+        "observation": "Bottom TAB/Quick slots HUD is recreated at the lower returned resolution, not pixel-identical to the source."
+      }
+    ],
+    "appearance": "Stronger and more varied plaster, roof and road shading appears more photographic at a glance. This is a subjective art-direction observation, not measured physical realism. The improvement is coupled to regenerated fine detail and cannot be accepted under the source-identity contract.",
+    "dimensions": {
+      "requested": [
+        2560,
+        1440
+      ],
+      "returned": [
+        1672,
+        941
+      ],
+      "matches": false,
+      "limit": "The original files have different dimensions. No resampling, registration, warping or cleanup is applied to make them appear aligned."
+    },
+    "failed_gates": [
+      "Invented/reconstructed fine texture and lettering",
+      "Source pixel-coordinate/HUD identity not preserved"
+    ],
+    "unverified_gates": [
+      "Exact opening, barrier and foliage-gap equivalence",
+      "Exact cast-shadow boundary preservation",
+      "Shaded gameplay-target visibility"
+    ],
+    "training_allowed": false,
+    "live_integration_allowed": false,
+    "next_candidate_generated": false,
+    "retouched": false
+  },
+  "working_package_changed": false,
+  "training_performed": false,
+  "photorealistic_gain_accepted": false,
+  "local_model_performance_measured": false,
+  "source_hashes": {
+    "scenes/playable-synthetic-target-v1.json": "cbdc767a2afc648c8a5bc343c6e233bb1439416cc4ce27e3fc85f0152e53710b",
+    "runs/synthetic-target-v1/generation.json": "7e58936105c7437c0b82f5acfc11f7b509c1562e63fd03683b1d42db78da79a5",
+    "runs/synthetic-target-v1/decision.json": "a57b0e9aac83b17022e45a919c09abb62a4b07670fc21e00549a0ef688846f0f",
+    "scripts/publish_synthetic_target.py": "93e708550943ef406ebbed19ab54717ad41e916dbad88eb17ec256a777ad47dd"
+  },
+  "published_media": [
+    {
+      "file": "synthetic-target-rejected.png",
+      "sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
+      "bytes": 2735178,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "source_record": "evidence/synthetic-target-v1.json",
+      "source_artifact": "runs/synthetic-target-v1/proposal-raw.png",
+      "source_sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
+      "transformation": "Unchanged built-in image-tool PNG. Source-conditioned synthetic proposal from the documented 2560x1440 gameplay frame; tool returned 1672x941. No resize, cleanup, registration or additional generation. Not photographic ground truth, not live gameplay output.",
+      "rights": "Synthetic edit of Arma Reforger imagery \u00a9 Bohemia Interactive; game imagery is outside the MIT code license. No training-data authorization or new game-asset license is inferred."
+    }
+  ]
+}

@@ -2031,6 +2031,20 @@
       "source_sha256": "daa6bcd0f25f9880f3205588359ced8592fb4c7cc0f39e18ad28ec6b114e0851",
       "transformation": "Native 2560x1440 decoded frame requested at 20 seconds from its recorded pass. Separate repeats, no image alignment or grading.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
+    },
+    {
+      "file": "synthetic-target-rejected.png",
+      "sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
+      "bytes": 2735178,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "source_record": "evidence/synthetic-target-v1.json",
+      "source_artifact": "runs/synthetic-target-v1/proposal-raw.png",
+      "source_sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
+      "transformation": "Unchanged built-in image-tool PNG. Source-conditioned synthetic proposal from the documented 2560x1440 gameplay frame; tool returned 1672x941. No resize, cleanup, registration or additional generation. Not photographic ground truth, not live gameplay output.",
+      "rights": "Synthetic edit of Arma Reforger imagery \u00a9 Bohemia Interactive; game imagery is outside the MIT code license. No training-data authorization or new game-asset license is inferred."
     }
   ],
   "videos": [

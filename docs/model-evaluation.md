@@ -11,6 +11,34 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
 | IAT exposure correction | RX 7800 XT DirectML FP32, 960 × 540: 27.66–29.46 ms median | Rejected: saturated color, lost shade detail and excessive cost; bounded version adds no substantial appearance benefit |
 
+## Synthetic appearance target
+
+**The single generated proposal is rejected.** Its stronger roof, plaster and road shading looks more photographic at a glance, but it redraws surface texture, fine foliage and painted lettering. The source remains recognizable; exact identity and gameplay visibility do not follow from that resemblance. The tool also returns **1672 × 941** despite the requested 2560 × 1440 canvas.
+
+This is **synthetic art direction, not photographic ground truth or live gameplay output**. The 3.5-minute check uses one frozen source, one prompt and eleven review regions. Both complete original images and every region were considered. No cleanup, second candidate, registration, training or live integration follows the rejection. There is still no accepted aligned appearance target.
+
+<details markdown="1">
+<summary>Original source, rejected proposal and fixed review</summary>
+
+<figure><img src="media/sustained-reduced-020.png" width="2560" height="1440" loading="lazy" alt="Original reduced Reforger street with slate roof, facade openings, painted wall logos, poles and barriers"><figcaption>Unchanged gameplay source · 2560 × 1440 · reduced render</figcaption></figure>
+
+<figure><img src="media/synthetic-target-rejected.png" width="1672" height="941" loading="lazy" alt="Rejected synthetic street proposal with redrawn roof and asphalt texture, stronger facade shading and reconstructed lettering"><figcaption>Unchanged synthetic proposal · 1672 × 941 · rejected; not game output</figcaption></figure>
+
+| Frozen review regions | Finding |
+| --- | --- |
+| Roof silhouette, seams and antenna | Recognizable outline; denser, darker tile texture replaces the source pattern |
+| Facade door/window corners | Broad arrangement persists; stronger eaves shading, exact corners/shadow boundaries uncertified |
+| Central pole and both barrier regions | Broad placement persists; fine surface/bar details are redrawn, gap equivalence uncertified |
+| Both painted wall logos | Recognizable motifs; fine lettering and painted detail are reconstructed |
+| Road shadow and left foliage | New asphalt grain and vegetation detail; exact shadows and concealment unverified |
+| Top and bottom HUD | Recreated at a lower resolution, failing pixel identity |
+
+These are qualitative observations, not measured feature correspondence or physical-realism scores. The browser fits each image for display; the files retain their different original dimensions. The proposal is unsuitable as a supervised training target under the fidelity contract.
+
+[Complete evidence and exact prompt](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/synthetic-target-v1.json) retain source/proposal hashes, the pre-generation plan, every review rectangle and decision. `scripts/prepare_synthetic_target.py` freezes the input and prompt; the built-in image tool generates the single proposal; `scripts/publish_synthetic_target.py` verifies and publishes the unchanged reviewed artifact. The remote tool's 31.3-second response is **not** local model speed or application performance. Source game imagery belongs to Bohemia Interactive and is outside the MIT code license.
+
+</details>
+
 ## IAT RGB correction
 
 **IAT is rejected after a 14.1-minute evaluation.** The author's exposure checkpoint runs unchanged on the RX 7800 XT and passes independent CPU parity. Its raw output pushes sky toward cyan, saturates vegetation and darkens shaded openings and foliage. A fixed bounded residual retains native detail but gives only a modest color change. Its hard HUD-mask boundaries also create visible seams; this diagnostic defect is retained below. The live companion uses feathered margins and is unchanged.
@@ -23,7 +51,7 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 
 These synchronized calls include input upload and readback of **all three author outputs**; they exclude resizing, bounded composition, encoding and the game. They fail the predefined 10 ms p95 call ceiling. They are not complete application frame times. The raw output's author color clamp remains intact; clipping here counts channels newly reaching 0 or 255 after display quantization.
 
-<details>
+<details markdown="1">
 <summary>IAT images, failures and reproduction</summary>
 
 <section class="comparison" data-comparison data-before-label="source" data-after-label="rejected bounded IAT" aria-label="IAT facade source and rejected bounded correction">
@@ -57,7 +85,7 @@ The native sky-intensity test produces **no useful visible lighting change**. Th
 
 The candidate is rejected in the selection view. The reserved view is unused, and no lighting preset, training target or neural effect is accepted. This route closes after 12.8 minutes. Assignment success does not establish a visible renderer response or explain whether caching, overwrite or another mechanism prevented it.
 
-<details>
+<details markdown="1">
 <summary>Sky-control images and reproduction evidence</summary>
 
 <section class="comparison" data-comparison data-before-label="source" data-after-label="assigned sky control" aria-label="Native sky control with no useful visible response">
@@ -99,7 +127,7 @@ The model preserves broad road gradients, building massing, near poles and tree 
 
 All 600 frames were inspected in chronological contact sheets, plus native-size RGB/depth pairs at 0, 3, 7 and 9.983 seconds. The planned entire-clip real-time playback inspection was **not completed**; the review does not establish full temporal acceptance. The published movie preserves all source-relative timestamps to numerical roundoff, with no generated frames or speed change. Each source panel is reduced to 896 × 504; the depth panel uses the first prediction's range for the entire sequence.
 
-<details>
+<details markdown="1">
 <summary>Motion evidence, full-size frames and reproduction</summary>
 
 | Segment position | 2560 × 1440 RGB | Full-size relative depth |
@@ -115,7 +143,7 @@ The bounded investigation closes after 17.7 minutes. Using the retained source a
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Earlier static depth and collision checks</summary>
 
 ## RGB depth feasibility
@@ -151,7 +179,7 @@ Ordering is Spearman correlation with inverse axial distance. An affine inverse-
 
 These static checks selected the smaller FP32 graph for the motion check above. **Do not reconstruct surface normals or apply per-pixel relighting from these maps.** Peak GPU memory and whole-application performance remain unmeasured. No lighting effect, training target or package change is accepted. The two graph sizes and single FP16 attempt close within 17.4 minutes; the failed graph and report remain intact.
 
-<details>
+<details markdown="1">
 <summary>Inspect all depth maps and reproduction records</summary>
 
 | View | Native RGB | 252 short side | 392 short side |
@@ -167,7 +195,7 @@ The research scripts require the retained geometry captures/logs under ignored `
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Earlier SPAN restoration comparison</summary>
 
 ## RGB detail restoration
@@ -198,7 +226,7 @@ The [complete SPAN evidence](https://github.com/ethan03805/enfusion-neural/blob/
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Earlier REGEN and DeepLPF comparisons</summary>
 
 REGEN timing includes upload and readback, excludes file handling and initialization, and was measured with the game stopped. It is **not pure GPU dispatch time or application FPS**. Its independent CPU/DirectML comparison passes: maximum absolute error 0.00002271 in the −1…1 model output. All 18 profiled inference events ran on DirectML; CPU fallback was disabled. Even this lower-resolution transfer-inclusive call exceeds the 33.3 ms whole-frame budget. DeepLPF has no measured GPU timing yet.
@@ -310,7 +338,7 @@ Inspect the close-up [original](media/roof-candidates-closeup-source.png), [0.4]
 
 The source/change/reset API control remains useful for offline material experiments. Its earlier extreme setting is retained below; the moderate candidates above are rejected.
 
-<details>
+<details markdown="1">
 <summary>Earlier roughness control and restoration measurements</summary>
 
 The documented [Material API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html) now produces a verified response on this roof without copying textures. A private Workbench sequence captures the source, sets cached `RoughnessScale` from its observed default 1 to **0.05**, then resets it. The camera remains fixed and all three images are inspected. **The exaggerated sheen is a control, not an accepted appearance improvement or neural output.**
@@ -347,7 +375,7 @@ A bounded probe samples 2,304 scene rays in each of two street views. The return
 
 These integer-millisecond Workbench measurements include ray setup, queries, allocations and metadata; they exclude logging, game frame time and companion processing. Collision normals are not rendered shading normals. The first float-coordinate control fails the declared 0.5-pixel projection limit at 1.389 pixels; the second view uses explicit integer coordinates and passes at 0.142 pixels. The original failure remains recorded. `TraceDist` returns large signed values and is not treated as distance along the ray.
 
-<details>
+<details markdown="1">
 <summary>Inspect both geometry views and retained failures</summary>
 
 <figure>
