@@ -2045,6 +2045,48 @@
       "source_sha256": "8a29f21c59fea0a41373fdb0f287e52a1a82434a757bb93692a9f0b5a7fc9bf0",
       "transformation": "Unchanged built-in image-tool PNG. Source-conditioned synthetic proposal from the documented 2560x1440 gameplay frame; tool returned 1672x941. No resize, cleanup, registration or additional generation. Not photographic ground truth, not live gameplay output.",
       "rights": "Synthetic edit of Arma Reforger imagery \u00a9 Bohemia Interactive; game imagery is outside the MIT code license. No training-data authorization or new game-asset license is inferred."
+    },
+    {
+      "file": "dce-temporal-poster.png",
+      "sha256": "d0aab54df743bc2e4fa15a7fb65023042493bb369e1d1d8a4fadf0fe40305825",
+      "bytes": 1311196,
+      "dimensions": [
+        1792,
+        536
+      ],
+      "source_record": "evidence/playable-dce-temporal-v2.json",
+      "source_artifact": "runs/dce-temporal-review-v2/poster.png",
+      "source_sha256": "d0aab54df743bc2e4fa15a7fb65023042493bb369e1d1d8a4fadf0fe40305825",
+      "transformation": "Unchanged area-reduced 1792x536 source/native-replay comparison PNG at three seconds, including labels.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms."
+    },
+    {
+      "file": "dce-temporal-reserved-source.png",
+      "sha256": "f97344de24d24988ec422169314a1f21a11fbdc25fd0bfa39711ccb672ca5a65",
+      "bytes": 2894331,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-temporal-v2.json",
+      "source_artifact": "runs/dce-temporal-native-v2/key-0420-source.png",
+      "source_sha256": "f97344de24d24988ec422169314a1f21a11fbdc25fd0bfa39711ccb672ca5a65",
+      "transformation": "Unchanged native 2560x1440 source RGB decoded from retained gameplay video.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms."
+    },
+    {
+      "file": "dce-temporal-reserved-enhanced.png",
+      "sha256": "4a718a37b304c2f07720a2f163908855931656e8dc328a08728558cc8d98fd5e",
+      "bytes": 3354845,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-temporal-v2.json",
+      "source_artifact": "runs/dce-temporal-native-v2/key-0420-enhanced.png",
+      "source_sha256": "4a718a37b304c2f07720a2f163908855931656e8dc328a08728558cc8d98fd5e",
+      "transformation": "Unchanged native 2560x1440 D3D11 replay output at seven seconds; existing network and shader, not a new gameplay capture.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms."
     }
   ],
   "videos": [
@@ -2325,6 +2367,23 @@
       "transformation": "All 184 seconds, original elapsed speed. Each native 2560x1440 source scaled to 768x432; three panels plus 32-pixel labels. Reset timestamp origin only. Hstack holds the last available slower-source frame. No optical flow, generated frames, speed change or audio. H264 CRF26 capped at 3.5Mbps for publication size.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license.",
       "duration_seconds": 184,
+      "playback_speed": 1,
+      "retimed": false
+    },
+    {
+      "file": "dce-temporal-unretimed.mp4",
+      "sha256": "a007d16a6b075cd87a8c40f2b784f81b2b9dffd9677849ef24671c0aee5400e6",
+      "bytes": 8279957,
+      "dimensions": [
+        1792,
+        536
+      ],
+      "source_record": "evidence/playable-dce-temporal-v2.json",
+      "source_artifact": "runs/dce-temporal-review-v2/comparison.mp4",
+      "source_sha256": "a007d16a6b075cd87a8c40f2b784f81b2b9dffd9677849ef24671c0aee5400e6",
+      "transformation": "Every source/native-replayed 2560x1440 pair is area-reduced to 896x504 per panel with 32px labels. 600 frames over ten seconds at the original relative source PTS; no motion synthesis, speed change or audio. H264 CRF20 YUV420p alters pixels. Offline native replay, not a new gameplay performance capture.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms.",
+      "duration_seconds": 10,
       "playback_speed": 1,
       "retimed": false
     }

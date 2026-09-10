@@ -16,7 +16,7 @@ F8 hides the overlay and exposes the source. F9 switches the companion between i
 
 The overlay is nonactivating and disabled for normal window input. Automated engine actions prove live movement through the displayed scene; complete physical WASD/mouse routing is still awaiting verification. A separate ordinary viewer is available. These limits are tracked in [current status](status.md).
 
-The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
+The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. The paired-frame diagnostic finds that its luminance guard still permits individual channels to reach a new endpoint; a channel-preservation correction is pending. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
 
 ## Components
 
@@ -27,6 +27,7 @@ The shader protects near-black and highlight regions, feathers fixed HUD margins
 | `scripts/play.py` | Free-play launch, companion and controls |
 | `native/companion.cpp` | WGC capture, overlay/viewer, shader composition, fallback, timing and snapshots |
 | `native/curve_network.h` | Native pretrained FP32 network |
+| `native/dce_replay.cpp` | Offline 1440p replay of the same network and extracted shader, with full readback and curve dumps; no capture, window or Present |
 | `scripts/prepare_pretrained.py` | Pinned downloads, hashes and native tensor export |
 | `scripts/benchmark_playable.py` | Serialized owned sessions, settings guards, PresentMon and optional recording |
 | `scripts/analyze_playable.py` | Fixed-path game/companion cadence, processing time and available latency joins |
@@ -37,6 +38,8 @@ The shader protects near-black and highlight regions, feathers fixed HUD margins
 The standalone D3D12 backend, original CPU models and independent numerical references remain available. Their dispatch timings exclude game capture and display. The [Blender lighting studies](lighting-study.md), [motion studies](lighting-motion.md), [material fixture](material-room.md) and [research history](research-history.md) retain earlier findings.
 
 The unsupported screenshot/widget return and in-engine renderer-resource bridge are closed for this iteration. They provide no live input buffers to the current model. Changes to a GPU graph must continue to pass its independent CPU reference.
+
+The paired replay matches a saved native snapshot exactly, including curves and RGB8 composition. The independent CPU network agrees within 1.79 × 10⁻⁷; the CPU full compositor misses its predeclared 0.02-code mean tolerance at 0.033434 codes. Preserve that unresolved composition bias instead of describing native self-reproduction as independent CPU composition parity. The source-only flow diagnostic measures added luminance variation with exclusions; it is not a semantic fidelity or full perceptual test.
 
 The supported world API exposes collision traces. The completed 64 × 36 grid costs 16–25 ms CPU and has unresolved visible-surface correspondence. It remains an offline diagnostic; per-frame integration is closed.
 

@@ -88,6 +88,38 @@ Capture starts near simulation second 28 in each run. Initialization and head mo
 
 </details>
 
+## Paired-frame exposure stability
+
+A ten-second offline replay processes **all 600 source frames** through the existing D3D11 network and compositor. Source and enhancement share exactly the same input frame, so this diagnostic measures the enhancement's added exposure variation without differences between gameplay repeats. The coarse check passes on both the selection segment and the reserved final three seconds. **It also finds a channel-clipping defect.** The live shader and download are unchanged.
+
+| Segment | Consecutive pairs | Median valid coverage | p95 of frame median change | p95 of frame p95 change |
+| --- | ---: | ---: | ---: | ---: |
+| First seven seconds | 419 | 84.90% | 0.075 codes | 0.798 codes |
+| Reserved final three seconds | 180 | 83.79% | 0.071 codes | 0.763 codes |
+| Frozen coarse limits | — | ≥60% | ≤1 code | ≤4 codes |
+
+Changes are RGB8 luminance codes in the enhancement-minus-source residual, after source-only optical-flow correspondence at 448 × 252. Coverage refers to the declared central screen region after HUD, occlusion, gradient and photometric exclusions, **not the whole image**. Identity gives exactly zero change; deliberately alternating ±8-code brightness gives 16-code change and fails both limits. Small residual variation in these covered regions does not certify thin cover, openings, concealed targets, HUD transitions or complete perceptual stability.
+
+Across 600 frames, **51,129 channel samples newly reach 0 or 255**, 0.000771% of all channel samples; every frame has at least one, with a maximum of 290. These are repeated channel observations, not distinct scene objects. The four fixed key frames show new white endpoints and no new black endpoints; the full-sequence count combines both endpoints. The current luminance guard does not prevent individual-channel saturation. A source-preserving guard is the next correction.
+
+<details markdown="1">
+<summary>Paired video, reproduction and review limits</summary>
+
+<figure class="motion-comparison">
+<video controls playsinline preload="metadata" poster="media/dce-temporal-poster.png" width="1792" height="536" aria-label="Paired source and native exposure replay at original speed"><source src="media/dce-temporal-unretimed.mp4" type="video/mp4"><a href="media/dce-temporal-unretimed.mp4">Download paired exposure replay</a></video>
+<figcaption>Same source frame / native DCE replay · 600 frames over 10 seconds at 1× speed · offline processing</figcaption>
+</figure>
+
+Each native 2560 × 1440 panel is area-reduced to 896 × 504, with labels above. All 600 encoded timestamps retain their original relative presentation times to numerical roundoff; no motion or speed change is introduced. This is an offline replay, not evidence of live processing at 60 FPS. Inspect the reserved native-size [source](media/dce-temporal-reserved-source.png) and [enhanced output](media/dce-temporal-reserved-enhanced.png).
+
+The first CPU reproduction stops before temporal processing: curves differ from the retained native snapshot by at most 1.79 × 10⁻⁷, but composed RGB8 mean error is 0.033434 codes against the frozen 0.02 ceiling; maximum error is one code. The mostly positive composition bias has not been isolated. One documented alternative uses the exact native network and extracted companion shader on RX 7800 XT. It matches all 172,800 saved curve values and 11,059,200 output channels exactly, while retaining the independent CPU curve check. The original failure, snapshot, thresholds and deadline remain unchanged.
+
+Review covers ten chronological one-second samples and all four native-size source/enhanced key pairs. Openings, roof patterns, poles, barriers and foliage keep their visible arrangement. Midtones lift slightly; source blur and aliasing remain. No substantial material or lighting improvement is accepted. Complete real-time perceptual review and all-frame visual inspection remain unfinished.
+
+The experiment closes after **18.0 minutes**, within the original 30-minute bound. The offline helper includes CPU upload/readback and curve-file dumps; its timings are not live GPU cost or latency. `native/dce_replay.cpp` accepts RGB24 frames at 2560 × 1440: `enr_dce_replay weights.bin companion.hlsl NEW_CURVE_DIRECTORY`. The preparation, evaluation, review and publication scripts are retained as `scripts/*dce_temporal.py`; reproducing this historical evaluation also requires its local capture and pinned model files. [Complete paired-frame evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-dce-temporal-v2.json) includes every per-frame result, both controls, source hashes, CPU failure and native amendment.
+
+</details>
+
 ## Application performance
 
 The table uses a 30-second town path **without recording**. Output is 2560 × 1440. Every varied setting is checked through engine readback. Geometry, texture and vegetation settings retain the user's saved values. Standard uses native scale, FSR off and high local/distant shadows.
@@ -141,7 +173,7 @@ The standard application's 295.11 ms stall occurs about 8.11 seconds into the me
 | Foliage/fence reduced + neural | 69.91 | 18.99 / 22.09 | 60.10 | 30.55 / 32.54 |
 | Evening town reduced + neural | 82.03 | 17.42 / 20.29 | 60.65 | 30.38 / 32.15 |
 
-The evening check is a single enhancement run, with no evening baseline claim. The rebuilt package changes C++ runtime linkage and metadata only; its unchanged shader still passes CPU parity.
+The evening check is a single enhancement run, with no evening baseline claim. The rebuilt package changes C++ runtime linkage and metadata only. Its unchanged network passes independent CPU curve parity; the separate full-composition discrepancy is recorded in the paired-frame check above.
 
 </details>
 

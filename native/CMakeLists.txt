@@ -22,3 +22,8 @@ target_link_libraries(enr_curve_smoke PRIVATE d3d11 dxgi d3dcompiler windowsapp)
 add_executable(enr_adapter_info adapter_info.cpp)
 target_compile_features(enr_adapter_info PRIVATE cxx_std_17)
 target_link_libraries(enr_adapter_info PRIVATE dxgi)
+
+add_executable(enr_dce_replay dce_replay.cpp)
+target_compile_features(enr_dce_replay PRIVATE cxx_std_20)
+target_compile_definitions(enr_dce_replay PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
+target_link_libraries(enr_dce_replay PRIVATE d3d11 dxgi d3dcompiler windowsapp)

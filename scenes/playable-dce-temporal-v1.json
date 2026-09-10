@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T12:32:12.592757+00:00",
+  "maximum_minutes": 30,
+  "deadline": "2026-09-10T13:02:12.592757+00:00",
+  "source": "runs/foliage-walk-reduced-v1/gameplay.mp4",
+  "segment_seconds": [
+    18,
+    28
+  ],
+  "reserved_start_seconds": 25,
+  "source_dimensions": [
+    2560,
+    1440
+  ],
+  "curve_dimensions": [
+    320,
+    180
+  ],
+  "source_hashes": {
+    "runs/foliage-walk-reduced-v1/gameplay.mp4": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+    "runs/depth-motion-v1/source-timestamps.json": "a996c928aa820edaebfcfd330e46ca5de5e70818cfd34d7391fb59497f4f6f4b",
+    "runs/pretrained/zero-dce-plusplus/Epoch99.pth": "ca8855b90df9a80fa4195a831f33d3476b1964f787eb70602797c773067f3b84",
+    "runs/pretrained/zero-dce-plusplus/model.py": "508ad1b0eece0b2a99503ba8b4461a9695b79ecf1b30b046be16f7aaa99c20e3",
+    "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+    "runs/companion-input-final-v1/source.bmp": "ba14d087e5f0dcecbf96013698eeb1991c668acfce826f739b613dcb1a58130d",
+    "runs/companion-input-final-v1/output.bmp": "0a78030a28fdf98f7343961f377355fc8bd00cedbe1d7fe19b71aae9c54c920f",
+    "runs/companion-input-final-v1/curve.f32": "71f7210b2ad7d389d6959e69f88f5125b86d8dace6f0cd7ff523de343225f15c",
+    "runs/companion-input-final-v1/run.json": "daddf9eba6207c42551a05c720124c5f7a6c13af3d73a6a211929a077ce914f2",
+    "native/companion.cpp": "3891d154e94a1467be83fc6f2323dc913e37a8e90ae1a04ecdf03a745f4b704c",
+    "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01"
+  },
+  "model": "Pinned unchanged author Zero-DCE++ Epoch99, FP32 CPU, scale_factor=1 on bilinear 320x180 RGB input. Native exported tensors remain unchanged.",
+  "strength": 0.35,
+  "mode": 3,
+  "parity_snapshot": "runs/companion-input-final-v1",
+  "parity_gates": {
+    "curve_max_absolute_error": 0.0001,
+    "composed_rgb8_max_error": 1,
+    "composed_rgb8_mean_error": 0.02
+  },
+  "parity_policy": "Check all 172800 native curve values and all 11059200 output RGB8 channels against the retained same-frame source/curve/output snapshot. Stop the diagnostic if either reproduction gate fails. No retuning or new snapshot.",
+  "compositor": "Reproduce native mode 3 including eight curve iterations, luminance gain .85..1.4, strength .35, source-RGB change cap .06, dark/highlight smoothstep and feathered vertical/crosshair masks. Quantize to RGB8 before temporal analysis.",
+  "correspondence": {
+    "size": [
+      448,
+      252
+    ],
+    "flow": "Farneback, both directions",
+    "parameters": [
+      0.5,
+      3,
+      15,
+      3,
+      5,
+      1.2,
+      0
+    ],
+    "maximum_closure_px": 1,
+    "maximum_source_gray_error_codes": 12,
+    "minimum_sobel_magnitude": 5,
+    "core": "x 5..95%, y 10..84%; exclude central x +/-3.6%, y +/-5%. Reject outside backward coordinates, closure and photometric failure. Flow is source-only; enhancement is never used to fit correspondence."
+  },
+  "metric": "Area-reduce the quantized enhancement-minus-source Rec.709 luminance residual to 448x252. Backward-warp the previous residual using source flow; absolute change in RGB8 luminance codes, on the valid mask. Report per-frame coverage, median and p95; aggregate separately on selection and final-three-second reserved split. Not a certified flicker or target-visibility score.",
+  "gates": {
+    "median_coverage_min": 0.6,
+    "p95_of_frame_median_codes_max": 1,
+    "p95_of_frame_p95_codes_max": 4
+  },
+  "controls": "Identity output must have zero residual change. Clip source RGB8 plus alternating +/-8 codes before the identical residual diagnostic; this deliberate brightness alternation must fail both change gates on both splits. Same source flow/mask for every control.",
+  "retention": "Retain all source PTS and hashes, native curve predictions, coarse residual fields, every timestamped comparison PNG, all per-frame results and controls. Four original-size source/enhanced key pairs at 0,3,7,last frame. No frame subsampling for metrics or comparison.",
+  "timing_scope": "Offline CPU diagnostic with game stopped. Decode, CPU inference/composition, flow, PNG/video encoding do not establish live application performance.",
+  "video": "Each native source/enhanced image is area-reduced to 896x504, side by side with 32px labels. Original relative source PTS, no generated motion or speed change, H264 CRF20 YUV420p. Verify every encoded PTS.",
+  "review": "Inspect all chronological one-second comparison samples and all four native key pairs. Retain review limits; this sampled review cannot establish full real-time perceptual stability.",
+  "limits": "One source segment, no new gameplay, model tuning, temporal smoothing, alternate strength, training or appearance claim. Source flow may reject difficult cover/openings and cannot certify visibility. A pass only characterizes added exposure variation in covered regions."
+}
