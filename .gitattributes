@@ -7,3 +7,4 @@ scenes/arma-source-visibility-v1.json -text whitespace=cr-at-eol
 # Preserve the exact pre-measurement plans and amendment recorded in the replay evidence.
 scenes/playable-dce-temporal-v1.json -text whitespace=cr-at-eol
 scenes/playable-dce-temporal-native-v2.json -text whitespace=cr-at-eol
+scenes/playable-dce-channel-guard-v1.json -text whitespace=cr-at-eol

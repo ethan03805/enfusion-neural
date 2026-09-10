@@ -16,7 +16,7 @@ F8 hides the overlay and exposes the source. F9 switches the companion between i
 
 The overlay is nonactivating and disabled for normal window input. Automated engine actions prove live movement through the displayed scene; complete physical WASD/mouse routing is still awaiting verification. A separate ordinary viewer is available. These limits are tracked in [current status](status.md).
 
-The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. The paired-frame diagnostic finds that its luminance guard still permits individual channels to reach a new endpoint; a channel-preservation correction is pending. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
+The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. Its source build now also caps positive common RGB gain by source-channel headroom, using a 254/255 ceiling before feathering. This avoids new endpoints in the complete 600-frame offline replay and fixed saturation fixtures; separate live validation is pending, and the downloadable ZIP retains the original shader. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
 
 ## Components
 
@@ -28,6 +28,7 @@ The shader protects near-black and highlight regions, feathers fixed HUD margins
 | `native/companion.cpp` | WGC capture, overlay/viewer, shader composition, fallback, timing and snapshots |
 | `native/curve_network.h` | Native pretrained FP32 network |
 | `native/dce_replay.cpp` | Offline 1440p replay of the same network and extracted shader, with full readback and curve dumps; no capture, window or Present |
+| `enr/exposure_guard.py` | Independent CPU reference for constant-curve saturation and fallback fixtures; excluded from the live frame path |
 | `scripts/prepare_pretrained.py` | Pinned downloads, hashes and native tensor export |
 | `scripts/benchmark_playable.py` | Serialized owned sessions, settings guards, PresentMon and optional recording |
 | `scripts/analyze_playable.py` | Fixed-path game/companion cadence, processing time and available latency joins |

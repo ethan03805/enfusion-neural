@@ -90,7 +90,7 @@ Capture starts near simulation second 28 in each run. Initialization and head mo
 
 ## Paired-frame exposure stability
 
-A ten-second offline replay processes **all 600 source frames** through the existing D3D11 network and compositor. Source and enhancement share exactly the same input frame, so this diagnostic measures the enhancement's added exposure variation without differences between gameplay repeats. The coarse check passes on both the selection segment and the reserved final three seconds. **It also finds a channel-clipping defect.** The live shader and download are unchanged.
+A ten-second offline replay processes **all 600 source frames** through the original D3D11 network and compositor. Source and enhancement share exactly the same input frame, so this diagnostic measures the enhancement's added exposure variation without differences between gameplay repeats. The coarse check passes on both the selection segment and the reserved final three seconds. **It also finds a channel-clipping defect.** The correction below follows this retained original measurement; the downloadable package still uses the original shader pending live validation.
 
 | Segment | Consecutive pairs | Median valid coverage | p95 of frame median change | p95 of frame p95 change |
 | --- | ---: | ---: | ---: | ---: |
@@ -100,7 +100,7 @@ A ten-second offline replay processes **all 600 source frames** through the exis
 
 Changes are RGB8 luminance codes in the enhancement-minus-source residual, after source-only optical-flow correspondence at 448 × 252. Coverage refers to the declared central screen region after HUD, occlusion, gradient and photometric exclusions, **not the whole image**. Identity gives exactly zero change; deliberately alternating ±8-code brightness gives 16-code change and fails both limits. Small residual variation in these covered regions does not certify thin cover, openings, concealed targets, HUD transitions or complete perceptual stability.
 
-Across 600 frames, **51,129 channel samples newly reach 0 or 255**, 0.000771% of all channel samples; every frame has at least one, with a maximum of 290. These are repeated channel observations, not distinct scene objects. The four fixed key frames show new white endpoints and no new black endpoints; the full-sequence count combines both endpoints. The current luminance guard does not prevent individual-channel saturation. A source-preserving guard is the next correction.
+Across 600 frames, **51,129 channel samples newly reach 0 or 255**, 0.000771% of all channel samples; every frame has at least one, with a maximum of 290. These are repeated channel observations, not distinct scene objects. The four fixed key frames show new white endpoints and no new black endpoints; the full-sequence count combines both endpoints. The original luminance guard does not prevent individual-channel saturation.
 
 <details markdown="1">
 <summary>Paired video, reproduction and review limits</summary>
@@ -117,6 +117,41 @@ The first CPU reproduction stops before temporal processing: curves differ from 
 Review covers ten chronological one-second samples and all four native-size source/enhanced key pairs. Openings, roof patterns, poles, barriers and foliage keep their visible arrangement. Midtones lift slightly; source blur and aliasing remain. No substantial material or lighting improvement is accepted. Complete real-time perceptual review and all-frame visual inspection remain unfinished.
 
 The experiment closes after **18.0 minutes**, within the original 30-minute bound. The offline helper includes CPU upload/readback and curve-file dumps; its timings are not live GPU cost or latency. `native/dce_replay.cpp` accepts RGB24 frames at 2560 × 1440: `enr_dce_replay weights.bin companion.hlsl NEW_CURVE_DIRECTORY`. The preparation, evaluation, review and publication scripts are retained as `scripts/*dce_temporal.py`; reproducing this historical evaluation also requires its local capture and pinned model files. [Complete paired-frame evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-dce-temporal-v2.json) includes every per-frame result, both controls, source hashes, CPU failure and native amendment.
+
+</details>
+
+### Channel-preserving correction
+
+The source build now limits positive exposure gain by the brightest source channel's remaining headroom. It keeps a shared RGB multiplier and the existing model, strength, masks and pixel coordinates. **All 600 guarded frames have zero newly clipped channels**, and every protected pixel remains identical to source. The downloadable ZIP awaits separate live validation of this change.
+
+| Fixed check | Original compositor | With channel guard |
+| --- | ---: | ---: |
+| New endpoint-clipped channel samples, 600-frame sequence | 51,129 | 0 |
+| New endpoint-clipped channels, deliberate bright fixture | 1,511,657 | 0 |
+| Reserved temporal: p95 of frame median / frame p95 change | 0.070907 / 0.762612 codes | 0.071045 / 0.762951 codes |
+| Reserved median valid-region coverage | 83.79% | 83.79% |
+
+Both temporal results pass the unchanged coarse limits; their coverage and visibility exclusions still apply. The original snapshot, all original output frames and all neural curves reproduce exactly. Zero and invalid curves return exact source. The guarded bright/dark fixtures agree with the independent CPU reference within one RGB8 code, with mean errors 0.00444 / 0.00677 codes. This does not resolve the earlier CPU composition discrepancy on the gameplay snapshot.
+
+Review covers all four native source/original/guarded triplets, ten chronological contact samples and all six fixture pairs. The four gameplay keys change only **162–334 pixels** relative to the original enhancement. Their visible scene arrangement and modest exposure effect remain; source blur and aliasing persist. This corrects color preservation, without establishing photorealistic materials, full temporal acceptance or semantic visibility.
+
+<details markdown="1">
+<summary>Inspect the channel correction and reproduce its checks</summary>
+
+<figure>
+<img src="media/dce-channel-guard-poster.png" alt="Same gameplay source, original exposure output and guarded exposure output at seven seconds" width="2688" height="536" loading="lazy">
+<figcaption>Same source / original DCE / channel guard · offline reserved frame · 896 × 504 per panel</figcaption>
+</figure>
+
+Native-size [source](media/dce-temporal-reserved-source.png), [original enhancement](media/dce-temporal-reserved-enhanced.png) and [guarded output](media/dce-channel-guard-reserved.png) remain unchanged. For example, pixel (216, 157) changes from source RGB **(141, 204, 252)** to original **(148, 213, 255)**; the guard gives **(142, 205, 254)**. Coordinates are zero-based in the reserved native frame.
+
+The saturation fixture repeats all 1,728 combinations of twelve fixed channel values, including 0, 1, 253, 254 and 255. Inspect its full-size [source palette](media/dce-channel-guard-fixture-source.png), [original bright output](media/dce-channel-guard-fixture-original.png) and [corrected bright output](media/dce-channel-guard-fixture-corrected.png). Constant curves −1, +1 and zero exercise both gain directions and identity; out-of-range, NaN and infinity exercise fallback. The dark pair is byte-identical, as are source/zero/invalid outputs. These numerical fixtures are original procedural images, not game assets or photographic targets.
+
+The guard caps positive gain at a 254/255 channel ceiling before the existing feathered protection. This leaves a rounding margin below a new RGB8 white endpoint. Negative gain remains bounded; source code 1 does not round to black at the tested strength. The maximum source-channel change remains 15 RGB8 codes throughout the gameplay and fixtures.
+
+The correction closes after **16.8 minutes**, within its original 30-minute bound, including retained preparation failures and review. The native build, 79 Python tests and 12 native malformed-record checks pass. Offline replay timings include upload/readback and curve dumps; they are not live performance or latency. No new gameplay or video is claimed here.
+
+`scripts/prepare_dce_channel_guard.py` freezes the original shader, source files and fixture; `scripts/evaluate_dce_channel_guard.py` replays the original and corrected native pass and checks every frame. The review and publication scripts preserve original outputs and the selected media. Historical replay requires its retained local capture and pinned weights. [Complete correction evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-dce-channel-guard-v1.json) records the plan, all per-frame checks, fixture CPU errors, exact source hashes and review limits.
 
 </details>
 

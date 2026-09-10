@@ -167,6 +167,8 @@ float4 ps(Vertex i):SV_Target {float4 c=source.SampleLevel(linearSampler,i.uv,0)
  float gain=clamp(target/max(l,.001),.85,1.4);
  float maxc=max(c.r,max(c.g,c.b));
  float deltaGain=clamp((gain-1)*strength,-.06/max(maxc,.001),.06/max(maxc,.001));
+ // Keep positive common gain below a new RGB8 endpoint, including saturated colors.
+ deltaGain=min(deltaGain,max(0,(254.0/255.0-maxc)/max(maxc,.001)));
  float protect=smoothstep(.03,.1,l)*(1-smoothstep(.70,.9,l));
  protect*=smoothstep(.045,.10,i.uv.y)*(1-smoothstep(.84,.91,i.uv.y));
  float crosshair=max(abs(i.uv.x-.5)/.018,abs(i.uv.y-.5)/.025);protect*=smoothstep(1,2,crosshair);

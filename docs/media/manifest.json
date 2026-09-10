@@ -2087,6 +2087,76 @@
       "source_sha256": "4a718a37b304c2f07720a2f163908855931656e8dc328a08728558cc8d98fd5e",
       "transformation": "Unchanged native 2560x1440 D3D11 replay output at seven seconds; existing network and shader, not a new gameplay capture.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms."
+    },
+    {
+      "file": "dce-channel-guard-poster.png",
+      "sha256": "25d296ec9a79a27388ec8c833485b62d8edc0821526b9acfdc3da784eb7d79fd",
+      "bytes": 930622,
+      "dimensions": [
+        2688,
+        536
+      ],
+      "source_record": "evidence/playable-dce-channel-guard-v1.json",
+      "source_artifact": "runs/dce-channel-guard-review-v1/poster.png",
+      "source_sha256": "25d296ec9a79a27388ec8c833485b62d8edc0821526b9acfdc3da784eb7d79fd",
+      "transformation": "Area-reduced source/original/guarded comparison at seven seconds, 896x504 per panel plus labels.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ checkpoint has separate academic/noncommercial terms."
+    },
+    {
+      "file": "dce-channel-guard-reserved.png",
+      "sha256": "008afa801551658402d6f744314b09871e452af292aeafb67931cc928cb1f58f",
+      "bytes": 3354813,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-channel-guard-v1.json",
+      "source_artifact": "runs/dce-channel-guard-v1/key-0420-guarded.png",
+      "source_sha256": "008afa801551658402d6f744314b09871e452af292aeafb67931cc928cb1f58f",
+      "transformation": "Unchanged native 2560x1440 D3D11 guarded replay output at seven seconds; source and original are retained in the paired-temporal publication.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ checkpoint has separate academic/noncommercial terms."
+    },
+    {
+      "file": "dce-channel-guard-fixture-source.png",
+      "sha256": "ceb3f5a955220fdeda922854b49d60014eee36328dd8f98c205f00bc84f64117",
+      "bytes": 20784,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-channel-guard-v1.json",
+      "source_artifact": "runs/dce-channel-guard-v1/fixture-source.png",
+      "source_sha256": "ceb3f5a955220fdeda922854b49d60014eee36328dd8f98c205f00bc84f64117",
+      "transformation": "Unchanged original 2560x1440 synthetic source palette, 1728 declared RGB colors in repeated tiles.",
+      "rights": "Original procedural fixture, MIT code license."
+    },
+    {
+      "file": "dce-channel-guard-fixture-original.png",
+      "sha256": "bf4f0645984de8c444d592d2d094603bfe99f019fdc255f814bcfea6f5ab2749",
+      "bytes": 25195,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-channel-guard-v1.json",
+      "source_artifact": "runs/dce-channel-guard-v1/fixture-bright-original.png",
+      "source_sha256": "bf4f0645984de8c444d592d2d094603bfe99f019fdc255f814bcfea6f5ab2749",
+      "transformation": "Unchanged native 2560x1440 original compositor output for the deliberately bright constant-curve fixture, including its clipping failure.",
+      "rights": "Original procedural fixture, MIT code license."
+    },
+    {
+      "file": "dce-channel-guard-fixture-corrected.png",
+      "sha256": "6174d8392404aeaea04e53bed7d2ed0397b57884cd06a62ce3d707b445c0ccb3",
+      "bytes": 24949,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-dce-channel-guard-v1.json",
+      "source_artifact": "runs/dce-channel-guard-v1/fixture-bright-guarded.png",
+      "source_sha256": "6174d8392404aeaea04e53bed7d2ed0397b57884cd06a62ce3d707b445c0ccb3",
+      "transformation": "Unchanged native 2560x1440 guarded compositor output for the same constant-curve fixture.",
+      "rights": "Original procedural fixture, MIT code license."
     }
   ],
   "videos": [

@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T13:05:15+00:00",
+  "maximum_minutes": 30,
+  "preparation_failures": "Two preparation attempts stop before writing a plan: Python 3.9 Path.write_text does not accept newline; explicit LF then differs from the saved CRLF shader bytes. Retain both drivers. Compare extracted shader text, then copy the original HLSL bytes unchanged. Retain the original 13:05:15 start. No live shader change or evaluation precedes this correction.",
+  "deadline": "2026-09-10T13:35:15+00:00",
+  "source_hashes": {
+    "native/companion.cpp": "3891d154e94a1467be83fc6f2323dc913e37a8e90ae1a04ecdf03a745f4b704c",
+    "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+    "native/dce_replay.cpp": "c2512b00581e1a90e71b0523ab134aa949343782a0c104083bc3cc44b0a5f3fb",
+    "scripts/evaluate_dce_temporal.py": "058771991b73da0f4c7fdcfa088d71dac8fa68a161dc0aa0a915d1551673e6cc",
+    "runs/dce-temporal-native-v2/report.json": "39933704305b96ba9bc145751a4e393e16f16b345de4f20d33b842e91ebcd43d",
+    "runs/dce-temporal-native-v2/source-timestamps.json": "a996c928aa820edaebfcfd330e46ca5de5e70818cfd34d7391fb59497f4f6f4b",
+    "runs/dce-temporal-native-v2/curves.npy": "b0cd8fbcd8dfa4733a199d8b31f63ee18cbb5b493f3bdf86112adb9c5e782e79",
+    "runs/dce-temporal-native-v2/residuals.npy": "5169499c9baf26225bda70fff675daf2adc0eb2447a48bb43c26c2e25f530fcf",
+    "runs/dce-temporal-native-v2/clipping-diagnostic.json": "880ebadafbc8de0b258e1a6a9756d42bd8e1d5a85de9770d585a7b95361ac34b",
+    "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+    "runs/pretrained/zero-dce-plusplus/Epoch99.pth": "ca8855b90df9a80fa4195a831f33d3476b1964f787eb70602797c773067f3b84",
+    "runs/pretrained/zero-dce-plusplus/model.py": "508ad1b0eece0b2a99503ba8b4461a9695b79ecf1b30b046be16f7aaa99c20e3",
+    "runs/foliage-walk-reduced-v1/gameplay.mp4": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+    "runs/companion-input-final-v1/source.bmp": "ba14d087e5f0dcecbf96013698eeb1991c668acfce826f739b613dcb1a58130d",
+    "runs/companion-input-final-v1/output.bmp": "0a78030a28fdf98f7343961f377355fc8bd00cedbe1d7fe19b71aae9c54c920f",
+    "runs/companion-input-final-v1/curve.f32": "71f7210b2ad7d389d6959e69f88f5125b86d8dace6f0cd7ff523de343225f15c"
+  },
+  "retained_originals": {
+    "original.hlsl": "83f96b2caad16e23c00686de0cd8ae0585833fc3a0d44dcc4f400052526a0d4f",
+    "original-companion.cpp": "3891d154e94a1467be83fc6f2323dc913e37a8e90ae1a04ecdf03a745f4b704c",
+    "enr_dce_replay.exe": "fd22b3e2333ee23d00d1282f5a030ce8a8b1d4241b0dfe5d5b31e0b57cd8d7cf",
+    "fixture-source.png": "ceb3f5a955220fdeda922854b49d60014eee36328dd8f98c205f00bc84f64117"
+  },
+  "parent_plan": {
+    "schema_version": 1,
+    "started_at": "2026-09-10T12:32:12.592757+00:00",
+    "maximum_minutes": 30,
+    "deadline": "2026-09-10T13:02:12.592757+00:00",
+    "source": "runs/foliage-walk-reduced-v1/gameplay.mp4",
+    "segment_seconds": [
+      18,
+      28
+    ],
+    "reserved_start_seconds": 25,
+    "source_dimensions": [
+      2560,
+      1440
+    ],
+    "curve_dimensions": [
+      320,
+      180
+    ],
+    "source_hashes": {
+      "runs/foliage-walk-reduced-v1/gameplay.mp4": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+      "runs/depth-motion-v1/source-timestamps.json": "a996c928aa820edaebfcfd330e46ca5de5e70818cfd34d7391fb59497f4f6f4b",
+      "runs/pretrained/zero-dce-plusplus/Epoch99.pth": "ca8855b90df9a80fa4195a831f33d3476b1964f787eb70602797c773067f3b84",
+      "runs/pretrained/zero-dce-plusplus/model.py": "508ad1b0eece0b2a99503ba8b4461a9695b79ecf1b30b046be16f7aaa99c20e3",
+      "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+      "runs/companion-input-final-v1/source.bmp": "ba14d087e5f0dcecbf96013698eeb1991c668acfce826f739b613dcb1a58130d",
+      "runs/companion-input-final-v1/output.bmp": "0a78030a28fdf98f7343961f377355fc8bd00cedbe1d7fe19b71aae9c54c920f",
+      "runs/companion-input-final-v1/curve.f32": "71f7210b2ad7d389d6959e69f88f5125b86d8dace6f0cd7ff523de343225f15c",
+      "runs/companion-input-final-v1/run.json": "daddf9eba6207c42551a05c720124c5f7a6c13af3d73a6a211929a077ce914f2",
+      "native/companion.cpp": "3891d154e94a1467be83fc6f2323dc913e37a8e90ae1a04ecdf03a745f4b704c",
+      "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+      "native/dce_replay.cpp": "c2512b00581e1a90e71b0523ab134aa949343782a0c104083bc3cc44b0a5f3fb",
+      "build/Release/enr_dce_replay.exe": "fd22b3e2333ee23d00d1282f5a030ce8a8b1d4241b0dfe5d5b31e0b57cd8d7cf",
+      "runs/dce-temporal-native-v2/companion.hlsl": "83f96b2caad16e23c00686de0cd8ae0585833fc3a0d44dcc4f400052526a0d4f"
+    },
+    "model": "Pinned unchanged author Zero-DCE++ Epoch99, FP32 CPU, scale_factor=1 on bilinear 320x180 RGB input. Native exported tensors remain unchanged.",
+    "strength": 0.35,
+    "mode": 3,
+    "parity_snapshot": "runs/companion-input-final-v1",
+    "parity_gates": {
+      "curve_max_absolute_error": 0.0001,
+      "composed_rgb8_max_error": 1,
+      "composed_rgb8_mean_error": 0.02
+    },
+    "parity_policy": "Compare native replay with the same retained native source/curve/output snapshot using unchanged curve and RGB8 thresholds; additionally retain independent CPU curve and composition errors. Stop on native replay mismatch. No new snapshot or precision/strength change.",
+    "compositor": "Reproduce native mode 3 including eight curve iterations, luminance gain .85..1.4, strength .35, source-RGB change cap .06, dark/highlight smoothstep and feathered vertical/crosshair masks. Quantize to RGB8 before temporal analysis.",
+    "correspondence": {
+      "size": [
+        448,
+        252
+      ],
+      "flow": "Farneback, both directions",
+      "parameters": [
+        0.5,
+        3,
+        15,
+        3,
+        5,
+        1.2,
+        0
+      ],
+      "maximum_closure_px": 1,
+      "maximum_source_gray_error_codes": 12,
+      "minimum_sobel_magnitude": 5,
+      "core": "x 5..95%, y 10..84%; exclude central x +/-3.6%, y +/-5%. Reject outside backward coordinates, closure and photometric failure. Flow is source-only; enhancement is never used to fit correspondence."
+    },
+    "metric": "Area-reduce the quantized enhancement-minus-source Rec.709 luminance residual to 448x252. Backward-warp the previous residual using source flow; absolute change in RGB8 luminance codes, on the valid mask. Report per-frame coverage, median and p95; aggregate separately on selection and final-three-second reserved split. Not a certified flicker or target-visibility score.",
+    "gates": {
+      "median_coverage_min": 0.6,
+      "p95_of_frame_median_codes_max": 1,
+      "p95_of_frame_p95_codes_max": 4
+    },
+    "controls": "Identity output must have zero residual change. Clip source RGB8 plus alternating +/-8 codes before the identical residual diagnostic; this deliberate brightness alternation must fail both change gates on both splits. Same source flow/mask for every control.",
+    "retention": "Retain all source PTS and hashes, native curve predictions, coarse residual fields, every timestamped comparison PNG, all per-frame results and controls. Four original-size source/enhanced key pairs at 0,3,7,last frame. No frame subsampling for metrics or comparison.",
+    "timing_scope": "Offline native GPU replay including CPU upload/readback, pipes and curve-dump file. Not pure GPU time, live capture/display or application performance.",
+    "video": "Each native source/native-replayed image is area-reduced to 896x504, side by side with 32px labels. Original relative source PTS, no generated motion or speed change, H264 CRF20 YUV420p. Verify every encoded PTS.",
+    "review": "Inspect all chronological one-second comparison samples and all four native key pairs. Retain review limits; this sampled review cannot establish full real-time perceptual stability.",
+    "limits": "One source segment, no new gameplay, model tuning, temporal smoothing, alternate strength, training or appearance claim. Source flow may reject difficult cover/openings and cannot certify visibility. A pass only characterizes added exposure variation in covered regions.",
+    "amendment": {
+      "recorded_at": "2026-09-10T12:39:41.197453+00:00",
+      "parent_plan_sha256": "71d4ec4db547a127b750719b820e08fe3d785bfeeccd5ef3ed2be2dd7707cb29",
+      "failed_cpu_report_sha256": "c9efcca6eb77710514036d36f380960ebb66b440d8ef98e478682b7d351f9ef6",
+      "reason": "The full CPU reproduction fails the frozen mean RGB8 gate despite a one-code maximum and matching curves. Stop that route. One offscreen native replay through the exact existing companion shaders will be checked against the same retained snapshot, without relaxing thresholds or resetting the original deadline.",
+      "maximum_native_routes": 1,
+      "unchanged": "Source clip, timestamps, model, strength, parity/temporal thresholds, split and original deadline"
+    },
+    "reproduction": "Exact native CurveNetwork and extracted companion HLSL on RX7800XT D3D11, BGRA8 input/target, mode3 strength.35, original compile flags. Offline UpdateSubresource/full readback and pipes; no game/capture/Present or live FPS claim. CPU curve reference remains independent; original failed CPU composition remains retained."
+  },
+  "correction": "Limit positive common RGB gain using the maximum source channel and a 254/255 output ceiling. A source already at 254 or 255 has no positive headroom. Keep the existing negative bound, strength .35, source positions, feathering and nonfinite fallback. No model or history change.",
+  "formula": "After the existing deltaGain cap and before protect: deltaGain = min(deltaGain, max(0, (254/255 - maxc) / max(maxc, .001))). The half-code margin before RGB8 rounding prevents a new 255 endpoint; negative common gain remains at least .9475 at strength .35, so source code 1 cannot round to 0.",
+  "fixture": {
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "values": [
+      0,
+      1,
+      2,
+      16,
+      64,
+      127,
+      192,
+      240,
+      250,
+      253,
+      254,
+      255
+    ],
+    "colors": 1728,
+    "layout": "32x20 pixel tiles in raster order, palette repeated; includes protected HUD/crosshair positions and all 1728 combinations of twelve boundary/intensity codes.",
+    "curves": {
+      "bright": [
+        -1,
+        -1,
+        -1
+      ],
+      "dark": [
+        1,
+        1,
+        1
+      ],
+      "identity": [
+        0,
+        0,
+        0
+      ],
+      "invalid_range": [
+        1.01,
+        0,
+        0
+      ],
+      "invalid_nan": [
+        "nan",
+        0,
+        0
+      ],
+      "invalid_inf": [
+        "inf",
+        0,
+        0
+      ]
+    },
+    "injection": "Replace only the curve sample expression in a diagnostic shader with the declared constant. Same native compositor/compile path; model still runs but its output is ignored only in these fixtures. Keep original and guarded fixture outputs."
+  },
+  "gates": {
+    "newly_endpoint_clipped_channels": 0,
+    "rgb8_source_change_max": 15,
+    "protected_region_rgb8_error_max": 0,
+    "cpu_curve_max_error": 0.0001,
+    "fixture_cpu_rgb8_max_error": 1,
+    "temporal": {
+      "median_coverage_min": 0.6,
+      "p95_of_frame_median_codes_max": 1,
+      "p95_of_frame_p95_codes_max": 4
+    }
+  },
+  "controls": "Original native snapshot and all 600 original output/curve hashes must reproduce exactly. Independent CPU curve reference remains required. Invalid/zero fixture curves must return exact source. Bright original fixture must demonstrate new clipping; guarded fixture must remove it. Record CPU full-composition differences without relabeling the prior failed mean tolerance.",
+  "segment": "Every original frame and timestamp from [18,28) seconds, reserve [25,28); original source-only flow/masks and limits. Preserve all per-frame raw-output hashes, scalar checks and residual fields, four native-size source/original/guarded keys, and original failures.",
+  "review": "Inspect all six complete fixture output pairs, source atlas, all four complete native gameplay source/original/guarded keys, plus ten chronological contact samples. No full real-time perceptual review claim.",
+  "scope": "Offline correction and validation only, game stopped. No live performance or appearance-gain claim. Retain failed candidates. A pass requires a separate bounded live validation before replacing the download."
+}
