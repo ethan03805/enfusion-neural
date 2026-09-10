@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T10:29:25Z",
+  "maximum_minutes": 30,
+  "repository": "cuiziteng/Illumination-Adaptive-Transformer",
+  "revision": "c76472265247f47cea57649af28b15018bb64cb1",
+  "checkpoint": "IAT_enhance/best_Epoch_exposure.pth",
+  "checkpoint_sha256": "15a9494582f028bef996d4af7145860eaa5d67799d2b0625ed93ff8c546ea3ee",
+  "inputs": [
+    {"name":"road-sign","split":"selection","path":"runs/video-review-town-v1/video-town-combined-v1-10.png","sha256":"53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74"},
+    {"name":"facade","split":"selection","path":"runs/video-review-town-v1/video-town-combined-v1-30.png","sha256":"d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3"},
+    {"name":"foliage","split":"reserved","path":"runs/video-review-additional-v1/video-foliage-standard-v1-02.png","sha256":"4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5"}
+  ],
+  "input_shape": [1,3,540,960],
+  "preprocessing": "Pillow RGB conversion, bilinear resize from 2560x1440 to 960x540 preserving aspect ratio, float32 /255, NCHW. Author unnormalized 0..1 RGB contract, evaluation resize declared separately. IAT(type='exp'), eval mode, strict weights_only checkpoint load. No architectural changes initially.",
+  "maximum_fp32_exports": 1,
+  "maximum_compatibility_amendments": 1,
+  "timing": "Game, Workbench and companion stopped. Verify RX 7800 XT adapter 0, DirectML FP32 with CPU execution fallback disabled. First view five warmups and twenty synchronized calls; remaining views one warmup and five calls. Retain every call and CPU reference timing. Model calls include input upload and output readback; decode, resize, protected composition and file encoding excluded. No application-FPS claim.",
+  "parity": {"max_abs":0.001,"mean_abs":0.0001,"scope":"Independent unchanged-author CPU outputs versus DirectML for all three returned tensors (mul, add, enhanced) on every selected view."},
+  "provisional_p95_call_limit_ms": 10,
+  "protected_version": "One fixed diagnostic at original 2560x1440: form author enhanced minus its 960x540 input, bilinear resize this residual to source dimensions, clamp each RGB residual to [-0.08,0.08], multiply by 0.5 and a source-luminance guard smoothstep(0.02,0.08,Y)*(1-smoothstep(0.85,0.98,Y)). Set weight zero in top/bottom 8% HUD margins and a central 5%-wide/high crosshair square. Nonfinite residual pixels fall back to source. Clamp final RGB to 0..1; retain pre-clamp values and report newly clipped channels. No tuning or alternate strengths.",
+  "review": "Inspect native sources, complete raw outputs and protected native-size images for both selection views before the reserved view. Freeze selection decision before opening reserved results. Check signs, facade openings, fence/pole edges, foliage gaps, roof color/texture, local halos and shade detail. Report author output clipping; internal author color clamp is part of the model, not removed for evaluation.",
+  "acceptance": "Require meaningful improvement in material or lighting appearance while preserving source identity, detail and visibility. A brightness/color change alone is insufficient. No aligned photographic ground truth is available. Failed cost, parity, fidelity or appearance closes live integration with all code/output retained. An accepted static candidate still needs separate motion/HUD and complete-application performance/latency evaluation. No training or package change in this experiment."
+}

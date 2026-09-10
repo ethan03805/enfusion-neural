@@ -1849,6 +1849,132 @@
       "source_sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473",
       "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "iat-road-sign-source.png",
+      "sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+      "bytes": 3409143,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+      "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-road-sign-raw.png",
+      "sha256": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+      "bytes": 784526,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/00-raw.png",
+      "source_sha256": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-road-sign-protected.png",
+      "sha256": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+      "bytes": 4231692,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/00-protected.png",
+      "source_sha256": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-source.png",
+      "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "bytes": 3351853,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+      "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-raw.png",
+      "sha256": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+      "bytes": 748140,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/01-raw.png",
+      "source_sha256": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-protected.png",
+      "sha256": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20",
+      "bytes": 4237774,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/01-protected.png",
+      "source_sha256": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-source.png",
+      "sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+      "bytes": 4138629,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+      "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-raw.png",
+      "sha256": "8df3ae9c37a6fff68bd6f000a9cf6b69cb04b9f64bd9c03290a1b0b11b599774",
+      "bytes": 1024190,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/02-raw.png",
+      "source_sha256": "8df3ae9c37a6fff68bd6f000a9cf6b69cb04b9f64bd9c03290a1b0b11b599774",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-protected.png",
+      "sha256": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
+      "bytes": 4955264,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/02-protected.png",
+      "source_sha256": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
     }
   ],
   "videos": [

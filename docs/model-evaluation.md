@@ -1,6 +1,6 @@
 # Appearance candidates
 
-The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated candidate yet establishes substantial photorealistic material and lighting improvement.** Captured RGB, including HUD during gameplay, is the verified live input. Engine depth, normals, material labels and motion buffers remain unavailable. The latest offline candidate estimates relative depth from RGB.
+The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated candidate yet establishes substantial photorealistic material and lighting improvement.** Captured RGB, including HUD during gameplay, is the verified live input. Engine depth, normals, material labels and motion buffers remain unavailable.
 
 | Candidate | Measured result | Decision |
 | --- | --- | --- |
@@ -9,6 +9,47 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | REGEN GTA2Cityscapes | RX 7800 XT DirectML FP32, 960 × 544: 53.24 / 53.98 / 53.63 ms median, five synchronized samples per view | Rejected: altered roof identity, sky artifacts, fine-detail loss and excessive cost |
 | DeepLPF Adobe-DPE | CPU FP32, 960 × 544: 602 / 473 / 462 ms; 7.64 / 3.42 / 8.86% of channels clamp to black | Raw output rejected; protected version avoids clipping but gives insufficient appearance gain |
 | SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
+| IAT exposure correction | RX 7800 XT DirectML FP32, 960 × 540: 27.66–29.46 ms median | Rejected: saturated color, lost shade detail and excessive cost; bounded version adds no substantial appearance benefit |
+
+## IAT RGB correction
+
+**IAT is rejected after a 14.1-minute evaluation.** The author's exposure checkpoint runs unchanged on the RX 7800 XT and passes independent CPU parity. Its raw output pushes sky toward cyan, saturates vegetation and darkens shaded openings and foliage. A fixed bounded residual retains native detail but gives only a modest color change. Its hard HUD-mask boundaries also create visible seams; this diagnostic defect is retained below. The live companion uses feathered margins and is unchanged.
+
+| Fixed view | DirectML median / p95 | Newly clipped RGB8 channels, raw / bounded |
+| --- | --- | --- |
+| Road and sign, selection | 28.31 / 28.99 ms | 7.103% / 0.276% |
+| Facade, selection | 29.46 / 29.87 ms | 5.175% / 0.131% |
+| Foliage, reserved | 27.66 / 30.18 ms | 6.468% / 0.098% |
+
+These synchronized calls include input upload and readback of **all three author outputs**; they exclude resizing, bounded composition, encoding and the game. They fail the predefined 10 ms p95 call ceiling. They are not complete application frame times. The raw output's author color clamp remains intact; clipping here counts channels newly reaching 0 or 255 after display quantization.
+
+<details>
+<summary>IAT images, failures and reproduction</summary>
+
+<section class="comparison" data-comparison data-before-label="source" data-after-label="rejected bounded IAT" aria-label="IAT facade source and rejected bounded correction">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/iat-facade-source.png" width="2560" height="1440" loading="lazy" alt="Native gameplay facade, doorway, windows, fence and grass"><figcaption>Source · 2560 × 1440</figcaption></figure>
+<figure class="comparison-after"><img src="media/iat-facade-protected.png" width="2560" height="1440" loading="lazy" alt="Bounded IAT changes color slightly and leaves a horizontal mask seam in the sky"><figcaption>Bounded IAT · rejected, mask seam retained</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal source<input type="range" min="0" max="100" value="50" aria-label="IAT source visible"><output>50% source</output></label>
+</section>
+
+<figure><img src="media/iat-facade-raw.png" width="960" height="540" loading="lazy" alt="Raw IAT output with cyan sky, saturated grass and dark facade openings"><figcaption>Raw author output · 960 × 540, bilinear-reduced input · rejected</figcaption></figure>
+
+| Complete reviewed view | Native source | Raw 960 × 540 | Bounded 2560 × 1440 |
+| --- | --- | --- | --- |
+| Road and sign | [Source](media/iat-road-sign-source.png) | [Raw](media/iat-road-sign-raw.png) | [Bounded](media/iat-road-sign-protected.png) |
+| Facade | [Source](media/iat-facade-source.png) | [Raw](media/iat-facade-raw.png) | [Bounded](media/iat-facade-protected.png) |
+| Reserved foliage | [Source](media/iat-foliage-source.png) | [Raw](media/iat-foliage-raw.png) | [Bounded](media/iat-foliage-protected.png) |
+
+All nine complete images were inspected at original dimensions. The selection rejection was recorded before opening the reserved foliage result. That result brightens bark but deepens ground shadows and increases green/cyan saturation. The bounded version preserves source coordinates and caps the RGB8 change at ten codes, yet still clips individual channels: a luminance guard is insufficient to prevent that. Its bottom mask seam crosses the trunk and grass. No motion trial, alternate strength, FP16 conversion or live integration follows these failures.
+
+The [author implementation](https://github.com/cuiziteng/Illumination-Adaptive-Transformer/tree/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance), pinned at `c76472265247f47cea57649af28b15018bb64cb1`, supplies the Apache-2.0 exposure checkpoint. The unchanged `IAT(type='exp')` has 91,154 parameters. CPU/DirectML maximum error is below 0.00000904 across all outputs and views. All 1,517 profiled execution events use DirectML; these are node events from **37 inference calls**, including warmups. CPU execution fallback is disabled. The author's RTX 3090 timing does not describe this hardware or input size.
+
+[Complete IAT evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/iat-evaluation-v1.json) retains the plan, checkpoint/source/graph/input hashes, every timing, pre-clamp ranges, selection decision and review limitations. In the pinned evaluation environment, run `scripts/prepare_iat.py`, then `scripts/evaluate_iat.py --out NEW_DIRECTORY`. The evaluator requires the retained gameplay inputs and built adapter-information helper. No aligned photographic ground truth is available, and no model is trained or added to the download.
+
+</details>
 
 ## Native illumination control
 

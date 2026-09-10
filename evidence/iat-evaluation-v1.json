@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "rejected_appearance_visibility_and_cost",
+  "evaluation_closed_at": "2026-09-10T10:43:30.212407+00:00",
+  "minutes_since_plan_start": 14.08687345,
+  "within_declared_time_bound": true,
+  "plan": {
+    "schema_version": 1,
+    "started_at": "2026-09-10T10:29:25Z",
+    "maximum_minutes": 30,
+    "repository": "cuiziteng/Illumination-Adaptive-Transformer",
+    "revision": "c76472265247f47cea57649af28b15018bb64cb1",
+    "checkpoint": "IAT_enhance/best_Epoch_exposure.pth",
+    "checkpoint_sha256": "15a9494582f028bef996d4af7145860eaa5d67799d2b0625ed93ff8c546ea3ee",
+    "inputs": [
+      {
+        "name": "road-sign",
+        "split": "selection",
+        "path": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74"
+      },
+      {
+        "name": "facade",
+        "split": "selection",
+        "path": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3"
+      },
+      {
+        "name": "foliage",
+        "split": "reserved",
+        "path": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5"
+      }
+    ],
+    "input_shape": [
+      1,
+      3,
+      540,
+      960
+    ],
+    "preprocessing": "Pillow RGB conversion, bilinear resize from 2560x1440 to 960x540 preserving aspect ratio, float32 /255, NCHW. Author unnormalized 0..1 RGB contract, evaluation resize declared separately. IAT(type='exp'), eval mode, strict weights_only checkpoint load. No architectural changes initially.",
+    "maximum_fp32_exports": 1,
+    "maximum_compatibility_amendments": 1,
+    "timing": "Game, Workbench and companion stopped. Verify RX 7800 XT adapter 0, DirectML FP32 with CPU execution fallback disabled. First view five warmups and twenty synchronized calls; remaining views one warmup and five calls. Retain every call and CPU reference timing. Model calls include input upload and output readback; decode, resize, protected composition and file encoding excluded. No application-FPS claim.",
+    "parity": {
+      "max_abs": 0.001,
+      "mean_abs": 0.0001,
+      "scope": "Independent unchanged-author CPU outputs versus DirectML for all three returned tensors (mul, add, enhanced) on every selected view."
+    },
+    "provisional_p95_call_limit_ms": 10,
+    "protected_version": "One fixed diagnostic at original 2560x1440: form author enhanced minus its 960x540 input, bilinear resize this residual to source dimensions, clamp each RGB residual to [-0.08,0.08], multiply by 0.5 and a source-luminance guard smoothstep(0.02,0.08,Y)*(1-smoothstep(0.85,0.98,Y)). Set weight zero in top/bottom 8% HUD margins and a central 5%-wide/high crosshair square. Nonfinite residual pixels fall back to source. Clamp final RGB to 0..1; retain pre-clamp values and report newly clipped channels. No tuning or alternate strengths.",
+    "review": "Inspect native sources, complete raw outputs and protected native-size images for both selection views before the reserved view. Freeze selection decision before opening reserved results. Check signs, facade openings, fence/pole edges, foliage gaps, roof color/texture, local halos and shade detail. Report author output clipping; internal author color clamp is part of the model, not removed for evaluation.",
+    "acceptance": "Require meaningful improvement in material or lighting appearance while preserving source identity, detail and visibility. A brightness/color change alone is insufficient. No aligned photographic ground truth is available. Failed cost, parity, fidelity or appearance closes live integration with all code/output retained. An accepted static candidate still needs separate motion/HUD and complete-application performance/latency evaluation. No training or package change in this experiment."
+  },
+  "source": {
+    "repository": "cuiziteng/Illumination-Adaptive-Transformer",
+    "revision": "c76472265247f47cea57649af28b15018bb64cb1",
+    "checkpoint": "IAT_enhance/best_Epoch_exposure.pth",
+    "files": {
+      "LICENSE": {
+        "sha256": "4752d69bfea5bf4f58c1ce4500f624e933e41c0e5829541172c3c6724694ba8d",
+        "bytes": 11416,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/LICENSE"
+      },
+      "README.md": {
+        "sha256": "086530bf6215e0401d11a439c6ea35827ee57c5a9299508873c5ca7a0a5accf1",
+        "bytes": 7867,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/README.md"
+      },
+      "IAT_enhance/readme.md": {
+        "sha256": "e772de42f809dbdfb473f7fd4d7e02d9f9ca62791d4213e778fb133ed8ef3173",
+        "bytes": 4814,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/readme.md"
+      },
+      "IAT_enhance/img_demo.py": {
+        "sha256": "42049a366ad666d5387d5dabafbe48cac032fd2cf3b76557e2b994bba7685c62",
+        "bytes": 1449,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/img_demo.py"
+      },
+      "IAT_enhance/evaluation_exposure.py": {
+        "sha256": "3f9ac9dfe44924cfb93afc6bbc539ea5d1ccb4015bbc8ca64b87fa316f0429e4",
+        "bytes": 2189,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/evaluation_exposure.py"
+      },
+      "IAT_enhance/model/IAT_main.py": {
+        "sha256": "633b84d70542d1a789292804470ec9d3822908a2a8ef76e81bb4dad54ca078d4",
+        "bytes": 5375,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/model/IAT_main.py"
+      },
+      "IAT_enhance/model/blocks.py": {
+        "sha256": "ecd6e1718b7a5fee0e2d1389a9dbf0825d1a999e784e46a334a6dc3d39adb0f3",
+        "bytes": 10860,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/model/blocks.py"
+      },
+      "IAT_enhance/model/global_net.py": {
+        "sha256": "7dab3d12e90c6a43eb511f624d26be18842573efcf033142ea9125d11ce7cbba",
+        "bytes": 5304,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/model/global_net.py"
+      },
+      "IAT_enhance/best_Epoch_exposure.pth": {
+        "sha256": "15a9494582f028bef996d4af7145860eaa5d67799d2b0625ed93ff8c546ea3ee",
+        "bytes": 427160,
+        "url": "https://raw.githubusercontent.com/cuiziteng/Illumination-Adaptive-Transformer/c76472265247f47cea57649af28b15018bb64cb1/IAT_enhance/best_Epoch_exposure.pth"
+      }
+    }
+  },
+  "measurement": {
+    "schema_version": 1,
+    "status": "completed",
+    "started_at": "2026-09-10T10:34:16.056512+00:00",
+    "plan_sha256": "d2b5bbd86947decc97ad2ac803027fe306e1c12b40b7d775a2390a260a14e1a5",
+    "driver_sha256": "b102705322eb8f59bf07ad2f31a51d32ca466ec37f33c5c841d910016adf95ac",
+    "provenance_sha256": "39d8f01a10ea537510492f85d9ef5473eb1bbcf4d6c5d5b72afbfe0a28e30421",
+    "images": [
+      {
+        "name": "road-sign",
+        "split": "selection",
+        "path": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "cpu_reference_ms": 550.2611999999996,
+        "warmups": 5,
+        "timings_ms": [
+          28.21169999999995,
+          28.32400000000046,
+          28.693099999999916,
+          28.977399999999598,
+          27.858300000000114,
+          29.32049999999986,
+          28.507000000000282,
+          28.209900000000232,
+          28.265600000000113,
+          28.436000000000128,
+          28.297400000000472,
+          28.7134,
+          28.09940000000033,
+          28.65370000000045,
+          27.735299999999796,
+          28.58909999999959,
+          28.70750000000033,
+          27.860700000000627,
+          27.98140000000071,
+          28.21460000000009
+        ],
+        "timing": {
+          "count": 20,
+          "median": 28.310700000000466,
+          "p95": 28.99455499999961,
+          "p99": 29.25531099999981,
+          "max": 29.32049999999986,
+          "min": 27.735299999999796
+        },
+        "parity": {
+          "mul": {
+            "max_abs": 3.5762786865234375e-07,
+            "mean_abs": 2.82461665168654e-10,
+            "passed": true
+          },
+          "add": {
+            "max_abs": 8.642673492431641e-07,
+            "mean_abs": 9.942607448465424e-08,
+            "passed": true
+          },
+          "enhanced": {
+            "max_abs": 9.88657120615244e-07,
+            "mean_abs": 1.055983460673815e-07,
+            "passed": true
+          }
+        },
+        "raw_range": [
+          4.633528050135283e-08,
+          0.958389401435852
+        ],
+        "raw_black_channel_fraction": 0.07106802983539094,
+        "raw_white_channel_fraction": 0.0,
+        "raw_newly_clipped_channel_fraction": 0.0710326646090535,
+        "raw_rgb_mae_codes": 15.7581148147583,
+        "protected_preclip_range": [
+          -0.03999999910593033,
+          1.0254303216934204
+        ],
+        "protected_rgb_mae_codes": 3.8584983348846436,
+        "protected_max_change_codes": 10.0,
+        "protected_newly_clipped_channel_fraction": 0.002763671875,
+        "protected_fallback_pixels": 0,
+        "artifact_hashes": {
+          "00-cpu-add.npy": "5003d8d2f421720f786f7c7d9534756f122c213b89fba33c58ee900a066caf9d",
+          "00-cpu-enhanced.npy": "32e329525b4b3c7697e2b4bb67c1178feec3d01c0795fe69356d6952fa0f8b59",
+          "00-cpu-mul.npy": "121e97d9b6d9f1bc29fc07d2f94fa9a226b7f44d246189d8e1162fd87f95d8e3",
+          "00-dml-add.npy": "5ec7f661a24462c797cb677333bffd90f3b22ee778bf686a63e20774d2b35285",
+          "00-dml-enhanced.npy": "87fef1c0ec2785cce14b403e132f6d1873e4354a48244175e8b71448e2af07c4",
+          "00-dml-mul.npy": "61bcdad0a250d1bd2ba70aec053dd98bd43d9c8eb64bc05d9a5c52c6c150b4d0",
+          "00-input.npy": "228dedd230759e29af03107ad4c405f16283bb4a221576b582603ab7b042c964",
+          "00-protected-preclip.npy": "62d5c91685c757d97ce1769607f9092d974a5eec2889e2c034cf989579c4b740",
+          "00-protected.png": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+          "00-raw-full.png": "8b288d59a6f215ccabd3971d20352f577c617c1563eaac3278d89dcc0a4c2791",
+          "00-raw.png": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+          "00-source.png": "43a0aae9a8e9b31101ff647ffb00ae71e7d3c056c4b18bbac1f6439054f3edea"
+        }
+      },
+      {
+        "name": "facade",
+        "split": "selection",
+        "path": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "cpu_reference_ms": 457.9304999999998,
+        "warmups": 1,
+        "timings_ms": [
+          29.457999999999984,
+          29.49920000000006,
+          27.57070000000006,
+          29.961600000000033,
+          28.23960000000092
+        ],
+        "timing": {
+          "count": 5,
+          "median": 29.457999999999984,
+          "p95": 29.869120000000038,
+          "p99": 29.943104000000034,
+          "max": 29.961600000000033,
+          "min": 27.57070000000006
+        },
+        "parity": {
+          "mul": {
+            "max_abs": 4.172325134277344e-07,
+            "mean_abs": 1.8281756664073612e-10,
+            "passed": true
+          },
+          "add": {
+            "max_abs": 1.1920928955078125e-06,
+            "mean_abs": 1.0340433220790146e-07,
+            "passed": true
+          },
+          "enhanced": {
+            "max_abs": 1.1920928955078125e-06,
+            "mean_abs": 9.799918387898288e-08,
+            "passed": true
+          }
+        },
+        "raw_range": [
+          2.112952701693871e-09,
+          0.9290016889572144
+        ],
+        "raw_black_channel_fraction": 0.051754758230452676,
+        "raw_white_channel_fraction": 0.0,
+        "raw_newly_clipped_channel_fraction": 0.051751543209876544,
+        "raw_rgb_mae_codes": 23.011730194091797,
+        "protected_preclip_range": [
+          -0.03999999910593033,
+          1.0070137977600098
+        ],
+        "protected_rgb_mae_codes": 5.579774379730225,
+        "protected_max_change_codes": 10.0,
+        "protected_newly_clipped_channel_fraction": 0.0013134765625,
+        "protected_fallback_pixels": 0,
+        "artifact_hashes": {
+          "01-cpu-add.npy": "2b281d82d708005ab4e2171c2486e4a3998e6d779c83200154ca78f4f5f4eca9",
+          "01-cpu-enhanced.npy": "8cde9c81d24837a62047a207e51891dac5ac49712e0404cbdc20dd7b5d6e87de",
+          "01-cpu-mul.npy": "e525a56b7619de3a6ca76b6d234f528650d2a82d2ec14b757e27051fa4d3683b",
+          "01-dml-add.npy": "2e5427255fe49b9a3ed8060c6f83fa7ef7f61c5ff5fe18b030d9cba5ec234e2c",
+          "01-dml-enhanced.npy": "74ad510c5ac7fbbbce9caca67eae29cf6c3d3668d71e02ffc90e359b077d0e90",
+          "01-dml-mul.npy": "724a2b428bade31ed9bdc6edca02da13b252dd95800320dc125a1509227fcdab",
+          "01-input.npy": "b01569e8e36ee193f0b4e08d4ced41719c6269736cf53ba9e10f3a4c228cdd77",
+          "01-protected-preclip.npy": "914ad28ce0c168ba3e49fa4d53186a905cabe8ceb7980eedc0a63e9b4299f61c",
+          "01-protected.png": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20",
+          "01-raw-full.png": "dc5c3b6a95d01c0331cf7777ee319e23f123c89441ca55de2e7d7c1841d30ffb",
+          "01-raw.png": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+          "01-source.png": "1e9f3ab0eb25a6f98066a692bcd8c01e560226b5b334f77421b8ca6f0e6774df"
+        }
+      },
+      {
+        "name": "foliage",
+        "split": "reserved",
+        "path": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "cpu_reference_ms": 456.278300000001,
+        "warmups": 1,
+        "timings_ms": [
+          30.746499999999344,
+          27.031700000000214,
+          27.938699999999983,
+          27.663800000000904,
+          27.061800000000247
+        ],
+        "timing": {
+          "count": 5,
+          "median": 27.663800000000904,
+          "p95": 30.18493999999947,
+          "p99": 30.63418799999937,
+          "max": 30.746499999999344,
+          "min": 27.031700000000214
+        },
+        "parity": {
+          "mul": {
+            "max_abs": 4.172325134277344e-07,
+            "mean_abs": 2.9265759260432844e-10,
+            "passed": true
+          },
+          "add": {
+            "max_abs": 9.238719940185547e-07,
+            "mean_abs": 7.018552139470557e-08,
+            "passed": true
+          },
+          "enhanced": {
+            "max_abs": 9.031558874994516e-06,
+            "mean_abs": 1.0672177808146444e-07,
+            "passed": true
+          }
+        },
+        "raw_range": [
+          6.01533247390762e-06,
+          1.0
+        ],
+        "raw_black_channel_fraction": 0.06471579218106996,
+        "raw_white_channel_fraction": 1.993312757201646e-05,
+        "raw_newly_clipped_channel_fraction": 0.0646849279835391,
+        "raw_rgb_mae_codes": 24.797571182250977,
+        "protected_preclip_range": [
+          -0.03999999910593033,
+          1.0399999618530273
+        ],
+        "protected_rgb_mae_codes": 7.022487640380859,
+        "protected_max_change_codes": 10.0,
+        "protected_newly_clipped_channel_fraction": 0.0009794560185185186,
+        "protected_fallback_pixels": 0,
+        "artifact_hashes": {
+          "02-cpu-add.npy": "9ceab15907cfc781402e8506234053b81b70cba78803c9482f7a0152451ffb0c",
+          "02-cpu-enhanced.npy": "c01dd1e921e8b0b42e7142f6a38ce9ee5bff3e314378e25516fb0eeae37bfed4",
+          "02-cpu-mul.npy": "c29ee2e70f154b7fe70629070015f44e11e4ec11930c85ffdc81f91bb03d17fb",
+          "02-dml-add.npy": "192cd8b6c38960e2f97739faf2274c12026f8677b7fc2168fe3bac0ed0271553",
+          "02-dml-enhanced.npy": "6cc770c0d240b91aad927d512260ba82ad82ae84bf0c50d1de7accd52813a859",
+          "02-dml-mul.npy": "b954bf2490857e242372755bf36a71e9b483f187f2e03d4cf25de0fb54149ffb",
+          "02-input.npy": "6cc04eddcf2a7b49d5d6f5199b65c0ca51f874020de0e51adc13dafeb1894afd",
+          "02-protected-preclip.npy": "a8ce7e43be63ebc186ecfea472b2b099c9e9769dddb1361c28bd7f73a7c7701a",
+          "02-protected.png": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
+          "02-raw-full.png": "3ca2fff3217c30613d2635389f55bd3ab646fbfa2ed642d35e8d2b4070cb9b5f",
+          "02-raw.png": "8df3ae9c37a6fff68bd6f000a9cf6b69cb04b9f64bd9c03290a1b0b11b599774",
+          "02-source.png": "d51066ac9e5ae4e753dc0709fe034451c365bc3dff5adad9b03baa4513ee60ce"
+        }
+      }
+    ],
+    "adapter": {
+      "index": 0,
+      "description": "AMD Radeon RX 7800 XT",
+      "vendor_id": 4098,
+      "device_id": 29822,
+      "dedicated_video_bytes": 16963133440,
+      "software": false
+    },
+    "precision": "FP32",
+    "runtime": "1.19.2",
+    "torch": "2.8.0+cpu",
+    "timm": "0.6.13",
+    "input_shape": [
+      1,
+      3,
+      540,
+      960
+    ],
+    "scope": "Game stopped. Synchronized ONNX Runtime calls include upload and readback of all three author outputs: mul, add and enhanced. Decode, resize, source protection, file encoding and initialization excluded; not pure GPU time or complete application performance.",
+    "parameters": 91154,
+    "onnx_sha256": "0137ffff1e8e4932ea2027f64397fb230d394357c01da5a71d2e15b76859cad2",
+    "providers": [
+      "DmlExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "provisional_cost_pass": false,
+    "profile_file": "profile_2026-09-10_06-34-18.json",
+    "profile_sha256": "83655ff3643d0ef0aa413c81361f127ea4900f67d246ce18c81b321d0591cd71",
+    "profile_provider_events": {
+      "DmlExecutionProvider": 1517
+    },
+    "finished_at": "2026-09-10T10:34:26.221004+00:00"
+  },
+  "selection": {
+    "recorded_at": "2026-09-10T10:41:32.696909+00:00",
+    "reserved_view_opened": false,
+    "decision": "reject",
+    "raw": "Both selection views increase blue/cyan sky and grass saturation, darken shaded foliage and facade openings, and lose shade detail. The resized raw output retains broad geometry but does not reconstruct material detail.",
+    "protected": "Retains native positions and most source detail, but gives only a small color/contrast change, newly clips channels, and creates visible hard horizontal HUD-mask boundaries. This diagnostic mask defect is not in the live feathered DCE compositor.",
+    "cost": "Every view exceeds the predefined 10 ms p95 synchronized-call gate. No FP16, motion trial or live integration.",
+    "artifacts": {
+      "0-raw": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+      "0-protected": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+      "1-raw": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+      "1-protected": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20"
+    }
+  },
+  "review": {
+    "scope": "All three complete native 2560x1440 sources, raw 960x540 outputs and protected 2560x1440 outputs inspected at original dimensions. Selection decision recorded before opening reserved outputs. No motion trial.",
+    "reserved": "The raw foliage view brightens the trunk while increasing green/cyan saturation and deepening ground and foliage shadows. Bark identity and broad boundaries remain, but the softer resized raw output does not reconstruct fine material detail. The protected version changes color slightly and exposes the hard bottom HUD-mask seam across the trunk and grass.",
+    "decision": "Reject raw and protected IAT for appearance and cost. No further precision/export, motion or live integration trial.",
+    "guard_limit": "The luminance guard permits newly clipped individual channels. Hard fixed HUD-mask edges produce visible discontinuities. Retain these diagnostic defects; the live DCE compositor uses feathered margins and is unchanged.",
+    "reference_limit": "No aligned photographic ground truth; subjective appearance review and quantitative source differences do not measure physical realism.",
+    "timing_limit": "37 synchronized calls including warmups produce 1517 DirectML node execution events, not 1517 inferences. Every call reads back all three author outputs. These are not pure GPU kernel or complete game frame timings."
+  },
+  "working_package_changed": false,
+  "training_performed": false,
+  "photorealistic_gain_accepted": false,
+  "source_hashes": {
+    "scenes/playable-iat-evaluation-v1.json": "d2b5bbd86947decc97ad2ac803027fe306e1c12b40b7d775a2390a260a14e1a5",
+    "runs/pretrained/iat-exposure-v1/source.json": "39d8f01a10ea537510492f85d9ef5473eb1bbcf4d6c5d5b72afbfe0a28e30421",
+    "runs/iat-evaluation-v1/report.json": "99c52398e3e2ced59958f919fedf39ce2e2f7feb2ecabd8e81e3734f761d150b",
+    "runs/iat-evaluation-v1/selection-decision.json": "19b46dc8c3794c318fe53bae1dd2c89d44c5d77a3416bb353ac5d800f6507d3d",
+    "scripts/publish_iat.py": "bbb7523ed969a509b26d6401c3918a8f6f07ff29162ea6178085a64a8a1f4aeb"
+  },
+  "published_media": [
+    {
+      "file": "iat-road-sign-source.png",
+      "sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+      "bytes": 3409143,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+      "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-road-sign-raw.png",
+      "sha256": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+      "bytes": 784526,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/00-raw.png",
+      "source_sha256": "0c47da38ae47301f2e893940fd098786ea2daaff6ae3b3fcc4140ae8aa218571",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-road-sign-protected.png",
+      "sha256": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+      "bytes": 4231692,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/00-protected.png",
+      "source_sha256": "fd27d723b6a11f3626c1774311367d61d4feb60be9a0a2b9408d4ac368384409",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-source.png",
+      "sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "bytes": 3351853,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+      "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-raw.png",
+      "sha256": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+      "bytes": 748140,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/01-raw.png",
+      "source_sha256": "3420d7fe2d170ecd7d70f7e6241c0b109ee72f71f08d97c7666f65a87957c0bb",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-facade-protected.png",
+      "sha256": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20",
+      "bytes": 4237774,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/01-protected.png",
+      "source_sha256": "e371e05878799d8f22e8fdaa96f299c295316c8e819891cec4d042931535be20",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-source.png",
+      "sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+      "bytes": 4138629,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+      "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+      "transformation": "Unchanged 2560x1440 gameplay PNG.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-raw.png",
+      "sha256": "8df3ae9c37a6fff68bd6f000a9cf6b69cb04b9f64bd9c03290a1b0b11b599774",
+      "bytes": 1024190,
+      "dimensions": [
+        960,
+        540
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/02-raw.png",
+      "source_sha256": "8df3ae9c37a6fff68bd6f000a9cf6b69cb04b9f64bd9c03290a1b0b11b599774",
+      "transformation": "Unchanged author output PNG, 960x540; input bilinear reduced from native 2560x1440. Float output clamped and rounded to RGB8 for display; floats retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "iat-foliage-protected.png",
+      "sha256": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
+      "bytes": 4955264,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/iat-evaluation-v1.json",
+      "source_artifact": "runs/iat-evaluation-v1/02-protected.png",
+      "source_sha256": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
+      "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    }
+  ]
+}
