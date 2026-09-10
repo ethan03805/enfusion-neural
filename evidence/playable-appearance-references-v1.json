@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "license_page_fetch": {
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden",
+    "verification": "Primary https://polyhaven.com/license page read via web tool on 2026-09-10: all assets are CC0."
+  },
+  "scope": "Three category-level PBR appearance references for road, roof and bark. No game asset was replaced, no paired ground truth produced and no training performed.",
+  "visual_review": "All three diffuse maps inspected at 1024x1024: asphalt aggregate/cracks, orange terracotta tiles with mossy wear, and deeply furrowed brown bark. Their local patterns differ from the game. Suitable material-category references; not matched asset identity or aligned training targets.",
+  "assets": [
+    {
+      "id": "asphalt_02",
+      "source": "https://polyhaven.com/a/asphalt_02",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "category": "Asphalt & Bitumen/Asphalt/Cracked Asphalt",
+      "dimensions_mm": [
+        3000.000238418579,
+        3000
+      ],
+      "applicability": "Town road: aggregate and matte response. Not the same cracks, road markings, UVs or wear as the game.",
+      "maps": [
+        {
+          "channel": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/asphalt_02/asphalt_02_diff_1k.png",
+          "local_file": "asphalt_02_diff_1k.png",
+          "bytes": 2485545,
+          "sha256": "68f85c76965ea664d500839c7ffe28fc7f2ddd297db32323dd63976589316bd3",
+          "author_md5": "ac3d05aae774a5dce71a31b8c761fa47",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "Rough",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/asphalt_02/asphalt_02_rough_1k.png",
+          "local_file": "asphalt_02_rough_1k.png",
+          "bytes": 732747,
+          "sha256": "aa820bd79355a4b5a94e14915f275584080a071c45a218a13ca61c2840158300",
+          "author_md5": "7db5fbd81763e89539cc0d808a97449e",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "nor_dx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/asphalt_02/asphalt_02_nor_dx_1k.png",
+          "local_file": "asphalt_02_nor_dx_1k.png",
+          "bytes": 2322926,
+          "sha256": "9419ee53eb478f9eb79c2655b619458a93f0e59ac4a646ba936fddb1a8dee5dc",
+          "author_md5": "bf8dda4eb242ff34c375f03b749c7b06",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        }
+      ],
+      "metadata_sha256": {
+        "info": "b3604a429fd672692985865a0477d471d3a433aa04f644992216edd883e17f07",
+        "files": "1249520977b7ba990db96a9b4dea2d7d5b8ff6d70c61a7d348310e92f68130d2"
+      }
+    },
+    {
+      "id": "roof_tiles",
+      "source": "https://polyhaven.com/a/roof_tiles",
+      "authors": {
+        "Stephan Seeliger": "All"
+      },
+      "category": "Ceramic/Terracotta",
+      "dimensions_mm": [
+        2000,
+        2000
+      ],
+      "applicability": "Town orange roof: terracotta surface variation. Tile shape and arrangement differ; not an identity-preserving replacement texture.",
+      "maps": [
+        {
+          "channel": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/roof_tiles/roof_tiles_diff_1k.png",
+          "local_file": "roof_tiles_diff_1k.png",
+          "bytes": 5808993,
+          "sha256": "03d01f78436d14cb4b096446d4e449b26a7f50239a335d82f887d9a8b90c49fe",
+          "author_md5": "c43b84a4fb70255b01a0d9a69cd7f2bb",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "Rough",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/roof_tiles/roof_tiles_rough_1k.png",
+          "local_file": "roof_tiles_rough_1k.png",
+          "bytes": 1967705,
+          "sha256": "386ebe7e21538ffcb039189421f9de65c541a0d632d0cf7a509b95aed760814d",
+          "author_md5": "295c72509970c620876923ef9ff324e9",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "nor_dx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/roof_tiles/roof_tiles_nor_dx_1k.png",
+          "local_file": "roof_tiles_nor_dx_1k.png",
+          "bytes": 5477474,
+          "sha256": "bd19eee5a25acc7c190985294c5b669f86be18b343d213928b4e90486352ed57",
+          "author_md5": "384ca8a508ffab40c5577376a13c1ada",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        }
+      ],
+      "metadata_sha256": {
+        "info": "1771b33d8ae0c398c1c0e6f0f2c3986e2e3c9b86e8b14b7ba996561a14ab9849",
+        "files": "1fefabdc0bfe19c7e04fb4e09d084a2a51fc6ed55ef81d8ab904aeb0481e450b"
+      }
+    },
+    {
+      "id": "bark_brown_01",
+      "source": "https://polyhaven.com/a/bark_brown_01",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "category": "Wood/Bark/Furrowed Bark",
+      "dimensions_mm": [
+        999.9990463256836,
+        999.998927116394
+      ],
+      "applicability": "Foliage view trunk: furrowed bark response. Tree species and groove placement are not matched.",
+      "maps": [
+        {
+          "channel": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/bark_brown_01/bark_brown_01_diff_1k.png",
+          "local_file": "bark_brown_01_diff_1k.png",
+          "bytes": 2235035,
+          "sha256": "37be9755b9eb02e9df1a1e5a06ea17d5a58161ce76024b5d9ad85b8bca3606e1",
+          "author_md5": "c9dc937d2cb82bc26a3973ddd6148db9",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "Rough",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/bark_brown_01/bark_brown_01_rough_1k.png",
+          "local_file": "bark_brown_01_rough_1k.png",
+          "bytes": 1783164,
+          "sha256": "7c58dc22fb622f44c59d15a5f076d4651a81d24bbe7f40c1bada42604766f9d4",
+          "author_md5": "01853f420746ad757a3add59bcd1a9e4",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        },
+        {
+          "channel": "nor_dx",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/bark_brown_01/bark_brown_01_nor_dx_1k.png",
+          "local_file": "bark_brown_01_nor_dx_1k.png",
+          "bytes": 2313993,
+          "sha256": "5c964cb42b23383efab1d3da4ae2d3183d09d2e2fa3eb3f99802b5d46da5a718",
+          "author_md5": "ec77751fa736a597bae627b2cdfea442",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "modified": false
+        }
+      ],
+      "metadata_sha256": {
+        "info": "d22fe54f33539ac46d77d01079d4f7abfc7c8adebfb92913147e98f7f180ab4f",
+        "files": "1c10acbee7bf1fbb871de46c71aa323152558c19f1e573a5f4474498b156a15a"
+      }
+    }
+  ]
+}

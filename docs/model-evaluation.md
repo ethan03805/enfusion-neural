@@ -60,10 +60,26 @@ All three diagnostic frames avoid new black clipping and leave the declared dark
 
 ## Reproduce and inspect
 
+### Material references
+
+Three [CC0](https://polyhaven.com/license) material references are now retained locally with their 1K color, roughness and DirectX normal maps. Their downloaded bytes match the author's checksums; our evidence also records SHA-256, dimensions and provenance.
+
+| Gameplay material | Reference | Applicability limit |
+| --- | --- | --- |
+| Town road | [Asphalt 02, Rob Tuytel](https://polyhaven.com/a/asphalt_02) | Useful aggregate and matte-response reference; cracks, markings and wear differ |
+| Orange town roof | [Roof Tiles, Stephan Seeliger](https://polyhaven.com/a/roof_tiles) | Terracotta appearance reference; tile geometry and arrangement differ |
+| Near-tree trunk | [Bark Brown 01, Rob Tuytel](https://polyhaven.com/a/bark_brown_01) | Furrowed bark reference; species and groove placement are not matched |
+
+These are material-category references, **not aligned training targets or replacement game textures**. No model was trained and no game asset changed. `scripts/prepare_appearance_references.py` reproduces the 25.1 MB reference set; [reference evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-appearance-references-v1.json) records the distinction. Direct HTML download of the license page returned 403; its CC0 statement was verified on the primary page through the web tool, while the documented asset API and downloads succeeded.
+
+### Candidate replay
+
 [REGEN author implementation](https://github.com/stefanos50/REGEN), revision `de240056522d066235b48b541e7d49f28c80f1ed`, provides the GTA2Cityscapes checkpoint and ONNX generator. [DeepLPF author implementation](https://github.com/sjmoran/deeplpf-image-enhancement), revision `b6d6764b548667f51eda2f1a6aafd484822de3ec`, provides the Adobe-DPE checkpoint. Author licenses and complete source hashes are retained with each evaluation. No new model is bundled in the playable download.
 
 The optional Windows/Python 3.9 evaluation environment is pinned in `requirements-evaluation.txt`; install CPU PyTorch separately as directed there. Run `scripts/prepare_rgb_candidates.py --model regen` or `--model deeplpf`, then the corresponding `scripts/evaluate_regen.py --out NEW_DIRECTORY` or `scripts/evaluate_deeplpf.py --out NEW_DIRECTORY`. This downloads public author files into ignored `runs/pretrained/` and verifies the measured hashes. REGEN also requires the built `enr_adapter_info` helper to identify the actual DirectML adapter.
 
 Exact checkpoint hashes, plans, raw samples, source-protection parameters and limitations are recorded in [REGEN evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/regen-evaluation-v1.json) and [DeepLPF evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/deeplpf-evaluation-v1.json). Both evaluators load weights with restricted `weights_only=True`. `scripts/diagnose_deeplpf_transfer.py` reproduces the protected diagnostic from saved outputs.
+
+The evaluators replay retained local gameplay captures. A fresh repository clone also needs the original files named in the evaluation plans; the playable download itself does not depend on these research inputs.
 
 [Playable build and measured gameplay](playable.md) · [Current status](status.md)

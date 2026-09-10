@@ -1,0 +1,715 @@
+{
+  "schema_version": 1,
+  "run": "playable-soak-v1",
+  "status": "completed",
+  "scope": "Existing walking/turning path at simulation 30\u201360 seconds, then stationary town camera. Continuous runtime/cadence check; not ten minutes of movement, manual input or semantic acceptance.",
+  "duration_seconds": 600,
+  "window_qpc_ms": [
+    16335438.7122,
+    16935438.7122
+  ],
+  "scene": "town",
+  "preset": "combined",
+  "dimensions": [
+    2560,
+    1440
+  ],
+  "mode": "neural",
+  "adapter": "AMD Radeon RX 7800 XT",
+  "native_configuration": {
+    "schema_version": 1,
+    "source_pid": 35068,
+    "adapter": "AMD Radeon RX 7800 XT",
+    "width": 2560,
+    "height": 1440,
+    "overlay": true,
+    "initial_mode": 3,
+    "strength": 0.35,
+    "presentation": "hwnd-flip-discard",
+    "precision": "FP32",
+    "curve_dimensions": [
+      320,
+      180
+    ],
+    "capture": "Windows Graphics Capture HWND BGRA8 SDR including HUD",
+    "latency_scope": "capture compositor QPC to companion Present call; excludes input and scanout",
+    "gpu_scope": "source GPU copy, optional neural inference and pixel draw; no CPU frame readback except requested snapshots",
+    "neural": true
+  },
+  "configuration_verified": true,
+  "settings_readback": {
+    "VideoUserSettings.FramesLimit": 2,
+    "VideoUserSettings.MaxFps": 120,
+    "VideoUserSettings.WindowMode": 3,
+    "VideoUserSettings.ScreenWidth": 2560,
+    "VideoUserSettings.ScreenHeight": 1440,
+    "VideoUserSettings.ResolutionScale": 0.75,
+    "VideoUserSettings.SuperWidth": 0,
+    "VideoUserSettings.SuperHeight": 0,
+    "VideoUserSettings.WindowPosX": 1280,
+    "VideoUserSettings.WindowPosY": 720,
+    "VideoUserSettings.ConsoleMode": 1,
+    "VideoUserSettings.ConsoleWidth": 0,
+    "VideoUserSettings.ConsoleHeight": 0,
+    "VideoUserSettings.ConsolePosX": 0,
+    "VideoUserSettings.ConsolePosY": 0,
+    "VideoUserSettings.Vsynch": 0,
+    "VideoUserSettings.Vsync": 0,
+    "VideoUserSettings.SquarePixel": 1,
+    "VideoUserSettings.Ratio3d": 1,
+    "VideoUserSettings.Fsaa": 2,
+    "VideoUserSettings.RenderFormat": 0,
+    "VideoUserSettings.DistantShadowsQuality": 1,
+    "VideoUserSettings.EnvironmentQuality": 1,
+    "VideoUserSettings.Gamma": 0,
+    "VideoUserSettings.Contrast": 0,
+    "VideoUserSettings.Brightness": 0,
+    "VideoUserSettings.Adapter": -1,
+    "VideoUserSettings.Device": -1,
+    "VideoUserSettings.Atoc": 0,
+    "VideoUserSettings.GenerateShaders": 1,
+    "VideoUserSettings.FsrEnabled": 1,
+    "VideoUserSettings.FsrSharpening": 0.75,
+    "VideoUserSettings.CasSharpening": 0,
+    "PPEffectsSettings.HBAO": 1,
+    "PPEffectsSettings.GodRays": 0,
+    "PPEffectsSettings.HDR": 0,
+    "PPEffectsSettings.SSDO": 0,
+    "PPEffectsSettings.SSR": 0,
+    "PPEffectsSettings.UnderWater": 1,
+    "PPEffectsSettings.PPAA": 2,
+    "PPEffectsSettings.Rain": 2,
+    "DisplayUserSettings.OverallQuality": 2,
+    "GraphicsQualitySettings.ObjectDrawDistanceScale": 3,
+    "PipelineUserSettings.ShadowQuality": 2,
+    "PipelineUserSettings.TightCascades": 0,
+    "PipelineUserSettings.LightShadow": 2,
+    "PipelineUserSettings.LightLevel": 2,
+    "PipelineUserSettings.Reflections": 0,
+    "PipelineUserSettings.LinearDepth": 250,
+    "PipelineUserSettings.GBuffer": 1,
+    "ResourceManagerUserSettings.TextureDetail": 1,
+    "ResourceManagerUserSettings.GeometricDetail": 3,
+    "GrassMaterialSettings.Distance": 175,
+    "GrassMaterialSettings.Lod": 3,
+    "GrassMaterialSettings.Quality": 0,
+    "PostprocessUserSettings.Postprocess": 1,
+    "TerrainGenMaterialSettings.Detail": 2,
+    "TerrainGenMaterialSettings.SoftAlpha": 1,
+    "TerrainGenMaterialSettings.DetailDistance": 1,
+    "TerrainGenMaterialSettings.GeometryLevel": 0,
+    "MaterialSystemUserSettings.TextureFilter": 2,
+    "MaterialSystemUserSettings.MaxAniso": 4,
+    "WaterPoolMaterialSettings.Detail": 1
+  },
+  "processing_hashes": {
+    "build/Release/enr_companion.exe": "41696c702a721d209b1be26622d47ff263325fdc44d5d564a497d9446067a9fe",
+    "native/companion.cpp": "f311e4371dcd83a479d97db4655b975f6149c4ee299bf16244b764fe496991af",
+    "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+    "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5"
+  },
+  "events": [
+    "started 16335438.7122",
+    "complete frames 36654 elapsed_ms 600007.023800001"
+  ],
+  "processes": {
+    "game": {
+      "frames": 53541,
+      "mean_fps": 89.27697607061582,
+      "interval_ms": {
+        "min": 4.473600000143051,
+        "p50": 11.010250000283122,
+        "p95": 15.555239999480541,
+        "p99": 18.185258998628708,
+        "max": 39.71609999984503
+      },
+      "intervals_over_33_333_ms": 3,
+      "intervals_over_50_ms": 0,
+      "intervals_over_100_ms": 0,
+      "observed_span_seconds": 599.7066921000015,
+      "pid": 35068,
+      "excluded_nonapplication_events": 0
+    },
+    "companion": {
+      "frames": 36635,
+      "mean_fps": 61.09072425671387,
+      "interval_ms": {
+        "min": 2.8917000014334917,
+        "p50": 15.578449999913573,
+        "p95": 29.751019998267292,
+        "p99": 31.87017300199717,
+        "max": 52.9035000000149
+      },
+      "intervals_over_33_333_ms": 133,
+      "intervals_over_50_ms": 1,
+      "intervals_over_100_ms": 0,
+      "observed_span_seconds": 599.6655048000011,
+      "pid": 2784,
+      "excluded_nonapplication_events": 37015
+    },
+    "native_companion": {
+      "frames": 36654,
+      "mean_fps": 61.09066730227747,
+      "interval_ms": {
+        "min": 2.893199998885393,
+        "p50": 15.578499998897314,
+        "p95": 29.74418000057341,
+        "p99": 31.872155999094264,
+        "max": 52.90240000002086
+      },
+      "intervals_over_33_333_ms": 133,
+      "intervals_over_50_ms": 1,
+      "intervals_over_100_ms": 0,
+      "observed_span_seconds": 599.9770770000015
+    }
+  },
+  "minute_samples": [
+    {
+      "minute": 1,
+      "game": {
+        "frames": 5197,
+        "mean_fps": 86.60861712435711,
+        "interval_ms": {
+          "min": 5.245599998161197,
+          "p50": 11.364150002598763,
+          "p95": 16.15167499985546,
+          "p99": 18.808194999024273,
+          "max": 23.424999998882413
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99403030000254,
+        "frames_per_declared_60_seconds": 86.61666666666666
+      },
+      "companion": {
+        "frames": 3641,
+        "mean_fps": 60.734524946492,
+        "interval_ms": {
+          "min": 3.4528000000864267,
+          "p50": 15.566500000655651,
+          "p95": 30.291464999690643,
+          "p99": 31.903890000991524,
+          "max": 42.206100000068545
+        },
+        "intervals_over_33_333_ms": 17,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.93296240000054,
+        "frames_per_declared_60_seconds": 60.68333333333333
+      },
+      "native_companion": {
+        "frames": 3642,
+        "mean_fps": 60.720217323344194,
+        "interval_ms": {
+          "min": 3.453499998897314,
+          "p50": 15.566500000655651,
+          "p95": 30.289799999445677,
+          "p99": 31.90441999994218,
+          "max": 42.20420000143349
+        },
+        "intervals_over_33_333_ms": 17,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.96355350000039,
+        "frames_per_declared_60_seconds": 60.7
+      }
+    },
+    {
+      "minute": 2,
+      "game": {
+        "frames": 5390,
+        "mean_fps": 89.82657259138267,
+        "interval_ms": {
+          "min": 4.905199998989701,
+          "p50": 10.931700002402067,
+          "p95": 15.468240000680089,
+          "p99": 18.138756003156303,
+          "max": 31.61040000244975
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99338329999894,
+        "frames_per_declared_60_seconds": 89.83333333333333
+      },
+      "companion": {
+        "frames": 3669,
+        "mean_fps": 61.15021976268912,
+        "interval_ms": {
+          "min": 4.253200002014637,
+          "p50": 15.579200002364814,
+          "p95": 29.595325002819248,
+          "p99": 31.765846999064088,
+          "max": 52.9035000000149
+        },
+        "intervals_over_33_333_ms": 13,
+        "intervals_over_50_ms": 1,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98343119999766,
+        "frames_per_declared_60_seconds": 61.15
+      },
+      "native_companion": {
+        "frames": 3669,
+        "mean_fps": 61.15021925296026,
+        "interval_ms": {
+          "min": 4.252900000661612,
+          "p50": 15.57924999948591,
+          "p95": 29.59575500031928,
+          "p99": 31.76544599974528,
+          "max": 52.90240000002086
+        },
+        "intervals_over_33_333_ms": 13,
+        "intervals_over_50_ms": 1,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98343170000054,
+        "frames_per_declared_60_seconds": 61.15
+      }
+    },
+    {
+      "minute": 3,
+      "game": {
+        "frames": 5377,
+        "mean_fps": 89.6277581648395,
+        "interval_ms": {
+          "min": 6.498700000345707,
+          "p50": 10.956449998542666,
+          "p95": 15.482400000095367,
+          "p99": 17.94609999889508,
+          "max": 21.64519999921322
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98141770000197,
+        "frames_per_declared_60_seconds": 89.61666666666666
+      },
+      "companion": {
+        "frames": 3652,
+        "mean_fps": 60.861042018855656,
+        "interval_ms": {
+          "min": 4.416499996557832,
+          "p50": 15.584599997848272,
+          "p95": 30.256900002248585,
+          "p99": 32.065200000070035,
+          "max": 47.30330000258982
+        },
+        "intervals_over_33_333_ms": 13,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98911419999786,
+        "frames_per_declared_60_seconds": 60.86666666666667
+      },
+      "native_companion": {
+        "frames": 3652,
+        "mean_fps": 60.861041511587246,
+        "interval_ms": {
+          "min": 4.416600000113249,
+          "p50": 15.584799999371171,
+          "p95": 30.2566499998793,
+          "p99": 32.06419999990612,
+          "max": 47.30250000022352
+        },
+        "intervals_over_33_333_ms": 13,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98911469999887,
+        "frames_per_declared_60_seconds": 60.86666666666667
+      }
+    },
+    {
+      "minute": 4,
+      "game": {
+        "frames": 5380,
+        "mean_fps": 89.67010149610346,
+        "interval_ms": {
+          "min": 6.12220000103116,
+          "p50": 10.937899997457862,
+          "p95": 15.597909998893734,
+          "p99": 18.184219998866325,
+          "max": 22.003699999302626
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.986549699999394,
+        "frames_per_declared_60_seconds": 89.66666666666667
+      },
+      "companion": {
+        "frames": 3657,
+        "mean_fps": 60.9516114009717,
+        "interval_ms": {
+          "min": 2.8917000014334917,
+          "p50": 15.559999999590218,
+          "p95": 30.13870000001043,
+          "p99": 31.90731000145897,
+          "max": 41.692200001329184
+        },
+        "intervals_over_33_333_ms": 19,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.9820073000025,
+        "frames_per_declared_60_seconds": 60.95
+      },
+      "native_companion": {
+        "frames": 3657,
+        "mean_fps": 60.9516120106734,
+        "interval_ms": {
+          "min": 2.893199998885393,
+          "p50": 15.559999999590218,
+          "p95": 30.138324999716133,
+          "p99": 31.907335000205784,
+          "max": 41.69099999964237
+        },
+        "intervals_over_33_333_ms": 19,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98200669999979,
+        "frames_per_declared_60_seconds": 60.95
+      }
+    },
+    {
+      "minute": 5,
+      "game": {
+        "frames": 5352,
+        "mean_fps": 89.19518529223765,
+        "interval_ms": {
+          "min": 5.2501999996602535,
+          "p50": 11.028200002387166,
+          "p95": 15.485000001266599,
+          "p99": 18.276550001464784,
+          "max": 30.17050000280142
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99202740000002,
+        "frames_per_declared_60_seconds": 89.2
+      },
+      "companion": {
+        "frames": 3657,
+        "mean_fps": 60.953952938119805,
+        "interval_ms": {
+          "min": 3.888900002464652,
+          "p50": 15.573300000280142,
+          "p95": 30.036624999716878,
+          "p99": 31.813519999850538,
+          "max": 46.78279999829829
+        },
+        "intervals_over_33_333_ms": 10,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.9797031000033,
+        "frames_per_declared_60_seconds": 60.95
+      },
+      "native_companion": {
+        "frames": 3657,
+        "mean_fps": 60.953952430001074,
+        "interval_ms": {
+          "min": 3.8899000007659197,
+          "p50": 15.573700000531971,
+          "p95": 30.036025000270456,
+          "p99": 31.805435000453144,
+          "max": 46.781600000336766
+        },
+        "intervals_over_33_333_ms": 10,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.97970360000059,
+        "frames_per_declared_60_seconds": 60.95
+      }
+    },
+    {
+      "minute": 6,
+      "game": {
+        "frames": 5375,
+        "mean_fps": 89.58143327012122,
+        "interval_ms": {
+          "min": 6.078099997714162,
+          "p50": 10.980399997904897,
+          "p95": 15.43379499977454,
+          "p99": 18.054708997625855,
+          "max": 23.37759999744594
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.990109600003805,
+        "frames_per_declared_60_seconds": 89.58333333333333
+      },
+      "companion": {
+        "frames": 3675,
+        "mean_fps": 61.25443916289259,
+        "interval_ms": {
+          "min": 3.56559999845922,
+          "p50": 15.577049996703863,
+          "p95": 27.675860001798714,
+          "p99": 31.891790001112966,
+          "max": 46.39569999836385
+        },
+        "intervals_over_33_333_ms": 12,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.97932639999874,
+        "frames_per_declared_60_seconds": 61.25
+      },
+      "native_companion": {
+        "frames": 3675,
+        "mean_fps": 61.254439673521325,
+        "interval_ms": {
+          "min": 3.5655000004917383,
+          "p50": 15.576799999922514,
+          "p95": 27.67567000025883,
+          "p99": 31.89123600019142,
+          "max": 46.3937999997288
+        },
+        "intervals_over_33_333_ms": 12,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.97932589999959,
+        "frames_per_declared_60_seconds": 61.25
+      }
+    },
+    {
+      "minute": 7,
+      "game": {
+        "frames": 5363,
+        "mean_fps": 89.39342256500757,
+        "interval_ms": {
+          "min": 6.03940000012517,
+          "p50": 11.011500000953674,
+          "p95": 15.448559999559075,
+          "p99": 18.011530998628587,
+          "max": 23.21849999949336
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98204169999995,
+        "frames_per_declared_60_seconds": 89.38333333333334
+      },
+      "companion": {
+        "frames": 3670,
+        "mean_fps": 61.165940863621515,
+        "interval_ms": {
+          "min": 3.888399999588728,
+          "p50": 15.597600001841784,
+          "p95": 28.536939999088638,
+          "p99": 31.790823999121788,
+          "max": 49.78020000271499
+        },
+        "intervals_over_33_333_ms": 16,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.984362999999895,
+        "frames_per_declared_60_seconds": 61.166666666666664
+      },
+      "native_companion": {
+        "frames": 3670,
+        "mean_fps": 61.165940761651875,
+        "interval_ms": {
+          "min": 3.888299999758601,
+          "p50": 15.597200000658631,
+          "p95": 28.537159999832504,
+          "p99": 31.78956399932504,
+          "max": 49.78060000017285
+        },
+        "intervals_over_33_333_ms": 16,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.984363099999726,
+        "frames_per_declared_60_seconds": 61.166666666666664
+      }
+    },
+    {
+      "minute": 8,
+      "game": {
+        "frames": 5379,
+        "mean_fps": 89.63928627833799,
+        "interval_ms": {
+          "min": 6.304499998688698,
+          "p50": 10.969200001098216,
+          "p95": 15.43257999960333,
+          "p99": 18.081679999791085,
+          "max": 30.124900000169873
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99601539999805,
+        "frames_per_declared_60_seconds": 89.65
+      },
+      "companion": {
+        "frames": 3675,
+        "mean_fps": 61.24122600047304,
+        "interval_ms": {
+          "min": 4.012200001627207,
+          "p50": 15.590500000864267,
+          "p95": 29.03689999897033,
+          "p99": 31.823885000534354,
+          "max": 46.48799999803305
+        },
+        "intervals_over_33_333_ms": 11,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99226729999855,
+        "frames_per_declared_60_seconds": 61.25
+      },
+      "native_companion": {
+        "frames": 3675,
+        "mean_fps": 61.241226408797914,
+        "interval_ms": {
+          "min": 4.013000000268221,
+          "p50": 15.59070000052452,
+          "p95": 29.03672999870032,
+          "p99": 31.823561001084745,
+          "max": 46.4869000017643
+        },
+        "intervals_over_33_333_ms": 11,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.99226690000109,
+        "frames_per_declared_60_seconds": 61.25
+      }
+    },
+    {
+      "minute": 9,
+      "game": {
+        "frames": 5378,
+        "mean_fps": 89.65962483441345,
+        "interval_ms": {
+          "min": 5.57769999653101,
+          "p50": 10.973700001835823,
+          "p95": 15.497540002316235,
+          "p99": 18.249120002388953,
+          "max": 23.827800001949072
+        },
+        "intervals_over_33_333_ms": 0,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.97125250000134,
+        "frames_per_declared_60_seconds": 89.63333333333334
+      },
+      "companion": {
+        "frames": 3687,
+        "mean_fps": 61.45062287574674,
+        "interval_ms": {
+          "min": 3.701400000602007,
+          "p50": 15.583549998700619,
+          "p95": 25.53467500116676,
+          "p99": 31.677654999867084,
+          "max": 38.92830000072718
+        },
+        "intervals_over_33_333_ms": 5,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.98311860000342,
+        "frames_per_declared_60_seconds": 61.45
+      },
+      "native_companion": {
+        "frames": 3687,
+        "mean_fps": 61.45062226107243,
+        "interval_ms": {
+          "min": 3.7018999978899956,
+          "p50": 15.583400001749396,
+          "p95": 25.534149998798966,
+          "p99": 31.676665001548827,
+          "max": 38.927099999040365
+        },
+        "intervals_over_33_333_ms": 5,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.983119199998676,
+        "frames_per_declared_60_seconds": 61.45
+      }
+    },
+    {
+      "minute": 10,
+      "game": {
+        "frames": 5350,
+        "mean_fps": 89.58777244179122,
+        "interval_ms": {
+          "min": 4.473600000143051,
+          "p50": 10.975299999117851,
+          "p95": 15.481519999355076,
+          "p99": 17.982408000379785,
+          "max": 39.71609999984503
+        },
+        "intervals_over_33_333_ms": 3,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.7068088000007,
+        "frames_per_declared_60_seconds": 89.16666666666667
+      },
+      "companion": {
+        "frames": 3652,
+        "mean_fps": 61.15361680169199,
+        "interval_ms": {
+          "min": 3.5681000016629696,
+          "p50": 15.564500000327826,
+          "p95": 29.678850000724196,
+          "p99": 31.78149999678135,
+          "max": 43.73159999772906
+        },
+        "intervals_over_33_333_ms": 17,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.70211070000008,
+        "frames_per_declared_60_seconds": 60.86666666666667
+      },
+      "native_companion": {
+        "frames": 3670,
+        "mean_fps": 61.16723713131387,
+        "interval_ms": {
+          "min": 3.5677000023424625,
+          "p50": 15.562600001692772,
+          "p95": 29.6342400021851,
+          "p99": 31.780112001001836,
+          "max": 43.73090000078082
+        },
+        "intervals_over_33_333_ms": 17,
+        "intervals_over_50_ms": 0,
+        "intervals_over_100_ms": 0,
+        "observed_span_seconds": 59.983091800000516,
+        "frames_per_declared_60_seconds": 61.166666666666664
+      }
+    }
+  ],
+  "limitations": [
+    "Presents are not displayed frames or input-to-photon latency.",
+    "Initial 30\u201360s path followed by stationary camera, not ten minutes of movement.",
+    "One pass; normal Codex/documentation work continued on the CPU; no concurrent GPU experiment or video recording.",
+    "No GPU memory telemetry or manual input, scope/menu or semantic acceptance."
+  ],
+  "source_hashes": {
+    "launch.json": "16a2a019c67fe5fb0bd77b7c024d71aad7c9163a4a2a827280f069991ca0a0f0",
+    "present-cpu.csv": "ab0cfa277ff00f74cb968ce92ac761e355b0930373c3b83b31c39b76ea01eff1",
+    "present-cpu.log": "4b0d26f9781d364e56df7b45b2155cd18f66392b00f77ffbc1c9c3d00d6d272f",
+    "companion/frames.csv": "b8f1a7516ea9118ddfa991e6564edd05d509ec57431335245972a9af271fbd39",
+    "companion/events.log": "a36298e538cfb520741121d202cf84d5d252c6128f1f4d78aea72e002fee7315",
+    "companion/run.json": "75f53522afa5cd0e26e3e9a543d6222b62ea71c41916c3d8e454ba6ceebafc03",
+    "profile/logs/logs_2026-09-10_02-25-07/script.log": "6756b63cd7b258892b388ffa0fbb9cfbe4731a8b0995a315e0f51790a397810e"
+  },
+  "gpu_copy_inference_draw_ms": {
+    "min": 1.86604,
+    "p50": 3.49606,
+    "p95": 6.190894,
+    "p99": 7.027638000000004,
+    "max": 14.49
+  },
+  "capture_to_present_call_ms": {
+    "min": -3.528,
+    "p50": 6.60415,
+    "p95": 13.953375,
+    "p99": 15.664541,
+    "max": 36.0197
+  },
+  "dropped_before_processing": 380,
+  "acceptance": {
+    "continuous_runtime_reached": true,
+    "all_minutes_at_least_30_native_presents_per_second": true,
+    "no_recorded_hide_or_presentation_timeout": true,
+    "appearance_goal_complete": false
+  },
+  "plan_sha256": "2ec45ef1268c56e2bcaf43fa5556712fe73c61c7b13267e785959cdd39c6be17"
+}

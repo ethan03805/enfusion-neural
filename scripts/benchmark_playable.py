@@ -28,7 +28,12 @@ def main():
     p.add_argument('--mode', choices=['off', 'identity', 'neural'], default='off')
     p.add_argument('--record', action='store_true')
     p.add_argument('--trace', choices=['cpu','display','both'], default='both')
+    p.add_argument('--soak-seconds', type=int, default=0, help='Extended runtime check after the existing 30–60s path; remaining time is stationary. Zero keeps the original benchmark.')
     a = p.parse_args()
+    if a.soak_seconds and not 60 <= a.soak_seconds <= 1800: p.error('Soak duration must be 60..1800 seconds')
+    if a.soak_seconds and a.record: p.error('Soak measurement excludes recording')
+    processes = subprocess.check_output(['tasklist','/FI','IMAGENAME eq ArmaReforgerSteam.exe','/FO','CSV','/NH'], text=True)
+    if 'ArmaReforgerSteam.exe' in processes: raise RuntimeError('Close the existing game before starting a benchmark')
     out = a.out.resolve()
     game = Path('C:/Program Files (x86)/Steam/steamapps/common/Arma Reforger/ArmaReforgerSteam.exe')
     user = Path(os.environ['USERPROFILE'])
@@ -37,6 +42,9 @@ def main():
     addon, manifest = prepare(out, a.scene, a.preset, True, sources[0])
     argv = [str(game), '-profile', str(out/'profile'), '-gproj', str(addon/'addon.gproj'), '-addonsDir', str(game.parent/'addons'), '-world', 'worlds/GameMaster/GM_Eden.ent', '-play', '-nosplash', '-maxFPS', '120']
     manifest.update(created_unix_s=time.time(), qpc_anchor_ms=qpc(), mode=a.mode, recording=a.record, trace=a.trace, argv=argv)
+    manifest['soak_seconds'] = a.soak_seconds
+    if a.soak_seconds:
+        manifest['soak_scope'] = 'Existing walking/turning path at simulation 30–60 seconds, then stationary town camera. Continuous runtime/cadence check; not ten minutes of movement, manual input or semantic acceptance.'
     manifest['processing_hashes']={str(f.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(f.read_bytes()).hexdigest() for f in [ROOT/'build/Release/enr_companion.exe',ROOT/'native/companion.cpp',ROOT/'native/curve_network.h',ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin']}
     tasks, handles = [], []
     proc = subprocess.Popen(argv, cwd=game.parent)
@@ -52,7 +60,8 @@ def main():
         return child
 
     ready = False; recorded = False
-    deadline = time.monotonic() + 160
+    deadline = time.monotonic() + 160 + a.soak_seconds
+    stop_simulation = 68
     try:
         while time.monotonic() < deadline:
             if proc.poll() is not None: raise RuntimeError('Game exited before benchmark completed')
@@ -76,14 +85,15 @@ def main():
                 mismatches = {k: {'expected':v,'actual':settings.get(k)} for k,v in expected.items() if settings.get(k)!=v}
                 if mismatches: raise RuntimeError('Requested settings not active: '+json.dumps(mismatches))
                 if a.mode != 'off':
-                    start([ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', '49'], 'companion-console.log')
+                    start([ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', str(a.soak_seconds or 49)], 'companion-console.log')
                 pm = ROOT/'runs/tools/PresentMon-2.5.1-x64.exe'
-                base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', '47', '--terminate_after_timed', '--no_console_stats', '--no_track_input']
+                base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', str(a.soak_seconds or 47), '--terminate_after_timed', '--no_console_stats', '--no_track_input']
                 if a.trace in ['display','both']:
                     start(base+['--output_file', out/'present-display.csv', '--session_name', 'ENR_display_'+str(proc.pid)], 'present-display.log')
                 if a.trace in ['cpu','both']:
                     start(base+['--output_file', out/'present-cpu.csv', '--session_name', 'ENR_cpu_'+str(proc.pid), '--no_track_gpu', '--no_track_display'], 'present-cpu.log')
                 manifest['ready_simulation_s'] = simulation
+                if a.soak_seconds: stop_simulation = simulation + a.soak_seconds + 2
                 ready = True
                 print(f'{out.name}: player ready; measurement started at simulation {simulation:.3f}s', flush=True)
             if a.record and simulation >= 28 and not recorded:
@@ -91,9 +101,9 @@ def main():
                 start(['ffmpeg', '-hide_banner', '-f', 'lavfi', '-i', f'gfxcapture=window_exe={target}:max_framerate=60:capture_cursor=0:display_border=0', '-vf', 'hwdownload,format=bgra,scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=nv12', '-t', '34', '-an', '-c:v', 'h264_amf', '-b:v', '25M', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'iec61966-2-1', '-fps_mode', 'vfr', out/'gameplay.mp4'], 'recording.log')
                 manifest['record_start_simulation_s'] = simulation
                 recorded = True
-            if ready and simulation >= 68: break
+            if ready and simulation >= stop_simulation: break
             time.sleep(.05)
-        else: raise TimeoutError('No completed gameplay path within 160 seconds')
+        else: raise TimeoutError('Gameplay measurement exceeded its bounded deadline')
         for t in tasks:
             t.wait(timeout=10)
             if t.returncode: raise RuntimeError(f'Capture child failed: {t.returncode}')

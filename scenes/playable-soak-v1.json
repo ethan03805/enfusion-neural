@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scene": "town",
+  "preset": "combined",
+  "companion_mode": "neural",
+  "dimensions": [2560, 1440],
+  "duration_seconds": 600,
+  "recording": false,
+  "trace": "cpu",
+  "path": "Existing simulation 30–60 second walking/turning path, followed by a stationary camera. No claim of ten minutes of continuous movement.",
+  "acceptance": [
+    "Game and companion remain alive until scheduled completion; no crash or restart.",
+    "Retain every interval, hide, timeout and bypass event; distinguish presents from display.",
+    "Report full-window and per-minute game/companion cadence, p95/p99, maximum intervals and counts beyond 33.3/50/100ms.",
+    "Report whether all minutes meet 30 presents/s; do not infer manual input, physical latency or scene fidelity."
+  ],
+  "limits": "One mostly stationary session, no live recording, no repeated control or GPU memory telemetry. No GPU experiments or foreground browser interaction during measurement."
+}

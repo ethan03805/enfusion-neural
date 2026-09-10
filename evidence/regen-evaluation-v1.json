@@ -197,7 +197,7 @@
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
     }
   ],
-  "limitations": "Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Published images are 960x544 evaluation inputs/outputs, not native 1440p results.",
+  "limitations": "Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Raw evaluation inputs/outputs are 960x544. The separately labeled DeepLPF source-protected pair is an offline 1440p transfer, not live neural output.",
   "provenance": {
     "repository": "stefanos50/REGEN",
     "revision": "de240056522d066235b48b541e7d49f28c80f1ed",

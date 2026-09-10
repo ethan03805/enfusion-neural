@@ -69,6 +69,19 @@ Additional recorded checks, with the foliage limitations above:
 
 The evening check is a single enhancement run, with no evening baseline claim. The rebuilt package changes C++ runtime linkage and metadata only; its unchanged shader still passes CPU parity.
 
+### Ten-minute runtime check
+
+A separate 600-second reduced + neural run completes without a crash, recorded hide or presentation timeout. It follows the existing 30–60 second walk/turn segment and then holds a stationary town camera. This checks sustained processing, not ten minutes of movement. No video was recorded; ordinary Codex/documentation work continued on the CPU.
+
+| Application | Presents/s | Interval p95 / p99, ms | Maximum interval, ms | Intervals >33.3 / >50 ms |
+| --- | ---: | ---: | ---: | ---: |
+| Game | 89.28 | 15.56 / 18.19 | 39.72 | 3 / 0 |
+| Companion | 61.09 | 29.74 / 31.87 | 52.90 | 133 / 1 |
+
+The companion processes 36,654 frames over 600.007 seconds. Each minute contains 60.70–61.45 presents/s; none falls below 30. GPU copy/network/draw take 3.50 ms median and 6.19 ms p95. Capture-to-Present-call age is 6.60 ms median / 13.95 ms p95, with raw negative offsets retained. It discards 380 queued source frames in favor of newer ones. PresentMon and native cadence agree; 37,015 internal capture events are excluded from application throughput. These measurements do not establish displayed-frame cadence, physical latency, manual controls or semantic fidelity.
+
+[Complete ten-minute and per-minute evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-soak-v1.json). Reproduce with `scripts/benchmark_playable.py --out NEW_DIRECTORY --preset combined --mode neural --trace cpu --soak-seconds 600`; summarize with `scripts/summarize_soak.py RUN_DIRECTORY --evidence OUTPUT_JSON`.
+
 ## Latency and fallback
 
 An earlier live HWND sample joins **895 displayed frames**: **12.61 ms median, 18.12 ms p95, 20.98 ms p99** from WGC compositor timestamp to PresentMon-reported display. This excludes mouse/keyboard sampling and physical panel response. It is a separate early scene sample using engine defaults.
@@ -115,7 +128,7 @@ This is the exact source/output frame pair from the early live loop, before the 
 
 ## Boundaries and retained failures
 
-Initial coverage is a town road with buildings, openings, signs and guardrails, a foliage path, and an evening town check. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Interiors, scopes, combat visibility, rain, HDR and long sessions remain unaccepted.
+Initial coverage is a town road with buildings, openings, signs and guardrails, a foliage path, an evening town check and a mostly stationary ten-minute runtime test. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Interiors, scopes, combat visibility, rain, HDR and extended movement remain unaccepted.
 
 The first profile clone was one directory too high; its 114.70 game presents/s result used engine defaults and is not the standard baseline. The corrected launcher writes beneath the nested profile mount and verifies settings. Interrupted early ETW sessions and event-loss runs remain failed. Layered-window presentation variants failed visibly; the normal HWND route is retained. A hard HUD exclusion produced a sky seam and was replaced by a feathered boundary. Direct GPU recording submission failed; the working recorder's CPU conversion is explicit.
 

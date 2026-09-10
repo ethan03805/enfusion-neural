@@ -6,10 +6,12 @@ The controlled town path measures **88.0 game presents/s** with standard setting
 
 GPU copy, inference and drawing take **3.44 ms median / 6.11 ms p95** in that path. The earlier 895-frame display join measures **12.61 ms median / 18.12 ms p95** capture-to-reported-display latency. Moving-path display traces remain unavailable after a bounded retry. Neither measurement is physical input-to-photon latency.
 
+A separate **ten-minute runtime check** completes with 36,654 processed frames and no crash, recorded hide or presentation timeout. The game averages 89.3 presents/s and the companion 61.1, with 29.7 / 31.9 ms p95 / p99 intervals and one 52.9 ms interval. Most of this run is stationary after the existing walking segment; extended movement and manual interaction remain unverified.
+
 **The complete appearance objective is unfinished.** Zero-DCE++ makes a modest exposure change and preserves source pixel positions. A second photographic model was evaluated and rejected for clipping foliage shadows. Neither establishes substantial photorealistic material or lighting improvement. The current input is RGB with HUD; no verified depth, normals, motion or material buffers are available.
 
 Two more [appearance candidates](model-evaluation.md) have now been evaluated on the same three town/foliage frames. REGEN executes correctly on RX 7800 XT DirectML but takes 53–54 ms at 960 × 544, alters roof color and adds sky artifacts. DeepLPF clips shaded detail; its protected version avoids new black clipping but remains a color/contrast change. Both integration attempts are closed with code, raw outputs and reproducible hashes retained. Neither earns a photorealism or temporal acceptance claim.
 
-Engine actions verify a walking soldier and camera turn under continuous processing. Physical WASD/mouse operation through the overlay still needs a user check. Long-session resilience, interiors, scopes, adverse weather, HDR and semantic failure detection are outside accepted coverage.
+Engine actions verify a walking soldier and camera turn under continuous processing. Physical WASD/mouse operation through the overlay still needs a user check. Extended movement, interiors, scopes, adverse weather, HDR and semantic failure detection are outside accepted coverage. Three CC0 road/roof/bark reference sets are retained, but their patterns differ from the game; they are not aligned training targets.
 
 See the [playable prototype](playable.md) for the build, normal-speed comparisons, complete measurements and retained failures. The [roadmap](roadmap.md) identifies the remaining acceptance gates. Blender work remains [background research](research-history.md).

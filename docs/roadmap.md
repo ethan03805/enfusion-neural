@@ -4,7 +4,7 @@ Target: faithful photorealistic appearance at 2560 × 1440 and 30–60 FPS on th
 
 | Area | Established | Required next |
 | --- | --- | --- |
-| Live loop | Actual game capture → GPU neural pass → visible companion; source bypass and separate viewer | Physical WASD/mouse check, menu/focus/scope transitions and a 10-minute session |
+| Live loop | Actual game capture → GPU neural pass → visible companion; source bypass, separate viewer and ten-minute mostly stationary runtime check | Physical WASD/mouse check, menu/focus/scope transitions and extended movement |
 | Budget | Runtime-verified town baseline, individual reductions and enhancement; separate recording overhead | Repeat passes and additional scene coverage; resolve displayed-frame telemetry without another broad integration investigation |
 | Latency | 895-frame software display join; moving-path processing age | Moving-path capture-to-display evidence and physical input-to-photon test |
 | Model | Native Zero-DCE++ parity; 3DLUT, REGEN and DeepLPF evaluated with retained failures | A reference-based model or asset workflow with demonstrated material/lighting gains; another unrestricted photo grade alone does not satisfy this gate |
@@ -14,5 +14,7 @@ Target: faithful photorealistic appearance at 2560 × 1440 and 30–60 FPS on th
 The next model task must state its actual available inputs and a bounded appearance test before implementation. Do not resume unchanged Blender studies, screenshot/widget probes or unsupported renderer-hook investigations. Preserve the working RGB companion and all failed evidence while changing the appearance approach.
 
 The generic RGB checkpoint route has now produced either modest grading or identity/visibility failures. Before another integration, establish a usable reference for one existing road, roof or masonry asset and identify what correction can be learned from the available RGB. A controlled material pair must retain the actual asset identity; a new synthetic room is not acceptance for gameplay.
+
+The next independent gameplay task is to replace the colliding foliage benchmark path with a passable route, validate the isolated addon and repeat standard/reduced/enhanced runs. Require continuous forward camera displacement, no collision plateau and path agreement before counting that scene as a matched moving comparison. Preserve the failed fence route as evidence.
 
 [Current status](status.md) · [Build and comparison](playable.md) · [Research archive](research-history.md)

@@ -35,7 +35,7 @@ def main():
                   'author_revision': revision, 'license': license_name,
                   'raw_report_sha256': sha(run/'report.json'), 'measurement': report,
                   'review': reviews, 'decision': decision, 'published_media': [],
-                  'limitations': 'Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Published images are 960x544 evaluation inputs/outputs, not native 1440p results.'}
+                  'limitations': 'Three selected single frames; no aligned photographic ground truth, temporal acceptance or live-game timing. Raw evaluation inputs/outputs are 960x544. The separately labeled DeepLPF source-protected pair is an offline 1440p transfer, not live neural output.'}
         provenance = ROOT/f'runs/pretrained/{slug}/source-pinned.json'
         if provenance.exists(): record['provenance'] = json.loads(provenance.read_text())
         for index in range(3):
