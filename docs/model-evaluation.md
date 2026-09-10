@@ -10,6 +10,34 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | DeepLPF Adobe-DPE | CPU FP32, 960 × 544: 602 / 473 / 462 ms; 7.64 / 3.42 / 8.86% of channels clamp to black | Raw output rejected; protected version avoids clipping but gives insufficient appearance gain |
 | SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
 
+## Native illumination control
+
+The native sky-intensity test produces **no useful visible lighting change**. The observed atmosphere resource exposes `SkyIntensityLV=8`; assigning the single declared candidate, 8.5, succeeds at parameter index 83. Yet roof change is only **0.042 codes** on a 0–255 scale, comparable to the **0.035-code reset difference**. Sky change is 0.000144 codes. Camera, weather and reported HDR exposure remain fixed.
+
+The candidate is rejected in the selection view. The reserved view is unused, and no lighting preset, training target or neural effect is accepted. This route closes after 12.8 minutes. Assignment success does not establish a visible renderer response or explain whether caching, overwrite or another mechanism prevented it.
+
+<details>
+<summary>Sky-control images and reproduction evidence</summary>
+
+<section class="comparison" data-comparison data-before-label="source" data-after-label="assigned sky control" aria-label="Native sky control with no useful visible response">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/illumination-source.png" width="1199" height="658" loading="lazy" alt="Original slate-roof house, facade openings, pole and barrier"><figcaption>Source · native illumination</figcaption></figure>
+<figure class="comparison-after"><img src="media/illumination-changed.png" width="1199" height="658" loading="lazy" alt="Same house after sky intensity assignment, without a useful visible change"><figcaption>Sky intensity 8.5 · rejected result</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal source<input type="range" min="0" max="100" value="50" aria-label="Illumination source visible"><output>50% source</output></label>
+</section>
+
+All three native control images and the preceding inventory capture were inspected at 1199 × 658. The [reset image](media/illumination-restored.png) passes the roof restoration check but has a 206-code maximum difference across the full image; no alignment or exposure adjustment removes temporal differences. No newly clipped channels occur. With no substantial changed response, these checks cannot validate restoration of a useful lighting edit.
+
+The inventory finds `world` and `Lighting` in the first 5,000 entity IDs, reaching its declared limit within a 1,404,627-entity subscene. This is not an exhaustive inventory. The active world supplies sky material `{621C7F2EC2763297}Terrains/Common/Sky/Atmosphere/Atmosphere.emat`; the light prefab exposes direct/indirect and probe fields. Resource and prefab values are not active scalar readback. No instance source container is returned during simulation.
+
+The [complete illumination evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-illumination-v1.json) retains both successful validations, both capture runs, hashes, all phase records and image differences. Use `scripts/setup_illumination_probe.py` and `scripts/setup_illumination_control.py` with a new `--out` and the installed `--lab-source`, then Enfusion Lab validation/capture. `scripts/analyze_illumination_control.py --run RETAINED_CAPTURE --out NEW_DIRECTORY` reproduces the measurements. The control setup binds the exact retained inventory; these are research scripts, not playable-package dependencies.
+
+Bohemia documents the [world atmosphere and lighting configuration](https://community.bistudio.com/wiki/Arma_Reforger:World_Editor:_Terrain_Preparation_Tutorial) and [material parameter assignment/reset](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html). Those APIs alone do not establish this scalar's effect. The run does not prove that all native illumination controls are ineffective; it closes this specific cached sky-material assignment without another parameter search.
+
+</details>
+
 ## RGB depth in motion
 
 Depth Anything V2 Small now processes **600 consecutive 1440p gameplay frames** from one fixed ten-second street segment. Walking and camera turning are present; the final three seconds are reserved without tuning. This is an offline diagnostic with the game stopped, not a new enhancement in the playable package.

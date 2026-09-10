@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "sky_scalar_assignment_without_useful_visible_response",
+  "evaluation_closed_at": "2026-09-10T10:22:57.482829+00:00",
+  "minutes_since_plan_start": 12.824713816666668,
+  "within_declared_time_bound": true,
+  "plan": {
+    "schema_version": 1,
+    "started_at": "2026-09-10T10:10:08Z",
+    "maximum_minutes": 30,
+    "maximum_validations": 3,
+    "maximum_capture_sequences": 3,
+    "world": "worlds/Eden/Eden.ent",
+    "environment": {
+      "year": 1989,
+      "month": 6,
+      "day": 21,
+      "hour": 13,
+      "weather": "Clear",
+      "wind_speed_mps": 0,
+      "wind_direction_degrees": 0,
+      "settle_seconds": 8
+    },
+    "views": [
+      {
+        "name": "closeup",
+        "split": "selection",
+        "position": [
+          4576.94,
+          19.6984,
+          10744.4
+        ],
+        "direction": [
+          0.60574312084,
+          0.2001923411,
+          0.7700638273
+        ]
+      },
+      {
+        "name": "reverse",
+        "split": "reserved",
+        "position": [
+          4572.5,
+          22,
+          10764
+        ],
+        "look_at": [
+          4586,
+          25,
+          10756
+        ]
+      }
+    ],
+    "inventory": "One read-only runtime inventory of world/light entities and the observed sky material. Inspect at most 5000 entity IDs, 256 fields per container and two container levels. Retain all observed resources and source-default versus active-state distinctions.",
+    "control_selection": "Before any changed capture, choose at most one documented illumination control with a physical interpretation and save its exact value and restoration method. Exposure, color grading, time/weather changes, rejected roof roughness values and speculative thermal-irradiance settings do not qualify as established illumination controls. Native texture copying remains closed.",
+    "sequence": "If a suitable control is found, capture fixed-camera source/change/reset in the selection view, logging camera, environment and exposure. Review every complete image and freeze acceptance or rejection before any reserved-view changed image. One reserved source/change/reset sequence may accept or reject the frozen choice only.",
+    "numeric_controls": "No alignment or exposure compensation. Report full-image mean/max change and clipping, camera/environment equality and reset differences. For closeup reuse roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require roof reset MAE <=1 code and no more than 0.1% newly clipped roof channels. Lighting can affect sky; report it rather than impose an unjustified unchanged-sky gate.",
+    "reference": "Retained CUPA PIZARRAS CUPA 12 detail and installed-slate photographs, as recorded in runs/slate-photo-references-v1/reference.json. Appearance guidance only: unmatched lighting, exposure, wear and exact material, no calibrated or aligned training ground truth. No photograph redistribution or training.",
+    "acceptance": "Require a visible lighting benefit while preserving slate identity, texture detail, object boundaries, openings, thin cover and source restoration. Keep original if the result is merely brighter, duller, bleached or less readable. No neural or live performance claim follows from a static native control. If no suitable control or useful target exists within the bound, close this route and preserve exact evidence and working code."
+  },
+  "selected_control": {
+    "schema_version": 1,
+    "selected_at": "2026-09-10T10:17:29Z",
+    "parent_plan_sha256": "526ebe0242a44884f80a32df873b905b66d1f62a725c7ae2d7908c7a59a03496",
+    "inventory_run": "runs/playable-illumination-inventory-v1/runs/20260910T101435-ad62597e79",
+    "inventory_console_sha256": "55dd9ae5c68f5f75cf3949d2e4cc8518ec6425374cd8109a1c1bdb6735d1a223",
+    "observed_world_entity": "world",
+    "observed_material": "{621C7F2EC2763297}Terrains/Common/Sky/Atmosphere/Atmosphere.emat",
+    "observed_container_class": "MatAtmosphere",
+    "parameter": "SkyIntensityLV",
+    "resource_value": 8,
+    "class_default": 0,
+    "candidate_value": 8.5,
+    "selection_reason": "One modest increase to the native atmosphere's named sky-intensity scalar. Test whether its visible response provides useful sky illumination and slate/shade separation while preserving source detail. Its coupling to surface illumination is not established by its name or resource value; a sky-only or exposure-only change cannot qualify as an improved target.",
+    "implementation": "GetSkyMaterial from the observed GenericWorldEntity, verify exact material name, get parameter index, set once using Material.SetParam, wait five seconds, capture, then Material.ResetParam and wait five seconds. Read no texture files, change no light transforms or assets.",
+    "restoration_limit": "ResetParam restores the engine's material default state; the resource value 8 and class default 0 differ. Only a successful image restoration control can accept restoration of this scene. No unsupported claim of active scalar readback.",
+    "reference": "Use the already retained private CUPA 12 slate photographs for material appearance guidance only. The +0.5 choice is a declared experiment, not a calibrated physical match to those photographs.",
+    "acceptance": "Follow the parent plan. Inspect source, changed and restored at full size in the selection view. Reject if the visible change is absent, confined to sky/exposure, loses texture/visibility or fails restoration. Only a useful selection result permits the reserved view, without changing the value.",
+    "sources": [
+      "https://community.bistudio.com/wiki/Arma_Reforger:World_Editor:_Terrain_Preparation_Tutorial",
+      "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceGenericWorldEntity.html",
+      "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html"
+    ]
+  },
+  "analysis": {
+    "schema_version": 1,
+    "status": "completed",
+    "run": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851",
+    "dimensions": [
+      1199,
+      658
+    ],
+    "phases": [
+      [
+        "source",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "959"
+      ],
+      [
+        "set",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1153"
+      ],
+      [
+        "changed",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1806"
+      ],
+      [
+        "reset",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1993"
+      ],
+      [
+        "restored",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "2577"
+      ]
+    ],
+    "environment": [
+      [
+        "source",
+        "13",
+        "0",
+        "Clear",
+        "1989,6,21"
+      ],
+      [
+        "set",
+        "13",
+        "0",
+        "Clear",
+        "1989,6,21"
+      ],
+      [
+        "changed",
+        "13",
+        "0",
+        "Clear",
+        "1989,6,21"
+      ],
+      [
+        "reset",
+        "13",
+        "0",
+        "Clear",
+        "1989,6,21"
+      ],
+      [
+        "restored",
+        "13",
+        "0",
+        "Clear",
+        "1989,6,21"
+      ]
+    ],
+    "exposure": [
+      [
+        "source",
+        "0.00456415",
+        "0.305382"
+      ],
+      [
+        "set",
+        "0.00456415",
+        "0.305418"
+      ],
+      [
+        "changed",
+        "0.00456415",
+        "0.305368"
+      ],
+      [
+        "reset",
+        "0.00456415",
+        "0.305405"
+      ],
+      [
+        "restored",
+        "0.00456415",
+        "0.305368"
+      ]
+    ],
+    "api_records": [
+      "sky={621C7F2EC2763297}Terrains/Common/Sky/Atmosphere/Atmosphere.emat index=83",
+      "phase=source origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=959",
+      "source_accepted=1",
+      "phase=set origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1153",
+      "assigned=1 value=8.5",
+      "phase=changed origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1806",
+      "changed_accepted=1",
+      "phase=reset origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1993",
+      "reset_requested",
+      "phase=restored origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=2577",
+      "completed"
+    ],
+    "metrics": {
+      "changed": {
+        "whole": {
+          "pixels": 788942,
+          "mae_codes": 0.24986754412871923,
+          "max_codes": 190.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 14389,
+          "newly_clipped_channel_fraction": 0.0
+        },
+        "roof": {
+          "pixels": 16405,
+          "mae_codes": 0.042426089606827186,
+          "max_codes": 17.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 66,
+          "newly_clipped_channel_fraction": 0.0
+        },
+        "sky": {
+          "pixels": 60000,
+          "mae_codes": 0.00014444444444444444,
+          "max_codes": 1.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 0,
+          "newly_clipped_channel_fraction": 0.0
+        }
+      },
+      "restored": {
+        "whole": {
+          "pixels": 788942,
+          "mae_codes": 0.32101345853053836,
+          "max_codes": 206.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 17051,
+          "newly_clipped_channel_fraction": 0.0
+        },
+        "roof": {
+          "pixels": 16405,
+          "mae_codes": 0.03527379863862644,
+          "max_codes": 24.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 64,
+          "newly_clipped_channel_fraction": 0.0
+        },
+        "sky": {
+          "pixels": 60000,
+          "mae_codes": 0.00014444444444444444,
+          "max_codes": 1.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 0,
+          "newly_clipped_channel_fraction": 0.0
+        }
+      }
+    },
+    "numeric_controls": {
+      "roof_restores": true,
+      "roof_clipping_limit": true
+    },
+    "images": {
+      "source": {
+        "path": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/source.png",
+        "sha256": "ae53fface0261bc0752a8e988751fa6a6720000ea1bc04d569e929f1c995271f"
+      },
+      "changed": {
+        "path": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/changed.png",
+        "sha256": "4fa315c661d0ac744c90d3396f85c20f63ebc7ce919aabac1a8254320db87602"
+      },
+      "restored": {
+        "path": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/frame.png",
+        "sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473"
+      }
+    },
+    "source_hashes": {
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/run.json": "5d5cdf66bddd9cf40c3bd58fa60fc521615c1239f6d9fabd9be6651f882131c9",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/console.log": "6a9c73faf9a598a799d360f89c6040d89cb3bda32faaf7cb2462ec7f211a2b9f",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/addon/Scripts/Game/ENR_IlluminationControl.c": "2596b9426bc8076c19a2c5c108fc9a862bf9839398802841acc385fff7e3d5c7",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/addon/Scripts/Game/ELab_GameCapture.c": "d6547cafde0a11f6030590bfa2c4f740e2d8dc2edeaf24b1779c2ee334b53405",
+      "scenes/playable-illumination-v1.json": "526ebe0242a44884f80a32df873b905b66d1f62a725c7ae2d7908c7a59a03496",
+      "scenes/playable-illumination-control-v1.json": "c0054facaab343845654aed586554a033cb05630637f30dd3cad5773e143ea3a",
+      "scripts/analyze_illumination_control.py": "86952808251d11fbe16ea361b1a8cafcbaf4d6f61043761e29f996019c71e0a3",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/source.png": "ae53fface0261bc0752a8e988751fa6a6720000ea1bc04d569e929f1c995271f",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/changed.png": "4fa315c661d0ac744c90d3396f85c20f63ebc7ce919aabac1a8254320db87602",
+      "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/frame.png": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473"
+    },
+    "scope": "Static source/change/reset at separate simulation times. Raw RGB code differences; no alignment, exposure compensation or rescaling. Numeric restoration and clipping checks do not establish a visible lighting response or photorealistic improvement."
+  },
+  "runs": [
+    {
+      "validation": {
+        "run_id": "20260910T101416-cd29daeb39",
+        "status": "succeeded",
+        "process_exit_code": 0,
+        "wall_seconds": 11.139999999999418,
+        "addon_sha256": {
+          "addon.gproj": "a885fcb5cc8d748e8f1eca05af6183bbb9f27319db51bc1400e589475ea2a0d3",
+          "Scripts/Game/ELab_GameCapture.c": "918e585d21bdf3d4830b83eee8471168e8d01de1027cc8b5a43f7dab9dcba3a4",
+          "Scripts/Game/ENR_IlluminationInventory.c": "baa16bf990f2aaa0db76574b2a44239345e2e93d23fda86100279220b207c765",
+          "Scripts/Game/ENR_ReferenceConfig.c": "b7b11700d7897f21db1aeb79d0aab5bfd2f28df7531fc8c7c008632c69f59097",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      "capture": {
+        "run_id": "20260910T101435-ad62597e79",
+        "status": "succeeded",
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "wall_seconds": 36.90599999999904,
+        "finished_at": "2026-09-10T10:15:12.464567+00:00",
+        "events": [
+          {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              4576.94,
+              19.6984,
+              10744.4
+            ],
+            "direction": [
+              0.605743,
+              0.200192,
+              0.770064
+            ],
+            "world_frame": 932,
+            "elapsed_simulation_seconds": 8.00302
+          },
+          {
+            "protocol": 1,
+            "event": "started",
+            "viewport_width": 1199,
+            "viewport_height": 658
+          },
+          {
+            "protocol": 1,
+            "event": "submitted"
+          }
+        ]
+      },
+      "image_sha256": "8aa27f1176c3075137f0da6fded18b60d7fa7dde6a6363aa6d92a3b30e789bf8"
+    },
+    {
+      "validation": {
+        "run_id": "20260910T101804-534395cd34",
+        "status": "succeeded",
+        "process_exit_code": 0,
+        "wall_seconds": 11.15599999999904,
+        "addon_sha256": {
+          "addon.gproj": "6978d31148419cc167d6681af38c00319072d0fc0fa1a139d8448bc831d5fdcf",
+          "Scripts/Game/ELab_GameCapture.c": "d6547cafde0a11f6030590bfa2c4f740e2d8dc2edeaf24b1779c2ee334b53405",
+          "Scripts/Game/ENR_IlluminationControl.c": "2596b9426bc8076c19a2c5c108fc9a862bf9839398802841acc385fff7e3d5c7",
+          "Scripts/Game/ENR_ReferenceConfig.c": "b7b11700d7897f21db1aeb79d0aab5bfd2f28df7531fc8c7c008632c69f59097",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      "capture": {
+        "run_id": "20260910T101822-d009580851",
+        "status": "succeeded",
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "wall_seconds": 49.65599999999904,
+        "finished_at": "2026-09-10T10:19:11.712060+00:00",
+        "events": [
+          {
+            "protocol": 1,
+            "event": "camera",
+            "position": [
+              4576.94,
+              19.6984,
+              10744.4
+            ],
+            "direction": [
+              0.605743,
+              0.200192,
+              0.770064
+            ],
+            "world_frame": 2577,
+            "elapsed_simulation_seconds": 21.0232
+          },
+          {
+            "protocol": 1,
+            "event": "started",
+            "viewport_width": 1199,
+            "viewport_height": 658
+          },
+          {
+            "protocol": 1,
+            "event": "submitted"
+          }
+        ]
+      },
+      "image_sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473"
+    }
+  ],
+  "inventory": {
+    "scanned_entity_ids": 5000,
+    "first_subscene_entity_count": 1404627,
+    "matched_world_or_light_entities": 2,
+    "scan_limit_reached": true,
+    "scope": "Bounded prefix of the first subscene, not an exhaustive world inventory. Resource/prefab values are not active scalar readback; EntityToSource produced no instance container.",
+    "selected_records": [
+      "PREFAB name={4F6BB9F7BFFB28DC}Prefabs/World/Game/Eden/GenericWorld_Eden.et",
+      "SKY name={621C7F2EC2763297}Terrains/Common/Sky/Atmosphere/Atmosphere.emat",
+      "FIELD path=sky name=DiffuseIBL type=6 has_default=1 default=1 1 1 1",
+      "COLOR path=sky name=DiffuseIBL read=1 rgba=1 1 1 1",
+      "FIELD path=sky name=SkyIntensityLV type=1 has_default=1 default=0",
+      "NUMBER path=sky name=SkyIntensityLV read=1 value=8",
+      "FIELD path=sky name=GroundIntensityLV type=1 has_default=1 default=-5",
+      "NUMBER path=sky name=GroundIntensityLV read=1 value=-5",
+      "FIELD path=sky name=AerialPerspectiveStrength type=1 has_default=1 default=1",
+      "NUMBER path=sky name=AerialPerspectiveStrength read=1 value=5.735",
+      "PREFAB name={63F249E0AA3E7856}Prefabs/World/Game/Eden/Lighting_Eden.et",
+      "FIELD path=prefab name=DirectLightLV type=1 has_default=1 default=0",
+      "NUMBER path=prefab name=DirectLightLV read=1 value=15",
+      "FIELD path=prefab name=IndirectLightLV type=1 has_default=1 default=0",
+      "NUMBER path=prefab name=IndirectLightLV read=1 value=14",
+      "FIELD path=prefab name=ProbeReflectionEV type=1 has_default=1 default=0",
+      "NUMBER path=prefab name=ProbeReflectionEV read=1 value=0",
+      "FIELD path=prefab name=ProbeDiffuseEV type=1 has_default=1 default=0",
+      "NUMBER path=prefab name=ProbeDiffuseEV read=1 value=0"
+    ],
+    "reviewed_source_image_sha256": "8aa27f1176c3075137f0da6fded18b60d7fa7dde6a6363aa6d92a3b30e789bf8"
+  },
+  "review": {
+    "scope": "Inventory capture and all three complete control PNGs inspected at native 1199x658.",
+    "appearance": "No useful sky or surface-lighting change is visible. Roof tone, slate detail, facade shading, openings, pole and foreground barrier retain the same broad appearance.",
+    "decision": "Reject the candidate in the selection view. Do not run the unused reserved view, train against the image pair, retry the same scalar or change the playable package.",
+    "evidence_limit": "Index 83 and SetParam success establish assignment acceptance only. Roof change 0.0424 codes is comparable to reset difference 0.0353; sky change is 0.000144 codes. The run does not isolate an ignored parameter, weather overwrite or cached-atmosphere update behavior. It also does not prove all native illumination controls ineffective.",
+    "restoration": "Roof restoration and clipping controls pass, but full-frame reset is not exact: maximum 206 codes. With no useful changed response, this cannot validate restoration of a substantial lighting edit."
+  },
+  "reserved_view_run": false,
+  "native_files_modified": false,
+  "working_package_changed": false,
+  "training_performed": false,
+  "photorealistic_gain_accepted": false,
+  "source_hashes": {
+    "scenes/playable-illumination-v1.json": "526ebe0242a44884f80a32df873b905b66d1f62a725c7ae2d7908c7a59a03496",
+    "scenes/playable-illumination-control-v1.json": "c0054facaab343845654aed586554a033cb05630637f30dd3cad5773e143ea3a",
+    "runs/illumination-control-analysis-v1/report.json": "062ccd315e99a6cca2275869ceee65b0dc456cdfd0f69543000c346c810020b2",
+    "scripts/publish_illumination_control.py": "876ac39a0247887c9412b252c18075f39b6a829763832b0aa520ac84978bb00b",
+    "runs/playable-illumination-inventory-v1/runs/20260910T101416-cd29daeb39/run.json": "56e4642f50be2dc5153f657d3f29dff6dba621f126ee43394016c73dc7799683",
+    "runs/playable-illumination-inventory-v1/runs/20260910T101416-cd29daeb39/console.log": "8cfb68d633bff7eb997a8236058bc258412ee0d5848be7f23b45881943ad80a1",
+    "runs/playable-illumination-inventory-v1/runs/20260910T101435-ad62597e79/run.json": "af3243118f1beb29c41236927acdb87e418cf4590e821819210764903bcdfecb",
+    "runs/playable-illumination-inventory-v1/runs/20260910T101435-ad62597e79/console.log": "55dd9ae5c68f5f75cf3949d2e4cc8518ec6425374cd8109a1c1bdb6735d1a223",
+    "runs/playable-illumination-inventory-v1/setup.json": "4110bf92071b14e49ebceae5209226fe711c08fde552a743e57b1c42428fa166",
+    "runs/playable-illumination-inventory-v1/setup-driver.py": "9930ebbebfcb74eac6dd5c507cc61927b7c88e850c591d10612c13f14c6b8a74",
+    "runs/playable-illumination-control-v1/runs/20260910T101804-534395cd34/run.json": "59a1cfd7b0591c4d03d4bb58ced767b633db30c121afce51536fbc5efa333bfa",
+    "runs/playable-illumination-control-v1/runs/20260910T101804-534395cd34/console.log": "f66b4efb5f68c67bd421fc5f9bfbe56f7f92eecf0128247114661da25d09dc89",
+    "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/run.json": "5d5cdf66bddd9cf40c3bd58fa60fc521615c1239f6d9fabd9be6651f882131c9",
+    "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/console.log": "6a9c73faf9a598a799d360f89c6040d89cb3bda32faaf7cb2462ec7f211a2b9f",
+    "runs/playable-illumination-control-v1/setup.json": "1e10f97d35bbba9ef03885a5b4c0814486c79aefef3c548bc51c53a96c309678",
+    "runs/playable-illumination-control-v1/setup-driver.py": "1059fa41daa223480982687b62e886b49a8709f6eef29c90ae40a96cefac5cad"
+  },
+  "published_media": [
+    {
+      "file": "illumination-source.png",
+      "sha256": "ae53fface0261bc0752a8e988751fa6a6720000ea1bc04d569e929f1c995271f",
+      "transformation": "Unchanged native Workbench PNG; no alignment, grading, rescaling or neural processing."
+    },
+    {
+      "file": "illumination-changed.png",
+      "sha256": "4fa315c661d0ac744c90d3396f85c20f63ebc7ce919aabac1a8254320db87602",
+      "transformation": "Unchanged native Workbench PNG; no alignment, grading, rescaling or neural processing."
+    },
+    {
+      "file": "illumination-restored.png",
+      "sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473",
+      "transformation": "Unchanged native Workbench PNG; no alignment, grading, rescaling or neural processing."
+    }
+  ]
+}

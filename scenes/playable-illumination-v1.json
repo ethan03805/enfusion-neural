@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T10:10:08Z",
+  "maximum_minutes": 30,
+  "maximum_validations": 3,
+  "maximum_capture_sequences": 3,
+  "world": "worlds/Eden/Eden.ent",
+  "environment": {"year":1989,"month":6,"day":21,"hour":13,"weather":"Clear","wind_speed_mps":0,"wind_direction_degrees":0,"settle_seconds":8},
+  "views": [
+    {"name":"closeup","split":"selection","position":[4576.94,19.6984,10744.4],"direction":[0.60574312084,0.2001923411,0.7700638273]},
+    {"name":"reverse","split":"reserved","position":[4572.5,22,10764],"look_at":[4586,25,10756]}
+  ],
+  "inventory": "One read-only runtime inventory of world/light entities and the observed sky material. Inspect at most 5000 entity IDs, 256 fields per container and two container levels. Retain all observed resources and source-default versus active-state distinctions.",
+  "control_selection": "Before any changed capture, choose at most one documented illumination control with a physical interpretation and save its exact value and restoration method. Exposure, color grading, time/weather changes, rejected roof roughness values and speculative thermal-irradiance settings do not qualify as established illumination controls. Native texture copying remains closed.",
+  "sequence": "If a suitable control is found, capture fixed-camera source/change/reset in the selection view, logging camera, environment and exposure. Review every complete image and freeze acceptance or rejection before any reserved-view changed image. One reserved source/change/reset sequence may accept or reject the frozen choice only.",
+  "numeric_controls": "No alignment or exposure compensation. Report full-image mean/max change and clipping, camera/environment equality and reset differences. For closeup reuse roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require roof reset MAE <=1 code and no more than 0.1% newly clipped roof channels. Lighting can affect sky; report it rather than impose an unjustified unchanged-sky gate.",
+  "reference": "Retained CUPA PIZARRAS CUPA 12 detail and installed-slate photographs, as recorded in runs/slate-photo-references-v1/reference.json. Appearance guidance only: unmatched lighting, exposure, wear and exact material, no calibrated or aligned training ground truth. No photograph redistribution or training.",
+  "acceptance": "Require a visible lighting benefit while preserving slate identity, texture detail, object boundaries, openings, thin cover and source restoration. Keep original if the result is merely brighter, duller, bleached or less readable. No neural or live performance claim follows from a static native control. If no suitable control or useful target exists within the bound, close this route and preserve exact evidence and working code."
+}

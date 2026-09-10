@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "selected_at": "2026-09-10T10:17:29Z",
+  "parent_plan_sha256": "526ebe0242a44884f80a32df873b905b66d1f62a725c7ae2d7908c7a59a03496",
+  "inventory_run": "runs/playable-illumination-inventory-v1/runs/20260910T101435-ad62597e79",
+  "inventory_console_sha256": "55dd9ae5c68f5f75cf3949d2e4cc8518ec6425374cd8109a1c1bdb6735d1a223",
+  "observed_world_entity": "world",
+  "observed_material": "{621C7F2EC2763297}Terrains/Common/Sky/Atmosphere/Atmosphere.emat",
+  "observed_container_class": "MatAtmosphere",
+  "parameter": "SkyIntensityLV",
+  "resource_value": 8,
+  "class_default": 0,
+  "candidate_value": 8.5,
+  "selection_reason": "One modest increase to the native atmosphere's named sky-intensity scalar. Test whether its visible response provides useful sky illumination and slate/shade separation while preserving source detail. Its coupling to surface illumination is not established by its name or resource value; a sky-only or exposure-only change cannot qualify as an improved target.",
+  "implementation": "GetSkyMaterial from the observed GenericWorldEntity, verify exact material name, get parameter index, set once using Material.SetParam, wait five seconds, capture, then Material.ResetParam and wait five seconds. Read no texture files, change no light transforms or assets.",
+  "restoration_limit": "ResetParam restores the engine's material default state; the resource value 8 and class default 0 differ. Only a successful image restoration control can accept restoration of this scene. No unsupported claim of active scalar readback.",
+  "reference": "Use the already retained private CUPA 12 slate photographs for material appearance guidance only. The +0.5 choice is a declared experiment, not a calibrated physical match to those photographs.",
+  "acceptance": "Follow the parent plan. Inspect source, changed and restored at full size in the selection view. Reject if the visible change is absent, confined to sky/exposure, loses texture/visibility or fails restoration. Only a useful selection result permits the reserved view, without changing the value.",
+  "sources": [
+    "https://community.bistudio.com/wiki/Arma_Reforger:World_Editor:_Terrain_Preparation_Tutorial",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceGenericWorldEntity.html",
+    "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html"
+  ]
+}

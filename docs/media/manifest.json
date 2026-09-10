@@ -1807,6 +1807,48 @@
       "source_sha256": "d8b3b12e38ca837f60624e1a19b75027103fecd74851b6a6ac13fc8863d18b37",
       "transformation": "448x252 relative depth bilinear resized to 2560x1440 with align_corners=True; fixed first-frame [0,7.2019758224487305] grayscale range, visualization-only clamp, PNG. No metric scale.",
       "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "illumination-source.png",
+      "sha256": "ae53fface0261bc0752a8e988751fa6a6720000ea1bc04d569e929f1c995271f",
+      "bytes": 1138256,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-illumination-v1.json",
+      "source_artifact": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/source.png",
+      "source_sha256": "ae53fface0261bc0752a8e988751fa6a6720000ea1bc04d569e929f1c995271f",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "illumination-changed.png",
+      "sha256": "4fa315c661d0ac744c90d3396f85c20f63ebc7ce919aabac1a8254320db87602",
+      "bytes": 1138263,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-illumination-v1.json",
+      "source_artifact": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/profile/profile/changed.png",
+      "source_sha256": "4fa315c661d0ac744c90d3396f85c20f63ebc7ce919aabac1a8254320db87602",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "illumination-restored.png",
+      "sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473",
+      "bytes": 1137888,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-illumination-v1.json",
+      "source_artifact": "runs/playable-illumination-control-v1/runs/20260910T101822-d009580851/frame.png",
+      "source_sha256": "e134838a28816b0cb6777db4ac0b63625d64b064bddbc36521d0c8edec05d473",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
     }
   ],
   "videos": [
