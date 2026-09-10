@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "scope": "Post-publication delivery verification, after the live experiment/review/package audit closed at 17.94 minutes. No new game measurement, model, shader or media encoding.",
+  "package": {
+    "url": "https://ethan03805.github.io/enfusion-neural/downloads/playable-pipeline-2026-09-10-guarded.zip",
+    "bytes": 253827,
+    "sha256": "fcffe06d6a32b9ac6eb591410a4795eb9f689ec9db2d83b829ff0c94d3bd53b1",
+    "public_response_matches_verified_archive": true
+  },
+  "video": {
+    "url": "https://ethan03805.github.io/enfusion-neural/media/live-guard-unretimed.mp4",
+    "http_content_type": "video/mp4",
+    "http_content_length": 25424604,
+    "codec": "H264 High, level 3.2, YUV420p",
+    "in_app_browser": "Accessibility state reports Unable to play media; metadata remains unavailable. Cause not established.",
+    "chrome": {
+      "ready_state": 4,
+      "paused": false,
+      "observed_current_time_s": 19.200061,
+      "duration_s": 34,
+      "width": 1280,
+      "height": 720,
+      "visible_result": "Screenshot shows the expected moving street recording. Playback verification is not continuous perceptual acceptance."
+    },
+    "delivery_fix": "Add an ordinary visible MP4 link outside the video element. Keep the reviewed video unchanged."
+  },
+  "site": {
+    "new_download_and_gameplay_heading_visible": true,
+    "document_horizontal_overflow": false,
+    "narrow_view_table": "Contained horizontal scrolling",
+    "local_checks": "79 tests pass; 28 pages build; 150 images and 19 videos verified against manifest; all internal links and anchors valid."
+  }
+}

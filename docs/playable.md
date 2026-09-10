@@ -27,6 +27,8 @@ The updated download includes the [channel-preserving correction](#channel-prese
 <figcaption>Updated reduced + neural build · 34 seconds at original speed · comparison with standard and reduced rendering follows below</figcaption>
 </figure>
 
+[Open or download the 34-second MP4](media/live-guard-unretimed.mp4). Chrome playback is verified at 1280 × 720; the in-app browser reports an embedded playback failure. The direct link keeps the recording accessible.
+
 | Application | Presents/s | Interval min / p50 / p95 / p99 / max, ms | Intervals >33.3 / >50 ms |
 | --- | ---: | --- | ---: |
 | Game with enhancement | 68.94 | 6.16 / 14.48 / 19.51 / 22.08 / 26.85 | 0 / 0 |
