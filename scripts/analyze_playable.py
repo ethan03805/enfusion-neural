@@ -30,7 +30,7 @@ def cadence(times):
     return {'frames': len(times), 'mean_fps': float(1000*(len(times)-1)/(times[-1]-times[0])), 'interval_ms': quantiles(intervals), 'intervals_over_33_333_ms': int((intervals>1000/30).sum()), 'intervals_over_50_ms': int((intervals>50).sum())}
 
 
-def analyze(root):
+def analyze(root, simulation_window=(30,60)):
     manifest = json.loads((root/'launch.json').read_text())
     display_only_failure = manifest.get('error') == "RuntimeError('Missing nonempty present-display trace')"
     if manifest.get('status') != 'completed' and not display_only_failure: raise ValueError('Run not completed')
@@ -46,9 +46,10 @@ def analyze(root):
         trace.append({'simulation_s': float(m[2]), 'qpc_ms': at, 'frame': int(m[3]), 'camera': list(map(float, m[5].split(','))), 'direction': list(map(float, m[6].split(',')))})
     simulation = [r['simulation_s'] for r in trace]
     qpcs = [r['qpc_ms'] for r in trace]
-    if not simulation or max(simulation)<60: raise ValueError('Missing complete path')
-    start, end = np.interp([30,60], simulation, qpcs)
-    report = {'schema_version': 1, 'run': root.name, 'scene': manifest['scene'], 'preset': manifest['preset'], 'mode': manifest['mode'], 'recording': manifest['recording'], 'window': {'simulation_s': [30,60], 'qpc_ms': [float(start),float(end)], 'alignment': 'Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon.'}, 'game': {}, 'companion': {}, 'path': [r for r in trace if 29<=r['simulation_s']<=61], 'source_hashes': {}}
+    lo, hi = simulation_window
+    if not 0 <= lo < hi or not simulation or min(simulation)>lo or max(simulation)<hi: raise ValueError('Missing complete path')
+    start, end = np.interp([lo,hi], simulation, qpcs)
+    report = {'schema_version': 1, 'run': root.name, 'scene': manifest['scene'], 'preset': manifest['preset'], 'mode': manifest['mode'], 'recording': manifest['recording'], 'window': {'simulation_s': [lo,hi], 'qpc_ms': [float(start),float(end)], 'alignment': 'Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon.'}, 'game': {}, 'companion': {}, 'path': [r for r in trace if lo-1<=r['simulation_s']<=hi+1], 'source_hashes': {}}
     report['settings_readback'] = manifest.get('settings_readback')
     report['configuration_verified'] = bool(manifest.get('settings_readback'))
     cpu = rows(root/'present-cpu.csv') if (root/'present-cpu.csv').exists() else []
@@ -67,7 +68,9 @@ def analyze(root):
         summary['display_trace_rows'] = len(shown)
         summary['display_trace_dropped'] = sum(r['Dropped']=='1' for r in shown)
         summary['gpu_active_ms'] = quantiles([float(r['msGPUActive']) for r in shown])
-        if not shown: summary['gpu_limitation'] = 'PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed'
+        if not shown:
+            summary['gpu_limitation'] = ('Display/GPU tracking deliberately not requested for this CPU-only trace; no per-application GPU duration or displayed-frame claim.'
+                if manifest.get('trace') == 'cpu' else 'PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed')
         report[key] = summary
     if (root/'companion/frames.csv').exists():
         native = sorted(rows(root/'companion/frames.csv'), key=lambda r: float(r['present_call_qpc_ms']))

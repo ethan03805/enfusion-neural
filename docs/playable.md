@@ -14,9 +14,52 @@ The default starts free play in the town with standard settings. Optional: `Star
 
 Each launch writes an isolated addon, copied settings and logs into a new `runs/play-...` folder. The Steam installation and original profile are unchanged. The package includes source, hashes and separate model attribution. [Build from source](getting-started.md).
 
-**Input limit:** engine actions verify a walking soldier and camera turn while enhancement is visible. Physical WASD/mouse routing through the overlay still awaits a user check. The UI automation driver refuses mouse actions through the covering companion. Use F8 or F10 if controls fail.
+**Input limit:** engine actions verify a walking soldier and camera turn while enhancement is visible. Physical WASD/mouse routing through the overlay still awaits a user check. Use F8 or F10 if controls fail.
 
 ## Normal-speed gameplay
+
+### Three minutes of repeated movement
+
+The latest accepted comparison follows the same street out and back four times, with gradual turns. Each 180-second measurement contains **156 seconds of movement** and approximately **590–591 metres** of travel. With camera logging at 10 Hz, all three passes meet the declared route limits: maximum deviation **0.78 metres / 1.46°**. The game remains in the foreground throughout each final pass.
+
+<figure class="motion-comparison">
+<video controls playsinline preload="metadata" poster="media/playable-sustained-poster.png" width="2304" height="464" aria-label="Three-minute sustained gameplay comparison at original speed"><source src="media/playable-sustained-unretimed.mp4" type="video/mp4"><a href="media/playable-sustained-unretimed.mp4">Download sustained gameplay</a></video>
+<figcaption>Standard / reduced / reduced + neural · all 184 seconds at 1× speed, including lead-in and tail</figcaption>
+</figure>
+
+| Configuration | Application presents/s | Frame interval p50 / p95 / p99, ms | Maximum, ms | Intervals >33.3 ms |
+| --- | ---: | ---: | ---: | ---: |
+| Standard game | 69.99 | 14.30 / 17.58 / 19.55 | 39.42 | 4 |
+| Reduced game | 85.72 | 11.57 / 15.23 / 16.97 | 34.23 | 1 |
+| Reduced game with enhancement | 72.03 | 13.84 / 18.94 / 22.16 | 47.07 | 18 |
+| Enhancement companion | 60.21 | 15.54 / 30.57 / 32.74 | 49.22 | 85 |
+
+These figures include native 1440p recording and 10 Hz camera logging. There are no intervals over 50 ms in the final measurement windows. They count application Present calls, including frames that may not reach the display; 10,961 internal capture records are excluded from the companion count. They do not establish locked 60 FPS. The earlier unrecorded setting-cost measurements remain below.
+
+GPU copy, network and draw take **3.53 ms median / 6.28 ms p95**. Capture-to-Present age is **6.58 / 14.14 ms**, with the negative minimum of −3.37 ms retained as clock skew. Neither is physical input or display latency. The companion discards 122 queued source frames in favor of newer ones. Across its complete 198-second session it processes 11,925 frames with no recorded hide, bypass or presentation timeout.
+
+The web movie scales each native source to 768 × 432 and holds the last available frame when an input is slower. It preserves elapsed speed and all stalls. Native 2560 × 1440 recordings remain local. Inspect the native-size [standard](media/sustained-standard-020.png), [reduced](media/sustained-reduced-020.png) and [enhanced](media/sustained-neural-020.png) views; these are separate route repeats, not pixel-aligned pairs.
+
+
+Review covers **552 chronological one-second samples and 24 full-size keys**. The same buildings, openings, barriers, poles and vegetation remain recognizable. Enhancement mainly lifts midtones; reduced-render aliasing and peripheral movement blur remain visible. Brightening tapers toward protected screen margins. There is no accepted photorealistic material/lighting gain. Contact samples cannot establish frame-to-frame flicker, hidden-target visibility or complete temporal stability; continuous 1× perceptual review has not been completed.
+
+The enhanced recording contains 10,010 frames over 184 seconds, approximately **54.40 recorded frames/s**; standard/reduced contain 11,034 / 11,036. Capture does not record every companion Present. Original timestamp gaps are retained: maximum 66.67 / 50 / 50 ms, including the lead-in. These recording intervals are separate from the application measurements above.
+
+<details>
+<summary>Measurement corrections and retained failures</summary>
+
+The initial two passes meet the spatial gate but fail the direction gate at 7.88°. Those directions were interpolated from one-second logs. Decimating one denser recorded path to roughly that rate alone produces up to 14.43° of interpolation error at a turn boundary. One measurement amendment increases logging to 10 Hz while retaining the route, every threshold and the original time limit. The corrected final direction difference is 1.46° or less; the original failed result remains recorded.
+
+The first enhanced attempt processes zero frames, and recording fails because its output window is absent. A later Windows inspection finds an old crash reporter over the game. Closing that local dialog and restoring game focus is consistent with recovery from the companion's inactivity guard, but the initial run did not log foreground ownership, so its cause is not conclusively isolated. No crash report is submitted. The standard pass interrupted during that recovery is excluded from the controlled comparison and retained. Selection is based on intervention, not speed.
+
+The benchmark now logs foreground ownership, checks game focus before measurement and requires companion frame evidence before enhanced recording. The final runs pass those controls. Gameplay measurements finish within the original hour; review and evidence preparation close at 66.0 minutes, exceeding the bound. No further trials extend this experiment. They use the current diagnostic companion with display-statistics probes disabled; model, shader and controls are unchanged, and the earlier independently verified download is not rebuilt here. [Complete sustained evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-sustained-v2.json) retains both validated addons, all measured attempts, logs, hashes, timestamps and review limits.
+
+Reproduce the route using `scripts/setup_sustained.py --telemetry-hz 10 --plan scenes/playable-sustained-v2.json`, with a new `--out` and the installed `--lab-source`. Validate through Enfusion Lab, then pass that successful run to `scripts/benchmark_playable.py --sustained-validation RUN --sustained-seconds 180 --sustained-plan scenes/playable-sustained-v2.json --scene foliage-walk --trace cpu --record`, selecting each preset/mode. `scripts/analyze_sustained.py` applies the fixed gates. Original captures, profiles and model files remain research dependencies.
+
+</details>
+
+<details>
+<summary>Earlier 34-second town and street recordings</summary>
 
 Three independent town runs follow the same declared path: 20 seconds walking, then a 10-second heading sweep. Each complete recording lasts 34 seconds, including lead-in and tail. There is no speed change, optical flow or generated motion. Each native 1440p input is scaled to a 1280 × 720 panel for the web comparison; audio was not captured.
 
@@ -43,6 +86,8 @@ The second accepted route travels **73.9–74.2 metres** along a Saint-Philippe 
 
 Capture starts near simulation second 28 in each run. Initialization and head movement differ, so these are repeat paths, not pixel-aligned images. The town recordings' sampled camera positions differ by at most 0.21 metres at the same simulation times. The compositor holds the last available frame of a slower input, preserving elapsed time. Native VFR clips and timestamps remain local.
 
+</details>
+
 ## Application performance
 
 The table uses a 30-second town path **without recording**. Output is 2560 × 1440. Every varied setting is checked through engine readback. Geometry, texture and vegetation settings retain the user's saved values. Standard uses native scale, FSR off and high local/distant shadows.
@@ -66,6 +111,9 @@ These are application Present calls, including frames that may never be displaye
 **Recording overhead:** the town clips measure 77.68 / 97.35 / 81.47 game presents/s for standard / reduced / reduced + neural. The companion produces 60.43 presents/s, while the recording retains 1,845 frames over 34 seconds (54.26 frames/s). WGC recording performs an explicit CPU readback and NV12 conversion before AMD hardware encoding. The normal companion path has no full-frame CPU readback.
 
 [Complete measurement record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-comparison-v1.json) contains frame quantiles, path telemetry, configuration readback and raw-artifact hashes.
+
+<details>
+<summary>Earlier street, evening and runtime checks</summary>
 
 ### Tree-lined street, with recording
 
@@ -110,6 +158,8 @@ The companion processes 36,654 frames over 600.007 seconds. Each minute contains
 
 [Complete ten-minute and per-minute evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-soak-v1.json). Reproduce with `scripts/benchmark_playable.py --out NEW_DIRECTORY --preset combined --mode neural --trace cpu --soak-seconds 600`; summarize with `scripts/summarize_soak.py RUN_DIRECTORY --evidence OUTPUT_JSON`.
 
+</details>
+
 ## Latency and fallback
 
 An earlier live HWND sample joins **895 displayed frames**: **12.61 ms median, 18.12 ms p95, 20.98 ms p99** from WGC compositor timestamp to PresentMon-reported display. This excludes mouse/keyboard sampling and physical panel response. It is a separate early scene sample using engine defaults.
@@ -141,16 +191,7 @@ The available input is **display-referred RGB with HUD**, not depth, normals, mo
 
 This is the exact source/output frame pair from the early live loop, before the profile correction. [Source PNG](media/playable-source.png) · [Native output PNG](media/playable-neural.png).
 
-**Image-Adaptive-3DLUT** was evaluated on two actual captured views using its pinned photographic sRGB checkpoint. Raw output clips 6.95% and 4.92% of channel values and visibly crushes foliage shadows. A bounded blend limits the change but supplies no missing material information. It is rejected for live integration. Single-thread CPU classifier samples take 7.42 / 5.46 ms and full-resolution lookup 181.90 / 200.22 ms; these are not GPU or game timings.
-
-<section class="comparison" data-comparison aria-label="Rejected photographic candidate and bounded version">
-<div class="comparison-images">
-<figure class="comparison-before"><img src="media/playable-photo-raw.png" width="2560" height="1440" loading="lazy" alt="Photographic candidate with clipped foliage shadows"><figcaption>Unrestricted · rejected</figcaption></figure>
-<figure class="comparison-after"><img src="media/playable-photo-bounded.png" width="2560" height="1440" loading="lazy" alt="Bounded photographic candidate"><figcaption>Bounded · CPU evaluation</figcaption></figure>
-<span class="comparison-divider" aria-hidden="true"></span>
-</div>
-<label class="comparison-control" hidden>Reveal unrestricted<input type="range" min="0" max="100" value="50" aria-label="Unrestricted image visible"><output>50% original</output></label>
-</section>
+Rejected models and their visible failures are consolidated on the [appearance evaluation page](model-evaluation.md). None has replaced the live exposure network.
 
 [Zero-DCE++ author code and weights](https://github.com/Li-Chongyi/Zero-DCE_extension) have separate academic/noncommercial research terms. [Image-Adaptive-3DLUT](https://github.com/HuiZeng/Image-Adaptive-3DLUT) uses Apache-2.0 terms. Pinned revisions and hashes are retained. [HDRNet](https://github.com/google/hdrnet) and [DPIR](https://github.com/cszn/DPIR) were researched but not runtime-evaluated; conversion work is deferred.
 
@@ -158,7 +199,7 @@ This is the exact source/output frame pair from the early live loop, before the 
 
 ## Boundaries and retained failures
 
-Initial coverage is two passable town streets with buildings, openings, signs, guardrails and vegetation edges, a failed foliage/fence route, an evening town check and a mostly stationary ten-minute runtime test. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Dense forest, interiors, scopes, combat visibility, rain, HDR and extended movement remain unaccepted.
+Initial coverage is two passable town streets with buildings, openings, signs, guardrails and vegetation edges, four repeated out-and-back cycles, a failed foliage/fence route, an evening town check and a mostly stationary ten-minute runtime test. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Dense forest, interiors, scopes, combat visibility, rain and HDR remain unaccepted. The new sustained route adds movement evidence with the sampled-review limits stated above.
 
 The first profile clone was one directory too high; its 114.70 game presents/s result used engine defaults and is not the standard baseline. The corrected launcher writes beneath the nested profile mount and verifies settings. Interrupted early ETW sessions and event-loss runs remain failed. Layered-window presentation variants failed visibly; the normal HWND route is retained. A hard HUD exclusion produced a sky seam and was replaced by a feathered boundary. Direct GPU recording submission failed; the working recorder's CPU conversion is explicit.
 

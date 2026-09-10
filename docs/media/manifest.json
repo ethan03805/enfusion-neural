@@ -1975,6 +1975,62 @@
       "source_sha256": "363851b64ee7a75a6573ddef59fe6df5a2ab551984538350bdaad5cc909c0adc",
       "transformation": "Fixed bounded residual composed at native 2560x1440; hard HUD-mask seams and final channel clipping retained. No spatial warping.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; IAT model/source Apache-2.0."
+    },
+    {
+      "file": "playable-sustained-poster.png",
+      "sha256": "4e08d8ccf1f3ae7244e86dcae04abf08d1e8e07d0285e0f5daa02dd5bda0405c",
+      "bytes": 862743,
+      "dimensions": [
+        2304,
+        464
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-comparison-web-v2/poster.png",
+      "source_sha256": "4e08d8ccf1f3ae7244e86dcae04abf08d1e8e07d0285e0f5daa02dd5bda0405c",
+      "transformation": "Decoded comparison frame requested at 20 seconds; encoded video colors and panel scaling retained.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
+    },
+    {
+      "file": "sustained-standard-020.png",
+      "sha256": "04ffde56bc55df841705a2dde7257d4a32c22f0d70f253fdd22492cdcbd30ee7",
+      "bytes": 3402994,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-review-v3/sustained-standard-v3/key-020.png",
+      "source_sha256": "04ffde56bc55df841705a2dde7257d4a32c22f0d70f253fdd22492cdcbd30ee7",
+      "transformation": "Native 2560x1440 decoded frame requested at 20 seconds from its recorded pass. Separate repeats, no image alignment or grading.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
+    },
+    {
+      "file": "sustained-reduced-020.png",
+      "sha256": "ad5c458854feeec934397fa61dd55e8f177904969af3b8d2f6fc26b9288fcc9d",
+      "bytes": 3248505,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-review-v3/sustained-reduced-v2/key-020.png",
+      "source_sha256": "ad5c458854feeec934397fa61dd55e8f177904969af3b8d2f6fc26b9288fcc9d",
+      "transformation": "Native 2560x1440 decoded frame requested at 20 seconds from its recorded pass. Separate repeats, no image alignment or grading.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
+    },
+    {
+      "file": "sustained-neural-020.png",
+      "sha256": "daa6bcd0f25f9880f3205588359ced8592fb4c7cc0f39e18ad28ec6b114e0851",
+      "bytes": 3220939,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-review-v3/sustained-neural-v2/key-020.png",
+      "source_sha256": "daa6bcd0f25f9880f3205588359ced8592fb4c7cc0f39e18ad28ec6b114e0851",
+      "transformation": "Native 2560x1440 decoded frame requested at 20 seconds from its recorded pass. Separate repeats, no image alignment or grading.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license."
     }
   ],
   "videos": [
@@ -2238,6 +2294,23 @@
       "transformation": "Every 2560x1440 source frame area-resized to 896x504 beside its 448x252 relative depth, bilinear enlarged to 896x504 with fixed first-frame min/max and visualization-only clamp. 32px labels. H264 CRF20, YUV420p, ten seconds at original relative timestamps, verified for all 600 frames. No generated motion or audio.",
       "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0",
       "duration_seconds": 10,
+      "playback_speed": 1,
+      "retimed": false
+    },
+    {
+      "file": "playable-sustained-unretimed.mp4",
+      "sha256": "f36a52a8a7221d1d72b15a4d33a626cb3bf3cc8ffffa2c69c23560d5d743c66f",
+      "bytes": 62276122,
+      "dimensions": [
+        2304,
+        464
+      ],
+      "source_record": "evidence/playable-sustained-v2.json",
+      "source_artifact": "runs/sustained-comparison-web-v2/comparison.mp4",
+      "source_sha256": "f36a52a8a7221d1d72b15a4d33a626cb3bf3cc8ffffa2c69c23560d5d743c66f",
+      "transformation": "All 184 seconds, original elapsed speed. Each native 2560x1440 source scaled to 768x432; three panels plus 32-pixel labels. Reset timestamp origin only. Hstack holds the last available slower-source frame. No optical flow, generated frames, speed change or audio. H264 CRF26 capped at 3.5Mbps for publication size.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license.",
+      "duration_seconds": 184,
       "playback_speed": 1,
       "retimed": false
     }

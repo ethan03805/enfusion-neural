@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T10:51:05Z",
+  "maximum_minutes": 60,
+  "scene": "foliage-walk",
+  "position": [
+    4590,
+    15.8,
+    10670
+  ],
+  "yaw_degrees": 350,
+  "hour": 13,
+  "route": "Starting at simulation second 30: walk forward at yaw 350 for 18 seconds, stop and turn 180 degrees smoothly over 3 seconds, walk back for 18 seconds at yaw 530, then stop and turn another 180 degrees over 3 seconds. Repeat this 42-second cycle. No teleportation, movement during turns, navigation, scene changes or camera-history effects. Set heading through the verified CharacterController API and use engine forward actions.",
+  "pilot_duration_seconds": 84,
+  "measurement_simulation_s": [
+    30,
+    210
+  ],
+  "recording": "Record from approximately simulation second 28 for duration plus 4 seconds, at native 2560x1440 via WGC and AMF, retaining variable-rate timestamps. All three full passes recorded identically; performance includes encoding overhead and is compared with the earlier separately measured unrecorded runs only with that distinction explicit.",
+  "pilot": "Retain the completed v1 pilot: route and control code are unchanged. The v2 standard pass is the first full run under denser logging; all motion and repeat gates still apply.",
+  "acceptance": {
+    "minimum_full_run_seconds_moving": 120,
+    "minimum_pilot_seconds_moving": 55,
+    "moving_speed_m_per_s": 1,
+    "minimum_full_horizontal_path_length_m": 400,
+    "minimum_pilot_horizontal_path_length_m": 200,
+    "maximum_consecutive_slow_interior_seconds": 1,
+    "maximum_cross_pass_camera_distance_m": 1,
+    "maximum_cross_pass_direction_angle_degrees": 5,
+    "sampling": "Interpolate logged camera positions and directions at each integer simulation second. Moving time counts one-second horizontal displacement >=1m. Slow-interior checks exclude two seconds after walk starts and one second before each stop. Cross-pass position/direction check samples 31..209 inclusive; no alignment or retiming."
+  },
+  "performance": "Retain every PresentMon CPU trace row and companion frame/event record. Report actual application Present cadence, p50/p95/p99/max intervals and intervals over 33.333/50ms. Exclude WGC internal records explicitly. Report GPU copy/inference/draw and capture-to-Present age separately, preserving negative clock-skew samples. No unchanged ETW/DXGI display probe; moving capture-to-display and physical input-to-photon remain unknown.",
+  "review": "Review chronological contact sheets covering all three full videos, native-size keys at relative capture times 3,20,41,62,83,125,167,181 seconds, and original-speed playback where the review tools permit it. State the actual review scope, retain all stalls and fallback events, and do not turn automated engine motion into a physical-input claim.",
+  "working_package": "No model, shader, controls or distributed package change. The new route is isolated benchmark code. This test addresses sustained movement, cadence and visibility coverage, not the unfinished substantial photorealistic appearance objective.",
+  "parent_plan_sha256": "8f1aeadce8df7a6706cb29b0cfcb991aa14560ef131762f8247997735d1c82e3",
+  "amendment_recorded_at": "2026-09-10T11:13:03.319449+00:00",
+  "amendment": "One measurement-only correction within the original 60-minute bound. First full standard/reduced passes meet spatial gates but 1 Hz interpolated directions differ by up to 7.881 degrees at turn boundaries. These results do not isolate actual same-time camera error from sparse interpolation. Increase existing camera logs to 10 Hz, keeping route, rendering, 180-second window and every acceptance threshold unchanged. Validate the new exact addon, then run one fresh triple. Keep the entire first triple and its failed gate. No further correction or deadline extension.",
+  "telemetry_hz": 10
+}
