@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only access to the selected existing street house. Copy native resources into a private ignored Workbench profile and inspect the existing entity/prefab binding. No Steam writes, asset publication, material replacement or neural quality claim.",
+  "maximum_minutes": 20,
+  "maximum_validation_attempts": 3,
+  "maximum_resource_copy_runs": 1,
+  "maximum_binding_captures": 1,
+  "files": [
+    {"name": "slate_bcr.edds", "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_BCR.edds", "basis": "street_roof BCR_1"},
+    {"name": "slate_nmo.edds", "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_NMO.edds", "basis": "street_roof NMO_1"},
+    {"name": "house_mask.edds", "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds", "basis": "street_roof MaskMap"},
+    {"name": "house_mcr.edds", "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds", "basis": "street_roof GlobalMCRMap"},
+    {"name": "roof.emat", "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat", "basis": "verified material inventory and schema"},
+    {"name": "house.et", "source": "Prefabs/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.et", "basis": "observed entity prefab"},
+    {"name": "house.xob.meta", "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob.meta", "basis": "candidate metadata sidecar of observed mesh; existence unverified"}
+  ],
+  "acceptance": "Record actual copy results and file hashes. Validate texture headers before decoding; establish packed channel meanings from primary documentation. Inspect per-instance entity source and inherited prefab read-only. Existing textures identify the source, but are not improved ground truth.",
+  "stop": "Stop after these bounds. Retain missing files, inaccessible bindings and unknown encoding. Do not restart renderer-hook work or replace recognizable tile patterns with unrelated references."
+}

@@ -78,7 +78,7 @@ Read-only Workbench inspection now identifies one existing building on the accep
 
 | Surface | Observed material inputs | Remaining uncertainty |
 | --- | --- | --- |
-| Roof | Slate BCR/NMO, brick, bare concrete, wood and dirt layers | Active per-instance binding and decoded texture/channel data |
+| Roof | Slate BCR/NMO, brick, bare concrete, wood and dirt layers | Per-instance overrides and decoded texture data |
 | Exterior wall | White/rough plaster, exposed brick, peeling-paint masks and concrete normal map | Exact layer blending and an aligned appearance target |
 | Wall variant | Bare plaster, brick and damage masks | Which surfaces use this variant in the placed instance |
 
@@ -87,7 +87,11 @@ Read-only Workbench inspection now identifies one existing building on the accep
 <figcaption>Material identity survey · complete native Workbench image, 1199 × 658 · no neural processing</figcaption>
 </figure>
 
-This view confirms the building and its visible slate roof, openings and cover. It is a separate Workbench simulation with its own rendering settings, not a gameplay comparison or photorealistic reference. Material association currently uses matching slot names and the same asset folder; active instance overrides still need verification. Source texture pixels have not been extracted, and no model was trained. [Exact resource links, survey hashes and access limits](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-identity-v1.json).
+This view confirms the building and its visible slate roof, openings and cover. It is a separate Workbench simulation with its own rendering settings, not a gameplay comparison or photorealistic reference. [Exact resource links and survey hashes](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-identity-v1.json).
+
+A follow-up reads explicit **13-slot material defaults** from the house's native prefab, confirming the three roof/wall associations. The editor instance source is unavailable during simulation, so runtime overrides remain unverified. The one declared native-file access run times out after 60 seconds before reporting its first file result and produces no files. It does not prove the requested textures are absent. This access route is closed with [code, logs and evidence retained](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-access-v1.json).
+
+Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established. The next bounded evaluation uses available RGB to test detail restoration; that alone cannot satisfy the material and lighting objective.
 
 ### Candidate replay
 

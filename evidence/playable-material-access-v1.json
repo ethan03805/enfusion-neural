@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "prefab_defaults_verified_texture_access_closed",
+  "plan": {
+    "schema_version": 1,
+    "scope": "Read-only access to the selected existing street house. Copy native resources into a private ignored Workbench profile and inspect the existing entity/prefab binding. No Steam writes, asset publication, material replacement or neural quality claim.",
+    "maximum_minutes": 20,
+    "maximum_validation_attempts": 3,
+    "maximum_resource_copy_runs": 1,
+    "maximum_binding_captures": 1,
+    "files": [
+      {
+        "name": "slate_bcr.edds",
+        "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_BCR.edds",
+        "basis": "street_roof BCR_1"
+      },
+      {
+        "name": "slate_nmo.edds",
+        "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_NMO.edds",
+        "basis": "street_roof NMO_1"
+      },
+      {
+        "name": "house_mask.edds",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds",
+        "basis": "street_roof MaskMap"
+      },
+      {
+        "name": "house_mcr.edds",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds",
+        "basis": "street_roof GlobalMCRMap"
+      },
+      {
+        "name": "roof.emat",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+        "basis": "verified material inventory and schema"
+      },
+      {
+        "name": "house.et",
+        "source": "Prefabs/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.et",
+        "basis": "observed entity prefab"
+      },
+      {
+        "name": "house.xob.meta",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob.meta",
+        "basis": "candidate metadata sidecar of observed mesh; existence unverified"
+      }
+    ],
+    "acceptance": "Record actual copy results and file hashes. Validate texture headers before decoding; establish packed channel meanings from primary documentation. Inspect per-instance entity source and inherited prefab read-only. Existing textures identify the source, but are not improved ground truth.",
+    "stop": "Stop after these bounds. Retain missing files, inaccessible bindings and unknown encoding. Do not restart renderer-hook work or replace recognizable tile patterns with unrelated references."
+  },
+  "access": {
+    "run": "20260910T075834-2409e4d52d",
+    "status": "failed",
+    "timeout_seconds": 60,
+    "wall_seconds": 61.18699999999808,
+    "terminated_owned_process": true,
+    "process_exit_code": 1,
+    "records": [
+      " started"
+    ],
+    "files": [
+      {
+        "name": "slate_bcr.edds",
+        "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_BCR.edds",
+        "basis": "street_roof BCR_1",
+        "output_present": false
+      },
+      {
+        "name": "slate_nmo.edds",
+        "source": "Assets/_SharedData/Roof/ST_Roof_Slate_01_NMO.edds",
+        "basis": "street_roof NMO_1",
+        "output_present": false
+      },
+      {
+        "name": "house_mask.edds",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds",
+        "basis": "street_roof MaskMap",
+        "output_present": false
+      },
+      {
+        "name": "house_mcr.edds",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds",
+        "basis": "street_roof GlobalMCRMap",
+        "output_present": false
+      },
+      {
+        "name": "roof.emat",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+        "basis": "verified material inventory and schema",
+        "output_present": false
+      },
+      {
+        "name": "house.et",
+        "source": "Prefabs/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.et",
+        "basis": "observed entity prefab",
+        "output_present": false
+      },
+      {
+        "name": "house.xob.meta",
+        "source": "Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob.meta",
+        "basis": "candidate metadata sidecar of observed mesh; existence unverified",
+        "output_present": false
+      }
+    ],
+    "interpretation": "Callback started, then timed out before the first file result. No outputs. The log does not isolate whether FileExists or CopyFile stalled. Later listed files were not reached; they are not proven absent."
+  },
+  "binding": {
+    "run": "20260910T080024-5ede4d71bd",
+    "matches": 1,
+    "inspected_containers": 41,
+    "mesh": "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob",
+    "origin": [
+      4586.93,
+      18.167,
+      10757.1
+    ],
+    "prefab_default_materials": {
+      "House_Village_1L02_EXT_Doors_LigtPortal": "{85F26F5A188BEBB9}Assets/_SharedMaterials/Portals/PRT_DOOR_EXT_A_EM.emat",
+      "House_Village_E_1L02t_MLOD": "{50B0ED95FF983E01}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_MLOD.emat",
+      "House_Village_E_1L02t_details": "{4582948069ED0035}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_details.emat",
+      "House_Village_E_1L02t_exterior_walls": "{4896A99A55DE2D74}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls.emat",
+      "House_Village_E_1L02t_exterior_walls_01": "{23C3B27BE9252ECC}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_01.emat",
+      "House_Village_E_1L02t_foundation": "{9E0B4C130DE43551}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_foundation.emat",
+      "House_Village_E_1L02t_interior_MLOD": "{2C28F441F9D25C24}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_interior_MLOD.emat",
+      "House_Village_E_1L02t_interior_walls": "{6DC531409D343D4F}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_interior_walls.emat",
+      "House_Village_E_1L02t_roof": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+      "PRT_130x182_A_EM_0A968C0B348F4507": "{0A968C0B348F4507}Assets/_SharedMaterials/Portals/PRT_130x182_A_EM.emat",
+      "PRT_DOOR_GARAGE_A_EM_6700FA7CB5E67272": "{6700FA7CB5E67272}Assets/_SharedMaterials/Portals/PRT_DOOR_GARAGE_A_EM.emat",
+      "PRT_DOOR_INT_A_8E55D99EDC035CEA": "{8E55D99EDC035CEA}Assets/_SharedMaterials/Portals/PRT_DOOR_INT_A.emat",
+      "PRT_Null_8E55D99EDC035CEA": "{8E55D99EDC035CEA}Assets/_SharedMaterials/Portals/PRT_DOOR_INT_A.emat"
+    },
+    "override_array_count": 0,
+    "editor_instance_source_available": false,
+    "interpretation": "GetDefaultAsString exposes 13 native MeshObject defaults matching the observed slots. Materials GetObjectArray returns zero entries. This does not establish the absence of runtime overrides; EntityToSource returned null during simulation."
+  },
+  "capture": {
+    "dimensions": [
+      1199,
+      658
+    ],
+    "sha256": "7336db92a39014dddce7fe6117988c5f5da9013d37e73ccd80f07bff23c767f5",
+    "position": [
+      4576.94,
+      19.6984,
+      10744.4
+    ],
+    "direction": [
+      0.6057431208412097,
+      0.20019234110039977,
+      0.7700638273015378
+    ],
+    "review": "Full native image inspected: same slate roof, facade openings, gutter, foreground pole and metal barrier. No neural processing or asset edits. Retained privately; existing equivalent published survey remains sufficient."
+  },
+  "documented_channel_contract": {
+    "source": "https://community.bistudio.com/wiki/Arma_Reforger:Textures",
+    "BCR": "RGB base color in sRGB; alpha roughness",
+    "NMO": "Linear RGBA: normal +X, normal -Y, metalness, ambient occlusion",
+    "MCR": "Macro color RGB, roughness alpha; color space depends on import settings",
+    "actual_texture_dimensions": null,
+    "actual_texture_pixels_validated": false
+  },
+  "source_hashes": {
+    "runs/playable-material-access-v1/access.json": "e5a380c45d2e55b1b65e25fd101adde64272e46f1f836f90f1ca774bb5f77521",
+    "runs/playable-material-access-v1/runs/20260910T075834-2409e4d52d/run.json": "cc2e829a2fc5e1ef524d4b7882d547f055e6281e99a275df6caf70f128f1f99c",
+    "runs/playable-material-access-v1/runs/20260910T075834-2409e4d52d/console.log": "53ee2e02d31d8cb3624fb8ed58ccfeafdaaf4d61c4e8ce81ba866d68eab70899",
+    "runs/playable-material-access-v1/runs/20260910T075834-2409e4d52d/driver.py": "6fcd81f3bdec227bc670ce1373a00dd0f7f154aaedab9c97656345420de7cb6f",
+    "runs/playable-material-access-v1/runs/20260910T075823-fde5e397df/run.json": "874129d4b7f674fcc82ba44ed9962eb68ed1e333790e4d3275e43ecfc0c98aa2",
+    "runs/playable-material-binding-v1/runs/20260910T080024-5ede4d71bd/run.json": "b338e5f702db97b0b6a2ab483ce073ce2fb359e38fa70d54484821c10fbd6960",
+    "runs/playable-material-binding-v1/runs/20260910T080024-5ede4d71bd/console.log": "a8d14102424b666a422ee486c94e1eb42b2ad0a8efddfb8736c56e3c6cd90d76",
+    "runs/playable-material-binding-v1/runs/20260910T080024-5ede4d71bd/addon/Scripts/Game/ENR_MaterialBinding.c": "d26c9e0b0d2d0597dd8f85d23cf9516f738c6c1a0318a126c142f3ff6b8103fc",
+    "runs/playable-material-binding-v1/runs/20260910T080024-5ede4d71bd/addon/Scripts/Game/ELab_GameCapture.c": "98175cad9ae9e7757e5758aedcf61af2abd5849652b6176d7c3a5e2b201e94ad",
+    "runs/playable-material-binding-v1/runs/20260910T080005-432fe23335/run.json": "784961eac57d1ea87bc2852a9daa7e31356ff995b0fc88d5611c13dc254744dc",
+    "runs/playable-material-binding-v1/runs/20260910T080005-432fe23335/console.log": "affb71a675ba6f789ac73f460a8711d1906ffa390afce794cd99888f1f626f2b",
+    "scenes/playable-material-access-v1.json": "21d34d082d8a5475fbfe2321c9264264b357ef50c3e7441c7797bf037300c667",
+    "evidence/playable-material-identity-v1.json": "e9fd1aff12bf13b7c88358e52a74dba1100a3e66ad1f8c7bc03d15b1efce3985"
+  },
+  "live_companion_changed": false,
+  "aligned_photorealistic_target_available": false,
+  "next": "Close this bounded native-file route. Evaluate a small RGB restoration model against an explicitly declared source-preservation control before live integration. Restoration alone does not meet the separate material/lighting goal."
+}

@@ -167,3 +167,11 @@ Stop this route. Keep the optional diagnostic implementation, raw traces and ori
 Accepted 10 September 2026. Inspect the accepted street location through supported read-only Workbench APIs. Preserve the first 160-object inspection limit and the initial unresolved slot handles. Native inventory resolves three unique roof/wall material names from the observed `House_Village_E_1L02t` mesh; their `MatPBRMulti` containers expose slate, plaster, brick and mask references. Retain both full survey images and all validation/inventory/schema hashes.
 
 Do not equate matching asset-folder/slot names with verified per-instance overrides, or native texture references with decoded pixels and photorealistic ground truth. No game asset is modified or source texture published. The next appearance step verifies the actual binding and texture inputs before choosing a correction target; the working companion remains unchanged.
+
+## 032 · Close native texture access and test RGB detail restoration
+
+Accepted 10 September 2026. Read the observed house's native prefab: its MeshObject exposes all 13 default material assignments, including the three previously identified roof/wall containers. The Materials object array is empty and EntityToSource returns null in simulation. Preserve the distinction between explicit defaults and unverified active overrides.
+
+The one declared VFS file-access probe enters its callback, then times out before its first per-file result. No bytes are copied. The logs do not isolate which file operation stalled; subsequent files are untested, not absent. Preserve the failed run and stop this route at its bound. Official packed-channel documentation does not substitute for decoded pixel validation or an aligned improved target.
+
+Use the existing RGB contract for a bounded restoration-model evaluation. Require a useful detail result, source identity controls and measured RX 7800 XT cost before integration. Reconstruction from synthetic downsampling can establish restoration accuracy only; it does not demonstrate photorealistic relighting or complete the appearance objective.
