@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T09:45:25Z",
+  "maximum_minutes": 30,
+  "source": "runs/foliage-walk-reduced-v1/gameplay.mp4",
+  "source_sha256": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+  "segment_seconds": [18, 28],
+  "reserved_start_seconds": 25,
+  "selection_reason": "Fixed ten-second segment from the accepted reduced-render street run, covering walking and camera turning. Its recording started near simulation 28.3s; exact capture initialization offset remains a limitation.",
+  "model": "Pinned Depth Anything V2 Small, unchanged author preprocessing, FP32, short side 252. One new static export if 2560x1440 changes tensor aspect ratio; no FP16 variants or model changes.",
+  "maximum_graph_exports": 1,
+  "parity": "First decoded frame CPU FP32 versus DirectML, normalized by CPU output range. Maximum <=0.001 and mean <=0.0001. Preserve all finite predictions and source presentation timestamps.",
+  "normalization": "Freeze grayscale min/max from the first prediction only. Clamp visualization only, retain unclamped floats and per-frame out-of-range fraction. Never rescale each frame or fit the reserved segment.",
+  "timing": "RX 7800 XT DirectML index 0 with no CPU execution fallback; game/Workbench stopped. Five first-frame warmups then one synchronized inference for every source frame, including upload/readback. Report all calls, preprocessing separately, and exclude decoding, optical flow and PNG/video encoding from model-call timing.",
+  "provisional_p95_call_limit_ms": 15,
+  "correspondence": "Diagnostic only: adjacent 448x252 RGB grayscale frames, Farneback both directions (pyr_scale=.5, levels=3, winsize=15, iterations=3, poly_n=5, poly_sigma=1.2, flags=0). Backward warp previous output. Reject outside coordinates, forward/back closure >1px, grayscale residual >12 codes, or current Sobel gradient magnitude <=5. Restrict x 5..95%, y 5..80%, excluding a central 5%-wide/high crosshair region. Report coverage and delta divided by fixed first-output range. Flow rejects some occlusions but does not certify correspondence or metric geometry.",
+  "motion_diagnostic_limits": {"p95_of_frame_median_normalized_change": 0.02, "p95_of_frame_p95_normalized_change": 0.1, "median_coverage_min": 0.2},
+  "motion_scope": "Actual camera-relative depth changes with walking and turning; this difference is not a pure flicker measurement. Passing limits cannot establish semantic or temporal correctness. Visual failures override numeric feasibility, and weak correspondence makes the diagnostic inconclusive.",
+  "review": "Review the entire 10-second original-speed source/depth comparison with fixed grayscale range, plus native-size RGB and full-size depth at segment times 0, 3, 7 and the final frame. Inspect weapon/HUD, roof openings, poles, foliage and broad depth pumping. Last three seconds reserved, no retuning.",
+  "video": "Each source frame gets one side-by-side PNG. Preserve relative source PTS in a 60Hz-timebase concat, with no generated motion. Verify output PTS against source PTS and retain any discrepancy. Visualization and H264 encoding are offline diagnostics, not live application FPS.",
+  "decision": "No lighting effect, training target or live integration is accepted by this test alone. Retain failed output and use source fallback in any later effect where geometry is unreliable."
+}

@@ -1751,6 +1751,62 @@
       "source_sha256": "a542c08f0ee735f2a35da443eb2e573b0777de90d1acc0ba3dae0cf9a4c4ee3a",
       "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale.",
       "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-motion-0000-source.png",
+      "sha256": "cf00af6dd4bdd092c226e8af98e619db93b2b408cf4bf90bea53888357304867",
+      "bytes": 2440052,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/depth-motion-v1.json",
+      "source_artifact": "runs/depth-motion-v1/key-0000-source.png",
+      "source_sha256": "cf00af6dd4bdd092c226e8af98e619db93b2b408cf4bf90bea53888357304867",
+      "transformation": "Decoded 2560x1440 source RGB, lossless PNG.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-motion-0000-depth.png",
+      "sha256": "af0e111d99a3a4d9fc4900260ec31374e5c531d1c03bddd22b92c64f083ff3f9",
+      "bytes": 100705,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/depth-motion-v1.json",
+      "source_artifact": "runs/depth-motion-v1/key-0000-depth.png",
+      "source_sha256": "af0e111d99a3a4d9fc4900260ec31374e5c531d1c03bddd22b92c64f083ff3f9",
+      "transformation": "448x252 relative depth bilinear resized to 2560x1440 with align_corners=True; fixed first-frame [0,7.2019758224487305] grayscale range, visualization-only clamp, PNG. No metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-motion-0599-source.png",
+      "sha256": "45be402be9a606b35e9d6b2ab4e907cff5e464d95dee86b7fcf43302b8db7998",
+      "bytes": 3118323,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/depth-motion-v1.json",
+      "source_artifact": "runs/depth-motion-v1/key-0599-source.png",
+      "source_sha256": "45be402be9a606b35e9d6b2ab4e907cff5e464d95dee86b7fcf43302b8db7998",
+      "transformation": "Decoded 2560x1440 source RGB, lossless PNG.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-motion-0599-depth.png",
+      "sha256": "d8b3b12e38ca837f60624e1a19b75027103fecd74851b6a6ac13fc8863d18b37",
+      "bytes": 130356,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/depth-motion-v1.json",
+      "source_artifact": "runs/depth-motion-v1/key-0599-depth.png",
+      "source_sha256": "d8b3b12e38ca837f60624e1a19b75027103fecd74851b6a6ac13fc8863d18b37",
+      "transformation": "448x252 relative depth bilinear resized to 2560x1440 with align_corners=True; fixed first-frame [0,7.2019758224487305] grayscale range, visualization-only clamp, PNG. No metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
     }
   ],
   "videos": [
@@ -1997,6 +2053,23 @@
       "transformation": "Each 2560x1440 input scaled to 1280x720, three panels with 40-pixel labels. Original relative presentation timestamps retained; only timestamp origin reset. Hstack holds the last available frame of a slower input. No optical flow, generated frames, speed change or audio. Encoded H.264 CRF26, 18Mbps maximum rate.",
       "rights": "Arma Reforger game imagery \u00a9 Bohemia Interactive; outside MIT code license",
       "duration_seconds": 34,
+      "playback_speed": 1,
+      "retimed": false
+    },
+    {
+      "file": "depth-motion-unretimed.mp4",
+      "sha256": "7c7c5bf5b0b557361fe482d23a5f54cd0c70d31b665bbadeda55882ef681f215",
+      "bytes": 5179516,
+      "dimensions": [
+        1792,
+        536
+      ],
+      "source_record": "evidence/depth-motion-v1.json",
+      "source_artifact": "runs/depth-motion-review-v1/comparison.mp4",
+      "source_sha256": "7c7c5bf5b0b557361fe482d23a5f54cd0c70d31b665bbadeda55882ef681f215",
+      "transformation": "Every 2560x1440 source frame area-resized to 896x504 beside its 448x252 relative depth, bilinear enlarged to 896x504 with fixed first-frame min/max and visualization-only clamp. 32px labels. H264 CRF20, YUV420p, ten seconds at original relative timestamps, verified for all 600 frames. No generated motion or audio.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0",
+      "duration_seconds": 10,
       "playback_speed": 1,
       "retimed": false
     }

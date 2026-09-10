@@ -10,6 +10,45 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | DeepLPF Adobe-DPE | CPU FP32, 960 × 544: 602 / 473 / 462 ms; 7.64 / 3.42 / 8.86% of channels clamp to black | Raw output rejected; protected version avoids clipping but gives insufficient appearance gain |
 | SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
 
+## RGB depth in motion
+
+Depth Anything V2 Small now processes **600 consecutive 1440p gameplay frames** from one fixed ten-second street segment. Walking and camera turning are present; the final three seconds are reserved without tuning. This is an offline diagnostic with the game stopped, not a new enhancement in the playable package.
+
+<figure class="motion-comparison">
+<video controls playsinline preload="metadata" width="1792" height="536" aria-label="Original-speed gameplay RGB and inferred relative depth"><source src="media/depth-motion-unretimed.mp4" type="video/mp4"><a href="media/depth-motion-unretimed.mp4">Download RGB and depth sequence</a></video>
+<figcaption>Reduced Reforger RGB / relative depth · 10 seconds at 1× speed · fixed grayscale range</figcaption>
+</figure>
+
+| Measurement | Result | Interpretation |
+| --- | --- | --- |
+| DirectML FP32, 448 × 252 | 14.93 ms median / 15.88 ms p95 / 16.23 ms p99 | Fails provisional 15 ms p95 call limit |
+| CPU author preprocessing from 2560 × 1440 | 30.16 ms median / 34.41 ms p95 | Current Python workflow is unsuitable for live 30–60 FPS |
+| Reserved motion diagnostic | 0.68% p95 of frame-median change; 3.49% p95 of frame-p95 change | Passes declared coarse limits; changes include actual camera-relative depth motion |
+| Reserved valid correspondence | 80.45% median of the selected interior region | Flow rejects some occlusions; correspondence is not certified |
+
+The model preserves broad road gradients, building massing, near poles and tree trunks. **Windows, door recesses, thin railings and foliage gaps remain insufficient for surface relighting.** Small HUD text does not form an obvious large foreground object in the reviewed maps; weapons, scopes and menus are not accepted. No lighting effect or appearance improvement is demonstrated.
+
+All 600 frames were inspected in chronological contact sheets, plus native-size RGB/depth pairs at 0, 3, 7 and 9.983 seconds. The planned entire-clip real-time playback inspection was **not completed**; the review does not establish full temporal acceptance. The published movie preserves all source-relative timestamps to numerical roundoff, with no generated frames or speed change. Each source panel is reduced to 896 × 504; the depth panel uses the first prediction's range for the entire sequence.
+
+<details>
+<summary>Motion evidence, full-size frames and reproduction</summary>
+
+| Segment position | 2560 × 1440 RGB | Full-size relative depth |
+| --- | --- | --- |
+| First frame | [Source](media/depth-motion-0000-source.png) | [Depth](media/depth-motion-0000-depth.png) |
+| Final reserved frame | [Source](media/depth-motion-0599-source.png) | [Depth](media/depth-motion-0599-depth.png) |
+
+The [complete motion evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/depth-motion-v1.json) retains all 600 timings, input hashes, raw prediction hash, fixed range, correspondence coverage and review limits. The new 448 × 252 graph passes first-frame CPU parity (normalized maximum error 0.00000504) and records 605 DirectML events with CPU fallback disabled. Calls include upload/readback and exclude decode, preprocessing, flow, interpolation and encoding. No pure GPU duration, live application performance or peak memory measurement is implied.
+
+Source PTS 18–28 seconds come from the accepted reduced-render street recording. The first seven seconds are selection data; the final three are reserved. Bidirectional Farneback flow rejects out-of-bounds pixels, closure errors above one pixel, photometric differences above 12 codes and low-gradient regions; fixed HUD margins and the crosshair are excluded numerically. Differences are divided by the first depth range without per-frame alignment. This is neither a pure flicker score nor a semantic visibility test.
+
+The bounded investigation closes after 17.7 minutes. Using the retained source and pinned Small checkpoint, run `scripts/evaluate_depth_motion.py --out NEW_DIRECTORY`, then `scripts/review_depth_motion.py --run THAT_DIRECTORY --out ANOTHER_NEW_DIRECTORY`. Keep all floating-point predictions. No training or package change results from this check.
+
+</details>
+
+<details>
+<summary>Earlier static depth and collision checks</summary>
+
 ## RGB depth feasibility
 
 The author's [Depth Anything V2 Small](https://github.com/DepthAnything/Depth-Anything-V2) estimates relative depth from a single RGB image. The selected [Small checkpoint](https://huggingface.co/depth-anything/Depth-Anything-V2-Small) has Apache-2.0 terms and 24,785,089 parameters. Two existing 1199 × 658 native captures receive unchanged author preprocessing, with aspect-preserving short-side sizes of 252 and 392. No collision information enters the model.
@@ -41,7 +80,7 @@ Grayscale maps use independent per-image min/max normalization; white means larg
 
 Ordering is Spearman correlation with inverse axial distance. An affine inverse-depth fit uses 578 even checkerboard grid cells; the 584 odd cells receive the same fit without recalibration. Both models pass the declared aggregate gate, but the ground dominates that result. Building error at p95 is **50.62% / 38.39%**, respectively; one smaller-model reserved sample has nonpositive fitted inverse depth. Collision hits are limited offline checks, not synchronized visible-surface ground truth. The closeup remains visual-only because its original projection control failed.
 
-Keep the smaller FP32 graph as a coarse depth candidate. **Do not reconstruct surface normals or apply per-pixel relighting from these maps.** Motion, HUD effects, peak GPU memory and whole-application performance remain unmeasured. No lighting effect, training target or package change is accepted. The two graph sizes and single FP16 attempt close within 17.4 minutes; the failed graph and report remain intact.
+These static checks selected the smaller FP32 graph for the motion check above. **Do not reconstruct surface normals or apply per-pixel relighting from these maps.** Peak GPU memory and whole-application performance remain unmeasured. No lighting effect, training target or package change is accepted. The two graph sizes and single FP16 attempt close within 17.4 minutes; the failed graph and report remain intact.
 
 <details>
 <summary>Inspect all depth maps and reproduction records</summary>
@@ -54,6 +93,8 @@ Keep the smaller FP32 graph as a coarse depth candidate. **Do not reconstruct su
 The [complete depth evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/depth-anything-evaluation-v1.json) retains every timing, parity result, input/output hash, fit and provider failure. Source revision `a561b849ebae10a6f5ef49e26c83cbbcd36c71bf`; checkpoint SHA-256 `715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378` (99,218,434 bytes).
 
 The research scripts require the retained geometry captures/logs under ignored `runs/`; these are not part of the playable package. Use `requirements-evaluation.txt` plus CPU PyTorch 2.8.0 and torchvision 0.23.0. `scripts/prepare_depth_anything.py` verifies the pinned author source and checkpoint. Run `scripts/evaluate_depth_anything.py --short-side 252 --out NEW_DIRECTORY` (or 392), then `scripts/analyze_depth_geometry.py --depth-run RETAINED_DIRECTORY --out NEW_DIRECTORY`. `scripts/evaluate_depth_anything_half.py` reproduces the single failed conversion from the recorded 392 run. All output directories must be new.
+
+</details>
 
 </details>
 
