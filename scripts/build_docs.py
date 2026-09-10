@@ -103,7 +103,7 @@ def main():
         content=re.sub(r'href="([^"]+)"',rewrite,content)
         content=content.replace('<table>','<div class="table-wrap"><table>').replace('</table>','</table></div>')
         all_nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES)
-        primary={'index','playable','status','vision','getting-started','architecture','roadmap','comparisons'}
+        primary={'index','playable','status','vision','getting-started','architecture','roadmap','model-evaluation'}
         nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES if name in primary)
         nav+='<details'+(' open' if slug not in primary else '')+'><summary>Research archive</summary>'+''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES if name not in primary)+'</details>'
         title_link='<a class="site-title" href="index.html">Enfusion Neural</a>'
