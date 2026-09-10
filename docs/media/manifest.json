@@ -1695,6 +1695,62 @@
       "source_sha256": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19",
       "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "depth-252-closeup.png",
+      "sha256": "cb24141dd84784e07eb2fa562b19757b1194ea8fa16778c0d8445ceeb4782206",
+      "bytes": 62588,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/depth-anything-evaluation-v1.json",
+      "source_artifact": "runs/depth-anything-252-v1/00-relative-depth.png",
+      "source_sha256": "cb24141dd84784e07eb2fa562b19757b1194ea8fa16778c0d8445ceeb4782206",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-252-street.png",
+      "sha256": "05f623c53d6d25f80f641a252dacc1d46e49d28df7d59ce516d3115baefb7ef0",
+      "bytes": 43629,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/depth-anything-evaluation-v1.json",
+      "source_artifact": "runs/depth-anything-252-v1/01-relative-depth.png",
+      "source_sha256": "05f623c53d6d25f80f641a252dacc1d46e49d28df7d59ce516d3115baefb7ef0",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-392-closeup.png",
+      "sha256": "94b906e1c49f1c4333ba073a1361d22c02b8045a213948a42d11beb5289feb31",
+      "bytes": 61300,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/depth-anything-evaluation-v1.json",
+      "source_artifact": "runs/depth-anything-392-v1/00-relative-depth.png",
+      "source_sha256": "94b906e1c49f1c4333ba073a1361d22c02b8045a213948a42d11beb5289feb31",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
+    },
+    {
+      "file": "depth-392-street.png",
+      "sha256": "a542c08f0ee735f2a35da443eb2e573b0777de90d1acc0ba3dae0cf9a4c4ee3a",
+      "bytes": 44506,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/depth-anything-evaluation-v1.json",
+      "source_artifact": "runs/depth-anything-392-v1/01-relative-depth.png",
+      "source_sha256": "a542c08f0ee735f2a35da443eb2e573b0777de90d1acc0ba3dae0cf9a4c4ee3a",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale.",
+      "rights": "Arma Reforger source imagery \u00a9 Bohemia Interactive, outside MIT license; Depth Anything V2 Small author model Apache-2.0"
     }
   ],
   "videos": [

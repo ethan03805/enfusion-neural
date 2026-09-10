@@ -37,3 +37,7 @@ The shader protects near-black and highlight regions, feathers fixed HUD margins
 The standalone D3D12 backend, original CPU models and independent numerical references remain available. Their dispatch timings exclude game capture and display. The [Blender lighting studies](lighting-study.md), [motion studies](lighting-motion.md), [material fixture](material-room.md) and [research history](research-history.md) retain earlier findings.
 
 The unsupported screenshot/widget return and in-engine renderer-resource bridge are closed for this iteration. They provide no live input buffers to the current model. Changes to a GPU graph must continue to pass its independent CPU reference.
+
+The supported world API exposes collision traces. The completed 64 × 36 grid costs 16–25 ms CPU and has unresolved visible-surface correspondence. It remains an offline diagnostic; per-frame integration is closed.
+
+Depth Anything V2 Small can infer coarse relative depth from RGB on DirectML. Its 462 × 252 FP32 graph passes an initial cost and selected collision comparison, while openings, thin detail and building depth remain insufficient for surface relighting. It is an offline candidate only: no new live input contract, metric geometry, normal buffer or temporal history is established. See the [depth evaluation](model-evaluation.md#rgb-depth-feasibility).

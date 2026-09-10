@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "small_fp32_coarse_depth_feasible_surface_lighting_not_accepted",
+  "evaluation_closed_at": "2026-09-10T09:36:05.856105+00:00",
+  "minutes_since_plan_start": 17.36426841666667,
+  "within_declared_time_bound": true,
+  "source": {
+    "source_repository": "https://github.com/DepthAnything/Depth-Anything-V2",
+    "source_revision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "model_repository": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small",
+    "model_revision": "03876f8651c73a60fe4c2c48294e09fcb6838fcf",
+    "checkpoint_url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/03876f8651c73a60fe4c2c48294e09fcb6838fcf/depth_anything_v2_vits.pth",
+    "checkpoint_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "checkpoint_bytes": 99218434,
+    "license": "Apache-2.0 (Small model and author source)",
+    "source_hashes": {
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2.py": "0505cf78bf0c88b97964cf973f34ab7e5574b7b63469d65abe55a7576bc8bb55",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/__init__.py": "c4a3e70c63d8c6c8c9e0c1b9e0eae5672ff73176146b7d2b10d36ae4974fa6d6",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/attention.py": "7b049ddbb65b9421e56645f5ca6f5edc0cc6739b6b1331f60883d6f4f2925c46",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/block.py": "a7218ff8350794efce37a010ac7d58d212e10a5b84b43a214a7b682cac656a62",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/drop_path.py": "27abed4dd9dafa14157c9c7717bdca15fedb62702066f627b314bc91c06a1d53",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/layer_scale.py": "a79f5b673c3f1fa60173b1905501ecfeb7fe77bed9b5e35881390c12baecbdfa",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/mlp.py": "9856d7274ca32428ff05dacf7adf8ad10fa81d7bb4e5d299ab57cf421dcc7620",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/patch_embed.py": "2d949ea0eff33185d829995373c963cac6eaebf77b4808478a72934d89587e42",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dinov2_layers/swiglu_ffn.py": "e1744aa9d29610c57d4fa153ec0aa545ef60da565d2aaac754d318fea0e30d7c",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/dpt.py": "1abe7fa5740204b8dae48d8032d6f1dee085211946a7643d6f59817698d1bb7d",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/util/blocks.py": "3245bd6706b5946d7e0735f059ced4d9ad0c190cd33820908f78c6d8ff78eb85",
+      "runs/pretrained/depth-anything-v2-source-v1/depth_anything_v2/util/transform.py": "ad93afd07aee97a1c73aaa9217c1a8e80c097a861800c56e5425446ff3ecabaa",
+      "runs/pretrained/depth-anything-v2-source-v1/LICENSE": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "runs/pretrained/depth-anything-v2-source-v1/README.md": "b749ea109a5af765488b9da0c23174eff7f82badef653700eb7082239e7949c2",
+      "runs/pretrained/depth-anything-v2-source-v1/requirements.txt": "07e5da2a9a512799358670d5c9c9a4c497e52749d3d6a37be7de4126f11f7c2b"
+    },
+    "driver_sha256": "c7ea0a0409e5d4cbcc5499756deb78b65527d41074ecd0aa9cf546efde31513c",
+    "scope": "Download and provenance only; no inference or appearance result"
+  },
+  "evaluations": [
+    {
+      "measurement": {
+        "schema_version": 1,
+        "status": "completed",
+        "plan_sha256": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+        "driver_sha256": "02a6a7ebdf0b3a7fc18f1609afe687ac25fcffaa6a82dd6564da33e8668ce0ab",
+        "short_side": 252,
+        "precision": "FP32",
+        "images": [
+          {
+            "name": "closeup",
+            "source": "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/frame.png",
+            "source_sha256": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+            "tensor_shape": [
+              1,
+              3,
+              252,
+              462
+            ],
+            "source_height_width": [
+              658,
+              1199
+            ],
+            "cpu_ms": 188.81499999999994,
+            "input_sha256": "6faec3d3672d57dc38337551ea3cd35bc237dd75dd32380ee4e60a37f8144667",
+            "cpu_sha256": "8a06d476edc786acacf4f9d3fd91b5345d685349688a75991a445d33df4bc2dd",
+            "milliseconds": [
+              10.498300000000071,
+              9.85250000000093,
+              10.505600000000115,
+              10.710200000000114,
+              9.814500000000947,
+              9.753900000001536,
+              10.650500000000562,
+              10.386399999999796,
+              9.859000000000506,
+              10.280699999999143,
+              10.134000000000754,
+              9.77859999999886,
+              10.500300000000351,
+              10.407600000000627,
+              9.738500000000982,
+              9.916999999999732,
+              10.514600000000485,
+              9.987199999999419,
+              9.702000000000766,
+              10.287099999999327
+            ],
+            "median_ms": 10.207349999999948,
+            "p95_ms": 10.65348500000054,
+            "dml_sha256": "933a189d19ff4929fa2ddb4543570fea4bf5a1c7e22bc82ae9fc251c5f0f31f5",
+            "range": [
+              0.0,
+              4.910402297973633
+            ],
+            "parity": {
+              "raw_max": 0.0007742643356323242,
+              "raw_mean": 1.4936151728761615e-06,
+              "cpu_range": 4.910402297973633,
+              "normalized_max": 0.00015767839143278312,
+              "normalized_mean": 3.0417368725420505e-07,
+              "passed": true
+            },
+            "full_depth_sha256": "2856b183ad558352f9a735bac71f9aa2abd4412720a3bf2ce82bb372e34eeae2",
+            "visual_sha256": "cb24141dd84784e07eb2fa562b19757b1194ea8fa16778c0d8445ceeb4782206"
+          },
+          {
+            "name": "street",
+            "source": "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/frame.png",
+            "source_sha256": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+            "tensor_shape": [
+              1,
+              3,
+              252,
+              462
+            ],
+            "source_height_width": [
+              658,
+              1199
+            ],
+            "cpu_ms": 133.46130000000045,
+            "input_sha256": "a0208ab937b17c3a7a9a05973342b598580074c69abd2eabcabe5a6802341733",
+            "cpu_sha256": "344da5cf3442741b470f4cee039caaca768c132a055fa02760f842696ab65679",
+            "milliseconds": [
+              13.966500000000437,
+              12.920199999999937,
+              10.847000000000051,
+              10.975000000000179,
+              10.516799999999549
+            ],
+            "median_ms": 10.975000000000179,
+            "p95_ms": 13.757240000000337,
+            "dml_sha256": "f871f354a305cf1f62b8b0ef40e98da6896311334df97189ceef934843f9e37e",
+            "range": [
+              0.0,
+              6.791452884674072
+            ],
+            "parity": {
+              "raw_max": 0.0006604939699172974,
+              "raw_mean": 1.7118961750384187e-06,
+              "cpu_range": 6.791454792022705,
+              "normalized_max": 9.725367982911683e-05,
+              "normalized_mean": 2.520661960452457e-07,
+              "passed": true
+            },
+            "full_depth_sha256": "514815421b7d3c39dffb20c1e02b19cec671c80d5ece782b6c6f4511f52c94e7",
+            "visual_sha256": "05f623c53d6d25f80f641a252dacc1d46e49d28df7d59ce516d3115baefb7ef0"
+          }
+        ],
+        "provenance_sha256": "4f6d4f8f34475a6653b0f6d220e8624c86f7f7423f4c8e46568d6f58336f1693",
+        "adapter_info": "{\"index\":0,\"description\":\"AMD Radeon RX 7800 XT\",\"vendor_id\":4098,\"device_id\":29822,\"dedicated_video_bytes\":16963133440,\"software\":false}\n{\"index\":1,\"description\":\"AMD Radeon(TM) Graphics\",\"vendor_id\":4098,\"device_id\":5710,\"dedicated_video_bytes\":509374464,\"software\":false}\n{\"index\":2,\"description\":\"Microsoft Basic Render Driver\",\"vendor_id\":5140,\"device_id\":140,\"dedicated_video_bytes\":0,\"software\":true}\n",
+        "software": {
+          "torch": "2.8.0+cpu",
+          "torchvision": "0.23.0+cpu",
+          "opencv-python-headless": "4.12.0.88",
+          "numpy": "2.0.2",
+          "onnx": "1.19.1",
+          "onnxruntime-directml": "1.19.2"
+        },
+        "parameters": 24785089,
+        "onnx_sha256": "2640258ed0fabed5b396232919b4b9d1ad04abc53ce3aec153ce5f9e5e12c150",
+        "providers": [
+          "DmlExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "profile_file": "profile_2026-09-10_05-23-52.json",
+        "profile_sha256": "a3d52417631109b036144236afc532144f6b8c82564f6f8f4e33577a0c9dfc9d",
+        "profile_provider_events": {
+          "DmlExecutionProvider": 31
+        },
+        "parity_pass": true,
+        "provisional_cost_pass": true,
+        "scope": "Game stopped; synchronized DirectML calls including upload/readback only. CPU preprocessing/full-size interpolation and visualization excluded. Relative output is not metric geometry, appearance improvement or live performance.",
+        "visualization": "Independent per-image min/max to grayscale, white larger relative-depth output. No calibrated distance scale; do not compare grayscale brightness across views."
+      },
+      "geometry": {
+        "schema_version": 1,
+        "status": "completed",
+        "depth_run": "runs/depth-anything-252-v1",
+        "depth_report_sha256": "213c58375438edc3af017bd1496497051ef351de84b156bcd7df8498710744fd",
+        "geometry_report_sha256": "0b06fe868b71d1ed35ae59506f7e08b17734685903e933375060b8a894a18f5d",
+        "geometry_array_sha256": "6f339398e2fa6eea87d9106baf79c65ee97bcdb400a017373f6eb735bdb4c00f",
+        "plan_sha256": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+        "driver_sha256": "50dc8b8cbce7b5285c5d1fb176a0a8236d135f221852c855bf13e6f8625192b8",
+        "samples_sha256": "aaa701262ac92056cc7f58fe5dcb227d9cb2f7b8a9c85906309fd532945fbd64",
+        "selected_count": 1162,
+        "selected_categories": {
+          "building": 244,
+          "ground": 918
+        },
+        "affine_inverse_depth_coefficients": [
+          0.05426303453418211,
+          -0.009382517136333443
+        ],
+        "results": {
+          "calibration": {
+            "count": 578,
+            "spearman": 0.9964365401727086,
+            "median_relative_depth_error": 0.02708876645339631,
+            "p95_relative_depth_error": 0.17883806780607028,
+            "nonpositive_inverse_fraction": 0.0017301038062283738
+          },
+          "reserved": {
+            "count": 584,
+            "spearman": 0.9964371632502931,
+            "median_relative_depth_error": 0.028101939936851665,
+            "p95_relative_depth_error": 0.17959970552300908,
+            "nonpositive_inverse_fraction": 0.0017123287671232876
+          },
+          "reserved_by_category": {
+            "ground": {
+              "count": 460,
+              "spearman": 0.9973205265003926,
+              "median_relative_depth_error": 0.020393355490605086,
+              "p95_relative_depth_error": 0.1379759962776265,
+              "nonpositive_inverse_fraction": 0.0
+            },
+            "building": {
+              "count": 124,
+              "spearman": 0.7983005507474429,
+              "median_relative_depth_error": 0.09819130324766909,
+              "p95_relative_depth_error": 0.5061609810807711,
+              "nonpositive_inverse_fraction": 0.008064516129032258
+            }
+          }
+        },
+        "declared_geometry_gate_pass": true,
+        "scope": "One spatial checkerboard split in one fixed street view. Calibration uses grid indices x+y even. Unweighted least-squares fit on calibration cells only; reserved cells receive the same scale/offset. Collisions are not synchronized visible-surface ground truth. No claim for openings, foliage, metric generalization, normals or temporal stability."
+      }
+    },
+    {
+      "measurement": {
+        "schema_version": 1,
+        "status": "completed",
+        "plan_sha256": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+        "driver_sha256": "02a6a7ebdf0b3a7fc18f1609afe687ac25fcffaa6a82dd6564da33e8668ce0ab",
+        "short_side": 392,
+        "precision": "FP32",
+        "images": [
+          {
+            "name": "closeup",
+            "source": "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/frame.png",
+            "source_sha256": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+            "tensor_shape": [
+              1,
+              3,
+              392,
+              714
+            ],
+            "source_height_width": [
+              658,
+              1199
+            ],
+            "cpu_ms": 591.0495999999998,
+            "input_sha256": "1b0b309f95c36d7e464c8ace7feeb54e4d2b46938a7b045adc5d1ff7013a3263",
+            "cpu_sha256": "b46889695f11f20b9ab5c70a77e7b1503a38909cc1f3c5dc8be59c61b846b1d1",
+            "milliseconds": [
+              24.127099999999402,
+              24.748600000000565,
+              23.88760000000012,
+              24.391099999999,
+              24.040300000001125,
+              24.42350000000104,
+              23.775999999999797,
+              24.44799999999958,
+              24.08430000000017,
+              24.755400000000094,
+              23.636700000000843,
+              24.964500000001166,
+              24.111100000000718,
+              24.261900000000836,
+              23.850400000000604,
+              24.72999999999992,
+              23.90660000000011,
+              24.437700000000007,
+              24.158700000000977,
+              24.951500000000237
+            ],
+            "median_ms": 24.210300000000906,
+            "p95_ms": 24.952150000000284,
+            "dml_sha256": "1bdec48b620c1997ad92b69d3a6f4285d965a1e9264041249355c5f518a09206",
+            "range": [
+              0.0,
+              6.176992893218994
+            ],
+            "parity": {
+              "raw_max": 0.00020694732666015625,
+              "raw_mean": 8.690352615303709e-07,
+              "cpu_range": 6.176994800567627,
+              "normalized_max": 3.350291417456578e-05,
+              "normalized_mean": 1.406890064810338e-07,
+              "passed": true
+            },
+            "full_depth_sha256": "c621206f8d8fa2479617310dc476b023c2731362773e57e85c5e71d7b29b918c",
+            "visual_sha256": "94b906e1c49f1c4333ba073a1361d22c02b8045a213948a42d11beb5289feb31"
+          },
+          {
+            "name": "street",
+            "source": "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/frame.png",
+            "source_sha256": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+            "tensor_shape": [
+              1,
+              3,
+              392,
+              714
+            ],
+            "source_height_width": [
+              658,
+              1199
+            ],
+            "cpu_ms": 1107.2827000000007,
+            "input_sha256": "4b07779e213becdc59ce6f33c7d0864c08abd58978e497bf1741cebbe515864f",
+            "cpu_sha256": "6f208cc045bd329b8399325ca94f37474ece87905fea90f448c4d146ad204aac",
+            "milliseconds": [
+              25.432000000000343,
+              24.228100000000197,
+              24.885299999999333,
+              23.98089999999975,
+              24.198799999998855
+            ],
+            "median_ms": 24.228100000000197,
+            "p95_ms": 25.32266000000014,
+            "dml_sha256": "a61971f2e82f63d39ff5cce6c013a7cc7ed4c8d00f23a159724fa547c7f9870c",
+            "range": [
+              0.0,
+              9.057098388671875
+            ],
+            "parity": {
+              "raw_max": 0.00014925003051757812,
+              "raw_mean": 2.2269032342592254e-06,
+              "cpu_range": 9.05710506439209,
+              "normalized_max": 1.647877875507407e-05,
+              "normalized_mean": 2.458736227996594e-07,
+              "passed": true
+            },
+            "full_depth_sha256": "371a22807a8187e339e8345cb795a7ff7ff99e058c3548eaae1d9e8e906c217e",
+            "visual_sha256": "a542c08f0ee735f2a35da443eb2e573b0777de90d1acc0ba3dae0cf9a4c4ee3a"
+          }
+        ],
+        "provenance_sha256": "4f6d4f8f34475a6653b0f6d220e8624c86f7f7423f4c8e46568d6f58336f1693",
+        "adapter_info": "{\"index\":0,\"description\":\"AMD Radeon RX 7800 XT\",\"vendor_id\":4098,\"device_id\":29822,\"dedicated_video_bytes\":16963133440,\"software\":false}\n{\"index\":1,\"description\":\"AMD Radeon(TM) Graphics\",\"vendor_id\":4098,\"device_id\":5710,\"dedicated_video_bytes\":509374464,\"software\":false}\n{\"index\":2,\"description\":\"Microsoft Basic Render Driver\",\"vendor_id\":5140,\"device_id\":140,\"dedicated_video_bytes\":0,\"software\":true}\n",
+        "software": {
+          "torch": "2.8.0+cpu",
+          "torchvision": "0.23.0+cpu",
+          "opencv-python-headless": "4.12.0.88",
+          "numpy": "2.0.2",
+          "onnx": "1.19.1",
+          "onnxruntime-directml": "1.19.2"
+        },
+        "parameters": 24785089,
+        "onnx_sha256": "ac131726ec0a8c4b47c70eabc50fdac570b2e148b5d763c924b739a247ac29de",
+        "providers": [
+          "DmlExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "profile_file": "profile_2026-09-10_05-24-20.json",
+        "profile_sha256": "548ececde3377149ef4238d92df727ea06aec8c708688bf2e076d65130d60ca7",
+        "profile_provider_events": {
+          "DmlExecutionProvider": 31
+        },
+        "parity_pass": true,
+        "provisional_cost_pass": false,
+        "scope": "Game stopped; synchronized DirectML calls including upload/readback only. CPU preprocessing/full-size interpolation and visualization excluded. Relative output is not metric geometry, appearance improvement or live performance.",
+        "visualization": "Independent per-image min/max to grayscale, white larger relative-depth output. No calibrated distance scale; do not compare grayscale brightness across views."
+      },
+      "geometry": {
+        "schema_version": 1,
+        "status": "completed",
+        "depth_run": "runs/depth-anything-392-v1",
+        "depth_report_sha256": "d0642daaf5bdc693d0577542f81c5fb7924937eee21f5818f855b63f8f82895e",
+        "geometry_report_sha256": "0b06fe868b71d1ed35ae59506f7e08b17734685903e933375060b8a894a18f5d",
+        "geometry_array_sha256": "6f339398e2fa6eea87d9106baf79c65ee97bcdb400a017373f6eb735bdb4c00f",
+        "plan_sha256": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+        "driver_sha256": "50dc8b8cbce7b5285c5d1fb176a0a8236d135f221852c855bf13e6f8625192b8",
+        "samples_sha256": "b49a77a509e8d948c9410dc642b633af1cbddb255e47683093980c83dccce467",
+        "selected_count": 1162,
+        "selected_categories": {
+          "building": 244,
+          "ground": 918
+        },
+        "affine_inverse_depth_coefficients": [
+          0.04055835004604663,
+          -0.00041029908054453945
+        ],
+        "results": {
+          "calibration": {
+            "count": 578,
+            "spearman": 0.9958083267271698,
+            "median_relative_depth_error": 0.02485719667196782,
+            "p95_relative_depth_error": 0.22375784692549175,
+            "nonpositive_inverse_fraction": 0.0
+          },
+          "reserved": {
+            "count": 584,
+            "spearman": 0.9957251501836665,
+            "median_relative_depth_error": 0.02585558827607162,
+            "p95_relative_depth_error": 0.2266242415578817,
+            "nonpositive_inverse_fraction": 0.0
+          },
+          "reserved_by_category": {
+            "ground": {
+              "count": 460,
+              "spearman": 0.997826117777741,
+              "median_relative_depth_error": 0.01746492686981469,
+              "p95_relative_depth_error": 0.13048560548692686,
+              "nonpositive_inverse_fraction": 0.0
+            },
+            "building": {
+              "count": 124,
+              "spearman": 0.722228166797797,
+              "median_relative_depth_error": 0.15714048934027014,
+              "p95_relative_depth_error": 0.38385619812039223,
+              "nonpositive_inverse_fraction": 0.0
+            }
+          }
+        },
+        "declared_geometry_gate_pass": true,
+        "scope": "One spatial checkerboard split in one fixed street view. Calibration uses grid indices x+y even. Unweighted least-squares fit on calibration cells only; reserved cells receive the same scale/offset. Collisions are not synchronized visible-surface ground truth. No claim for openings, foliage, metric generalization, normals or temporal stability."
+      }
+    }
+  ],
+  "half_precision_failure": {
+    "schema_version": 1,
+    "status": "failed",
+    "short_side": 392,
+    "precision": "FP16 internal / FP32 input and output",
+    "images": [],
+    "driver_sha256": "e1d3105f962bd0cdb08f3272bf8ed4c90cab87de8a6a8ff20d41968cf32176d8",
+    "plan_sha256": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+    "parent_report_sha256": "d0642daaf5bdc693d0577542f81c5fb7924937eee21f5818f855b63f8f82895e",
+    "adapter_info": "{\"index\":0,\"description\":\"AMD Radeon RX 7800 XT\",\"vendor_id\":4098,\"device_id\":29822,\"dedicated_video_bytes\":16963133440,\"software\":false}\n{\"index\":1,\"description\":\"AMD Radeon(TM) Graphics\",\"vendor_id\":4098,\"device_id\":5710,\"dedicated_video_bytes\":509374464,\"software\":false}\n{\"index\":2,\"description\":\"Microsoft Basic Render Driver\",\"vendor_id\":5140,\"device_id\":140,\"dedicated_video_bytes\":0,\"software\":true}\n",
+    "software": {
+      "torch": "2.8.0+cpu",
+      "torchvision": "0.23.0+cpu",
+      "opencv-python-headless": "4.12.0.88",
+      "numpy": "2.0.2",
+      "onnx": "1.19.1",
+      "onnxruntime-directml": "1.19.2"
+    },
+    "onnx_sha256": "0c9b7e661e2e50688f6ffbcc026424700b65fdef1dfde6db0ae6ae7baab3f301",
+    "error": "Fail('[ONNXRuntimeError] : 1 : FAIL : This session contains graph nodes that are assigned to the default CPU EP, but fallback to CPU EP has been explicitly disabled by the user.')"
+  },
+  "review": {
+    "scope": "Both complete native RGB inputs and all four full-size grayscale depth maps inspected at 1199x658.",
+    "closeup": "Both maps retain the main roof plane, wall, foreground pole and broad barrier. Windows and door recesses largely merge into the facade. Roof fittings, antennas and thin barrier details are incomplete; 392 preserves some thin details better.",
+    "street": "Road depth gradient and broad building/tree placement are plausible. Foliage becomes smooth masses, with lost gaps. Distant poles, facade openings and railing depth are unresolved or softened.",
+    "geometry": "Both pass the predeclared aggregate gate. Of 584 reserved samples, 460 are ground and 124 buildings. Building-only ordering is much weaker than the aggregate; retain the stratified results instead of claiming per-surface geometry correctness.",
+    "decision": "Keep the 252 FP32 graph as a candidate coarse RGB-derived depth input. Reject direct normal reconstruction or per-pixel surface relighting from these maps. Close 392 FP32 on cost and the single FP16 graph on no-CPU-fallback failure.",
+    "unknown": "Motion stability, HUD effects, additional environments, peak GPU memory, 1440p live input shape/cost, complete application timing and any appearance gain remain unmeasured."
+  },
+  "working_package_changed": false,
+  "new_training_performed": false,
+  "source_hashes": {
+    "scenes/playable-depth-evaluation-v1.json": "42921bf52d2e63844390b300453ed129334a582cda3d656921c0b6cf5336dad2",
+    "runs/pretrained/depth-anything-v2-small-v1/source.json": "4f6d4f8f34475a6653b0f6d220e8624c86f7f7423f4c8e46568d6f58336f1693",
+    "runs/depth-anything-252-v1/report.json": "213c58375438edc3af017bd1496497051ef351de84b156bcd7df8498710744fd",
+    "runs/depth-anything-252-v1/driver.py": "02a6a7ebdf0b3a7fc18f1609afe687ac25fcffaa6a82dd6564da33e8668ce0ab",
+    "runs/depth-anything-252-v1/profile_2026-09-10_05-23-52.json": "a3d52417631109b036144236afc532144f6b8c82564f6f8f4e33577a0c9dfc9d",
+    "runs/depth-geometry-252-v1/report.json": "902f817996d9f578bab4c3a324a71a624de2539db5810a9f384954363ac7b934",
+    "runs/depth-geometry-252-v1/samples.json": "aaa701262ac92056cc7f58fe5dcb227d9cb2f7b8a9c85906309fd532945fbd64",
+    "runs/depth-geometry-252-v1/driver.py": "50dc8b8cbce7b5285c5d1fb176a0a8236d135f221852c855bf13e6f8625192b8",
+    "runs/depth-anything-392-v1/report.json": "d0642daaf5bdc693d0577542f81c5fb7924937eee21f5818f855b63f8f82895e",
+    "runs/depth-anything-392-v1/driver.py": "02a6a7ebdf0b3a7fc18f1609afe687ac25fcffaa6a82dd6564da33e8668ce0ab",
+    "runs/depth-anything-392-v1/profile_2026-09-10_05-24-20.json": "548ececde3377149ef4238d92df727ea06aec8c708688bf2e076d65130d60ca7",
+    "runs/depth-geometry-392-v1/report.json": "f35a474c262ec17025ec4b755b916630dab9f559389dacea69b960baf2e4496f",
+    "runs/depth-geometry-392-v1/samples.json": "b49a77a509e8d948c9410dc642b633af1cbddb255e47683093980c83dccce467",
+    "runs/depth-geometry-392-v1/driver.py": "50dc8b8cbce7b5285c5d1fb176a0a8236d135f221852c855bf13e6f8625192b8",
+    "runs/depth-anything-392-half-v1/report.json": "ed6bdcf75607b3e191bce5c776134631d25da4d302b9efa463547a2302c30bc6",
+    "runs/depth-anything-392-half-v1/driver.py": "e1d3105f962bd0cdb08f3272bf8ed4c90cab87de8a6a8ff20d41968cf32176d8"
+  },
+  "published_media": [
+    {
+      "file": "depth-252-closeup.png",
+      "sha256": "cb24141dd84784e07eb2fa562b19757b1194ea8fa16778c0d8445ceeb4782206",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale."
+    },
+    {
+      "file": "depth-252-street.png",
+      "sha256": "05f623c53d6d25f80f641a252dacc1d46e49d28df7d59ce516d3115baefb7ef0",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale."
+    },
+    {
+      "file": "depth-392-closeup.png",
+      "sha256": "94b906e1c49f1c4333ba073a1361d22c02b8045a213948a42d11beb5289feb31",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale."
+    },
+    {
+      "file": "depth-392-street.png",
+      "sha256": "a542c08f0ee735f2a35da443eb2e573b0777de90d1acc0ba3dae0cf9a4c4ee3a",
+      "transformation": "Author bilinear interpolation (align_corners=True) to original 1199x658; independent image min/max to grayscale RGB8-equivalent codes; larger values white. Relative output, no common metric scale."
+    }
+  ]
+}

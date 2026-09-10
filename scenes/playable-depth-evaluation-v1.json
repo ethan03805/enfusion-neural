@@ -1,0 +1,20 @@
+{
+  "schema_version":1,"date":"2026-09-10","started_at":"2026-09-10T09:18:44Z","maximum_minutes":30,
+  "model":"Depth Anything V2 Small, author vits checkpoint",
+  "source_revision":"a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint_sha256":"715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+  "input_short_sides":[252,392],"maximum_static_graph_sizes":2,"maximum_half_precision_variants":1,
+  "preprocessing":"Unchanged author image2tensor: BGR decode, RGB /255, aspect-preserving OpenCV cubic resize lower-bound with dimensions rounded to multiples of 14, ImageNet normalization, NCHW FP32. Save actual tensors and hashes. No source geometry is an input to the model.",
+  "images":[
+    {"name":"closeup","path":"runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/frame.png","sha256":"8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430","scope":"Visual only; original float-coordinate geometry control failed."},
+    {"name":"street","path":"runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/frame.png","sha256":"f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0","scope":"Visual plus selected collision-hit comparison; integer-coordinate projection control passed."}
+  ],
+  "precision":"FP32 CPU reference and DirectML first. If cost fails, one FP16 conversion with FP32 graph inputs/outputs; keep failed conversion artifacts. No retraining or source-code architecture changes.",
+  "parity_limits":{"fp32_normalized_max":0.001,"fp32_normalized_mean":0.0001,"fp16_normalized_max":0.02,"fp16_normalized_mean":0.002,"normalization":"Divide absolute error by CPU output range; retain raw errors, no affine output alignment."},
+  "timing":"5 warmups and 20 synchronized model calls for first image, 1 warmup and 5 calls for second. Include upload/readback; exclude preprocessing, visualization and export. Game/Workbench stopped. DirectML RX 7800 XT index 0, no CPU execution fallback. Retain every call and provider profile.",
+  "provisional_p95_call_limit_ms":15,
+  "cost_scope":"Initial feasibility ceiling for a 30FPS combined-render experiment, informed by the measured reduced-render headroom. This is not whole-application performance or the previous 10ms aspirational GPU allocation. A live path must include composition, transfer and full game timing before acceptance.",
+  "geometry_check":"Use only street mode 0. Keep fraction in (0,1), unit normal, and either named Houses/Commercial meshes or empty mesh with upward normal Y>0.5. Exclude vegetation, props, windows/doors, railings and other unselected meshes. Axial distance is 250*fraction*dot(ray_direction,camera_forward); require 1..200m. Compare predicted ordering with inverse axial distance. Fit affine inverse-depth scale on checkerboard (x+y)%2==0, report reserved odd cells without refit. This spatial split is not an independent-scene generalization test.",
+  "geometry_gates":{"reserved_spearman_min":0.9,"reserved_median_relative_depth_error_max":0.25,"nonpositive_reserved_inverse_depth_max_fraction":0.01},
+  "visual_checks":"Inspect both complete RGB and relative-depth maps, with explicit pole/roof/opening/foliage mismatch review. A matching broad road gradient is insufficient for per-pixel lighting or cover correctness. No lighting composition, normal reconstruction, temporal or live integration before this bounded evaluation."
+}

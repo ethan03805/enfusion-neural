@@ -1,6 +1,6 @@
 # Appearance candidates
 
-The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated candidate yet establishes substantial photorealistic material and lighting improvement.** All candidates receive captured RGB with HUD; depth, normals, material labels and motion buffers are unavailable.
+The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated candidate yet establishes substantial photorealistic material and lighting improvement.** Captured RGB, including HUD during gameplay, is the verified live input. Engine depth, normals, material labels and motion buffers remain unavailable. The latest offline candidate estimates relative depth from RGB.
 
 | Candidate | Measured result | Decision |
 | --- | --- | --- |
@@ -9,6 +9,56 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | REGEN GTA2Cityscapes | RX 7800 XT DirectML FP32, 960 × 544: 53.24 / 53.98 / 53.63 ms median, five synchronized samples per view | Rejected: altered roof identity, sky artifacts, fine-detail loss and excessive cost |
 | DeepLPF Adobe-DPE | CPU FP32, 960 × 544: 602 / 473 / 462 ms; 7.64 / 3.42 / 8.86% of channels clamp to black | Raw output rejected; protected version avoids clipping but gives insufficient appearance gain |
 | SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
+
+## RGB depth feasibility
+
+The author's [Depth Anything V2 Small](https://github.com/DepthAnything/Depth-Anything-V2) estimates relative depth from a single RGB image. The selected [Small checkpoint](https://huggingface.co/depth-anything/Depth-Anything-V2-Small) has Apache-2.0 terms and 24,785,089 parameters. Two existing 1199 × 658 native captures receive unchanged author preprocessing, with aspect-preserving short-side sizes of 252 and 392. No collision information enters the model.
+
+| Input width × height | Closeup median / p95 | Street median / p95 | Result |
+| --- | --- | --- | --- |
+| 462 × 252, FP32 | 10.21 / 10.65 ms | 10.98 / 13.76 ms | Passes provisional 15 ms call ceiling |
+| 714 × 392, FP32 | 24.21 / 24.95 ms | 24.23 / 25.32 ms | Exceeds ceiling |
+| 714 × 392, FP16 conversion | Unavailable | Unavailable | Session creation rejects CPU-assigned operations with fallback disabled |
+
+The successful graphs each record 31 DirectML inference events and no CPU execution events. CPU/GPU parity passes: maximum error divided by CPU output range is 0.000158 at 252 and 0.000034 at 392. Timings include upload/readback with the game stopped; preprocessing and full-size interpolation are excluded. There are 20 timed closeup calls after five warmups and five street calls after one warmup. **These are model-call costs, not 1440p application frame times.** The 15 ms planning ceiling is provisional for a 30 FPS experiment.
+
+<section class="comparison" data-comparison data-before-label="native RGB" data-after-label="relative depth" aria-label="Native street and inferred relative depth">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/geometry-street-source.png" width="1199" height="658" loading="lazy" alt="Native street with buildings, road, poles and foliage"><figcaption>Native RGB · evaluation input</figcaption></figure>
+<figure class="comparison-after"><img src="media/depth-252-street.png" width="1199" height="658" loading="lazy" alt="Smaller model relative depth, with a smooth road gradient and softened foliage masses"><figcaption>Relative depth · 252 short side</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal native RGB<input type="range" min="0" max="100" value="50" aria-label="Depth street RGB visible"><output>50% native RGB</output></label>
+</section>
+
+Grayscale maps use independent per-image min/max normalization; white means larger relative model output, generally nearer in these views. They share no metric distance scale. Both sizes preserve broad road/building placement and the foreground pole. Windows and door recesses flatten into facades, roof fittings remain incomplete, and foliage loses internal gaps. The larger graph retains some finer boundaries but does not resolve surface correctness.
+
+| Reserved street samples | 252 ordering / median depth error | 392 ordering / median depth error |
+| --- | --- | --- |
+| All 584 selected hits | 0.9964 / 2.81% | 0.9957 / 2.59% |
+| Ground: 460 hits | 0.9973 / 2.04% | 0.9978 / 1.75% |
+| Buildings: 124 hits | 0.7983 / 9.82% | 0.7222 / 15.71% |
+
+Ordering is Spearman correlation with inverse axial distance. An affine inverse-depth fit uses 578 even checkerboard grid cells; the 584 odd cells receive the same fit without recalibration. Both models pass the declared aggregate gate, but the ground dominates that result. Building error at p95 is **50.62% / 38.39%**, respectively; one smaller-model reserved sample has nonpositive fitted inverse depth. Collision hits are limited offline checks, not synchronized visible-surface ground truth. The closeup remains visual-only because its original projection control failed.
+
+Keep the smaller FP32 graph as a coarse depth candidate. **Do not reconstruct surface normals or apply per-pixel relighting from these maps.** Motion, HUD effects, peak GPU memory and whole-application performance remain unmeasured. No lighting effect, training target or package change is accepted. The two graph sizes and single FP16 attempt close within 17.4 minutes; the failed graph and report remain intact.
+
+<details>
+<summary>Inspect all depth maps and reproduction records</summary>
+
+| View | Native RGB | 252 short side | 392 short side |
+| --- | --- | --- | --- |
+| Closeup | [Source](media/geometry-closeup-source.png) | [Depth](media/depth-252-closeup.png) | [Depth](media/depth-392-closeup.png) |
+| Street | [Source](media/geometry-street-source.png) | [Depth](media/depth-252-street.png) | [Depth](media/depth-392-street.png) |
+
+The [complete depth evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/depth-anything-evaluation-v1.json) retains every timing, parity result, input/output hash, fit and provider failure. Source revision `a561b849ebae10a6f5ef49e26c83cbbcd36c71bf`; checkpoint SHA-256 `715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378` (99,218,434 bytes).
+
+The research scripts require the retained geometry captures/logs under ignored `runs/`; these are not part of the playable package. Use `requirements-evaluation.txt` plus CPU PyTorch 2.8.0 and torchvision 0.23.0. `scripts/prepare_depth_anything.py` verifies the pinned author source and checkpoint. Run `scripts/evaluate_depth_anything.py --short-side 252 --out NEW_DIRECTORY` (or 392), then `scripts/analyze_depth_geometry.py --depth-run RETAINED_DIRECTORY --out NEW_DIRECTORY`. `scripts/evaluate_depth_anything_half.py` reproduces the single failed conversion from the recorded 392 run. All output directories must be new.
+
+</details>
+
+<details>
+<summary>Earlier SPAN restoration comparison</summary>
 
 ## RGB detail restoration
 
@@ -35,6 +85,8 @@ Both variants run on DirectML without CPU fallback. The longer first-view sample
 Compare the [original 1440p capture](media/span-street-original.png) and [bounded residual diagnostic](media/span-street-protected.png). SPAN restores more roof and facade detail than bicubic, while the original retains finer foliage and road detail. Adding a small protected residual to the original produces slight sharpening, with no demonstrated material-response or lighting improvement. It also introduces 0.0081–0.0277% newly black channels across the four views. **Live integration is rejected.** Motion and full-application performance were not tested for this graph.
 
 The [complete SPAN evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/span-evaluation-v1.json) records all samples, hashes, precision checks, failed export and residual parameters. Reproduce with `scripts/prepare_span.py`, `scripts/evaluate_span.py --out NEW_DIRECTORY`, `scripts/evaluate_span_half.py --out NEW_DIRECTORY` and `scripts/diagnose_span_residual.py --out NEW_DIRECTORY`. The latter two consume the retained `runs/span-evaluation-v1` result. The author archive is 1.33 GB; only the selected 17.9 MB checkpoint is extracted. No model is added to the playable package.
+
+</details>
 
 <details>
 <summary>Earlier REGEN and DeepLPF comparisons</summary>
