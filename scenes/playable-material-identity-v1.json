@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "purpose": "Identify actual nearby gameplay assets and their material references before choosing an identity-preserving appearance target.",
+  "maximum_investigation_minutes": 30,
+  "maximum_validation_attempts": 3,
+  "maximum_captures": 2,
+  "world": "worlds/Eden/Eden.ent",
+  "position": [4583.34, 20.062, 10707.7],
+  "direction": [-0.171683, -0.000883705, 0.985152],
+  "position_source": "First accepted street standard run, nearest logged sample to simulation second 40 (actual 40.3792).",
+  "query_radius_metres": 45,
+  "maximum_objects": 160,
+  "maximum_materials_per_object": 16,
+  "operation": "Read entity prefab and mesh resource names, material slot names and supported material-container map references. Capture the same location in private Workbench simulation. No scene, source material, game installation or asset modifications.",
+  "acceptance": "At least one existing building/road material is linked to a visible gameplay asset with a verified source resource and map references. This identifies input data only; a game texture is not photorealistic ground truth, and a Workbench capture is not gameplay performance evidence.",
+  "failure": "Preserve unresolved slots, inaccessible containers and failed logs. Stop after declared attempts if exact resource links cannot be read through supported APIs. Do not infer buffers from a screenshot or manufacture paired targets."
+}

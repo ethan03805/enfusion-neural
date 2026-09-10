@@ -161,3 +161,9 @@ Preserve the first street launch's world-loading crash and the first complete st
 Accepted 10 September 2026. Add optional `GetLastPresentCount`/`GetFrameStatistics` logging after Present, retaining raw HRESULTs and all counters. The first street run returns one initial disjoint result followed by 2,922 successful calls with all display counters zero. The single declared `DwmFlush` follow-up also returns zero counters across 2,918 successful calls, while adding synchronization cost. Submitted-present IDs advance but do not establish display timing.
 
 Stop this route. Keep the optional diagnostic implementation, raw traces and original non-probe binary. Leave flags off by default, retain the unchanged download and earlier separate software display join, and continue to label moving-path display and physical latency unavailable. The neural GPU shader remains byte-for-byte unchanged and the rebuilt native curve matches its independent CPU reference within 0.000000075.
+
+## 031 · Identify a real gameplay material before proposing its correction
+
+Accepted 10 September 2026. Inspect the accepted street location through supported read-only Workbench APIs. Preserve the first 160-object inspection limit and the initial unresolved slot handles. Native inventory resolves three unique roof/wall material names from the observed `House_Village_E_1L02t` mesh; their `MatPBRMulti` containers expose slate, plaster, brick and mask references. Retain both full survey images and all validation/inventory/schema hashes.
+
+Do not equate matching asset-folder/slot names with verified per-instance overrides, or native texture references with decoded pixels and photorealistic ground truth. No game asset is modified or source texture published. The next appearance step verifies the actual binding and texture inputs before choosing a correction target; the working companion remains unchanged.

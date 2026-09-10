@@ -72,6 +72,23 @@ Three [CC0](https://polyhaven.com/license) material references are now retained 
 
 These are material-category references, **not aligned training targets or replacement game textures**. No model was trained and no game asset changed. `scripts/prepare_appearance_references.py` reproduces the 25.1 MB reference set; [reference evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-appearance-references-v1.json) records the distinction. Direct HTML download of the license page returned 403; its CC0 statement was verified on the primary page through the web tool, while the documented asset API and downloads succeeded.
 
+### Existing street material
+
+Read-only Workbench inspection now identifies one existing building on the accepted street route: `House_Village_E_1L02t`. Its mesh reports roof and exterior-wall slots. Three uniquely matching material resources load as `MatPBRMulti` containers, exposing the following native texture references:
+
+| Surface | Observed material inputs | Remaining uncertainty |
+| --- | --- | --- |
+| Roof | Slate BCR/NMO, brick, bare concrete, wood and dirt layers | Active per-instance binding and decoded texture/channel data |
+| Exterior wall | White/rough plaster, exposed brick, peeling-paint masks and concrete normal map | Exact layer blending and an aligned appearance target |
+| Wall variant | Bare plaster, brick and damage masks | Which surfaces use this variant in the placed instance |
+
+<figure>
+<img src="media/playable-street-material.png" width="1199" height="658" loading="lazy" alt="Existing slate-roof street building with windows, doors, a foreground pole and metal barrier">
+<figcaption>Material identity survey · complete native Workbench image, 1199 × 658 · no neural processing</figcaption>
+</figure>
+
+This view confirms the building and its visible slate roof, openings and cover. It is a separate Workbench simulation with its own rendering settings, not a gameplay comparison or photorealistic reference. Material association currently uses matching slot names and the same asset folder; active instance overrides still need verification. Source texture pixels have not been extracted, and no model was trained. [Exact resource links, survey hashes and access limits](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-identity-v1.json).
+
 ### Candidate replay
 
 [REGEN author implementation](https://github.com/stefanos50/REGEN), revision `de240056522d066235b48b541e7d49f28c80f1ed`, provides the GTA2Cityscapes checkpoint and ONNX generator. [DeepLPF author implementation](https://github.com/sjmoran/deeplpf-image-enhancement), revision `b6d6764b548667f51eda2f1a6aafd484822de3ec`, provides the Adobe-DPE checkpoint. Author licenses and complete source hashes are retained with each evaluation. No new model is bundled in the playable download.

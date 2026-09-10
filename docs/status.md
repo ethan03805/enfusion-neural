@@ -16,4 +16,6 @@ Two more [appearance candidates](model-evaluation.md) have now been evaluated on
 
 Engine actions verify a walking soldier and camera turn under continuous processing. Physical WASD/mouse operation through the overlay still needs a user check. Extended movement, interiors, scopes, adverse weather, HDR and semantic failure detection are outside accepted coverage. Three CC0 road/roof/bark reference sets are retained, but their patterns differ from the game; they are not aligned training targets.
 
+The next appearance work now has a concrete asset: an existing street building with observed mesh slots and readable slate/plaster/brick material references. A reviewed Workbench view and exact resource links are retained. Per-instance material binding, decoded texture data and a higher-fidelity aligned target remain unverified; no new appearance model or asset replacement is accepted.
+
 See the [playable prototype](playable.md) for the build, normal-speed comparisons, complete measurements and retained failures. The [roadmap](roadmap.md) identifies the remaining acceptance gates. Blender work remains [background research](research-history.md).

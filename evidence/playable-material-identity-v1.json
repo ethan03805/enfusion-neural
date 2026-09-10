@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "material_resource_references_observed",
+  "asset": {
+    "mesh": "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob",
+    "prefab": "{DE43119351D125AC}Prefabs/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.et",
+    "origin": [
+      4586.93,
+      18.167,
+      10757.1
+    ],
+    "material_slots": [
+      {
+        "index": 0,
+        "name": "House_Village_E_1L02t_roof"
+      },
+      {
+        "index": 1,
+        "name": "House_Village_E_1L02t_foundation"
+      },
+      {
+        "index": 2,
+        "name": "House_Village_E_1L02t_exterior_walls"
+      },
+      {
+        "index": 3,
+        "name": "House_Village_E_1L02t_details"
+      },
+      {
+        "index": 4,
+        "name": "House_Village_E_1L02t_interior_walls"
+      },
+      {
+        "index": 5,
+        "name": "House_Village_E_1L02t_exterior_walls_01"
+      },
+      {
+        "index": 6,
+        "name": "House_Village_E_1L02t_interior_MLOD"
+      },
+      {
+        "index": 7,
+        "name": "House_Village_E_1L02t_MLOD"
+      },
+      {
+        "index": 8,
+        "name": "PRT_DOOR_INT_A_8E55D99EDC035CEA"
+      },
+      {
+        "index": 9,
+        "name": "PRT_DOOR_GARAGE_A_EM_6700FA7CB5E67272"
+      },
+      {
+        "index": 10,
+        "name": "PRT_130x182_A_EM_0A968C0B348F4507"
+      },
+      {
+        "index": 11,
+        "name": "PRT_Null_8E55D99EDC035CEA"
+      },
+      {
+        "index": 12,
+        "name": "House_Village_1L02_EXT_Doors_LigtPortal"
+      }
+    ]
+  },
+  "inspection_limit": "The 45m sphere encountered 975 objects; the predeclared first 160 were inspected, yielding 423 slots. Slots are names, not direct material handles; initial direct container count was zero. This is not an exhaustive town inventory.",
+  "association": "Three unique material basenames exactly match mesh slot names and share the mesh asset folder. Their resource containers load successfully. This establishes a strong asset-family association; it does not yet verify active per-instance overrides or every rendered pixel.",
+  "materials": [
+    {
+      "name": "street_roof",
+      "resource": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+      "slot_basename": "House_Village_E_1L02t_roof",
+      "class": "MatPBRMulti",
+      "texture_references": [
+        {
+          "field": "VFXMap",
+          "resource": "{CAEA4AFB55F8BF2B}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_VFX.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "DirtBCRMap",
+          "resource": "{9A86792573FC7E6A}Assets/_SharedData/GrungeSurface/ST_Dirt_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "DirtMaskMap",
+          "resource": "{2563D86FF583B1EF}Assets/_SharedData/DetailMask/ST_Metal_Rust_01_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "GlobalMCRMap",
+          "resource": "{A58AE3A9094F42D9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "MaskMap",
+          "resource": "{C68D737D1D1C1122}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_4",
+          "resource": "{42D93EA9992BB127}Assets/_SharedData/Wood/ST_WoodPlanks_02_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_4",
+          "resource": "{7A01853B405CE3B9}Assets/_SharedData/Wood/ST_WoodPlanks_02_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_3",
+          "resource": "{63A5BA526E991FD8}Assets/_SharedData/Brick/ST_Bricks_Clean_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_3",
+          "resource": "{5B7D01C0B7EE4D46}Assets/_SharedData/Brick/ST_Bricks_Clean_01_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_2",
+          "resource": "{1624A684A875CD76}Assets/_SharedData/Concrete/ST_Concrete_Bare_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_2",
+          "resource": "{2EFC1D1671029FE8}Assets/_SharedData/Concrete/ST_Concrete_Bare_01_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_1",
+          "resource": "{76269C3DE41F8F15}Assets/_SharedData/Roof/ST_Roof_Slate_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_1",
+          "resource": "{4EFE27AF3D68DD8B}Assets/_SharedData/Roof/ST_Roof_Slate_01_NMO.edds",
+          "serialized_suffix": "0"
+        }
+      ]
+    },
+    {
+      "name": "street_wall",
+      "resource": "{4896A99A55DE2D74}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls.emat",
+      "slot_basename": "House_Village_E_1L02t_exterior_walls",
+      "class": "MatPBRMulti",
+      "texture_references": [
+        {
+          "field": "VFXMap",
+          "resource": "{CAEA4AFB55F8BF2B}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_VFX.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "DirtMaskMap",
+          "resource": "{2563D86FF583B1EF}Assets/_SharedData/DetailMask/ST_Metal_Rust_01_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "GlobalMCRMap",
+          "resource": "{A58AE3A9094F42D9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "MaskMap",
+          "resource": "{C68D737D1D1C1122}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "GlobalNMOMap",
+          "resource": "{3A423F83EC60AF97}Assets/_SharedData/Concrete/ST_Concrete_Clean_01_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_4",
+          "resource": "{1F148B96CED69BB6}Assets/_SharedData/Plaster/ST_Plaster_Clean_BW_02_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_4",
+          "resource": "{EC6C08E87F5DEC53}Assets/_SharedData/Plaster/ST_Plaster_Damaged_04_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "Mask_4",
+          "resource": "{A3B4218CCE57A275}Assets/_SharedData/DetailMask/ST_Paint_peeling_03_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_3",
+          "resource": "{3B8B0137E179C9E5}Assets/_SharedData/Plaster/ST_Plaster_Brizolit_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_3",
+          "resource": "{0353BAA5380E9B7B}Assets/_SharedData/Plaster/ST_Plaster_Brizolit_01_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "Mask_3",
+          "resource": "{CBD042945A4747A5}Assets/_SharedData/DetailMask/ST_Concrete_03_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_2",
+          "resource": "{9C568F5695FC2681}Assets/_SharedData/Plaster/ST_Plaster_Clean_White_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_2",
+          "resource": "{6DEDE9B7814F5B0A}Assets/_SharedData/Plaster/ST_Plaster_Bare_02_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "Mask_2",
+          "resource": "{B62129F4BA24B2EA}Assets/_SharedData/DetailMask/ST_Concrete_04_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_1",
+          "resource": "{EB2D99D39E874CE7}Assets/_SharedData/Brick/ST_Bricks_Rough_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_1",
+          "resource": "{D3F5224147F01E79}Assets/_SharedData/Brick/ST_Bricks_Rough_01_NMO.edds",
+          "serialized_suffix": "0"
+        }
+      ]
+    },
+    {
+      "name": "street_wall_variant",
+      "resource": "{23C3B27BE9252ECC}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_01.emat",
+      "slot_basename": "House_Village_E_1L02t_exterior_walls_01",
+      "class": "MatPBRMulti",
+      "texture_references": [
+        {
+          "field": "VFXMap",
+          "resource": "{CAEA4AFB55F8BF2B}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_VFX.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "DirtMaskMap",
+          "resource": "{2563D86FF583B1EF}Assets/_SharedData/DetailMask/ST_Metal_Rust_01_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "GlobalMCRMap",
+          "resource": "{A58AE3A9094F42D9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "MaskMap",
+          "resource": "{C68D737D1D1C1122}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_GLOBAL_MASK.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_4",
+          "resource": "{6BE53556B0CB5ED9}Assets/_SharedData/Plaster/ST_Plaster_Bare_02_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_4",
+          "resource": "{6DEDE9B7814F5B0A}Assets/_SharedData/Plaster/ST_Plaster_Bare_02_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "Mask_4",
+          "resource": "{CBD042945A4747A5}Assets/_SharedData/DetailMask/ST_Concrete_03_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_2",
+          "resource": "{95E5751345993295}Assets/_SharedData/Plaster/ST_Plaster_Bare_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_2",
+          "resource": "{120DEBB9182433C8}Assets/_SharedData/Plaster/ST_Plaster_Bare_01_NMO.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "Mask_2",
+          "resource": "{F4BF2FE292D334B3}Assets/_SharedData/DetailMask/ST_Concrete_01_Mask1.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "BCR_1",
+          "resource": "{EB2D99D39E874CE7}Assets/_SharedData/Brick/ST_Bricks_Rough_01_BCR.edds",
+          "serialized_suffix": "0"
+        },
+        {
+          "field": "NMO_1",
+          "resource": "{D3F5224147F01E79}Assets/_SharedData/Brick/ST_Bricks_Rough_01_NMO.edds",
+          "serialized_suffix": "0"
+        }
+      ]
+    }
+  ],
+  "native_inventory": {
+    "report_sha256": "bf4a1b5ce4d833dd33e9d9df3eb10055759d5055cf33e19a4018e16aef60a855",
+    "run_id": "20260910T073524-63101522af",
+    "console_sha256": "bdc99e3c680f2e8ad0943d76348b7069c1f7cf98d254462efa7b9b780415924a",
+    "manifest_sha256": "e9cfe2d92cff6f83cc1a54e0ab6fc10036eff046b647a95dfba3f557ae77d618"
+  },
+  "captures": [
+    {
+      "run": "20260910T073240-d1eb69b461",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "position": [
+        4583.34,
+        20.062,
+        10707.7
+      ],
+      "direction": [
+        -0.17168297454563797,
+        -0.0008837048689786001,
+        0.9851518539376894
+      ],
+      "image_sha256": "501ab5933df346f2a19a94305d3d998f265ea83630b520531c84e4ea2751ec7a",
+      "manifest_sha256": "46014625948e480323f035714b7a6c071cb6798ad6dc18a4700116cfa3e0b15b",
+      "console_sha256": "051b9bf9283f95e28175ef75b7c62599c28f995b32de5be856f180e882658685",
+      "scope": "Native Workbench identity survey, not the fixed gameplay render/profile or a photorealistic target"
+    },
+    {
+      "run": "20260910T073835-de8e0accc3",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "position": [
+        4576.94,
+        19.6984,
+        10744.4
+      ],
+      "direction": [
+        0.6057431208418241,
+        0.2001923411182549,
+        0.770063827296413
+      ],
+      "image_sha256": "b1d07da848ae31f028752ba340a8debdb97b5b0052c479ed5c901b263cf6588d",
+      "manifest_sha256": "f96390d2202115595a7e44493afac19255f4ea276db1bc3ff5fd42aac1416812",
+      "console_sha256": "99d493c26bb03c1fa459c26832f17e4a68cc23a56c3a208ab34f27ce6cdc85b2",
+      "scope": "Native Workbench identity survey, not the fixed gameplay render/profile or a photorealistic target"
+    }
+  ],
+  "review": "Both full 1199x658 surveys inspected. The second shows the existing long slate-roof house, facade openings, gutter, foreground pole and metal barrier. No neural processing, cropping, paint-over or asset replacement.",
+  "reference_limit": "The slate/plaster/brick resource references are actual native material inputs, not decoded images or higher-fidelity paired ground truth. No texture bytes are extracted or published and no model is trained.",
+  "next": "Verify the mesh default/per-instance binding, then test supported read-only access to its existing slate BCR/NMO and mask data. Validate dimensions/channel meaning before defining any learned correction. Keep doors, windows, roof pattern and cover as constraints.",
+  "source_hashes": {
+    "runs/playable-material-identity-v1/runs/20260910T073216-dc3709b83a/run.json": "e3d03cafce0f5fd32959ae5343e17c5f079f560c73446907b699afed9dde68f3",
+    "runs/playable-material-identity-v1/runs/20260910T073216-dc3709b83a/console.log": "7a5ee181c1fe8d3488ab29a444b77266708675e6392b8a45d3e58b27033e722b",
+    "runs/playable-material-schema-v1/schema.json": "ee773c00d81cfcfa7f87e1fbf783d3f479f161f20b8cb814d48075e3cb535ed4",
+    "runs/playable-material-resources-v1/resources.json": "bf4a1b5ce4d833dd33e9d9df3eb10055759d5055cf33e19a4018e16aef60a855",
+    "scenes/playable-material-identity-v1.json": "7c67cdcba4eed2a1fff9b4c5273c2a293ba463bf8fddbc13b9b43bf6b4632bc2",
+    "scenes/playable-material-schema-v1.json": "2b0684cbd00a210d4ec4569ebba5a9ad041bc100110510cd500ecc0e66314546",
+    "adapters/enfusion/probes/ENR_MaterialIdentity.c": "66b641bd65477641e7581f037cc29ba4f1c49b81471130434491cae32c9fb6fa",
+    "scripts/probe_enfusion_material_schema.py": "52c61c4ff48b4dcda728d9ca6dc0e8c942f963afbf4cde3eae0338557fbc389b",
+    "runs/foliage-walk-pilot-v3/analysis.json": "0fb1e823c76821cfb7dfe57963dbc3e0e55cfdf9b8e07e04ec656af64251675a"
+  }
+}

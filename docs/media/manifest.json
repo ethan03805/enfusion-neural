@@ -1443,6 +1443,20 @@
       "source_sha256": "4c6a1d4469dd1ca15ff87e0f3f25b4a71dec09a196d560f3aa84682fc7e6ae43",
       "transformation": "Lossless PNG of the comparison at 10 seconds",
       "rights": "Arma Reforger game imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "playable-street-material.png",
+      "sha256": "b1d07da848ae31f028752ba340a8debdb97b5b0052c479ed5c901b263cf6588d",
+      "bytes": 1125111,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-identity-v1.json",
+      "source_artifact": "runs/playable-material-identity-v1/runs/20260910T073835-de8e0accc3/frame.png",
+      "source_sha256": "b1d07da848ae31f028752ba340a8debdb97b5b0052c479ed5c901b263cf6588d",
+      "transformation": "None; complete native Workbench survey PNG",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
     }
   ],
   "videos": [

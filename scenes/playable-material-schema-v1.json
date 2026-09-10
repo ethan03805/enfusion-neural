@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only schema and map-reference inspection for the existing House_Village_E_1L02t mesh observed on the accepted street route. Resource names were found in the verified native inventory. Slot-to-material association uses exact unique basename and the same asset folder; per-instance override binding has not yet been established. No asset modification, texture extraction, model training or photorealism claim.",
+  "maximum_minutes": 10,
+  "materials": [
+    {"name": "street_roof", "resource": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat"},
+    {"name": "street_wall", "resource": "{4896A99A55DE2D74}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls.emat"},
+    {"name": "street_wall_variant", "resource": "{23C3B27BE9252ECC}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_exterior_walls_01.emat"}
+  ]
+}

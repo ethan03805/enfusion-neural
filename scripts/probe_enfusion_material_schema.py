@@ -51,9 +51,10 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', required=True); p.add_argument('--lab-source', required=True)
     p.add_argument('--inventory', required=True)
+    p.add_argument('--plan', type=Path, default=ROOT / 'scenes/color-lookup-schema-v1.json', help='Declared material list; native resources must be present in the verified inventory')
     a = p.parse_args(); out = Path(a.out).resolve()
     if out.exists() and any(out.iterdir()): raise ValueError('Choose a new empty schema directory')
-    plan_path = ROOT / 'scenes/color-lookup-schema-v1.json'; plan = read(plan_path)
+    plan_path = a.plan.resolve(); plan = read(plan_path)
     observed, binding = verified_inventory(a.inventory)
     for item in plan['materials']:
         if 'resource' in item and item['resource'] not in observed:
