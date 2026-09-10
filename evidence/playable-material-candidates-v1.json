@@ -1,0 +1,991 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "moderate_roughness_candidates_rejected_keep_original",
+  "plan": {
+    "schema_version": 1,
+    "date": "2026-09-10",
+    "started_at": "2026-09-10T09:01:26Z",
+    "maximum_minutes": 30,
+    "maximum_validations": 2,
+    "maximum_capture_sequences": 3,
+    "world": "worlds/Eden/Eden.ent",
+    "material": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+    "parameter": "RoughnessScale",
+    "candidate_values": [
+      0.4,
+      0.7
+    ],
+    "original_default": 1,
+    "environment": {
+      "year": 1989,
+      "month": 6,
+      "day": 21,
+      "hour": 13,
+      "weather": "Clear",
+      "wind_speed_mps": 0,
+      "wind_direction_degrees": 0,
+      "settle_seconds": 8
+    },
+    "views": [
+      {
+        "name": "closeup",
+        "split": "selection",
+        "position": [
+          4576.94,
+          19.6984,
+          10744.4
+        ],
+        "direction": [
+          0.60574312084,
+          0.2001923411,
+          0.7700638273
+        ]
+      },
+      {
+        "name": "approach",
+        "split": "selection",
+        "position": [
+          4573.5,
+          21,
+          10733
+        ],
+        "look_at": [
+          4586,
+          24.7,
+          10756
+        ]
+      },
+      {
+        "name": "reverse",
+        "split": "reserved",
+        "position": [
+          4572.5,
+          22,
+          10764
+        ],
+        "look_at": [
+          4586,
+          25,
+          10756
+        ]
+      }
+    ],
+    "sequence": "After settle capture source. Wait 1.5s, set 0.4. Wait 2s, capture candidate040. Wait 1.5s, set 0.7. Wait 2s, capture candidate070. Wait 1.5s, reset. Wait 2s, capture final frame. Hold camera, date, hour and wind. Log camera, weather and exposure at each phase. Cached material only, no native file or texture changes.",
+    "reference": {
+      "product_page": "https://www.cupapizarras.com/uk/roofing-slate-cupa-12/",
+      "range_page": "https://www.cupapizarras.com/uk/natural-slate-roofing/slates/?tipo=smooth",
+      "interpretation": "Manufacturer identifies a smooth matte blue-grey slate. Detail and installed-roof photographs show low sheen and retained tile variation. Lighting, wear, exact material and exposure differ from Reforger; no numerical roughness calibration or aligned ground truth.",
+      "rights": "CUPA PIZARRAS copyrighted reference imagery; retained privately for inspection only, linked rather than republished or used in training."
+    },
+    "selection": "Review all native source/candidate/reset images in the first two views. Prefer original if neither candidate makes slate response more plausible. A wet, metallic or uniformly bleached appearance fails. Freeze candidate choice or reject both before opening reserved-view candidate images; the third view can only accept/reject that fixed choice.",
+    "numeric_controls": "No alignment or exposure compensation. Report full-frame mean/max change and channel clipping, camera/environment equality, and reset differences. On the existing close-up, reuse roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require reset roof MAE <=1 code, candidate sky MAE <=1 code and newly clipped roof channels <=0.1%. Other views require full-image visual checks; do not invent post-selected ROI gates.",
+    "acceptance": "Require visible material benefit, stable color identity, readable slate detail and unchanged boundaries/openings/foreground cover. A static native result does not establish motion, gameplay cost or a neural appearance result. Any later optional material preset must be measured separately from the RGB neural pass."
+  },
+  "reference": {
+    "source_page": "https://www.cupapizarras.com/uk/roofing-slate-cupa-12/",
+    "retrieved_date": "2026-09-10",
+    "files": [
+      {
+        "file": "cupa12-detail.png",
+        "url": "https://www.cupapizarras.com/wp-content/uploads/2024/02/cupa-12-slate-detail.png",
+        "sha256": "28d01097cca66afbd728992b969e8d78276ac397c5264d0011f56bbd6a3fafa5",
+        "bytes": 48780,
+        "dimensions": [
+          150,
+          237
+        ]
+      },
+      {
+        "file": "cupa12-roof.jpg",
+        "url": "https://www.cupapizarras.com/wp-content/uploads/2025/09/grand-designs-partner-slate-roof.jpg",
+        "sha256": "29f2e5c79ce0831c6de5a299365829fe1112755658f8a85ad325033949312324",
+        "bytes": 167915,
+        "dimensions": [
+          1014,
+          570
+        ]
+      }
+    ],
+    "review": "Both original images inspected. Small slate sample is dark grey with modest broad reflection and fine surface variation; installed roof is blue-grey with low sheen and distinct tiles. Lighting/exposure/wear are unmatched. No inferred numerical roughness.",
+    "publication": "Private inspection only; author links in documentation, no image redistribution or training."
+  },
+  "selection_before_reserved": {
+    "date": "2026-09-10T09:10:31.160569+00:00",
+    "selected_for_reserved_check": 0.7,
+    "rejected": 0.4,
+    "basis": "All eight original selection images inspected. 0.4 adds a pale, broad reflective response, especially on the extension roof. 0.7 produces a modest cooler sheen while retaining weathered tone and slate detail. Close-up numeric gates pass with no newly clipped channels. This is a provisional native-material preference, not substantial photorealism or a neural target.",
+    "reserved_view_candidate_images_inspected": false,
+    "reserved_rule": "Only accept or reject 0.7; do not switch to another value after viewing reserved results.",
+    "source_hashes": {
+      "runs/material-candidates-closeup-v1/report.json": "7368f39650b49a20fb3ae2bc0a48eb35b75b611a63394baabb0da35e467ba6e6",
+      "runs/material-candidates-approach-v1/report.json": "15b1ececc7a7c6830d2e39b73c0a5bafeb0d11d68dd9a2a313740f76cf56733b",
+      "runs/slate-photo-references-v1/reference.json": "a67d647ecacc1ece58ec33ec0a06775b799a4bcc5e4db2014216de5fef85933a"
+    }
+  },
+  "views": [
+    {
+      "schema_version": 1,
+      "run": "20260910T090605-bf848894f6",
+      "view": "closeup",
+      "split": "selection",
+      "phases": [
+        [
+          "source",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "947"
+        ],
+        [
+          "set040",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "1135"
+        ],
+        [
+          "candidate040",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "1397"
+        ],
+        [
+          "set070",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "1588"
+        ],
+        [
+          "candidate070",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "1852"
+        ],
+        [
+          "reset",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "2042"
+        ],
+        [
+          "restored",
+          "<4576.94,19.6984,10744.4>",
+          "<0.605743,0.200192,0.770064>",
+          "2294"
+        ]
+      ],
+      "environment": [
+        [
+          "source",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "reset",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "restored",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ]
+      ],
+      "exposure": [
+        [
+          "source",
+          "0.00456415",
+          "0.305356"
+        ],
+        [
+          "set040",
+          "0.00456415",
+          "0.305372"
+        ],
+        [
+          "candidate040",
+          "0.00456415",
+          "0.307098"
+        ],
+        [
+          "set070",
+          "0.00456415",
+          "0.307105"
+        ],
+        [
+          "candidate070",
+          "0.00456415",
+          "0.306069"
+        ],
+        [
+          "reset",
+          "0.00456415",
+          "0.3061"
+        ],
+        [
+          "restored",
+          "0.00456415",
+          "0.305367"
+        ]
+      ],
+      "assignments": [
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.4"
+        ],
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.7"
+        ]
+      ],
+      "metrics": {
+        "candidate040": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 1.211697437834467,
+            "max_codes": 206.0,
+            "p95_codes": 6.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              118.08049007404854,
+              133.9990886529048,
+              142.8752557222204
+            ]
+          },
+          "roof": {
+            "pixels": 16405,
+            "mae_codes": 13.658620339327442,
+            "max_codes": 84.0,
+            "p95_codes": 36.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              152.56872904602255,
+              153.25681194757695,
+              154.62645534897896
+            ]
+          },
+          "sky": {
+            "pixels": 60000,
+            "mae_codes": 0.0022444444444444443,
+            "max_codes": 12.0,
+            "p95_codes": 0.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              81.82628333333334,
+              143.24116666666666,
+              201.25758333333334
+            ]
+          }
+        },
+        "candidate070": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.6093324984599628,
+            "max_codes": 185.0,
+            "p95_codes": 3.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              117.85271794377788,
+              133.53873922290865,
+              142.0504891360835
+            ]
+          },
+          "roof": {
+            "pixels": 16405,
+            "mae_codes": 4.9914863354668295,
+            "max_codes": 41.0,
+            "p95_codes": 14.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              148.4195672051204,
+              145.06150563852484,
+              139.96251142944223
+            ]
+          },
+          "sky": {
+            "pixels": 60000,
+            "mae_codes": 0.0006055555555555556,
+            "max_codes": 2.0,
+            "p95_codes": 0.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              81.82556666666666,
+              143.23885,
+              201.25653333333332
+            ]
+          }
+        },
+        "restored": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.28384765082012786,
+            "max_codes": 192.0,
+            "p95_codes": 1.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              117.62269216241498,
+              133.21723396650196,
+              141.55227000210408
+            ]
+          },
+          "roof": {
+            "pixels": 16405,
+            "mae_codes": 0.05981916082495174,
+            "max_codes": 18.0,
+            "p95_codes": 0.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              146.00128009753124,
+              141.03754952758305,
+              132.72880219445292
+            ]
+          },
+          "sky": {
+            "pixels": 60000,
+            "mae_codes": 0.0,
+            "max_codes": 0.0,
+            "p95_codes": 0.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              81.82526666666666,
+              143.2379,
+              201.25603333333333
+            ]
+          }
+        }
+      },
+      "numeric_gates": {
+        "reset_roof_mae_at_most_1": true,
+        "candidate040_sky_mae_at_most_1": true,
+        "candidate040_new_roof_clipping_at_most_0001": true,
+        "candidate070_sky_mae_at_most_1": true,
+        "candidate070_new_roof_clipping_at_most_0001": true
+      },
+      "numeric_gates_pass": true,
+      "images": {
+        "source": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/source.png",
+          "sha256": "ca5e2ab7bebfd9e953499b3aa0eca6586373f0004038429f574ee483e4345d48"
+        },
+        "candidate040": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate040.png",
+          "sha256": "1a00c5281d13296a72e6ab584b6cde996c0f48a7fab56c0bab62684a964dd37c"
+        },
+        "candidate070": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate070.png",
+          "sha256": "a25878e9864f78e772c2fa4c3c1d5f9b0370284acaef0ea7b8c078787cac29d2"
+        },
+        "restored": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/frame.png",
+          "sha256": "d910f64f73009a64666f1a21c522bb816896b025f01c95a752c9463b785da78b"
+        }
+      },
+      "source_hashes": {
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/run.json": "1553d424611456482fa8024ee9a30703bb03e5a24e2adca3de966db9fb6ef6c6",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/console.log": "0eafd3452821f2a9b0bc1c251d8fec7dd964cd307f42435a02091e5b3697c329",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/addon/Scripts/Game/ENR_MaterialCandidates.c": "36695b108f54d2bb04c26e92e1720e7ab6afdce8cffd196e24bea8249537612d",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/addon/Scripts/Game/ELab_GameCapture.c": "627a3a172594d2566fda05d1a0a88a60433b1ac2655f0a62d71cee104318d93d",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/addon/Scripts/Game/ENR_ReferenceConfig.c": "edbf4822a5c56fed502c93d72e28862d1f15342dd0450cbfa4278275ebb9209b",
+        "scenes/playable-material-candidates-v1.json": "bd5dba34cb1af2f553cc876d171588d2b41dd7b1e759425f389c8a3d0de7d6f8",
+        "scripts/analyze_material_candidates.py": "e0aadc576a97d86ed958030a51ea26a4d9b6a7f5ee0bfe5cd12b3e3878dd4d6f",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/source.png": "ca5e2ab7bebfd9e953499b3aa0eca6586373f0004038429f574ee483e4345d48",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate040.png": "1a00c5281d13296a72e6ab584b6cde996c0f48a7fab56c0bab62684a964dd37c",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate070.png": "a25878e9864f78e772c2fa4c3c1d5f9b0370284acaef0ea7b8c078787cac29d2",
+        "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/frame.png": "d910f64f73009a64666f1a21c522bb816896b025f01c95a752c9463b785da78b"
+      },
+      "scope": "Static native material comparison at separate simulation times; no resizing, alignment or exposure correction. Numeric gates only apply to predeclared close-up regions. Visual selection and reserved-view acceptance are separate; no neural or gameplay performance result."
+    },
+    {
+      "schema_version": 1,
+      "run": "20260910T090720-fd891cab6a",
+      "view": "approach",
+      "split": "selection",
+      "phases": [
+        [
+          "source",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "831"
+        ],
+        [
+          "set040",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "996"
+        ],
+        [
+          "candidate040",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "1220"
+        ],
+        [
+          "set070",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "1396"
+        ],
+        [
+          "candidate070",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "1637"
+        ],
+        [
+          "reset",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "1813"
+        ],
+        [
+          "restored",
+          "<4573.5,21,10733>",
+          "<0.472814,0.139953,0.869977>",
+          "2057"
+        ]
+      ],
+      "environment": [
+        [
+          "source",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "reset",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "restored",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ]
+      ],
+      "exposure": [
+        [
+          "source",
+          "0.00456415",
+          "0.333113"
+        ],
+        [
+          "set040",
+          "0.00456415",
+          "0.333089"
+        ],
+        [
+          "candidate040",
+          "0.00456415",
+          "0.333631"
+        ],
+        [
+          "set070",
+          "0.00456415",
+          "0.333648"
+        ],
+        [
+          "candidate070",
+          "0.00456415",
+          "0.333318"
+        ],
+        [
+          "reset",
+          "0.00456415",
+          "0.33333"
+        ],
+        [
+          "restored",
+          "0.00456415",
+          "0.333088"
+        ]
+      ],
+      "assignments": [
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.4"
+        ],
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.7"
+        ]
+      ],
+      "metrics": {
+        "candidate040": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.9438834962941931,
+            "max_codes": 200.0,
+            "p95_codes": 3.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              120.7332617606871,
+              144.43948351082844,
+              160.02359742541276
+            ]
+          }
+        },
+        "candidate070": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.5183604540426715,
+            "max_codes": 198.0,
+            "p95_codes": 2.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              120.6739240653939,
+              144.2867980155702,
+              159.75313014137922
+            ]
+          }
+        },
+        "restored": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.5477762201361654,
+            "max_codes": 208.0,
+            "p95_codes": 1.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              120.6113757411825,
+              144.17914117894597,
+              159.57552266199542
+            ]
+          }
+        }
+      },
+      "numeric_gates": {},
+      "numeric_gates_pass": null,
+      "images": {
+        "source": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/source.png",
+          "sha256": "5e97c50b85521fc4f989899c82cb88a9a2273843e64e29f8275d3c7f46fd91e5"
+        },
+        "candidate040": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/candidate040.png",
+          "sha256": "cb9bf3ae3f6eed82a65fc3297a8f185a68f17b944474a84dcbab3f1934fbee8b"
+        },
+        "candidate070": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/candidate070.png",
+          "sha256": "34febd024c4f07fa416c8d4cd37be0afd24bdbfce38a23de9055f860edf92bbd"
+        },
+        "restored": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/frame.png",
+          "sha256": "9bec4e7ecd303271526dd215b063c1c95fb7692a9ec011e85899f583cef079d7"
+        }
+      },
+      "source_hashes": {
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/run.json": "3c13e346e9cddda544a8e6fbbfef5aa7830245f1d050761071ecd0b8946ee833",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/console.log": "c2f045c60f08be52f257fdcdb210d26d851563905852723a8d3b570eb2fe4566",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/addon/Scripts/Game/ENR_MaterialCandidates.c": "36695b108f54d2bb04c26e92e1720e7ab6afdce8cffd196e24bea8249537612d",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/addon/Scripts/Game/ELab_GameCapture.c": "627a3a172594d2566fda05d1a0a88a60433b1ac2655f0a62d71cee104318d93d",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/addon/Scripts/Game/ENR_ReferenceConfig.c": "edbf4822a5c56fed502c93d72e28862d1f15342dd0450cbfa4278275ebb9209b",
+        "scenes/playable-material-candidates-v1.json": "bd5dba34cb1af2f553cc876d171588d2b41dd7b1e759425f389c8a3d0de7d6f8",
+        "scripts/analyze_material_candidates.py": "e0aadc576a97d86ed958030a51ea26a4d9b6a7f5ee0bfe5cd12b3e3878dd4d6f",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/source.png": "5e97c50b85521fc4f989899c82cb88a9a2273843e64e29f8275d3c7f46fd91e5",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/candidate040.png": "cb9bf3ae3f6eed82a65fc3297a8f185a68f17b944474a84dcbab3f1934fbee8b",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/profile/profile/candidate070.png": "34febd024c4f07fa416c8d4cd37be0afd24bdbfce38a23de9055f860edf92bbd",
+        "runs/playable-material-candidates-v1/runs/20260910T090720-fd891cab6a/frame.png": "9bec4e7ecd303271526dd215b063c1c95fb7692a9ec011e85899f583cef079d7"
+      },
+      "scope": "Static native material comparison at separate simulation times; no resizing, alignment or exposure correction. Numeric gates only apply to predeclared close-up regions. Visual selection and reserved-view acceptance are separate; no neural or gameplay performance result."
+    },
+    {
+      "schema_version": 1,
+      "run": "20260910T091031-01ce024218",
+      "view": "reverse",
+      "split": "reserved",
+      "phases": [
+        [
+          "source",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "887"
+        ],
+        [
+          "set040",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "1056"
+        ],
+        [
+          "candidate040",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "1273"
+        ],
+        [
+          "set070",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "1461"
+        ],
+        [
+          "candidate070",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "1712"
+        ],
+        [
+          "reset",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "1895"
+        ],
+        [
+          "restored",
+          "<4572.5,22,10764>",
+          "<0.844989,0.187775,-0.500734>",
+          "2148"
+        ]
+      ],
+      "environment": [
+        [
+          "source",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate040",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "set070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "candidate070",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "reset",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ],
+        [
+          "restored",
+          "13",
+          "0",
+          "Clear",
+          "1989,6,21"
+        ]
+      ],
+      "exposure": [
+        [
+          "source",
+          "0.00456415",
+          "0.287638"
+        ],
+        [
+          "set040",
+          "0.00456415",
+          "0.287638"
+        ],
+        [
+          "candidate040",
+          "0.00456415",
+          "0.296234"
+        ],
+        [
+          "set070",
+          "0.00456415",
+          "0.2962"
+        ],
+        [
+          "candidate070",
+          "0.00456415",
+          "0.295739"
+        ],
+        [
+          "reset",
+          "0.00456415",
+          "0.295771"
+        ],
+        [
+          "restored",
+          "0.00456415",
+          "0.287662"
+        ]
+      ],
+      "assignments": [
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.4"
+        ],
+        [
+          "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+          "74",
+          "1",
+          "0.7"
+        ]
+      ],
+      "metrics": {
+        "candidate040": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 3.920683649748651,
+            "max_codes": 199.0,
+            "p95_codes": 29.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              109.58387688828837,
+              129.03676696132288,
+              141.39466145800324
+            ]
+          }
+        },
+        "candidate070": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 3.517463472177507,
+            "max_codes": 187.0,
+            "p95_codes": 27.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              109.79081985748002,
+              128.87670830048344,
+              140.5589308212771
+            ]
+          }
+        },
+        "restored": {
+          "whole": {
+            "pixels": 788942,
+            "mae_codes": 0.30696679857327913,
+            "max_codes": 197.0,
+            "p95_codes": 1.0,
+            "newly_clipped_channel_fraction": 0.0,
+            "mean_rgb_codes": [
+              106.62447936603705,
+              125.65816752055284,
+              137.1094453077666
+            ]
+          }
+        }
+      },
+      "numeric_gates": {},
+      "numeric_gates_pass": null,
+      "images": {
+        "source": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/source.png",
+          "sha256": "0b691e7d1ba71747739b80b73531274d6085dda1d2b2379d79f5a6b89a24d9f2"
+        },
+        "candidate040": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/candidate040.png",
+          "sha256": "08918d520460990aec376d066d446ea30873bd37847b0d5422ed11ce7707488f"
+        },
+        "candidate070": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/candidate070.png",
+          "sha256": "a7c62ac29e2916fe99a8eeb02259ea8d8d9c362f032ab950a0a770dea553d2d0"
+        },
+        "restored": {
+          "path": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/frame.png",
+          "sha256": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19"
+        }
+      },
+      "source_hashes": {
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/run.json": "ac7568ceff74f6584d9c0d1f64c64766c767f358f2e54d4b433965249e9f5e8c",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/console.log": "c572159431180f3249383f6debb5600692acaf49f6c484b48c27dd15c5d490cb",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/addon/Scripts/Game/ENR_MaterialCandidates.c": "36695b108f54d2bb04c26e92e1720e7ab6afdce8cffd196e24bea8249537612d",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/addon/Scripts/Game/ELab_GameCapture.c": "627a3a172594d2566fda05d1a0a88a60433b1ac2655f0a62d71cee104318d93d",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/addon/Scripts/Game/ENR_ReferenceConfig.c": "edbf4822a5c56fed502c93d72e28862d1f15342dd0450cbfa4278275ebb9209b",
+        "scenes/playable-material-candidates-v1.json": "bd5dba34cb1af2f553cc876d171588d2b41dd7b1e759425f389c8a3d0de7d6f8",
+        "scripts/analyze_material_candidates.py": "e0aadc576a97d86ed958030a51ea26a4d9b6a7f5ee0bfe5cd12b3e3878dd4d6f",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/source.png": "0b691e7d1ba71747739b80b73531274d6085dda1d2b2379d79f5a6b89a24d9f2",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/candidate040.png": "08918d520460990aec376d066d446ea30873bd37847b0d5422ed11ce7707488f",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/candidate070.png": "a7c62ac29e2916fe99a8eeb02259ea8d8d9c362f032ab950a0a770dea553d2d0",
+        "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/frame.png": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19"
+      },
+      "scope": "Static native material comparison at separate simulation times; no resizing, alignment or exposure correction. Numeric gates only apply to predeclared close-up regions. Visual selection and reserved-view acceptance are separate; no neural or gameplay performance result."
+    }
+  ],
+  "validation": {
+    "run_id": "20260910T090544-f11a4aa5f1",
+    "status": "succeeded",
+    "process_exit_code": 0,
+    "wall_seconds": 11.31300000000192,
+    "addon_sha256": {
+      "addon.gproj": "7263ede73e4bfe60844076fda4a9d55ab12812ede3e98d57877b9971ad30e68b",
+      "Scripts/Game/ELab_GameCapture.c": "627a3a172594d2566fda05d1a0a88a60433b1ac2655f0a62d71cee104318d93d",
+      "Scripts/Game/ENR_MaterialCandidates.c": "36695b108f54d2bb04c26e92e1720e7ab6afdce8cffd196e24bea8249537612d",
+      "Scripts/Game/ENR_ReferenceConfig.c": "edbf4822a5c56fed502c93d72e28862d1f15342dd0450cbfa4278275ebb9209b",
+      "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+    }
+  },
+  "captures": [
+    {
+      "run_id": "20260910T090605-bf848894f6",
+      "status": "succeeded",
+      "wall_seconds": 46.59399999999732,
+      "started_at": "2026-09-10T09:06:05.269097+00:00",
+      "finished_at": "2026-09-10T09:06:51.863093+00:00",
+      "terminated_owned_process": true,
+      "process_exit_code": 1
+    },
+    {
+      "run_id": "20260910T090720-fd891cab6a",
+      "status": "succeeded",
+      "wall_seconds": 45.98500000000058,
+      "started_at": "2026-09-10T09:07:20.054973+00:00",
+      "finished_at": "2026-09-10T09:08:06.036546+00:00",
+      "terminated_owned_process": true,
+      "process_exit_code": 1
+    },
+    {
+      "run_id": "20260910T091031-01ce024218",
+      "status": "succeeded",
+      "wall_seconds": 46.375,
+      "started_at": "2026-09-10T09:10:31.283264+00:00",
+      "finished_at": "2026-09-10T09:11:17.667477+00:00",
+      "terminated_owned_process": true,
+      "process_exit_code": 1
+    }
+  ],
+  "review": {
+    "inspected": "All 12 original source/candidate040/candidate070/reset captures reviewed in full at native 1199x658; both manufacturer reference images inspected privately.",
+    "selection_views": "0.4 is too pale and reflective, particularly on the extension roof. 0.7 gives a smaller cooler sheen and was provisionally selected before the reserved sequence.",
+    "reserved_view": "0.7 adds a broad pale response across the close roof slope and reduces the visible weathered slate contrast. Tile outlines, roof attachments and foreground cover remain present, but a convincing appearance benefit is absent. Reject the fixed candidate; do not select another value after seeing this view.",
+    "numerical": "Camera, date, hour, weather, wind and reported HDR brightness remain fixed within each sequence. No new clipped channels in any full-frame candidate comparison. Close-up reset roof MAE 0.0598 codes. Full-frame temporal differences remain; maxima are not hidden by alignment.",
+    "decision": "Keep original roof roughness. The working material API is retained, but no optional preset, training target or live change is justified by these candidates.",
+    "scope": "This closes the declared scalar candidates, not every possible native material workflow. Photographs are unmatched appearance guidance; neither a numerical roughness calibration nor photorealistic ground truth."
+  },
+  "source_hashes": {
+    "runs/playable-material-candidates-v1/setup.json": "e70292cda55d22c4a75b467814fc9425ed8ccb65e3ec8112ec75c98e7fa4a53d",
+    "runs/playable-material-candidates-v1/selection-before-reserved.json": "c7ae5661caf698805a9774e48421b498143651c3f1515d0abef83c00e7476492",
+    "runs/playable-material-candidates-v1/runs/20260910T090544-f11a4aa5f1/run.json": "96dfab04299b8a8591ab287c75198cd0b7510f66ec2fb48aa7e73d52fc864784",
+    "runs/playable-material-candidates-v1/runs/20260910T090544-f11a4aa5f1/console.log": "ab5050ed6dcec511ec5e0a696d9d3570f99a2b54e626cec968048ad9a4f24c23",
+    "runs/material-candidates-closeup-v1/report.json": "7368f39650b49a20fb3ae2bc0a48eb35b75b611a63394baabb0da35e467ba6e6",
+    "runs/material-candidates-approach-v1/report.json": "15b1ececc7a7c6830d2e39b73c0a5bafeb0d11d68dd9a2a313740f76cf56733b",
+    "runs/material-candidates-reverse-v1/report.json": "ec99777f6c478e8ec8e63bc6630eba3f8da1576fe665d2b7ad79a248d3d5f833"
+  },
+  "published_media": [
+    {
+      "file": "roof-candidates-closeup-source.png",
+      "sha256": "ca5e2ab7bebfd9e953499b3aa0eca6586373f0004038429f574ee483e4345d48",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    },
+    {
+      "file": "roof-candidates-closeup-candidate040.png",
+      "sha256": "1a00c5281d13296a72e6ab584b6cde996c0f48a7fab56c0bab62684a964dd37c",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    },
+    {
+      "file": "roof-candidates-closeup-candidate070.png",
+      "sha256": "a25878e9864f78e772c2fa4c3c1d5f9b0370284acaef0ea7b8c078787cac29d2",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    },
+    {
+      "file": "roof-candidates-reverse-source.png",
+      "sha256": "0b691e7d1ba71747739b80b73531274d6085dda1d2b2379d79f5a6b89a24d9f2",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    },
+    {
+      "file": "roof-candidates-reverse-candidate070.png",
+      "sha256": "a7c62ac29e2916fe99a8eeb02259ea8d8d9c362f032ab950a0a770dea553d2d0",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    },
+    {
+      "file": "roof-candidates-reverse-restored.png",
+      "sha256": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19",
+      "transformation": "Unchanged native Workbench PNG; no scaling, alignment, grading or neural processing"
+    }
+  ],
+  "working_package_changed": false,
+  "new_training": false,
+  "photorealistic_gain_accepted": false,
+  "next": "Bounded RGB monocular-depth evaluation against existing offline collision samples before any neural lighting composition. Keep geometry mismatch and unknown scale explicit."
+}

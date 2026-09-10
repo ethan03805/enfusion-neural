@@ -1611,6 +1611,90 @@
       "source_sha256": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336",
       "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-closeup-source.png",
+      "sha256": "ca5e2ab7bebfd9e953499b3aa0eca6586373f0004038429f574ee483e4345d48",
+      "bytes": 1138066,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/source.png",
+      "source_sha256": "ca5e2ab7bebfd9e953499b3aa0eca6586373f0004038429f574ee483e4345d48",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-closeup-candidate040.png",
+      "sha256": "1a00c5281d13296a72e6ab584b6cde996c0f48a7fab56c0bab62684a964dd37c",
+      "bytes": 1141116,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate040.png",
+      "source_sha256": "1a00c5281d13296a72e6ab584b6cde996c0f48a7fab56c0bab62684a964dd37c",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-closeup-candidate070.png",
+      "sha256": "a25878e9864f78e772c2fa4c3c1d5f9b0370284acaef0ea7b8c078787cac29d2",
+      "bytes": 1137090,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T090605-bf848894f6/profile/profile/candidate070.png",
+      "source_sha256": "a25878e9864f78e772c2fa4c3c1d5f9b0370284acaef0ea7b8c078787cac29d2",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-reverse-source.png",
+      "sha256": "0b691e7d1ba71747739b80b73531274d6085dda1d2b2379d79f5a6b89a24d9f2",
+      "bytes": 1051357,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/source.png",
+      "source_sha256": "0b691e7d1ba71747739b80b73531274d6085dda1d2b2379d79f5a6b89a24d9f2",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-reverse-candidate070.png",
+      "sha256": "a7c62ac29e2916fe99a8eeb02259ea8d8d9c362f032ab950a0a770dea553d2d0",
+      "bytes": 1040839,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/profile/profile/candidate070.png",
+      "source_sha256": "a7c62ac29e2916fe99a8eeb02259ea8d8d9c362f032ab950a0a770dea553d2d0",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "roof-candidates-reverse-restored.png",
+      "sha256": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19",
+      "bytes": 1051227,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-candidates-v1.json",
+      "source_artifact": "runs/playable-material-candidates-v1/runs/20260910T091031-01ce024218/frame.png",
+      "source_sha256": "38f05744667d4772f6d50aa6862ad7a3dc0f589e807a50c488755bfb06bcec19",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
     }
   ],
   "videos": [

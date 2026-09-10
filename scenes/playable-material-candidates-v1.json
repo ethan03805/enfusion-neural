@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "started_at": "2026-09-10T09:01:26Z",
+  "maximum_minutes": 30,
+  "maximum_validations": 2,
+  "maximum_capture_sequences": 3,
+  "world": "worlds/Eden/Eden.ent",
+  "material": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+  "parameter": "RoughnessScale",
+  "candidate_values": [0.4, 0.7],
+  "original_default": 1,
+  "environment": {"year":1989,"month":6,"day":21,"hour":13,"weather":"Clear","wind_speed_mps":0,"wind_direction_degrees":0,"settle_seconds":8},
+  "views": [
+    {"name":"closeup","split":"selection","position":[4576.94,19.6984,10744.4],"direction":[0.60574312084,0.2001923411,0.7700638273]},
+    {"name":"approach","split":"selection","position":[4573.5,21,10733],"look_at":[4586,24.7,10756]},
+    {"name":"reverse","split":"reserved","position":[4572.5,22,10764],"look_at":[4586,25,10756]}
+  ],
+  "sequence": "After settle capture source. Wait 1.5s, set 0.4. Wait 2s, capture candidate040. Wait 1.5s, set 0.7. Wait 2s, capture candidate070. Wait 1.5s, reset. Wait 2s, capture final frame. Hold camera, date, hour and wind. Log camera, weather and exposure at each phase. Cached material only, no native file or texture changes.",
+  "reference": {
+    "product_page":"https://www.cupapizarras.com/uk/roofing-slate-cupa-12/",
+    "range_page":"https://www.cupapizarras.com/uk/natural-slate-roofing/slates/?tipo=smooth",
+    "interpretation":"Manufacturer identifies a smooth matte blue-grey slate. Detail and installed-roof photographs show low sheen and retained tile variation. Lighting, wear, exact material and exposure differ from Reforger; no numerical roughness calibration or aligned ground truth.",
+    "rights":"CUPA PIZARRAS copyrighted reference imagery; retained privately for inspection only, linked rather than republished or used in training."
+  },
+  "selection": "Review all native source/candidate/reset images in the first two views. Prefer original if neither candidate makes slate response more plausible. A wet, metallic or uniformly bleached appearance fails. Freeze candidate choice or reject both before opening reserved-view candidate images; the third view can only accept/reject that fixed choice.",
+  "numeric_controls": "No alignment or exposure compensation. Report full-frame mean/max change and channel clipping, camera/environment equality, and reset differences. On the existing close-up, reuse roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require reset roof MAE <=1 code, candidate sky MAE <=1 code and newly clipped roof channels <=0.1%. Other views require full-image visual checks; do not invent post-selected ROI gates.",
+  "acceptance": "Require visible material benefit, stable color identity, readable slate detail and unchanged boundaries/openings/foreground cover. A static native result does not establish motion, gameplay cost or a neural appearance result. Any later optional material preset must be measured separately from the RGB neural pass."
+}

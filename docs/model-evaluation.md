@@ -125,7 +125,31 @@ A follow-up reads explicit **13-slot material defaults** from the house's native
 
 Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established.
 
+### Moderate roof candidates
+
+**Keep the original roof material.** The follow-up compares roughness multipliers 0.4 and 0.7 with original 1.0 in three views, holding camera, date, hour, weather and wind fixed. [CUPA PIZARRAS's slate range](https://www.cupapizarras.com/uk/natural-slate-roofing/slates/?tipo=smooth) describes a matte surface; its [CUPA 12 photographs](https://www.cupapizarras.com/uk/roofing-slate-cupa-12/) provide appearance guidance. Their lighting, wear and exact slate differ from the game, so they do not calibrate roughness or supply aligned ground truth. Both photographs were inspected privately and are linked rather than republished.
+
+The first two views reject 0.4 as too pale and reflective. The milder 0.7 is selected before opening the third view, but that reserved view shows a broad pale sheen and weaker weathered-slate contrast. It provides no convincing improvement. No preset or training target is accepted.
+
+<section class="comparison" data-comparison data-before-label="original material" data-after-label="rejected 0.7 candidate" aria-label="Reserved roof material comparison">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/roof-candidates-reverse-source.png" width="1199" height="658" loading="lazy" alt="Original roof in the reserved view retains weathered slate contrast"><figcaption>Reserved view · original material</figcaption></figure>
+<figure class="comparison-after"><img src="media/roof-candidates-reverse-candidate070.png" width="1199" height="658" loading="lazy" alt="Roughness multiplier 0.7 adds broad pale sheen across the same roof"><figcaption>0.7 candidate · rejected appearance result</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal original<input type="range" min="0" max="100" value="50" aria-label="Reserved roof original visible"><output>50% original material</output></label>
+</section>
+
+There are no newly clipped channels in any candidate image. Close-up roof change is 13.66 codes for 0.4 and 4.99 for 0.7; reset returns within 0.060 codes on average. These numerical controls pass, but do not establish better appearance. Full-frame reset maxima remain 192 / 208 / 197 codes across the three views; no alignment or exposure correction removes temporal differences.
+
+Inspect the close-up [original](media/roof-candidates-closeup-source.png), [0.4](media/roof-candidates-closeup-candidate040.png), [0.7](media/roof-candidates-closeup-candidate070.png) and [reserved-view reset](media/roof-candidates-reverse-restored.png). All twelve native captures were reviewed. [Complete evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-candidates-v1.json) retains the references, predeclared plan, selection before the reserved run, validation and every image hash. The working download remains unchanged.
+
 ### Native material response
+
+The source/change/reset API control remains useful for offline material experiments. Its earlier extreme setting is retained below; the moderate candidates above are rejected.
+
+<details>
+<summary>Earlier roughness control and restoration measurements</summary>
 
 The documented [Material API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html) now produces a verified response on this roof without copying textures. A private Workbench sequence captures the source, sets cached `RoughnessScale` from its observed default 1 to **0.05**, then resets it. The camera remains fixed and all three images are inspected. **The exaggerated sheen is a control, not an accepted appearance improvement or neural output.**
 
@@ -147,6 +171,8 @@ The documented [Material API](https://community.bistudio.com/wikidata/external-d
 All declared localization/restoration gates pass. The [reset image](media/material-control-restored.png) returns the roof's original response. Complete-frame restoration is not exact: the maximum difference is 178 codes at a foliage pixel. No registration, resizing or exposure correction hides this difference. Source, changed and reset captures span seven simulation seconds.
 
 This establishes a useful native material control with the original slate layout, geometry and texture references. The cached material may be shared by other instances; per-instance isolation is not established. It supplies no live surface buffer and changes neither the companion nor its download. The [complete evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-control-v1.json) retains the plan, successful validation, API results and all image hashes. Reproduce setup with `scripts/setup_playable_material_control.py`, validate/capture through Enfusion Lab, then run `scripts/analyze_material_control.py` on that run.
+
+</details>
 
 ### Collision geometry diagnostic
 
