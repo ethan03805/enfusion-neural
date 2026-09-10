@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-10",
+  "parent": "playable-geometry-probe-v1.json",
+  "recorded_before_second_capture": true,
+  "observed_first_capture": "20260910T084011-6658753523",
+  "reason": "Float grid centers fail the declared 0.5-pixel reprojection limit (max 1.389 px). Reprojection closely matches floored pixel coordinates (max 0.113 px), suggesting integer-pixel unprojection.",
+  "change": "Use explicit integer pixel centers in the second declared view. Keep the same grid, modes, cost measurement, 0.5px acceptance limit, and original maximum attempts/time. Retain the first failure; do not replace its metric with the diagnostic floor-pixel result.",
+  "first_compile_repair": "Material field renamed HitMaterial because Material is an existing engine type. Validation attempt 1 failed, attempt 2 passed; integer coordinates use final validation attempt 3."
+}

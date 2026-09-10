@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "offline_geometry_observed_live_input_rejected",
+  "plan": {
+    "schema_version": 1,
+    "date": "2026-09-10",
+    "scope": "Read-only collision ray sampling in isolated Workbench simulation at the observed street house. This does not expose renderer depth/normals, modify materials, train a model or change the companion.",
+    "maximum_minutes": 20,
+    "maximum_validation_attempts": 3,
+    "maximum_captures": 2,
+    "world": "worlds/Eden/Eden.ent",
+    "grid": [
+      64,
+      36
+    ],
+    "maximum_distance_metres": 250,
+    "modes": [
+      "ENTS | WORLD",
+      "ENTS | WORLD | VISIBILITY"
+    ],
+    "layer_mask": "Default TraceParam 0xffffffff; no object exclusions and no ANY_CONTACT early-out. Layer/visual equivalence is unverified.",
+    "timing": "Three complete grid passes per mode; retain every integer-millisecond System.GetTickCount result. Includes unprojection, normalization, TraceMove, reprojection, record allocation and hit metadata lookup. Excludes console emission. Workbench simulation only, not gameplay/frame or bridge cost.",
+    "views": [
+      {
+        "name": "house_closeup",
+        "position": [
+          4576.94,
+          19.6984,
+          10744.4
+        ],
+        "direction": [
+          0.60574312084,
+          0.2001923411,
+          0.7700638273
+        ]
+      },
+      {
+        "name": "street_approach",
+        "position": [
+          4583.34,
+          20.062,
+          10707.7
+        ],
+        "direction": [
+          -0.171683,
+          -0.000883705,
+          0.985152
+        ]
+      }
+    ],
+    "controls": "Use engine ProjectViewportToWorld at grid-cell centers and ProjectWorldToViewport at returned hit/end positions. Require finite values and at most 0.5 pixel reprojection error. Report hit coverage, normal lengths, material/mesh identities, returned fractions and TraceDist separately. A hit is a fraction in [0,1); misses are not a valid surface.",
+    "visual_acceptance": "Inspect the complete native RGB image alongside hit/normal maps. Mark where collision proxies disagree with roof edges, windows/doors, foreground pole/barrier, terrain and foliage. A coarse matching house silhouette does not certify thin cover or openings. Do not feed unverified regions into lighting correction.",
+    "decision": "Continue only if useful spatial information is observed with clear limits and measured cost. Otherwise close this route at the bound and retain all code, runs and failures. No new input bridge before this decision."
+  },
+  "amendment": {
+    "date": "2026-09-10",
+    "parent": "playable-geometry-probe-v1.json",
+    "recorded_before_second_capture": true,
+    "observed_first_capture": "20260910T084011-6658753523",
+    "reason": "Float grid centers fail the declared 0.5-pixel reprojection limit (max 1.389 px). Reprojection closely matches floored pixel coordinates (max 0.113 px), suggesting integer-pixel unprojection.",
+    "change": "Use explicit integer pixel centers in the second declared view. Keep the same grid, modes, cost measurement, 0.5px acceptance limit, and original maximum attempts/time. Retain the first failure; do not replace its metric with the diagnostic floor-pixel result.",
+    "first_compile_repair": "Material field renamed HitMaterial because Material is an existing engine type. Validation attempt 1 failed, attempt 2 passed; integer coordinates use final validation attempt 3."
+  },
+  "investigation": {
+    "started_at": "2026-09-10T08:30:15Z",
+    "last_engine_run_finished_at": "2026-09-10T08:43:27.900168+00:00",
+    "validation_attempts": 3,
+    "captures": 2,
+    "no_further_engine_attempts": true,
+    "initial_compile_failure": "Variable name Material is already used as type name; renamed HitMaterial before second validation.",
+    "retained_run_summaries": [
+      {
+        "run_id": "20260910T083336-0d06a3f663",
+        "command": "validate",
+        "status": "failed",
+        "wall_seconds": 4.672000000002299,
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "addon_sha256": {
+          "addon.gproj": "282e774da72747e1f9c72b8e3e261938eaeabd384d5e44d96798a0f2de288d82",
+          "Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+          "Scripts/Game/ENR_GeometryProbe.c": "d845715d33c2083420f904b7547e361e02e9d0fb49337a7d6b6142456115fcb3",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      {
+        "run_id": "20260910T083954-c26d9d3a29",
+        "command": "validate",
+        "status": "succeeded",
+        "wall_seconds": 11.156000000002678,
+        "process_exit_code": 0,
+        "terminated_owned_process": false,
+        "addon_sha256": {
+          "addon.gproj": "282e774da72747e1f9c72b8e3e261938eaeabd384d5e44d96798a0f2de288d82",
+          "Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+          "Scripts/Game/ENR_GeometryProbe.c": "5b00447f17b277eca18f3d360200895a7ef0bec9d2888dfa4e4ed7bd9785f4f7",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      {
+        "run_id": "20260910T084011-6658753523",
+        "command": "capture",
+        "status": "succeeded",
+        "wall_seconds": 34.46900000000096,
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "addon_sha256": {
+          "addon.gproj": "282e774da72747e1f9c72b8e3e261938eaeabd384d5e44d96798a0f2de288d82",
+          "Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+          "Scripts/Game/ENR_GeometryProbe.c": "5b00447f17b277eca18f3d360200895a7ef0bec9d2888dfa4e4ed7bd9785f4f7",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      {
+        "run_id": "20260910T084236-3c4ffaae2d",
+        "command": "validate",
+        "status": "succeeded",
+        "wall_seconds": 10.953000000001339,
+        "process_exit_code": 0,
+        "terminated_owned_process": false,
+        "addon_sha256": {
+          "addon.gproj": "282e774da72747e1f9c72b8e3e261938eaeabd384d5e44d96798a0f2de288d82",
+          "Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+          "Scripts/Game/ENR_GeometryProbe.c": "8518e1964f3abc562f9e6603ff7a4b9d104835bb923dffad526c882a1a424816",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      },
+      {
+        "run_id": "20260910T084254-b5ab2d840b",
+        "command": "capture",
+        "status": "succeeded",
+        "wall_seconds": 33.25,
+        "process_exit_code": 1,
+        "terminated_owned_process": true,
+        "addon_sha256": {
+          "addon.gproj": "282e774da72747e1f9c72b8e3e261938eaeabd384d5e44d96798a0f2de288d82",
+          "Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+          "Scripts/Game/ENR_GeometryProbe.c": "8518e1964f3abc562f9e6603ff7a4b9d104835bb923dffad526c882a1a424816",
+          "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+        }
+      }
+    ]
+  },
+  "views": [
+    {
+      "schema_version": 1,
+      "run": "20260910T084011-6658753523",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "position": [
+        4576.94,
+        19.6984,
+        10744.4
+      ],
+      "direction": [
+        0.6057431208412097,
+        0.20019234110039977,
+        0.7700638273015378
+      ],
+      "modes": [
+        {
+          "mode": 0,
+          "ray_count": 2304,
+          "hit_count": 1494,
+          "hit_fraction": 0.6484375,
+          "milliseconds": [
+            24,
+            24,
+            24
+          ],
+          "reprojection_error_pixels": {
+            "max": 1.3888160425340712,
+            "median": 0.7991242830458352,
+            "over_half_pixel": 1844,
+            "passes": false
+          },
+          "floor_pixel_diagnostic_error": {
+            "max": 0.11244554237493044,
+            "median": 0.004123105625630454
+          },
+          "hit_normal_length": {
+            "min": 0.999997514449911,
+            "max": 1.0000016231736826,
+            "nonunit_over_001": 0
+          },
+          "hit_ray_distance_metres": {
+            "min": 3.8042000000000002,
+            "max": 136.27249999999998
+          },
+          "trace_dist": {
+            "min": -11674.8,
+            "max": 5728.54,
+            "interpretation": "Separate returned API field, not assumed equal to distance along ray"
+          },
+          "hit_meshes": {
+            "{134D33DE9977A495}Assets/Structures/Infrastructure/Lamps/LampStreetE_03/LampStreetE_03_single.xob": 54,
+            "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob": 522,
+            "{BFB894A89DF49681}Assets/Structures/BuildingsParts/Windows/Glass_62x72/Glass_01_62x72.xob": 2,
+            "{07A5F4B2FB079DCC}Assets/Vegetation/Tree/Carpinus_Betulus/T_Carpinus_betulus_3s.xob": 70,
+            "{1BD0E4D4B505A9CB}Assets/Structures/Houses/Village/House_Village_E_1I08/House_Village_E_1I08t.xob": 43,
+            "{3DA389A3BC4630FF}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_130x182_2_B.xob": 24,
+            "{8AD4070E223E6D27}Assets/Structures/BuildingsParts/Windows/Glass_54x165/Glass_01_54x165.xob": 38,
+            "{7A56491F675F0EE7}Assets/Structures/BuildingsParts/Misc/TvAntenna_01.xob": 1,
+            "{FACA7CB7F58AABB4}Assets/Vegetation/Tree/Tilia_Cordata/t_tilia_cordata_3s.xob": 1,
+            "{07AECD766DD2ED77}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04t.xob": 15,
+            "{D55DA9ACBBAA99A2}Assets/Structures/BuildingsParts/Doors/Door_Village_E/DoorFrame_Village_E_A_EXT_M1.xob": 11,
+            "{89D6E2EB1CEEBD2C}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04sr.xob": 22,
+            "{1A4F6F3206775D95}Assets/Structures/Infrastructure/Lamps/LampStreetE_01/LampStreetE_01_4m.xob": 1,
+            "{EF91F5E54F0F4D31}Assets/Structures/BuildingsParts/Doors/Door_Village_E/DoorFrame_Passage_01_EXT_B.xob": 1,
+            "{0181FB735447D48D}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Left_EXT_COV_B.xob": 11,
+            "{7BCAB43C1638CFD5}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Right_EXT_COV_B.xob": 5,
+            "{EE8D650C74DB5AE6}Assets/Structures/BuildingsParts/Doors/Door_Village_E/Door_Village_E_A_RIGHT_EXT_COV_B.xob": 8,
+            "{0D04B5418AE3A80C}Assets/Structures/Signs/Directions/SignDirection_Eden_01_Right.xob": 1,
+            "{21FC92A2DE1EBB04}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_195x142_3_B.xob": 2,
+            "{806327E28E4A8A5D}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_LEFT_EXT_COV_B.xob": 1,
+            "{840ED8286C139498}Assets/Vegetation/Tree/Salix_Fragilis/t_salix_fragilis_2s.xob": 4,
+            "{2D1C21CDCFBE5D8B}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_RIGHT_EXT_COV_B.xob": 1,
+            "{EE2AD3E016C2C4F9}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m.xob": 105,
+            "{A29B4EB212381E7F}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_6m_A.xob": 1,
+            "{EAA5439C1C36D91F}Assets/Structures/BuildingsParts/Doors/Door_Arch/DoorFrame_Arch_A_EXT_B.xob": 1,
+            "{B9647D7E56748EDA}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_End.xob": 18,
+            "{E26B6F97A4249C38}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_A.xob": 93,
+            "{7D3B77F8FA61588F}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_Start.xob": 260,
+            "": 147,
+            "{571F505B0C8F3EA0}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_Start.xob": 1,
+            "{6AE911B796291DAB}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_Entry_4m.xob": 5,
+            "{692C9C0B7FD80562}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m_90.xob": 25
+          },
+          "hit_materials": {
+            "": 1347,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_01_DashedLine.emat": 147
+          },
+          "arrays_sha256": "2645bff1ddc08fde4f8da55b2d934b6328ebd9716f39349087b093b25d2c4dbc"
+        },
+        {
+          "mode": 1,
+          "ray_count": 2304,
+          "hit_count": 1510,
+          "hit_fraction": 0.6553819444444444,
+          "milliseconds": [
+            24,
+            25,
+            23
+          ],
+          "reprojection_error_pixels": {
+            "max": 1.3888160425340712,
+            "median": 0.7991242830458352,
+            "over_half_pixel": 1844,
+            "passes": false
+          },
+          "floor_pixel_diagnostic_error": {
+            "max": 0.11244554237493044,
+            "median": 0.004123105625630454
+          },
+          "hit_normal_length": {
+            "min": 0.0,
+            "max": 1.0000016231736826,
+            "nonunit_over_001": 20
+          },
+          "hit_ray_distance_metres": {
+            "min": 3.8042000000000002,
+            "max": 136.27249999999998
+          },
+          "trace_dist": {
+            "min": -11674.8,
+            "max": 5728.54,
+            "interpretation": "Separate returned API field, not assumed equal to distance along ray"
+          },
+          "hit_meshes": {
+            "{134D33DE9977A495}Assets/Structures/Infrastructure/Lamps/LampStreetE_03/LampStreetE_03_single.xob": 54,
+            "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob": 522,
+            "{BFB894A89DF49681}Assets/Structures/BuildingsParts/Windows/Glass_62x72/Glass_01_62x72.xob": 2,
+            "": 167,
+            "{07A5F4B2FB079DCC}Assets/Vegetation/Tree/Carpinus_Betulus/T_Carpinus_betulus_3s.xob": 70,
+            "{1BD0E4D4B505A9CB}Assets/Structures/Houses/Village/House_Village_E_1I08/House_Village_E_1I08t.xob": 43,
+            "{3DA389A3BC4630FF}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_130x182_2_B.xob": 24,
+            "{8AD4070E223E6D27}Assets/Structures/BuildingsParts/Windows/Glass_54x165/Glass_01_54x165.xob": 38,
+            "{7A56491F675F0EE7}Assets/Structures/BuildingsParts/Misc/TvAntenna_01.xob": 1,
+            "{FACA7CB7F58AABB4}Assets/Vegetation/Tree/Tilia_Cordata/t_tilia_cordata_3s.xob": 1,
+            "{07AECD766DD2ED77}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04t.xob": 14,
+            "{D55DA9ACBBAA99A2}Assets/Structures/BuildingsParts/Doors/Door_Village_E/DoorFrame_Village_E_A_EXT_M1.xob": 11,
+            "{89D6E2EB1CEEBD2C}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04sr.xob": 22,
+            "{1A4F6F3206775D95}Assets/Structures/Infrastructure/Lamps/LampStreetE_01/LampStreetE_01_4m.xob": 1,
+            "{EF91F5E54F0F4D31}Assets/Structures/BuildingsParts/Doors/Door_Village_E/DoorFrame_Passage_01_EXT_B.xob": 1,
+            "{0181FB735447D48D}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Left_EXT_COV_B.xob": 11,
+            "{7BCAB43C1638CFD5}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Right_EXT_COV_B.xob": 5,
+            "{EE8D650C74DB5AE6}Assets/Structures/BuildingsParts/Doors/Door_Village_E/Door_Village_E_A_RIGHT_EXT_COV_B.xob": 8,
+            "{0D04B5418AE3A80C}Assets/Structures/Signs/Directions/SignDirection_Eden_01_Right.xob": 1,
+            "{21FC92A2DE1EBB04}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_195x142_3_B.xob": 2,
+            "{806327E28E4A8A5D}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_LEFT_EXT_COV_B.xob": 1,
+            "{2D1C21CDCFBE5D8B}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_RIGHT_EXT_COV_B.xob": 1,
+            "{EE2AD3E016C2C4F9}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m.xob": 105,
+            "{840ED8286C139498}Assets/Vegetation/Tree/Salix_Fragilis/t_salix_fragilis_2s.xob": 1,
+            "{A29B4EB212381E7F}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_6m_A.xob": 1,
+            "{EAA5439C1C36D91F}Assets/Structures/BuildingsParts/Doors/Door_Arch/DoorFrame_Arch_A_EXT_B.xob": 1,
+            "{B9647D7E56748EDA}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_End.xob": 18,
+            "{E26B6F97A4249C38}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_A.xob": 93,
+            "{7D3B77F8FA61588F}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_Start.xob": 260,
+            "{571F505B0C8F3EA0}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_Start.xob": 1,
+            "{6AE911B796291DAB}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_Entry_4m.xob": 5,
+            "{692C9C0B7FD80562}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m_90.xob": 25
+          },
+          "hit_materials": {
+            "": 1363,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_01_DashedLine.emat": 147
+          },
+          "arrays_sha256": "69b42c7abe1199cb9c8777b803d21b02857fa83eeb844d825f9fce6441c07f5f"
+        }
+      ],
+      "mode_difference": {
+        "rays_with_changed_fraction": 20,
+        "fraction_max_abs": 0.702034,
+        "normal_component_max_abs": 0.922652
+      },
+      "source_hashes": {
+        "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/run.json": "704bee700e04e4f94976fe0a7336790dabb86fa74b5d67fc26759ebc69335832",
+        "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/console.log": "1ffaa5801f63c4c2d92144b6b2424dd67bdee77c7712d92478b9842c03d0c10d",
+        "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/frame.png": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+        "scripts/analyze_geometry_probe.py": "d086e27693785b9fde0ea6b24e9c45f5bca8aa0934f2f08882f0dbf7ec979409"
+      },
+      "columns": [
+        "pixel_xyz",
+        "start_xyz",
+        "direction_xyz",
+        "projected_xyz",
+        "fraction",
+        "TraceDist",
+        "normal_xyz"
+      ],
+      "scope": "Three integer-ms Workbench samples per mode, CPU ray-grid work only. Includes allocation and metadata; excludes console emission, game frame, bridge and neural processing. RGB screenshot follows probe; no synchronized per-pixel depth/normal attachment.",
+      "map_encoding": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black."
+    },
+    {
+      "schema_version": 1,
+      "run": "20260910T084254-b5ab2d840b",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "position": [
+        4583.34,
+        20.062,
+        10707.7
+      ],
+      "direction": [
+        -0.17168297454563797,
+        -0.0008837048689786001,
+        0.9851518539376894
+      ],
+      "modes": [
+        {
+          "mode": 0,
+          "ray_count": 2304,
+          "hit_count": 1631,
+          "hit_fraction": 0.7078993055555556,
+          "milliseconds": [
+            17,
+            17,
+            16
+          ],
+          "reprojection_error_pixels": {
+            "max": 0.1412892069480147,
+            "median": 0.004123105625630454,
+            "over_half_pixel": 0,
+            "passes": true
+          },
+          "floor_pixel_diagnostic_error": {
+            "max": 0.1412892069480147,
+            "median": 0.004123105625630454
+          },
+          "hit_normal_length": {
+            "min": 0.999997514449911,
+            "max": 1.0000021080382782,
+            "nonunit_over_001": 0
+          },
+          "hit_ray_distance_metres": {
+            "min": 3.2412500000000004,
+            "max": 239.3035
+          },
+          "trace_dist": {
+            "min": -11624.4,
+            "max": 9027.69,
+            "interpretation": "Separate returned API field, not assumed equal to distance along ray"
+          },
+          "hit_meshes": {
+            "{C67FB825D0DE7E8D}Assets/Structures/BuildingsParts/Electrical/AmplionAddon_E_01/AmplionAddon_E_01.xob": 2,
+            "{FACA7CB7F58AABB4}Assets/Vegetation/Tree/Tilia_Cordata/t_tilia_cordata_3s.xob": 2,
+            "{8914B08EB9542807}Assets/Vegetation/Tree/Populus_Nigra/T_Populus_nigra_3s.xob": 52,
+            "{840ED8286C139498}Assets/Vegetation/Tree/Salix_Fragilis/t_salix_fragilis_2s.xob": 135,
+            "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob": 111,
+            "{4B8E64FF0191BA27}Assets/Structures/Houses/Villa/Villa_E_2I01/Villa_E_2I01.xob": 98,
+            "{D12D069A0F233E93}Assets/Structures/Houses/Town/House_Town_E_2I02/House_Town_E_2I02.xob": 13,
+            "{BBCA947A9395E9F9}Assets/Structures/BuildingsParts/Windows/Glass_54x83/Glass_01_54x83.xob": 1,
+            "{34047FFA785856DE}Assets/Structures/Commercial/Shop/ShopHouse_E_2I01/ShopHouse_E_2I01t.xob": 17,
+            "{07A5F4B2FB079DCC}Assets/Vegetation/Tree/Carpinus_Betulus/T_Carpinus_betulus_3s.xob": 14,
+            "{3DA389A3BC4630FF}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_130x182_2_B.xob": 8,
+            "{C130D7CD5947C4E6}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_130x182_22_B.xob": 3,
+            "{F4046B57388DF608}Assets/Structures/BuildingsParts/Windows/Glass_50x50/Glass_01_50x50.xob": 1,
+            "{A1109D0C53CCA508}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_130x72_2_B.xob": 1,
+            "{9ACA9854F622E86B}Assets/Vegetation/Bush/Sambucus_Nigra/b_sambucus_nigra_2.xob": 29,
+            "{8AD4070E223E6D27}Assets/Structures/BuildingsParts/Windows/Glass_54x165/Glass_01_54x165.xob": 3,
+            "{4C1F0A8DAD0554D8}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_195x182_33_B.xob": 1,
+            "{1BD0E4D4B505A9CB}Assets/Structures/Houses/Village/House_Village_E_1I08/House_Village_E_1I08t.xob": 3,
+            "{B4DFD7E599F0E418}Assets/Structures/Signs/Warnings/Sign_Rhombus_A.xob": 2,
+            "{83E38D2AAF1363BC}Assets/Vegetation/Bush/Salix_Cinerea/b_salix_cinerea_1.xob": 2,
+            "{1A2E9134DAF29869}Assets/Vegetation/Bush/Salix_Cinerea/b_salix_cinerea_1w.xob": 74,
+            "{A3ED5D33197196AC}Assets/Structures/Signs/Warnings/Sign_TriangleUpsideDown_A.xob": 2,
+            "{C75BFE2BC3FB270C}Assets/Structures/Infrastructure/Lamps/LampStreetE_02/LampStreetE_02_addon.xob": 1,
+            "{1DE4331AE8D12FA5}Assets/Structures/Signs/Warnings/Sign_Pole_A.xob": 3,
+            "{1F3C09DCC07AC07E}Assets/Structures/BuildingsParts/Windows/Win_Bars_A_130x182_B.xob": 2,
+            "{07AECD766DD2ED77}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04t.xob": 2,
+            "{03D421CDEBC5D9FB}Assets/Vegetation/Bush/Sambucus_Nigra/b_sambucus_nigra_1.xob": 46,
+            "{5F1573C641500A48}Assets/Structures/BuildingsParts/Doors/Door_Villa_E_01/Door_Villa_E_A_RIGHT_EXT_ST_B.xob": 1,
+            "{153F8E574B6F175A}Assets/Structures/Walls/Brick/BrickWall_01_8m.xob": 3,
+            "{2C6FCAB21CB319F5}Assets/Structures/Walls/Brick/BrickWall_01_4m.xob": 1,
+            "{7BCAB43C1638CFD5}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Right_EXT_COV_B.xob": 1,
+            "{7B86DAB37818C9D9}Assets/Structures/Walls/Wooden/WoodenWall_01_4m.xob": 1,
+            "{BEBF539C1158A5B8}Assets/Vegetation/Bush/Corylus_Avellana/b_corylus_avellana_1l.xob": 1,
+            "{0181FB735447D48D}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Left_EXT_COV_B.xob": 1,
+            "{A29B4EB212381E7F}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_6m_A.xob": 1,
+            "{E26B6F97A4249C38}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_A.xob": 1,
+            "{806327E28E4A8A5D}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_LEFT_EXT_COV_B.xob": 1,
+            "{B9647D7E56748EDA}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_End.xob": 7,
+            "{7B75D60EB9C3ADA8}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_B.xob": 5,
+            "{134D33DE9977A495}Assets/Structures/Infrastructure/Lamps/LampStreetE_03/LampStreetE_03_single.xob": 8,
+            "{7A10230DED1EC9B7}Assets/Structures/Walls/Pipe/PipeRailing_01_3m.xob": 7,
+            "{9525E5434324F1E7}Assets/Structures/Walls/Pipe/PipeRailing_01_Pole.xob": 2,
+            "{EE2AD3E016C2C4F9}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m.xob": 25,
+            "": 918,
+            "{692C9C0B7FD80562}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m_90.xob": 3,
+            "{2E2368D9318F1017}Assets/Structures/Infrastructure/Pavements/ConcreteKerb_01/ConcreteKerb_01_2m_v2.xob": 16
+          },
+          "hit_materials": {
+            "": 713,
+            "Terrains/Common/Surfaces/Grass_02.emat": 17,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_01_DashedLine.emat": 863,
+            "Terrains/Common/Surfaces/Asphalt_01.emat": 36,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_02.emat": 2
+          },
+          "arrays_sha256": "6f339398e2fa6eea87d9106baf79c65ee97bcdb400a017373f6eb735bdb4c00f"
+        },
+        {
+          "mode": 1,
+          "ray_count": 2304,
+          "hit_count": 1643,
+          "hit_fraction": 0.7131076388888888,
+          "milliseconds": [
+            16,
+            19,
+            17
+          ],
+          "reprojection_error_pixels": {
+            "max": 0.1412892069480147,
+            "median": 0.004123105625637348,
+            "over_half_pixel": 0,
+            "passes": true
+          },
+          "floor_pixel_diagnostic_error": {
+            "max": 0.1412892069480147,
+            "median": 0.004123105625637348
+          },
+          "hit_normal_length": {
+            "min": 0.0,
+            "max": 1.0000021080382782,
+            "nonunit_over_001": 25
+          },
+          "hit_ray_distance_metres": {
+            "min": 3.2412500000000004,
+            "max": 239.3035
+          },
+          "trace_dist": {
+            "min": -11624.4,
+            "max": 9027.69,
+            "interpretation": "Separate returned API field, not assumed equal to distance along ray"
+          },
+          "hit_meshes": {
+            "{C67FB825D0DE7E8D}Assets/Structures/BuildingsParts/Electrical/AmplionAddon_E_01/AmplionAddon_E_01.xob": 2,
+            "": 954,
+            "{FACA7CB7F58AABB4}Assets/Vegetation/Tree/Tilia_Cordata/t_tilia_cordata_3s.xob": 2,
+            "{8914B08EB9542807}Assets/Vegetation/Tree/Populus_Nigra/T_Populus_nigra_3s.xob": 52,
+            "{840ED8286C139498}Assets/Vegetation/Tree/Salix_Fragilis/t_salix_fragilis_2s.xob": 135,
+            "{B608F5042424A544}Assets/Structures/Houses/Village/House_Village_E_1L02/House_Village_E_1L02t.xob": 108,
+            "{4B8E64FF0191BA27}Assets/Structures/Houses/Villa/Villa_E_2I01/Villa_E_2I01.xob": 97,
+            "{D12D069A0F233E93}Assets/Structures/Houses/Town/House_Town_E_2I02/House_Town_E_2I02.xob": 12,
+            "{BBCA947A9395E9F9}Assets/Structures/BuildingsParts/Windows/Glass_54x83/Glass_01_54x83.xob": 1,
+            "{34047FFA785856DE}Assets/Structures/Commercial/Shop/ShopHouse_E_2I01/ShopHouse_E_2I01t.xob": 16,
+            "{07A5F4B2FB079DCC}Assets/Vegetation/Tree/Carpinus_Betulus/T_Carpinus_betulus_3s.xob": 14,
+            "{3DA389A3BC4630FF}Assets/Structures/BuildingsParts/Windows/Win_Village_E_A/Win_village_e_a_130x182_2_B.xob": 8,
+            "{C130D7CD5947C4E6}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_130x182_22_B.xob": 3,
+            "{F4046B57388DF608}Assets/Structures/BuildingsParts/Windows/Glass_50x50/Glass_01_50x50.xob": 1,
+            "{A1109D0C53CCA508}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_130x72_2_B.xob": 1,
+            "{9ACA9854F622E86B}Assets/Vegetation/Bush/Sambucus_Nigra/b_sambucus_nigra_2.xob": 12,
+            "{8AD4070E223E6D27}Assets/Structures/BuildingsParts/Windows/Glass_54x165/Glass_01_54x165.xob": 3,
+            "{4C1F0A8DAD0554D8}Assets/Structures/BuildingsParts/Windows/Win_Villa_E_A/Win_Villa_E_A_195x182_33_B.xob": 1,
+            "{1BD0E4D4B505A9CB}Assets/Structures/Houses/Village/House_Village_E_1I08/House_Village_E_1I08t.xob": 3,
+            "{B4DFD7E599F0E418}Assets/Structures/Signs/Warnings/Sign_Rhombus_A.xob": 2,
+            "{83E38D2AAF1363BC}Assets/Vegetation/Bush/Salix_Cinerea/b_salix_cinerea_1.xob": 2,
+            "{1A2E9134DAF29869}Assets/Vegetation/Bush/Salix_Cinerea/b_salix_cinerea_1w.xob": 74,
+            "{A3ED5D33197196AC}Assets/Structures/Signs/Warnings/Sign_TriangleUpsideDown_A.xob": 2,
+            "{C75BFE2BC3FB270C}Assets/Structures/Infrastructure/Lamps/LampStreetE_02/LampStreetE_02_addon.xob": 1,
+            "{1DE4331AE8D12FA5}Assets/Structures/Signs/Warnings/Sign_Pole_A.xob": 3,
+            "{1F3C09DCC07AC07E}Assets/Structures/BuildingsParts/Windows/Win_Bars_A_130x182_B.xob": 2,
+            "{07AECD766DD2ED77}Assets/Structures/Houses/Village/House_Village_E_1I04/House_Village_E_1I04t.xob": 2,
+            "{03D421CDEBC5D9FB}Assets/Vegetation/Bush/Sambucus_Nigra/b_sambucus_nigra_1.xob": 46,
+            "{5F1573C641500A48}Assets/Structures/BuildingsParts/Doors/Door_Villa_E_01/Door_Villa_E_A_RIGHT_EXT_ST_B.xob": 1,
+            "{153F8E574B6F175A}Assets/Structures/Walls/Brick/BrickWall_01_8m.xob": 3,
+            "{2C6FCAB21CB319F5}Assets/Structures/Walls/Brick/BrickWall_01_4m.xob": 1,
+            "{7BCAB43C1638CFD5}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Right_EXT_COV_B.xob": 1,
+            "{7B86DAB37818C9D9}Assets/Structures/Walls/Wooden/WoodenWall_01_4m.xob": 1,
+            "{BEBF539C1158A5B8}Assets/Vegetation/Bush/Corylus_Avellana/b_corylus_avellana_1l.xob": 1,
+            "{0181FB735447D48D}Assets/Structures/BuildingsParts/Doors/Door_Passage_01/Door_Passage_01_Left_EXT_COV_B.xob": 1,
+            "{A29B4EB212381E7F}Assets/Structures/Walls/Pipe/PipeRailing_03_V2_6m_A.xob": 1,
+            "{E26B6F97A4249C38}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_A.xob": 1,
+            "{806327E28E4A8A5D}Assets/Structures/BuildingsParts/Doors/Door_Arch/Door_Arch_A_LEFT_EXT_COV_B.xob": 1,
+            "{B9647D7E56748EDA}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_End.xob": 7,
+            "{7B75D60EB9C3ADA8}Assets/Structures/Walls/Pipe/PipeRailing_03_V1_6m_B.xob": 5,
+            "{134D33DE9977A495}Assets/Structures/Infrastructure/Lamps/LampStreetE_03/LampStreetE_03_single.xob": 8,
+            "{7A10230DED1EC9B7}Assets/Structures/Walls/Pipe/PipeRailing_01_3m.xob": 7,
+            "{9525E5434324F1E7}Assets/Structures/Walls/Pipe/PipeRailing_01_Pole.xob": 2,
+            "{EE2AD3E016C2C4F9}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m.xob": 25,
+            "{692C9C0B7FD80562}Assets/Structures/Infrastructure/Pavements/AsphaltPavement_01/AsphaltPavement_01_Wide_4m_90.xob": 3,
+            "{2E2368D9318F1017}Assets/Structures/Infrastructure/Pavements/ConcreteKerb_01/ConcreteKerb_01_2m_v2.xob": 15
+          },
+          "hit_materials": {
+            "": 714,
+            "Terrains/Common/Surfaces/Grass_01.emat": 3,
+            "Terrains/Common/Surfaces/Grass_03.emat": 1,
+            "Terrains/Common/Surfaces/Grass_02.emat": 22,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_01_DashedLine.emat": 863,
+            "Assets/Structures/Infrastructure/Roads/Data/Road_Asphalt_E_02.emat": 4,
+            "Terrains/Common/Surfaces/Asphalt_01.emat": 36
+          },
+          "arrays_sha256": "71a76f68982568eedc468af32a933f1922b92d8be22c504adc2dc0f67e007181"
+        }
+      ],
+      "mode_difference": {
+        "rays_with_changed_fraction": 45,
+        "fraction_max_abs": 0.9380546,
+        "normal_component_max_abs": 1.486187
+      },
+      "source_hashes": {
+        "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/run.json": "d954f4223e42be21d511dae229248d7339f3599a3fc41538bd0926226ce60618",
+        "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/console.log": "7ecaacf96abfe20688d092b9d59f55295965903c03d3db45e926360b7237d3dc",
+        "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/frame.png": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+        "scripts/analyze_geometry_probe.py": "d086e27693785b9fde0ea6b24e9c45f5bca8aa0934f2f08882f0dbf7ec979409"
+      },
+      "columns": [
+        "pixel_xyz",
+        "start_xyz",
+        "direction_xyz",
+        "projected_xyz",
+        "fraction",
+        "TraceDist",
+        "normal_xyz"
+      ],
+      "scope": "Three integer-ms Workbench samples per mode, CPU ray-grid work only. Includes allocation and metadata; excludes console emission, game frame, bridge and neural processing. RGB screenshot follows probe; no synchronized per-pixel depth/normal attachment.",
+      "map_encoding": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black."
+    }
+  ],
+  "review": {
+    "inspected": "Both complete native RGB captures, both mode normal maps in both views, and mode-0 depth maps in both views.",
+    "useful": "Broad roof, facade, road and foreground-pole orientation/depth structure is recognizable. Mode 0 has unit-length normals for all hits in these samples.",
+    "limits": "64x36 sampling loses thin gutters, antennae, window/door recess detail and foliage gaps. Roof steps are coarse grid sampling. Broad foliage proxies do not reproduce visible leaves; mode 1 adds gray zero-normal regions. The closed doors/windows in these views do not validate traversable openings. No full-resolution visible-surface ground truth is available.",
+    "time": "16-25ms per CPU grid already consumes a large fraction of the whole-frame budget. This rejects this implementation as a per-frame input; it does not prove every sparse or offline use infeasible.",
+    "projection": "First float-center view fails the original 0.5px limit. The predeclared amendment uses integer coordinates in the second view, which passes at max 0.142px. These results suggest integer unprojection; no same-view repeat or engine implementation claim.",
+    "trace_dist": "Raw TraceDist includes large signed values; ray distance here is 250 times the returned path fraction. TraceDist semantics are not assumed to be Euclidean hit distance.",
+    "decision": "Close live collision-grid integration. Preserve this offline diagnostic; no bridge, model training, material change or runnable-package change."
+  },
+  "source_hashes": {
+    "scenes/playable-geometry-probe-v1.json": "8472e1ede4a2dbaf8cf9b0687dfd9700238b9320d950546321dee036e7d4d165",
+    "scenes/playable-geometry-probe-v1-amendment.json": "77981a83249d73551886f60a73930ccda0ef9d38f2524bc511399bcd5c6d81a4",
+    "runs/playable-geometry-probe-v1/setup.json": "0e04ce7553bb0a683328e9f78288df48c7996cb1757f8fc262d7cd97b02320c6",
+    "runs/playable-geometry-probe-v1/runs/20260910T083336-0d06a3f663/run.json": "1b32c235728dfc5dac5bb2e24f75612f94db9ed254061f9f48ab3bd4e7497d57",
+    "runs/playable-geometry-probe-v1/runs/20260910T083336-0d06a3f663/console.log": "285552f2bca1385265da5b5dea8a438b81742a95b93f3edacfbe6b2f36ce2712",
+    "runs/playable-geometry-probe-v1/runs/20260910T083336-0d06a3f663/addon/Scripts/Game/ENR_GeometryProbe.c": "d845715d33c2083420f904b7547e361e02e9d0fb49337a7d6b6142456115fcb3",
+    "runs/playable-geometry-probe-v1/runs/20260910T083336-0d06a3f663/addon/Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+    "runs/playable-geometry-probe-v1/runs/20260910T083954-c26d9d3a29/run.json": "7d7f8d3cd2efd28698325fb910dfa51e7aad601bdb8d02d6d94f69d3f0f5619c",
+    "runs/playable-geometry-probe-v1/runs/20260910T083954-c26d9d3a29/console.log": "ae59bf5eb54f5a885bcf8e2089b78ef24753d09e8895dafe1fdde068d3dc25af",
+    "runs/playable-geometry-probe-v1/runs/20260910T083954-c26d9d3a29/addon/Scripts/Game/ENR_GeometryProbe.c": "5b00447f17b277eca18f3d360200895a7ef0bec9d2888dfa4e4ed7bd9785f4f7",
+    "runs/playable-geometry-probe-v1/runs/20260910T083954-c26d9d3a29/addon/Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+    "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/run.json": "704bee700e04e4f94976fe0a7336790dabb86fa74b5d67fc26759ebc69335832",
+    "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/console.log": "1ffaa5801f63c4c2d92144b6b2424dd67bdee77c7712d92478b9842c03d0c10d",
+    "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/addon/Scripts/Game/ENR_GeometryProbe.c": "5b00447f17b277eca18f3d360200895a7ef0bec9d2888dfa4e4ed7bd9785f4f7",
+    "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/addon/Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+    "runs/playable-geometry-probe-v1/runs/20260910T084236-3c4ffaae2d/run.json": "f483a38a46d2e5e1bea83316526b21db06a6bae4cbe4f80adb974ff8c1748f90",
+    "runs/playable-geometry-probe-v1/runs/20260910T084236-3c4ffaae2d/console.log": "ad6c8567e9f6eda17d65acab547510565481e460fc9c101932d81c4c1160292f",
+    "runs/playable-geometry-probe-v1/runs/20260910T084236-3c4ffaae2d/addon/Scripts/Game/ENR_GeometryProbe.c": "8518e1964f3abc562f9e6603ff7a4b9d104835bb923dffad526c882a1a424816",
+    "runs/playable-geometry-probe-v1/runs/20260910T084236-3c4ffaae2d/addon/Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+    "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/run.json": "d954f4223e42be21d511dae229248d7339f3599a3fc41538bd0926226ce60618",
+    "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/console.log": "7ecaacf96abfe20688d092b9d59f55295965903c03d3db45e926360b7237d3dc",
+    "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/addon/Scripts/Game/ENR_GeometryProbe.c": "8518e1964f3abc562f9e6603ff7a4b9d104835bb923dffad526c882a1a424816",
+    "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/addon/Scripts/Game/ELab_GameCapture.c": "e5207bfab6802ba0515b38b242811d6a0fd232d0a4d6e163d98454cfc4fb715d",
+    "runs/geometry-analysis-closeup-v2/report.json": "c6e8adc7559afe4dcdaa05ecb733f012ef919eefb32a3b90e4d0f93d613dcb00",
+    "runs/geometry-analysis-street-v2/report.json": "0b06fe868b71d1ed35ae59506f7e08b17734685903e933375060b8a894a18f5d"
+  },
+  "published_media": [
+    {
+      "file": "geometry-closeup-source.png",
+      "sha256": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+      "transformation": "Unchanged native 1199x658 Workbench screenshot after the probe; no neural processing"
+    },
+    {
+      "file": "geometry-closeup-normals.png",
+      "sha256": "ec1dcb1a06003bbdba9222b3ddb4c88a243a3e55193c3ffa1926bc6f500555d3",
+      "transformation": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black. Mode 1 includes VISIBILITY; gray hits have zero normal. Schematic grid proportions; not a pixel-aligned full-resolution buffer."
+    },
+    {
+      "file": "geometry-street-source.png",
+      "sha256": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+      "transformation": "Unchanged native 1199x658 Workbench screenshot after the probe; no neural processing"
+    },
+    {
+      "file": "geometry-street-normals.png",
+      "sha256": "700de24a8fba7e02013907f990c1a7885ceb48d7640f8f9682229529048c507e",
+      "transformation": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black. Mode 1 includes VISIBILITY; gray hits have zero normal. Schematic grid proportions; not a pixel-aligned full-resolution buffer."
+    }
+  ],
+  "working_package_changed": false,
+  "render_buffers_available": false,
+  "photorealistic_gain_demonstrated": false
+}

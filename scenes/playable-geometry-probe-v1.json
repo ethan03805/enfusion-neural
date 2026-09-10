@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "scope": "Read-only collision ray sampling in isolated Workbench simulation at the observed street house. This does not expose renderer depth/normals, modify materials, train a model or change the companion.",
+  "maximum_minutes": 20,
+  "maximum_validation_attempts": 3,
+  "maximum_captures": 2,
+  "world": "worlds/Eden/Eden.ent",
+  "grid": [64, 36],
+  "maximum_distance_metres": 250,
+  "modes": ["ENTS | WORLD", "ENTS | WORLD | VISIBILITY"],
+  "layer_mask": "Default TraceParam 0xffffffff; no object exclusions and no ANY_CONTACT early-out. Layer/visual equivalence is unverified.",
+  "timing": "Three complete grid passes per mode; retain every integer-millisecond System.GetTickCount result. Includes unprojection, normalization, TraceMove, reprojection, record allocation and hit metadata lookup. Excludes console emission. Workbench simulation only, not gameplay/frame or bridge cost.",
+  "views": [
+    {"name": "house_closeup", "position": [4576.94, 19.6984, 10744.4], "direction": [0.60574312084, 0.2001923411, 0.7700638273]},
+    {"name": "street_approach", "position": [4583.34, 20.062, 10707.7], "direction": [-0.171683, -0.000883705, 0.985152]}
+  ],
+  "controls": "Use engine ProjectViewportToWorld at grid-cell centers and ProjectWorldToViewport at returned hit/end positions. Require finite values and at most 0.5 pixel reprojection error. Report hit coverage, normal lengths, material/mesh identities, returned fractions and TraceDist separately. A hit is a fraction in [0,1); misses are not a valid surface.",
+  "visual_acceptance": "Inspect the complete native RGB image alongside hit/normal maps. Mark where collision proxies disagree with roof edges, windows/doors, foreground pole/barrier, terrain and foliage. A coarse matching house silhouette does not certify thin cover or openings. Do not feed unverified regions into lighting correction.",
+  "decision": "Continue only if useful spatial information is observed with clear limits and measured cost. Otherwise close this route at the bound and retain all code, runs and failures. No new input bridge before this decision."
+}

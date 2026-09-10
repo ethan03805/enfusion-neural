@@ -1513,6 +1513,62 @@
       "source_sha256": "467561076d4093033bee39cd1c510fa0c5a7f041174f701eb1104e01c441f2f1",
       "transformation": "Original plus bounded half-strength SPAN-minus-bicubic residual; round and clip RGB8; no resize",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; SPAN author project Apache-2.0"
+    },
+    {
+      "file": "geometry-closeup-source.png",
+      "sha256": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+      "bytes": 1127319,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-geometry-probe-v1.json",
+      "source_artifact": "runs/playable-geometry-probe-v1/runs/20260910T084011-6658753523/frame.png",
+      "source_sha256": "8684a811e285a7d40595c22aeefbd440da2e669f5c3a61a2e8c0e1d4ec122430",
+      "transformation": "Unchanged native 1199x658 Workbench screenshot after the probe; no neural processing",
+      "rights": "Arma Reforger imagery and geometry \u00a9 Bohemia Interactive, outside MIT license; original diagnostic code MIT"
+    },
+    {
+      "file": "geometry-closeup-normals.png",
+      "sha256": "ec1dcb1a06003bbdba9222b3ddb4c88a243a3e55193c3ffa1926bc6f500555d3",
+      "bytes": 6815,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_record": "evidence/playable-geometry-probe-v1.json",
+      "source_artifact": "runs/geometry-analysis-closeup-v2/mode-1-normals.png",
+      "source_sha256": "ec1dcb1a06003bbdba9222b3ddb4c88a243a3e55193c3ffa1926bc6f500555d3",
+      "transformation": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black. Mode 1 includes VISIBILITY; gray hits have zero normal. Schematic grid proportions; not a pixel-aligned full-resolution buffer.",
+      "rights": "Arma Reforger imagery and geometry \u00a9 Bohemia Interactive, outside MIT license; original diagnostic code MIT"
+    },
+    {
+      "file": "geometry-street-source.png",
+      "sha256": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+      "bytes": 1226634,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-geometry-probe-v1.json",
+      "source_artifact": "runs/playable-geometry-probe-v1/runs/20260910T084254-b5ab2d840b/frame.png",
+      "source_sha256": "f2fe12924613c1871760afea31503ee886021666d8984d0e6c9852223ecab9b0",
+      "transformation": "Unchanged native 1199x658 Workbench screenshot after the probe; no neural processing",
+      "rights": "Arma Reforger imagery and geometry \u00a9 Bohemia Interactive, outside MIT license; original diagnostic code MIT"
+    },
+    {
+      "file": "geometry-street-normals.png",
+      "sha256": "700de24a8fba7e02013907f990c1a7885ceb48d7640f8f9682229529048c507e",
+      "bytes": 6972,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_record": "evidence/playable-geometry-probe-v1.json",
+      "source_artifact": "runs/geometry-analysis-street-v2/mode-1-normals.png",
+      "source_sha256": "700de24a8fba7e02013907f990c1a7885ceb48d7640f8f9682229529048c507e",
+      "transformation": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black. Mode 1 includes VISIBILITY; gray hits have zero normal. Schematic grid proportions; not a pixel-aligned full-resolution buffer.",
+      "rights": "Arma Reforger imagery and geometry \u00a9 Bohemia Interactive, outside MIT license; original diagnostic code MIT"
     }
   ],
   "videos": [

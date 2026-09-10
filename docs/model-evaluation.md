@@ -125,6 +125,43 @@ A follow-up reads explicit **13-slot material defaults** from the house's native
 
 Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established.
 
+### Collision geometry diagnostic
+
+A bounded probe samples 2,304 scene rays in each of two street views. The returned geometry identifies broad roof, wall and road surfaces, but **this grid is rejected as a live lighting input**. It costs 16–25 ms on the CPU before any bridge or neural processing and cannot certify thin cover, foliage gaps or openings.
+
+| View | ENTS + WORLD, all three grid times | With VISIBILITY | Hits without / with VISIBILITY | Zero-normal hits with VISIBILITY |
+| --- | --- | --- | --- | --- |
+| Roof close-up | 24 / 24 / 24 ms | 24 / 25 / 23 ms | 1,494 / 1,510 | 20 |
+| Street approach | 17 / 17 / 16 ms | 16 / 19 / 17 ms | 1,631 / 1,643 | 25 |
+
+These integer-millisecond Workbench measurements include ray setup, queries, allocations and metadata; they exclude logging, game frame time and companion processing. Collision normals are not rendered shading normals. The first float-coordinate control fails the declared 0.5-pixel projection limit at 1.389 pixels; the second view uses explicit integer coordinates and passes at 0.142 pixels. The original failure remains recorded. `TraceDist` returns large signed values and is not treated as distance along the ray.
+
+<details>
+<summary>Inspect both geometry views and retained failures</summary>
+
+<figure>
+<img src="media/geometry-closeup-source.png" width="1199" height="658" loading="lazy" alt="Native roof close-up with doors, windows, pole and barrier">
+<figcaption>Original close-up · native 1199 × 658 Workbench capture</figcaption>
+</figure>
+<figure>
+<img src="media/geometry-closeup-normals.png" width="1280" height="720" loading="lazy" alt="Coarse collision normals preserve broad roof and wall orientation but omit fine visible detail">
+<figcaption>64 × 36 collision grid with VISIBILITY, nearest enlarged · RGB encodes world normal, black is no hit, gray is a zero normal · diagnostic, not a renderer buffer</figcaption>
+</figure>
+<figure>
+<img src="media/geometry-street-source.png" width="1199" height="658" loading="lazy" alt="Native street approach with buildings, poles and dense foliage edges">
+<figcaption>Original street approach · native 1199 × 658 Workbench capture</figcaption>
+</figure>
+<figure>
+<img src="media/geometry-street-normals.png" width="1280" height="720" loading="lazy" alt="Coarse road and building normals with broad foliage proxies and gray invalid normals">
+<figcaption>Same normal encoding · broad foliage proxies do not reproduce visible leaves or gaps</figcaption>
+</figure>
+
+All three compile attempts and both captures are retained, including the initial `Material` field-name collision. The corrected addon validates and exports both views. Roof edges are coarse grid steps; gutters, antennae and window recesses are unresolved. Closed doors in these views do not validate traversable openings. The screenshot follows the probe and is not a synchronized depth attachment.
+
+The [complete geometry evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-geometry-probe-v1.json) records every timing, projection control, hit identity and source hash. `scripts/setup_playable_geometry_probe.py` creates an isolated addon for Enfusion Lab validation/capture; `scripts/analyze_geometry_probe.py` parses the retained logs and reproduces the maps. The live companion and download are unchanged. Offline sparse use remains possible; this per-frame grid is closed.
+
+</details>
+
 ### Candidate replay
 
 [REGEN author implementation](https://github.com/stefanos50/REGEN), revision `de240056522d066235b48b541e7d49f28c80f1ed`, provides the GTA2Cityscapes checkpoint and ONNX generator. [DeepLPF author implementation](https://github.com/sjmoran/deeplpf-image-enhancement), revision `b6d6764b548667f51eda2f1a6aafd484822de3ec`, provides the Adobe-DPE checkpoint. Author licenses and complete source hashes are retained with each evaluation. No new model is bundled in the playable download.

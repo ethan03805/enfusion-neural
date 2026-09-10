@@ -183,3 +183,11 @@ Accepted 10 September 2026. SPAN's pinned x2/48-channel EMA checkpoint reconstru
 The declared bounded residual produces slight sharpening and some newly clipped channels, with no demonstrated material-response or lighting improvement. Close live integration of this graph. Do not spend motion or application trials on an already over-budget appearance result, and do not present synthetic restoration accuracy as photorealism.
 
 The supported world API exposes collision traces. Test a small grid at the known street house before any new model or companion input bridge. Returned collision geometry may disagree with rendered foliage, openings and visual detail; require projected alignment, coverage and cost evidence before treating it as useful lighting information. This does not reopen the exhausted renderer-resource or screenshot/widget routes.
+
+## 034 · Keep collision sampling offline and test native material controls
+
+Accepted 10 September 2026. The declared 64 × 36 ray grid completes in both street views after repairing one compile-name collision. Preserve the first float-coordinate projection failure; an explicit integer-coordinate amendment passes the second view's 0.5-pixel control. Plain entity/terrain hits have unit normals, while adding VISIBILITY produces 20 / 25 zero-normal hits. Broad geometry is recognizable, but thin cover, foliage gaps and openings are not validated.
+
+The grid costs 16–25 ms on the CPU before any model or bridge. Close its per-frame integration and retain the working offline probe, all three validations and both captures. Do not substitute collision results for shading buffers or imply that all sparse/offline queries are infeasible.
+
+The native Material API independently documents cached lookup, parameter assignment and reset. A bounded source/change/reset experiment on the already identified roof can test an appearance control without copying textures. Modify only a declared in-memory scalar in a private process; preserve the native asset and texture identity. Require visible response and restoration before any reference or model claim. No correction target has yet been established.
