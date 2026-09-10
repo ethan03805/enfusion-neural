@@ -4,7 +4,7 @@ Updated 10 September 2026. **The live pipeline works; the requested photorealist
 
 ## Run the build
 
-[Download the Windows research build](downloads/playable-pipeline-2026-09-10.zip). Extract the entire folder, close any existing Reforger session and double-click **Start-Playable.cmd**. This PC needs its Steam game installation and Python 3 launcher. No PyTorch, CUDA or pip installation is needed to play.
+[Download the updated Windows research build](downloads/playable-pipeline-2026-09-10-guarded.zip). Extract the entire folder, close any existing Reforger session and double-click **Start-Playable.cmd**. This PC needs its Steam game installation and Python 3 launcher. No PyTorch, CUDA or pip installation is needed to play.
 
 - **F8:** expose the original game / resume the overlay.
 - **F9:** switch identity / neural enhancement inside the companion.
@@ -17,6 +17,30 @@ Each launch writes an isolated addon, copied settings and logs into a new `runs/
 **Input limit:** engine actions verify a walking soldier and camera turn while enhancement is visible. Physical WASD/mouse routing through the overlay still awaits a user check. Use F8 or F10 if controls fail.
 
 ## Normal-speed gameplay
+
+### Guarded build verified in gameplay
+
+The updated download includes the [channel-preserving correction](#channel-preserving-correction). One private recorded street pass verifies the exact release executable, shader, model, addon and settings. The live snapshot reproduces **every native curve and output channel exactly** in GPU replay; independent CPU curve error is at most **1.79 × 10⁻⁷**. It creates **zero new clipped channels**, preserves all 510,032 protected pixels and changes each source channel by at most 15 RGB8 codes.
+
+<figure class="motion-comparison">
+<video controls playsinline preload="metadata" poster="media/live-guard-poster.png" width="1280" height="720" aria-label="Guarded companion live street gameplay at original speed"><source src="media/live-guard-unretimed.mp4" type="video/mp4"><a href="media/live-guard-unretimed.mp4">Download guarded gameplay</a></video>
+<figcaption>Updated reduced + neural build · 34 seconds at original speed · comparison with standard and reduced rendering follows below</figcaption>
+</figure>
+
+| Application | Presents/s | Interval min / p50 / p95 / p99 / max, ms | Intervals >33.3 / >50 ms |
+| --- | ---: | --- | ---: |
+| Game with enhancement | 68.94 | 6.16 / 14.48 / 19.51 / 22.08 / 26.85 | 0 / 0 |
+| Companion | 59.97 | 3.42 / 15.59 / 30.61 / 32.83 / 46.49 | 12 / 0 |
+
+These are separate application Present counts over simulation seconds 30–60: 2,068 game and 1,799 companion presents, excluding 1,818 internal capture records. Both pass the declared ≥30 presents/s and ≤33.3 ms p95 gates. The entire moving window retains game focus, with no fallback or timeout. Recording cost is included: native 1440p capture, CPU color conversion and AMF encoding. No matching unrecorded guard run exists, so a separate recording penalty is not inferred.
+
+GPU copy, network and draw take **3.51 / 6.44 ms median/p95**; capture-to-Present age is **6.60 / 14.21 ms**, retaining all 124 negative offsets and the −3.14 ms minimum. Nineteen queued source frames are discarded for newer ones. Moving-path display and physical input latency remain unavailable. The companion completes 7,981 frames over 143.89 seconds including the later control checks.
+
+F8 bypass/resume, F9 modes 3 → 0 → 3 and F10 exit pass after measurement; Reforger continues for five seconds before the test closes its owned process. F8 handler-to-hide is 0.61 ms in software logs. These automated hotkeys do not establish physical WASD/mouse routing.
+
+Review covers all 34 chronological one-second samples, four native video keys and the complete [source](media/live-guard-source.png) / [guarded output](media/live-guard-output.png) snapshot pair. Buildings, openings, signs and barriers retain their visible arrangement. Motion blur, fine-detail aliasing and video compression remain; no substantial material/lighting gain or complete perceptual stability is accepted. The web copy scales to 1280 × 720 and retains all **1,855 source timestamps exactly**, including a maximum 66.67 ms recording gap. It records approximately 54.56 frames/s, distinct from companion presents.
+
+The release check, review and package audit close in **17.9 minutes** within the original 30-minute bound. A failed review extraction that duplicated VFR frames is retained; explicit timestamp passthrough fixes the review tooling without another gameplay run. The ZIP's 21 files, archive CRC, tested binary, complete CMake source set and extracted launcher help all pass. [Complete live evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-live-guard-v1.json) · [Package manifest and audit](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-package-v2.json) · [Retained previous build](downloads/playable-pipeline-2026-09-10.zip).
 
 ### Three minutes of repeated movement
 

@@ -16,6 +16,7 @@ def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--build-id', default='playable-pipeline-2026-09-10-guarded')
     a = p.parse_args()
     out = a.out.resolve()
     if out.exists() or out.with_suffix('.zip').exists(): raise FileExistsError(out)
@@ -25,7 +26,7 @@ def main():
     if sha(model/'weights.bin')!=expected: raise ValueError('Unrecognized exported checkpoint')
     out.mkdir(parents=True)
     paths = ['Start-Playable.cmd','LICENSE','scripts/play.py','scripts/launch_playable.py',
-             'native/companion.cpp','native/curve_network.h','native/curve_smoke.cpp','native/enr_gpu.cpp','native/adapter_info.cpp','native/CMakeLists.txt']
+             'native/companion.cpp','native/curve_network.h','native/curve_smoke.cpp','native/enr_gpu.cpp','native/adapter_info.cpp','native/dce_replay.cpp','native/CMakeLists.txt']
     for rel in paths:
         target=out/rel; target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(ROOT/rel,target)
@@ -40,6 +41,10 @@ def main():
 This build runs a real pretrained Zero-DCE++ exposure network on the GPU over
 local Arma Reforger gameplay. Its change is modest. It does not reconstruct
 photorealistic materials or lighting, and it has not met the complete quality goal.
+This revision adds a source-channel headroom guard to prevent new clipping in
+the bounded exposure pass. The native live snapshot reproduces exactly offline;
+the 30-second recorded street window and F8/F9/F10 checks pass. This does not
+establish complete visibility, temporal stability or physical input acceptance.
 
 CURRENT PC: Windows, RX 7800 XT, Steam Arma Reforger, Python 3 launcher (py -3).
 The companion is a standalone x64 executable with its C++ runtime linked in.
@@ -87,7 +92,7 @@ via Zero-Reference Deep Curve Estimation, TPAMI 2021 / Zero-DCE++.
 https://github.com/Li-Chongyi/Zero-DCE_extension
 No game assets, personal settings or game imagery are included in this package.
 ''',encoding='utf-8')
-    report={'schema_version':1,'build':'playable-pipeline-2026-09-10','source_revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+    report={'schema_version':1,'build':a.build_id,'source_revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
             'source_scope':'Exact included source hashes identify this build, including uncommitted packaging changes at creation.',
             'model':'Zero-DCE++ Epoch99, bounded brightness-only composition','precision':'FP32','files':{str(f.relative_to(out)).replace('\\','/'):sha(f) for f in out.rglob('*') if f.is_file()}}
     (out/'manifest.json').write_text(json.dumps(report,indent=2))

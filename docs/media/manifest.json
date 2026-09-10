@@ -2157,6 +2157,48 @@
       "source_sha256": "6174d8392404aeaea04e53bed7d2ed0397b57884cd06a62ce3d707b445c0ccb3",
       "transformation": "Unchanged native 2560x1440 guarded compositor output for the same constant-curve fixture.",
       "rights": "Original procedural fixture, MIT code license."
+    },
+    {
+      "file": "live-guard-poster.png",
+      "sha256": "11140ef4a2f3b59ebf417e390a1d4b21452d571a0bc23e69edd9ff42b20bbfa6",
+      "bytes": 889206,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_record": "evidence/playable-live-guard-v1.json",
+      "source_artifact": "runs/live-guard-review-v2/poster.png",
+      "source_sha256": "11140ef4a2f3b59ebf417e390a1d4b21452d571a0bc23e69edd9ff42b20bbfa6",
+      "transformation": "Area-reduced 1280x720 native video key at 10 seconds.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ weights have separate academic/noncommercial research terms."
+    },
+    {
+      "file": "live-guard-source.png",
+      "sha256": "5fdc6dff25ebb7462d3cf494d101541fe758604ffd022f807171f8f0df0ae9a7",
+      "bytes": 6610637,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-live-guard-v1.json",
+      "source_artifact": "runs/live-guard-v1/source.png",
+      "source_sha256": "5fdc6dff25ebb7462d3cf494d101541fe758604ffd022f807171f8f0df0ae9a7",
+      "transformation": "Unchanged RGB PNG conversion of native 2560x1440 source BMP, post-measurement.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ weights have separate academic/noncommercial research terms."
+    },
+    {
+      "file": "live-guard-output.png",
+      "sha256": "eef7d192241480e04a642ed5843f7cf1df47a826af8293bfc49e08c923dc5259",
+      "bytes": 6717928,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/playable-live-guard-v1.json",
+      "source_artifact": "runs/live-guard-v1/guarded.png",
+      "source_sha256": "eef7d192241480e04a642ed5843f7cf1df47a826af8293bfc49e08c923dc5259",
+      "transformation": "Unchanged RGB PNG conversion of native 2560x1440 guarded output BMP for the same frame.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ weights have separate academic/noncommercial research terms."
     }
   ],
   "videos": [
@@ -2454,6 +2496,23 @@
       "transformation": "Every source/native-replayed 2560x1440 pair is area-reduced to 896x504 per panel with 32px labels. 600 frames over ten seconds at the original relative source PTS; no motion synthesis, speed change or audio. H264 CRF20 YUV420p alters pixels. Offline native replay, not a new gameplay performance capture.",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ author checkpoint has separate academic/noncommercial terms.",
       "duration_seconds": 10,
+      "playback_speed": 1,
+      "retimed": false
+    },
+    {
+      "file": "live-guard-unretimed.mp4",
+      "sha256": "af4f6bec7a1357825989eebc32862d54a0bca7fe03278ebff8025301968807e4",
+      "bytes": 25424604,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_record": "evidence/playable-live-guard-v1.json",
+      "source_artifact": "runs/live-guard-review-v2/gameplay.mp4",
+      "source_sha256": "af4f6bec7a1357825989eebc32862d54a0bca7fe03278ebff8025301968807e4",
+      "transformation": "All original 2560x1440 frames area-reduced to 1280x720, H264 CRF22 YUV420p. Original relative timestamps retained within 1/60000 second; no frame synthesis, speed change or audio. Recording overhead included in live measurements.",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT code license. Zero-DCE++ weights have separate academic/noncommercial research terms.",
+      "duration_seconds": 34,
       "playback_speed": 1,
       "retimed": false
     }

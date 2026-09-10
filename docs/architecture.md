@@ -16,7 +16,7 @@ F8 hides the overlay and exposes the source. F9 switches the companion between i
 
 The overlay is nonactivating and disabled for normal window input. Automated engine actions prove live movement through the displayed scene; complete physical WASD/mouse routing is still awaiting verification. A separate ordinary viewer is available. These limits are tracked in [current status](status.md).
 
-The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. Its source build now also caps positive common RGB gain by source-channel headroom, using a 254/255 ceiling before feathering. This avoids new endpoints in the complete 600-frame offline replay and fixed saturation fixtures; separate live validation is pending, and the downloadable ZIP retains the original shader. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
+The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. The downloadable build also caps positive common RGB gain by source-channel headroom, using a 254/255 ceiling before feathering. This avoids new endpoints in the complete 600-frame offline replay, fixed saturation fixtures and the current live snapshot. The guarded release passes live replay parity, controls and application-cadence checks. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
 
 ## Components
 

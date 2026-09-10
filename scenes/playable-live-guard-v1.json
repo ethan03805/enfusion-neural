@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-10T13:34:16+00:00",
+  "deadline": "2026-09-10T14:04:16+00:00",
+  "frozen_at": "2026-09-10T13:42:02.061508+00:00",
+  "candidate": "Committed channel headroom guard only, strength 0.35",
+  "processing_hashes": {
+    "build/Release/enr_companion.exe": "88ebb41b6d38712259adff2a4ac177e1895c1c63356dc66e2c592379b154e675",
+    "native/companion.cpp": "3770caed8be8406837c7383b37c36b82adc29b1d159201ee0c6ed0982115fb1f",
+    "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+    "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+    "scripts/verify_live_guard.py": "cbba50740b2d2c8233c95d1d4dfba9b71502af6520e9ac12ed0ec4cf0d9677e5",
+    "scripts/launch_playable.py": "7da0905fd44464baca93b35d785cc351de3b8d2cebbe118451d94a29acb6b0d5",
+    "runs/live-guard-frozen.hlsl": "e8b4053dbeb67ad89bd712e2bb1399579b90b1f3ce855313405ccd2a46e1be65"
+  },
+  "addon_hashes": {
+    "addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+    "Scripts\\Game\\ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+    "Scripts\\Game\\ENR_PlayableConfig.c": "6963ef1820d855ecd1da61bc538716357f9b5b39c606c96d143d67773ce79220",
+    "Scripts\\Game\\ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99"
+  },
+  "settings_sha256": "626c5424aab6a4a8307de8bb00242dc10aaae6a0737a41023438b9cc1464e387",
+  "prior_successful_route": "runs/foliage-walk-neural-v1/launch.json",
+  "prior_route_sha256": "c529c1369ffe742f79639ca73dbfd98c2c667ebd5343d44eaf36a4b4128effb3",
+  "window_simulation_s": [
+    30,
+    60
+  ],
+  "recording_s": [
+    28,
+    62
+  ],
+  "snapshot_after_companion_s": 50,
+  "gates": {
+    "game_and_companion_min_present_fps": 30,
+    "game_and_companion_max_p95_interval_ms": 33.3,
+    "snapshot_replay_rgb8_max_error": 0,
+    "snapshot_replay_curve_max_error": 0,
+    "independent_cpu_curve_max_error": 0.0001,
+    "newly_clipped_channels": 0,
+    "protected_rgb8_max_error": 0,
+    "max_rgb8_change": 15,
+    "unintended_fallback_or_timeout_in_measurement": 0,
+    "game_foreground_entire_measurement": true
+  },
+  "controls": "After simulation 75: observed F8 bypass/resume, both F9 modes, F10 exit and original game alive five seconds later. Automated hotkeys do not establish physical WASD/mouse routing.",
+  "recording": "Original timestamp VFR 1440p AMF recording. Report recording cost as included, without unpaired subtraction. Review chronological samples and native keys; do not claim full perceptual playback.",
+  "failure_policy": "No second candidate, changed gates or new baseline to extend the original 30 minutes. Keep old download unless every live gate passes.",
+  "limits": "Software Present age only; display and physical input latency unavailable. This correction supplies no substantial material/lighting gain."
+}

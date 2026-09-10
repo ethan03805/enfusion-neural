@@ -84,8 +84,7 @@ def main():
     stale={path.name for path in output.iterdir()}-expected
     if stale: raise RuntimeError('Unexpected files in dist; review before publishing: '+str(sorted(stale)))
     copy_media(output)
-    package_record=ROOT/'evidence/playable-package-v1.json'
-    if package_record.exists():
+    for package_record in sorted((ROOT/'evidence').glob('playable-package-v*.json')):
         package=json.loads(package_record.read_text(encoding='utf-8'))
         name=package['download_file']
         if not re.fullmatch(r'[a-z0-9-]+\.zip',name): raise RuntimeError('Invalid package filename')
