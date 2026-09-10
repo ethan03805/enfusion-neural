@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "run": "bench-town-standard-v1",
+  "scene": "town",
+  "preset": "standard",
+  "mode": "off",
+  "recording": false,
+  "window": {
+    "simulation_s": [
+      30,
+      60
+    ],
+    "qpc_ms": [
+      10418883.109117992,
+      10448882.480220562
+    ],
+    "alignment": "Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon."
+  },
+  "game": {
+    "frames": 3441,
+    "mean_fps": 114.6971111031958,
+    "interval_ms": {
+      "min": 3.917299998924136,
+      "p50": 8.595499999821186,
+      "p95": 10.694389999937265,
+      "p99": 12.046942999828614,
+      "max": 13.997899997979403
+    },
+    "intervals_over_33_333_ms": 0,
+    "intervals_over_50_ms": 0,
+    "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+    "display_trace_rows": 3441,
+    "display_trace_dropped": 0,
+    "gpu_active_ms": {
+      "min": 7.6409,
+      "p50": 8.4638,
+      "p95": 9.9273,
+      "p99": 10.687259999999995,
+      "max": 11.965
+    }
+  },
+  "companion": {
+    "frames": 0,
+    "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+    "display_trace_rows": 0,
+    "display_trace_dropped": 0,
+    "gpu_active_ms": null,
+    "gpu_limitation": "PresentMon display/GPU tracking did not resolve occluded application presents; no per-game GPU duration claimed"
+  },
+  "path": [
+    {
+      "simulation_s": 29.3026,
+      "qpc_ms": 10418185.293657953,
+      "frame": 2840,
+      "camera": [
+        4773.53,
+        165.982,
+        7094.66
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "simulation_s": 30.31,
+      "qpc_ms": 10419193.293793375,
+      "frame": 2939,
+      "camera": [
+        4773.48,
+        165.933,
+        7095.1
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "simulation_s": 31.3131,
+      "qpc_ms": 10420196.293814356,
+      "frame": 3037,
+      "camera": [
+        4773.44,
+        165.745,
+        7098.88
+      ],
+      "direction": [
+        0.0022811,
+        0.00235455,
+        0.999995
+      ]
+    },
+    {
+      "simulation_s": 32.3191,
+      "qpc_ms": 10421202.293856317,
+      "frame": 3142,
+      "camera": [
+        4773.5,
+        165.561,
+        7102.68
+      ],
+      "direction": [
+        -0.000469424,
+        -0.00206097,
+        0.999998
+      ]
+    },
+    {
+      "simulation_s": 33.3272,
+      "qpc_ms": 10422213.293774301,
+      "frame": 3249,
+      "camera": [
+        4773.45,
+        165.356,
+        7106.45
+      ],
+      "direction": [
+        -0.00187263,
+        0.00101715,
+        0.999998
+      ]
+    },
+    {
+      "simulation_s": 34.3351,
+      "qpc_ms": 10423217.293722803,
+      "frame": 3364,
+      "camera": [
+        4773.51,
+        165.162,
+        7110.26
+      ],
+      "direction": [
+        0.00219521,
+        0.000324167,
+        0.999998
+      ]
+    },
+    {
+      "simulation_s": 35.3379,
+      "qpc_ms": 10424221.293671304,
+      "frame": 3478,
+      "camera": [
+        4772.26,
+        164.943,
+        7113.75
+      ],
+      "direction": [
+        -8.3354e-05,
+        -0.00161038,
+        0.999999
+      ]
+    },
+    {
+      "simulation_s": 36.3389,
+      "qpc_ms": 10425220.293743784,
+      "frame": 3595,
+      "camera": [
+        4770.48,
+        164.696,
+        7117.04
+      ],
+      "direction": [
+        -0.00218402,
+        0.00237299,
+        0.999995
+      ]
+    },
+    {
+      "simulation_s": 37.3396,
+      "qpc_ms": 10426220.293743784,
+      "frame": 3707,
+      "camera": [
+        4768.79,
+        164.455,
+        7120.26
+      ],
+      "direction": [
+        0.00152828,
+        -0.00181555,
+        0.999997
+      ]
+    },
+    {
+      "simulation_s": 38.3407,
+      "qpc_ms": 10427223.293764764,
+      "frame": 3815,
+      "camera": [
+        4767.18,
+        164.223,
+        7123.68
+      ],
+      "direction": [
+        0.000932031,
+        0.000672654,
+        0.999999
+      ]
+    },
+    {
+      "simulation_s": 39.3424,
+      "qpc_ms": 10428225.293858225,
+      "frame": 3925,
+      "camera": [
+        4765.46,
+        163.996,
+        7126.89
+      ],
+      "direction": [
+        -0.00230704,
+        0.000778654,
+        0.999997
+      ]
+    },
+    {
+      "simulation_s": 40.3488,
+      "qpc_ms": 10429232.293827707,
+      "frame": 4039,
+      "camera": [
+        4765.32,
+        163.815,
+        7130.51
+      ],
+      "direction": [
+        0.000556135,
+        -0.00240151,
+        0.999997
+      ]
+    },
+    {
+      "simulation_s": 41.35,
+      "qpc_ms": 10430231.293661768,
+      "frame": 4149,
+      "camera": [
+        4765.38,
+        163.504,
+        7134.28
+      ],
+      "direction": [
+        0.00173802,
+        0.00227271,
+        0.999996
+      ]
+    },
+    {
+      "simulation_s": 42.3566,
+      "qpc_ms": 10431239.29379719,
+      "frame": 4262,
+      "camera": [
+        4765.33,
+        163.398,
+        7138.11
+      ],
+      "direction": [
+        -0.00227917,
+        -0.00166231,
+        0.999996
+      ]
+    },
+    {
+      "simulation_s": 43.361,
+      "qpc_ms": 10432243.293745691,
+      "frame": 4372,
+      "camera": [
+        4765.37,
+        163.292,
+        7141.88
+      ],
+      "direction": [
+        0.000279584,
+        0.000349018,
+        1.0
+      ]
+    },
+    {
+      "simulation_s": 44.3716,
+      "qpc_ms": 10433252.293808633,
+      "frame": 4487,
+      "camera": [
+        4765.32,
+        163.175,
+        7145.68
+      ],
+      "direction": [
+        0.00201034,
+        0.00104371,
+        0.999997
+      ]
+    },
+    {
+      "simulation_s": 45.377,
+      "qpc_ms": 10434258.293850595,
+      "frame": 4600,
+      "camera": [
+        4765.38,
+        163.084,
+        7149.49
+      ],
+      "direction": [
+        -0.00212058,
+        -0.00205807,
+        0.999996
+      ]
+    },
+    {
+      "simulation_s": 46.3856,
+      "qpc_ms": 10435267.293675119,
+      "frame": 4717,
+      "camera": [
+        4765.33,
+        163.049,
+        7153.3
+      ],
+      "direction": [
+        1.96372e-05,
+        0.00241338,
+        0.999997
+      ]
+    },
+    {
+      "simulation_s": 47.3926,
+      "qpc_ms": 10436275.29381054,
+      "frame": 4838,
+      "camera": [
+        4765.64,
+        163.032,
+        7156.95
+      ],
+      "direction": [
+        0.00214767,
+        -0.00197887,
+        0.999996
+      ]
+    },
+    {
+      "simulation_s": 48.3936,
+      "qpc_ms": 10437276.293738062,
+      "frame": 4958,
+      "camera": [
+        4765.6,
+        163.102,
+        7160.73
+      ],
+      "direction": [
+        -0.00188225,
+        0.000825058,
+        0.999998
+      ]
+    },
+    {
+      "simulation_s": 49.3993,
+      "qpc_ms": 10438280.293686563,
+      "frame": 5079,
+      "camera": [
+        4765.63,
+        163.163,
+        7164.5
+      ],
+      "direction": [
+        -0.000502621,
+        0.000625488,
+        1.0
+      ]
+    },
+    {
+      "simulation_s": 50.4079,
+      "qpc_ms": 10439290.293677026,
+      "frame": 5200,
+      "camera": [
+        4765.66,
+        163.257,
+        7167.64
+      ],
+      "direction": [
+        0.10105,
+        -0.00129259,
+        0.994881
+      ]
+    },
+    {
+      "simulation_s": 51.4161,
+      "qpc_ms": 10440297.293884927,
+      "frame": 5321,
+      "camera": [
+        4765.73,
+        163.285,
+        7167.63
+      ],
+      "direction": [
+        0.32672,
+        0.000869025,
+        0.945121
+      ]
+    },
+    {
+      "simulation_s": 52.4162,
+      "qpc_ms": 10441297.293884927,
+      "frame": 5441,
+      "camera": [
+        4765.73,
+        163.289,
+        7167.62
+      ],
+      "direction": [
+        0.421658,
+        0.000737273,
+        0.906755
+      ]
+    },
+    {
+      "simulation_s": 53.4163,
+      "qpc_ms": 10442297.293884927,
+      "frame": 5561,
+      "camera": [
+        4765.74,
+        163.289,
+        7167.63
+      ],
+      "direction": [
+        0.363062,
+        0.000292141,
+        0.931765
+      ]
+    },
+    {
+      "simulation_s": 54.4234,
+      "qpc_ms": 10443306.293709451,
+      "frame": 5682,
+      "camera": [
+        4765.72,
+        163.292,
+        7167.63
+      ],
+      "direction": [
+        0.163783,
+        0.000105984,
+        0.986496
+      ]
+    },
+    {
+      "simulation_s": 55.433,
+      "qpc_ms": 10444313.293678934,
+      "frame": 5803,
+      "camera": [
+        4765.71,
+        163.292,
+        7167.63
+      ],
+      "direction": [
+        -0.10613,
+        3.80982e-05,
+        0.994352
+      ]
+    },
+    {
+      "simulation_s": 56.4409,
+      "qpc_ms": 10445322.293741876,
+      "frame": 5924,
+      "camera": [
+        4765.7,
+        163.289,
+        7167.64
+      ],
+      "direction": [
+        -0.330255,
+        1.36586e-05,
+        0.943892
+      ]
+    },
+    {
+      "simulation_s": 57.4417,
+      "qpc_ms": 10446322.293741876,
+      "frame": 6044,
+      "camera": [
+        4765.69,
+        163.293,
+        7167.63
+      ],
+      "direction": [
+        -0.421857,
+        4.94133e-06,
+        0.906662
+      ]
+    },
+    {
+      "simulation_s": 58.4465,
+      "qpc_ms": 10447326.293690378,
+      "frame": 6164,
+      "camera": [
+        4765.69,
+        163.293,
+        7167.63
+      ],
+      "direction": [
+        -0.358722,
+        1.77909e-06,
+        0.933444
+      ]
+    },
+    {
+      "simulation_s": 59.4472,
+      "qpc_ms": 10448329.293711359,
+      "frame": 6284,
+      "camera": [
+        4765.7,
+        163.291,
+        7167.64
+      ],
+      "direction": [
+        -0.156181,
+        6.4186e-07,
+        0.987728
+      ]
+    },
+    {
+      "simulation_s": 60.4485,
+      "qpc_ms": 10449331.293804819,
+      "frame": 6404,
+      "camera": [
+        4765.71,
+        163.293,
+        7167.63
+      ],
+      "direction": [
+        -0.00212602,
+        2.32414e-07,
+        0.999998
+      ]
+    }
+  ],
+  "source_hashes": {
+    "launch.json": "46c64cbfacca3b3e0df98265142f4fcf5ef505fac9135b58c630158619c1479d",
+    "profile\\logs\\logs_2026-09-10_00-46-25\\script.log": "8120f8b853c69486137cfd07b6b13761a0d179fce8ee68ae3b8e2e223f56bb3c",
+    "present-cpu.csv": "9fd710bf956d1a86a159b478634febd0f496eeaaa2d4aed1af905bde9d2c551a",
+    "present-display.csv": "379ffc0f12673c03936142689e295388198037422dc127a0766bc959f977ec38"
+  }
+}

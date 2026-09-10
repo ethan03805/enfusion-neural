@@ -1,6 +1,6 @@
 # Playable companion
 
-Updated 10 September 2026. Implementation is in progress. No playable or photorealistic result is claimed yet.
+Updated 10 September 2026. Live processing is working; input verification, controlled comparison and appearance acceptance remain in progress.
 
 ## First milestone
 
@@ -32,9 +32,13 @@ Record game and companion presents, p50/p95/p99 frame intervals, dropped/stale f
 
 The companion captures 1440p game RGB and runs a real native Zero-DCE++ network. A 320 × 180 FP32 curve matches the independent PyTorch checkpoint with maximum error 0.000000075 over 172,800 values. The native backend retains its source, input, checkpoint and output hashes locally. The candidate changes exposure; substantial photorealistic lighting/material improvement is **not established**.
 
-DirectComposition visibly displays the first-person Montignac scene after the initial layered-window swapchain failed to appear. F8 hides the overlay in the retained hotkey log. The source soldier spawns and receives the local player controller; closing Game Master restores its first-person camera. Mouse/keyboard operation through the visible overlay still requires a complete verification. The automated UI driver attempts to activate the nonactivating window and times out; this is retained as a test limitation.
+A normal HWND flip swapchain visibly displays the first-person Montignac scene and is measurable in PresentMon. It replaces DirectComposition, which displayed correctly but escaped the first display trace. Layered-window variants failed to appear. F8 exposes the source game; a retained hotkey log measured 1.38 ms from handling the key to hiding the window. That excludes keyboard sampling. The soldier receives the local player controller; closing Game Master restores its first-person camera. Physical mouse/keyboard operation through the visible overlay still requires complete verification. The automated UI driver rejects a mouse action because the companion covers the game; this remains a test limitation.
 
-Menu plumbing control: 2,397 frames / 40.012 s, exact RGB inversion, GPU copy/draw median 0.08032 ms. This is **not gameplay performance**. A live neural sample reports roughly 5 ms GPU copy/inference/draw; the complete controlled comparison is pending. The first PresentMon trace records the game but misses the DirectComposition companion, so display latency is not yet resolved. Signed compositor timestamp offsets include negatives and are retained without relabeling them as physical latency.
+Menu plumbing control: 2,397 frames / 40.012 s, exact RGB inversion, GPU copy/draw median 0.08032 ms. This is **not gameplay performance**. A live neural sample reports roughly 5 ms GPU copy/inference/draw. The HWND presentation sample joins 895 displayed frames to the companion log, with 12.61 ms median, 18.12 ms p95 and 20.98 ms p99 capture-to-display software latency. Signed compositor timestamp offsets include negatives and are retained. These numbers exclude input sampling and physical panel response.
+
+The controller ignored both direct movement and input-context writes. The documented `CharacterForward` action succeeds: the soldier follows a roughly 70-metre path over 20 seconds, followed by a 10-second heading sweep. Position and direction logs verify movement. Native-resolution baseline: 114.70 application presents/s, 8.60/10.69/12.05 ms p50/p95/p99 intervals, and 8.46 ms median game GPU activity. No interval exceeds 33.3 ms in this sample. Reduction runs are in progress. Separate PresentMon CPU traces preserve the game presents that display/GPU tracking loses while an overlay occludes it.
+
+Unretimed WGC recording with AMD hardware encoding works after explicit CPU readback and RGB-to-NV12 conversion. Direct GPU surface submission failed; that failure is retained. Encoding overhead is measured separately and is not part of the normal companion frame path.
 
 The unrestricted pretrained candidate over-brightens the source. The bounded candidate preserves source chroma and pixel coordinates and limits its brightness delta. The first hard HUD exclusion created a visible sky seam; the follow-up feathers it. Raw runs and the failed first image remain local.
 
@@ -43,4 +47,5 @@ The unrestricted pretrained candidate over-brightens the source. The bounded can
 - [Zero-DCE++ author code and checkpoint](https://github.com/Li-Chongyi/Zero-DCE_extension): 10,561 parameters, RGB-only curve estimation. Downloaded and evaluated on this PC; native FP32 parity passes. Author terms restrict use to academic/noncommercial research; its weights are separate from this repository’s MIT code.
 - [HDRNet](https://github.com/google/hdrnet): a photographic retouching candidate using low-resolution bilateral coefficients. Its original TensorFlow/custom operator conversion is deferred until the first loop and measurements are complete.
 - [DPIR](https://github.com/cszn/DPIR): an image-restoration alternative. Denoising does not supply missing lighting or physically correct material information; native runtime evaluation remains pending.
+- [Image-Adaptive-3DLUT](https://github.com/HuiZeng/Image-Adaptive-3DLUT): RGB photographic retouching using a small classifier and three learned color volumes. Author sRGB checkpoints and source have been downloaded at a pinned revision for evaluation. Apache-2.0 licensing is retained separately. This is the next candidate because it changes photographic color and tone without inventing spatial detail.
 - [Poly Haven pavement](https://polyhaven.com/a/pavement_04) and [rural midday lighting reference](https://polyhaven.com/a/rural_asphalt_road): CC0 appearance references for rough surfaces and outdoor light. These are visual references, not pixel-aligned targets for Everon assets. Their identity must not replace the game’s own roads, walls or foliage.

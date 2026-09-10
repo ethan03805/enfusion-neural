@@ -40,6 +40,12 @@ modded class ArmaReforgerScripted
    if (!ENR_PlayableState.Player) { Print("ENR_LIVE spawn_failed"); return; }
    ENR_PlayableState.Controller = CharacterControllerComponent.Cast(ENR_PlayableState.Player.FindComponent(CharacterControllerComponent));
    ENR_Settings.Log();
+   InputManager inputs = GetGame().GetInputManager();
+   for (int i = 0; i < inputs.GetActionCount(); i++)
+   {
+    string action = inputs.GetActionName(i);
+    if (action.Contains("Character") || action.Contains("Move")) PrintFormat("ENR_ACTION %1", action);
+   }
    int nw, nh, rw, rh; System.GetNativeResolution(nw, nh); System.GetRenderingResolution(rw, rh);
    PrintFormat("ENR_LIVE dimensions native=%1x%2 rendering=%3x%4", nw, nh, rw, rh);
    bool controlled = controller.SetControlledEntity(ENR_PlayableState.Player);
@@ -51,14 +57,14 @@ modded class ArmaReforgerScripted
   {
    float pathTime = ENR_PlayableState.Elapsed - 30;
    if (pathTime >= 0 && pathTime < 20)
-    ENR_PlayableState.Controller.SetMovement(1, "0 0 1");
+    GetGame().GetInputManager().SetActionValue("CharacterForward", 1);
    else if (pathTime >= 20 && pathTime < 30)
    {
-    ENR_PlayableState.Controller.SetMovement(0, "0 0 1");
+    GetGame().GetInputManager().SetActionValue("CharacterForward", 0);
     ENR_PlayableState.Controller.SetHeadingAngle((ENR_PlayableConfig.Yaw + 25 * Math.Sin((pathTime - 20) * 0.628319)) * Math.DEG2RAD, true);
    }
    else if (pathTime >= 30)
-    ENR_PlayableState.Controller.SetMovement(0, "0 0 1");
+    GetGame().GetInputManager().SetActionValue("CharacterForward", 0);
   }
   if (ENR_PlayableState.Elapsed >= ENR_PlayableState.NextLog)
   {
