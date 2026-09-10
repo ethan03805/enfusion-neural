@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "objective": "Evaluate a spatial RGB photorealism model against the actual material, lighting, identity and performance goal before live integration.",
+  "candidate": "REGEN GTA2Cityscapes pretrained generator, author revision de240056522d066235b48b541e7d49f28c80f1ed",
+  "input_contract": "Actual captured display-referred RGB including HUD; no engine depth, normals, motion or material labels.",
+  "selection": "Three retained frames chosen before seeing this candidate: road/sign/building openings, building facade after turn, and foliage/tree silhouette.",
+  "inputs": [
+    "runs/video-review-town-v1/video-town-combined-v1-10.png",
+    "runs/video-review-town-v1/video-town-combined-v1-30.png",
+    "runs/video-review-additional-v1/video-foliage-standard-v1-02.png"
+  ],
+  "stages": [
+    "Inspect and retain author source/checkpoint hashes; load tensor data with weights_only=True.",
+    "Evaluate author RGB normalization and unchanged generator on CPU and DirectML at 960x544. Preserve raw outputs before any bounded residual composition.",
+    "Check exact labels, openings, guardrails, signs, foliage and surface identity visually. Changed semantics or fabricated boundaries reject default integration.",
+    "Only if raw quality is useful: test bounded source-detail composition and a consecutive-frame motion sequence, then measure a native or shared-texture implementation."
+  ],
+  "performance_gate": "Report synchronized file-evaluation time including transfers, separately from pure GPU or complete-game timing. Confirm RX 7800 XT adapter and provider assignment. Do not infer 1440p app performance from a smaller model input.",
+  "time_limit": "At most 30 minutes on obtaining/exporting/running this candidate before recording a specific failure or changing approach. No renderer-hook investigation.",
+  "fallback": "Keep the published Zero-DCE++ pipeline and source bypass intact; do not replace it with an unaccepted generator."
+}

@@ -18,3 +18,7 @@ add_executable(enr_curve_smoke curve_smoke.cpp)
 target_compile_features(enr_curve_smoke PRIVATE cxx_std_20)
 target_compile_definitions(enr_curve_smoke PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
 target_link_libraries(enr_curve_smoke PRIVATE d3d11 dxgi d3dcompiler windowsapp)
+
+add_executable(enr_adapter_info adapter_info.cpp)
+target_compile_features(enr_adapter_info PRIVATE cxx_std_17)
+target_link_libraries(enr_adapter_info PRIVATE dxgi)

@@ -8,6 +8,8 @@ GPU copy, inference and drawing take **3.44 ms median / 6.11 ms p95** in that pa
 
 **The complete appearance objective is unfinished.** Zero-DCE++ makes a modest exposure change and preserves source pixel positions. A second photographic model was evaluated and rejected for clipping foliage shadows. Neither establishes substantial photorealistic material or lighting improvement. The current input is RGB with HUD; no verified depth, normals, motion or material buffers are available.
 
+The next bounded evaluation is [REGEN](https://github.com/stefanos50/REGEN), an RGB game-to-photo generator with pretrained weights and an ONNX export. Three retained town/foliage frames are selected before inference. Output identity and actual RX 7800 XT timing must pass before live integration; the existing downloadable build remains unchanged. Obtaining/exporting/running the candidate is limited to 30 minutes before a specific result or change of approach.
+
 Engine actions verify a walking soldier and camera turn under continuous processing. Physical WASD/mouse operation through the overlay still needs a user check. Long-session resilience, interiors, scopes, adverse weather, HDR and semantic failure detection are outside accepted coverage.
 
 See the [playable prototype](playable.md) for the build, normal-speed comparisons, complete measurements and retained failures. The [roadmap](roadmap.md) identifies the remaining acceptance gates. Blender work remains [background research](research-history.md).
