@@ -1,6 +1,6 @@
 # Objectives
 
-The research objective is to improve lighting and material appearance while preserving scene geometry, identity and visibility. The initial complete-frame target is 1440p at 20 FPS or better on a declared test configuration. Evaluation must also cover other resolutions and quality settings.
+The research objective is to improve lighting and material appearance while preserving scene geometry, identity and visibility. The initial complete-frame target is 1440p at 30–60 FPS on a declared test configuration. Evaluation must also cover other resolutions and quality settings.
 
 ## Fidelity contract
 
@@ -15,13 +15,13 @@ Concealed targets must stay concealed. Foliage, fences and thin wires are part o
 | Quantity | Initial target or constraint |
 | --- | --- |
 | Output | 2560 × 1440; support other valid dimensions |
-| Playable floor | 20 FPS, at most 50 ms per complete frame |
+| Playable floor | 30–60 FPS, 16.7–33.3 ms per complete frame |
 | Priority | Scene fidelity, then reduced cost without losing fidelity |
 | Provisional neural allocation | Up to 10 ms at p95, revised after the real engine baseline |
 | Provisional added GPU memory | At most 1 GiB; measure actual budget and peak use |
 | Development | Local experiments; paid training requires a separate budget |
 
-The 10 ms allowance is a planning ceiling, not an achieved budget or entitlement. If the game already takes 50 ms, enhancement must reduce other costs or use a different profile. Averaging 20 FPS while producing large stalls is insufficient. Measure p95/p99 frame times, input latency and a long run.
+The 10 ms allowance is a planning ceiling, not an achieved budget or entitlement. If the game already takes 33.3 ms, enhancement must reduce other costs or use a different profile. Averaging 30 FPS while producing large stalls is insufficient. Measure p95/p99 frame times, input latency and a long run.
 
 ## Appearance model direction
 

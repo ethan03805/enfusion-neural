@@ -1,3 +1,17 @@
+# Active roadmap
+
+The 10 September playable-companion objective supersedes the research sequence below.
+
+1. Prove live RGB capture, GPU presentation, gameplay input and bypass; record latency and pacing.
+2. Add an isolated single-player addon with repeatable paths and engine telemetry.
+3. Measure render reductions independently on town, interior and foliage paths.
+4. Evaluate RGB pretrained models on the RX 7800 XT; reject geometry/visibility changes and expose source fallback.
+5. Package the runnable build and publish unretimed baseline/reduced/enhanced comparisons with complete performance.
+
+See [current work](playable.md). Target 1440p at 30–60 FPS. Preserve the historical gates below as background, not the current task queue.
+
+## Previous research roadmap
+
 # Roadmap
 
 The following stages define the implementation and evaluation work. Each must produce inspectable evidence before a stronger claim is made.
@@ -72,3 +86,5 @@ Acceptance: at least 20 FPS with acceptable pacing on the recorded test configur
 Before renting hardware, measure local training throughput and memory, estimate dataset and experiment size, and provide a concrete cost/time plan. Use a portable model interchange and resumable checkpoints. No paid resource has been provisioned. Hardware rental requires a separate authorized budget.
 
 Training may move to a larger GPU; inference must still be validated on the test hardware. Additional Enfusion titles and other GPUs each require their own adapter and evidence.
+
+

@@ -1,33 +1,17 @@
 # Enfusion Neural
 
-This repository contains Workbench capture tools, reference scene definitions, a small neural image-processing model and a native D3D12 backend. The current workflow operates on exported images.
+A playable neural appearance prototype for Arma Reforger, using an isolated addon and a Windows companion. Target: **2560 × 1440 at 30–60 FPS on RX 7800 XT in local single-player**.
 
-## Start here
+Implementation is in progress. The first task is continuous gameplay capture, GPU processing and display with a working bypass and measured added latency. A substantial improvement to materials and lighting has not yet been demonstrated.
 
 | Read | Purpose |
 | --- | --- |
-| [Objectives](vision.md) | Image fidelity requirements and evaluation targets |
-| [Get started](getting-started.md) | Build, train and run the first neural component |
-| [Reference scenes](reference-scenes.md) | Capture repeated views and measure image differences |
-| [Capture controls](capture-controls.md) | Camera path, verified settings and remaining viewport limitations |
-| [Color lookup](color-lookup.md) | Native camera effect, failed display-color hypothesis and all controls |
-| [Material room](material-room.md) | Original geometry and aligned synthetic lighting targets |
-| [Lighting study](lighting-study.md) | Trained lighting correction, baselines and held-out comparisons |
-| [Scene transfer and motion](lighting-motion.md) | Frozen-model evaluation on a new layout and moving camera/light paths |
-| [Scene diversity](lighting-diversity.md) | Passed unseen-scene checks, all three input variants and complete test/regression clips |
-| [Lighting GPU](lighting-gpu.md) | Native graph, all 112 CPU comparisons, timings and retained failures |
-| [Arma scenes](arma-scenes.md) | Inspected source environments and vehicle/character placement |
-| [Technical feasibility](feasibility.md) | Workbench interfaces, asset-specific training and photographic references |
-| [Comparisons](comparisons.md) | Inspect source/output images and synchronized motion |
-| [Architecture](architecture.md) | Model, GPU backend and engine boundaries |
-| [Evidence](evidence.md) | Measured results and what they establish |
-| [Roadmap](roadmap.md) | Next experiments and acceptance gates |
-| [Handoff](status.md) | Current state for the next engineer or agent |
+| [Playable prototype](playable.md) | Current build, controls, measurements and work log |
+| [Current status](status.md) | What works and the next acceptance gate |
+| [Objectives](vision.md) | Preserve identity, openings, cover and visibility |
+| [Architecture](architecture.md) | Live companion boundary and retained offline backend |
+| [Arma scenes](arma-scenes.md) | Existing town, interior, foliage and entity fixtures |
+| [Comparisons](comparisons.md) | Earlier labeled image and retimed research comparisons |
+| [Research history](research-history.md) | Prior Blender and engine-interface experiments |
 
-## What exists
-
-A small trainable convolutional network, an independent CPU reference, a native D3D12 inference executable and a reproducible Workbench capture workflow. Source, model weights and measurement summaries live together in the repository.
-
-The bootstrap model reconstructs procedurally degraded images. A separate [lighting model](lighting-study.md) learns a restricted diffuse-light contribution from original scene buffers and improves held-out camera/light combinations within one room. Neither delivers the project's photorealism goal. Live Enfusion integration, new-asset generalization and temporal stability remain open.
-
-The initial playable floor is **2560 × 1440 at 20 FPS on a declared test configuration**. This is a target for the complete application. GPU dispatch timings alone cannot demonstrate it.
+The previous Blender lighting studies and standalone neural timings are research evidence. They do not establish live-game visual quality or complete application performance. The companion will select its model around RGB frames that Windows actually supplies.

@@ -1,3 +1,9 @@
+# Live architecture under construction
+
+Actual Reforger HWND → Windows Graphics Capture BGRA8 GPU texture → D3D11 processing → nonactivating companion swapchain. The game owns input; hiding the overlay exposes the native game immediately. Capture age, dropped frames and GPU processing are logged separately. No scene buffers or renderer hooks are assumed. See [playable prototype](playable.md).
+
+## Retained offline architecture
+
 # Architecture
 
 The current execution path is deliberately small enough to inspect from end to end.

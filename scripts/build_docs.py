@@ -11,7 +11,7 @@ import markdown
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[('index','Overview'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('room-lighting','Room lighting'),('light-calibration','Light calibration'),('color-lookup','Color lookup'),('lighting-study','Lighting study'),('lighting-motion','Scene transfer & motion'),('lighting-diversity','Scene diversity'),('lighting-gpu','Lighting GPU'),('arma-scenes','Arma scenes'),('comparisons','Comparisons'),
+PAGES=[('index','Overview'),('playable','Playable prototype'),('research-history','Research archive'),('vision','Objectives'),('getting-started','Get started'),('reference-scenes','Reference scenes'),('capture-controls','Capture controls'),('material-room','Material room'),('room-lighting','Room lighting'),('light-calibration','Light calibration'),('color-lookup','Color lookup'),('lighting-study','Lighting study'),('lighting-motion','Scene transfer & motion'),('lighting-diversity','Scene diversity'),('lighting-gpu','Lighting GPU'),('arma-scenes','Arma scenes'),('comparisons','Comparisons'),
        ('architecture','Architecture'),('integration','Enfusion integration'),('feasibility','Technical feasibility'),
        ('evidence','Evidence'),('evaluation','Evaluation'),('roadmap','Roadmap'),
        ('decisions','Decisions'),('status','Handoff'),('contributing','Contributing'),('sources','Sources')]
@@ -93,7 +93,10 @@ def main():
             return 'href="'+href+'"'
         content=re.sub(r'href="([^"]+)"',rewrite,content)
         content=content.replace('<table>','<div class="table-wrap"><table>').replace('</table>','</table></div>')
-        nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES)
+        all_nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES)
+        primary={'index','playable','status','vision','getting-started','architecture','roadmap','comparisons'}
+        nav=''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES if name in primary)
+        nav+='<details'+(' open' if slug not in primary else '')+'><summary>Research archive</summary>'+''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'>{escape(text)}</a>' for name,text in PAGES if name not in primary)+'</details>'
         title_link='<a class="site-title" href="index.html">Enfusion Neural</a>'
         theme='<label class="theme-label">Theme<select data-theme-control aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>'
         nextpage=PAGES[position+1] if position+1<len(PAGES) else PAGES[0]

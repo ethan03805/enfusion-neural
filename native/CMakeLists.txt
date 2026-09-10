@@ -7,3 +7,8 @@ add_executable(enr_gpu enr_gpu.cpp)
 target_compile_features(enr_gpu PRIVATE cxx_std_17)
 target_compile_definitions(enr_gpu PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
 target_link_libraries(enr_gpu PRIVATE d3d12 dxgi d3dcompiler)
+
+add_executable(enr_companion companion.cpp)
+target_compile_features(enr_companion PRIVATE cxx_std_17)
+target_compile_definitions(enr_companion PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN UNICODE _UNICODE)
+target_link_libraries(enr_companion PRIVATE d3d11 dxgi d3dcompiler windowsapp dwmapi)

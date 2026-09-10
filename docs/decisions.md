@@ -119,3 +119,7 @@ Accepted 9 September 2026. Implement all three locked lighting variants as expli
 Reuse all 112 existing source/reference frames and the original fidelity-gate function. Recompute the selected model's linear-space metrics from native output; keep other controls as their recorded CPU results and omit unmeasured GPU display metrics. Standalone dispatch and transfers are separate measurements, and neither establishes a supported engine integration or complete-frame performance.
 
 When storage limits interrupt numerical tests, preserve measured outputs and failures. Generated inputs can be removed only after exact regeneration with retained recipes and source snapshots. Rendered source passes remain authoritative, while packed transfer buffers are temporary and hash-bound to those inputs. Avoid duplicating native output in a second array format when it can be extracted losslessly.
+
+## 023 · Prove the Windows gameplay loop before choosing the appearance model
+
+Accepted 10 September 2026 under the user’s new playable-companion objective. Use Windows Graphics Capture and a separate GPU companion. RGB including HUD is the available contract; the full Blender model cannot run with absent scene inputs. Do not repeat the exhausted screenshot/widget bridge. Measure capture age and complete game performance before committing to a pretrained model. The active target is now 1440p at 30–60 FPS. Keep the existing GitHub Pages address and collapse previous experiments into research navigation.
