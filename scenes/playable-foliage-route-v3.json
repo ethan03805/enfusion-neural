@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "scene": "foliage-walk",
+  "reason": "The east-facing backyard pilot moves only 9.26m before hitting another fence. Two verified overhead surveys show fenced backyards and a passable adjacent tree-lined street. Test that street; do not call it dense-forest coverage.",
+  "position": [4590, 15.8, 10670],
+  "yaw_degrees": 350,
+  "hour": 13,
+  "motion": "Existing forward action at simulation seconds 30–50, followed by heading sweep at 50–60.",
+  "pilot": "Second route attempt: standard settings, native 34-second recording and CPU presentation trace. Review trees, foliage edges and building/fence boundaries; most movement is along the street.",
+  "pilot_limits": {
+    "maximum_route_attempts": 3,
+    "maximum_minutes": 20,
+    "minimum_walk_horizontal_displacement_m": 50,
+    "minimum_interior_horizontal_speed_m_per_second": 1,
+    "speed_window_simulation_s": [32, 49]
+  },
+  "comparison": "After spatial acceptance, reuse this unselected standard pilot and record combined reduction and combined plus neural under the same path/configuration.",
+  "path_agreement_max_camera_distance_m": 0.5,
+  "surveys": [
+    {"run": "runs/foliage-route-survey-v1/runs/20260910T065042-8430835731", "image_sha256": "57331778866e878f9cb3977241d6f65f339f7405ca5fb9c6ad9baa8962bd1d5d"},
+    {"run": "runs/foliage-route-survey-v1/runs/20260910T065246-8595861acb", "image_sha256": "03c2f569fd06fc7a4b58dc2cf3e51b0d2dfda7b26287ff4217c4e94f38c33668"}
+  ],
+  "limits": "Numerical route acceptance is not semantic visibility acceptance, dense vegetation traversal, physical-input verification or displayed-frame timing. Previous failures remain retained."
+}

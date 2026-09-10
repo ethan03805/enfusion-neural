@@ -64,7 +64,9 @@ def main():
     stop_simulation = 68
     try:
         while time.monotonic() < deadline:
-            if proc.poll() is not None: raise RuntimeError('Game exited before benchmark completed')
+            if proc.poll() is not None:
+                manifest['early_game_exit_code'] = proc.returncode
+                raise RuntimeError('Game exited before benchmark completed')
             logs = list((out/'profile/logs').glob('*/script.log'))
             text = logs[-1].read_text(errors='replace') if logs else ''
             stamps = re.findall(r'ENR_LIVE simulation_s=([0-9.]+)', text)

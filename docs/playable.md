@@ -26,11 +26,20 @@ Three independent town runs follow the same declared path: 20 seconds walking, t
 </figure>
 
 <figure class="motion-comparison">
+<video controls playsinline preload="none" poster="media/playable-street-poster.png" width="3840" height="760" aria-label="Normal-speed tree-lined street gameplay, standard, reduced and reduced plus neural"><source src="media/playable-street-unretimed.mp4" type="video/mp4"><a href="media/playable-street-unretimed.mp4">Download tree-lined street gameplay</a></video>
+<figcaption>Tree-lined street · standard / reduced / reduced + neural · 34 seconds at 1× speed</figcaption>
+</figure>
+
+The second accepted route travels **73.9–74.2 metres** along a Saint-Philippe street. All three passes clear the declared 50-metre displacement and 1 m/s minimum interior-speed gates. Sampled camera positions stay within **0.47 metres of the standard pass**, below the predeclared 0.5-metre limit. This adds tree canopies, trunks, poles, guardrails and building openings; it does not establish dense-forest coverage. The standard pass has a visible 283 ms recording gap near 9.7 seconds, retained at its original duration.
+
+<details>
+<summary>Retained failed foliage/fence comparison</summary>
+<figure class="motion-comparison">
 <video controls playsinline preload="none" poster="media/playable-foliage-poster.png" width="3840" height="760" aria-label="Normal-speed foliage gameplay, standard, reduced and reduced plus neural"><source src="media/playable-foliage-unretimed.mp4" type="video/mp4"><a href="media/playable-foliage-unretimed.mp4">Download foliage gameplay</a></video>
 <figcaption>Foliage/fence collision check · standard / reduced / reduced + neural · 34 seconds at 1× speed</figcaption>
 </figure>
-
-The foliage attempt reaches a solid fence and stops, retaining the cover collision. The reduced-only run also takes a different line around the tree, with a maximum sampled camera deviation of 1.87 metres. This is retained as a visibility/collision check; it is **not an accepted matched moving-foliage benchmark**. Much of its timing window is stationary.
+<p>The original foliage attempt reaches a solid fence and stops. The reduced-only run takes a different line around a tree, with a maximum sampled camera deviation of 1.87 metres. It is not an accepted matched moving-foliage benchmark; much of the timing window is stationary. A later east-facing pilot also hits a fence after only 9.26 metres. Two overhead surveys identified the adjacent passable street shown above.</p>
+</details>
 
 Capture starts near simulation second 28 in each run. Initialization and head movement differ, so these are repeat paths, not pixel-aligned images. The town recordings' sampled camera positions differ by at most 0.21 metres at the same simulation times. The compositor holds the last available frame of a slower input, preserving elapsed time. Native VFR clips and timestamps remain local.
 
@@ -58,7 +67,24 @@ These are application Present calls, including frames that may never be displaye
 
 [Complete measurement record](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-comparison-v1.json) contains frame quantiles, path telemetry, configuration readback and raw-artifact hashes.
 
-Additional recorded checks, with the foliage limitations above:
+### Tree-lined street, with recording
+
+These are the first complete standard, reduced and enhanced passes on the accepted route. A preceding street launch crashed during world loading, before the player or companion started; its logs and dump are retained, and its cause is unknown. An identical retry produced the standard pass below. No completed pass was replaced based on performance.
+
+| Configuration | Game presents/s | Game p95 / p99, ms | Maximum game interval, ms |
+| --- | ---: | ---: | ---: |
+| Standard | 70.86 | 16.54 / 18.96 | 295.11 |
+| Reduced | 84.87 | 14.56 / 16.26 | 32.97 |
+| Reduced + neural | 69.48 | 19.06 / 22.98 | 36.64 |
+
+The companion averages **60.00 presents/s**, with **30.66 / 32.90 ms p95 / p99**, a 50.26 ms maximum and sixteen intervals above 33.3 ms. GPU copy/network/draw take 3.56 ms median / 6.44 ms p95. Capture-to-Present-call age is 6.69 ms median / 14.14 ms p95; displayed-frame and physical latency remain unavailable. The 34-second neural recording contains 1,817 frames, averaging 53.44 frames/s. Recording adds the same readback/conversion/encoding costs described above.
+
+The standard application's 295.11 ms stall occurs about 8.11 seconds into the measurement window; the recording retains its 283.33 ms timestamp gap at 9.667–9.950 seconds. Averages and quantiles include the stall. The neural appearance still provides only a small brightness lift; roof and leaf aliasing remain visible. Passing a movement gate does not establish temporal or visibility acceptance.
+
+[Street route, complete measurements and retained failures](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-street-v1.json). Reproduce from the repository with `scripts/benchmark_playable.py --out NEW_DIRECTORY --scene foliage-walk --preset combined --mode neural --trace cpu --record`; use standard/off and combined/off for the other passes. The new automatic benchmark route is not a scene option in the earlier downloadable free-play package.
+
+<details>
+<summary>Earlier recorded fence and evening checks</summary>
 
 | Recorded case | Game presents/s | Game p95 / p99, ms | Companion presents/s | Companion p95 / p99, ms |
 | --- | ---: | ---: | ---: | ---: |
@@ -68,6 +94,8 @@ Additional recorded checks, with the foliage limitations above:
 | Evening town reduced + neural | 82.03 | 17.42 / 20.29 | 60.65 | 30.38 / 32.15 |
 
 The evening check is a single enhancement run, with no evening baseline claim. The rebuilt package changes C++ runtime linkage and metadata only; its unchanged shader still passes CPU parity.
+
+</details>
 
 ### Ten-minute runtime check
 
@@ -128,7 +156,7 @@ This is the exact source/output frame pair from the early live loop, before the 
 
 ## Boundaries and retained failures
 
-Initial coverage is a town road with buildings, openings, signs and guardrails, a foliage path, an evening town check and a mostly stationary ten-minute runtime test. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Interiors, scopes, combat visibility, rain, HDR and extended movement remain unaccepted.
+Initial coverage is two passable town streets with buildings, openings, signs, guardrails and vegetation edges, a failed foliage/fence route, an evening town check and a mostly stationary ten-minute runtime test. No game meshes or textures are replaced. The shader performs no spatial reconstruction and has no temporal history; that avoids generated geometry and history ghosting, but does not prove temporal or semantic fidelity. Dense forest, interiors, scopes, combat visibility, rain, HDR and extended movement remain unaccepted.
 
 The first profile clone was one directory too high; its 114.70 game presents/s result used engine defaults and is not the standard baseline. The corrected launcher writes beneath the nested profile mount and verifies settings. Interrupted early ETW sessions and event-loss runs remain failed. Layered-window presentation variants failed visibly; the normal HWND route is retained. A hard HUD exclusion produced a sky seam and was replaced by a feathered boundary. Direct GPU recording submission failed; the working recorder's CPU conversion is explicit.
 

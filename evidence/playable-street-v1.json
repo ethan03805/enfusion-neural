@@ -1,0 +1,2236 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "fe4a7cf61c186043abf3bea507f9ad96672c2af85c9aa3432e93701403c6ca21",
+  "scope": "Camera telemetry during the declared walking interval; repeatability includes head motion. No image registration or video retiming. This is not semantic visibility acceptance.",
+  "runs": [
+    {
+      "run": "foliage-walk-pilot-v3",
+      "horizontal_displacement_m": 73.86149181626493,
+      "speed_m_per_s_at_one_second_samples": [
+        3.785292271357977,
+        3.7975024210154444,
+        3.7678442810062687,
+        3.8044988868555376,
+        3.820172523852511,
+        3.5008188953599597,
+        3.6933699892774445,
+        3.809850673159228,
+        3.7903961533367516,
+        3.8238688300756007,
+        3.770555360605438,
+        3.786886828409024,
+        3.7803221310584267,
+        3.7843275129366063,
+        3.777128713697526,
+        3.7547177127318525,
+        3.7850672948872965
+      ],
+      "minimum_interior_speed_m_per_s": 3.5008188953599597,
+      "max_repeat_camera_distance_m": 0.0,
+      "passes_motion_gate": true,
+      "passes_repeat_gate": true,
+      "measurement": {
+        "schema_version": 1,
+        "run": "foliage-walk-pilot-v3",
+        "scene": "foliage-walk",
+        "preset": "standard",
+        "mode": "off",
+        "recording": true,
+        "window": {
+          "simulation_s": [
+            30,
+            60
+          ],
+          "qpc_ms": [
+            18354643.03829266,
+            18384726.832714055
+          ],
+          "alignment": "Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon."
+        },
+        "game": {
+          "frames": 2132,
+          "mean_fps": 70.86190515720659,
+          "interval_ms": {
+            "min": 6.89919999986887,
+            "p50": 13.92850000038743,
+            "p95": 16.536599999293685,
+            "p99": 18.959280001744613,
+            "max": 295.1072000004351
+          },
+          "intervals_over_33_333_ms": 2,
+          "intervals_over_50_ms": 1,
+          "excluded_nonapplication_records": 0,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed"
+        },
+        "companion": {
+          "frames": 0,
+          "excluded_nonapplication_records": 0,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed"
+        },
+        "path": [
+          {
+            "simulation_s": 29.3052,
+            "qpc_ms": 18353948.4441424,
+            "frame": 2296,
+            "camera": [
+              4590.06,
+              19.9089,
+              10670.1
+            ],
+            "direction": [
+              -0.173648,
+              0.0,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 30.3175,
+            "qpc_ms": 18354960.444226325,
+            "frame": 2373,
+            "camera": [
+              4589.93,
+              19.8965,
+              10670.5
+            ],
+            "direction": [
+              -0.173648,
+              0.0,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 31.3209,
+            "qpc_ms": 18355963.444247305,
+            "frame": 2444,
+            "camera": [
+              4589.24,
+              19.8728,
+              10674.2
+            ],
+            "direction": [
+              -0.171404,
+              0.00235567,
+              0.985198
+            ]
+          },
+          {
+            "simulation_s": 32.322,
+            "qpc_ms": 18356965.444340765,
+            "frame": 2516,
+            "camera": [
+              4588.61,
+              19.8868,
+              10678.0
+            ],
+            "direction": [
+              -0.174169,
+              -0.00211549,
+              0.984714
+            ]
+          },
+          {
+            "simulation_s": 33.3227,
+            "qpc_ms": 18357964.444174826,
+            "frame": 2592,
+            "camera": [
+              4587.95,
+              19.9085,
+              10681.7
+            ],
+            "direction": [
+              -0.175478,
+              0.00112681,
+              0.984483
+            ]
+          },
+          {
+            "simulation_s": 34.3335,
+            "qpc_ms": 18358973.44423777,
+            "frame": 2668,
+            "camera": [
+              4587.28,
+              19.9305,
+              10685.5
+            ],
+            "direction": [
+              -0.171417,
+              0.000169305,
+              0.985198
+            ]
+          },
+          {
+            "simulation_s": 35.3376,
+            "qpc_ms": 18359979.44427973,
+            "frame": 2744,
+            "camera": [
+              4586.62,
+              19.9311,
+              10689.2
+            ],
+            "direction": [
+              -0.174,
+              -0.00137734,
+              0.984745
+            ]
+          },
+          {
+            "simulation_s": 36.344,
+            "qpc_ms": 18360986.444249213,
+            "frame": 2817,
+            "camera": [
+              4585.94,
+              19.9353,
+              10693.0
+            ],
+            "direction": [
+              -0.175519,
+              0.00218766,
+              0.984474
+            ]
+          },
+          {
+            "simulation_s": 37.354,
+            "qpc_ms": 18361997.444167197,
+            "frame": 2892,
+            "camera": [
+              4585.32,
+              19.9652,
+              10696.8
+            ],
+            "direction": [
+              -0.171429,
+              -0.00242225,
+              0.985193
+            ]
+          },
+          {
+            "simulation_s": 38.3643,
+            "qpc_ms": 18363095.444216788,
+            "frame": 2952,
+            "camera": [
+              4584.66,
+              20.0322,
+              10700.1
+            ],
+            "direction": [
+              -0.173459,
+              0.00153907,
+              0.98484
+            ]
+          },
+          {
+            "simulation_s": 39.3759,
+            "qpc_ms": 18364102.44418627,
+            "frame": 3024,
+            "camera": [
+              4584.05,
+              20.061,
+              10704.0
+            ],
+            "direction": [
+              -0.175811,
+              -0.000388309,
+              0.984424
+            ]
+          },
+          {
+            "simulation_s": 40.3792,
+            "qpc_ms": 18365104.44427973,
+            "frame": 3098,
+            "camera": [
+              4583.34,
+              20.062,
+              10707.7
+            ],
+            "direction": [
+              -0.171683,
+              -0.000883705,
+              0.985152
+            ]
+          },
+          {
+            "simulation_s": 41.3891,
+            "qpc_ms": 18366115.444197714,
+            "frame": 3170,
+            "camera": [
+              4582.72,
+              20.0582,
+              10711.5
+            ],
+            "direction": [
+              -0.173454,
+              0.00186929,
+              0.98484
+            ]
+          },
+          {
+            "simulation_s": 42.3985,
+            "qpc_ms": 18367126.444354117,
+            "frame": 3243,
+            "camera": [
+              4582.0,
+              20.0779,
+              10715.3
+            ],
+            "direction": [
+              -0.175823,
+              -0.00240791,
+              0.984419
+            ]
+          },
+          {
+            "simulation_s": 43.4037,
+            "qpc_ms": 18368129.44413668,
+            "frame": 3316,
+            "camera": [
+              4581.39,
+              20.0678,
+              10719.0
+            ],
+            "direction": [
+              -0.171694,
+              0.00226002,
+              0.985148
+            ]
+          },
+          {
+            "simulation_s": 44.4129,
+            "qpc_ms": 18369140.44429308,
+            "frame": 3391,
+            "camera": [
+              4580.71,
+              20.0479,
+              10722.8
+            ],
+            "direction": [
+              -0.173433,
+              -0.00151129,
+              0.984844
+            ]
+          },
+          {
+            "simulation_s": 45.415,
+            "qpc_ms": 18370143.444314063,
+            "frame": 3468,
+            "camera": [
+              4580.06,
+              19.9733,
+              10726.5
+            ],
+            "direction": [
+              -0.17584,
+              0.000203738,
+              0.984419
+            ]
+          },
+          {
+            "simulation_s": 46.4288,
+            "qpc_ms": 18371154.444232047,
+            "frame": 3540,
+            "camera": [
+              4579.37,
+              19.9001,
+              10730.3
+            ],
+            "direction": [
+              -0.171876,
+              0.00117663,
+              0.985118
+            ]
+          },
+          {
+            "simulation_s": 47.4289,
+            "qpc_ms": 18372156.444325507,
+            "frame": 3609,
+            "camera": [
+              4578.74,
+              19.8344,
+              10734.0
+            ],
+            "direction": [
+              -0.173038,
+              -0.00215308,
+              0.984913
+            ]
+          },
+          {
+            "simulation_s": 48.4295,
+            "qpc_ms": 18373157.444253027,
+            "frame": 3678,
+            "camera": [
+              4578.08,
+              19.765,
+              10737.7
+            ],
+            "direction": [
+              -0.175966,
+              0.00237986,
+              0.984393
+            ]
+          },
+          {
+            "simulation_s": 49.4431,
+            "qpc_ms": 18374170.44426447,
+            "frame": 3747,
+            "camera": [
+              4577.41,
+              19.6953,
+              10741.5
+            ],
+            "direction": [
+              -0.172131,
+              -0.00183547,
+              0.985072
+            ]
+          },
+          {
+            "simulation_s": 50.4434,
+            "qpc_ms": 18375169.44433695,
+            "frame": 3816,
+            "camera": [
+              4576.94,
+              19.6984,
+              10744.4
+            ],
+            "direction": [
+              -0.0631373,
+              -0.000240505,
+              0.998005
+            ]
+          },
+          {
+            "simulation_s": 51.4457,
+            "qpc_ms": 18376172.44435793,
+            "frame": 3885,
+            "camera": [
+              4577.01,
+              19.7323,
+              10744.3
+            ],
+            "direction": [
+              0.161547,
+              0.000661135,
+              0.986865
+            ]
+          },
+          {
+            "simulation_s": 52.4513,
+            "qpc_ms": 18377180.444254935,
+            "frame": 3955,
+            "camera": [
+              4577.01,
+              19.7344,
+              10744.3
+            ],
+            "direction": [
+              0.258486,
+              0.000809196,
+              0.966015
+            ]
+          },
+          {
+            "simulation_s": 53.4575,
+            "qpc_ms": 18378184.444203436,
+            "frame": 4025,
+            "camera": [
+              4577.01,
+              19.7311,
+              10744.3
+            ],
+            "direction": [
+              0.190298,
+              0.000327469,
+              0.981726
+            ]
+          },
+          {
+            "simulation_s": 54.4727,
+            "qpc_ms": 18379199.44430834,
+            "frame": 4094,
+            "camera": [
+              4576.99,
+              19.7331,
+              10744.3
+            ],
+            "direction": [
+              -0.0212178,
+              0.000118655,
+              0.999775
+            ]
+          },
+          {
+            "simulation_s": 55.4847,
+            "qpc_ms": 18380213.444247305,
+            "frame": 4165,
+            "camera": [
+              4576.98,
+              19.7318,
+              10744.3
+            ],
+            "direction": [
+              -0.290208,
+              4.23482e-05,
+              0.956964
+            ]
+          },
+          {
+            "simulation_s": 56.4899,
+            "qpc_ms": 18381221.44414431,
+            "frame": 4234,
+            "camera": [
+              4576.97,
+              19.7303,
+              10744.3
+            ],
+            "direction": [
+              -0.495068,
+              1.52853e-05,
+              0.868854
+            ]
+          },
+          {
+            "simulation_s": 57.4976,
+            "qpc_ms": 18382223.44423777,
+            "frame": 4304,
+            "camera": [
+              4576.96,
+              19.7332,
+              10744.3
+            ],
+            "direction": [
+              -0.573384,
+              5.48657e-06,
+              0.819287
+            ]
+          },
+          {
+            "simulation_s": 58.504,
+            "qpc_ms": 18383230.44420725,
+            "frame": 4375,
+            "camera": [
+              4576.97,
+              19.7328,
+              10744.3
+            ],
+            "direction": [
+              -0.509139,
+              1.97465e-06,
+              0.860684
+            ]
+          },
+          {
+            "simulation_s": 59.508,
+            "qpc_ms": 18384234.444155753,
+            "frame": 4446,
+            "camera": [
+              4576.98,
+              19.7315,
+              10744.3
+            ],
+            "direction": [
+              -0.312737,
+              7.10938e-07,
+              0.94984
+            ]
+          },
+          {
+            "simulation_s": 60.5212,
+            "qpc_ms": 18385248.444333136,
+            "frame": 4517,
+            "camera": [
+              4576.99,
+              19.7336,
+              10744.3
+            ],
+            "direction": [
+              -0.176196,
+              2.54128e-07,
+              0.984355
+            ]
+          }
+        ],
+        "source_hashes": {
+          "launch.json": "5dd3aa3542e0c709e0d3cb1f83ddd5db9ff3c782bebfaf9c6e91d8fd94d632cd",
+          "profile\\logs\\logs_2026-09-10_02-58-40\\script.log": "996189000ef674dc2ec62a089227d09d5c4fe9b4cc4223773f4cde249920dd3c",
+          "present-cpu.csv": "55c891291f64badf6c9632554b1ffd732b467f8618d7ce26fae9ed8fc1cad482"
+        },
+        "settings_readback": {
+          "VideoUserSettings.FramesLimit": 2,
+          "VideoUserSettings.MaxFps": 120,
+          "VideoUserSettings.WindowMode": 3,
+          "VideoUserSettings.ScreenWidth": 2560,
+          "VideoUserSettings.ScreenHeight": 1440,
+          "VideoUserSettings.ResolutionScale": 1,
+          "VideoUserSettings.SuperWidth": 0,
+          "VideoUserSettings.SuperHeight": 0,
+          "VideoUserSettings.WindowPosX": 1280,
+          "VideoUserSettings.WindowPosY": 720,
+          "VideoUserSettings.ConsoleMode": 1,
+          "VideoUserSettings.ConsoleWidth": 0,
+          "VideoUserSettings.ConsoleHeight": 0,
+          "VideoUserSettings.ConsolePosX": 0,
+          "VideoUserSettings.ConsolePosY": 0,
+          "VideoUserSettings.Vsynch": 0,
+          "VideoUserSettings.Vsync": 0,
+          "VideoUserSettings.SquarePixel": 1,
+          "VideoUserSettings.Ratio3d": 1,
+          "VideoUserSettings.Fsaa": 2,
+          "VideoUserSettings.RenderFormat": 0,
+          "VideoUserSettings.DistantShadowsQuality": 3,
+          "VideoUserSettings.EnvironmentQuality": 1,
+          "VideoUserSettings.Gamma": 0,
+          "VideoUserSettings.Contrast": 0,
+          "VideoUserSettings.Brightness": 0,
+          "VideoUserSettings.Adapter": -1,
+          "VideoUserSettings.Device": -1,
+          "VideoUserSettings.Atoc": 0,
+          "VideoUserSettings.GenerateShaders": 1,
+          "VideoUserSettings.FsrEnabled": 0,
+          "VideoUserSettings.FsrSharpening": 0.75,
+          "VideoUserSettings.CasSharpening": 0,
+          "PPEffectsSettings.HBAO": 1,
+          "PPEffectsSettings.GodRays": 0,
+          "PPEffectsSettings.HDR": 0,
+          "PPEffectsSettings.SSDO": 1,
+          "PPEffectsSettings.SSR": 2,
+          "PPEffectsSettings.UnderWater": 1,
+          "PPEffectsSettings.PPAA": 2,
+          "PPEffectsSettings.Rain": 2,
+          "DisplayUserSettings.OverallQuality": 2,
+          "GraphicsQualitySettings.ObjectDrawDistanceScale": 3,
+          "PipelineUserSettings.ShadowQuality": 3,
+          "PipelineUserSettings.TightCascades": 0,
+          "PipelineUserSettings.LightShadow": 2,
+          "PipelineUserSettings.LightLevel": 2,
+          "PipelineUserSettings.Reflections": 0,
+          "PipelineUserSettings.LinearDepth": 250,
+          "PipelineUserSettings.GBuffer": 1,
+          "ResourceManagerUserSettings.TextureDetail": 1,
+          "ResourceManagerUserSettings.GeometricDetail": 3,
+          "GrassMaterialSettings.Distance": 175,
+          "GrassMaterialSettings.Lod": 3,
+          "GrassMaterialSettings.Quality": 0,
+          "PostprocessUserSettings.Postprocess": 1,
+          "TerrainGenMaterialSettings.Detail": 2,
+          "TerrainGenMaterialSettings.SoftAlpha": 1,
+          "TerrainGenMaterialSettings.DetailDistance": 1,
+          "TerrainGenMaterialSettings.GeometryLevel": 0,
+          "MaterialSystemUserSettings.TextureFilter": 2,
+          "MaterialSystemUserSettings.MaxAniso": 4,
+          "WaterPoolMaterialSettings.Detail": 1
+        },
+        "configuration_verified": true,
+        "measurement_status": "completed",
+        "display_trace_available": false
+      },
+      "processing_hashes": {
+        "build/Release/enr_companion.exe": "41696c702a721d209b1be26622d47ff263325fdc44d5d564a497d9446067a9fe",
+        "native/companion.cpp": "f311e4371dcd83a479d97db4655b975f6149c4ee299bf16244b764fe496991af",
+        "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+        "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5"
+      },
+      "addon_hashes": {
+        "addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+        "Scripts\\Game\\ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+        "Scripts\\Game\\ENR_PlayableConfig.c": "6963ef1820d855ecd1da61bc538716357f9b5b39c606c96d143d67773ce79220",
+        "Scripts\\Game\\ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99"
+      }
+    },
+    {
+      "run": "foliage-walk-reduced-v1",
+      "horizontal_displacement_m": 74.08169408495682,
+      "speed_m_per_s_at_one_second_samples": [
+        3.807835657296025,
+        3.788613271983048,
+        3.815046565018223,
+        3.7705149468601684,
+        3.782845327318921,
+        3.8290337639926117,
+        3.7645558146442104,
+        3.8038469711370313,
+        3.7830144382810102,
+        3.8039216303812684,
+        3.82460251359794,
+        3.7671670503231285,
+        3.7389312839283795,
+        3.803838984913365,
+        3.7762573625048867,
+        3.7352281794382405,
+        3.722773096358839
+      ],
+      "minimum_interior_speed_m_per_s": 3.722773096358839,
+      "max_repeat_camera_distance_m": 0.4522678955447207,
+      "passes_motion_gate": true,
+      "passes_repeat_gate": true,
+      "measurement": {
+        "schema_version": 1,
+        "run": "foliage-walk-reduced-v1",
+        "scene": "foliage-walk",
+        "preset": "combined",
+        "mode": "off",
+        "recording": true,
+        "window": {
+          "simulation_s": [
+            30,
+            60
+          ],
+          "qpc_ms": [
+            18547523.696770184,
+            18577525.033897705
+          ],
+          "alignment": "Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon."
+        },
+        "game": {
+          "frames": 2546,
+          "mean_fps": 84.87043387770407,
+          "interval_ms": {
+            "min": 6.61769999936223,
+            "p50": 11.656300000846386,
+            "p95": 14.561080000549556,
+            "p99": 16.261331999301905,
+            "max": 32.969900000840425
+          },
+          "intervals_over_33_333_ms": 0,
+          "intervals_over_50_ms": 0,
+          "excluded_nonapplication_records": 0,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed"
+        },
+        "companion": {
+          "frames": 0,
+          "excluded_nonapplication_records": 0,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed"
+        },
+        "path": [
+          {
+            "simulation_s": 29.3234,
+            "qpc_ms": 18546845.085179035,
+            "frame": 2704,
+            "camera": [
+              4590.05,
+              19.9236,
+              10670.1
+            ],
+            "direction": [
+              -0.173648,
+              0.0,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 30.3324,
+            "qpc_ms": 18547857.08502454,
+            "frame": 2794,
+            "camera": [
+              4589.91,
+              19.889,
+              10670.6
+            ],
+            "direction": [
+              -0.173645,
+              3.58255e-06,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 31.3423,
+            "qpc_ms": 18548865.08515996,
+            "frame": 2880,
+            "camera": [
+              4589.21,
+              19.8955,
+              10674.4
+            ],
+            "direction": [
+              -0.171354,
+              0.00233656,
+              0.985207
+            ]
+          },
+          {
+            "simulation_s": 32.3478,
+            "qpc_ms": 18549871.085201923,
+            "frame": 2963,
+            "camera": [
+              4588.6,
+              19.9129,
+              10678.1
+            ],
+            "direction": [
+              -0.174353,
+              -0.00222002,
+              0.984681
+            ]
+          },
+          {
+            "simulation_s": 33.351,
+            "qpc_ms": 18550873.085056964,
+            "frame": 3051,
+            "camera": [
+              4587.91,
+              19.9361,
+              10681.9
+            ],
+            "direction": [
+              -0.175334,
+              0.00135845,
+              0.984508
+            ]
+          },
+          {
+            "simulation_s": 34.3513,
+            "qpc_ms": 18551873.085056964,
+            "frame": 3139,
+            "camera": [
+              4587.26,
+              19.9432,
+              10685.6
+            ],
+            "direction": [
+              -0.171357,
+              -6.2799e-05,
+              0.985209
+            ]
+          },
+          {
+            "simulation_s": 35.3547,
+            "qpc_ms": 18552879.085098926,
+            "frame": 3230,
+            "camera": [
+              4586.58,
+              19.9429,
+              10689.4
+            ],
+            "direction": [
+              -0.174187,
+              -0.00117115,
+              0.984712
+            ]
+          },
+          {
+            "simulation_s": 36.3623,
+            "qpc_ms": 18553885.085140888,
+            "frame": 3319,
+            "camera": [
+              4585.93,
+              19.9387,
+              10693.1
+            ],
+            "direction": [
+              -0.17539,
+              0.00206801,
+              0.984497
+            ]
+          },
+          {
+            "simulation_s": 37.3727,
+            "qpc_ms": 18554899.085079852,
+            "frame": 3409,
+            "camera": [
+              4585.29,
+              19.9567,
+              10696.9
+            ],
+            "direction": [
+              -0.171365,
+              -0.00243377,
+              0.985205
+            ]
+          },
+          {
+            "simulation_s": 38.3794,
+            "qpc_ms": 18555903.085028354,
+            "frame": 3495,
+            "camera": [
+              4584.59,
+              19.9678,
+              10700.7
+            ],
+            "direction": [
+              -0.174151,
+              0.00210558,
+              0.984717
+            ]
+          },
+          {
+            "simulation_s": 39.3889,
+            "qpc_ms": 18556911.085163776,
+            "frame": 3580,
+            "camera": [
+              4583.95,
+              19.998,
+              10704.4
+            ],
+            "direction": [
+              -0.175471,
+              -0.00114679,
+              0.984484
+            ]
+          },
+          {
+            "simulation_s": 40.3901,
+            "qpc_ms": 18557912.085091297,
+            "frame": 3668,
+            "camera": [
+              4583.26,
+              20.0128,
+              10708.2
+            ],
+            "direction": [
+              -0.171391,
+              -0.000102021,
+              0.985203
+            ]
+          },
+          {
+            "simulation_s": 41.3935,
+            "qpc_ms": 18558919.08506078,
+            "frame": 3753,
+            "camera": [
+              4582.66,
+              20.0509,
+              10711.9
+            ],
+            "direction": [
+              -0.17402,
+              0.0013372,
+              0.984741
+            ]
+          },
+          {
+            "simulation_s": 42.3984,
+            "qpc_ms": 18559925.08510274,
+            "frame": 3838,
+            "camera": [
+              4581.94,
+              20.0872,
+              10715.7
+            ],
+            "direction": [
+              -0.175543,
+              -0.00221253,
+              0.984469
+            ]
+          },
+          {
+            "simulation_s": 43.4092,
+            "qpc_ms": 18560933.085238162,
+            "frame": 3923,
+            "camera": [
+              4581.32,
+              20.0774,
+              10719.5
+            ],
+            "direction": [
+              -0.171413,
+              0.002428,
+              0.985196
+            ]
+          },
+          {
+            "simulation_s": 44.4169,
+            "qpc_ms": 18561942.085062686,
+            "frame": 4010,
+            "camera": [
+              4580.61,
+              20.0762,
+              10723.2
+            ],
+            "direction": [
+              -0.17401,
+              -0.00200157,
+              0.984742
+            ]
+          },
+          {
+            "simulation_s": 45.4192,
+            "qpc_ms": 18562942.085062686,
+            "frame": 4098,
+            "camera": [
+              4580.01,
+              20.0046,
+              10726.9
+            ],
+            "direction": [
+              -0.175559,
+              0.00089538,
+              0.984469
+            ]
+          },
+          {
+            "simulation_s": 46.4236,
+            "qpc_ms": 18563948.085104648,
+            "frame": 4183,
+            "camera": [
+              4579.29,
+              19.9366,
+              10730.7
+            ],
+            "direction": [
+              -0.171574,
+              0.000561702,
+              0.985171
+            ]
+          },
+          {
+            "simulation_s": 47.4311,
+            "qpc_ms": 18564958.08509511,
+            "frame": 4268,
+            "camera": [
+              4578.68,
+              19.8716,
+              10734.4
+            ],
+            "direction": [
+              -0.17359,
+              -0.00173724,
+              0.984817
+            ]
+          },
+          {
+            "simulation_s": 48.4369,
+            "qpc_ms": 18565960.08518857,
+            "frame": 4350,
+            "camera": [
+              4577.97,
+              19.8223,
+              10738.1
+            ],
+            "direction": [
+              -0.175801,
+              0.00236116,
+              0.984423
+            ]
+          },
+          {
+            "simulation_s": 49.4489,
+            "qpc_ms": 18566973.085200015,
+            "frame": 4432,
+            "camera": [
+              4577.36,
+              19.7418,
+              10741.8
+            ],
+            "direction": [
+              -0.171897,
+              -0.00206704,
+              0.985113
+            ]
+          },
+          {
+            "simulation_s": 50.4526,
+            "qpc_ms": 18567979.085241977,
+            "frame": 4515,
+            "camera": [
+              4576.88,
+              19.6946,
+              10744.7
+            ],
+            "direction": [
+              -0.0614783,
+              -0.000110145,
+              0.998108
+            ]
+          },
+          {
+            "simulation_s": 51.4634,
+            "qpc_ms": 18568988.0850665,
+            "frame": 4600,
+            "camera": [
+              4576.94,
+              19.7268,
+              10744.6
+            ],
+            "direction": [
+              0.165437,
+              0.00069078,
+              0.98622
+            ]
+          },
+          {
+            "simulation_s": 52.4707,
+            "qpc_ms": 18569996.085201923,
+            "frame": 4683,
+            "camera": [
+              4576.94,
+              19.7291,
+              10744.6
+            ],
+            "direction": [
+              0.258827,
+              0.000799403,
+              0.965923
+            ]
+          },
+          {
+            "simulation_s": 53.4784,
+            "qpc_ms": 18571003.085171405,
+            "frame": 4766,
+            "camera": [
+              4576.94,
+              19.7255,
+              10744.6
+            ],
+            "direction": [
+              0.187782,
+              0.000322235,
+              0.982211
+            ]
+          },
+          {
+            "simulation_s": 54.4805,
+            "qpc_ms": 18572003.085171405,
+            "frame": 4848,
+            "camera": [
+              4576.93,
+              19.7279,
+              10744.6
+            ],
+            "direction": [
+              -0.0235537,
+              0.000118024,
+              0.999723
+            ]
+          },
+          {
+            "simulation_s": 55.491,
+            "qpc_ms": 18573016.08518285,
+            "frame": 4931,
+            "camera": [
+              4576.92,
+              19.7262,
+              10744.6
+            ],
+            "direction": [
+              -0.292399,
+              4.23845e-05,
+              0.956297
+            ]
+          },
+          {
+            "simulation_s": 56.504,
+            "qpc_ms": 18574026.085173313,
+            "frame": 5016,
+            "camera": [
+              4576.91,
+              19.725,
+              10744.6
+            ],
+            "direction": [
+              -0.497911,
+              1.51776e-05,
+              0.867228
+            ]
+          },
+          {
+            "simulation_s": 57.5135,
+            "qpc_ms": 18575037.085091297,
+            "frame": 5102,
+            "camera": [
+              4576.9,
+              19.7277,
+              10744.6
+            ],
+            "direction": [
+              -0.573545,
+              5.41836e-06,
+              0.819174
+            ]
+          },
+          {
+            "simulation_s": 58.5215,
+            "qpc_ms": 18576043.08513326,
+            "frame": 5186,
+            "camera": [
+              4576.91,
+              19.7274,
+              10744.6
+            ],
+            "direction": [
+              -0.505839,
+              1.94823e-06,
+              0.862628
+            ]
+          },
+          {
+            "simulation_s": 59.5278,
+            "qpc_ms": 18577055.08521718,
+            "frame": 5272,
+            "camera": [
+              4576.91,
+              19.7261,
+              10744.6
+            ],
+            "direction": [
+              -0.306751,
+              6.9825e-07,
+              0.95179
+            ]
+          },
+          {
+            "simulation_s": 60.5346,
+            "qpc_ms": 18578057.085072223,
+            "frame": 5355,
+            "camera": [
+              4576.92,
+              19.7281,
+              10744.6
+            ],
+            "direction": [
+              -0.176495,
+              2.52487e-07,
+              0.984301
+            ]
+          }
+        ],
+        "source_hashes": {
+          "launch.json": "4259bf6b61b7cf34b9bb82c8a5a884384594ee97e6d798b5dd2dc1b4956d31b1",
+          "profile\\logs\\logs_2026-09-10_03-01-52\\script.log": "ff9f0b23cc60d3f04c7ab0033f8e95349abf80c8f138905351cd8b8a755af93f",
+          "present-cpu.csv": "cb6a023604f537c0a942ef6b785027328fa860ea4b928ce564942232df40f773"
+        },
+        "settings_readback": {
+          "VideoUserSettings.FramesLimit": 2,
+          "VideoUserSettings.MaxFps": 120,
+          "VideoUserSettings.WindowMode": 3,
+          "VideoUserSettings.ScreenWidth": 2560,
+          "VideoUserSettings.ScreenHeight": 1440,
+          "VideoUserSettings.ResolutionScale": 0.75,
+          "VideoUserSettings.SuperWidth": 0,
+          "VideoUserSettings.SuperHeight": 0,
+          "VideoUserSettings.WindowPosX": 1280,
+          "VideoUserSettings.WindowPosY": 720,
+          "VideoUserSettings.ConsoleMode": 1,
+          "VideoUserSettings.ConsoleWidth": 0,
+          "VideoUserSettings.ConsoleHeight": 0,
+          "VideoUserSettings.ConsolePosX": 0,
+          "VideoUserSettings.ConsolePosY": 0,
+          "VideoUserSettings.Vsynch": 0,
+          "VideoUserSettings.Vsync": 0,
+          "VideoUserSettings.SquarePixel": 1,
+          "VideoUserSettings.Ratio3d": 1,
+          "VideoUserSettings.Fsaa": 2,
+          "VideoUserSettings.RenderFormat": 0,
+          "VideoUserSettings.DistantShadowsQuality": 1,
+          "VideoUserSettings.EnvironmentQuality": 1,
+          "VideoUserSettings.Gamma": 0,
+          "VideoUserSettings.Contrast": 0,
+          "VideoUserSettings.Brightness": 0,
+          "VideoUserSettings.Adapter": -1,
+          "VideoUserSettings.Device": -1,
+          "VideoUserSettings.Atoc": 0,
+          "VideoUserSettings.GenerateShaders": 1,
+          "VideoUserSettings.FsrEnabled": 1,
+          "VideoUserSettings.FsrSharpening": 0.75,
+          "VideoUserSettings.CasSharpening": 0,
+          "PPEffectsSettings.HBAO": 1,
+          "PPEffectsSettings.GodRays": 0,
+          "PPEffectsSettings.HDR": 0,
+          "PPEffectsSettings.SSDO": 0,
+          "PPEffectsSettings.SSR": 0,
+          "PPEffectsSettings.UnderWater": 1,
+          "PPEffectsSettings.PPAA": 2,
+          "PPEffectsSettings.Rain": 2,
+          "DisplayUserSettings.OverallQuality": 2,
+          "GraphicsQualitySettings.ObjectDrawDistanceScale": 3,
+          "PipelineUserSettings.ShadowQuality": 2,
+          "PipelineUserSettings.TightCascades": 0,
+          "PipelineUserSettings.LightShadow": 2,
+          "PipelineUserSettings.LightLevel": 2,
+          "PipelineUserSettings.Reflections": 0,
+          "PipelineUserSettings.LinearDepth": 250,
+          "PipelineUserSettings.GBuffer": 1,
+          "ResourceManagerUserSettings.TextureDetail": 1,
+          "ResourceManagerUserSettings.GeometricDetail": 3,
+          "GrassMaterialSettings.Distance": 175,
+          "GrassMaterialSettings.Lod": 3,
+          "GrassMaterialSettings.Quality": 0,
+          "PostprocessUserSettings.Postprocess": 1,
+          "TerrainGenMaterialSettings.Detail": 2,
+          "TerrainGenMaterialSettings.SoftAlpha": 1,
+          "TerrainGenMaterialSettings.DetailDistance": 1,
+          "TerrainGenMaterialSettings.GeometryLevel": 0,
+          "MaterialSystemUserSettings.TextureFilter": 2,
+          "MaterialSystemUserSettings.MaxAniso": 4,
+          "WaterPoolMaterialSettings.Detail": 1
+        },
+        "configuration_verified": true,
+        "measurement_status": "completed",
+        "display_trace_available": false
+      },
+      "processing_hashes": {
+        "build/Release/enr_companion.exe": "41696c702a721d209b1be26622d47ff263325fdc44d5d564a497d9446067a9fe",
+        "native/companion.cpp": "f311e4371dcd83a479d97db4655b975f6149c4ee299bf16244b764fe496991af",
+        "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+        "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5"
+      },
+      "addon_hashes": {
+        "addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+        "Scripts\\Game\\ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+        "Scripts\\Game\\ENR_PlayableConfig.c": "6963ef1820d855ecd1da61bc538716357f9b5b39c606c96d143d67773ce79220",
+        "Scripts\\Game\\ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99"
+      }
+    },
+    {
+      "run": "foliage-walk-neural-v1",
+      "horizontal_displacement_m": 74.15092643177172,
+      "speed_m_per_s_at_one_second_samples": [
+        3.7640166499488013,
+        3.792591077141618,
+        3.773158443514859,
+        3.7885198385003043,
+        3.8315407059638424,
+        3.77582761094525,
+        3.74478917637795,
+        3.84586426460825,
+        3.8093547886166603,
+        3.798619793539198,
+        3.830612397471606,
+        3.7768646750304424,
+        3.777508380565749,
+        3.7829724322243377,
+        3.7511029131438027,
+        3.7320980627119758,
+        3.7735456615355103
+      ],
+      "minimum_interior_speed_m_per_s": 3.7320980627119758,
+      "max_repeat_camera_distance_m": 0.4628528729440438,
+      "passes_motion_gate": true,
+      "passes_repeat_gate": true,
+      "measurement": {
+        "schema_version": 1,
+        "run": "foliage-walk-neural-v1",
+        "scene": "foliage-walk",
+        "preset": "combined",
+        "mode": "neural",
+        "recording": true,
+        "window": {
+          "simulation_s": [
+            30,
+            60
+          ],
+          "qpc_ms": [
+            18893396.69555553,
+            18923395.885175273
+          ],
+          "alignment": "Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon."
+        },
+        "game": {
+          "frames": 2084,
+          "mean_fps": 69.4840411652828,
+          "interval_ms": {
+            "min": 6.509899999946356,
+            "p50": 14.328899998217821,
+            "p95": 19.056089998781676,
+            "p99": 22.975965998470773,
+            "max": 36.641600001603365
+          },
+          "intervals_over_33_333_ms": 1,
+          "intervals_over_50_ms": 0,
+          "excluded_nonapplication_records": 0,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed"
+        },
+        "companion": {
+          "frames": 1800,
+          "mean_fps": 59.99733870615089,
+          "interval_ms": {
+            "min": 4.312100000679493,
+            "p50": 15.593400001525879,
+            "p95": 30.664459999278186,
+            "p99": 32.904930000454186,
+            "max": 50.257599998265505
+          },
+          "intervals_over_33_333_ms": 16,
+          "intervals_over_50_ms": 1,
+          "excluded_nonapplication_records": 1823,
+          "scope": "DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace",
+          "display_trace_rows": 0,
+          "display_trace_dropped": 0,
+          "gpu_active_ms": null,
+          "gpu_limitation": "PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed",
+          "native_present_cadence": {
+            "frames": 1800,
+            "mean_fps": 59.99733870615089,
+            "interval_ms": {
+              "min": 4.313000001013279,
+              "p50": 15.594200000166893,
+              "p95": 30.646289998665452,
+              "p99": 32.90474600084126,
+              "max": 50.25670000165701
+            },
+            "intervals_over_33_333_ms": 16,
+            "intervals_over_50_ms": 1
+          },
+          "gpu_copy_inference_draw_ms": {
+            "min": 1.87268,
+            "p50": 3.5610999999999997,
+            "p95": 6.437341999999999,
+            "p99": 9.058228399999999,
+            "max": 12.46768
+          },
+          "capture_to_present_call_ms": {
+            "min": -3.3234,
+            "p50": 6.68505,
+            "p95": 14.140375,
+            "p99": 15.805295999999998,
+            "max": 21.7524
+          },
+          "dropped_before_processing": 23,
+          "capture_to_display": {
+            "scope": "WGC compositor frame timestamp to PresentMon reported display; excludes input sampling and physical panel response",
+            "eligible_displayed_frames": 0,
+            "joined_frames": 0,
+            "join_residual_ms": null,
+            "latency_ms": null
+          }
+        },
+        "path": [
+          {
+            "simulation_s": 29.332,
+            "qpc_ms": 18892725.115555882,
+            "frame": 2521,
+            "camera": [
+              4590.06,
+              19.9109,
+              10670.1
+            ],
+            "direction": [
+              -0.173648,
+              0.0,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 30.3396,
+            "qpc_ms": 18893738.115567327,
+            "frame": 2596,
+            "camera": [
+              4589.92,
+              19.8916,
+              10670.6
+            ],
+            "direction": [
+              -0.173646,
+              2.26844e-06,
+              0.984808
+            ]
+          },
+          {
+            "simulation_s": 31.3428,
+            "qpc_ms": 18894736.115712285,
+            "frame": 2666,
+            "camera": [
+              4589.21,
+              19.8891,
+              10674.3
+            ],
+            "direction": [
+              -0.171368,
+              0.00234396,
+              0.985204
+            ]
+          },
+          {
+            "simulation_s": 32.3435,
+            "qpc_ms": 18895736.115712285,
+            "frame": 2737,
+            "camera": [
+              4588.61,
+              19.8993,
+              10678.1
+            ],
+            "direction": [
+              -0.174253,
+              -0.00216465,
+              0.984698
+            ]
+          },
+          {
+            "simulation_s": 33.3546,
+            "qpc_ms": 18896748.11555779,
+            "frame": 2809,
+            "camera": [
+              4587.92,
+              19.9264,
+              10681.8
+            ],
+            "direction": [
+              -0.175385,
+              0.00128086,
+              0.984499
+            ]
+          },
+          {
+            "simulation_s": 34.3613,
+            "qpc_ms": 18897756.11569321,
+            "frame": 2883,
+            "camera": [
+              4587.26,
+              19.9388,
+              10685.6
+            ],
+            "direction": [
+              -0.17137,
+              -5.48647e-06,
+              0.985207
+            ]
+          },
+          {
+            "simulation_s": 35.3666,
+            "qpc_ms": 18898759.115714192,
+            "frame": 2959,
+            "camera": [
+              4586.59,
+              19.9388,
+              10689.3
+            ],
+            "direction": [
+              -0.174144,
+              -0.00122011,
+              0.984719
+            ]
+          },
+          {
+            "simulation_s": 36.3772,
+            "qpc_ms": 18899775.115746617,
+            "frame": 3035,
+            "camera": [
+              4585.93,
+              19.9369,
+              10693.1
+            ],
+            "direction": [
+              -0.17541,
+              0.00208676,
+              0.984493
+            ]
+          },
+          {
+            "simulation_s": 37.3801,
+            "qpc_ms": 18900771.115559697,
+            "frame": 3106,
+            "camera": [
+              4585.3,
+              19.958,
+              10696.9
+            ],
+            "direction": [
+              -0.171387,
+              -0.00243197,
+              0.985201
+            ]
+          },
+          {
+            "simulation_s": 38.3884,
+            "qpc_ms": 18901783.11564362,
+            "frame": 3177,
+            "camera": [
+              4584.59,
+              19.9733,
+              10700.6
+            ],
+            "direction": [
+              -0.174102,
+              0.0020727,
+              0.984725
+            ]
+          },
+          {
+            "simulation_s": 39.3887,
+            "qpc_ms": 18902780.11562264,
+            "frame": 3247,
+            "camera": [
+              4583.97,
+              20.0093,
+              10704.3
+            ],
+            "direction": [
+              -0.175541,
+              -0.00101738,
+              0.984472
+            ]
+          },
+          {
+            "simulation_s": 40.4034,
+            "qpc_ms": 18903797.115582585,
+            "frame": 3320,
+            "camera": [
+              4583.26,
+              20.0144,
+              10708.2
+            ],
+            "direction": [
+              -0.171395,
+              -0.000117721,
+              0.985202
+            ]
+          },
+          {
+            "simulation_s": 41.4046,
+            "qpc_ms": 18904803.115624547,
+            "frame": 3389,
+            "camera": [
+              4582.66,
+              20.0517,
+              10711.9
+            ],
+            "direction": [
+              -0.174013,
+              0.00134445,
+              0.984742
+            ]
+          },
+          {
+            "simulation_s": 42.4132,
+            "qpc_ms": 18905806.115645528,
+            "frame": 3458,
+            "camera": [
+              4581.93,
+              20.0848,
+              10715.7
+            ],
+            "direction": [
+              -0.175529,
+              -0.00219958,
+              0.984472
+            ]
+          },
+          {
+            "simulation_s": 43.4188,
+            "qpc_ms": 18906813.11561501,
+            "frame": 3529,
+            "camera": [
+              4581.32,
+              20.0759,
+              10719.5
+            ],
+            "direction": [
+              -0.171409,
+              0.00242913,
+              0.985197
+            ]
+          },
+          {
+            "simulation_s": 44.4258,
+            "qpc_ms": 18907822.115677953,
+            "frame": 3602,
+            "camera": [
+              4580.61,
+              20.0784,
+              10723.2
+            ],
+            "direction": [
+              -0.173982,
+              -0.00198114,
+              0.984747
+            ]
+          },
+          {
+            "simulation_s": 45.4368,
+            "qpc_ms": 18908837.11554444,
+            "frame": 3676,
+            "camera": [
+              4580.01,
+              20.0036,
+              10727.0
+            ],
+            "direction": [
+              -0.175542,
+              0.000929211,
+              0.984471
+            ]
+          },
+          {
+            "simulation_s": 46.4375,
+            "qpc_ms": 18909832.115668416,
+            "frame": 3742,
+            "camera": [
+              4579.29,
+              19.937,
+              10730.7
+            ],
+            "direction": [
+              -0.171562,
+              0.000530984,
+              0.985173
+            ]
+          },
+          {
+            "simulation_s": 47.4398,
+            "qpc_ms": 18910834.115523458,
+            "frame": 3811,
+            "camera": [
+              4578.69,
+              19.8716,
+              10734.4
+            ],
+            "direction": [
+              -0.173577,
+              -0.0017488,
+              0.984819
+            ]
+          },
+          {
+            "simulation_s": 48.4512,
+            "qpc_ms": 18911843.1155864,
+            "frame": 3878,
+            "camera": [
+              4577.97,
+              19.8204,
+              10738.1
+            ],
+            "direction": [
+              -0.175785,
+              0.00235411,
+              0.984426
+            ]
+          },
+          {
+            "simulation_s": 49.4606,
+            "qpc_ms": 18912859.115618825,
+            "frame": 3946,
+            "camera": [
+              4577.36,
+              19.7417,
+              10741.9
+            ],
+            "direction": [
+              -0.171875,
+              -0.00208746,
+              0.985117
+            ]
+          },
+          {
+            "simulation_s": 50.4659,
+            "qpc_ms": 18913862.115639806,
+            "frame": 4011,
+            "camera": [
+              4576.86,
+              19.691,
+              10744.8
+            ],
+            "direction": [
+              -0.0566634,
+              -1.7481e-05,
+              0.998393
+            ]
+          },
+          {
+            "simulation_s": 51.4682,
+            "qpc_ms": 18914868.115681767,
+            "frame": 4080,
+            "camera": [
+              4576.93,
+              19.7246,
+              10744.8
+            ],
+            "direction": [
+              0.167208,
+              1.98168e-06,
+              0.985922
+            ]
+          },
+          {
+            "simulation_s": 52.4867,
+            "qpc_ms": 18915878.11567223,
+            "frame": 4147,
+            "camera": [
+              4576.93,
+              19.7269,
+              10744.7
+            ],
+            "direction": [
+              0.258841,
+              7.07884e-07,
+              0.96592
+            ]
+          },
+          {
+            "simulation_s": 53.4896,
+            "qpc_ms": 18916883.115548253,
+            "frame": 4214,
+            "camera": [
+              4576.93,
+              19.7234,
+              10744.8
+            ],
+            "direction": [
+              0.185691,
+              2.54965e-07,
+              0.982608
+            ]
+          },
+          {
+            "simulation_s": 54.4903,
+            "qpc_ms": 18917884.115714192,
+            "frame": 4284,
+            "camera": [
+              4576.91,
+              19.7256,
+              10744.7
+            ],
+            "direction": [
+              -0.0270976,
+              9.22348e-08,
+              0.999633
+            ]
+          },
+          {
+            "simulation_s": 55.4979,
+            "qpc_ms": 18918895.115632176,
+            "frame": 4352,
+            "camera": [
+              4576.9,
+              19.7242,
+              10744.7
+            ],
+            "direction": [
+              -0.293236,
+              3.30295e-08,
+              0.95604
+            ]
+          },
+          {
+            "simulation_s": 56.5104,
+            "qpc_ms": 18919904.11569512,
+            "frame": 4420,
+            "camera": [
+              4576.89,
+              19.7227,
+              10744.8
+            ],
+            "direction": [
+              -0.498087,
+              1.19147e-08,
+              0.867127
+            ]
+          },
+          {
+            "simulation_s": 57.5136,
+            "qpc_ms": 18920908.11564362,
+            "frame": 4486,
+            "camera": [
+              4576.88,
+              19.7255,
+              10744.7
+            ],
+            "direction": [
+              -0.573527,
+              4.25414e-09,
+              0.819187
+            ]
+          },
+          {
+            "simulation_s": 58.5249,
+            "qpc_ms": 18921921.115655065,
+            "frame": 4556,
+            "camera": [
+              4576.89,
+              19.7253,
+              10744.7
+            ],
+            "direction": [
+              -0.504789,
+              1.52077e-09,
+              0.863243
+            ]
+          },
+          {
+            "simulation_s": 59.5342,
+            "qpc_ms": 18922929.115552068,
+            "frame": 4625,
+            "camera": [
+              4576.9,
+              19.7238,
+              10744.8
+            ],
+            "direction": [
+              -0.305211,
+              5.44013e-10,
+              0.952285
+            ]
+          },
+          {
+            "simulation_s": 60.5431,
+            "qpc_ms": 18923940.11570847,
+            "frame": 4691,
+            "camera": [
+              4576.91,
+              19.726,
+              10744.7
+            ],
+            "direction": [
+              -0.174969,
+              1.96008e-10,
+              0.984574
+            ]
+          }
+        ],
+        "source_hashes": {
+          "launch.json": "c529c1369ffe742f79639ca73dbfd98c2c667ebd5343d44eaf36a4b4128effb3",
+          "profile\\logs\\logs_2026-09-10_03-07-37\\script.log": "b5bfc37a4622c574dffd0d8a6102a31a99204034598f9781d22cad42054784e6",
+          "present-cpu.csv": "5ffc08ac2ab49051ea941fad75eafa0252bc2516e43656668f32e50134dbe9fc",
+          "companion\\frames.csv": "d4ecd8056ef3bb7803344469b1357fd0316ab09fad1de1726aeae6e0daca1ac9",
+          "companion\\events.log": "5647540c634e7b9a6b2894f5c97404ebc0250a62865de309ce89ac182b5a6b0c"
+        },
+        "settings_readback": {
+          "VideoUserSettings.FramesLimit": 2,
+          "VideoUserSettings.MaxFps": 120,
+          "VideoUserSettings.WindowMode": 3,
+          "VideoUserSettings.ScreenWidth": 2560,
+          "VideoUserSettings.ScreenHeight": 1440,
+          "VideoUserSettings.ResolutionScale": 0.75,
+          "VideoUserSettings.SuperWidth": 0,
+          "VideoUserSettings.SuperHeight": 0,
+          "VideoUserSettings.WindowPosX": 1280,
+          "VideoUserSettings.WindowPosY": 720,
+          "VideoUserSettings.ConsoleMode": 1,
+          "VideoUserSettings.ConsoleWidth": 0,
+          "VideoUserSettings.ConsoleHeight": 0,
+          "VideoUserSettings.ConsolePosX": 0,
+          "VideoUserSettings.ConsolePosY": 0,
+          "VideoUserSettings.Vsynch": 0,
+          "VideoUserSettings.Vsync": 0,
+          "VideoUserSettings.SquarePixel": 1,
+          "VideoUserSettings.Ratio3d": 1,
+          "VideoUserSettings.Fsaa": 2,
+          "VideoUserSettings.RenderFormat": 0,
+          "VideoUserSettings.DistantShadowsQuality": 1,
+          "VideoUserSettings.EnvironmentQuality": 1,
+          "VideoUserSettings.Gamma": 0,
+          "VideoUserSettings.Contrast": 0,
+          "VideoUserSettings.Brightness": 0,
+          "VideoUserSettings.Adapter": -1,
+          "VideoUserSettings.Device": -1,
+          "VideoUserSettings.Atoc": 0,
+          "VideoUserSettings.GenerateShaders": 1,
+          "VideoUserSettings.FsrEnabled": 1,
+          "VideoUserSettings.FsrSharpening": 0.75,
+          "VideoUserSettings.CasSharpening": 0,
+          "PPEffectsSettings.HBAO": 1,
+          "PPEffectsSettings.GodRays": 0,
+          "PPEffectsSettings.HDR": 0,
+          "PPEffectsSettings.SSDO": 0,
+          "PPEffectsSettings.SSR": 0,
+          "PPEffectsSettings.UnderWater": 1,
+          "PPEffectsSettings.PPAA": 2,
+          "PPEffectsSettings.Rain": 2,
+          "DisplayUserSettings.OverallQuality": 2,
+          "GraphicsQualitySettings.ObjectDrawDistanceScale": 3,
+          "PipelineUserSettings.ShadowQuality": 2,
+          "PipelineUserSettings.TightCascades": 0,
+          "PipelineUserSettings.LightShadow": 2,
+          "PipelineUserSettings.LightLevel": 2,
+          "PipelineUserSettings.Reflections": 0,
+          "PipelineUserSettings.LinearDepth": 250,
+          "PipelineUserSettings.GBuffer": 1,
+          "ResourceManagerUserSettings.TextureDetail": 1,
+          "ResourceManagerUserSettings.GeometricDetail": 3,
+          "GrassMaterialSettings.Distance": 175,
+          "GrassMaterialSettings.Lod": 3,
+          "GrassMaterialSettings.Quality": 0,
+          "PostprocessUserSettings.Postprocess": 1,
+          "TerrainGenMaterialSettings.Detail": 2,
+          "TerrainGenMaterialSettings.SoftAlpha": 1,
+          "TerrainGenMaterialSettings.DetailDistance": 1,
+          "TerrainGenMaterialSettings.GeometryLevel": 0,
+          "MaterialSystemUserSettings.TextureFilter": 2,
+          "MaterialSystemUserSettings.MaxAniso": 4,
+          "WaterPoolMaterialSettings.Detail": 1
+        },
+        "configuration_verified": true,
+        "measurement_status": "completed",
+        "display_trace_available": false
+      },
+      "processing_hashes": {
+        "build/Release/enr_companion.exe": "41696c702a721d209b1be26622d47ff263325fdc44d5d564a497d9446067a9fe",
+        "native/companion.cpp": "f311e4371dcd83a479d97db4655b975f6149c4ee299bf16244b764fe496991af",
+        "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+        "runs/pretrained/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5"
+      },
+      "addon_hashes": {
+        "addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+        "Scripts\\Game\\ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+        "Scripts\\Game\\ENR_PlayableConfig.c": "6963ef1820d855ecd1da61bc538716357f9b5b39c606c96d143d67773ce79220",
+        "Scripts\\Game\\ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99"
+      }
+    }
+  ],
+  "all_motion_and_repeat_gates_pass": true,
+  "date": "2026-09-10",
+  "environment": {
+    "game": "Arma Reforger 1.8.0.13 Steam",
+    "adapter": "AMD Radeon RX 7800 XT",
+    "input_output_dimensions": [
+      2560,
+      1440
+    ],
+    "network_dimensions": [
+      320,
+      180
+    ],
+    "model": "Zero-DCE++ Epoch99, bounded luminance composition at strength 0.35",
+    "precision": "FP32"
+  },
+  "selection": "Second spatial candidate, first complete standard pass and first reduced/neural passes. The earlier east-facing candidate collided; the first street launch crashed before gameplay. No performance-based replacement or video retiming.",
+  "coverage": "About 74 metres on a tree-lined Saint-Philippe street, with rooflines, doors/windows, poles, guardrails, trunks and vegetation edges. This is not dense-forest traversal, combat visibility or physical-input acceptance.",
+  "review": "Full source frames at 2, 10, 20 and 30 seconds in all three recordings were inspected. The route remains passable. Neural output modestly lifts surfaces; no substantial material/lighting gain is accepted. Fine roof/leaf aliasing remains visible and is also present in the reduced source. Separate passes are not pixel-aligned.",
+  "failure_explanation": "The east-facing backyard pilot moves only 9.26m and stalls at a fence. The first street launch crashes during world loading before player/companion/recording; cause unknown, logs and dump retained. Identical retry completes. The accepted standard pass contains a 295.11ms application-present stall about 8.11s into the measurement window and a 283.33ms video timestamp gap at 9.666667\u20139.95s; both remain in the full recording and metrics.",
+  "source_timestamps": [
+    {
+      "run": "foliage-walk-pilot-v3",
+      "sha256": "3b2a74ba703038494685e6b545553d94ee5734fdb85edec01234243901ef44d9",
+      "frames": 2019,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.28333299999999895
+      }
+    },
+    {
+      "run": "foliage-walk-reduced-v1",
+      "sha256": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+      "frames": 2035,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.09999999999999999
+      }
+    },
+    {
+      "run": "foliage-walk-neural-v1",
+      "sha256": "08f50f37a4d636959471a83e40f9e0a9bba69293d2513952f078fdb403776e29",
+      "frames": 1817,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.03333300000000072,
+        "p99": 0.033333999999999975,
+        "max": 0.066667
+      }
+    }
+  ],
+  "video": {
+    "schema_version": 1,
+    "command": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "warning",
+      "-threads",
+      "2",
+      "-i",
+      "runs\\foliage-walk-pilot-v3\\gameplay.mp4",
+      "-threads",
+      "2",
+      "-i",
+      "runs\\foliage-walk-reduced-v1\\gameplay.mp4",
+      "-threads",
+      "2",
+      "-i",
+      "runs\\foliage-walk-neural-v1\\gameplay.mp4",
+      "-i",
+      "runs\\foliage-walk-comparison-web-v1\\labels.png",
+      "-filter_complex_threads",
+      "2",
+      "-filter_complex",
+      "[0:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v0];[1:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v1];[2:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v2];[v0][v1][v2]hstack=inputs=3:shortest=1,pad=3840:760:0:40:black[video];[video][3:v]overlay=0:0:repeatlast=1[out]",
+      "-map",
+      "[out]",
+      "-an",
+      "-t",
+      "34",
+      "-c:v",
+      "libx264",
+      "-threads",
+      "4",
+      "-preset",
+      "fast",
+      "-crf",
+      "26",
+      "-maxrate",
+      "18M",
+      "-bufsize",
+      "36M",
+      "-pix_fmt",
+      "yuv420p",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "iec61966-2-1",
+      "-fps_mode",
+      "vfr",
+      "-movflags",
+      "+faststart",
+      "runs\\foliage-walk-comparison-web-v1\\comparison.mp4"
+    ],
+    "sources": {
+      "runs/foliage-walk-pilot-v3/gameplay.mp4": "3b2a74ba703038494685e6b545553d94ee5734fdb85edec01234243901ef44d9",
+      "runs/foliage-walk-reduced-v1/gameplay.mp4": "63f19c700e09f1939741e06ee4274150415d711e332da1e2d769123ea28879f8",
+      "runs/foliage-walk-neural-v1/gameplay.mp4": "08f50f37a4d636959471a83e40f9e0a9bba69293d2513952f078fdb403776e29"
+    },
+    "output_sha256": "11da5a732b95729e511d7a094bcfd4ed797102eb9ea2bfa4aaf10ae8d1d14716",
+    "bytes": 33394618,
+    "dimensions": [
+      3840,
+      760
+    ],
+    "transformation": "Each 2560x1440 input scaled to 1280x720, three panels with 40-pixel labels. Original relative presentation timestamps retained; only timestamp origin reset. Hstack holds the last available frame of a slower input. No optical flow, generated frames, speed change or audio. Encoded H.264 CRF26, 18Mbps maximum rate.",
+    "note": "Tree-lined street",
+    "alignment": "Separate repeat runs start recording near simulation second 28. Capture initialization and physics/head movement differ; same declared route, not frame-aligned pixels. All 34 seconds retained.",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 3840,
+          "height": 760,
+          "duration": "34.000000",
+          "nb_frames": "2037"
+        }
+      ],
+      "format": {
+        "duration": "34.000000"
+      }
+    }
+  },
+  "retained_failures": [
+    {
+      "run": "foliage-walk-pilot-v1",
+      "hashes": {
+        "runs/foliage-walk-pilot-v1/launch.json": "45551c6bc4014b459cf0539d7830a272ad30067fe2c9e353620193ac30949ed1",
+        "runs/foliage-walk-pilot-v1/profile/logs/logs_2026-09-10_02-46-07/console.log": "51e1d9e064f08e9555a3afa1322ee06c5809236f38cd21af06fa4baebea7b59d",
+        "runs/foliage-walk-pilot-v1/profile/logs/logs_2026-09-10_02-46-07/error.log": "226ddbf8f2bc4ab05ff9136d0f44677766cf8e2a8f88e4ba2c01ccda9dfdb93c",
+        "runs/foliage-walk-pilot-v1/profile/logs/logs_2026-09-10_02-46-07/script.log": "59f7bc7988c71abcd837806631d3bde589a7e210df1a23fd7a49b71d0295c70f",
+        "runs/foliage-walk-pilot-v1/route-check.json": "9b1d145d6cb8c793edd7558c79e1d9d836eea157e13eca40f024a73db973e373"
+      }
+    },
+    {
+      "run": "foliage-walk-pilot-v2",
+      "hashes": {
+        "runs/foliage-walk-pilot-v2/launch.json": "fb402dcb794572a75c924eb24eed2262dd761a476ad494b689cedffbe04da026",
+        "runs/foliage-walk-pilot-v2/profile/logs/logs_2026-09-10_02-55-59/console.log": "c725b2da96e6061a880e8789fa72acef6a04dec924dd6a5fa17388998cbcc410",
+        "runs/foliage-walk-pilot-v2/profile/logs/logs_2026-09-10_02-55-59/crash.log": "b9a1e96dce3e9348d71c5c8e73ce1bc1f8b9f18e0eccb250b93de1df97ac1007",
+        "runs/foliage-walk-pilot-v2/profile/logs/logs_2026-09-10_02-55-59/error.log": "2853a3b7f8522befad973802ad5fa85be61cb32de431065baa58ac48bd55755a",
+        "runs/foliage-walk-pilot-v2/profile/logs/logs_2026-09-10_02-55-59/script.log": "49585717b64f4f53ce629e65bc71a61eb9c3e76644beeb2539534d377fa5018d",
+        "runs/foliage-walk-pilot-v2/profile/logs/logs_2026-09-10_02-55-59/ArmaReforgerSteam_2026-09-10_02-56-04.mdmp": "1f6e8a93d277a98126c1c6b6209d8f43fd735b2bf57e772804bb05981b47cc53"
+      }
+    }
+  ],
+  "addon_validation": [
+    {
+      "run": "runs/foliage-walk-validation-v1/runs/20260910T064536-60d77536e8",
+      "hashes": {
+        "runs/foliage-walk-validation-v1/runs/20260910T064536-60d77536e8/run.json": "53cbad1f9f69e1b0732619153a518cee310b74a4bc9da8a345e3c9420105c6f5",
+        "runs/foliage-walk-validation-v1/runs/20260910T064536-60d77536e8/console.log": "f5947bb77b5e6ace4e6b865c5f39a165540161673281771e7d874b1143601015"
+      },
+      "status": "succeeded",
+      "process_exit_code": 0
+    },
+    {
+      "run": "runs/foliage-walk-validation-v2/runs/20260910T065524-e855ce5ffd",
+      "hashes": {
+        "runs/foliage-walk-validation-v2/runs/20260910T065524-e855ce5ffd/run.json": "40062463edc43d9e0bf1c088eb2c7744ea2769f4b765fc4ecbf71ed6e21ce489",
+        "runs/foliage-walk-validation-v2/runs/20260910T065524-e855ce5ffd/console.log": "99d6e921931ee385d53e0c6708456fb0fba51cf8f59c1b8e90b92028b5753d3c"
+      },
+      "status": "succeeded",
+      "process_exit_code": 0
+    },
+    {
+      "run": "runs/foliage-route-survey-v1/runs/20260910T064958-914bb557ea",
+      "hashes": {
+        "runs/foliage-route-survey-v1/runs/20260910T064958-914bb557ea/run.json": "4fdcf30ae46d0d163c9336b1b9cd9d4043ba680d8e418a2bd0ad684e639f01d6",
+        "runs/foliage-route-survey-v1/runs/20260910T064958-914bb557ea/console.log": "d8b5d22d78e3b023b617ae86600ade45437e7c12890a06ee200494b6059e4814"
+      },
+      "status": "succeeded",
+      "process_exit_code": 0
+    }
+  ],
+  "route_surveys": [
+    {
+      "run": "runs/foliage-route-survey-v1/runs/20260910T065042-8430835731",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "hashes": {
+        "runs/foliage-route-survey-v1/runs/20260910T065042-8430835731/run.json": "ce2fdc82fc251b7b3224693a859b18fa708eb240018342d5857e84b76f6c0445",
+        "runs/foliage-route-survey-v1/runs/20260910T065042-8430835731/frame.png": "57331778866e878f9cb3977241d6f65f339f7405ca5fb9c6ad9baa8962bd1d5d",
+        "runs/foliage-route-survey-v1/runs/20260910T065042-8430835731/console.log": "715fa13d0d2604268f29d219b68968e213e79a6ae121bd066ee33c6ecba4f3ef"
+      }
+    },
+    {
+      "run": "runs/foliage-route-survey-v1/runs/20260910T065246-8595861acb",
+      "dimensions": [
+        1199,
+        658
+      ],
+      "hashes": {
+        "runs/foliage-route-survey-v1/runs/20260910T065246-8595861acb/run.json": "85359edb74a572eb0cbf992f53467d050e5345f855c3fd5eddd9297460e45d2b",
+        "runs/foliage-route-survey-v1/runs/20260910T065246-8595861acb/frame.png": "03c2f569fd06fc7a4b58dc2cf3e51b0d2dfda7b26287ff4217c4e94f38c33668",
+        "runs/foliage-route-survey-v1/runs/20260910T065246-8595861acb/console.log": "0abfd422cecd95e983b1af96979bf4ccf55f16a92528fedee574b0e0e34b5b31"
+      }
+    }
+  ],
+  "source_hashes": {
+    "scenes/playable-foliage-route-v3.json": "fe4a7cf61c186043abf3bea507f9ad96672c2af85c9aa3432e93701403c6ca21",
+    "scenes/playable-foliage-route-v2.json": "d981e8ab834dadfdec796a640a1042757a810d274513d1196250f89b2ce59b63",
+    "scripts/check_foliage_route.py": "6cddb24d6023e0302ede59996971d28cb1e6bad04adbb5c6a9fd502b0739a06c",
+    "scripts/benchmark_playable.py": "545c2654ce036e1f329f755f7f81b5472848f24b5d6c65f8cb64cd999978996d",
+    "scripts/launch_playable.py": "7da0905fd44464baca93b35d785cc351de3b8d2cebbe118451d94a29acb6b0d5",
+    "scripts/compose_playable_video.py": "e829d8059cff704787e303809705336aab7634e9d209d0c3a6136f428e642434"
+  },
+  "limits": "Single recorded pass per configuration; recording costs CPU readback/conversion and AMD encoding. Whole-application Present cadence is not displayed-frame cadence. Signed capture-to-Present age is not physical input latency. No neural quality or temporal acceptance follows from passing a camera-route gate.",
+  "browser_review": {
+    "date": "2026-09-10",
+    "page": "playable.html#normal-speed-gameplay",
+    "browser": "Codex in-app browser",
+    "served_from": "local built site",
+    "duration_seconds": 34,
+    "current_time_seconds": 34,
+    "ended": true,
+    "playback_rate": 1,
+    "dimensions": [
+      3840,
+      760
+    ],
+    "error": null,
+    "viewport_width": 1280,
+    "document_width": 1265,
+    "retained_failure_details_collapsed": true,
+    "scope": "Verified playable delivery at original speed and no horizontal page overflow. Does not certify neural motion fidelity."
+  }
+}

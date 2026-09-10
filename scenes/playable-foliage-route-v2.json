@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scene": "foliage-walk",
+  "reason": "The original north-facing foliage route collides with a fence and its reduced-only run differs around a tree. Preserve it; test an east-facing route from the same spawn.",
+  "position": [4508.76, 15.8, 10764],
+  "yaw_degrees": 90,
+  "hour": 13,
+  "motion": "Existing engine forward action at simulation seconds 30–50, then stationary heading sweep at seconds 50–60.",
+  "pilot": "Standard settings, one 34-second native gameplay recording and CPU presentation trace. Review source imagery and camera telemetry before comparison runs.",
+  "pilot_limits": {
+    "maximum_route_attempts": 3,
+    "maximum_minutes": 20,
+    "minimum_walk_horizontal_displacement_m": 50,
+    "minimum_interior_horizontal_speed_m_per_second": 1,
+    "speed_window_simulation_s": [32, 49]
+  },
+  "comparison": "Only after a passable route is observed: standard, combined reduction alone, combined reduction plus neural; record all three at native 1440p with unchanged timing.",
+  "path_agreement_max_camera_distance_m": 0.5,
+  "fidelity_review": "Review vegetation edges, trunks, fences, foliage gaps and shadow visibility in unretimed video; do not claim semantic acceptance from coordinate preservation alone.",
+  "latency_scope": "GPU and WGC-to-Present-call timing plus application presentation cadence. Existing moving display-join limitation remains explicit."
+}

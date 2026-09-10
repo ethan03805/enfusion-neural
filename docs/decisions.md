@@ -149,3 +149,9 @@ DeepLPF's local photographic filters retain broad colors but clip shaded visibil
 ## 028 · Separate sustained operation from sustained movement
 
 Accepted 10 September 2026. Extend the owned benchmark session to 600 seconds while retaining its original 30–60 second walk/turn segment. The remaining camera is stationary. Report the complete session and every minute, retain all stalls and capture-internal event exclusions, and do not treat this as manual gameplay or motion-fidelity acceptance. The run completes 36,654 processed frames without a crash or recorded hide/timeout, with one interval above 50 ms. The unchanged pipeline and download remain available while the appearance objective stays unfinished.
+
+## 029 · Require motion and repeatability before adding a gameplay path
+
+Accepted 10 September 2026. Reject the second fence-colliding pilot, survey the actual town with Enfusion Lab and use the adjacent tree-lined street. Validate the isolated addon before launching. Require at least 50 metres of walking displacement, at least 1 m/s at interior one-second samples, and at most 0.5 metres of camera separation from the standard pass. The three completed passes travel 73.9–74.2 metres and meet those gates. Label coverage as street vegetation edges, not dense forest or semantic visibility acceptance.
+
+Preserve the first street launch's world-loading crash and the first complete standard pass's 295 ms presentation stall. Keep all 34 seconds at original speed and report recording overhead. Path acceptance does not establish substantial neural appearance improvement, physical input or displayed-frame latency.
