@@ -2,7 +2,9 @@
 
 A playable neural appearance prototype for Arma Reforger, using an isolated addon and a Windows companion. Target: **2560 × 1440 at 30–60 FPS on RX 7800 XT in local single-player**.
 
-Continuous gameplay capture, GPU processing and visible presentation now work with an F8 source bypass and measured software latency. Controlled path comparisons and packaging are in progress. A substantial improvement to materials and lighting has not yet been demonstrated.
+The [runnable Windows build and normal-speed gameplay comparison](playable.md) are available. Continuous capture, GPU processing, visible presentation and F8 bypass work. In the town path, the game runs at 88.1 presents/s with reduced settings plus enhancement, and the companion produces 60.7 presents/s. Frame pacing and latency limits are documented separately.
+
+**Substantial photorealistic material and lighting improvement has not been achieved.** The current network makes a modest exposure change. Physical mouse/keyboard routing and broader visibility/stability acceptance remain unfinished.
 
 | Read | Purpose |
 | --- | --- |
@@ -14,4 +16,4 @@ Continuous gameplay capture, GPU processing and visible presentation now work wi
 | [Comparisons](comparisons.md) | Earlier labeled image and retimed research comparisons |
 | [Research history](research-history.md) | Prior Blender and engine-interface experiments |
 
-The previous Blender lighting studies and standalone neural timings are research evidence. They do not establish live-game visual quality or complete application performance. The companion will select its model around RGB frames that Windows actually supplies.
+The previous Blender lighting studies and standalone neural timings remain background research. The live companion selects its model around RGB frames that Windows actually supplies.

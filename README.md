@@ -4,7 +4,7 @@ A Windows companion and isolated local single-player addon for Arma Reforger. Th
 
 [Documentation](https://ethan03805.github.io/enfusion-neural/) · [Current status](docs/status.md) · [Playable work log](docs/playable.md) · [Roadmap](docs/roadmap.md)
 
-This is a research prototype. Substantial photorealistic material and lighting improvement has not been achieved. Current evidence and outstanding input/performance checks are documented explicitly. Earlier Blender lighting and offline model studies remain in the documentation research archive.
+This is a research prototype. Substantial photorealistic material and lighting improvement has not been achieved. The [Windows build, unretimed gameplay and measured comparison](https://ethan03805.github.io/enfusion-neural/playable.html) are available; physical input and broader fidelity acceptance remain open. Earlier Blender lighting and offline studies stay in the research archive.
 
 ## Play
 

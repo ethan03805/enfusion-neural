@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 import numpy as np
+from playable_trace import application_present, read_trace_log
 
 
 def rows(path):
@@ -34,7 +35,7 @@ def analyze(root):
     display_only_failure = manifest.get('error') == "RuntimeError('Missing nonempty present-display trace')"
     if manifest.get('status') != 'completed' and not display_only_failure: raise ValueError('Run not completed')
     for file in root.glob('present-*.log'):
-        if 'ETW events were lost' in file.read_text(): raise ValueError('ETW event loss invalidates measurements')
+        if 'ETW events were lost' in read_trace_log(file): raise ValueError('ETW event loss invalidates measurements')
     log = sorted((root/'profile/logs').glob('*/script.log'))[-1]
     day = log.parent.name.split('_')[1]
     trace = []
@@ -50,16 +51,19 @@ def analyze(root):
     report = {'schema_version': 1, 'run': root.name, 'scene': manifest['scene'], 'preset': manifest['preset'], 'mode': manifest['mode'], 'recording': manifest['recording'], 'window': {'simulation_s': [30,60], 'qpc_ms': [float(start),float(end)], 'alignment': 'Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon.'}, 'game': {}, 'companion': {}, 'path': [r for r in trace if 29<=r['simulation_s']<=61], 'source_hashes': {}}
     report['settings_readback'] = manifest.get('settings_readback')
     report['configuration_verified'] = bool(manifest.get('settings_readback'))
-    cpu = rows(root/'present-cpu.csv')
+    cpu = rows(root/'present-cpu.csv') if (root/'present-cpu.csv').exists() else []
+    if not cpu and manifest.get('trace')!='display': raise ValueError('Missing CPU trace')
     display = rows(root/'present-display.csv') if (root/'present-display.csv').exists() else []
     report['measurement_status'] = manifest.get('status')
     report['display_trace_available'] = bool(display)
     def in_window(r): return start<=float(r['QPCTime'])*1000<end
     for exe, key in [('ArmaReforgerSteam.exe','game'), ('enr_companion.exe','companion')]:
-        observed = [r for r in cpu if r['Application']==exe and in_window(r)]
+        candidates_cpu = [r for r in cpu if r['Application']==exe and in_window(r)]
+        observed = [r for r in candidates_cpu if application_present(r)]
         summary = cadence([float(r['QPCTime'])*1000 for r in observed])
+        summary['excluded_nonapplication_records'] = len(candidates_cpu)-len(observed)
         summary['scope'] = 'DXGI application Present calls including non-displayed frames; GPU and display tracking disabled in separate CPU trace'
-        shown = [r for r in display if r['Application']==exe and in_window(r)]
+        shown = [r for r in display if r['Application']==exe and in_window(r) and application_present(r)]
         summary['display_trace_rows'] = len(shown)
         summary['display_trace_dropped'] = sum(r['Dropped']=='1' for r in shown)
         summary['gpu_active_ms'] = quantiles([float(r['msGPUActive']) for r in shown])
@@ -68,6 +72,7 @@ def analyze(root):
     if (root/'companion/frames.csv').exists():
         native = sorted(rows(root/'companion/frames.csv'), key=lambda r: float(r['present_call_qpc_ms']))
         selected = [r for r in native if start<=float(r['present_call_qpc_ms'])<end]
+        report['companion']['native_present_cadence'] = cadence([float(r['present_call_qpc_ms']) for r in selected])
         report['companion']['gpu_copy_inference_draw_ms'] = quantiles([float(r['gpu_copy_draw_ms']) for r in selected if float(r['gpu_copy_draw_ms'])>=0])
         report['companion']['capture_to_present_call_ms'] = quantiles([float(r['capture_to_present_call_ms']) for r in selected])
         report['companion']['dropped_before_processing'] = sum(int(r['dropped_before']) for r in selected)

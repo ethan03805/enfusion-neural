@@ -1,14 +1,16 @@
-# Active roadmap
+# Remaining acceptance
 
-Target: 2560 × 1440 at 30–60 FPS on the RX 7800 XT, local single-player.
+Target: faithful photorealistic appearance at 2560 × 1440 and 30–60 FPS on the RX 7800 XT in local single-player.
 
-| Milestone | Current evidence | Acceptance still needed |
+| Area | Established | Required next |
 | --- | --- | --- |
-| Continuous game capture and GPU processing | WGC → native D3D11 Zero-DCE++ → visible HWND companion | Physical input verification; resilience during menu and focus changes |
-| Bypass and latency | F8 exposes source; software capture-to-display timestamp join | Controlled path latency and pacing; distinguish physical input latency |
-| Isolated single-player addon | Controlled soldier, fixed weather, engine input walking and heading sweep | Additional foliage and interior paths |
-| Render budget | Engine readback verifies corrected private profiles | Baseline, separate reductions and enhancement without ETW loss |
-| Appearance model | Zero-DCE++ native parity; Image-Adaptive-3DLUT CPU evaluation | Photorealistic material/lighting gains, visibility and movement acceptance |
-| Delivery | Launcher and measurement scripts | Runnable package, reviewed unretimed comparisons and final report |
+| Live loop | Actual game capture → GPU neural pass → visible companion; source bypass and separate viewer | Physical WASD/mouse check, menu/focus/scope transitions and a 10-minute session |
+| Budget | Runtime-verified town baseline, individual reductions and enhancement; separate recording overhead | Repeat passes and additional scene coverage; resolve displayed-frame telemetry without another broad integration investigation |
+| Latency | 895-frame software display join; moving-path processing age | Moving-path capture-to-display evidence and physical input-to-photon test |
+| Model | Native Zero-DCE++ parity; evaluated photographic 3DLUT rejected | A model or asset workflow with demonstrated material/lighting gains and licensed, identity-preserving references |
+| Fidelity | Fixed source coordinates, bounded brightness and source fallback; normal-speed paths | Visibility/temporal acceptance around cover, openings, thin foliage and darker environments |
+| Delivery | Launcher, companion, addon, attribution, normal-speed capture and measured evidence | Finish the explicit acceptance gaps before calling this the requested photorealistic prototype |
 
-The [current status](status.md) and [playable work log](playable.md) contain current evidence and failures. The [research history](research-history.md) retains earlier numerical and synthetic studies. Those studies are background; the unsupported in-engine screenshot/widget and renderer-bridge routes are closed for this iteration.
+The next model task must state its actual available inputs and a bounded appearance test before implementation. Do not resume unchanged Blender studies, screenshot/widget probes or unsupported renderer-hook investigations. Preserve the working RGB companion and all failed evidence while changing the appearance approach.
+
+[Current status](status.md) · [Build and comparison](playable.md) · [Research archive](research-history.md)

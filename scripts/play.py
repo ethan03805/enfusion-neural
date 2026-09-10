@@ -17,6 +17,8 @@ def main():
     p.add_argument('--scene', choices=['town','town-evening','foliage'], default='town')
     p.add_argument('--preset', choices=['standard','scale','shadows','effects','combined'], default='standard')
     p.add_argument('--strength', type=float, default=.35)
+    p.add_argument('--viewer', action='store_true', help='Use a separate ordinary viewer window instead of the overlay')
+    p.add_argument('--snapshot-after', type=float, default=0, help='Optional diagnostic source/output BMP after this many seconds; adds a one-time CPU readback')
     p.add_argument('--out', type=Path)
     a = p.parse_args()
     if not 0<=a.strength<=1: p.error('Strength must be 0..1')
@@ -40,7 +42,9 @@ def main():
         if 'controlled=1' in text and stamps and float(stamps[-1])>=8: break
         time.sleep(.25)
     else: raise TimeoutError('Player did not become ready; inspect retained session logs: '+str(out))
-    command = [str(companion), '--pid', str(launch['pid']), '--out', str(out/'companion'), '--overlay', '--mode', 'neural', '--model', str(model), '--strength', str(a.strength)]
+    command = [str(companion), '--pid', str(launch['pid']), '--out', str(out/'companion'), '--mode', 'neural', '--model', str(model), '--strength', str(a.strength)]
+    if not a.viewer: command.append('--overlay')
+    if a.snapshot_after>0: command.extend(['--snapshot-after', str(a.snapshot_after)])
     (out/'companion-command.json').write_text(json.dumps(command, indent=2))
     result = subprocess.run(command)
     print('Companion exited. The original game remains available. Session: '+str(out))

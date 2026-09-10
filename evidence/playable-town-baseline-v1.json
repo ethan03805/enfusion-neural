@@ -534,5 +534,7 @@
     "profile\\logs\\logs_2026-09-10_00-46-25\\script.log": "8120f8b853c69486137cfd07b6b13761a0d179fce8ee68ae3b8e2e223f56bb3c",
     "present-cpu.csv": "9fd710bf956d1a86a159b478634febd0f496eeaaa2d4aed1af905bde9d2c551a",
     "present-display.csv": "379ffc0f12673c03936142689e295388198037422dc127a0766bc959f977ec38"
-  }
+  },
+  "configuration_verified": false,
+  "configuration_scope": "Historical engine-default sample. Requested standard profile was ignored because it was placed one directory too high. Do not use as the corrected standard baseline."
 }

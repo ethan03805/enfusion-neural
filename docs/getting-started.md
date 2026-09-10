@@ -1,50 +1,44 @@
 # Get started
 
-Clone the repository, then create an isolated Python 3.9–3.12 environment. The CPU path also runs on Linux; the native GPU backend currently requires Windows with CMake, a Windows SDK and Visual Studio C++ tools.
+For the tested current-PC package, use the [Windows download and controls](playable.md#run-the-build). The live companion needs Windows and the installed Steam game. Python 3 starts the isolated session; neural inference itself is native.
+
+## Build the live companion
+
+Visual Studio C++ tools, a Windows SDK and CMake are required. C++20 avoids the deprecated coroutine headers selected by older C++ modes in newer MSVC versions.
 
 ```powershell
 git clone https://github.com/ethan03805/enfusion-neural.git
 cd enfusion-neural
-python -m venv .venv
-.venv\Scripts\python -m pip install --upgrade pip
-.venv\Scripts\python -m pip install -e .
+py -3 -m venv .venv
+.venv/Scripts/python -m pip install -e .
+.venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 cmake -S native -B build -A x64
 cmake --build build --config Release
-.venv\Scripts\python -m enr.cli benchmark --model models/bootstrap-v0.json --out runs/first
+.venv/Scripts/python scripts/prepare_pretrained.py --model zero-dce-plusplus
+Start-Playable.cmd
 ```
 
-The final command creates an original procedural fixture, runs the learned network at 1440p on the selected hardware GPU and checks every RGB pixel against the NumPy reference. Alpha must match exactly. Floating-point implementation differences permit at most one 8-bit RGB code value. A mismatch exits with failure and retains the artifacts.
+PyTorch is only needed to verify/export the author's checkpoint. Downloads are pinned and hash-checked. The exported weights retain separate academic/noncommercial terms. Runtime inference needs neither PyTorch nor CUDA.
 
-`run.json` contains input and model hashes, dimensions, adapter, comparison results and raw dispatch timing samples. The file pipeline includes setup, compilation and 110 dispatches. It is not the latency of one live frame.
+The launcher discovers the default Steam game path and a saved Documents/OneDrive Documents profile. For other locations, `scripts/launch_playable.py` accepts `--game`, `--settings-source` and `--out`. It returns the game PID for `enr_companion.exe --pid PID --out NEW_DIRECTORY --overlay --mode neural --model weights.bin`.
 
-## Train and evaluate
+## Verify and measure
 
 ```powershell
-.venv\Scripts\python -m enr.cli train --out runs/candidate.json --steps 1200
-.venv\Scripts\python -m enr.cli evaluate --model runs/candidate.json --out runs/candidate-eval
+.venv/Scripts/python -m unittest discover -s tests -v
+.venv/Scripts/python scripts/build_docs.py
+.venv/Scripts/python scripts/benchmark_playable.py --out runs/town-standard --preset standard --trace cpu
+.venv/Scripts/python scripts/analyze_playable.py runs/town-standard
 ```
 
-Training uses original procedural images, a reproducible random seed and all 251 trainable parameters. Separate scene seeds define train, validation and held-out test sets. Evaluation compares against bicubic downsampling followed by bicubic upsampling. It is not an FSR comparison or a photorealism score.
+The measurement runner expects the official [PresentMon 2.5.1 Windows executable](https://github.com/GameTechDev/PresentMon/releases/tag/v2.5.1) at `runs/tools/PresentMon-2.5.1-x64.exe`. `--record` additionally requires an FFmpeg build with WGC gfxcapture and AMD AMF encoding. It adds explicit readback/conversion costs and must be measured separately.
 
-## Use an Enfusion frame
+Run one benchmark at a time. The addon uses engine actions for a repeatable local walking/turning sequence. Each run verifies requested rendering settings and keeps game, companion and measurement logs. Retain failures, use a fresh output directory and never stop unrelated game, editor or trace processes.
 
-Install or use the existing Enfusion Lab plugin. Its `doctor` discovers stable game and Workbench installations. Initialize a dedicated empty experiment directory, validate the addon, and capture with an explicit world and camera. The plugin must remain a separate dependency; no Steam files belong in this repository.
+Package a verified build with `scripts/package_playable.py --out runs/deliverables/NEW_BUILD_NAME`. Keep packages outside `dist/`, which is reserved for the documentation site.
 
-```powershell
-enfusion-lab doctor --json
-enfusion-lab init experiments/local --json
-enfusion-lab validate --project experiments/local --json
-enfusion-lab capture --project experiments/local --position 2048 60 2048 --direction 1 0 0 --settle 5 --timeout 120 --json
-```
+## Background tools
 
-The installed CLI may instead be invoked as `python -m enfusion_lab` from its package checkout. If using MCP, the equivalent tools are `doctor`, `init`, `validate` and `capture`; pass absolute paths. Review the returned status, actual full-size PNG and camera metadata.
+The original procedural training and offline D3D12 reference remain available through `python -m enr.cli`. They do not measure live application performance. See the [research archive](research-history.md) and [architecture](architecture.md).
 
-```powershell
-.venv\Scripts\python -m enr.cli benchmark --model models/bootstrap-v0.json --image path/to/frame.png --out runs/arland-first
-```
-
-Capture opens its own Workbench simulation window and ends its owned process after export. Successful export may have a child exit code of 1; the outer run status is authoritative. Validation must compile and exit naturally with 0.
-
-## Failure recovery
-
-Use a fresh output directory when a command reports that one exists. Retain failed runs. For CMake errors, confirm the desktop C++ workload and SDK. A missing hardware D3D12 adapter is a failure, not a CPU fallback. Shader compilation logs are printed on error. If Workbench fails, inspect that run's logs and never kill other editor processes by name.
+Enfusion Lab remains the isolated Workbench dependency for addon validation and controlled exports. Its `doctor`, `init`, `validate` and `capture` commands retain their own project and logs. No Steam files belong in an experiment.

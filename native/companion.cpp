@@ -92,7 +92,9 @@ Options args(int argc, char **argv) {
     } else
       throw std::runtime_error(
           "Usage: enr_companion --pid GAME_PID --out NEW_DIRECTORY [--overlay] "
-          "[--mode identity|invert|basic] [--seconds 30] [--snapshot-after 5]");
+          "[--mode identity|invert|basic|neural|neural-raw] "
+          "[--model weights.bin] [--strength .35] [--seconds 30] "
+          "[--snapshot-after 5]");
   }
   if (!std::isfinite(o.strength) || o.strength < 0 || o.strength > 1)
     throw std::runtime_error("Strength must be 0..1");
@@ -400,23 +402,27 @@ int main(int argc, char **argv) try {
   session.IsCursorCaptureEnabled(false);
   session.StartCapture();
   std::ofstream manifest(o.out / "run.json");
-  manifest << "{\n  \"schema_version\": 1,\n  \"source_pid\": " << o.pid
-           << ",\n  \"adapter\": \"" << winrt::to_string(ad.Description)
-           << "\",\n  \"width\": " << size.Width
-           << ", \"height\": " << size.Height
-           << ",\n  \"overlay\": " << (o.overlay ? "true" : "false")
-           << ",\n  \"capture\": \"Windows Graphics Capture HWND BGRA8 SDR "
-              "including HUD\",\n  \"latency_scope\": \"capture compositor QPC "
-              "to companion Present call; excludes input and scanout\",\n  "
-              "\"gpu_scope\": \"source GPU copy, optional neural inference and "
-              "pixel draw; no CPU frame readback except requested "
-              "snapshots\",\n  \"neural\": "
-           << (network ? "true" : "false") << "\n}\n";
+  manifest
+      << "{\n  \"schema_version\": 1,\n  \"source_pid\": " << o.pid
+      << ",\n  \"adapter\": \"" << winrt::to_string(ad.Description)
+      << "\",\n  \"width\": " << size.Width << ", \"height\": " << size.Height
+      << ",\n  \"overlay\": " << (o.overlay ? "true" : "false")
+      << ",\n  \"initial_mode\": " << o.mode
+      << ",\n  \"strength\": " << o.strength << ",\n  \"presentation\": \""
+      << (o.layered ? "layered-bitblt-probe" : "hwnd-flip-discard") << "\""
+      << ",\n  \"precision\": \"FP32\",\n  \"curve_dimensions\": [320, 180]"
+      << ",\n  \"capture\": \"Windows Graphics Capture HWND BGRA8 SDR "
+         "including HUD\",\n  \"latency_scope\": \"capture compositor QPC "
+         "to companion Present call; excludes input and scanout\",\n  "
+         "\"gpu_scope\": \"source GPU copy, optional neural inference and "
+         "pixel draw; no CPU frame readback except requested "
+         "snapshots\",\n  \"neural\": "
+      << (network ? "true" : "false") << "\n}\n";
   manifest.close();
   log << "started " << std::setprecision(15) << now_ms() << "\n";
   std::cout << "Capture started on " << winrt::to_string(ad.Description)
             << " at " << size.Width << 'x' << size.Height
-            << ". F8 bypass; F9 identity/basic; F10 quit.\n"
+            << ". F8 bypass; F9 identity/enhancement; F10 quit.\n"
             << std::flush;
   double began = now_ms(), last_frame = began, last_present = 0,
          last_source = 0;

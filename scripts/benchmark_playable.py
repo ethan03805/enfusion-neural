@@ -1,6 +1,7 @@
 """Serial isolated gameplay measurement. Run one instance; retain every run."""
 import argparse
 import ctypes
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -9,6 +10,7 @@ import subprocess
 import time
 
 from launch_playable import ROOT, SCENES, prepare
+from playable_trace import read_trace_log
 
 
 def qpc():
@@ -25,6 +27,7 @@ def main():
     p.add_argument('--preset', choices=['standard', 'scale', 'shadows', 'effects', 'combined'], default='standard')
     p.add_argument('--mode', choices=['off', 'identity', 'neural'], default='off')
     p.add_argument('--record', action='store_true')
+    p.add_argument('--trace', choices=['cpu','display','both'], default='both')
     a = p.parse_args()
     out = a.out.resolve()
     game = Path('C:/Program Files (x86)/Steam/steamapps/common/Arma Reforger/ArmaReforgerSteam.exe')
@@ -33,7 +36,8 @@ def main():
     if not sources: raise RuntimeError('No saved settings profile')
     addon, manifest = prepare(out, a.scene, a.preset, True, sources[0])
     argv = [str(game), '-profile', str(out/'profile'), '-gproj', str(addon/'addon.gproj'), '-addonsDir', str(game.parent/'addons'), '-world', 'worlds/GameMaster/GM_Eden.ent', '-play', '-nosplash', '-maxFPS', '120']
-    manifest.update(created_unix_s=time.time(), qpc_anchor_ms=qpc(), mode=a.mode, recording=a.record, argv=argv)
+    manifest.update(created_unix_s=time.time(), qpc_anchor_ms=qpc(), mode=a.mode, recording=a.record, trace=a.trace, argv=argv)
+    manifest['processing_hashes']={str(f.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(f.read_bytes()).hexdigest() for f in [ROOT/'build/Release/enr_companion.exe',ROOT/'native/companion.cpp',ROOT/'native/curve_network.h',ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin']}
     tasks, handles = [], []
     proc = subprocess.Popen(argv, cwd=game.parent)
     manifest['pid'] = proc.pid
@@ -75,8 +79,10 @@ def main():
                     start([ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', '49'], 'companion-console.log')
                 pm = ROOT/'runs/tools/PresentMon-2.5.1-x64.exe'
                 base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', '47', '--terminate_after_timed', '--no_console_stats', '--no_track_input']
-                start(base+['--output_file', out/'present-display.csv', '--session_name', 'ENR_display_'+str(proc.pid)], 'present-display.log')
-                start(base+['--output_file', out/'present-cpu.csv', '--session_name', 'ENR_cpu_'+str(proc.pid), '--no_track_gpu', '--no_track_display'], 'present-cpu.log')
+                if a.trace in ['display','both']:
+                    start(base+['--output_file', out/'present-display.csv', '--session_name', 'ENR_display_'+str(proc.pid)], 'present-display.log')
+                if a.trace in ['cpu','both']:
+                    start(base+['--output_file', out/'present-cpu.csv', '--session_name', 'ENR_cpu_'+str(proc.pid), '--no_track_gpu', '--no_track_display'], 'present-cpu.log')
                 manifest['ready_simulation_s'] = simulation
                 ready = True
                 print(f'{out.name}: player ready; measurement started at simulation {simulation:.3f}s', flush=True)
@@ -93,11 +99,12 @@ def main():
             if t.returncode: raise RuntimeError(f'Capture child failed: {t.returncode}')
         manifest['trace_availability'] = {}
         for name in ['present-cpu','present-display']:
+            if a.trace!='both' and name!='present-'+a.trace: continue
             file = out/(name+'.csv')
             available = file.exists() and file.stat().st_size>=100
             manifest['trace_availability'][name] = available
             if not available and name=='present-cpu': raise RuntimeError('Missing nonempty '+name+' trace')
-            if 'ETW events were lost' in (out/(name+'.log')).read_text(): raise RuntimeError('ETW event loss invalidates '+name+' measurement')
+            if 'ETW events were lost' in read_trace_log(out/(name+'.log')): raise RuntimeError('ETW event loss invalidates '+name+' measurement')
         manifest['status'] = 'completed'
         print(f'{out.name}: completed; retained raw game, companion and recording evidence', flush=True)
     except Exception as e:

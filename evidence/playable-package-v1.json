@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "download_file": "playable-pipeline-2026-09-10.zip",
+  "sha256": "482cc93870db593c750b7658ea90bd588182a0425b000389cfcdf6db666611c7",
+  "bytes": 247583,
+  "package_manifest": {
+    "schema_version": 1,
+    "build": "playable-pipeline-2026-09-10",
+    "source_revision": "31a754f8e78fae58944d3db0b110ff5beb6e04d6",
+    "source_scope": "Exact included source hashes identify this build, including uncommitted packaging changes at creation.",
+    "model": "Zero-DCE++ Epoch99, bounded brightness-only composition",
+    "precision": "FP32",
+    "files": {
+      "LICENSE": "a83e70d331f5dd27b6f2945bb24136cde09575276d81b14ac6b79bd7b0c05005",
+      "RUNME.txt": "8f87b6aa7efd81b687fb52ec423ad82d577a009c92473a1ea4e73bc4e8437252",
+      "Start-Playable.cmd": "36a652469c3cbeb37767aeea77c6755133234b3aa0fa6094c6d2db45cee2deda",
+      "adapters/playable/addon.gproj": "2321c7845354f82fc5da902070c40e0cb03e2ce144a53e53553b4fdc261f943c",
+      "adapters/playable/Scripts/Game/ENR_Playable.c": "07e78c5b7dda65991cd78849b0c4fdfe332ffb74ae193a22f49e580ef2952581",
+      "adapters/playable/Scripts/Game/ENR_PlayableConfig.c": "92d36d8972b5afebc10061b10da2d9315546471f025029421d46c362beaf3a75",
+      "adapters/playable/Scripts/Game/ENR_Settings.c": "1f3a4ca8d8103a5b5114411c67fd8f0be1eb0c5946ef57c739efe858a78efc99",
+      "build/Release/enr_companion.exe": "41696c702a721d209b1be26622d47ff263325fdc44d5d564a497d9446067a9fe",
+      "models/zero-dce-plusplus/export.json": "06d969d8232eda083af8f3eb2aab7334d62ffb5accb5fea061c958428967fdbb",
+      "models/zero-dce-plusplus/README.md": "0e18a0584cf4ddc92bd16045f226b3c6f99cc623ff96ff931c3236b234f1faa3",
+      "models/zero-dce-plusplus/source-pinned.json": "56ad6ee408c296b960c7e302b83fc0046d89a84a8a4a07380ed2412f096a9563",
+      "models/zero-dce-plusplus/weights.bin": "6d3687b8a54885adaacfb1ac1560336c6355c24237c1789d79300467773051c5",
+      "native/CMakeLists.txt": "32d393de7219ccbddf5acda2ca025fea825f53b980a603484658f5d17415fd0b",
+      "native/companion.cpp": "f311e4371dcd83a479d97db4655b975f6149c4ee299bf16244b764fe496991af",
+      "native/curve_network.h": "9c616ca768bd91d86a73c8f29a369c71551abbf03787ffd457c363fccfb5ca01",
+      "native/curve_smoke.cpp": "8fb1ea0b48be74d8c972b3089f671fc280b7f46389fc19bf2a8ec5e280b7cf90",
+      "native/enr_gpu.cpp": "a4436b7c77dce1a73b3e27603ea0af2dc9baca16dd257063322d0b27ca126b06",
+      "scripts/launch_playable.py": "e9d83c17071dbe79a0a6fcc1fb809e38e4c558ca4c0d5a1d26ebeb3f903d4614",
+      "scripts/play.py": "167104f84d0c6866c0877a8f266c1d59f487a9a58b12428bca25e6bee71cc82e"
+    }
+  },
+  "test": {
+    "run": "package-launch-test-v1",
+    "status": "completed",
+    "frames": 3770,
+    "modes": [
+      0,
+      3
+    ],
+    "controls": "Sky sent F9, F8, F8, F9, F10 to the running game. Native frames verify identity and neural modes; bypass log verifies hide/resume. Companion exits 0 while original game process remains alive. Owned game stopped only after this check.",
+    "f8_handler_to_hide_ms": 1.2004,
+    "latency_scope": "Application log only; excludes key sampling and physical display",
+    "physical_input": "WASD/mouse through overlay remains unverified; no user response yet",
+    "snapshot": {
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "max_absolute_rgb_change_8bit": 15,
+      "mean_absolute_rgb_change_8bit": 7.885979908130787,
+      "changed_channel_fraction": 0.8184086552372685
+    },
+    "native": {
+      "schema_version": 1,
+      "source_pid": 35600,
+      "adapter": "AMD Radeon RX 7800 XT",
+      "width": 2560,
+      "height": 1440,
+      "overlay": true,
+      "initial_mode": 3,
+      "strength": 0.35,
+      "presentation": "hwnd-flip-discard",
+      "precision": "FP32",
+      "curve_dimensions": [
+        320,
+        180
+      ],
+      "capture": "Windows Graphics Capture HWND BGRA8 SDR including HUD",
+      "latency_scope": "capture compositor QPC to companion Present call; excludes input and scanout",
+      "gpu_scope": "source GPU copy, optional neural inference and pixel draw; no CPU frame readback except requested snapshots",
+      "neural": true
+    },
+    "events": "started 13801814.8824\nsnapshot_readback_frame 181\nbypass 1 13838024.6986\nhide 13838025.899\nbypass 0 13868323.6613\ncomplete frames 3770 elapsed_ms 92934.6812999994\n",
+    "hashes": {
+      "launch.json": "4e75d36d84183197ef6dac577acf53c5be6efdfbac766fb8ce75cc3bffe05cfd",
+      "companion-command.json": "ed5fcb6fd2a83adbd4d1c36d22a1d13b0e2e240ae55c63188dba22491caa5e83",
+      "companion/events.log": "d30866b55f9506489e33986353c5a3413c5f4770ead5d56bd6d7d16044cdc2be",
+      "companion/frames.csv": "2193b30cb7d850b538b3ddc26ef6da74fc7083101aac5c10aec60645c1e0d85d",
+      "companion/source.bmp": "cea6e57e902562d88bf6639b2b065f8afdf82c1357b145f4193d8769a358aa0e",
+      "companion/output.bmp": "dfe202d14702219e34df7509a2502ebe1a97dcae0ee19bb660c1b0b222b5c59d"
+    }
+  }
+}

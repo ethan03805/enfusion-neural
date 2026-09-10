@@ -1,98 +1,39 @@
-# Live architecture under construction
-
-Actual Reforger HWND → Windows Graphics Capture BGRA8 GPU texture → D3D11 processing → nonactivating companion swapchain. The game owns input; hiding the overlay exposes the native game immediately. Capture age, dropped frames and GPU processing are logged separately. No scene buffers or renderer hooks are assumed. See [playable prototype](playable.md).
-
-## Retained offline architecture
-
 # Architecture
 
-The current execution path is deliberately small enough to inspect from end to end.
+The live path is **Reforger window → Windows Graphics Capture → D3D11 neural processing → companion window**. It runs beside an isolated local single-player addon. The Steam installation and original user profile remain unchanged.
 
-```text
-Enfusion Lab export or original procedural fixture
-             ↓ PNG / display-referred RGBA8
-        Python input validation
-             ↓ packed RGBA8 + generated model shader
-       Native D3D12 executable
-             ↓ upload → CNN dispatch → readback
-        Output PNG + timing samples
-             ↓
-       Independent NumPy comparison
-```
+## Live frame path
 
-## Boundaries
+Windows supplies a BGRA8 display-referred RGB texture, including HUD, and a compositor timestamp. Depth, motion vectors, normals, material IDs and scene-linear lighting are unavailable through the verified interface. Model selection must respect that limit.
+
+The companion selects the RX 7800 XT through DXGI, keeps capture, inference and drawing on D3D11, and presents a normal HWND flip-discard swapchain. The queue keeps the newest source frame. GPU timestamps cover copy, inference and drawing; separate PresentMon traces count application presents. Snapshot readback and video recording are explicit diagnostic costs.
+
+Zero-DCE++ predicts three exposure curves at 320 × 180 in FP32. Seven depthwise/pointwise convolution blocks reproduce the author's 10,561 parameters. The original eight curve iterations are composed at output resolution, converted to bounded luminance gain and blended at strength 0.35. Source pixel positions and chroma are retained. This changes exposure; it does not reconstruct material detail or lighting.
+
+## Controls and failure behavior
+
+F8 hides the overlay and exposes the source. F9 switches the companion between identity and the selected enhancement. F10 closes the companion. Loss of focus, minimization, old capture frames or a presentation timeout also hides the overlay. Invalid neural curves fall back to source pixels.
+
+The overlay is nonactivating and disabled for normal window input. Automated engine actions prove live movement through the displayed scene; complete physical WASD/mouse routing is still awaiting verification. A separate ordinary viewer is available. These limits are tracked in [current status](status.md).
+
+The shader protects near-black and highlight regions, feathers fixed HUD margins and protects the crosshair. These are numerical guards, not semantic masks or a reconstruction-failure detector. No temporal image history is used, so there is no history ghosting; exposure variation and source aliasing still require movement review.
+
+## Components
 
 | Component | Responsibility |
 | --- | --- |
-| `enr/data.py` | Original fixtures and explicit degradation |
-| `enr/model.py` | Model contract, gradients, CPU inference, HLSL generation |
-| `enr/cli.py` | Training, evaluation, benchmark orchestration and manifests |
-| `enr/references.py` | Scene pack validation, batch capture and repeat comparisons |
-| `enr/sequence.py` | Isolated camera-path sampling and capture contract verification |
-| `enr/motion.py` | Per-frame GPU/CPU verification and synchronized video encoding |
-| `scripts/render_material_room.py` | Original Cycles scene and aligned reference generation |
-| `scripts/check_material_room.py` | All-part EXR validation, geometry and noise checks |
-| `scripts/import_enfusion_material_room.py` | Isolated asynchronous original-mesh build and separate native load |
-| `scripts/capture_enfusion_material_room.py` | Original mesh placement with the reference camera; appearance calibration remains open |
-| `scripts/check_enfusion_room_surface.py` | Hash-bound FBX/TXO topology, material-slot, normal and UV comparisons in Blender |
-| `scenes/` | Versioned scene definitions and control settings |
-| `adapters/enfusion/` | Project-owned extension of the Workbench capture script |
-| `native/enr_gpu.cpp` | Hardware adapter, D3D12 buffers, dispatch, timestamps and readback |
-| `enr/lighting_gpu.py` | Ordered FP32 lighting records, generated dense shader and independent CPU comparison |
-| Enfusion Lab | External Workbench addon validation and image capture |
-| `docs/` | Maintained engineering documentation |
-| `evidence/` | Reviewed portable measurement summaries |
+| `adapters/playable/` | Isolated addon, local soldier, fixed weather, optional repeatable walking/turning path, runtime settings readback |
+| `scripts/launch_playable.py` | Private addon/profile preparation and game launch |
+| `scripts/play.py` | Free-play launch, companion and controls |
+| `native/companion.cpp` | WGC capture, overlay/viewer, shader composition, fallback, timing and snapshots |
+| `native/curve_network.h` | Native pretrained FP32 network |
+| `scripts/prepare_pretrained.py` | Pinned downloads, hashes and native tensor export |
+| `scripts/benchmark_playable.py` | Serialized owned sessions, settings guards, PresentMon and optional recording |
+| `scripts/analyze_playable.py` | Fixed-path game/companion cadence, processing time and available latency joins |
+| `scripts/package_playable.py` | Runnable package with source, weights, attribution and hashes |
 
-The native backend uses one immutable source buffer and one output buffer per process. Ten warmup dispatches and 100 measured dispatches reuse those buffers. A UAV barrier follows each dispatch. Input is uploaded once; output is read back once. This benchmark measures repeated computation on one frame. It does not include capture or presentation.
+## Retained research
 
-Weights are embedded into generated HLSL and compiled at startup. Compilation belongs to setup timing, never dispatch timing. This design is suitable for a fixed tiny reference graph; it is not a general model runtime. Evaluate WinML/ONNX Runtime and a reusable native context when larger models justify them.
+The standalone D3D12 backend, original CPU models and independent numerical references remain available. Their dispatch timings exclude game capture and display. The [Blender lighting studies](lighting-study.md), [motion studies](lighting-motion.md), [material fixture](material-room.md) and [research history](research-history.md) retain earlier findings.
 
-## The v0 graph
-
-An edge-padded 3 × 3 RGB neighborhood becomes 27 values. A learned 27-to-8 convolution, ReLU and 8-to-3 convolution predict an RGB residual. Clamp the residual to ±0.125, add it to the centre pixel, clamp to [0,1], and round to RGBA8. Preserve source alpha exactly. Total trainable parameters: 251.
-
-All weights are trained with Adam and mean squared error on the local CPU. FP32 HLSL performs inference on the GPU. Neither CUDA nor a model download is needed. A bounded residual limits magnitude; it does not prove semantic or temporal safety.
-
-The CPU reference processes row tiles with one-pixel halos to bound intermediate memory. It must match untiled convolution at tile boundaries, corners and odd sizes. RGB values are display-referred code values; they are not linear radiance or HDR.
-
-The file backend accepts dimensions from 1 to 16,384 per axis, with at most 16,776,960 pixels in one dispatch. These are implementation limits, not recommended playback sizes. Floating-point and 16-bit image modes are rejected; color conversion or HDR support must be explicit.
-
-## Future frame contract
-
-Before live integration, a versioned frame must identify color format and transfer, dimensions, frame ID, timestamp, camera/projection and exposure convention. Optional depth, normals, motion, material data and protected masks need explicit availability flags and separate validation.
-
-Native integration must establish device/queue ownership, resource lifetime, barriers, fences and the presentation stage. Reset temporal history on camera cuts, resolution changes, scope transitions, invalid inputs and device recreation. Image export remains the implemented neural input path. A separate original camera color lookup now visibly affects the engine output, but does not provide arbitrary dispatch, scene resources or their synchronization.
-
-The original material-room adapter now imports mesh resources and places them in an isolated simulation. Resource building is asynchronous: the runner keeps its editor alive through build observation, then validates loading in a separate process. Vertex comparisons use the original FBX and Enfusion TXO without fitting; camera pitch is an optional sequence field and passes runtime readback. This establishes a geometric fixture, not matching appearance or a renderer-buffer interface.
-
-The surface checker compares faces by their existing vertex identities, then normals and UVs at corresponding corners. It records cyclic winding and tests identity/V-inversion UV conventions explicitly. Initial precision failures remain failed after decimal-grid diagnostics; no fitted alignment or adjusted threshold is used. A separate `inspect-material` route loads the original material container read-only and records schema/defaults and numeric readback. Neither route verifies compiled shading, texture sampling or engine feature buffers.
-
-The optional material-room color control changes only `Color` in fresh copied material files. Mesh material slots are names, so the reader binds them to the original GUIDs from verified metadata before loading containers. The verifier checks unchanged geometry/metadata/configuration, exact declared material edits, native RGBA readback and preselected image regions. This verifies a visible material assignment workflow, not a reference photometric mapping or neural rendering pass.
-
-Original texture controls use `scripts/generate_enfusion_room_textures.py`, `scripts/build_enfusion_room_textures.py` and the optional `--texture-build/--texture-case` room-capture arguments. The asynchronous build retains TIFF sources, typed import metadata and compiled textures. Fresh addon captures bind materials to those assets and record native Color/BCRMap/NMOMap readback. The summarizer verifies source-channel isolation and image response; the orientation checker projects declared points analytically through the camera. This fixture supports appearance calibration but provides no scene-buffer or output-composition interface.
-
-The optional `--light-case` extension creates a scripted point light after room placement. `enr/room_lights.py` separates native getter values from requested intensity/color parameters, retaining the disabled light's negative radius as a raw mismatch. A separately planned `--light-clip-control` follow-up changes only the intensity-clipping bias. `scripts/summarize_enfusion_room_lights.py` binds all six validated captures, unchanged non-light inputs, visual reviews and all repeat pairs. This is a static appearance control, not renderer integration.
-
-The separately versioned [point-light calibration](light-calibration.md) uses `enr/photometry.py` for an explicit scalar-gain/sRGB hypothesis. Its lock records only three fitting intensities and one patch; the analyzer verifies those inputs and applies the two frozen coefficients to reserved intensities and patches. The summarizer binds all native and reference visual reviews. Seven reserved checks fail, so the engine and reference are not an accepted appearance-training pair. None of these scripts changes model weights or implements native inference.
-
-The [color-lookup control](color-lookup.md) is separate from both neural graphs. A read-only schema probe discovers `ColorGradingEffect.ColorTable`; the builder imports three original volume fixtures while retaining source/compiled bytes. `enr/color_lookup.py` checks every stored voxel with a narrow DDS/ENF1 decoder and validates native material readback and request order. `scripts/capture_enfusion_color_lookup.py` applies a declared effect after camera initialization. Its priority-19 follow-up retains the rejected priority-1000 attempt. The summarizer separates visible response from color accuracy: a constant effect works, but direct RGB8 display mapping fails. No transfer is fitted, and removal is only tested before settling. This route cannot represent scene features or spatial convolution.
-
-## Lighting study
-
-The [lighting experiment](lighting-study.md) is a separate CPU reference in `enr/lighting.py`. Original Cycles source passes and scene constants provide 20 features: log-radiance, position, normal, material values, view direction and light offset. A 20 → 32 → 32 → 3 network predicts a bounded log-radiance residual. A separate RGB-only network and affine fit provide controls. This graph does not use the native v0 shader or inherit its timings.
-
-`scripts/render_lighting_study.py` changes only diffuse-bounce depth within each pair. `scripts/train_lighting_study.py` validates hashes and alignment, fits only training cases, and selects checkpoints on validation cases. `scripts/display_lighting_study.py` applies the recorded display transform; `scripts/summarize_lighting_study.py` checks the conversion and retains metrics for every case, including independent-seed reference checks. Models carry a versioned feature/color contract and normalization statistics.
-
-This experiment keeps the scene's original material information. It tests the value of supplying source surface data to lighting reconstruction; it does not infer missing textures or establish that Enfusion exposes these inputs. See [technical feasibility](feasibility.md) before changing the integration architecture or scaling asset collection.
-
-The [native lighting implementation](lighting-gpu.md) now executes the three locked scene-diversity variants. Explicit `lighting20`, `lighting17` and `lighting3` modes extend the executable while preserving its default RGBA8 mode. Input records carry FP32 ordered features, original RGB, alpha and validity. Seven output floats carry the residual, reconstructed RGB and copied alpha. Both hidden layers and normalization execute in the generated shader; feature construction remains on CPU. The shader explicitly enforces the original residual bound after a retained intrinsic-rounding failure. It is separate from the v0 convolution and supplies no engine resource interface.
-
-All 112 existing test/regression frames match the retained CPU outputs within the committed tolerances. The evaluator reuses the original fidelity-gate function with display metrics disabled, so no CPU display score is attributed to GPU output. Temporary packed inputs are reconstructible from source passes and recorded hashes; actual native output records remain. A later input-validation guard rejects values that overflow during FP32 conversion. The executed contract snapshot is retained and current generated shader bytes match every final run.
-
-The [motion evaluator](lighting-motion.md) loads the frozen JSON models and original affine coefficients without fitting. `scripts/render_lighting_motion.py` builds two versioned scenes directly and produces source, paired and independent references. `enr/temporal.py` validates camera paths and reprojects static source positions into the previous camera. Object-ID, normal and position checks select correspondences; excluded regions retain separate spatial metrics. This diagnostic uses Cycles passes and does not implement engine motion-vector access.
-
-`scripts/summarize_lighting_motion.py` validates display conversions and records all frames, regions and transitions. `scripts/video_lighting_motion.py` verifies input hashes and encodes source/model/independent-reference images into a single synchronized stream. Portable evidence uses stable LF bytes where another artifact hashes it.
-
-The [scene-diversity experiment](lighting-diversity.md) adds a 17-input variant that excludes only absolute world position. `enr/diversity.py` validates disjoint layouts and exact feature order. Fitting shares pixel samples and optimizer schedules across three variants, selects on the validation layout, and writes a model lock before test rendering. Evaluation can run the test and existing regressions separately without fitting or changing the selected candidate. The full scene model, relative-input model and RGB-only model retain distinct serialized feature contracts.
-
-The Workbench image-bridge probe is a separate experiment at the screenshot/UI boundary. Its external CPU worker accepts RGBA8, preserves alpha and can run identity, inversion or the original bootstrap model. An explicitly selected ordinary-file route also accepts RGB8 and records that opaque alpha was supplied, not captured. It cannot accept the scene-linear lighting model without a verified color and feature mapping. Texture-copy and raw screenshot runtime attempts failed. Ordinary file export and CPU identity/inversion work, but widget readback fails and the ordinary scene export does not match the processed file. The screenshot/UI path and the supported scene-renderer bridge remain unproven. `enr/image_bridge.py` verifies native run hashes, camera/environment telemetry and three separate pixel comparisons. An exact UI return cannot mark scene-buffer access or live neural lighting as verified. Additional worlds require an exact resource name observed in a completed native inventory; the original sequence defaults remain restricted to Arland.
+The unsupported screenshot/widget return and in-engine renderer-resource bridge are closed for this iteration. They provide no live input buffers to the current model. Changes to a GPU graph must continue to pass its independent CPU reference.

@@ -80,10 +80,19 @@ class Links(HTMLParser):
 
 def main():
     output=ROOT/'dist'; output.mkdir(exist_ok=True)
-    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','theme.js','compare.js','media','.nojekyll'}
+    expected={slug+'.html' for slug,_ in PAGES}|{'style.css','theme.js','compare.js','media','downloads','.nojekyll'}
     stale={path.name for path in output.iterdir()}-expected
     if stale: raise RuntimeError('Unexpected files in dist; review before publishing: '+str(sorted(stale)))
     copy_media(output)
+    package_record=ROOT/'evidence/playable-package-v1.json'
+    if package_record.exists():
+        package=json.loads(package_record.read_text(encoding='utf-8'))
+        name=package['download_file']
+        if not re.fullmatch(r'[a-z0-9-]+\.zip',name): raise RuntimeError('Invalid package filename')
+        source=ROOT/'docs/downloads'/name
+        if source.is_symlink() or hashlib.sha256(source.read_bytes()).hexdigest()!=package['sha256']: raise RuntimeError('Package differs from verified build')
+        destination=output/'downloads'; destination.mkdir(exist_ok=True)
+        shutil.copyfile(source,destination/name)
     for position,(slug,label) in enumerate(PAGES):
         raw=(ROOT/'docs'/f'{slug}.md').read_text(encoding='utf-8')
         content=markdown.markdown(raw,extensions=['fenced_code','tables','toc'])

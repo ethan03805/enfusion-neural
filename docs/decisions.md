@@ -131,3 +131,11 @@ Accepted 10 September 2026. The game mounts `profile/` beneath the command-line 
 ## 025 · Preserve the first RGB neural pass and rejected candidate
 
 Accepted 10 September 2026. Zero-DCE++ provides a small native exposure-curve baseline with independent numerical parity. Preserve source coordinates/chroma, bound changes, protect dark/bright and HUD regions, and expose source on bypass, invalid curves or stale capture. The Image-Adaptive-3DLUT sRGB checkpoint is evaluated separately; its unrestricted output clips foliage shadows and is not accepted. Neither candidate establishes reconstructed materials, scene-linear relighting or photorealism. Publish the actual same-frame outputs and retain separate model licenses.
+
+## 026 · Ship the measured pipeline with explicit acceptance gaps
+
+Accepted 10 September 2026. Publish the tested standalone companion, isolated addon, launcher, exact hashes and separate model terms. C++20 fixes the newer MSVC coroutine build failure; the companion links its C++ runtime statically. Package launch, F8/F9/F10 and numerical parity are verified. This is a working pipeline delivery, not completion of the photorealistic appearance goal.
+
+Count only DXGI non-null application swapchains in PresentMon CPU evidence, and decode both UTF-8 and UTF-16 loss logs. WGC internal events otherwise falsely double output throughput. Preserve missing display channels after one bounded display-only retry. Keep recording overhead separate. Normal-speed comparisons retain source timing and all 34 seconds, with explicit spatial scaling and encoding.
+
+The foliage attempt collides with a fence, and its reduced-only path differs around a tree. Retain it as a collision/visibility check, not a matched moving-path performance acceptance. The town route remains the primary controlled comparison. Physical input, full moving-path display latency and substantial appearance improvement remain open.

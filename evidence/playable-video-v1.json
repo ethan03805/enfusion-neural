@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "selection": "Complete first town and foliage/collision recorded triples, with no timing or visual selection. A separate evening run is inspected but not presented as a paired comparison.",
+  "review": "Source review sheets inspect native frames at seconds 2, 10, 20 and 30. Town visibly traverses the road and turns. Foliage collides with a fence and one path differs around a tree; this limitation remains labeled. Final posters and browser playback are reviewed separately. No temporal fidelity acceptance inferred from stills.",
+  "source_timestamps": [
+    {
+      "run": "video-town-standard-v1",
+      "sha256": "f385a22a33c54ce0900a32d19b57eddea872597d014d71329d664a78f58de46e",
+      "frames": 2037,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.066667
+      }
+    },
+    {
+      "run": "video-town-combined-v1",
+      "sha256": "e055d69a1d0ff2f22b0461365f01238c3543eff1e35ad1bcc94a23ad5f8a83c9",
+      "frames": 2037,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.066667
+      }
+    },
+    {
+      "run": "video-town-neural-v1",
+      "sha256": "88ff92c93f1f8bab3b22b92c095a89bf109071e5bbc72103ee449c2a28a841e1",
+      "frames": 1845,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.03333300000000072,
+        "p99": 0.033333999999999975,
+        "max": 0.05000000000000071
+      }
+    },
+    {
+      "run": "video-foliage-standard-v1",
+      "sha256": "414cb6109e7d5545c4e73987d35ecb0dbfc8eb1e4836aa3180a5a44e893eff69",
+      "frames": 2035,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.083333
+      }
+    },
+    {
+      "run": "video-foliage-combined-v1",
+      "sha256": "4a43891d4d74796ff9561c1abe9fa1a288feb2756f0c07af67661d291161ab32",
+      "frames": 2035,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.016667000000001764,
+        "p99": 0.016667000000001764,
+        "max": 0.09999999999999999
+      }
+    },
+    {
+      "run": "video-foliage-neural-v1",
+      "sha256": "f448a963b83a7047becda70428f4df7cc8c487164d823a75867c22885f822b14",
+      "frames": 1838,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.03333300000000072,
+        "p99": 0.033333999999999975,
+        "max": 0.05000000000000071
+      }
+    },
+    {
+      "run": "video-evening-neural-v1",
+      "sha256": "05bbf746cc8b498c7e644106fd54b6b32eebc608e80f61da68d5e62234fea807",
+      "frames": 1893,
+      "first_pts_s": 0.0,
+      "last_pts_s": 33.983333,
+      "nonpositive_intervals": 0,
+      "interval_s": {
+        "min": 0.016665999999997183,
+        "p50": 0.016666999999999987,
+        "p95": 0.03333299999999895,
+        "p99": 0.033333999999999975,
+        "max": 0.05000000000000071
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "schema_version": 1,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-town-standard-v1\\gameplay.mp4",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-town-combined-v1\\gameplay.mp4",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-town-neural-v1\\gameplay.mp4",
+        "-i",
+        "runs\\video-town-comparison-web-v1\\labels.png",
+        "-filter_complex_threads",
+        "2",
+        "-filter_complex",
+        "[0:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v0];[1:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v1];[2:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v2];[v0][v1][v2]hstack=inputs=3:shortest=1,pad=3840:760:0:40:black[video];[video][3:v]overlay=0:0:repeatlast=1[out]",
+        "-map",
+        "[out]",
+        "-an",
+        "-t",
+        "34",
+        "-c:v",
+        "libx264",
+        "-threads",
+        "4",
+        "-preset",
+        "fast",
+        "-crf",
+        "26",
+        "-maxrate",
+        "18M",
+        "-bufsize",
+        "36M",
+        "-pix_fmt",
+        "yuv420p",
+        "-colorspace",
+        "bt709",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "iec61966-2-1",
+        "-fps_mode",
+        "vfr",
+        "-movflags",
+        "+faststart",
+        "runs\\video-town-comparison-web-v1\\comparison.mp4"
+      ],
+      "sources": {
+        "runs/video-town-standard-v1/gameplay.mp4": "f385a22a33c54ce0900a32d19b57eddea872597d014d71329d664a78f58de46e",
+        "runs/video-town-combined-v1/gameplay.mp4": "e055d69a1d0ff2f22b0461365f01238c3543eff1e35ad1bcc94a23ad5f8a83c9",
+        "runs/video-town-neural-v1/gameplay.mp4": "88ff92c93f1f8bab3b22b92c095a89bf109071e5bbc72103ee449c2a28a841e1"
+      },
+      "output_sha256": "8af31f4f397c2536af80acf6faf71c4ee93ebbe56ee7033ef61fb2b278a5a38a",
+      "bytes": 54345617,
+      "dimensions": [
+        3840,
+        760
+      ],
+      "transformation": "Each 2560x1440 input scaled to 1280x720, three panels with 40-pixel labels. Original relative presentation timestamps retained; only timestamp origin reset. Hstack holds the last available frame of a slower input. No optical flow, generated frames, speed change or audio. Encoded H.264 CRF26, 18Mbps maximum rate.",
+      "note": "",
+      "alignment": "Separate repeat runs start recording near simulation second 28. Capture initialization and physics/head movement differ; same declared route, not frame-aligned pixels. All 34 seconds retained.",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 3840,
+            "height": 760,
+            "duration": "34.000000",
+            "nb_frames": "2038"
+          }
+        ],
+        "format": {
+          "duration": "34.000000"
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-foliage-standard-v1\\gameplay.mp4",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-foliage-combined-v1\\gameplay.mp4",
+        "-threads",
+        "2",
+        "-i",
+        "runs\\video-foliage-neural-v1\\gameplay.mp4",
+        "-i",
+        "runs\\video-foliage-comparison-web-v1\\labels.png",
+        "-filter_complex_threads",
+        "2",
+        "-filter_complex",
+        "[0:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v0];[1:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v1];[2:v]setpts=PTS-STARTPTS,scale=1280:720:flags=lanczos[v2];[v0][v1][v2]hstack=inputs=3:shortest=1,pad=3840:760:0:40:black[video];[video][3:v]overlay=0:0:repeatlast=1[out]",
+        "-map",
+        "[out]",
+        "-an",
+        "-t",
+        "34",
+        "-c:v",
+        "libx264",
+        "-threads",
+        "4",
+        "-preset",
+        "fast",
+        "-crf",
+        "26",
+        "-maxrate",
+        "18M",
+        "-bufsize",
+        "36M",
+        "-pix_fmt",
+        "yuv420p",
+        "-colorspace",
+        "bt709",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "iec61966-2-1",
+        "-fps_mode",
+        "vfr",
+        "-movflags",
+        "+faststart",
+        "runs\\video-foliage-comparison-web-v1\\comparison.mp4"
+      ],
+      "sources": {
+        "runs/video-foliage-standard-v1/gameplay.mp4": "414cb6109e7d5545c4e73987d35ecb0dbfc8eb1e4836aa3180a5a44e893eff69",
+        "runs/video-foliage-combined-v1/gameplay.mp4": "4a43891d4d74796ff9561c1abe9fa1a288feb2756f0c07af67661d291161ab32",
+        "runs/video-foliage-neural-v1/gameplay.mp4": "f448a963b83a7047becda70428f4df7cc8c487164d823a75867c22885f822b14"
+      },
+      "output_sha256": "5fe6b849c25ab3c7ca638617d44e6aab8d2ec5976781866083cbdd136637e63f",
+      "bytes": 41148107,
+      "dimensions": [
+        3840,
+        760
+      ],
+      "transformation": "Each 2560x1440 input scaled to 1280x720, three panels with 40-pixel labels. Original relative presentation timestamps retained; only timestamp origin reset. Hstack holds the last available frame of a slower input. No optical flow, generated frames, speed change or audio. Encoded H.264 CRF26, 18Mbps maximum rate.",
+      "note": "Fence collision check",
+      "alignment": "Separate repeat runs start recording near simulation second 28. Capture initialization and physics/head movement differ; same declared route, not frame-aligned pixels. All 34 seconds retained.",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 3840,
+            "height": 760,
+            "duration": "34.000000",
+            "nb_frames": "2038"
+          }
+        ],
+        "format": {
+          "duration": "34.000000"
+        }
+      }
+    }
+  ]
+}
