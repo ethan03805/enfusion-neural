@@ -1,52 +1,40 @@
 # Enfusion Neural
 
-Offline neural image processing and capture tools for Enfusion Workbench.
+A Windows companion and isolated local single-player addon for Arma Reforger. The companion captures game RGB, estimates neural exposure curves on the GPU and displays the result with a source bypass. Target: **2560 × 1440 at 30–60 FPS on RX 7800 XT**.
 
-[Documentation](https://ethan03805.github.io/enfusion-neural/) · [Current status](docs/status.md) · [Roadmap](docs/roadmap.md)
+[Documentation](https://ethan03805.github.io/enfusion-neural/) · [Current status](docs/status.md) · [Playable work log](docs/playable.md) · [Roadmap](docs/roadmap.md)
 
-The first milestone is a **working offline neural pipeline**: train a 251-parameter residual CNN, run its generated shader on a real D3D12 GPU, and compare the result with an independent NumPy reference. It accepts arbitrary supported image dimensions and preserves alpha exactly.
+This is a research prototype. Substantial photorealistic material and lighting improvement has not been achieved. Current evidence and outstanding input/performance checks are documented explicitly. Earlier Blender lighting and offline model studies remain in the documentation research archive.
 
-The [reference scene pack](docs/reference-scenes.md) adds three static camera/lighting variants, a batch capture command and repeatability analysis. Its first nine captures share verified camera/environment controls but retain measurable pixel variation.
+## Play
 
-The [camera-path adapter](docs/capture-controls.md) records verified sample telemetry and an [80-frame before/after video](docs/comparisons.md#motion). An original [material room](docs/material-room.md) adds aligned synthetic lighting targets, EXR passes and a reference-noise check. Workbench viewport scale/FSR and an aligned Enfusion appearance pair remain open.
+Use the prepared Windows package, or build and prepare weights below. Close other Reforger sessions, then double-click **Start-Playable.cmd**. It creates a fresh private profile and addon copy, launches the town scene and starts the companion. It requires a local Steam installation and Python 3; inference has no Python or PyTorch dependency.
 
-The [lighting study](docs/lighting-study.md) trains a separate scene-conditioned model on 18 controlled synthetic cases and publishes before/after/reference images. It improves held-out view/light combinations within one room; engine integration, other assets, temporal fidelity and net frame savings remain unverified. Read the [technical feasibility review](docs/feasibility.md) before scaling asset-specific training.
+- **F8:** expose the original game / resume enhancement.
+- **F9:** switch the companion between identity and enhancement.
+- **F10:** exit the companion; the original game continues.
 
-The [frozen-model motion test](docs/lighting-motion.md) adds 64 frames across the original room and a new partitioned layout, with independently sampled references and synchronized comparison clips. The model improves average error but loses its advantage over simpler methods on the new layout and makes marking contrast less accurate. Those regressions guide the next data/model experiment.
+Optional: `Start-Playable.cmd --scene town-evening --preset combined --strength 0.35`. Scene choices: town, town-evening, foliage. The free-play launcher does not run the automatic benchmark path. Sessions, source settings copies and timestamp logs stay under ignored `runs/`.
 
-The [scene-diversity experiment](docs/lighting-diversity.md) adds four training layouts, a separate validation layout and a 48-frame untouched test. The validation-selected full-input model passes the declared spatial, regional, contrast and temporal non-regression checks on that test. Complete clips retain all three input variants, including RGB-only's failed aggregate checks. These synthetic results do not establish live Enfusion integration.
-
-The [camera color-lookup control](docs/color-lookup.md) verifies original volume import and visible native post-processing. The exported colors reject the direct RGB8 mapping hypothesis. This limited effect runs no neural model and provides no scene buffers.
-
-The [native lighting backend](docs/lighting-gpu.md) executes the three locked lighting variants in FP32. It passes all 21 numerical controls, and the full model matches all 112 retained test/regression frames. The 1440p dispatch p95 is 1.961 ms, excluding feature preparation, transfers and presentation. This result does not establish an in-engine pipeline or complete-frame performance.
-
-This is the foundation, not a photorealistic model or a live game renderer. Access to Enfusion's scene buffers and a supported neural presentation path remains unresolved. The initial product target is **1440p at 20 FPS or better on the recorded test configuration**, prioritizing fidelity and scene identity. A single-image reconstruction baseline cannot establish that target.
-
-## Run
-
-Requirements: Python 3.9–3.12, NumPy/Pillow; Windows, CMake and Visual Studio C++ tools for the GPU backend. No CUDA, downloaded model or cloud account is required.
+## Build and validate
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install --upgrade pip
-.venv\Scripts\python -m pip install -e .
+py -3 -m venv .venv
+.venv/Scripts/python -m pip install -e .
+.venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 cmake -S native -B build -A x64
 cmake --build build --config Release
-.venv\Scripts\python -m enr.cli benchmark --model models/bootstrap-v0.json --out runs/first
+.venv/Scripts/python scripts/prepare_pretrained.py --model zero-dce-plusplus
+.venv/Scripts/python -m unittest discover -s tests -v
+.venv/Scripts/python scripts/build_docs.py
 ```
 
-The benchmark defaults to 2560x1440. Use `--image path/to/frame.png` for an exported scene, or `--width 1920 --height 1080` for a different measurement size. Choose a new output directory for each run. It retains output images, shader, raw GPU samples, hashes and CPU comparison in `run.json`.
+Visual Studio 2022 C++ tools and Windows SDK are required to build. PyTorch is needed only to verify/export pretrained tensors and run independent numerical evaluation. The live companion uses native D3D11 and Windows Graphics Capture.
 
-```powershell
-python -m enr.cli train --out runs/new-model.json --steps 1200
-python -m enr.cli evaluate --model runs/new-model.json --out runs/new-evaluation
-python -m unittest discover -s tests -v
-```
+For measurements, see `scripts/benchmark_playable.py` and `scripts/analyze_playable.py`. The benchmark launches a fresh game, verifies active settings, follows the declared path and retains PresentMon and companion traces. It requires the separately downloaded PresentMon tool described in the work log. Recording runs are labeled separately because encoding adds overhead.
 
-Activate your environment or substitute its Python path for these commands. Training fits all weights on the local CPU in a tiny workload; neural inference runs on the GPU. The current shader specializes weights at process startup, included in setup timing.
+## Contribute and licenses
 
-## Contribute
+Start with [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md) and [contributing](docs/contributing.md). GitHub Actions publishes the Markdown documentation to the existing GitHub Pages site.
 
-Start with [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md) and the [handoff](docs/status.md). The repository keeps documentation in Markdown and publishes it through GitHub Actions to GitHub Pages. See [contributing](docs/contributing.md) for local site preview and validation.
-
-Code and original procedural fixtures are MIT licensed. Selected [comparison screenshots](docs/comparisons.md) are published with attribution; their game content is outside the code license. Raw capture collections and game assets remain excluded. This is an independent research project, unaffiliated with Bohemia Interactive or AMD.
+Repository code and original procedural fixtures are MIT licensed. Zero-DCE++ checkpoints and author code have separate academic/noncommercial terms; Image-Adaptive-3DLUT has separate Apache-2.0 terms. Game imagery belongs to Bohemia Interactive and is outside the code license. No game assets are included in the addon or package. This is an independent project, unaffiliated with Bohemia Interactive or AMD.

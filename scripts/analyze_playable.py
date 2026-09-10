@@ -31,7 +31,10 @@ def cadence(times):
 
 def analyze(root):
     manifest = json.loads((root/'launch.json').read_text())
-    if manifest.get('status') != 'completed': raise ValueError('Run not completed')
+    display_only_failure = manifest.get('error') == "RuntimeError('Missing nonempty present-display trace')"
+    if manifest.get('status') != 'completed' and not display_only_failure: raise ValueError('Run not completed')
+    for file in root.glob('present-*.log'):
+        if 'ETW events were lost' in file.read_text(): raise ValueError('ETW event loss invalidates measurements')
     log = sorted((root/'profile/logs').glob('*/script.log'))[-1]
     day = log.parent.name.split('_')[1]
     trace = []
@@ -45,8 +48,12 @@ def analyze(root):
     if not simulation or max(simulation)<60: raise ValueError('Missing complete path')
     start, end = np.interp([30,60], simulation, qpcs)
     report = {'schema_version': 1, 'run': root.name, 'scene': manifest['scene'], 'preset': manifest['preset'], 'mode': manifest['mode'], 'recording': manifest['recording'], 'window': {'simulation_s': [30,60], 'qpc_ms': [float(start),float(end)], 'alignment': 'Interpolation of game log simulation timestamps; local clock mapped to QPC at launch. Millisecond log precision; not input-to-photon.'}, 'game': {}, 'companion': {}, 'path': [r for r in trace if 29<=r['simulation_s']<=61], 'source_hashes': {}}
+    report['settings_readback'] = manifest.get('settings_readback')
+    report['configuration_verified'] = bool(manifest.get('settings_readback'))
     cpu = rows(root/'present-cpu.csv')
-    display = rows(root/'present-display.csv')
+    display = rows(root/'present-display.csv') if (root/'present-display.csv').exists() else []
+    report['measurement_status'] = manifest.get('status')
+    report['display_trace_available'] = bool(display)
     def in_window(r): return start<=float(r['QPCTime'])*1000<end
     for exe, key in [('ArmaReforgerSteam.exe','game'), ('enr_companion.exe','companion')]:
         observed = [r for r in cpu if r['Application']==exe and in_window(r)]
@@ -56,7 +63,7 @@ def analyze(root):
         summary['display_trace_rows'] = len(shown)
         summary['display_trace_dropped'] = sum(r['Dropped']=='1' for r in shown)
         summary['gpu_active_ms'] = quantiles([float(r['msGPUActive']) for r in shown])
-        if not shown: summary['gpu_limitation'] = 'PresentMon display/GPU tracking did not resolve occluded application presents; no per-game GPU duration claimed'
+        if not shown: summary['gpu_limitation'] = 'PresentMon display/GPU tracking did not resolve this application in the measured window; no per-application GPU duration claimed'
         report[key] = summary
     if (root/'companion/frames.csv').exists():
         native = sorted(rows(root/'companion/frames.csv'), key=lambda r: float(r['present_call_qpc_ms']))

@@ -123,3 +123,11 @@ When storage limits interrupt numerical tests, preserve measured outputs and fai
 ## 023 · Prove the Windows gameplay loop before choosing the appearance model
 
 Accepted 10 September 2026 under the user’s new playable-companion objective. Use Windows Graphics Capture and a separate GPU companion. RGB including HUD is the available contract; the full Blender model cannot run with absent scene inputs. Do not repeat the exhausted screenshot/widget bridge. Measure capture age and complete game performance before committing to a pretrained model. The active target is now 1440p at 30–60 FPS. Keep the existing GitHub Pages address and collapse previous experiments into research navigation.
+
+## 024 · Verify active configuration and distinguish missing trace channels
+
+Accepted 10 September 2026. The game mounts `profile/` beneath the command-line profile root; read back every varied rendering setting before a benchmark. Preserve the initial default-profile results as configuration failures. Use separate CPU presentation and display/GPU traces because some game presents are unresolved by display tracking. Missing GPU data is unavailable, not zero. Reject event loss and missing CPU traces, and stop only this run's owned ETW sessions during cleanup.
+
+## 025 · Preserve the first RGB neural pass and rejected candidate
+
+Accepted 10 September 2026. Zero-DCE++ provides a small native exposure-curve baseline with independent numerical parity. Preserve source coordinates/chroma, bound changes, protect dark/bright and HUD regions, and expose source on bypass, invalid curves or stale capture. The Image-Adaptive-3DLUT sRGB checkpoint is evaluated separately; its unrestricted output clips foliage shadows and is not accepted. Neither candidate establishes reconstructed materials, scene-linear relighting or photorealism. Publish the actual same-frame outputs and retain separate model licenses.

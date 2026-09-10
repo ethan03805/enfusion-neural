@@ -44,8 +44,50 @@ The unrestricted pretrained candidate over-brightens the source. The bounded can
 
 ## Pretrained and reference selection
 
+### Reviewed first live pair
+
+The source and the actual native companion output below are the same captured frame. This early loop used engine defaults, before the private-profile path correction. The neural change is modest; it does not establish photorealistic materials or relighting. Full-resolution files and source hashes are retained in the reviewed media manifest and `evidence/playable-live-v1.json`.
+
+<section class="comparison" data-comparison aria-label="Same game frame before and after live neural enhancement">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/playable-source.png" width="2560" height="1440" alt="Original first-person town frame"><figcaption>Source game</figcaption></figure>
+<figure class="comparison-after"><img src="media/playable-neural.png" width="2560" height="1440" alt="Same frame after bounded native neural exposure enhancement"><figcaption>Live Zero-DCE++ · bounded</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal source<input type="range" min="0" max="100" value="50" aria-label="Source image visible"><output>50% original</output></label>
+</section>
+
+[Source PNG](media/playable-source.png) · [Native neural PNG](media/playable-neural.png)
+
+### Photographic candidate evaluation
+
+Image-Adaptive-3DLUT was evaluated on two captured game views using the author's pinned sRGB checkpoint. The unrestricted result clips 6.95% and 4.92% of channel values, respectively, and visibly crushes foliage shadows. A 0.65 blend with a ±0.12 pre-blend bound limits the change to 0.078 per channel but does not solve missing material or lighting information. It is retained as an evaluated candidate, not integrated into the live pass. Single-thread CPU classifier samples took 7.42 and 5.46 ms; full 1440p CPU lookup took 181.90 and 200.22 ms. These are CPU evaluation samples, not GPU or game performance.
+
+<section class="comparison" data-comparison aria-label="Rejected photographic candidate and bounded version">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/playable-photo-raw.png" width="2560" height="1440" loading="lazy" alt="Photographic candidate with clipped foliage shadows"><figcaption>Unrestricted · rejected</figcaption></figure>
+<figure class="comparison-after"><img src="media/playable-photo-bounded.png" width="2560" height="1440" loading="lazy" alt="Bounded photographic candidate retaining darker source regions"><figcaption>Bounded · CPU evaluation</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal unrestricted<input type="range" min="0" max="100" value="50" aria-label="Unrestricted image visible"><output>50% original</output></label>
+</section>
+
+[Unrestricted PNG](media/playable-photo-raw.png) · [Bounded PNG](media/playable-photo-bounded.png)
+
+## Profile and measurement corrections
+
+Reforger mounts a nested `profile/` beneath the `-profile` root. The first cloned settings were one directory too high, so the engine used defaults. The early 114.70 presents/s result is a default-configuration sample. It is **not** the corrected standard preset. Those attempted reduction runs are retained with that limitation.
+
+The corrected standard preset loads the saved user configuration at native scale with high local/distant shadows, and retains its geometry, textures and vegetation settings. Runtime readback is now mandatory. Its first valid path averages **87.96 game presents/s**, with **11.35/13.43/14.45 ms p50/p95/p99** intervals and no interval over 33.3 ms. Median game GPU activity in the resolved display trace is **11.22 ms**.
+
+The 75%-scale/FSR1 path averages **97.15 game presents/s**, with **10.12/13.04/15.68 ms p50/p95/p99** intervals and three intervals over 33.3 ms. PresentMon does not resolve display/GPU records in that run; the separate CPU presentation trace is intact. No GPU duration is inferred from FPS.
+
+Two owned ETW sessions survived an interrupted early batch. They were stopped, and the runner now cleans up only its own named sessions. It rejects CPU trace absence and ETW event loss. A missing display trace is explicitly reported as unavailable. Failed or partial runs remain local. The layered bitblt input-transparency probe also failed to visibly display its inversion control; the normal HWND route remains selected.
+
+### Sources and disposition
+
 - [Zero-DCE++ author code and checkpoint](https://github.com/Li-Chongyi/Zero-DCE_extension): 10,561 parameters, RGB-only curve estimation. Downloaded and evaluated on this PC; native FP32 parity passes. Author terms restrict use to academic/noncommercial research; its weights are separate from this repository’s MIT code.
 - [HDRNet](https://github.com/google/hdrnet): a photographic retouching candidate using low-resolution bilateral coefficients. Its original TensorFlow/custom operator conversion is deferred until the first loop and measurements are complete.
 - [DPIR](https://github.com/cszn/DPIR): an image-restoration alternative. Denoising does not supply missing lighting or physically correct material information; native runtime evaluation remains pending.
-- [Image-Adaptive-3DLUT](https://github.com/HuiZeng/Image-Adaptive-3DLUT): RGB photographic retouching using a small classifier and three learned color volumes. Author sRGB checkpoints and source have been downloaded at a pinned revision for evaluation. Apache-2.0 licensing is retained separately. This is the next candidate because it changes photographic color and tone without inventing spatial detail.
+- [Image-Adaptive-3DLUT](https://github.com/HuiZeng/Image-Adaptive-3DLUT): RGB photographic retouching using a small classifier and three learned color volumes. Author sRGB checkpoints are evaluated above. Apache-2.0 licensing is retained separately. No live integration or material improvement is claimed.
 - [Poly Haven pavement](https://polyhaven.com/a/pavement_04) and [rural midday lighting reference](https://polyhaven.com/a/rural_asphalt_road): CC0 appearance references for rough surfaces and outdoor light. These are visual references, not pixel-aligned targets for Everon assets. Their identity must not replace the game’s own roads, walls or foliage.

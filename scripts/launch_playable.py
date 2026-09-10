@@ -58,7 +58,8 @@ def prepare(out, scene, preset, automatic, settings_source):
         changes["PPEffectsSettings"] = {"SSDO": 0, "SSR": 0}
     for module, fields in changes.items():
         for key, value in fields.items(): settings = set_field(settings, module, key, value)
-    settings_path = out / "profile/.save" / settings_source.parents[1].name / "settings/ReforgerEngineSettings.conf"
+    # -profile selects a root; the engine mounts its nested profile/ as $profile:.
+    settings_path = out / "profile/profile/.save" / settings_source.parents[1].name / "settings/ReforgerEngineSettings.conf"
     settings_path.parent.mkdir(parents=True)
     settings_path.write_text(settings, encoding="utf-8")
     return addon, {"scene": scene, "preset": preset, "automatic": automatic, "requested_settings": changes, "settings_sha256": hashlib.sha256(settings_path.read_bytes()).hexdigest(), "addon_hashes": {str(p.relative_to(addon)): hashlib.sha256(p.read_bytes()).hexdigest() for p in addon.rglob('*') if p.is_file()}}

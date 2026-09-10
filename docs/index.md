@@ -2,7 +2,7 @@
 
 A playable neural appearance prototype for Arma Reforger, using an isolated addon and a Windows companion. Target: **2560 × 1440 at 30–60 FPS on RX 7800 XT in local single-player**.
 
-Implementation is in progress. The first task is continuous gameplay capture, GPU processing and display with a working bypass and measured added latency. A substantial improvement to materials and lighting has not yet been demonstrated.
+Continuous gameplay capture, GPU processing and visible presentation now work with an F8 source bypass and measured software latency. Controlled path comparisons and packaging are in progress. A substantial improvement to materials and lighting has not yet been demonstrated.
 
 | Read | Purpose |
 | --- | --- |

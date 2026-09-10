@@ -2,8 +2,8 @@
 
 Read README.md, docs/vision.md, docs/architecture.md, docs/status.md and docs/roadmap.md before changing direction. This is the shared contract for Codex, Claude Code and human engineers. CLAUDE.md points here.
 
-- Product priority: faithful photorealism first. Initial floor: 2560x1440 at 20 FPS on RX 7800 XT. 50 ms is the whole frame, not the model budget. Support arbitrary valid image sizes; performance profiles are separate from resolution support.
-- Current implementation is offline. Do not describe it as a live renderer, Workshop mod, FSR replacement or photorealistic model. Never equate dispatch time with frame time.
+- Product priority: faithful photorealism first. Active user target: 2560x1440 at 30–60 FPS on RX 7800 XT in local single-player. The 16.7–33.3 ms budget is the whole application, not the model. Support arbitrary valid image sizes; performance profiles are separate from resolution support.
+- The Windows RGB companion captures and processes the live game. Its appearance, input and performance acceptance is tracked in docs/status.md. Do not describe it as a photorealistic model, Workshop release or FSR replacement without evidence. Never equate dispatch time with frame time.
 - The v0 CNN is a training/inference reference, not the chosen final appearance model. Preserve the independent CPU reference when changing GPU code.
 - Keep engine adapters separate from model/training/backend code. Do not put native hooks or Steam modifications into routine experiments. Resolve the supported bridge before live engine integration.
 - Use Enfusion Lab for Workbench discovery, isolated addon validation and capture. Inspect run status, logs and full-size images. Serialize GPU experiments. Preserve failed runs.

@@ -58,10 +58,23 @@ def main():
             simulation = float(stamps[-1]) if stamps else 0
             if simulation >= 18 and not ready:
                 if 'controlled=1' not in text: raise RuntimeError('No controlled player')
+                settings = {}
+                for event in re.findall(r'ENR (\{"protocol":2,"event":"setting"[^\n]+\})', text):
+                    item = json.loads(event)
+                    settings[item['module']+'.'+item['key']] = item['value']
+                expected = {'VideoUserSettings.ResolutionScale': .75 if a.preset in ['scale','combined'] else 1,
+                            'VideoUserSettings.FsrEnabled': int(a.preset in ['scale','combined']),
+                            'PipelineUserSettings.ShadowQuality': 2 if a.preset in ['shadows','combined'] else 3,
+                            'VideoUserSettings.DistantShadowsQuality': 1 if a.preset in ['shadows','combined'] else 3}
+                if a.preset in ['effects','combined']:
+                    expected.update({'PPEffectsSettings.SSDO': 0, 'PPEffectsSettings.SSR': 0})
+                manifest['settings_readback'] = settings
+                mismatches = {k: {'expected':v,'actual':settings.get(k)} for k,v in expected.items() if settings.get(k)!=v}
+                if mismatches: raise RuntimeError('Requested settings not active: '+json.dumps(mismatches))
                 if a.mode != 'off':
                     start([ROOT/'build/Release/enr_companion.exe', '--pid', proc.pid, '--out', out/'companion', '--overlay', '--mode', a.mode, '--model', ROOT/'runs/pretrained/zero-dce-plusplus/weights.bin', '--seconds', '49'], 'companion-console.log')
                 pm = ROOT/'runs/tools/PresentMon-2.5.1-x64.exe'
-                base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', '47', '--terminate_after_timed', '--no_console_stats']
+                base = [pm, '--process_name', 'ArmaReforgerSteam.exe', '--process_name', 'enr_companion.exe', '--qpc_time_ms', '--v1_metrics', '--timed', '47', '--terminate_after_timed', '--no_console_stats', '--no_track_input']
                 start(base+['--output_file', out/'present-display.csv', '--session_name', 'ENR_display_'+str(proc.pid)], 'present-display.log')
                 start(base+['--output_file', out/'present-cpu.csv', '--session_name', 'ENR_cpu_'+str(proc.pid), '--no_track_gpu', '--no_track_display'], 'present-cpu.log')
                 manifest['ready_simulation_s'] = simulation
@@ -78,6 +91,13 @@ def main():
         for t in tasks:
             t.wait(timeout=10)
             if t.returncode: raise RuntimeError(f'Capture child failed: {t.returncode}')
+        manifest['trace_availability'] = {}
+        for name in ['present-cpu','present-display']:
+            file = out/(name+'.csv')
+            available = file.exists() and file.stat().st_size>=100
+            manifest['trace_availability'][name] = available
+            if not available and name=='present-cpu': raise RuntimeError('Missing nonempty '+name+' trace')
+            if 'ETW events were lost' in (out/(name+'.log')).read_text(): raise RuntimeError('ETW event loss invalidates '+name+' measurement')
         manifest['status'] = 'completed'
         print(f'{out.name}: completed; retained raw game, companion and recording evidence', flush=True)
     except Exception as e:
@@ -87,6 +107,10 @@ def main():
         for t in tasks:
             if t.poll() is None: t.terminate(); t.wait(timeout=10)
         if proc.poll() is None: proc.terminate(); proc.wait(timeout=15)
+        # A terminated PresentMon process can leave a kernel ETW session behind.
+        # Stop only this run's two uniquely named measurement sessions.
+        for name in ['ENR_display_'+str(proc.pid), 'ENR_cpu_'+str(proc.pid)]:
+            subprocess.run([str(ROOT/'runs/tools/PresentMon-2.5.1-x64.exe'), '--session_name', name, '--terminate_existing_session'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         for h in handles: h.close()
         manifest['finished_unix_s'] = time.time()
         (out/'launch.json').write_text(json.dumps(manifest, indent=2))
