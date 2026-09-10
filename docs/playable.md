@@ -114,7 +114,7 @@ Capture starts near simulation second 28 in each run. Initialization and head mo
 
 ## Paired-frame exposure stability
 
-A ten-second offline replay processes **all 600 source frames** through the original D3D11 network and compositor. Source and enhancement share exactly the same input frame, so this diagnostic measures the enhancement's added exposure variation without differences between gameplay repeats. The coarse check passes on both the selection segment and the reserved final three seconds. **It also finds a channel-clipping defect.** The correction below follows this retained original measurement; the downloadable package still uses the original shader pending live validation.
+A ten-second offline replay processes **all 600 source frames** through the original D3D11 network and compositor. Source and enhancement share exactly the same input frame, so this diagnostic measures the enhancement's added exposure variation without differences between gameplay repeats. The coarse check passes on both the selection segment and the reserved final three seconds. **It also finds a channel-clipping defect.** This retained original measurement motivates the correction now included in the [live-verified download](#guarded-build-verified-in-gameplay).
 
 | Segment | Consecutive pairs | Median valid coverage | p95 of frame median change | p95 of frame p95 change |
 | --- | ---: | ---: | ---: | ---: |
@@ -146,7 +146,7 @@ The experiment closes after **18.0 minutes**, within the original 30-minute boun
 
 ### Channel-preserving correction
 
-The source build now limits positive exposure gain by the brightest source channel's remaining headroom. It keeps a shared RGB multiplier and the existing model, strength, masks and pixel coordinates. **All 600 guarded frames have zero newly clipped channels**, and every protected pixel remains identical to source. The downloadable ZIP awaits separate live validation of this change.
+The corrected build limits positive exposure gain by the brightest source channel's remaining headroom. It keeps a shared RGB multiplier and the existing model, strength, masks and pixel coordinates. **All 600 guarded frames have zero newly clipped channels**, and every protected pixel remains identical to source. These offline checks precede the separate [live verification and updated ZIP](#guarded-build-verified-in-gameplay).
 
 | Fixed check | Original compositor | With channel guard |
 | --- | ---: | ---: |
@@ -257,7 +257,7 @@ An earlier live HWND sample joins **895 displayed frames**: **12.61 ms median, 1
 
 In the moving town path, capture timestamp to the companion's Present call is **6.75 ms median / 14.20 ms p95**. Raw signed values include negative compositor offsets and remain in the evidence. Moving-path display/GPU traces are unavailable, including a display-only retry. The standard baseline's resolved GPU trace measures 11.22 ms median game GPU activity; missing channels elsewhere are not reported as zero. Full added physical latency remains unmeasured.
 
-A bounded follow-up queried the companion's supported DXGI frame statistics during the street walk. Both probes returned zero display counters: **2,923 frames with polling and 2,919 with `DwmFlush`**. Successful API return codes did not provide usable timestamps. The flush variant added 2.83 ms median / 4.51 ms p95 query time and still produced no display measurement. This route is closed; optional diagnostic flags remain off by default, and the download is unchanged. [Probe evidence and raw-counter hashes](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-dxgi-statistics-v1.json) · [Microsoft's API conditions](https://learn.microsoft.com/en-us/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-getframestatistics).
+A bounded follow-up queried the companion's supported DXGI frame statistics during the street walk. Both probes returned zero display counters: **2,923 frames with polling and 2,919 with `DwmFlush`**. Successful API return codes did not provide usable timestamps. The flush variant added 2.83 ms median / 4.51 ms p95 query time and still produced no display measurement. This route is closed; optional diagnostic flags remain off by default. The probe did not change the download. [Probe evidence and raw-counter hashes](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-dxgi-statistics-v1.json) · [Microsoft's API conditions](https://learn.microsoft.com/en-us/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-getframestatistics).
 
 F8 exposes the original game. An earlier retained test measured 1.38 ms from handling the hotkey to hiding the overlay, excluding keyboard sampling. Loss of focus, minimization, stale frames or a presentation timeout also exposes source. Invalid curves fall back to source pixels. Fixed HUD margins, near-black/highlight protection and bounded brightness reduce appearance risk; they are not a semantic reconstruction-failure detector.
 
