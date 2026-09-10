@@ -1457,6 +1457,62 @@
       "source_sha256": "b1d07da848ae31f028752ba340a8debdb97b5b0052c479ed5c901b263cf6588d",
       "transformation": "None; complete native Workbench survey PNG",
       "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive; outside MIT code license"
+    },
+    {
+      "file": "span-street-original.png",
+      "sha256": "9d032261e984f5b14c88ed4b6b8b4673328683232e6fc47acc88bd0852648a16",
+      "bytes": 3029486,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/span-evaluation-v1.json",
+      "source_artifact": "runs/span-evaluation-v1/03-original.png",
+      "source_sha256": "9d032261e984f5b14c88ed4b6b8b4673328683232e6fc47acc88bd0852648a16",
+      "transformation": "Original 1440p RGB control; lossless decoded PNG",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; SPAN author project Apache-2.0"
+    },
+    {
+      "file": "span-street-bicubic.png",
+      "sha256": "7a04d4937c3620d3be1188b8a9b1f177c8249161f566159e0e4df52f2b34f7f7",
+      "bytes": 2512717,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/span-evaluation-v1.json",
+      "source_artifact": "runs/span-evaluation-v1/03-bicubic.png",
+      "source_sha256": "7a04d4937c3620d3be1188b8a9b1f177c8249161f566159e0e4df52f2b34f7f7",
+      "transformation": "Pillow bicubic downsample to 1280x720, then bicubic upsample to 2560x1440",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; SPAN author project Apache-2.0"
+    },
+    {
+      "file": "span-street-raw.png",
+      "sha256": "336b1987a9c864714bae444f916b69f3c071ecb2a7e8467c9b8509ff48866a82",
+      "bytes": 3125030,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/span-evaluation-v1.json",
+      "source_artifact": "runs/span-evaluation-v1/03-raw.png",
+      "source_sha256": "336b1987a9c864714bae444f916b69f3c071ecb2a7e8467c9b8509ff48866a82",
+      "transformation": "Same 1280x720 input through SPAN x2 FP32; round and clip output to RGB8; no extra resize",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; SPAN author project Apache-2.0"
+    },
+    {
+      "file": "span-street-protected.png",
+      "sha256": "467561076d4093033bee39cd1c510fa0c5a7f041174f701eb1104e01c441f2f1",
+      "bytes": 3421043,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "source_record": "evidence/span-evaluation-v1.json",
+      "source_artifact": "runs/span-residual-v1/03-protected.png",
+      "source_sha256": "467561076d4093033bee39cd1c510fa0c5a7f041174f701eb1104e01c441f2f1",
+      "transformation": "Original plus bounded half-strength SPAN-minus-bicubic residual; round and clip RGB8; no resize",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license; SPAN author project Apache-2.0"
     }
   ],
   "videos": [

@@ -8,6 +8,36 @@ The working build still uses bounded Zero-DCE++ exposure curves. **No evaluated 
 | Image-Adaptive-3DLUT | Raw photographic output clips 4.92–6.95% of channels on two views | Rejected: shaded foliage loses detail |
 | REGEN GTA2Cityscapes | RX 7800 XT DirectML FP32, 960 × 544: 53.24 / 53.98 / 53.63 ms median, five synchronized samples per view | Rejected: altered roof identity, sky artifacts, fine-detail loss and excessive cost |
 | DeepLPF Adobe-DPE | CPU FP32, 960 × 544: 602 / 473 / 462 ms; 7.64 / 3.42 / 8.86% of channels clamp to black | Raw output rejected; protected version avoids clipping but gives insufficient appearance gain |
+| SPAN x2, 48 channels | RX 7800 XT DirectML, 1280 × 720 → 2560 × 1440: 69–72 ms FP32 / 35–37 ms FP16 median | Better restoration than bicubic; too costly for live integration, and no material/lighting gain |
+
+## RGB detail restoration
+
+[SPAN](https://github.com/hongyuanyu/SPAN) receives four gameplay images after synthetic bicubic downsampling to 1280 × 720. Its 1440p reconstruction is compared with bicubic interpolation from the same input and the original capture. This measures recovery of removed detail, **not improvement beyond the original game or photographic ground truth**.
+
+| View | FP32 median | FP16 median | FP32 PSNR gain over bicubic |
+| --- | --- | --- | --- |
+| Road and sign | 71.20 ms | 36.16 ms | +2.16 dB |
+| Facade and openings | 70.06 ms | 35.38 ms | +2.13 dB |
+| Tree and foliage | 69.32 ms | 35.39 ms | +1.93 dB |
+| Slate-roof street | 72.17 ms | 36.83 ms | +1.96 dB |
+
+Both variants run on DirectML without CPU fallback. The longer first-view sample has p95 **107.39 ms FP32 / 43.27 ms FP16**, with 20 timed calls after five warmups; the other views have five timed calls each. Calls include upload and readback with the game stopped. Both fail the declared 20 ms provisional budget. CPU parity passes; the initial FP16 export-order failure and corrected graph are retained.
+
+<section class="comparison" data-comparison data-before-label="bicubic" data-after-label="SPAN reconstruction" aria-label="SPAN restoration versus bicubic interpolation">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/span-street-bicubic.png" width="2560" height="1440" loading="lazy" alt="Bicubic reconstruction of the downsampled street image"><figcaption>Bicubic · from synthetic 720p input</figcaption></figure>
+<figure class="comparison-after"><img src="media/span-street-raw.png" width="2560" height="1440" loading="lazy" alt="SPAN restores some slate roof and facade detail from the same input"><figcaption>SPAN FP32 · same input</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal bicubic<input type="range" min="0" max="100" value="50" aria-label="SPAN bicubic visible"><output>50% bicubic</output></label>
+</section>
+
+Compare the [original 1440p capture](media/span-street-original.png) and [bounded residual diagnostic](media/span-street-protected.png). SPAN restores more roof and facade detail than bicubic, while the original retains finer foliage and road detail. Adding a small protected residual to the original produces slight sharpening, with no demonstrated material-response or lighting improvement. It also introduces 0.0081–0.0277% newly black channels across the four views. **Live integration is rejected.** Motion and full-application performance were not tested for this graph.
+
+The [complete SPAN evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/span-evaluation-v1.json) records all samples, hashes, precision checks, failed export and residual parameters. Reproduce with `scripts/prepare_span.py`, `scripts/evaluate_span.py --out NEW_DIRECTORY`, `scripts/evaluate_span_half.py --out NEW_DIRECTORY` and `scripts/diagnose_span_residual.py --out NEW_DIRECTORY`. The latter two consume the retained `runs/span-evaluation-v1` result. The author archive is 1.33 GB; only the selected 17.9 MB checkpoint is extracted. No model is added to the playable package.
+
+<details>
+<summary>Earlier REGEN and DeepLPF comparisons</summary>
 
 REGEN timing includes upload and readback, excludes file handling and initialization, and was measured with the game stopped. It is **not pure GPU dispatch time or application FPS**. Its independent CPU/DirectML comparison passes: maximum absolute error 0.00002271 in the −1…1 model output. All 18 profiled inference events ran on DirectML; CPU fallback was disabled. Even this lower-resolution transfer-inclusive call exceeds the 33.3 ms whole-frame budget. DeepLPF has no measured GPU timing yet.
 
@@ -58,6 +88,8 @@ A follow-up transfers only a smoothed, bounded RGB gain to the original 1440p pi
 
 All three diagnostic frames avoid new black clipping and leave the declared darkest source regions unchanged. Mean absolute RGB change is 0.0355 / 0.0245 / 0.0163. The result is still a color/contrast adjustment; substantial material and lighting improvement is not demonstrated. **This integration attempt is closed.** GPU conversion and motion tests would not resolve the missing appearance gain, so they were not pursued.
 
+</details>
+
 ## Reproduce and inspect
 
 ### Material references
@@ -70,7 +102,7 @@ Three [CC0](https://polyhaven.com/license) material references are now retained 
 | Orange town roof | [Roof Tiles, Stephan Seeliger](https://polyhaven.com/a/roof_tiles) | Terracotta appearance reference; tile geometry and arrangement differ |
 | Near-tree trunk | [Bark Brown 01, Rob Tuytel](https://polyhaven.com/a/bark_brown_01) | Furrowed bark reference; species and groove placement are not matched |
 
-These are material-category references, **not aligned training targets or replacement game textures**. No model was trained and no game asset changed. `scripts/prepare_appearance_references.py` reproduces the 25.1 MB reference set; [reference evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-appearance-references-v1.json) records the distinction. Direct HTML download of the license page returned 403; its CC0 statement was verified on the primary page through the web tool, while the documented asset API and downloads succeeded.
+These are material-category references, **not aligned training targets or replacement game textures**. No model was trained and no game asset changed. `scripts/prepare_appearance_references.py` reproduces the 25.1 MB reference set; [reference evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-appearance-references-v1.json) records the distinction.
 
 ### Existing street material
 
@@ -91,7 +123,7 @@ This view confirms the building and its visible slate roof, openings and cover. 
 
 A follow-up reads explicit **13-slot material defaults** from the house's native prefab, confirming the three roof/wall associations. The editor instance source is unavailable during simulation, so runtime overrides remain unverified. The one declared native-file access run times out after 60 seconds before reporting its first file result and produces no files. It does not prove the requested textures are absent. This access route is closed with [code, logs and evidence retained](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-access-v1.json).
 
-Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established. The next bounded evaluation uses available RGB to test detail restoration; that alone cannot satisfy the material and lighting objective.
+Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established.
 
 ### Candidate replay
 

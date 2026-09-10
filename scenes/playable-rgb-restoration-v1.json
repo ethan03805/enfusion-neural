@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "candidate": "Author SPAN x2, 48 channels, params_ema checkpoint; hongyuanyu/SPAN revision c77a5917759f09e66fbc7124220c5afc5ee221e5",
+  "maximum_minutes": 30,
+  "maximum_model_variants": 2,
+  "variants": "FP32 first; one FP16 conversion only if FP32 cost fails and raw detail is useful. No new checkpoint search within this trial.",
+  "input_contract": "Captured display-referred RGB including HUD. No auxiliary engine buffers. The four original 2560x1440 images are restoration controls, not photographic ground truth.",
+  "inputs": [
+    "runs/video-review-town-v1/video-town-combined-v1-10.png",
+    "runs/video-review-town-v1/video-town-combined-v1-30.png",
+    "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+    "runs/foliage-walk-pilot-review-v3/foliage-walk-pilot-v3-20.png"
+  ],
+  "preprocessing": "Pillow bicubic downsample 2560x1440 to 1280x720. RGB float32 0..1 NCHW; unchanged author internal mean/range handling. Model produces 2560x1440. Compare against bicubic interpolation from the same low-resolution image and the original capture.",
+  "quality_controls": "Retain unclamped float output and rounded/clipped PNG. Report RGB PSNR excluding an 8-pixel border, SSIM and clipping for all four views. A synthetic reconstruction gain is useful only if PSNR improves at least 0.2 dB on three of four views including the street, with no visible opening, sign, roof-pattern or foliage-gap regression. This is a restoration gate, not photorealism acceptance.",
+  "source_composition": "Only if raw reconstruction is useful: original RGB plus half of the clamped model-minus-bicubic residual, each channel limited to +/-0.06 before half strength. Protect luminance <=0.05 and >=0.9 with a smooth fade, and keep fixed HUD margins unchanged. Inspect against original; sharpened edges alone are insufficient material/lighting gain.",
+  "performance": "RX 7800 XT DirectML with CPU fallback disabled. Five warmups and twenty synchronized samples on the first frame, five samples on each remaining frame. Transfers included; game stopped. Provisional p95 <=20 ms before attempting a complete-application integration. This is not measured application FPS.",
+  "parity": "Unchanged author CPU against one-time fused CPU max error <=0.0001, then DirectML FP32 max <=0.001 and mean <=0.0001. FP16, if tried, max <=0.01 and mean <=0.001. Preserve all failures.",
+  "motion_gate": "Only after useful still output and GPU budget: process one unretimed 2-second 30-FPS street segment with the unchanged source composition, inspect roof lines, openings, thin foliage and poles. No live replacement before that check.",
+  "fallback": "Keep published Zero-DCE++ build, original pixels and F8/F9/F10 intact. Rejected reconstruction stays offline. Material and lighting improvement remains required by the overall goal."
+}

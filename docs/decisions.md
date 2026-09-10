@@ -175,3 +175,11 @@ Accepted 10 September 2026. Read the observed house's native prefab: its MeshObj
 The one declared VFS file-access probe enters its callback, then times out before its first per-file result. No bytes are copied. The logs do not isolate which file operation stalled; subsequent files are untested, not absent. Preserve the failed run and stop this route at its bound. Official packed-channel documentation does not substitute for decoded pixel validation or an aligned improved target.
 
 Use the existing RGB contract for a bounded restoration-model evaluation. Require a useful detail result, source identity controls and measured RX 7800 XT cost before integration. Reconstruction from synthetic downsampling can establish restoration accuracy only; it does not demonstrate photorealistic relighting or complete the appearance objective.
+
+## 033 · Reject costly restoration and verify geometry before lighting correction
+
+Accepted 10 September 2026. SPAN's pinned x2/48-channel EMA checkpoint reconstructs four downsampled gameplay controls more accurately than bicubic. One-time convolution fusion exactly matches its CPU reference; DirectML FP32 and FP16 pass their declared parity limits. Preserve the initial FP16 topological-order export failure and the corrected, reordered graph. Both precision variants exceed the provisional 20 ms call budget, even with the game stopped.
+
+The declared bounded residual produces slight sharpening and some newly clipped channels, with no demonstrated material-response or lighting improvement. Close live integration of this graph. Do not spend motion or application trials on an already over-budget appearance result, and do not present synthetic restoration accuracy as photorealism.
+
+The supported world API exposes collision traces. Test a small grid at the known street house before any new model or companion input bridge. Returned collision geometry may disagree with rendered foliage, openings and visual detail; require projected alignment, coverage and cost evidence before treating it as useful lighting information. This does not reopen the exhausted renderer-resource or screenshot/widget routes.

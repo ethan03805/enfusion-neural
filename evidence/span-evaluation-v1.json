@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "restoration_improves_bicubic_but_live_integration_rejected",
+  "measurement": {
+    "schema_version": 1,
+    "status": "completed",
+    "plan": {
+      "schema_version": 1,
+      "date": "2026-09-10",
+      "candidate": "Author SPAN x2, 48 channels, params_ema checkpoint; hongyuanyu/SPAN revision c77a5917759f09e66fbc7124220c5afc5ee221e5",
+      "maximum_minutes": 30,
+      "maximum_model_variants": 2,
+      "variants": "FP32 first; one FP16 conversion only if FP32 cost fails and raw detail is useful. No new checkpoint search within this trial.",
+      "input_contract": "Captured display-referred RGB including HUD. No auxiliary engine buffers. The four original 2560x1440 images are restoration controls, not photographic ground truth.",
+      "inputs": [
+        "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "runs/foliage-walk-pilot-review-v3/foliage-walk-pilot-v3-20.png"
+      ],
+      "preprocessing": "Pillow bicubic downsample 2560x1440 to 1280x720. RGB float32 0..1 NCHW; unchanged author internal mean/range handling. Model produces 2560x1440. Compare against bicubic interpolation from the same low-resolution image and the original capture.",
+      "quality_controls": "Retain unclamped float output and rounded/clipped PNG. Report RGB PSNR excluding an 8-pixel border, SSIM and clipping for all four views. A synthetic reconstruction gain is useful only if PSNR improves at least 0.2 dB on three of four views including the street, with no visible opening, sign, roof-pattern or foliage-gap regression. This is a restoration gate, not photorealism acceptance.",
+      "source_composition": "Only if raw reconstruction is useful: original RGB plus half of the clamped model-minus-bicubic residual, each channel limited to +/-0.06 before half strength. Protect luminance <=0.05 and >=0.9 with a smooth fade, and keep fixed HUD margins unchanged. Inspect against original; sharpened edges alone are insufficient material/lighting gain.",
+      "performance": "RX 7800 XT DirectML with CPU fallback disabled. Five warmups and twenty synchronized samples on the first frame, five samples on each remaining frame. Transfers included; game stopped. Provisional p95 <=20 ms before attempting a complete-application integration. This is not measured application FPS.",
+      "parity": "Unchanged author CPU against one-time fused CPU max error <=0.0001, then DirectML FP32 max <=0.001 and mean <=0.0001. FP16, if tried, max <=0.01 and mean <=0.001. Preserve all failures.",
+      "motion_gate": "Only after useful still output and GPU budget: process one unretimed 2-second 30-FPS street segment with the unchanged source composition, inspect roof lines, openings, thin foliage and poles. No live replacement before that check.",
+      "fallback": "Keep published Zero-DCE++ build, original pixels and F8/F9/F10 intact. Rejected reconstruction stays offline. Material and lighting improvement remains required by the overall goal."
+    },
+    "plan_sha256": "9132aaab6e47ac5d1a82d72245fdfc60c05f83cab0b1af97e2ed8410aae8efa5",
+    "driver_sha256": "21ef0764ec8181eda7ec3cf8aeb934ba17b39526ab5d30d0db872369345f0f0c",
+    "precision": "FP32",
+    "adapter": {
+      "index": 0,
+      "description": "AMD Radeon RX 7800 XT",
+      "vendor_id": 4098,
+      "device_id": 29822,
+      "dedicated_video_bytes": 16963133440,
+      "software": false
+    },
+    "runtime": "1.19.2",
+    "torch": "2.8.0+cpu",
+    "input_dimensions": [
+      1280,
+      720
+    ],
+    "output_dimensions": [
+      2560,
+      1440
+    ],
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "timings_ms": [
+          110.66579999999959,
+          81.14309999999847,
+          73.06660000000065,
+          70.4078999999993,
+          70.95950000000073,
+          69.18069999999688,
+          107.21619999999987,
+          77.96519999999774,
+          72.96910000000167,
+          69.6286999999991,
+          69.47800000000015,
+          71.4396999999991,
+          70.00429999999724,
+          73.41480000000189,
+          69.63250000000087,
+          70.08980000000165,
+          69.38820000000234,
+          72.78750000000045,
+          71.46859999999933,
+          69.90110000000271
+        ],
+        "median_ms": 71.19959999999992,
+        "p95_ms": 107.38867999999987,
+        "raw_range": [
+          -0.05756807327270508,
+          1.0407991409301758
+        ],
+        "raw_out_of_range_channel_fraction": 0.00029351128472222224,
+        "model": {
+          "rgb_psnr_db": 32.49882668951714,
+          "ssim": 0.9442351460456848,
+          "mean_abs": 0.011169863864779472
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.34189242700937,
+          "ssim": 0.9131455421447754,
+          "mean_abs": 0.01386929303407669
+        },
+        "raw_sha256": "33c469ad456a640a6f318d00171dc64d895c4fb50c6b99df493faf5d38959fa3",
+        "psnr_gain_db": 2.156934262507768
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "timings_ms": [
+          72.1576000000006,
+          69.46860000000044,
+          70.12179999999901,
+          70.0567999999997,
+          69.59970000000126
+        ],
+        "median_ms": 70.0567999999997,
+        "p95_ms": 71.75044000000028,
+        "raw_range": [
+          -0.0515076220035553,
+          1.0544333457946777
+        ],
+        "raw_out_of_range_channel_fraction": 0.00010950159143518519,
+        "model": {
+          "rgb_psnr_db": 32.132481135499845,
+          "ssim": 0.9399623870849609,
+          "mean_abs": 0.01248712744563818
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.001374203634775,
+          "ssim": 0.8997936248779297,
+          "mean_abs": 0.015828173607587814
+        },
+        "raw_sha256": "fb7b300d7dcef7a586fb443713f5e93c80981fec95660b8c37df695e378d57e5",
+        "psnr_gain_db": 2.1311069318650695
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "timings_ms": [
+          68.81110000000135,
+          70.52589999999981,
+          69.24199999999914,
+          69.5988000000014,
+          69.31760000000153
+        ],
+        "median_ms": 69.31760000000153,
+        "p95_ms": 70.34048000000013,
+        "raw_range": [
+          -0.05446779727935791,
+          1.056323528289795
+        ],
+        "raw_out_of_range_channel_fraction": 0.00021800853587962963,
+        "model": {
+          "rgb_psnr_db": 32.26163575765532,
+          "ssim": 0.9454782605171204,
+          "mean_abs": 0.011632568202912807
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.334250749426282,
+          "ssim": 0.9182417392730713,
+          "mean_abs": 0.014116850681602955
+        },
+        "raw_sha256": "e65de455605d940465b4c5c5e945173bd7efdad4da2d6d2bb3462d3409f6e96a",
+        "psnr_gain_db": 1.927385008229038
+      },
+      {
+        "source": "runs/foliage-walk-pilot-review-v3/foliage-walk-pilot-v3-20.png",
+        "source_sha256": "aa607f9eed428f93da0e3ce1c4fed09a1063709b9fd0b7391311874596064ea3",
+        "timings_ms": [
+          72.7335999999994,
+          71.78320000000227,
+          72.17159999999723,
+          71.1554999999997,
+          72.8196999999966
+        ],
+        "median_ms": 72.17159999999723,
+        "p95_ms": 72.80247999999716,
+        "raw_range": [
+          -0.06190592050552368,
+          1.0484099388122559
+        ],
+        "raw_out_of_range_channel_fraction": 7.703993055555555e-05,
+        "model": {
+          "rgb_psnr_db": 33.84638521511385,
+          "ssim": 0.9355490207672119,
+          "mean_abs": 0.009386634454131126
+        },
+        "bicubic": {
+          "rgb_psnr_db": 31.883142839690034,
+          "ssim": 0.9055793881416321,
+          "mean_abs": 0.011469337157905102
+        },
+        "raw_sha256": "45ad77f1fe0038cd360838380e584fa26b2df0f4173dc7b34e4c73454aa5b923",
+        "psnr_gain_db": 1.963242375423814
+      }
+    ],
+    "timing_scope": "Synchronized ONNX Runtime call with CPU input upload and output readback; game stopped. Excludes setup, image I/O, resizing and metrics. Not pure GPU time or application FPS.",
+    "source": {
+      "repository": "https://github.com/hongyuanyu/SPAN",
+      "revision": "c77a5917759f09e66fbc7124220c5afc5ee221e5",
+      "archive_url": "https://drive.google.com/file/d/1iYUA2TzKuxI0vzmA-UXr_nB43XgPOXUg/view",
+      "archive_bytes": 1326754357,
+      "archive_sha256": "675b653c5e730e149bb75864e04e4f3440fe8eb46e1c6f44d21b973fb5f747dc",
+      "checkpoint": "spanx2_ch48.pth",
+      "checkpoint_bytes": 17905041,
+      "checkpoint_sha256": "561fd5cf419a23d4de1231ce258180f61aee4aa8caa1aaaa783769c7301847bc",
+      "state": "params_ema",
+      "license": "Apache-2.0 author project",
+      "source_hashes": {
+        "span_arch.py": "9ff5a8d5b570877a5cdb09e0ca31c9313b2a07177fb63d91d1c02d05c3118cd1",
+        "README.md": "d7130353649033cecf4370e1b59ddf22d543361183040e0c0b7b0b74092e481c",
+        "LICENSE.txt": "5447872f21ddc29dc0dc060d5c885513c01c904e9da9931bba69898a6fb4d415",
+        "LICENSE-README.md": "b423451ec300b4f410600f66d95fae64de8265a3c5099c68bf0c1eeec57fc178"
+      }
+    },
+    "checkpoint_parameters": 2221140,
+    "author_cpu_ms": 4376.2264000000005,
+    "fusion_parity": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "passed": true
+    },
+    "inference_parameters": 410700,
+    "onnx_sha256": "69399484d9afa6e99a6333651e32c507ba9d86099f32845fffc29cf317c8dbd5",
+    "session_setup_ms": 739.854799999998,
+    "providers": [
+      "DmlExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "cpu_dml_parity": {
+      "max_abs": 1.7881393432617188e-06,
+      "mean_abs": 5.7903573491557836e-08,
+      "passed": true
+    },
+    "profile_file": "ort-profile_2026-09-10_04-09-55.json",
+    "profile_provider_events": {
+      "DmlExecutionProvider": 43
+    },
+    "restoration_numeric_gate": true,
+    "provisional_cost_gate": false,
+    "visual_review": "Pending full-image inspection; numerical completion is not appearance acceptance."
+  },
+  "half_precision": {
+    "schema_version": 1,
+    "status": "completed",
+    "precision": "FP16 internal / FP32 input and output",
+    "parent_report_sha256": "504c3668e7205aac374495929553599fffa4722be955f873ae0952baeefaf821",
+    "driver_sha256": "78ef99b789ecb9d756dd811394d03c9881e4f4d26ed213140443850190aa8df8",
+    "adapter": {
+      "index": 0,
+      "description": "AMD Radeon RX 7800 XT",
+      "vendor_id": 4098,
+      "device_id": 29822,
+      "dedicated_video_bytes": 16963133440,
+      "software": false
+    },
+    "runtime": "1.19.2",
+    "plan_sha256": "9132aaab6e47ac5d1a82d72245fdfc60c05f83cab0b1af97e2ed8410aae8efa5",
+    "timing_scope": "Synchronized ONNX Runtime call with CPU input upload and output readback; game stopped. Excludes setup, image I/O, resizing and metrics. Not pure GPU time or application FPS.",
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "timings_ms": [
+          36.33860000000011,
+          35.01570000000021,
+          35.415500000000044,
+          35.87810000000013,
+          35.288399999999776,
+          34.814200000000014,
+          34.781599999999635,
+          36.5483000000002,
+          36.57949999999977,
+          36.4738,
+          36.363700000000335,
+          36.28160000000014,
+          36.62600000000005,
+          35.765399999999836,
+          35.647200000000545,
+          35.21809999999981,
+          72.8787999999998,
+          41.71220000000009,
+          36.33739999999985,
+          36.03310000000004
+        ],
+        "median_ms": 36.15735000000009,
+        "p95_ms": 43.27053000000009,
+        "raw_range": [
+          -0.061279296875,
+          1.0419921875
+        ],
+        "raw_out_of_range_channel_fraction": 0.00029414424189814814,
+        "model": {
+          "rgb_psnr_db": 32.499525342601,
+          "ssim": 0.9441943764686584,
+          "mean_abs": 0.01121328305453062
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.34189242700937,
+          "ssim": 0.9131455421447754,
+          "mean_abs": 0.01386929303407669
+        },
+        "raw_sha256": "b8b1b5bda77428d50653756eefc826fca50b974494deeb4a28c2b7fa20637137",
+        "psnr_gain_db": 2.157632915591627
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "timings_ms": [
+          37.25419999999957,
+          35.37570000000034,
+          35.6538000000004,
+          34.90380000000037,
+          34.77789999999992
+        ],
+        "median_ms": 35.37570000000034,
+        "p95_ms": 36.93411999999974,
+        "raw_range": [
+          -0.052734375,
+          1.0546875
+        ],
+        "raw_out_of_range_channel_fraction": 0.00010877821180555555,
+        "model": {
+          "rgb_psnr_db": 32.13226026655014,
+          "ssim": 0.9399201273918152,
+          "mean_abs": 0.012537038885056973
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.001374203634775,
+          "ssim": 0.8997936248779297,
+          "mean_abs": 0.015828173607587814
+        },
+        "raw_sha256": "fdc9980abadc95c60c79c3dc91ebe86c70f0fd6fd60584d57d2a3ff461e85cb0",
+        "psnr_gain_db": 2.1308860629153656
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "timings_ms": [
+          35.39120000000029,
+          35.59999999999963,
+          35.67239999999927,
+          35.31290000000009,
+          34.65499999999988
+        ],
+        "median_ms": 35.39120000000029,
+        "p95_ms": 35.65791999999934,
+        "raw_range": [
+          -0.055419921875,
+          1.05859375
+        ],
+        "raw_out_of_range_channel_fraction": 0.0002195457175925926,
+        "model": {
+          "rgb_psnr_db": 32.26182227456414,
+          "ssim": 0.9454419016838074,
+          "mean_abs": 0.011644825339317322
+        },
+        "bicubic": {
+          "rgb_psnr_db": 30.334250749426282,
+          "ssim": 0.9182417392730713,
+          "mean_abs": 0.014116850681602955
+        },
+        "raw_sha256": "d8f2b53c0d78d88fd4770bb91cb36a6ed41868e9766daa0046bb511148a8f103",
+        "psnr_gain_db": 1.9275715251378571
+      },
+      {
+        "source": "runs/foliage-walk-pilot-review-v3/foliage-walk-pilot-v3-20.png",
+        "source_sha256": "aa607f9eed428f93da0e3ce1c4fed09a1063709b9fd0b7391311874596064ea3",
+        "timings_ms": [
+          36.82659999999949,
+          37.03509999999888,
+          36.39849999999889,
+          37.84260000000117,
+          36.41659999999902
+        ],
+        "median_ms": 36.82659999999949,
+        "p95_ms": 37.68110000000071,
+        "raw_range": [
+          -0.062744140625,
+          1.0478515625
+        ],
+        "raw_out_of_range_channel_fraction": 7.568359375e-05,
+        "model": {
+          "rgb_psnr_db": 33.84525182367192,
+          "ssim": 0.935490608215332,
+          "mean_abs": 0.00941854901611805
+        },
+        "bicubic": {
+          "rgb_psnr_db": 31.883142839690034,
+          "ssim": 0.9055793881416321,
+          "mean_abs": 0.011469337157905102
+        },
+        "raw_sha256": "923dc4a6ea3e1f0443ff15c3890fdbf29ccbaf87700239568f3d92df0bc06145",
+        "psnr_gain_db": 1.9621089839818886
+      }
+    ],
+    "onnx_sha256": "95e618a5fe79801536dc27f90a86b3c51779312d53070e125f2f76c6db0eb8fc",
+    "session_setup_ms": 346.88509999999974,
+    "providers": [
+      "DmlExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "cpu_dml_parity": {
+      "max_abs": 0.008626073598861694,
+      "mean_abs": 0.0002610258525237441,
+      "passed": true
+    },
+    "profile_file": "ort-profile_2026-09-10_04-12-36.json",
+    "profile_provider_events": {
+      "DmlExecutionProvider": 43
+    },
+    "restoration_numeric_gate": true,
+    "provisional_cost_gate": false
+  },
+  "conversion_failure": {
+    "schema_version": 1,
+    "status": "failed",
+    "precision": "FP16 internal / FP32 input and output",
+    "parent_report_sha256": "504c3668e7205aac374495929553599fffa4722be955f873ae0952baeefaf821",
+    "driver_sha256": "c0654c0e432aa6c0897fa1335251e8d688a6282694389908c503419451776d06",
+    "adapter": {
+      "index": 0,
+      "description": "AMD Radeon RX 7800 XT",
+      "vendor_id": 4098,
+      "device_id": 29822,
+      "dedicated_video_bytes": 16963133440,
+      "software": false
+    },
+    "runtime": "1.19.2",
+    "plan_sha256": "9132aaab6e47ac5d1a82d72245fdfc60c05f83cab0b1af97e2ed8410aae8efa5",
+    "timing_scope": "Synchronized ONNX Runtime call with CPU input upload and output readback; game stopped. Excludes setup, image I/O, resizing and metrics. Not pure GPU time or application FPS.",
+    "images": [],
+    "error": "ValidationError(\"Nodes in a graph must be topologically sorted, however input 'graph_input_cast_0' of node: \\nname: /Sub OpType: Sub\\n is not output of any previous nodes.\")"
+  },
+  "source_composition": {
+    "schema_version": 1,
+    "parent_report_sha256": "504c3668e7205aac374495929553599fffa4722be955f873ae0952baeefaf821",
+    "driver_sha256": "16b5fa8a497bd833472b9a91ecc6855de97d805db0eb675ad6261e0e8c631871",
+    "scope": "Offline original plus bounded SPAN-minus-bicubic residual; no new GPU/model/application measurement.",
+    "parameters": {
+      "residual_channel_bound": 0.06,
+      "strength": 0.5,
+      "dark_fade": [
+        0.05,
+        0.12
+      ],
+      "highlight_fade": [
+        0.8,
+        0.9
+      ],
+      "HUD_unchanged": "Top 6%, bottom 10%, left/right 4% of full image"
+    },
+    "images": [
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-10.png",
+        "source_sha256": "53dc3c1b2f03bf043c7db74d00f245af727420cc7da8b6fefcc1aed376b79c74",
+        "max_abs_change": 0.030000001192092896,
+        "mean_abs_change": 0.0028005698695778847,
+        "protected_pixels_exact": true,
+        "new_black_channel_fraction": 0.000276783130787037,
+        "new_white_channel_fraction": 6.148726851851852e-06,
+        "png_sha256": "558e3b57236bf3342d5ea8cf48077fd4a2b1f458a8c8b1076b330957c2919ce4",
+        "float_sha256": "686a92aad66ef37f947f88bf75df3805068f7fbd2a67fda2f669e5934a590bab"
+      },
+      {
+        "source": "runs/video-review-town-v1/video-town-combined-v1-30.png",
+        "source_sha256": "d15338524458473e080e4145ef922724882c5888b3f7d023ac96e50265f7efe3",
+        "max_abs_change": 0.030000001192092896,
+        "mean_abs_change": 0.0032257281709462404,
+        "protected_pixels_exact": true,
+        "new_black_channel_fraction": 0.00016330295138888888,
+        "new_white_channel_fraction": 2.0797164351851853e-06,
+        "png_sha256": "2facdce3df434e770f31523d8fa544b83a87509f5789b0923ddef8b38d1fee39",
+        "float_sha256": "ad043704957455a8f44518431a44c29148950224a1de8511fe1d0dfb2124f6b6"
+      },
+      {
+        "source": "runs/video-review-additional-v1/video-foliage-standard-v1-02.png",
+        "source_sha256": "4e1d3645faa35049b8cefa963b29c2fa4d3323fa5063163c32e0c183839995a5",
+        "max_abs_change": 0.030000001192092896,
+        "mean_abs_change": 0.0027971016243100166,
+        "protected_pixels_exact": true,
+        "new_black_channel_fraction": 0.00018627025462962963,
+        "new_white_channel_fraction": 6.419994212962963e-06,
+        "png_sha256": "2cee02d0a8350288950b0601f09758d6c39ad24e61e3c55af5d8b2fb48472777",
+        "float_sha256": "d3349ff00597598d95a0088ec803cc12c21cce178ad8a8f434c388955bacb408"
+      },
+      {
+        "source": "runs/foliage-walk-pilot-review-v3/foliage-walk-pilot-v3-20.png",
+        "source_sha256": "aa607f9eed428f93da0e3ce1c4fed09a1063709b9fd0b7391311874596064ea3",
+        "max_abs_change": 0.030000001192092896,
+        "mean_abs_change": 0.0022938137408345938,
+        "protected_pixels_exact": true,
+        "new_black_channel_fraction": 8.092809606481482e-05,
+        "new_white_channel_fraction": 1.537181712962963e-06,
+        "png_sha256": "467561076d4093033bee39cd1c510fa0c5a7f041174f701eb1104e01c441f2f1",
+        "float_sha256": "10c08e2104e17a5b396e115e34adac384ed5e1d54d826c3ed8b5948d6cd13e94"
+      }
+    ]
+  },
+  "review": {
+    "scope": "All four original and FP32 model images, all four residual compositions, and the street bicubic control inspected at native 2560x1440.",
+    "raw": "More roof-line and facade detail than bicubic; original captures retain finer grass, road and foliage detail. Scene colors, broad openings and cover remain recognizable. Some small details stay softened. This is not semantic or motion acceptance.",
+    "residual": "Small sharpening of roof lines, road and foliage. No demonstrated material-response or illumination improvement. Protected luminance/HUD pixels are exact, but unprotected color channels introduce a small amount of clipping, retained in metrics.",
+    "decision": "Both precision variants exceed the 20ms provisional call budget, and the residual is insufficient appearance gain. No motion or live replacement test is justified for this graph.",
+    "unknown": "Peak GPU memory, GPU-only time, motion stability, complete application performance and any photorealistic gain are unmeasured."
+  },
+  "source_hashes": {
+    "runs/span-evaluation-v1/report.json": "504c3668e7205aac374495929553599fffa4722be955f873ae0952baeefaf821",
+    "runs/span-half-v2/report.json": "7edff52b1dc9845b3ba3e601d203f700a70c54d25ce219e605befa235a84529a",
+    "runs/span-half-v1/report.json": "d6bd4c1be8354670d292bff828ff4b36e32f32c0f7c4b8449e928e333a9fc5d2",
+    "runs/span-half-v1/driver.py": "c0654c0e432aa6c0897fa1335251e8d688a6282694389908c503419451776d06",
+    "runs/span-residual-v1/report.json": "77d46f234c645123617ef3a74c5d86f230cf170e85e10c279b38e1b96f399429",
+    "runs/span-residual-v1/parameters-before-composition.json": "bd934c2736179cf726d25f03ba36e3b345b5afdbf863a3d0f96fb6456681f23d",
+    "runs/span-evaluation-v1/ort-profile_2026-09-10_04-09-55.json": "75a2ab3f0a25837e0d4de5c613367e30315a669cb884adda957a67180846995c",
+    "runs/span-half-v2/ort-profile_2026-09-10_04-12-36.json": "cd668f20ea803f6290ad0a0a3a5fdf70cab5d613619992e2a6ef17f746d64135",
+    "scenes/playable-rgb-restoration-v1.json": "9132aaab6e47ac5d1a82d72245fdfc60c05f83cab0b1af97e2ed8410aae8efa5"
+  },
+  "published_media": [
+    {
+      "file": "span-street-original.png",
+      "sha256": "9d032261e984f5b14c88ed4b6b8b4673328683232e6fc47acc88bd0852648a16",
+      "transformation": "Original 1440p RGB control; lossless decoded PNG"
+    },
+    {
+      "file": "span-street-bicubic.png",
+      "sha256": "7a04d4937c3620d3be1188b8a9b1f177c8249161f566159e0e4df52f2b34f7f7",
+      "transformation": "Pillow bicubic downsample to 1280x720, then bicubic upsample to 2560x1440"
+    },
+    {
+      "file": "span-street-raw.png",
+      "sha256": "336b1987a9c864714bae444f916b69f3c071ecb2a7e8467c9b8509ff48866a82",
+      "transformation": "Same 1280x720 input through SPAN x2 FP32; round and clip output to RGB8; no extra resize"
+    },
+    {
+      "file": "span-street-protected.png",
+      "sha256": "467561076d4093033bee39cd1c510fa0c5a7f041174f701eb1104e01c441f2f1",
+      "transformation": "Original plus bounded half-strength SPAN-minus-bicubic residual; round and clip RGB8; no resize"
+    }
+  ],
+  "working_package_changed": false,
+  "new_training_performed": false,
+  "next": "Preserve the working live pipeline. The next appearance test must target lighting/material response using verifiable scene information; do not treat further synthetic-resolution gains as completion of photorealism."
+}
