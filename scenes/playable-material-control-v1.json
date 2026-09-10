@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "maximum_minutes": 20,
+  "maximum_validations": 2,
+  "maximum_capture_sequences": 2,
+  "world": "worlds/Eden/Eden.ent",
+  "position": [4576.94, 19.6984, 10744.4],
+  "direction": [0.60574312084, 0.2001923411, 0.7700638273],
+  "material": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+  "parameter": "RoughnessScale",
+  "observed_schema_default": 1,
+  "diagnostic_value": 0.05,
+  "scope": "Use cached Material.GetMaterial only, in an isolated Workbench process. No native file writes, new textures, geometry changes or user-profile edits. Material resource can be shared by multiple instances; no per-instance isolation claim.",
+  "sequence": "After 4s settle export source. Wait 1.5s before SetParam. Wait 2s then export changed. Wait 1.5s before ResetParam. Wait 2s then export final frame. Camera set every update. Retain API result, index and per-phase camera. No material change until after the source screenshot request has had 1.5s to complete.",
+  "controls": "Inspect all native images. At 1199x658 compare a predeclared roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require roof mean absolute RGB change >=2 codes and >=5 times reset-to-source mean error; sky mean <=1 code; reset roof mean <=1 code. Report maxima, full-frame metrics and all failures. If cached material/parameter unavailable or no localized visible response, close unchanged runtime-parameter route. Alternate second sequence only if an observed implementation issue can be repaired within the same parameter/attempt bound.",
+  "acceptance_limit": "This strong roughness extreme is a diagnostic, not realistic reference material or a neural result. No training or companion integration before useful response and restoration evidence.",
+  "api_source": "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html"
+}

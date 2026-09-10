@@ -125,6 +125,29 @@ A follow-up reads explicit **13-slot material defaults** from the house's native
 
 Bohemia's [texture documentation](https://community.bistudio.com/wiki/Arma_Reforger:Textures) defines BCR as base color plus roughness and NMO as normal XY, metalness and occlusion. These describe the format contract; actual dimensions and pixels remain unvalidated. No native texture has been extracted, no asset changed and no aligned photographic target established.
 
+### Native material response
+
+The documented [Material API](https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html) now produces a verified response on this roof without copying textures. A private Workbench sequence captures the source, sets cached `RoughnessScale` from its observed default 1 to **0.05**, then resets it. The camera remains fixed and all three images are inspected. **The exaggerated sheen is a control, not an accepted appearance improvement or neural output.**
+
+<section class="comparison" data-comparison data-before-label="source" data-after-label="roughness diagnostic" aria-label="Native roof roughness control">
+<div class="comparison-images">
+<figure class="comparison-before"><img src="media/material-control-source.png" width="1199" height="658" loading="lazy" alt="Original slate roof with matte material response"><figcaption>Source · native roof material</figcaption></figure>
+<figure class="comparison-after"><img src="media/material-control-changed.png" width="1199" height="658" loading="lazy" alt="Same roof becomes strongly reflective after a diagnostic roughness change"><figcaption>RoughnessScale 0.05 · diagnostic extreme</figcaption></figure>
+<span class="comparison-divider" aria-hidden="true"></span>
+</div>
+<label class="comparison-control" hidden>Reveal source<input type="range" min="0" max="100" value="50" aria-label="Material control source visible"><output>50% source</output></label>
+</section>
+
+| Mean absolute RGB difference from source | Changed | Reset |
+| --- | --- | --- |
+| Declared roof region | 26.1407 codes | 0.0403 codes |
+| Declared sky region | 0.0085 codes | 0.0300 codes |
+| Complete image | 1.9508 codes | 0.2378 codes |
+
+All declared localization/restoration gates pass. The [reset image](media/material-control-restored.png) returns the roof's original response. Complete-frame restoration is not exact: the maximum difference is 178 codes at a foliage pixel. No registration, resizing or exposure correction hides this difference. Source, changed and reset captures span seven simulation seconds.
+
+This establishes a useful native material control with the original slate layout, geometry and texture references. The cached material may be shared by other instances; per-instance isolation is not established. It supplies no live surface buffer and changes neither the companion nor its download. The [complete evidence](https://github.com/ethan03805/enfusion-neural/blob/main/evidence/playable-material-control-v1.json) retains the plan, successful validation, API results and all image hashes. Reproduce setup with `scripts/setup_playable_material_control.py`, validate/capture through Enfusion Lab, then run `scripts/analyze_material_control.py` on that run.
+
 ### Collision geometry diagnostic
 
 A bounded probe samples 2,304 scene rays in each of two street views. The returned geometry identifies broad roof, wall and road surfaces, but **this grid is rejected as a live lighting input**. It costs 16–25 ms on the CPU before any bridge or neural processing and cannot certify thin cover, foliage gaps or openings.

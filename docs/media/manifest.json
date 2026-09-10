@@ -1569,6 +1569,48 @@
       "source_sha256": "700de24a8fba7e02013907f990c1a7885ceb48d7640f8f9682229529048c507e",
       "transformation": "64x36 nearest enlarged to 1280x720. Normal RGB=(world normal+1)/2; misses black. Depth red-to-blue uses log1p(ray distance)/log1p(250); misses black. Mode 1 includes VISIBILITY; gray hits have zero normal. Schematic grid proportions; not a pixel-aligned full-resolution buffer.",
       "rights": "Arma Reforger imagery and geometry \u00a9 Bohemia Interactive, outside MIT license; original diagnostic code MIT"
+    },
+    {
+      "file": "material-control-source.png",
+      "sha256": "e087efb5ad3d01d8e8a93d6821b4c619cadd1fd853f21c0036085455e02ca006",
+      "bytes": 1123789,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-control-v1.json",
+      "source_artifact": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/source.png",
+      "source_sha256": "e087efb5ad3d01d8e8a93d6821b4c619cadd1fd853f21c0036085455e02ca006",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "material-control-changed.png",
+      "sha256": "bf1ecabbef15ea97b9e35604aa8259ceeabaf6e605cb4061d40646ec497d7f06",
+      "bytes": 1130929,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-control-v1.json",
+      "source_artifact": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/changed.png",
+      "source_sha256": "bf1ecabbef15ea97b9e35604aa8259ceeabaf6e605cb4061d40646ec497d7f06",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
+    },
+    {
+      "file": "material-control-restored.png",
+      "sha256": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336",
+      "bytes": 1123818,
+      "dimensions": [
+        1199,
+        658
+      ],
+      "source_record": "evidence/playable-material-control-v1.json",
+      "source_artifact": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/frame.png",
+      "source_sha256": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336",
+      "transformation": "Unchanged native Workbench screenshot; no resizing or neural processing",
+      "rights": "Arma Reforger imagery \u00a9 Bohemia Interactive, outside MIT license"
     }
   ],
   "videos": [

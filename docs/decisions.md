@@ -191,3 +191,9 @@ Accepted 10 September 2026. The declared 64 × 36 ray grid completes in both str
 The grid costs 16–25 ms on the CPU before any model or bridge. Close its per-frame integration and retain the working offline probe, all three validations and both captures. Do not substitute collision results for shading buffers or imply that all sparse/offline queries are infeasible.
 
 The native Material API independently documents cached lookup, parameter assignment and reset. A bounded source/change/reset experiment on the already identified roof can test an appearance control without copying textures. Modify only a declared in-memory scalar in a private process; preserve the native asset and texture identity. Require visible response and restoration before any reference or model claim. No correction target has yet been established.
+
+## 035 · Use the verified material control without overstating its appearance result
+
+Accepted 10 September 2026. One private source/change/reset sequence loads the cached roof material, assigns `RoughnessScale=0.05` and resets it. Parameter index 74 and assignment success are accompanied by a visible roof response, not used as sufficient evidence alone. All declared image gates pass: roof change 26.1407 codes, reset 0.0403, sky change 0.0085. Full-frame reset is not exact; retain its 178-code maximum and all unchanged PNGs.
+
+This proves a native in-memory material control while preserving texture references and geometry. It does not establish a realistic target, per-instance isolation, surface-buffer access or neural enhancement. Compare moderate candidate values against documented slate references and a reserved view before preparing any optional material preset. Report native material and neural RGB contributions separately in subsequent gameplay comparisons.

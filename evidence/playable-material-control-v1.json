@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-10",
+  "outcome": "native_roughness_response_and_reset_verified",
+  "plan": {
+    "schema_version": 1,
+    "date": "2026-09-10",
+    "maximum_minutes": 20,
+    "maximum_validations": 2,
+    "maximum_capture_sequences": 2,
+    "world": "worlds/Eden/Eden.ent",
+    "position": [
+      4576.94,
+      19.6984,
+      10744.4
+    ],
+    "direction": [
+      0.60574312084,
+      0.2001923411,
+      0.7700638273
+    ],
+    "material": "{C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat",
+    "parameter": "RoughnessScale",
+    "observed_schema_default": 1,
+    "diagnostic_value": 0.05,
+    "scope": "Use cached Material.GetMaterial only, in an isolated Workbench process. No native file writes, new textures, geometry changes or user-profile edits. Material resource can be shared by multiple instances; no per-instance isolation claim.",
+    "sequence": "After 4s settle export source. Wait 1.5s before SetParam. Wait 2s then export changed. Wait 1.5s before ResetParam. Wait 2s then export final frame. Camera set every update. Retain API result, index and per-phase camera. No material change until after the source screenshot request has had 1.5s to complete.",
+    "controls": "Inspect all native images. At 1199x658 compare a predeclared roof polygon [(420,300),(805,153),(810,205),(420,330)] and sky rectangle [100,20,700,120]. Require roof mean absolute RGB change >=2 codes and >=5 times reset-to-source mean error; sky mean <=1 code; reset roof mean <=1 code. Report maxima, full-frame metrics and all failures. If cached material/parameter unavailable or no localized visible response, close unchanged runtime-parameter route. Alternate second sequence only if an observed implementation issue can be repaired within the same parameter/attempt bound.",
+    "acceptance_limit": "This strong roughness extreme is a diagnostic, not realistic reference material or a neural result. No training or companion integration before useful response and restoration evidence.",
+    "api_source": "https://community.bistudio.com/wikidata/external-data/arma-reforger/EnfusionScriptAPIPublic/interfaceMaterial.html"
+  },
+  "analysis": {
+    "schema_version": 1,
+    "run": "20260910T085225-d2a4489ab8",
+    "dimensions": [
+      1199,
+      658
+    ],
+    "phases": [
+      [
+        "source",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "580"
+      ],
+      [
+        "set",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "834"
+      ],
+      [
+        "changed",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1185"
+      ],
+      [
+        "reset",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1441"
+      ],
+      [
+        "restored",
+        "<4576.94,19.6984,10744.4>",
+        "<0.605743,0.200192,0.770064>",
+        "1793"
+      ]
+    ],
+    "api_records": [
+      "phase=source origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=580",
+      "source_accepted=1",
+      "phase=set origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=834",
+      "cached=1 name={C8C32599C4B55BF9}Assets/Structures/Houses/Village/House_Village_E_1L02/Data/House_Village_E_1L02t_roof.emat index=74 assigned=1 value=0.05",
+      "phase=changed origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1185",
+      "changed_accepted=1",
+      "phase=reset origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1441",
+      "reset_requested",
+      "phase=restored origin=<4576.94,19.6984,10744.4> direction=<0.605743,0.200192,0.770064> world_frame=1793",
+      "completed"
+    ],
+    "metrics": {
+      "changed": {
+        "whole": {
+          "pixels": 788942,
+          "mae_codes": 1.9508176773451027,
+          "max_codes": 191.0,
+          "p95_codes": 11.0,
+          "pixels_with_any_channel_over_2": 61536
+        },
+        "roof": {
+          "pixels": 16405,
+          "mae_codes": 26.140729452402724,
+          "max_codes": 94.0,
+          "p95_codes": 57.0,
+          "pixels_with_any_channel_over_2": 15208
+        },
+        "sky": {
+          "pixels": 60000,
+          "mae_codes": 0.008522222222222223,
+          "max_codes": 9.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 33
+        }
+      },
+      "restored": {
+        "whole": {
+          "pixels": 788942,
+          "mae_codes": 0.23783877648800544,
+          "max_codes": 178.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 15380
+        },
+        "roof": {
+          "pixels": 16405,
+          "mae_codes": 0.04029259372142639,
+          "max_codes": 10.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 77
+        },
+        "sky": {
+          "pixels": 60000,
+          "mae_codes": 0.03003888888888889,
+          "max_codes": 3.0,
+          "p95_codes": 0.0,
+          "pixels_with_any_channel_over_2": 36
+        }
+      }
+    },
+    "gates": {
+      "cached_material": true,
+      "assigned": true,
+      "screenshots_accepted": true,
+      "visible_roof_response": true,
+      "change_exceeds_reset_noise_5x": true,
+      "sky_stable": true,
+      "roof_restores": true
+    },
+    "passed": true,
+    "images": {
+      "source": {
+        "path": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/source.png",
+        "sha256": "e087efb5ad3d01d8e8a93d6821b4c619cadd1fd853f21c0036085455e02ca006"
+      },
+      "changed": {
+        "path": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/changed.png",
+        "sha256": "bf1ecabbef15ea97b9e35604aa8259ceeabaf6e605cb4061d40646ec497d7f06"
+      },
+      "restored": {
+        "path": "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/frame.png",
+        "sha256": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336"
+      }
+    },
+    "source_hashes": {
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/run.json": "4fd16ef30707bc230fb84cc5b850a6530c15aa38ac4e763789697f7a89f5c1a9",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/console.log": "7999e22d2a8b5c4bdfddbb342305b6ba9370763c83a33a455f5d19a3676f8875",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/addon/Scripts/Game/ENR_MaterialControl.c": "5b2b8387d1d9409a9f548c647d89ed7aca1afb2bfe66eda12c99362f0f454fe5",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/addon/Scripts/Game/ELab_GameCapture.c": "4eb40e570393fde9c1760c1c80dd5c5b6c2a4b59e982cf8f7c5029b11a019355",
+      "scenes/playable-material-control-v1.json": "e83875189975c797d52bbd29d026729080d7f3f7537db23b7baf3c5cc16e6183",
+      "scripts/analyze_material_control.py": "8cd397d99c96aa6ac0e8721f9bcd26283d28d7e24f13ec3b065d7df06520fbcc",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/source.png": "e087efb5ad3d01d8e8a93d6821b4c619cadd1fd853f21c0036085455e02ca006",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/profile/profile/changed.png": "bf1ecabbef15ea97b9e35604aa8259ceeabaf6e605cb4061d40646ec497d7f06",
+      "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/frame.png": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336"
+    },
+    "scope": "Single static Workbench sequence, byte-domain RGB differences without alignment, rescaling or exposure correction. Source/change/reset images at separate simulation times. Not full-frame exact restoration, a calibrated realistic target, neural output or gameplay performance."
+  },
+  "validation": {
+    "run_id": "20260910T085208-4d4509da72",
+    "status": "succeeded",
+    "wall_seconds": 11.15599999999904,
+    "process_exit_code": 0,
+    "addon_sha256": {
+      "addon.gproj": "0751dc6e9945bc7eb84dea213e6e3e9f6343e483f2d8378d90bc9a2c882c88cd",
+      "Scripts/Game/ELab_GameCapture.c": "4eb40e570393fde9c1760c1c80dd5c5b6c2a4b59e982cf8f7c5029b11a019355",
+      "Scripts/Game/ENR_MaterialControl.c": "5b2b8387d1d9409a9f548c647d89ed7aca1afb2bfe66eda12c99362f0f454fe5",
+      "Scripts/WorkbenchGame/ELab_CapturePlugin.c": "6a349b6774ecc2a109d098a5e65d5ef1145522bd0de71a7bb9f1630ff3c22b2d"
+    }
+  },
+  "capture": {
+    "run_id": "20260910T085225-d2a4489ab8",
+    "status": "succeeded",
+    "wall_seconds": 38.89099999999962,
+    "process_exit_code": 1,
+    "terminated_owned_process": true,
+    "finished_at": "2026-09-10T08:53:04.698382+00:00"
+  },
+  "investigation": {
+    "started_at": "2026-09-10T08:52:07Z",
+    "validations": 1,
+    "sequences": 1,
+    "unused_attempts_not_run": true
+  },
+  "review": {
+    "scope": "All three native 1199x658 source/change/reset images inspected in full.",
+    "response": "The roof becomes strongly reflective while retaining slate layout, roof attachments and boundary. The foreground pole/barrier, facade openings and sky retain their broad appearance. Other instances of this material can also change; this is not a per-instance override.",
+    "restoration": "The roof returns visually to its original matte response and passes the declared ROI error limit. Full-frame restoration is not exact: maximum error 178 codes remains, including time-varying scene detail; no cause isolation or exact-return claim.",
+    "limit": "RoughnessScale 0.05 is an intentionally exaggerated diagnostic, not accepted dry-slate appearance, photographic ground truth or neural output. Only one static view and one material scalar are tested.",
+    "decision": "Supported in-memory material editing provides a usable reference-authoring control without decoding native textures. Next compare moderate values with documented photographic references and held-out views before accepting a material preset or training pair."
+  },
+  "source_hashes": {
+    "runs/material-control-analysis-v1/report.json": "7125245a58c9e1e11ac71b75cc3c78c84dcaf13128778f36152c4414a54df95c",
+    "runs/playable-material-control-v1/setup.json": "6bb751ef0f4bf90ea4af7311ed75630713a931d422f99632c148bf4fe6ffd522",
+    "runs/playable-material-control-v1/runs/20260910T085208-4d4509da72/run.json": "12e9eda6a3a0ccce6ed3d2ffadf0520d74381114cbe1ca4604c9f50f2c6461fa",
+    "runs/playable-material-control-v1/runs/20260910T085208-4d4509da72/console.log": "cb17767696d4c51ff59bcd3e286ca4143ec0959cadf8e368ef0adb5001bbb8d3",
+    "runs/playable-material-control-v1/runs/20260910T085225-d2a4489ab8/run.json": "4fd16ef30707bc230fb84cc5b850a6530c15aa38ac4e763789697f7a89f5c1a9"
+  },
+  "published_media": [
+    {
+      "file": "material-control-source.png",
+      "sha256": "e087efb5ad3d01d8e8a93d6821b4c619cadd1fd853f21c0036085455e02ca006",
+      "transformation": "Unchanged native Workbench PNG; no alignment, rescaling, grading or neural processing"
+    },
+    {
+      "file": "material-control-changed.png",
+      "sha256": "bf1ecabbef15ea97b9e35604aa8259ceeabaf6e605cb4061d40646ec497d7f06",
+      "transformation": "Unchanged native Workbench PNG; no alignment, rescaling, grading or neural processing"
+    },
+    {
+      "file": "material-control-restored.png",
+      "sha256": "2afbebc447e0ff9479bf02fd048fa59f6a27275551afe036a04db9249c83f336",
+      "transformation": "Unchanged native Workbench PNG; no alignment, rescaling, grading or neural processing"
+    }
+  ],
+  "native_files_modified": false,
+  "working_package_changed": false,
+  "new_neural_training": false,
+  "substantial_photorealistic_gain_accepted": false
+}
